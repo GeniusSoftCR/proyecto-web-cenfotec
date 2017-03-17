@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html ng-app="ProjectApp">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto WEB</title>
-      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  </head>
+<html lang="en" ng-app="cshApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Cenfotec Software House</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+
+  <div ui-view></div>
+  
+
+
   <body>
 
   <section ng-controller="studentsrequestCtrl">
@@ -25,7 +30,12 @@
 
             <div class="input-group">
                 <span class="input-group-addon"></span>
-                <input ng-model="student.lastName" id="txtName" type="text" class="form-control" name="lastName" placeholder="Ingrese su apellido" ng-required="true">
+                <input ng-model="student.lastName" id="txtName" type="text" class="form-control" name="lastName" placeholder="Ingrese su primer apellido" ng-required="true">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"></span>
+                <input ng-model="student.surName" id="txtName" type="text" class="form-control" name="surName" placeholder="Ingrese su segundo apellido" ng-required="true">
             </div>
 
             <div class="input-group">
@@ -63,13 +73,8 @@
     </div>
   </section>
 
-
-
-
-    <script type="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-
-  	<script src="students.service.js"></script>
-  	<script src="students.controller.js"></script>
+  	<script src="components/students/students.service.js"></script>
+  	<script src="components/students/students.controller.js"></script>
 
   </body>
  </html>

@@ -6,9 +6,9 @@
   function studentService(){
     var student = [];
     var publicAPI = {
-      addStudent : _addStudent,
-      getStudent : _gettudent,
-      setLocal : localStorageStudent
+        addStudent : _addStudent,
+        getStudent : _gettudent,
+        setLocal : localStorageStudent
     };
     return publicAPI; // todas las funciones que sean llamadas por ajax deben estar debajo del return, para que ciuando angular corra el script haga el return y devuelva el api , las funciones debajo del return son privadas y se devuelve el api que es el que contiene las funciones
 

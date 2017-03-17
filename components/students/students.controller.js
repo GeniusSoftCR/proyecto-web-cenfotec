@@ -29,13 +29,13 @@
       }
 
       studentCtrl.save= function(pimage){
-        var newActor ={
+        var newStudent ={
           nombre : studentCtrl.nombreActor,
           premio : studentCtrl.premio,
           image: pimage
         }
 
-        actorService.addActor(newActor);
+        studentService.addStudent(newStudent);
 
         studentCtrl.nombreActor = null;
         studentCtrl.premio = null;
@@ -98,5 +98,6 @@
       }
 
     }
+    
      //se establece un objeto de angular normal
 })()
