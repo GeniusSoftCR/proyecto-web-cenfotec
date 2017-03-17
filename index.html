@@ -4,83 +4,22 @@
 	<meta charset="UTF-8">
 	<title>Cenfotec Software House</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/normalize.css">
 </head>
 <body>
 
 	<div ui-view></div>
 	
-<section ng-controller="studentsrequestCtrl">
-    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" ng-controller="signUpCtrl"> 
-    <div class="panel panel-info" >
-        <div class="panel-header">
-           <h1>Envío de solicitud de estudiante</h1>
-        </div>
-        <div class="panel-body" >
-            <div id="login-alert" class="alert alert-danger col-sm-12"></div>
-            <form id="singUpForm" class="form-horizontal" role="form" ng-submit="set(student)">
-                                    
-            <div class="input-group">
-                <span class="input-group-addon"></span>
-                <input ng-model="student.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese su nombre" ng-required="true">
-            </div>
-
-            <div class="input-group">
-                <span class="input-group-addon"></span>
-                <input ng-model="student.lastName" id="txtName" type="text" class="form-control" name="lastName" placeholder="Ingrese su primer apellido" ng-required="true">
-            </div>
-
-            <div class="input-group">
-                <span class="input-group-addon"></span>
-                <input ng-model="student.surName" id="txtName" type="text" class="form-control" name="surName" placeholder="Ingrese su segundo apellido" ng-required="true">
-            </div>
-
-            <div class="input-group">
-              <input ng-model="student.id" id="txtName" type="text" class="form-control" name="id" placeholder="Ingrese su c]edula" maxlength="9" ng-required="true">
-            </div>
-
-            <div class="input-group">
-                <input type="date" class="form-control" ng-model="student.date"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
-            </div>
-
-            <div class="input-group">
-               <input ng-model="student.username" id="txtEmail" type="email" class="form-control" name="email" ng-required="true" placeholder="Correo electrónico">
-            </div>
-
-            <div class="input-group">
-                <input ng-model="student.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña">
-            </div>
-
-            <div style="margin-top:10px" ng-class="{ alertHelper : !success}" class="form-group">      
-                <div class="col-sm-12 ">
-                    <div ng-show="success" uib-alert class="alert-success text-center">¡Éxito! ¡Usuario registrado!</div>
-                </div>                                
-            </div>
-            <div class="form-group">
-                <div class="col-md-12 control">
-                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                        <span>¡Ya tengo cuenta!</span>
-                        <a href="#!/login">Inicia Aqui</a>
-                </div>
-            </div>
-
-        </form>
-      </div>
-      </div>
-    </div>
-  </section>
-
-
-	
-
 
 	<script src="vendor/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
 	<script src="app.js"></script>
+	<script src="index.route.js"></script>
+
+	<!--Scripts del inicio de sesion *Kevin* :)-->
+	<script src="components/logIn/logIn.service.js"></script>
+	<script src="components/logIn/logIn.controller.js"></script>
 
 
-
-	<!--Scripts de *Stephanie* :)-->
-	<script src="components/students/students.service.js"></script>
-	<script src="components/students/students.controller.js"></script>
 </body>
 </html>
