@@ -1,4 +1,5 @@
 (function(){
+	'use strict';
 	angular
 	.module('cshApp')
 	.config(configuration)
@@ -8,7 +9,7 @@
 
 		.state('landing',{
 			url: '/landingPage',
-			template: 'components/landingPage/landingPage.html'
+			templateUrl: './components/landingPage/landingPage.html'
 		})
 
 		.state('logIn',{
