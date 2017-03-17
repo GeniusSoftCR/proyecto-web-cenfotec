@@ -14,7 +14,7 @@
 
 		.state('logIn',{
 			url: '/logIn',
-			template: '/components/logIn/logIn.view.html',
+			templateUrl: '/components/logIn/logIn.view.html',
 			controller: 'logInController',
 			controllerAs: 'logInCtrl'
 		})
