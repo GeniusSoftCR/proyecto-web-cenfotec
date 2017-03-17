@@ -1,0 +1,103 @@
+[
+	{
+		"userRoles":[
+			{
+				"id":1,
+				"role":"admin"
+			},
+			{
+				"id":2,
+				"role":"professor"
+			},
+			{
+				"id":3,
+				"role":"assistant"
+			},
+			{
+				"id":4,
+				"role":"student"
+			}
+		]
+	},
+	{
+		userStates:[
+			""
+		]
+	}
+	{
+		"users":[
+			{
+				"id": "12",
+				"userRole_id":"",
+				"name":"Juan",
+				"mail":"",
+				"password"
+
+
+
+
+			}
+		]
+	},
+	{	
+		"professors":[
+			{
+				"id":"1",
+				"user_id":12,
+				"council":true,
+				"assistant":true,
+			nombre
+			apellido1
+			apellido2
+			correo
+			contrasenna
+			council
+			diponible proyectos
+			area de especialidad
+			estado
+			}
+		]
+	}
+	{
+		"assitants":[
+			"courses"
+			nombre
+			apellido1
+			apellido2
+			correo
+			puestoUniversitario
+			contrasenna
+			councilMember
+			cedula
+
+			***no req
+			telefono
+			
+		]
+	}
+	{
+		"students":[
+			nombre
+			apellido1
+			apellido2
+			fechaNacimiento
+			correo
+			cedula
+			carreras
+				cursosAprobados
+			CV
+			contrasenna
+
+			..informacion adicional:..
+			gitHub :""
+			sitioWeb
+			telefonoCelular
+			avatar
+
+		]
+	}
+
+
+]
+
+

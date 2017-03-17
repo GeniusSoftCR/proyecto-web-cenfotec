@@ -1,0 +1,43 @@
+[		
+	{
+		"proyectStates":[
+			{
+				"id":1,
+				"state":"pending",
+				"name":"Pendiente",
+				"default":true
+			},
+			{
+				"id":2,
+				"satate":"active",
+				"name":"Activo"
+			},
+			{
+				"id":3,
+				"satate":"inProcess",
+				"name":"En proceso"
+			},
+			{
+				"id":4,
+				"satate":"ended",
+				"name":"Finalizado"
+			}
+		]
+	}
+
+
+	{
+		"proyects":[
+			{
+				"id":1,
+				"estado"
+				"cliente":{
+					"nombre":"",
+					""
+				}
+			}
+		]
+	}
+
+
+]
