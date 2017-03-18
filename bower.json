@@ -1,0 +1,23 @@
+{
+  "name": "proyectoweb-cenfotec",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "KaguilarA <kaguilara@ucenfotec.ac.cr>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/GeniusSoftCR/ProyectoWeb-Cenfotec",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-local-storage": "^0.5.2",
+    "ng-file-upload-shim": "^12.2.13",
+    "ng-file-upload": "^12.2.13",
+    "angular-filepicker": "^1.1.4"
+  }
+}

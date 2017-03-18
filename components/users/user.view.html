@@ -1,0 +1,194 @@
+<section>
+    <div class="panel panel-info" >
+      <div class="panel-header">
+        <h1>Registro de Usuarios</h1>
+      </div>
+
+      <div class="panel-body" >
+        <form name="userForm">
+          <div class="input-group">
+            <label>Nombre:</label>
+                <input ng-model="userCtrl.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese el nombre" required>
+          </div>
+
+          <div class="input-group">
+            <label>Primer Apellido:</label>
+                <input ng-model="userCtrl.lastName" id="txtlastName" type="text" class="form-control" name="lastName" placeholder="Ingrese el Apellido" required>
+          </div>
+
+           <div class="input-group">
+            <label>Segundo Apellido:</label>
+                <input ng-model="userCtrl.surName" id="txtsurName" type="text" class="form-control" name="surName" placeholder="Ingrese el Apellido" required>
+          </div>
+
+          <div class="input-group">
+            <label>Especialidad:</label>
+                <input ng-model="userCtrl.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" placeholder="Ingrese la especialidad" required>
+          </div>
+
+          <div class="input-group">
+            <label>Correo:</label>
+                <input ng-model="userCtrl.email" id="txtemail" type="email" class="form-control" name="email" placeholder="Ingrese el correo" required>
+          </div>
+
+           <div class="input-group">
+            <label>Contrase;a:</label>
+                <input ng-model="userCtrl.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required>
+            </div>
+
+          <div class="input-group">
+            <label>Miembro del Consejo</label>
+            <select class="form-control" required ng-model="userCtrl.consejo" name="consejo">
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Rol:</label>
+            <select class="form-control" required ng-model="userCtrl.rol" name="rol">
+              <option value="Asistente">Asistente</option>
+              <option value="Prof.Encargado">Prof. Encargado</option>
+              <option value="Prof.Asistente">Prof. Asistente</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+          <label>Avatar</label>
+          <input type="file"  required id="photo" ng-model="userCtrl.image">
+        </div>
+
+           <div class="input-group"> 
+            <input ng-disabled="userForm.$valid" type="submit" ng-click="userCtrl.preSave()" class="btn1" value="Registrar Usuario">
+          </div>
+
+        </form>
+
+      </div>
+
+
+    </div>
+
+
+</section>
+<!--
+<div class="Editar usuarios">
+  <form name="userForm">
+      -->
+
+
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    
+
+
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" >
+          <label>Actor a editar</label>
+            <md-select required ng-model="actorCtrl.actorEditar" name="actorEditar">
+              <md-option ng-value="actor" ng-repeat="actor in actorCtrl.actorList">{{actor.nombre}}</md-option>
+            </md-select>
+          <div ng-messages="actorForm.actor.$error" role="alert" multiple>
+            <div ng-message="required" class="my-message">Debe seleccionar una opcion</div>
+          </div>
+        </md-input-container>
+
+        <md-button class="md-fab md-mini" aria-label="Editar" ng-click="actorCtrl.editarActor()">
+          <md-icon md-svg-src="vendor/img/icons/check.svg"></md-icon>
+          <md-tooltip md-direction="bottom">Editar actor</md-tooltip>
+        </md-button>
+      </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Nombre Completo</label>
+            <input required ng-model="actorCtrl.nombreActorEdit" name="nombreActor">
+            <div ng-messages="actorForm.nombreActor.$error" role="alert" multiple>
+              <div ng-message="required" class="my-message">Debe ingresar un nombre de actor</div>
+            </div>
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Posee algun premio</label>
+            <md-select required ng-model="actorCtrl.premioEdit" name="premio">
+            <md-option value="Si">Si</md-option>
+            <md-option value="No">No</md-option>
+            </md-select>
+            <div ng-messages="actorForm.premio.$error" role="alert" multiple>
+              <div ng-message="required" class="my-message">Debe seleccionar una opcion
+            </div>
+            </div>
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block">
+            <label>Foto del actor</label>
+            <input type="file"  required id="photo" ng-model="actorCtrl.imagenActorEdit">
+          </md-input-container>
+        </div>
+
+        <md-button class="md-fab md-primary" aria-label="Editar" ng-click="actorCtrl.preEdit()">
+          <md-icon md-svg-src="vendor/img/icons/ic_border_color_white_24px.svg"></md-icon>
+          <md-tooltip md-direction="bottom">Confirmar</md-tooltip>
+        </md-button>
+            <!--<md-button  ng-disabled="movieForm.$valid"  ng-click="movieForm.$valid && movieCtrl.save()" class="btn1" >Save</md-button>
+      </form>
+    </div>
+  </md-content>
+</md-tab>
+
+
+
+<md-tab label="Eliminar actor">
+  <md-content layout-padding>
+    
+  <div layout-gt-sm="row">
+    <md-input-container class="md-block" flex-gt-sm>
+      <label>Actor a eliminar</label>
+        <md-select required ng-model="actorCtrl.actorEliminar" name="actorEliminar" >
+          <md-option ng-value="actor" ng-repeat="actor in actorCtrl.actorList">{{actor.nombre}}</md-option>
+        </md-select>
+        <div ng-messages="actorForm.actor.$error" role="alert" multiple>
+        <div ng-message="required" class="my-message">Debe seleccionar una opcion</div>
+        </div>
+    </md-input-container>
+  </div>
+
+  <md-button ng-click="actorCtrl.borrarActor()" class="md-fab md-primary" aria-label="Borrar">
+    <md-icon md-svg-src="vendor/img/icons/ic_delete_forever_white_24px.svg"></md-icon>
+    <md-tooltip md-direction="bottom">Eliminar actor</md-tooltip>
+  </md-button>
+</md-content>
+</md-tab>
+
+</md-tabs>
+
+-->

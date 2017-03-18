@@ -1,57 +1,40 @@
 (function(){
+  'use strict';
   angular
-    .module('cshApp')
-    .config(configuration)
+  .module('cshApp')
+  .config(configuration)
 
-    function configuration($stateProvider, $urlRouterProvider){ //stateProvider
-      
+  function configuration($stateProvider, $urlRouterProvider){
+    $stateProvider
 
-      $stateProvider
-        .state('students',{
+    .state('landing',{
+      url: '/landingPage',
+      templateUrl: './components/landingPage/landingPage.html'
+    })
+
+    .state('logIn',{
+      url: '/logIn',
+      templateUrl: '/components/logIn/logIn.view.html',
+      controller: 'logInController',
+      controllerAs: 'logInCtrl'
+    })
+    //Steph solicitud estudiantes
+    .state('students',{
           url: '/students',
           templateUrl: 'components/students/students.view.html',
           controller: 'studentController',
           controllerAs: 'studentCtrl'
         })
-       
+     //Steph registro de usuarios
+    .state('users',{
+          url: '/users',
+          templateUrl: 'components/users/user.view.html',
+          controller: 'userController',
+          controllerAs: 'userCtrl'
+        })
 
-        $urlRouterProvider.otherwise('/students');
-    }
 
-
+    $urlRouterProvider.otherwise('/landingPage');
+  }
 
 })();
-
-
-
-
-
-
-
-
-
-
-
-/*
-(function(){
-  'use strict';
-  angular
-  .module('cshApp')
-  /*.module('appRoutes',['ui.router'])
-    .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-      $stateProvider
-        .state('students',{
-          url: '/students',
-          templateUrl: 'components/students/students.view.html',
-          controller: 'studentController',
-          controllerAs: 'studentCtrl'
-        });
-      $urlRouterProvider.otherwise("/students"); 
-    });
-});
-
-
-      $locationProvider.html5Mode(true);
-      $locationProvider.hashPrefix(""); */
-
-

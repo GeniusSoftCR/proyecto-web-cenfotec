@@ -1,12 +1,34 @@
 (function(){
-  'use strict';
   angular
     .module('cshApp')
     .controller('studentController', studentController);
-    function studentController(studentService,ImageService,Upload){ //se inyecta el service userService en el controlador para que se tenga acceso
+    function studentController($scope, studentService,ImageService,filepickerService,$window,Upload){ //se inyecta el service userService en el controlador para que se tenga acceso
       //controlador
       var studentCtrl = this; //binding del controlador con el html, solo en el controlador
       studentCtrl.cloudObj = ImageService.getConfiguration();
+
+
+      //Files
+      studentCtrl.pickFile = pickFile;
+      studentCtrl.onSuccess = onSuccess;
+
+      function pickFile(){
+          filepickerService.pick(
+              {extension: '.pdf',
+              language: 'es',
+              container: 'modal',
+              services: ['COMPUTER']
+              },
+              onSuccess
+          );
+      };
+
+       function onSuccess(Blob){
+        // cshReqCtrl.files.push(Blob);
+        studentCtrl.studentFile = Blob.url;
+        // $window.localStorage.setItem('files', JSON.stringify(cshReqCtrl.files));
+      };
+
 
       function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
         studentCtrl.studentList = studentService.getStudent();
@@ -21,7 +43,6 @@
           });
       }
 
-   
       studentCtrl.save= function(pimage){
         var newStudent ={
           name : studentCtrl.name,
@@ -32,10 +53,12 @@
           email : studentCtrl.email,
           password : studentCtrl.password,
           career : studentCtrl.career,
+          course : studentCtrl.course,
+          studentFile : studentCtrl.studentFile,
           userGit : studentCtrl.userGit,
           link : studentCtrl.link,
           cellphoneNumber : studentCtrl.cellphoneNumber,
-          avatar:  pimage
+          avatar: pimage
         }
 
         studentService.addStudent(newStudent);
@@ -48,10 +71,13 @@
         studentCtrl.email = null;
         studentCtrl.password = null;
         studentCtrl.career = null;
+        studentCtrl.course = null;
         studentCtrl.userGit = null;
         studentCtrl.link = null;
         studentCtrl.cellphoneNumber = null;
         studentCtrl.avatar = null;
-      } 
+      }
     }
+     //se establece un objeto de angular normal
+
 })();
