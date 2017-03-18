@@ -1,6 +1,6 @@
 [
 	{
-		"userRoles":[
+		"roles":[
 			{
 				"id":1,
 				"role":"admin"
@@ -20,22 +20,15 @@
 		]
 	},
 	{
-		userStates:[
-			""
-		]
-	}
-	{
 		"users":[
 			{
 				"id": "12",
 				"userRole_id":"",
 				"name":"Juan",
+				"surname"
+				"secondSurname"
 				"mail":"",
 				"password"
-
-
-
-
 			}
 		]
 	},
@@ -46,16 +39,12 @@
 				"user_id":12,
 				"council":true,
 				"assistant":true,
-			nombre
-			apellido1
-			apellido2
-			correo
+
 			contrasenna
 			council
 			diponible proyectos
 			area de especialidad
-			estado
-			}
+
 		]
 	}
 	{
@@ -74,9 +63,49 @@
 			telefono
 			
 		]
-	}
+	},
+	{
+		"studentStates":[
+			{
+				"id":1,
+				"state": "postulate",
+				"name":"Postulado"
+			}
+			{
+				"id":1,
+				"state": "elegible",
+				"name":"Elegible"
+			}
+			{
+				"id":1,
+				"state": "active",
+				"name":"Active"
+			}
+			{
+				"id":1,
+				"state": "inactive",
+				"name":"Inactivo"
+			}
+			{
+				"id":1,
+				"state": "rejected",
+				"name":"Rechazado"
+			}
+			{
+				"id":1,
+				"state": "vetoed",
+				"name":"Vetado"
+			}															
+		]
+	}	
 	{
 		"students":[
+			{
+				"id":"",
+				"user_id":
+
+			}
+
 			nombre
 			apellido1
 			apellido2
@@ -92,11 +121,9 @@
 			gitHub :""
 			sitioWeb
 			telefonoCelular
-			avatar
-
+			avatar			
 		]
 	}
-
 
 ]
 
