@@ -10,6 +10,8 @@
     border-radius: 15px;
     padding:  10px 10px;  
     font-weight: 300; 
+    margin-top: 10px;
+    position: relative;
   }
   .itemName {
     float: left;
@@ -18,4 +20,41 @@
     float: right;
     font-size: 20px; 
   }
+}
+
+.menuExtend {
+  -webkit-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.25);
+  box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.25);
+  position: absolute;
+  z-index: 3;
+  background: #fff;
+  top: 44px;
+  right: -13px;
+  border-radius: 10px;
+  width: 198px;
+  text-align: center;
+}
+
+.anotationOptions {
+  a {
+    padding: 11px;
+    display: block;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1b264f;
+    &:hover {
+      background: #f8f9fb; 
+    }
+  }
+}
+
+
+.createAnotation {
+  float: left;
+}
+
+.moreAnotations {
+  float: right;
 }

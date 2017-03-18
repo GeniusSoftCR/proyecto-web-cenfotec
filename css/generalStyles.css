@@ -105,6 +105,11 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: 'montserrat'; }
 
+ul {
+  list-style-type: none;
+  margin: 9px 0;
+  padding: 0; }
+
 .btn {
   background-color: #fbb803;
   border-radius: 33px;
@@ -118,11 +123,32 @@ h1, h2, h3, h4, h5 {
   font-weight: 500;
   transition: all .3s;
   cursor: pointer;
-  width: 200px; }
+  max-width: 200px; }
   .btn:hover {
     background-color: transparent;
     border: 1px solid #fbb803;
     color: #fbb803; }
+
+.btn-blue {
+  background-color: #1b264f;
+  color: #fff; }
+  .btn-blue:hover {
+    color: #1b264f;
+    border: 1px solid #1b264f; }
+
+.btn-red {
+  background-color: #a30b37;
+  color: #fff; }
+  .btn-red:hover {
+    color: #a30b37;
+    border: 1px solid #a30b37; }
+
+.btn-small {
+  border-radius: 33px;
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  max-width: 170px; }
 
 p {
   margin: 0; }
@@ -202,7 +228,9 @@ h1 {
   background: #f8f9fb;
   border-radius: 15px;
   padding: 10px 10px;
-  font-weight: 300; }
+  font-weight: 300;
+  margin-top: 10px;
+  position: relative; }
 
 .listAnotations .itemName {
   float: left; }
@@ -210,3 +238,32 @@ h1 {
 .listAnotations .itemMore {
   float: right;
   font-size: 20px; }
+
+.menuExtend {
+  -webkit-box-shadow: -2px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -2px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: -2px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  z-index: 3;
+  background: #fff;
+  top: 44px;
+  right: -13px;
+  border-radius: 10px;
+  width: 198px;
+  text-align: center; }
+
+.anotationOptions a {
+  padding: 11px;
+  display: block;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1b264f; }
+  .anotationOptions a:hover {
+    background: #f8f9fb; }
+
+.createAnotation {
+  float: left; }
+
+.moreAnotations {
+  float: right; }

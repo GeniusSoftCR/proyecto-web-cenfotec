@@ -6,6 +6,11 @@ h1, h2, h3, h4, h5 {
   font-family: 'montserrat'; 
 }
 
+ul {
+  list-style-type: none;
+  margin: 9px 0;
+  padding: 0; 
+}
 .btn {
   background-color: #fbb803;
   border-radius: 33px;
@@ -19,12 +24,38 @@ h1, h2, h3, h4, h5 {
   font-weight: 500;    
   transition: all .3s;
   cursor: pointer;
-  width: 200px; 
+  max-width: 200px; 
   &:hover {
     background-color: transparent;
     border: 1px solid #fbb803;
     color: #fbb803;
   }
+}
+
+.btn-blue {
+  background-color: #1b264f;
+  color: #fff;
+  &:hover {
+  color: #1b264f;
+  border: 1px solid #1b264f;
+  } 
+}
+
+.btn-red {
+  background-color: #a30b37;
+  color: #fff;
+  &:hover {
+  color: #a30b37;
+  border: 1px solid #a30b37;
+  }
+}
+
+.btn-small {
+  border-radius: 33px;
+  padding: 10px;
+  font-size: 12px; 
+  text-align: center;
+  max-width: 170px;
 }
 
 p {

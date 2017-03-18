@@ -11,7 +11,16 @@
         anotationsCtrl.anotations = projectAnotationsService.getAnotations();
       }
       init();
+      anotationsCtrl.modalAnotation = false;
+      anotationsCtrl.extend = false;
+      anotationsCtrl.showModal = function () {
+        anotationsCtrl.modalAnotation = true;
+      }
   
+      anotationsCtrl.openExtend = function () {
+        console.log(this);
+        this.extend = 2;
+      }
       anotationsCtrl.save= function () {
         var newAnotation = {
           id : 1,
@@ -21,11 +30,16 @@
           iduserCreate: 1
         } 
         projectAnotationsService.addAnotation(newAnotation);
+        anotationsCtrl.modalAnotation = false;
+        anotationsCtrl.data.name = null;
+        anotationsCtrl.data.desc = null;
       }
 
       anotationsCtrl.delete = function (index) {
+        console.log(index);
         var anotationItem = anotationsCtrl.anotations[index];
-        projectAnotationsService.deleteAnotation(anotationItem);
+        console.log(anotationItem);
+        projectAnotationsService.deleteAnotation(index);
         init();
       }
 

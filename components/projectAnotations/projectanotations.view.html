@@ -8,8 +8,16 @@
         <div class="listAnotations">
           <div class="item cf" ng-repeat="anotation in anotationsCtrl.anotations">
            <p class="itemName">{{ anotation.name }}</p>
-           <a class="itemMore"><i class="fa fa-ellipsis-h"></i></a>
-           <!--  <div class="itemExtended">
+           <a class="itemMore" ng-click="anotationsCtrl.openExtend()"><i class="fa fa-ellipsis-h"></i></a>
+          <div class="menuExtend" ng-show="anotationsCtrl.extend == $index">
+            <nav class="anotationOptions">
+              <ul>
+                <li><a href="javascript:;" ng-click="anotationsCtrl.delete($index)">Eliminar</a></li>
+                <li><a href="javascript:;" ng-click="anotationsCtrl.preModify($index)">Modificar</a></li>
+              </ul>
+            </nav>
+          </div>
+<!--             <div class="itemExtended">
               <p> {{anotation.description }}</p>
               <a href="javascript:;" ng-click="anotationsCtrl.delete($index)">Eliminar</a>
               <a href="javascript:;" ng-click="anotationsCtrl.preModify($index)">Modificar</a>
@@ -21,17 +29,19 @@
             </div> -->
           </div>
         </div>
-        <div class="createAnotation">
-          <a href="javascript:;" ng-click="">Crear Anotación</a>
-        </div>
-        <div class="createAnotation">
-          <a href="javascript:;" ng-click="">Ver Más Anotaciones</a>
+        <div class="cf">
+          <div class="createAnotation">
+            <a href="javascript:;" ng-click="anotationsCtrl.showModal()"  class="btn btn-red btn-small"><i class="fa fa-plus"></i> Crear Anotación</a>
+          </div>
+          <div class="moreAnotations">
+            <a href="javascript:;" ng-click="" class="btn btn-blue btn-small">Ver Más</a>
+          </div>
         </div>
       </div>  <!-- //-Container -->
     </div> <!-- //Finalizamos Project Anotations-->
   </div>
 </div>
-<div class="modalElement" id="newAnotation">
+<div class="modalElement" id="newAnotation" ng-show="anotationsCtrl.modalAnotation">
   <div class="modalElement_container">
     <h2>Nueva Anotación</h2>
     <input class="nameAnotation" ng-model="anotationsCtrl.data.name"></input>
