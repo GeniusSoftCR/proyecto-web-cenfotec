@@ -9,7 +9,7 @@
 			},
 			{
 				"id":2,
-				"satate":"active",
+				"satate":"aproved",
 				"name":"Aprobado"
 			},
 			{
@@ -30,17 +30,64 @@
 		]
 	},
 	{
+		"identificationType":[
+			{
+				"id":1,
+				"type":"juridical",
+				"name":"Jurídica"
+			},
+			{
+				"id":2,
+				"type":"physical",
+				"name":"Física"
+			}
+		]
+	},
+	{
 		"proyects":[
 			{
 				"id":1,
-				"estado"
-				"cliente":{
-					"nombre":"",
-					""
-				}
+				"state":1,
+				"students":[
+				],
+				"professor":"professor_id",
+				"assitant":"assitant_id",
+				"students":[],//students id's
+				"anotations":[
+					{
+						"id":1,
+						"description":""
+					}
+				],
+				"files":[
+					{
+						"id":"",
+						"name":"",
+						"url":"",
+						"date":""
+					}
+				],
+				"client":[
+					{
+						"nombre":"",
+						"cedula":"",
+						"tipoCedula":"",		
+						"responsable":{
+							"name":"",
+							"mail":""
+						},
+						"executiveSummary":"",
+						"sector":"",
+						"objective":"",
+						"founding":false,
+						"images":[
+							{
+								"url":""
+							}
+						]
+					}
+				]
 			}
 		]
 	}
-
-
 ]
