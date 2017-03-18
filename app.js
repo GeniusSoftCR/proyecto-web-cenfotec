@@ -1,3 +1,3 @@
-(function(){
-	angular.module('cshApp', ['ui.router']);
+(function () {
+	angular.module('cshApp', ['LocalDataBase']);
 })();
