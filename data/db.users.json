@@ -23,7 +23,7 @@
 		"users":[
 			{
 				"id": "12",
-				"userRole_id":"",
+				"role_id":"",
 				"name":"Juan",
 				"surname"
 				"secondSurname"
@@ -49,7 +49,7 @@
 	}
 	{
 		"assitants":[
-			"courses"
+
 			nombre
 			apellido1
 			apellido2
@@ -102,9 +102,13 @@
 		"students":[
 			{
 				"id":"",
-				"user_id":
-
-			}
+				"user_id",
+				"carrer":[
+					{
+						"carrer_id":
+					}
+				],
+				"courses":[]			}
 
 			nombre
 			apellido1
