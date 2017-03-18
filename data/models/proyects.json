@@ -33,16 +33,26 @@
 		"identificationType":[
 			{
 				"id":1,
-				"type":"juridical",
-				"name":"Jurídica"
-			},
-			{
-				"id":2,
 				"type":"physical",
 				"name":"Física"
 			}
+			{
+				"id":2,
+				"type":"juridical",
+				"name":"Jurídica"
+			},
 		]
 	},
+	{
+		"anotations":[
+			{
+				"id":,
+				"proyect_id":"",
+				"description":""
+			}
+		],
+
+	}
 	{
 		"proyects":[
 			{
@@ -53,12 +63,6 @@
 				"professor":"professor_id",
 				"assitant":"assitant_id",
 				"students":[],//students id's
-				"anotations":[
-					{
-						"id":1,
-						"description":""
-					}
-				],
 				"files":[
 					{
 						"id":"",
