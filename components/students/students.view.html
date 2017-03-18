@@ -1,0 +1,94 @@
+<section>
+    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> 
+    <div class="panel panel-info" >
+        <div class="panel-header">
+           <h1>Envío de solicitud de estudiante</h1>
+        </div>
+        <div class="panel-body" >
+        <form>                                  
+            <div class="input-group">
+            <label>Nombre:</label>
+                <input ng-model="studentCtrl.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese su nombre" required>
+            </div>
+
+            <div class="input-group">
+            <label>Primer Apellido:</label>
+                <input ng-model="studentCtrl.firstName" id="txtFirstName" type="text" class="form-control" name="lastName" placeholder="Ingrese su primer apellido" required>
+            </div>
+
+            <div class="input-group">
+            <label>Segundo Apellido:</label>
+                <span class="input-group-addon"></span>
+                <input ng-model="studentCtrl.surName" id="txtSurname" type="text" class="form-control" name="surName" placeholder="Ingrese su segundo apellido" required>
+            </div>
+
+            <div class="input-group">
+            <label>C[edula de identidad:</label>
+              <input ng-model="studentCtrl.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su c]edula" maxlength="9" required>
+            </div>
+
+            <div class="input-group">
+            <label>Fecha de nacimiento:</label>
+                <input type="date" class="form-control" ng-model="studentCtrl.birthday"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" required>
+            </div>
+
+            <div class="input-group">
+            <label>Correo el[ectronico:</label>
+               <input ng-model="studentCtrl.email" id="txtEmail" type="email" class="form-control" name="email" ng-required="true" placeholder="Correo electrónico" required>
+            </div>
+
+            <div class="input-group">
+            <label>Contrase;a:</label>
+                <input ng-model="studentCtrl.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required>
+            </div>
+
+            <div class="input-group">
+            <label for="multipleSelect">Carrera(s):</label><br>
+              <select name="multipleSelect" id="multipleSelect" ng-model="studentCtrl.career" multiple required>
+                <option value="option-1">Desarrollo del Software</option>
+                <option value="option-2">Tecnologias de Información y Comunicación</option>
+                <option value="option-3">Desarrollo y Diseño Web</option>
+                <option value="option-4">Telemática</option>
+                <option value="option-5">Ciberseguridad</option>
+                <option value="option-6">Base de Datos</option>
+              </select>
+            </div>
+            
+
+            <h1>Informacion adicional</h1>
+            <div class="input-group">
+            <label>Usuario GitHub</label>
+              <input ng-model="studentCtrl.userGit" id="gitHub" type="text" class="form-control" name="userGit" placeholder="Ingrese su usario de GitHub">
+            </div>
+
+            <div class="input-group">
+            <label>Link de sitio web:</label>
+              <input ng-model="studentCtrl.link" id="link" type="text" class="form-control" name="link" placeholder="Ingrese link-sitio web">
+            </div>
+
+            <div class="input-group">
+            <label>N[umero de tele[efono:</label>
+              <input ng-model="studentCtrl.cellphoneNumber" id="cellphoneNumber" type="text" class="form-control" maxlength="8" name="cellphoneNumber" placeholder="Ingrese n[umero de tel[efono">
+            </div>
+
+            <div class="input-group">
+                <label>Avatar</label>
+                <input type="file"  required id="photo" ng-model="studentCtrl.pimage" ng-required="true">
+            </div>      
+
+            <div class="form-group">
+                <div class="col-sm-12 controls">
+                    <button id="btn-registrer" ng-click="studentCtrl.save()">Registrarme</button>
+                </div>
+            </div>
+
+             <div ng-class="{ alertHelper : !success}" class="form-group">      
+                <div class="col-sm-12 ">
+                    <div ng-show="success" uib-alert class="alert-success text-center">¡Éxito! ¡Usuario registrado!</div>
+                </div>                                
+            </div>
+        </form>
+      </div>
+      </div>
+    </div>
+  </section>
