@@ -1,0 +1,21 @@
+.projectAnotations {
+  background: #efeff1;
+  padding: 10px; 
+  border-radius: 10px;
+}
+
+.listAnotations {
+  .item {
+    background: #f8f9fb;
+    border-radius: 15px;
+    padding:  10px 10px;  
+    font-weight: 300; 
+  }
+  .itemName {
+    float: left;
+  }
+  .itemMore {
+    float: right;
+    font-size: 20px; 
+  }
+}

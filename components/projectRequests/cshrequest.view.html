@@ -1,8 +1,13 @@
 <!--=======================================================================================
 =            Este el component de Cenfotec Sotware House Solicitud de Clientes            =
 ========================================================================================-->
-<div class="projectsRequest">
+<div class="headPage">
   <div class="container">
+    <h1>Solicitud de proyecto</h1>
+  </div>
+</div>
+<div class="projectsRequest">
+  <div class="smallContainer">
     <form>
       <div class="row">
         <label>Empresa:</label>
@@ -22,7 +27,9 @@
       </div><!-- //-Row -->
       <div class="row">  
           <label>Resumen ejecutivo</label>
-          <a class="btn btn-default" ng-click="cshReqCtrl.pickFile()">Seleccionar su archivo pdf</a></p>
+          <a class="btnUpload" ng-click="cshReqCtrl.pickFile()">
+          <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
+          </a>
 
       </div><!-- //-Row -->
       <div class="row">  
@@ -34,7 +41,7 @@
           <input type="file" name="projectImages"  id="imageProjectRequest" ng-model="cshReqCtrl.clientData.projectImages">
       </div><!-- //-Row -->
       <div class="row">  
-        <button type="submit" name="submitBtn" ng-click="cshReqCtrl.preSave()">Enviar</button>
+        <button type="submit" name="submitBtn" class="btn" ng-click="cshReqCtrl.preSave()">Enviar</button>
       </div><!-- //-Row -->
     </form> <!-- //-Form -->
   </div>  <!-- //-Container -->
