@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="cshApp">
+<html lang="es" ng-app="cshApp">
 <head>
 	<meta charset="UTF-8">
 	<title>Cenfotec Software House</title>
@@ -9,26 +9,33 @@
 <body>
 
 	<div ui-view></div>
-	
+	<!-- Filestack *Andres* -->
 	<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
-	<!-- Cloudinary *Andres*-->
+	<!-- AngularJs -->
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+	<!-- Cloudinary -->
 	<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
 	<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 
-	<script src="vendor/angular.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+	<!-- AppJs -->
 	<script src="app.js"></script>
 	<script src="index.route.js"></script>
-
-	<!-- FileStack and cloudinary *Andres* -->
+	
+	<!-- FileStack -->
 	<script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
 	<script src="components/services/image.service.js"></script>
-	<script src="components/services/file.service.js"></script>
 
-	<!--Scripts del inicio de sesion *Kevin* :)-->
+	<!--Scripts del inicio de sesion Kevin :)-->
 	<script src="components/logIn/logIn.service.js"></script>
 	<script src="components/logIn/logIn.controller.js"></script>
 
+	<!-- solicitud de  cliente desde Landing CSH - Andres-->
+	<script src="components/projectRequests/cshrequest.controller.js"></script>
+	<script src="components/projectRequests/cshrequest.service.js"></script>
 
+	<!-- Crear Anotación en projecto - Andres -->
+	<script src="components/projectAnotations/projectanotations.controller.js"></script>
+	<script src="components/projectAnotations/projectanotations.service.js"></script>
 </body>
 </html>

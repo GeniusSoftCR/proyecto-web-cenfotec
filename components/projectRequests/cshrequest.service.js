@@ -1,10 +1,9 @@
 (function(){
   /* Servicio de Request de proyecto de Cenfotec Software House */
   'use strict';
-  angular.module('cshApp')
-    .controller('cshReqService', cshReqServiceFn);
+  angular.module('cshApp').service('cshReqService', cshReqServiceFn);
+
     function cshReqServiceFn () {
-      console.log('Inside CSH Service');
       var projects = [];
       var publicApi = {
         addProject : _addProject,

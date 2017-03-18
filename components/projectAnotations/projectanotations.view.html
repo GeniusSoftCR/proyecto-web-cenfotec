@@ -1,0 +1,36 @@
+<!--=======================================================================================
+=            Este el component de Cenfotec Sotware House Anotaciones en Proyecyo          =
+========================================================================================-->
+<div class="projectAnotations">
+  <div class="container">
+    <div class="listAnotations">
+      <div class="item" ng-repeat="anotation in anotationsCtrl.anotations">
+       <p> {{ anotation.name }}</p>
+        <div class="itemExtended">
+          <p> {{anotation.description }}</p>
+          <a href="javascript:;" ng-click="anotationsCtrl.delete($index)">Eliminar</a>
+          <a href="javascript:;" ng-click="anotationsCtrl.preModify($index)">Modificar</a>
+          <div class="itemModify">
+            <input ng-model="anotationsCtrl.itemChange.name"></input>
+            <textarea cols="30" rows="10" class="descAnotation" ng-model="anotationsCtrl.itemChange.description"></textarea>
+            <a href="javascript:;" ng-click="anotationsCtrl.modify($index)">Guardar modificación</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="createAnotation">
+      <a href="javascript:;" ng-click="">Crear Anotación</a>
+    </div>
+    <div class="createAnotation">
+      <a href="javascript:;" ng-click="">Ver Más Anotaciones</a>
+    </div>
+  </div>  <!-- //-Container -->
+  <div class="modalElement">
+    <div class="modalElement_container">
+      <h2>Nueva Anotación</h2>
+      <input class="nameAnotation" ng-model="anotationsCtrl.data.name"></input>
+      <textarea name="descAnotation" cols="30" rows="10" class="descAnotation" ng-model="anotationsCtrl.data.desc"></textarea>
+      <a href="javascript:;" ng-click="anotationsCtrl.save()">Enviar</a>
+    </div>
+  </div>
+</div> <!-- //Finalizamos Project Anotations-->

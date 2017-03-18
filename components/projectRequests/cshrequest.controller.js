@@ -4,10 +4,9 @@
   angular.module('cshApp')
     .controller('cshReqController', cshReqCtrlFn);
 
-    function cshReqCtrlFn ($scope, ImageService, filepickerService, $window,Upload) {
+    function cshReqCtrlFn ($scope, ImageService, filepickerService, $window,Upload, cshReqService) {
       var cshReqCtrl = this;
       cshReqCtrl.cloudObj = ImageService.getConfiguration();
-
       //Files
       cshReqCtrl.pickFile = pickFile;
       cshReqCtrl.onSuccess = onSuccess;
@@ -38,15 +37,16 @@
       }
 
       cshReqCtrl.save= function(pimage){
-        console.log();
         var newProjectRequest ={
+          id : 1,
           company : cshReqCtrl.clientData.company,
           idnumber : cshReqCtrl.clientData.identificationNumber,
-          clientName : cshReqCtrl.clientData.clientName,
-          clientMail : cshReqCtrl.clientData.clientMail,
+          statusId : 1,
+          client : {
+            clientName : cshReqCtrl.clientData.clientName,
+            clientMail : cshReqCtrl.clientData.clientMail
+          },
           funds : cshReqCtrl.clientData.fundsToMakeProject,
-          images : cshReqCtrl.clientData.projectImages,
-          status : 'En Revisión',
           projectFile : cshReqCtrl.projectFile,
           image: pimage
         }
@@ -58,8 +58,6 @@
         cshReqCtrl.clientData.clientName = null;
         cshReqCtrl.clientData.clientMail = null;
         cshReqCtrl.clientData.fundsToMakeProject = null;
-        cshReqCtrl.clientData.projectImages = null;
       }
-      console.log('Inside Ctrl Cenfotec Software House Controller');
     }
 })();
