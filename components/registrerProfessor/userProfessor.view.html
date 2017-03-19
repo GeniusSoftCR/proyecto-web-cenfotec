@@ -66,16 +66,24 @@
 <div class="Eliminar usuarios">
   <form name="userFormProfDelete">
 
-  <div class="input-group">
-    <label for="repeatSelect">Eliminar Profesor</label>
+    <div class="input-group">
+      <label for="repeatSelect">Eliminar Profesor</label>
 
-      <div ng-repeat="professor in userProfessorCtrl.userProfessorList">
-        <label>{{ professor.name }}</label>
-        <button ng-click="userProfessorCtrl.deleteProf($index)">Eliminar</button>
-      </div>
+        <div ng-repeat="professor in userProfessorCtrl.userProfessorList">
+          <label>{{ professor.name }}</label>
+          <button ng-click="userProfessorCtrl.deleteProf($index)">Eliminar</button>
+          <button ng-click="userProfessorCtrl.modificarProf($index)">Modificar</button>
+        </div>
 
+        <div class="modalElement" id="newEditProf">
+          <div class="modalElement_container">
+        <h2>Editar informaci[on</h2>
+        <input class="editProf" ng-model="anotationsCtrl.data.name"/>
+      <a href="javascript:;" ng-click="anotationsCtrl.save()" class="btn">Modificar</a>
+    </div>
+        </div>
+    </div>
 
-  </div>
   </form>
 </div>
 </section>  
