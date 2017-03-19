@@ -26,11 +26,11 @@
           controllerAs: 'studentCtrl'
         })
      //Steph registro de usuarios
-    .state('users',{
-          url: '/users',
-          templateUrl: 'components/users/user.view.html',
-          controller: 'userController',
-          controllerAs: 'userCtrl'
+    .state('registrerProfessor',{
+          url: '/registrerProfessor',
+          templateUrl: 'components/registrerProfessor/userProfessor.view.html',
+          controller: 'userProfessorController',
+          controllerAs: 'userProfessorCtrl'
         })
 
 

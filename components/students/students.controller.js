@@ -14,7 +14,7 @@
 
       function pickFile(){
           filepickerService.pick(
-              {extension: '.pdf',
+              {extension:'.pdf',
               language: 'es',
               container: 'modal',
               services: ['COMPUTER']
@@ -45,37 +45,38 @@
 
       studentCtrl.save= function(pimage){
         var newStudent ={
-          name : studentCtrl.name,
-          firstName : studentCtrl.firstName,
-          surName : studentCtrl.surName,
-          id : studentCtrl.id,
-          birthday : studentCtrl.birthday,
-          email : studentCtrl.email,
-          password : studentCtrl.password,
-          career : studentCtrl.career,
-          course : studentCtrl.course,
-          studentFile : studentCtrl.studentFile,
-          userGit : studentCtrl.userGit,
-          link : studentCtrl.link,
-          cellphoneNumber : studentCtrl.cellphoneNumber,
+          name : studentCtrl.stu.name,
+          firstName : studentCtrl.stu.firstName,
+          surName : studentCtrl.stu.surName,
+          id : studentCtrl.stu.id,
+          birthday : studentCtrl.stu.birthday,
+          email : studentCtrl.stu.email,
+          password : studentCtrl.stu.password,
+          career : studentCtrl.stu.career,
+          course : studentCtrl.stu.course,
+          studentFile : studentCtrl.stu.studentFile,
+          userGit : studentCtrl.stu.userGit,
+          link : studentCtrl.stu.link,
+          cellphoneNumber : studentCtrl.stu.cellphoneNumber,
           avatar: pimage
         }
-
+        console.log(newStudent);
+        
         studentService.addStudent(newStudent);
 
-        studentCtrl.name = null;
-        studentCtrl.firstName = null;
-        studentCtrl.surName = null;
-        studentCtrl.id = null;
-        studentCtrl.birthday = null;
-        studentCtrl.email = null;
-        studentCtrl.password = null;
-        studentCtrl.career = null;
-        studentCtrl.course = null;
-        studentCtrl.userGit = null;
-        studentCtrl.link = null;
-        studentCtrl.cellphoneNumber = null;
-        studentCtrl.avatar = null;
+        studentCtrl.stu.name = null;
+        studentCtrl.stu.firstName = null;
+        studentCtrl.stu.surName = null;
+        studentCtrl.stu.id = null;
+        studentCtrl.stu.birthday = null;
+        studentCtrl.stu.email = null;
+        studentCtrl.stu.password = null;
+        studentCtrl.stu.career = null;
+        studentCtrl.stu.course = null;
+        studentCtrl.stu.userGit = null;
+        studentCtrl.stu.link = null;
+        studentCtrl.stu.cellphoneNumber = null;
+        studentCtrl.stu.avatar = null;
       }
     }
      //se establece un objeto de angular normal

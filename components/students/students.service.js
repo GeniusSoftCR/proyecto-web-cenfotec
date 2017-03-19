@@ -33,7 +33,7 @@
     }
     
     function localStorageStudent(pStudent){
-      localStorage.setItem(['localStudent'], JSON.stringify(student));
+      localStorage.setItem(['localStudent'], JSON.stringify(pStudent));
     }
   }
 })();

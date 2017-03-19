@@ -1,0 +1,116 @@
+<section>
+    <div class="panel panel-info" >
+      <div class="panel-header">
+        <h1>Registro de Usuarios</h1>
+      </div>
+
+      <div class="panel-body" >
+        <form name="userFormProf">
+
+        <div class="Registro de Profesores">
+        <h3>Profesores</h3>
+
+          <div class="input-group">
+            <label>Nombre:</label>
+                <input ng-model="userProfessorCtrl.prof.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese el nombre" required>
+          </div>
+
+          <div class="input-group">
+            <label>Primer Apellido:</label>
+                <input ng-model="userProfessorCtrl.prof.lastName" id="txtlastName" type="text" class="form-control" name="lastName" placeholder="Ingrese el Apellido" required>
+          </div>
+
+           <div class="input-group">
+            <label>Segundo Apellido:</label>
+                <input ng-model="userProfessorCtrl.prof.surName" id="txtsurName" type="text" class="form-control" name="surName" placeholder="Ingrese el Apellido" required>
+          </div>
+
+          <div class="input-group">
+            <label>Especialidad:</label>
+                <input ng-model="userProfessorCtrl.prof.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" placeholder="Ingrese la especialidad" required>
+          </div>
+
+          <div class="input-group">
+            <label>Correo:</label>
+                <input ng-model="userProfessorCtrl.prof.email" id="txtemail" type="email" class="form-control" name="email" placeholder="Ingrese el correo" required>
+          </div>
+
+           <div class="input-group">
+            <label>Contrase;a:</label>
+                <input ng-model="userProfessorCtrl.prof.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required>
+            </div>
+
+          <div class="input-group">
+            <label>Miembro del Consejo</label>
+            <select class="form-control" required ng-model="userProfessorCtrl.prof.consejo" name="consejo">
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+          <label>Avatar</label>
+          <input type="file"  required id="photo" ng-model="userProfessorCtrl.prof.image">
+        </div>
+
+           <div class="input-group"> 
+            <input ng-disabled="userFormProf.$valid" type="submit" ng-click="userProfessorCtrl.preSave()" class="btn1" value="Registrar Usuario">
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+</section>
+
+<section>
+<div class="Eliminar usuarios">
+  <form name="userFormProfDelete">
+
+  <div class="input-group">
+    <label for="repeatSelect">Eliminar Profesor</label>
+
+      <div ng-repeat="professor in userProfessorCtrl.userProfessorList">
+        <label>{{ professor.name }}</label>
+        <button ng-click="userProfessorCtrl.deleteProf($index)">Eliminar</button>
+      </div>
+
+
+  </div>
+  </form>
+</div>
+</section>  
+
+
+
+
+
+
+<!--
+
+
+
+<md-tab label="Eliminar actor">
+  <md-content layout-padding>
+    
+  <div layout-gt-sm="row">
+    <md-input-container class="md-block" flex-gt-sm>
+      <label>Actor a eliminar</label>
+        <md-select required ng-model="actorCtrl.actorEliminar" name="actorEliminar" >
+          <md-option ng-value="actor" ng-repeat="actor in actorCtrl.actorList">{{actor.nombre}}</md-option>
+        </md-select>
+        <div ng-messages="actorForm.actor.$error" role="alert" multiple>
+        <div ng-message="required" class="my-message">Debe seleccionar una opcion</div>
+        </div>
+    </md-input-container>
+  </div>
+
+  <md-button ng-click="actorCtrl.borrarActor()" class="md-fab md-primary" aria-label="Borrar">
+    <md-icon md-svg-src="vendor/img/icons/ic_delete_forever_white_24px.svg"></md-icon>
+    <md-tooltip md-direction="bottom">Eliminar actor</md-tooltip>
+  </md-button>
+</md-content>
+</md-tab>
+
+</md-tabs>
+
+-->
