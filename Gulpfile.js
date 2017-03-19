@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 var gulp = require('gulp'),
   sass = require('gulp-sass'),
   nib = require('nib'),
@@ -19,12 +19,33 @@ gulp.task('css', function () {
     .pipe(gulp.dest('./css'))
     .pipe(connect.reload())
 })
+gulp.task('html', function () {
+    gulp.src('./components/**/*.html')
+    .pipe(connect.reload())
+})
+gulp.task('js', function () {
+  gulp.src('./components/**/*.html')
+    .pipe(connect.reload())
+})
 
 // Vigila cambios que se produzcan en el código
 // y lanza las tareas relacionadas
 gulp.task('watch', function () {
-  gulp.watch(['./css/sass/**/*.scss'], ['css'])
+  livereload.listen();
+  gulp.watch(['./css/sass/**/*.scss'], ['css']);
+
+  gulp.watch([
+    './components/**/*.js',
+    './components/**/*.js',
+    './*.js'
+  ], ['js']);
+
+  gulp.watch([
+    './components/**/*.html',
+    './*.html'
+  ], ['html']);
+
 })
 
-gulp.task('serve', ['css', 'connect', 'watch'])
+gulp.task('serve', ['connect','css','html','js','watch'])
 
