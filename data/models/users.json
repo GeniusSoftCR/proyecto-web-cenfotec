@@ -2,19 +2,19 @@
 	{
 		"roles":[
 			{
-				"id":1,
+				"key":1,
 				"role":"admin"
 			},
 			{
-				"id":2,
+				"key":2,
 				"role":"professor"
 			},
 			{
-				"id":3,
+				"key":3,
 				"role":"assistant"
 			},
 			{
-				"id":4,
+				"key":4,
 				"role":"student"
 			}
 		]
@@ -22,25 +22,27 @@
 	{
 		"users":[
 			{
-				"id": "",
-				"role_id":"",
-				"identification":,//Number
+				"key": "",
+				"role_key":"",
+				"id":"",
 				"name":"",
 				"surname":"",
 				"secondSurname":"",
 				"mail":"",
 				"password":""
-
 			}
 		]
 	},
+	{
+		"professorSpecialties"-----
+	}
 	{	
 		"professors":[
 			{
-				"id":"",
-				"user_id":,
+				"key":"",
+				"user_key":,
 				"councilMember":,//bool
-				"specialty":"",
+				"specialty":[],
 				"assistant":,//bool
 				"councilMember":,//bool
 				"availableForProyects"://bool
@@ -49,9 +51,9 @@
 		]
 	},
 	{
-		"assitants":[{
-			"id":"",
-			"user_id":"",
+		"assistants":[{
+			"key":"",
+			"user_key":"",
 			"puestoUniversitario":"",
 			"councilMember":,//bool
 			"phone":,""//opcional
@@ -62,32 +64,32 @@
 	{
 		"studentStates":[
 			{
-				"id":1,
+				"key":1,
 				"state": "postulate",
 				"name":"Postulado"
-			}
+			},
 			{
-				"id":1,
+				"key":1,
 				"state": "elegible",
 				"name":"Elegible"
-			}
+			},
 			{
-				"id":1,
+				"key":1,
 				"state": "active",
 				"name":"Active"
 			}
 			{
-				"id":1,
+				"key":1,
 				"state": "inactive",
 				"name":"Inactivo"
 			}
 			{
-				"id":1,
+				"key":1,
 				"state": "rejected",
 				"name":"Rechazado"
 			}
 			{
-				"id":1,
+				"key":1,
 				"state": "vetoed",
 				"name":"Vetado"
 			}															
@@ -96,20 +98,24 @@
 	{
 		"students":[
 			{
-				"id":"",
-				"user_id":"",
+				"key":"",
+				"user_key":"",
 				"birthdate":"",
+				
 				"carrers":[],
-				"courses":[],
+				"courses":[],----
 				"justification":"",
 				"resumeUrl":"",//url,
 				"gitHubUrl":"",
 				"websiteUrl":"",
-				"avatarUrl""
+				"avatarUrl":""
 			}		
 		]
 	}
-
 ]
+
+
+
+
 
 

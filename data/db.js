@@ -5,30 +5,44 @@
 	.module('LocalDataBase',['LocalStorageModule'])
 	.factory('DataService', DataService)
 
-	DataService.$inject = ['$log','$http','localStorageService'];
+	DataService.$inject = ['$http','localStorageService'];
 
 
-	function DataService($log,$http,localStorageService) {
-		// Private code
-		var users = null;
-		var updateUsers = function () {
-			users = localStorageService.get("users");
-		}
-		//  PUBLIC API 
-
+	function DataService($http,localStorageService) {
+		//  PUBLIC API
 		var api = {
-		    getUsers: _getUsers
+		    getUsers: _getUsers,
+		    getUser: _getUser
 		};
 		return api;
 		// END PUBLIC API
 
+		// Private code
+		var users = [
+			{
+				"key":1,
+				"name":"Yisus"
+			},
+			{
+				"key":2,
+				"name":"Judas"
+			}
+		];
+		
 		// API private code
-
-
 		_getUsers = function () {
-			updateUsers();
 			return users
 		}
+		_getUsers = function (userKey) {
+			angular.forEach(users, function(value, key) {
+			  if (value.key == userKey) {
+			  	return value
+			  } else {
+			  	return "No results"
+			  }
+			});	
+		}
+
 
 	}
 

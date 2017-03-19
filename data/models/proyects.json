@@ -1,43 +1,45 @@
+
+//id = cedula
 [		
 	{
 		"proyectStates":[
 			{
-				"id":1,
+				"key":1,
 				"state":"inRevision",
 				"name":"En revision",
 				"default":true
 			},
 			{
-				"id":2,
+				"key":2,
 				"satate":"aproved",
 				"name":"Aprobado"
 			},
 			{
-				"id":3,
-				"satate":"active",
+				"key":3,
+				"satate":"rejected",
 				"name":"Rechazado"
 			},			
 			{
-				"id":4,
+				"key":4,
 				"satate":"inProcess",
 				"name":"En proceso"
 			},
 			{
-				"id":5,
+				"key":5,
 				"satate":"ended",
 				"name":"Finalizado"
 			}
 		]
 	},
 	{
-		"identificationType":[
+		"idType":[
 			{
-				"id":1,
+				"key":1,
 				"type":"physical",
 				"name":"Física"
 			}
 			{
-				"id":2,
+				"key":2,
 				"type":"juridical",
 				"name":"Jurídica"
 			},
@@ -58,8 +60,6 @@
 			{
 				"id":1,
 				"state":1,
-				"students":[
-				],
 				"professor":"professor_id",
 				"assitant":"assitant_id",
 				"students":[],//students id's
