@@ -41,8 +41,6 @@
 				"user_id":,
 				"councilMember":,//bool
 				"specialty":"",
-				"assistant":,//bool
-				"councilMember":,//bool
 				"availableForProyects"://bool
 				
 			}
@@ -53,7 +51,6 @@
 			"id":"",
 			"user_id":"",
 			"puestoUniversitario":"",
-			"councilMember":,//bool
 			"phone":,""//opcional
 			}
 		
