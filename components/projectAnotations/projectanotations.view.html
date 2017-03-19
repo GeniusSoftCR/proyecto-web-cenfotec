@@ -6,17 +6,17 @@
     <div class="projectAnotations">
       <div class="container">
         <div class="listAnotations">
-          <div class="item cf" ng-repeat="anotation in anotationsCtrl.anotations">
+          <div class="item cf" ng-repeat="(anotationIndex, anotation) in anotationsCtrl.anotations">
            <p class="itemName">{{ anotation.name }}</p>
-           <a class="itemMore" ng-click="anotationsCtrl.openExtend()"><i class="fa fa-ellipsis-h"></i></a>
-          <div class="menuExtend" ng-show="anotationsCtrl.extend == $index">
-            <nav class="anotationOptions">
-              <ul>
-                <li><a href="javascript:;" ng-click="anotationsCtrl.delete($index)">Eliminar</a></li>
-                <li><a href="javascript:;" ng-click="anotationsCtrl.preModify($index)">Modificar</a></li>
-              </ul>
-            </nav>
-          </div>
+           <a class="itemMore" ng-click="anotationsCtrl.showSubmenu(anotationIndex)"><i class="fa fa-ellipsis-h"></i></a>
+            <div class="menuExtend" ng-show="anotationsCtrl.isShowing(anotationIndex)">
+              <nav class="anotationOptions">
+                <ul>
+                  <li><a href="javascript:;" ng-click="anotationsCtrl.delete($index)">Eliminar</a></li>
+                  <li><a href="javascript:;" ng-click="anotationsCtrl.preModify($index)">Modificar</a></li>
+                </ul>
+              </nav>
+            </div>
 <!--             <div class="itemExtended">
               <p> {{anotation.description }}</p>
               <a href="javascript:;" ng-click="anotationsCtrl.delete($index)">Eliminar</a>

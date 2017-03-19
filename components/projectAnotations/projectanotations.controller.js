@@ -16,11 +16,18 @@
       anotationsCtrl.showModal = function () {
         anotationsCtrl.modalAnotation = true;
       }
-  
-      anotationsCtrl.openExtend = function () {
-        console.log(this);
-        this.extend = 2;
+
+      anotationsCtrl.activeMenuIndex;
+      anotationsCtrl.showSubmenu = function (item) {
+        if(anotationsCtrl.activeParentIndex == item){
+            anotationsCtrl.activeParentIndex = "";
+        }else{
+            anotationsCtrl.activeParentIndex = item;
+        }
       }
+      anotationsCtrl.isShowing = function(index) {
+          return anotationsCtrl.activeParentIndex === index;
+      };
       anotationsCtrl.save= function () {
         var newAnotation = {
           id : 1,
