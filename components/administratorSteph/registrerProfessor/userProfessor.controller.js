@@ -42,7 +42,8 @@
           password : userProfessorCtrl.prof.password,
           consejo : userProfessorCtrl.prof.consejo,
           hability : userProfessorCtrl.prof.hability,
-          avatar:  pimage
+          avatar:  pimage,
+          user_key : 2
         }
 
         userProfessorService.addProfessor(newUserProfessor);

@@ -14,7 +14,7 @@
     ]
 
     var publicAPI = {
-        addProfessor : _addProfessor,
+        addProfessor : _addAssistant,
         getProfessor: _getProfessor,
         getProfessors: _getProfessors,
         deleteProfessor : _deleteProfessor,
@@ -23,7 +23,7 @@
     return publicAPI; // todas las funciones que sean llamadas por ajax deben estar debajo del return, para que ciuando angular corra el script haga el return y devuelva el api , las funciones debajo del return son privadas y se devuelve el api que es el que contiene las funciones
 
     /*Profesores*/
-    function _addProfessor(pUserProfessor){
+    function _addAssistant(pUserProfessor){
       //users.push(pUser);
       $log.info(pUserProfessor)
       var userProfessors = _getProfessors();
@@ -31,7 +31,7 @@
       $log.info(userProfessors);
       localStorageService.set('localProfessors',userProfessors);
     }
-
+ 
     function _deleteProfessor (pIndex) {
       console.log(pIndex)
 

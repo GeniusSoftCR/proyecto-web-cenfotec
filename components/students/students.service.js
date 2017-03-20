@@ -8,7 +8,6 @@
   function studentService($http,localStorageService){
     var student = [];
 
-     localStorageService.set('localStudents',student );
 
     var publicAPI = {
         addStudent : _addStudent,
