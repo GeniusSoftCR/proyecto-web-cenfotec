@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/GeniusSoftCR/ProyectoWeb-Cenfotec/issues"
   },
-  "homepage": "https://github.com/GeniusSoftCR/ProyectoWeb-Cenfotec#readme"
+  "homepage": "https://github.com/GeniusSoftCR/ProyectoWeb-Cenfotec#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.0.0",
+    "gulp-sass": "^2.3.1",
+    "nib": "^1.1.0"
+  }
 }

@@ -1,26 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="cshApp">
+<html lang="es" ng-app="cshApp">
 <head>
 	<meta charset="UTF-8">
 	<title>Cenfotec Software House</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/generalStyles.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 	<div ui-view></div>
-	
 
-	<script src="vendor/angular.min.js"></script>
+	<!-- Filestack *Andres* -->
+	<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+	<!-- AngularJs -->
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+	<!-- Cloudinary -->
+	<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+	<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 
-  <script src="app.js"></script>
-  <script src="index.route.js"></script>
-	<script src="data/db.js"></script>
+	<!-- AppJs -->
+	<script src="app.js"></script>
+	<script src="index.route.js"></script>
+  <script src="data/db.js"></script>
+	
+	<!-- FileStack -->
+	<script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
+	<script src="components/services/image.service.js"></script>
 
-  	<!--Scripts del inicio de sesion *Kevin* :)-->
+	<!--Scripts del inicio de sesion Kevin :)-->
 	<script src="components/logIn/logIn.service.js"></script>
 	<script src="components/logIn/logIn.controller.js"></script>
+
+	<!-- solicitud de  cliente desde Landing CSH - Andres-->
+	<script src="components/projectRequests/cshrequest.controller.js"></script>
+	<script src="components/projectRequests/cshrequest.service.js"></script>
+
+	<!-- Crear Anotación en projecto - Andres -->
+	<script src="components/projectAnotations/projectanotations.controller.js"></script>
+	<script src="components/projectAnotations/projectanotations.service.js"></script>
+
 </body>
 </html>
