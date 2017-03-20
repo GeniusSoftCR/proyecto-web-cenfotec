@@ -34,8 +34,8 @@
 		]
 	},
 	{
-		"professorSpecialties"-----
-	}
+		"professorSpecialties":{}
+	},
 	{	
 		"professors":[
 			{
@@ -43,10 +43,8 @@
 				"user_key":,
 				"councilMember":,//bool
 				"specialty":[],
-				"assistant":,//bool
-				"councilMember":,//bool
-				"availableForProyects"://bool
-				
+				"specialty":"",
+				"availableForProyects"://bool				
 			}
 		]
 	},
@@ -55,10 +53,8 @@
 			"key":"",
 			"user_key":"",
 			"puestoUniversitario":"",
-			"councilMember":,//bool
 			"phone":,""//opcional
-			}
-		
+			}		
 		]
 	},
 	{
@@ -90,7 +86,7 @@
 			}
 			{
 				"key":1,
-				"state": "vetoed",
+				"state": "banned",
 				"name":"Vetado"
 			}															
 		]
@@ -98,14 +94,12 @@
 	{
 		"students":[
 			{
-				"key":"",
+				"key":0,
 				"user_key":"",
-				"birthdate":"",
-				
+				"birthdate":"",				
 				"carrers":[],
-				"courses":[],----
 				"justification":"",
-				"resumeUrl":"",//url,
+				"resumeUrl":"",
 				"gitHubUrl":"",
 				"websiteUrl":"",
 				"avatarUrl":""
