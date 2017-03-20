@@ -37,12 +37,23 @@
 
            <div class="input-group">
             <label>Contrase;a:</label>
-                <input ng-model="userProfessorCtrl.prof.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                <input ng-model="userProfessorCtrl.prof.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required unique>
             </div>
 
           <div class="input-group">
             <label>Miembro del Consejo</label>
             <select class="form-control" required ng-model="userProfessorCtrl.prof.consejo" name="consejo">
+              <option value="" disabled>Seleccione una opción</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+
+          <div class="input-group">
+            <label>Habilitado para proyectos:</label>
+            <select class="form-control" required ng-model="userProfessorCtrl.prof.hability" name="habilit">
+              <option value="" disabled>Seleccione una opción</option>
               <option value="Si">Si</option>
               <option value="No">No</option>
             </select>
@@ -67,58 +78,65 @@
   <form name="userFormProfDelete">
 
     <div class="input-group">
-      <label for="repeatSelect">Eliminar Profesor</label>
+      <label for="repeatSelect">Eliminar y/o Modificar Profesor</label>
 
         <div ng-repeat="professor in userProfessorCtrl.userProfessorList">
           <label>{{ professor.name }}</label>
           <button ng-click="userProfessorCtrl.deleteProf($index)">Eliminar</button>
-          <button ng-click="userProfessorCtrl.modificarProf($index)">Modificar</button>
-        </div>
-
-        <div class="modalElement" id="newEditProf">
-          <div class="modalElement_container">
-        <h2>Editar informaci[on</h2>
-        <input class="editProf" ng-model="anotationsCtrl.data.name"/>
-      <a href="javascript:;" ng-click="anotationsCtrl.save()" class="btn">Modificar</a>
-    </div>
-        </div>
+          <button id="modi" ng-click="userProfessorCtrl.editProf($index,professor.name)">Modificar</button>
     </div>
 
   </form>
 </div>
 </section>  
 
+<section>
+  <!--Muestra el detalle de la solicitud seleccionada-->
+<!--la idea es que sea un modal-->
+<div class="unModal" id="modi" ng-Show="userProfessorCtrl.edit.modal">
+  <div class="unModal-header">
+    <label>Información de {{ userProfessorCtrl.edit.professor.name }}</label>
+  </div>
+  <!--despliega todo el contenido de la solicitud-->
+  <div class="unModal-body">
+      <div class="input-group">
+
+          <div class="input-group">
+            <label>Especialidad:</label>
+                <input ng-model="userProfessorCtrl.edit.specialty" id="txtspecialty" type="text" class="form-control" name="specialty2" placeholder="Ingrese la especialidad" required>
+          </div>
 
 
+          <div class="input-group">
+            <label>Miembro del Consejo</label>
+            <select class="form-control" required ng-model="userProfessorCtrl.edit.consejo" name="consejo2">
+              <option value="" disabled>Seleccione una opción</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
 
 
+          <div class="input-group">
+            <label>Habilitado para proyectos:</label>
+            <select class="form-control" required ng-model="userProfessorCtrl.edit.hability" name="habilit2">
+              <option value="" disabled>Seleccione una opción</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>  
+            </select>
+          </div>
 
-<!--
-
-
-
-<md-tab label="Eliminar actor">
-  <md-content layout-padding>
-    
-  <div layout-gt-sm="row">
-    <md-input-container class="md-block" flex-gt-sm>
-      <label>Actor a eliminar</label>
-        <md-select required ng-model="actorCtrl.actorEliminar" name="actorEliminar" >
-          <md-option ng-value="actor" ng-repeat="actor in actorCtrl.actorList">{{actor.nombre}}</md-option>
-        </md-select>
-        <div ng-messages="actorForm.actor.$error" role="alert" multiple>
-        <div ng-message="required" class="my-message">Debe seleccionar una opcion</div>
+          <div class="input-group">
+          <label>Avatar</label>
+          <input type="file"  required id="photo" ng-model="userProfessorCtrl.edit.image">
         </div>
-    </md-input-container>
+  </div>
+  <!--procesamiento de la solicitud (aprueba o rechaza)-->
+  <div class="unModal-footer">
+    <button ng-click="preModify($index)">Modificar Información</button>
   </div>
 
-  <md-button ng-click="actorCtrl.borrarActor()" class="md-fab md-primary" aria-label="Borrar">
-    <md-icon md-svg-src="vendor/img/icons/ic_delete_forever_white_24px.svg"></md-icon>
-    <md-tooltip md-direction="bottom">Eliminar actor</md-tooltip>
-  </md-button>
-</md-content>
-</md-tab>
+</div>
+</section>
 
-</md-tabs>
 
--->

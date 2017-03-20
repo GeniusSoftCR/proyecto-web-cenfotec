@@ -2,15 +2,27 @@
   angular
     .module('cshApp')
     .controller('userProfessorController', userProfessorController);
+
+    userProfessorController.$inject = ['userProfessorService','ImageService','Upload'];
+
     function userProfessorController(userProfessorService,ImageService,Upload){ //se inyecta el service userService en el controlador para que se tenga acceso
       //controlador
       var userProfessorCtrl = this; //binding del controlador con el html, solo en el controlador
       userProfessorCtrl.cloudObj = ImageService.getConfiguration();
+      userProfessorCtrl.prof = {};
+      userProfessorCtrl.edit = {};
 
-      function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
-        userProfessorCtrl.userProfessorList = userProfessorService.getProfessor();
-      }
-      init();
+      userProfessorCtrl.userProfessorList = [
+        {name: "Hector", lastName: "Orksd", surName: "tht", specialty: "hth", email: 'ffd@gmail.com'}
+      ];
+      
+      
+      userProfessorCtrl.userProfessorList = userProfessorService.getProfessors();
+      
+
+
+      userProfessorCtrl.rejection=false;
+      userProfessorCtrl.modal=false;
 
       userProfessorCtrl.preSave = function(){
         userProfessorCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
@@ -29,6 +41,7 @@
           email : userProfessorCtrl.prof.email,
           password : userProfessorCtrl.prof.password,
           consejo : userProfessorCtrl.prof.consejo,
+          hability : userProfessorCtrl.prof.hability,
           avatar:  pimage
         }
 
@@ -41,6 +54,7 @@
         userProfessorCtrl.prof.email = null;
         userProfessorCtrl.prof.password = null;
         userProfessorCtrl.prof.consejo = null;
+        userProfessorCtrl.prof.hability = null;
         userProfessorCtrl.prof.image = null;
       }
 
@@ -49,6 +63,27 @@
         userProfessorService.deleteProfessor(index);
       }
 
+      userProfessorCtrl.editProf = function (index,name){
+        userProfessorCtrl.edit.modal=true;
+        userProfessorCtrl.edit.index=index;       
+        userProfessorCtrl.edit.name=name;       
+     }
+
+     userProfessorCtrl.preModify = function (index) {
+        var profItem = userProfessorCtrl.professors[index];
+        var itemProfChange = {
+
+          specialty : userProfessorCtrl.edit.specialty,
+          consejo : userProfessorCtrl.edit.consejo,
+          hability : userProfessorCtrl.edit.hability,
+          avatar:  pimage
+        }
+
+
+       userProfessorCtrl.updateProfesor(itemProfChange,index);
+      }
+
+      //.splice(index, 0, objeto)
 
   }
 })()

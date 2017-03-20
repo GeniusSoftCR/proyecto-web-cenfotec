@@ -1,12 +1,14 @@
 (function(){
   'use strict';
   angular
-  .module('cshApp')
+  .module('appRoutes',['ui.router'])
   .config(configuration)
 
-  function configuration($stateProvider, $urlRouterProvider){
-    $stateProvider
+  configuration.$inject = ['$stateProvider', '$urlRouterProvider'];
 
+  function configuration($stateProvider, $urlRouterProvider){
+    
+    $stateProvider
     .state('landing',{
       url: '/landingPage',
       templateUrl: './components/landingPage/landingPage.html'
@@ -29,12 +31,13 @@
     .state('registrerProfessor',{
           url: '/registrerProfessor',
           templateUrl: 'components/registrerProfessor/userProfessor.view.html',
+          templateUrl: 'components/administratorSteph/registrerProfessor/userProfessor.view.html',
           controller: 'userProfessorController',
           controllerAs: 'userProfessorCtrl'
         })
 
 
     $urlRouterProvider.otherwise('/landingPage');
-  }
+  };
 
 })();

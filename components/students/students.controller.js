@@ -2,8 +2,14 @@
   angular
     .module('cshApp')
     .controller('studentController', studentController);
+    
+    studentController.$inject = ['$scope','studentService','ImageService','filepickerService','$window','Upload'];
+
+    
     function studentController($scope, studentService,ImageService,filepickerService,$window,Upload){ //se inyecta el service userService en el controlador para que se tenga acceso
       //controlador
+      
+
       var studentCtrl = this; //binding del controlador con el html, solo en el controlador
       studentCtrl.cloudObj = ImageService.getConfiguration();
 
@@ -25,7 +31,7 @@
 
        function onSuccess(Blob){
         // cshReqCtrl.files.push(Blob);
-        studentCtrl.studentFile = Blob.url;
+        studentCtrl.stu.studentFile = Blob.url;
         // $window.localStorage.setItem('files', JSON.stringify(cshReqCtrl.files));
       };
 
