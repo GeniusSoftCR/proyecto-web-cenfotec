@@ -2,7 +2,8 @@
 (function () {
 	'use strict';
 	angular
-	.module('LocalDataBase',['LocalStorageModule'])
+	.module('LocalDataModule',['LocalStorageModule'])
+
 	.factory('DataService', DataService)
 
 	DataService.$inject = ['$http','localStorageService'];
