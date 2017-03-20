@@ -1,18 +1,17 @@
 {
   "name": "proyectoweb-cenfotec",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "authors": [
-    "KaguilarA <kaguilara@ucenfotec.ac.cr>"
+    "KaguilarA <kaguilara@ucenfotec.ac.cr>",
+    "hmurillop <hmurillop@gmail.com>"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/GeniusSoftCR/ProyectoWeb-Cenfotec",
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "angular-local-storage": "^0.5.2"
