@@ -37,10 +37,18 @@
       }
 
       cshReqCtrl.save= function(pimage){
+        var newClient = {
+          idclient : cshReqService.getclientId(),
+          company : cshReqCtrl.clientData.company,
+          companyIdNumber : cshReqCtrl.clientData.identificationNumber,
+          clientName : cshReqCtrl.clientData.clientName,
+          clientMail : cshReqCtrl.clientData.clientMail
+        }
+        console.log(newClient.idclient);
         var newProjectRequest ={
-          id : 1,
+          id : cshReqService.getProjectId(),
           state_key : 1,
-          client: 1,
+          client: newClient.idclient,
           professor: null,
           assitant: null,
           executiveSummary : cshReqCtrl.projectFile,
@@ -54,14 +62,9 @@
           students: [],
           files :[]
         }
-        var newClient = {
-          company : cshReqCtrl.clientData.company,
-          companyIdNumber : cshReqCtrl.clientData.identificationNumber,
-          clientName : cshReqCtrl.clientData.clientName,
-          clientMail : cshReqCtrl.clientData.clientMail
-        }
+        
 
-        cshReqService.addProject(newProjectRequest newClient);
+        cshReqService.addProject(newProjectRequest, newClient);
 
         cshReqCtrl.clientData.company = null;
         cshReqCtrl.clientData.identificationNumber = null;

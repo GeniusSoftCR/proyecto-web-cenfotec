@@ -58,17 +58,21 @@
           
         }
       ];
+      var latestClientId = 0;
+      var latestProjectId = 0;
       var publicApi = {
         addProject : _addProject,
         getProjects : _getProjects,
         deleteProject : _deleteProject,
         putProject : _putProject,
         updateLocal: _updateLocal,
+        getclientId : _getClientId,
+        getProjectId : _getProjectId,
         getLocal : _getLocal
       };
       return publicApi;
 
-      function _addProject (pProject pClient) {
+      function _addProject (pProject, pClient) {
         console.log(pProject);
         projects.push(pProject);
         clients.push(pClient);
@@ -100,6 +104,30 @@
           projects = JSON.parse(storedList);
         }
         return projects;
+      }
+
+      function _getClientId () {
+        var storedList = localStorageService.get('localClientId');
+        if(storedList == null){
+          latestClientId = 0;
+          localStorageService.set('localClientId', latestClientId);
+        }else{
+          latestClientId = storedList + 1;
+          localStorageService.set('localClientId', latestClientId);
+        }
+        return latestClientId;
+      }
+
+      function _getProjectId () {
+        var storedList = localStorageService.get('latestProjectId');
+        if(storedList == null){
+          latestProjectId = 0;
+          localStorageService.set('latestProjectId', latestProjectId);
+        }else{
+          latestProjectId = storedList + 1;
+          localStorageService.set('latestProjectId', latestProjectId);
+        }
+        return latestProjectId;
       }
 
     }
