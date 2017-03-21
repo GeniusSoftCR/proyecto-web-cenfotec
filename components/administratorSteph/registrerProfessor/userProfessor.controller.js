@@ -43,7 +43,7 @@
           consejo : userProfessorCtrl.prof.consejo,
           hability : userProfessorCtrl.prof.hability,
           avatar:  pimage,
-          //user_key : 2
+          user_key : 2
         }
 
         userProfessorService.addProfessor(newUserProfessor);
