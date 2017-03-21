@@ -4,28 +4,28 @@
 	<meta charset="UTF-8">
 	<title>Cenfotec Software House</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">	
 </head>
-<body>
-
-	<div class="container">
-		<div ui-view></div>
-	</div>
-
-	<!-- angular -->
-	<script src="vendor/angular.min.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
-
-  	<!-- app -->
-  	<script src="app.js"></script>
-  	<script src="index.route.js"></script>
-	<script src="data/db.js"></script>
+<body ng-cloak>
+	<div ui-view></div>
 
 
 
-  	<!--Scripts del inicio de sesion *Kevin* :)-->
-	<script src="components/logIn/logIn.service.js"></script>
-	<script src="components/logIn/logIn.controller.js"></script>
+	<!-- Angular Material Dependencies-->
+		<script src="bower_components/angular/angular.min.js"></script>	
+		<script src="bower_components/angular-animate/angular-animate.min.js"></script>	
+		<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+		<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+	<!-- App external modules -->
+		<!-- # angular-material -->
+			<script src="bower_components/angular-material/angular-material.min.js"></script>	
+		<!-- # ui-Router -->
+	  		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script><!-- # angular-local-storage -->  		
+	  		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
+	  	<!-- cshApp -->
+			<script src="index.route.js"></script>  	
+	  		<script src="app.js"></script> 
+	  	<!-- #Services -->
+			<script src="data/db.js"></script>
 </body>
 </html>
