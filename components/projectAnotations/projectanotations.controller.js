@@ -4,9 +4,9 @@
   angular.module('cshApp')
     .controller('projectAnotationsController', projectAnotations);
 
-    function projectAnotations ($scope, projectAnotationsService) {
+    function projectAnotations ($scope, projectAnotationsService, $stateParams) {
       var anotationsCtrl = this;
-
+      console.log($stateParams.proyectoId);
       function init(){ 
         anotationsCtrl.anotations = projectAnotationsService.getAnotations();
       }

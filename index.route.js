@@ -39,6 +39,13 @@
 		  controller: 'assignStudentsController',
 		  controllerAs: 'assignStudentsCtrl'
 		})
+		//Andres ver proyecto
+		.state('watchProject',{
+			url: '/proyecto/:proyectoId',
+			templateUrl: '/components/projects/watchproject/projects.view.html',
+			controller: 'watchProjectController',
+			controllerAs: 'watchProjectCtrl'
+		})
 		//steph estudiantes
 		.state('estudiantes',{
 	      url: '/estudiantes',
@@ -46,9 +53,13 @@
 	      controller: 'studentController',
 	      controllerAs: 'studentCtrl'
 	    })
-
-
-
+		//esteban ver proyectos
+		.state('administrator-projects',{
+			url: '/admin/proyectos',
+			templateUrl: '/components/administratorEsteban/projects/projects.view.html',
+			controller: 'loadProjectsController',
+			controllerAs: 'projectsCtrl'
+		})
 		$urlRouterProvider.otherwise('/landingPage');
 	}
 

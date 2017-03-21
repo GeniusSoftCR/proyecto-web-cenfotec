@@ -51,4 +51,10 @@ $susy: (
     }
   }
 
-}
+  .col-md-6 {
+    @include span(6 of 12);
+    &:last-child {
+      @include last;
+    }
+  }
+}  
