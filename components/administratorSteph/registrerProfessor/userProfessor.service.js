@@ -15,7 +15,7 @@
 
     var publicAPI = {
         addProfessor : _addProfessor,
-        getProfessor: _getProfessor,
+        //getProfessor: _getProfessor,
         getProfessors: _getProfessors,
         deleteProfessor : _deleteProfessor,
         updateProfessor : _updateProfessor

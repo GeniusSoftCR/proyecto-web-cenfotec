@@ -35,7 +35,13 @@
           controller: 'userProfessorController',
           controllerAs: 'userProfessorCtrl'
         })
-
+    /*.state('registrerAssistant',{
+          url: '/registrerAssistant',
+          templateUrl: 'components/registrerAssistant/userProfessor.view.html',
+          templateUrl: 'components/administratorSteph/registrerAssistant/userAssistant.view.html',
+          controller: 'userAssistantController',
+          controllerAs: 'userAsistCtrl'
+        })*/
 
     $urlRouterProvider.otherwise('/landingPage');
   };
