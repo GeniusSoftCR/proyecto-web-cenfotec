@@ -80,12 +80,12 @@
     <div class="input-group">
       <label for="repeatSelect">Eliminar y/o Modificar Profesor</label>
 
-        <div ng-repeat="professor in userProfessorCtrl.userProfessorList">
+        <div ng-repeat="professor in userProfessorCtrl.userProfessors">
           <label>{{ professor.name }}</label>
           <button ng-click="userProfessorCtrl.deleteProf($index)">Eliminar</button>
           <button id="modi" ng-click="userProfessorCtrl.editProf($index,professor.name)">Modificar</button>
     </div>
-
+</div>
   </form>
 </div>
 </section>  
