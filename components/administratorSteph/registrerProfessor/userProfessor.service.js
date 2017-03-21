@@ -43,11 +43,6 @@
      /*Profesores*/
     function _getProfessor(index){
       var listaStored = localStorageService.get('localProfessors');
-
-
-        $log.info('_getProfessor---'+listaStored)
-
-
         angular.forEach(listaStored, function(professor) {
 
 
@@ -73,7 +68,7 @@
       return userProfessors;
     }
 
-    function _updateProfessor(pItemProfChange,index) {
+   /* function _updateProfessor(pItemProfChange,index) {
         var i = null;
 
         angular.forEach(userProfessors, function(professor, position) {
@@ -84,6 +79,6 @@
         userProfessors[index]=pItemProfChange;
         }
       })
-    }
+    }*/
   }
 })();
