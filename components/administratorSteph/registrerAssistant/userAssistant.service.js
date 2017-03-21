@@ -1,13 +1,13 @@
-(function(){
+/*(function(){
   angular
   .module('cshApp')
   .service('userProfessorService', userProfessorService);
   
   userProfessorService.$inject = ['$log','$http','localStorageService'];
 
-  /*Servicio para profesores y asistentes*/
+  /*Servicio para profesores y asistentes
   function userProfessorService($log,$http,localStorageService){
-    /*Servicio para profesores*/
+    /*Servicio para profesores
     var userProfessors = [
       {name: "Hector", lastName: "Orksd", surName: "tht", specialty: "hth", email: 'ffd@gmail.com'},
       {name: "Baby", lastName: "Orksd", surName: "tht", specialty: "hth", email: 'baby@gmail.com'}
@@ -22,7 +22,7 @@
     };
     return publicAPI; // todas las funciones que sean llamadas por ajax deben estar debajo del return, para que ciuando angular corra el script haga el return y devuelva el api , las funciones debajo del return son privadas y se devuelve el api que es el que contiene las funciones
 
-    /*Profesores*/
+    /*Profesores
     function _addAssistant(pUserProfessor){
       //users.push(pUser);
       $log.info(pUserProfessor)
@@ -40,7 +40,7 @@
       localStorageService.set('localProfessors',userProfessors);
 
     }
-     /*Profesores*/
+     /*Profesores
     function _getProfessor(index){
       var listaStored = localStorageService.get('localProfessors');
 
@@ -86,4 +86,4 @@
       })
     }
   }
-})();
+})();*/

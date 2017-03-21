@@ -1,4 +1,4 @@
-(function(){
+/*(function(){
   angular
     .module('cshApp')
     .controller('userAssistantController', userAssistantController);
@@ -80,4 +80,4 @@
       //.splice(index, 0, objeto)
 
   }
-})()
+})()*/

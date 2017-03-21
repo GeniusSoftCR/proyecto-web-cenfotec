@@ -3,14 +3,15 @@
     .module('cshApp')
     .controller('studentController', studentController);
     
-    studentController.$inject = ['$scope','studentService','ImageService','filepickerService','$window','Upload'];
+    studentController.$inject = ['$scope','studentService','ImageService','filepickerService','$window','Upload','localStorageService'];
 
     
-    function studentController($scope, studentService,ImageService,filepickerService,$window,Upload){ //se inyecta el service userService en el controlador para que se tenga acceso
+    function studentController($scope, studentService,ImageService,filepickerService,$window,Upload, localStorageService){ //se inyecta el service userService en el controlador para que se tenga acceso
       //controlador
       
 
       var studentCtrl = this; //binding del controlador con el html, solo en el controlador
+      
       studentCtrl.cloudObj = ImageService.getConfiguration();
 
 

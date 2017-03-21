@@ -21,6 +21,7 @@
       //users.push(pUser);
       student.push(pStudent);
       localStorageService.set('localStudents',student);
+      console.log(localStorageService.get('localStudents'))
     }
 
     function _getStudent(){

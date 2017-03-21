@@ -3,9 +3,9 @@
     .module('cshApp')
     .controller('userProfessorController', userProfessorController);
 
-    userProfessorController.$inject = ['userProfessorService','ImageService','Upload'];
+    userProfessorController.$inject = ['userProfessorService','ImageService','Upload','localStorageService'];
 
-    function userProfessorController(userProfessorService,ImageService,Upload){ //se inyecta el service userService en el controlador para que se tenga acceso
+    function userProfessorController(userProfessorService,ImageService,Upload, localStorageService){ //se inyecta el service userService en el controlador para que se tenga acceso
       //controlador
       var userProfessorCtrl = this; //binding del controlador con el html, solo en el controlador
       userProfessorCtrl.cloudObj = ImageService.getConfiguration();
@@ -28,11 +28,11 @@
         userProfessorCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
         Upload.upload(userProfessorCtrl.cloudObj)
           .success(function(data){
-            userProfessorCtrl.save(data.url);
+            userProfessorCtrl.saveP(data.url);
           });
       }
 
-      userProfessorCtrl.save= function(pimage){
+      userProfessorCtrl.saveP = function(pimage){
         var newUserProfessor ={
           name : userProfessorCtrl.prof.name,
           lastName : userProfessorCtrl.prof.lastName,
@@ -43,7 +43,6 @@
           consejo : userProfessorCtrl.prof.consejo,
           hability : userProfessorCtrl.prof.hability,
           avatar:  pimage,
-          user_key : 2
         }
 
         userProfessorService.addProfessor(newUserProfessor);
