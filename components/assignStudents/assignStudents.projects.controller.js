@@ -12,8 +12,8 @@
         var students = studentService.getStudent();
         assignStudentsCtrl.students = [];
         for (var i=0; i < students.length; i++) {
-          if (students[i].id == 'hola' || students[i].id == 'hola') {
-            console.log('do this');
+          if (students[i].statusId == 1 || students[i].statusId == 2) {
+            assignStudentsCtrl.students.push(students[i]);
           } else {
             console.log('dont do this');  
           }
@@ -28,6 +28,12 @@
 
       assignStudentsCtrl.openModal = function (_param) {
         assignStudentsCtrl.modalStudent = true;
+      }
+      assignStudentsCtrl.closeModal = function (_param) {
+        assignStudentsCtrl.modalStudent = false;
+      }
+      assignStudentsCtrl.assignStudent = function (_param) {
+
       }
     }
 

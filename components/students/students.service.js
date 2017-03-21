@@ -16,27 +16,27 @@
             "name":"Postulado"
           },
           {
-            "id":1,
+            "id":2,
             "state": "elegible",
             "name":"Elegible"
           },
           {
-            "id":1,
+            "id":3,
             "state": "active",
             "name":"Active"
           },
           {
-            "id":1,
+            "id":4,
             "state": "inactive",
             "name":"Inactivo"
           },
           {
-            "id":1,
+            "id":5,
             "state": "rejected",
             "name":"Rechazado"
           },
           {
-            "id":1,
+            "id":6,
             "state": "vetoed",
             "name":"Vetado"
           }                             
