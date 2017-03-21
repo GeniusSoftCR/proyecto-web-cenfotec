@@ -31,7 +31,6 @@ gulp.task('js', function () {
 // Vigila cambios que se produzcan en el código
 // y lanza las tareas relacionadas
 gulp.task('watch', function () {
-  livereload.listen();
   gulp.watch(['./css/sass/**/*.scss'], ['css']);
 
   gulp.watch([

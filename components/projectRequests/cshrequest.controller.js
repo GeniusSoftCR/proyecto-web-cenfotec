@@ -39,19 +39,29 @@
       cshReqCtrl.save= function(pimage){
         var newProjectRequest ={
           id : 1,
-          company : cshReqCtrl.clientData.company,
-          idnumber : cshReqCtrl.clientData.identificationNumber,
-          statusId : 1,
-          client : {
-            clientName : cshReqCtrl.clientData.clientName,
-            clientMail : cshReqCtrl.clientData.clientMail
-          },
+          state_key : 1,
+          client: 1,
+          professor: null,
+          assitant: null,
+          executiveSummary : cshReqCtrl.projectFile,
+          objective: '',
+           images:[
+            {
+              "url": pimage
+            }
+          ],
           funds : cshReqCtrl.clientData.fundsToMakeProject,
-          projectFile : cshReqCtrl.projectFile,
-          image: pimage
+          students: [],
+          files :[]
+        }
+        var newClient = {
+          company : cshReqCtrl.clientData.company,
+          companyIdNumber : cshReqCtrl.clientData.identificationNumber,
+          clientName : cshReqCtrl.clientData.clientName,
+          clientMail : cshReqCtrl.clientData.clientMail
         }
 
-        movieService.addMovie(newMovie);
+        cshReqService.addProject(newProjectRequest newClient);
 
         cshReqCtrl.clientData.company = null;
         cshReqCtrl.clientData.identificationNumber = null;

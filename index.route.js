@@ -25,6 +25,19 @@
 		  controller: 'cshReqController',
 		  controllerAs: 'cshReqCtrl'
 		})
+		.state('ver-proyecto',{
+		  url: '/ver-proyecto',
+		  templateUrl: 'components/projectAnotations/projectanotations.view.html',
+		  controller: 'projectAnotationsController',
+		  controllerAs: 'anotationsCtrl'
+		})
+		.state('ver-proyecto-asignar',{
+		  url: '/ver-proyecto/asignarProfesores',
+		  templateUrl: 'components/assignTeachers/assignTeachers.projects.view.html',
+		  controller: 'assignTeachersController',
+		  controllerAs: 'assignTeachersCtrl'
+		})
+
 
 		$urlRouterProvider.otherwise('/landingPage');
 	}
