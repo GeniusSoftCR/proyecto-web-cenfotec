@@ -30,10 +30,16 @@
      //Steph registro de usuarios
     .state('registrerProfessor',{
           url: '/registrerProfessor',
-          templateUrl: 'components/registrerProfessor/userProfessor.view.html',
           templateUrl: 'components/administratorSteph/registrerProfessor/userProfessor.view.html',
           controller: 'userProfessorController',
           controllerAs: 'userProfessorCtrl'
+        })
+
+    .state('addCareers',{
+          url: '/addCareers',
+          templateUrl: 'components/administratorSteph/addCareers/addCareers.view.html',
+          controller: 'addCareersController',
+          controllerAs: 'addCareersCtrl'
         })
 
 
