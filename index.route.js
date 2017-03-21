@@ -25,18 +25,28 @@
 		  controller: 'cshReqController',
 		  controllerAs: 'cshReqCtrl'
 		})
+		//ANdres anotaciones
 		.state('ver-proyecto',{
 		  url: '/ver-proyecto',
 		  templateUrl: 'components/projectAnotations/projectanotations.view.html',
 		  controller: 'projectAnotationsController',
 		  controllerAs: 'anotationsCtrl'
 		})
-		.state('ver-proyecto-asignar',{
-		  url: '/ver-proyecto/asignarProfesores',
-		  templateUrl: 'components/assignTeachers/assignTeachers.projects.view.html',
-		  controller: 'assignTeachersController',
-		  controllerAs: 'assignTeachersCtrl'
+		//andres asignar profesores
+		.state('asignarEstudiantes',{
+		  url: '/ver-proyecto/asignarEstudiantes',
+		  templateUrl: 'components/assignStudents/assignStudents.projects.view.html',
+		  controller: 'assignStudentsController',
+		  controllerAs: 'assignStudentsCtrl'
 		})
+		//steph estudiantes
+		.state('estudiantes',{
+	      url: '/estudiantes',
+	      templateUrl: 'components/students/students.view.html',
+	      controller: 'studentController',
+	      controllerAs: 'studentCtrl'
+	    })
+
 
 
 		$urlRouterProvider.otherwise('/landingPage');
