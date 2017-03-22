@@ -1,96 +1,41 @@
-[		
-	{
-		"proyectStates":[
-			{
-				"id":1,
-				"state":"inRevision",
-				"name":"En revision",
-				"default":true
-			},
-			{
-				"id":2,
-				"satate":"aproved",
-				"name":"Aprobado"
-			},
-			{
-				"id":3,
-				"satate":"active",
-				"name":"Rechazado"
-			},			
-			{
-				"id":4,
-				"satate":"inProcess",
-				"name":"En proceso"
-			},
-			{
-				"id":5,
-				"satate":"ended",
-				"name":"Finalizado"
-			}
-		]
-	},
-	{
-		"identificationType":[
-			{
-				"id":1,
-				"type":"physical",
-				"name":"Física"
-			}
-			{
-				"id":2,
-				"type":"juridical",
-				"name":"Jurídica"
-			},
-		]
-	},
-	{
-		"anotations":[
-			{
-				"id":,
-				"proyect_id":"",
-				"description":""
-			}
-		],
 
-	}
+proyectStates = [
+	{"id":1,"state":"En revision"},
+	{"id":2,"satate":"aprobado"},
+	{"id":3,"satate":"Rechazado"},			
+	{"id":4,"satate":"En proceso"},
+	{"id":5,"satate":"Finalizado"}
+]
+
+//creo que esto no se está usando
+identificationType = [
+	{"id":1,"type":"physical","name":"Física"}
+	{"id":2,"type":"juridical","name":"Jurídica"},
+]
+	
+anotations = [
+	{"id":,"proyect_id":"","description":""}
+]
+
+proyects = [
 	{
-		"proyects":[
+		"id":1,
+		"state":1,
+		"professor":"professor_id",
+		"assitant":"assitant_id",
+		"students":[],//students id's
+		"files":[{"name":"","url":""}],
+		"client":[
 			{
-				"id":1,
-				"state":1,
-				"students":[
-				],
-				"professor":"professor_id",
-				"assitant":"assitant_id",
-				"students":[],//students id's
-				"files":[
-					{
-						"id":"",
-						"name":"",
-						"url":"",
-						"date":""
-					}
-				],
-				"client":[
-					{
-						"nombre":"",
-						"cedula":"",
-						"tipoCedula":"",		
-						"responsable":{
-							"name":"",
-							"mail":""
-						},
-						"executiveSummary":"",
-						"sector":"",
-						"objective":"",
-						"founding":false,
-						"images":[
-							{
-								"url":""
-							}
-						]
-					}
-				]
+				"nombre":"",
+				"cedula":"",
+				"tipoCedula":"",		
+				"responsable":{"name":"","mail":""},
+				"executiveSummary":"",
+				"sector":"",
+				"objective":"",
+				"founding":false,
+				"images":[{"url":""}]
 			}
 		]
 	}
