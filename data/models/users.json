@@ -1,115 +1,66 @@
-[
+//tipos de usuario
+roles = [
+	{"key":1,"role":"admin"},
+	{"key":2,"role":"professor"},
+	{"key":3,"role":"assistant"},
+	{"key":4,"role":"student"}
+]
+
+//esta "tabla" NO va a existir los datos deben agregarse en los arreglos de cada actor
+users = [
 	{
-		"roles":[
-			{
-				"key":1,
-				"role":"admin"
-			},
-			{
-				"key":2,
-				"role":"professor"
-			},
-			{
-				"key":3,
-				"role":"assistant"
-			},
-			{
-				"key":4,
-				"role":"student"
-			}
-		]
-	},
-	{
-		"users":[
-			{
-				"key": "",
-				"role_key":"",
-				"id":"",
-				"name":"",
-				"surname":"",
-				"secondSurname":"",
-				"mail":"",
-				"password":""
-			}
-		]
-	},
-	{
-		"professorSpecialties":{}
-	},
-	{	
-		"professors":[
-			{
-				"key":"",
-				"user_key":,
-				"councilMember":,//bool
-				"specialty":[],
-				"specialty":"",
-				"availableForProyects"://bool				
-			}
-		]
-	},
-	{
-		"assistants":[{
-			"key":"",
-			"user_key":"",
-			"puestoUniversitario":"",
-			"phone":,""//opcional
-			}		
-		]
-	},
-	{
-		"studentStates":[
-			{
-				"key":1,
-				"state": "postulate",
-				"name":"Postulado"
-			},
-			{
-				"key":1,
-				"state": "elegible",
-				"name":"Elegible"
-			},
-			{
-				"key":1,
-				"state": "active",
-				"name":"Active"
-			}
-			{
-				"key":1,
-				"state": "inactive",
-				"name":"Inactivo"
-			}
-			{
-				"key":1,
-				"state": "rejected",
-				"name":"Rechazado"
-			}
-			{
-				"key":1,
-				"state": "banned",
-				"name":"Vetado"
-			}															
-		]
-	},
-	{
-		"students":[
-			{
-				"key":0,
-				"user_key":"",
-				"birthdate":"",				
-				"carrers":[],
-				"justification":"",
-				"resumeUrl":"",
-				"gitHubUrl":"",
-				"websiteUrl":"",
-				"avatarUrl":""
-			}		
-		]
+		"key": "",//este es el id de usuario(supongo que se DESCARTA)
+		"role_key":"",//este es el tipo de usuario: ver tabla de roles
+		"id":"",//esta es la cédula
+		"name":"",
+		"surname":"",
+		"secondSurname":"",
+		"mail":"",
+		"password":""
 	}
 ]
 
 
+professors = [
+	{
+		"key":"",
+		"user_key":,//se descartaba
+		"councilMember":,//bool
+		"specialty":[],//¿¿Que es esto?? sólo debería ponerse una especialidad creo
+		"specialty":"",
+		"availableForProyects"://bool				
+	}
+]
 
 
+assistants = [
+	{
+		"key":"",
+		"user_key":"",//se descartaba
+		"puestoUniversitario":"",
+		"phone":,""//opcional
+	}		
+]
 
+studentStates = [
+	{"key":1,"state":"Postulado"},
+	{"key":2,"state":"Elegible"},
+	{"key":3,"state":"Activo"},
+	{"key":4,"state":"Inactivo"},
+	{"key":5,"state":"Rechazado"},
+	{"key":6,"state":"Vetado"}														
+]
 
+students = [
+	{
+		"key":0,
+		"user_key":"",//se descartaba
+		"birthdate":"",				
+		"carrers":[],
+		"justification":"",
+		"resumeUrl":"",
+		"gitHubUrl":"",
+		"websiteUrl":"",
+		"avatarUrl":""
+	}		
+]
