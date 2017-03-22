@@ -25,26 +25,26 @@
 		  controller: 'cshReqController',
 		  controllerAs: 'cshReqCtrl'
 		})
-		//ANdres anotaciones
-		.state('ver-proyecto',{
-		  url: '/ver-proyecto',
-		  templateUrl: 'components/projectAnotations/projectanotations.view.html',
-		  controller: 'projectAnotationsController',
-		  controllerAs: 'anotationsCtrl'
-		})
-		//andres asignar profesores
-		.state('asignarEstudiantes',{
-		  url: '/ver-proyecto/asignarEstudiantes',
-		  templateUrl: 'components/assignStudents/assignStudents.projects.view.html',
-		  controller: 'assignStudentsController',
-		  controllerAs: 'assignStudentsCtrl'
-		})
 		//Andres ver proyecto
 		.state('watchProject',{
 			url: '/proyecto/:proyectoId',
-			templateUrl: '/components/projects/watchproject/projects.view.html',
-			controller: 'watchProjectController',
-			controllerAs: 'watchProjectCtrl'
+			views: {
+				'': { //andres ver proyecto
+					templateUrl: '/components/projects/watchproject/projects.view.html',
+					controller: 'watchProjectController',
+					controllerAs: 'watchProjectCtrl'
+				},
+	      'anotaciones@watchProject': { //ANdres anotaciones
+	        templateUrl: 'components/projectAnotations/projectanotations.view.html',
+	        controller: 'projectAnotationsController',
+	        controllerAs: 'anotationsCtrl'
+	      },
+	      'estudiantes@watchProject': { //Andres asignar estudiantes
+	        templateUrl: 'components/assignStudents/assignStudents.projects.view.html',
+	        controller: 'assignStudentsController',
+	        controllerAs: 'assignStudentsCtrl'
+	      }
+	    }
 		})
 		//steph estudiantes
 		.state('estudiantes',{

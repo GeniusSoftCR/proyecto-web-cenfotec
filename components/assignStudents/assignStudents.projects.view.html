@@ -2,26 +2,24 @@
 =            Este el component de Cenfotec Sotware House asignamiento de profesores      =
 ========================================================================================-->
 
-<div class="dashboard cf">
-  <div class="col-sm-12 col-md-3">
-    <div class="projectAnotations">
-      <div class="container">
-        <h2 style="font-size: 15px; font-weight: 300;">Estudiantes</h1>
-        <div class="listAnotations">
 
-        </div>
-        <div class="cf">
-          <div class="addTeachers">
-            <a href="javascript:;" ng-click="assignStudentsCtrl.openModal()"  class="btn btn-red btn-small"><i class="fa fa-plus"></i>Asignar Estudiante</a>
-          </div>
-          <div class="moreTeachers">
-            <a href="javascript:;" ng-click="" class="btn btn-blue btn-small">Ver Más</a>
-          </div>
-        </div>
-      </div>  <!-- //-Container -->
-    </div> <!-- //Finalizamos Project Anotations-->
-  </div>
-</div>
+<div class="projectStudentAssigned">
+  <div class="box">
+    <h1 class="boxTitle">Estudiantes asignados</h1>
+    <div class="listStudents">
+
+    </div>
+    <div class="cf">
+      <div class="addTeachers">
+        <a href="javascript:;" ng-click="assignStudentsCtrl.openModal()"  class="btn btn-red btn-small"><i class="fa fa-plus"></i>Asignar Estudiante</a>
+      </div>
+      <div class="moreTeachers">
+        <a href="javascript:;" ng-click="" class="btn btn-blue btn-small">Ver Más</a>
+      </div>
+    </div>
+  </div>  <!-- //-Container -->
+</div> <!-- //Finalizamos Project Anotations-->
+
 
 <div class="modalElement" id="newStudent" ng-show="assignStudentsCtrl.modalStudent">
   <div class="modalElement_container">

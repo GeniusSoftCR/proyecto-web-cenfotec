@@ -14,6 +14,7 @@ body {
   background: #fff;
   padding: 0; 
   border-radius: 10px;
+  margin: 10px  0;  
 }
 .boxTitle {
   color: #1b264f;
@@ -24,6 +25,12 @@ body {
 }
 .boxContent {
   padding: 10px 20px 20px; 
+}
+.boxAlternative {
+  background: #efeff1; 
+  .boxTitle {
+    border-bottom: 7px solid #fff;
+  }
 }
 
 .listAnotations {

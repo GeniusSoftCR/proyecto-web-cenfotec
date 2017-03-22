@@ -25,7 +25,7 @@
 		  </thead>
 		  <tbody>
 		    <tr ng-repeat="project in projectsCtrl.projects | filter:{state:search}">
-		        <td>{{project.nombre}}</td>
+		        <td>{{project.name}}</td>
 		        <td>{{project.state}}</td>
 		        <td><a ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</a></td>
 		    </tr>

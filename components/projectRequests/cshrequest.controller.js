@@ -24,6 +24,7 @@
 
       function onSuccess(Blob){
         // cshReqCtrl.files.push(Blob);
+        console.log(Blob);
         cshReqCtrl.projectFile = Blob.url;
         // $window.localStorage.setItem('files', JSON.stringify(cshReqCtrl.files));
       };
@@ -38,17 +39,18 @@
 
       cshReqCtrl.save= function(pimage){
         var newClient = {
-          idclient : cshReqService.getclientId(),
+          id : cshReqService.getclientId(),
           company : cshReqCtrl.clientData.company,
           companyIdNumber : cshReqCtrl.clientData.identificationNumber,
           clientName : cshReqCtrl.clientData.clientName,
           clientMail : cshReqCtrl.clientData.clientMail
         }
-        console.log(newClient.idclient);
+
         var newProjectRequest ={
+          name: cshReqCtrl.clientData.projectName,
           id : cshReqService.getProjectId(),
           state_key : 1,
-          client: newClient.idclient,
+          clientId: newClient.id,
           professor: null,
           assitant: null,
           executiveSummary : cshReqCtrl.projectFile,

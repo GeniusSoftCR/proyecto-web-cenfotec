@@ -10,25 +10,27 @@
         "default":true
       }, {
         "id":2,
-        "satate":"aproved",
+        "state":"aproved",
         "name":"Aprobado"
       }, {
         "id":3,
-        "satate":"active",
+        "state":"active",
         "name":"Rechazado"
       }, {
         "id":4,
-        "satate":"inProcess",
+        "state":"inProcess",
         "name":"En proceso"
       },{
         "id":5,
-        "satate":"ended",
+        "state":"ended",
         "name":"Finalizado"
       }];
+      //Definimos en local los estados de proyecto
+      localStorageService.set('localProjectsStatesList', proyectStates);
 
       var clients = [
         {
-          "idClient" : 1,
+          "id" : 0,
           "nombre":"Cenfotec",
           "cedula":"3-101-293932",
           "sector":"desarrollo",  
@@ -41,9 +43,10 @@
 
       var projects = [
         {
-          "id":1,
-          "state":1,
-          "client":1,
+          "name": "Creación de app normal",
+          "id":0,
+          "state_key":1,
+          "clientId":0,
           "professor": null,
           "assitant": null,
           "executiveSummary":"",
@@ -73,10 +76,19 @@
       return publicApi;
 
       function _addProject (pProject, pClient) {
-        console.log(pProject);
+        var localListProjects = localStorageService.get('localProjectsList');
+        if(localListProjects == null){
+        }else{
+          projects = localListProjects;
+        }
+        var localListClients = localStorageService.get('clients');
+        if(localListClients == null){
+        }else{
+          clients = localListClients;
+        }
         projects.push(pProject);
         clients.push(pClient);
-        localStorageService.set('localClientList', pClient);
+        localStorageService.set('localClientList', clients);
         localStorageService.set('localProjectsList', projects);
       }
 
@@ -101,9 +113,18 @@
         if(storedList == null){
           projects = [];
         }else{
-          projects = JSON.parse(storedList);
+          projects = storedList;
         }
         return projects;
+      }
+      function _getLocalClients () {
+        var storedList = localStorageService.get('localClientList');
+        if(storedList == null){
+          clients = [];
+        }else{
+          clients = storedList;
+        }
+        return clients;
       }
 
       function _getClientId () {
