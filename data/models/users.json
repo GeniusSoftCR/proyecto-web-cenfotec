@@ -68,6 +68,7 @@ studentStates = [
 students = [
 	{
 		"key":"",
+		"state_key":"", //agregar el estado por id (ver studentsState) de estudiantes
 		"birthdate":"",				
 		"carrers":[],
 		"justification":"",
