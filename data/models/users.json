@@ -10,6 +10,26 @@ roles = [
 users = [
 	{
 		"key": "",//este es el id de usuario(supongo que se DESCARTA)
+		//DE AQUÍ
+		"role_key":"",//este es el tipo de usuario: ver tabla de roles
+		"id":"",//esta es la cédula
+		"name":"",
+		"surname":"",
+		"secondSurname":"",
+		"mail":"",
+		"password":""
+		//HASTA ACÁ: las propiedades se pegan en cada actor
+	}
+]
+
+
+professors = [
+	{
+		"key":"",
+		"councilMember":,//bool
+		"specialty":[],//¿¿Que es esto?? sólo debería ponerse una especialidad creo
+		"specialty":"",
+		"availableForProyects":,//bool				
 		"role_key":"",//este es el tipo de usuario: ver tabla de roles
 		"id":"",//esta es la cédula
 		"name":"",
@@ -21,24 +41,18 @@ users = [
 ]
 
 
-professors = [
-	{
-		"key":"",
-		"user_key":,//se descartaba
-		"councilMember":,//bool
-		"specialty":[],//¿¿Que es esto?? sólo debería ponerse una especialidad creo
-		"specialty":"",
-		"availableForProyects"://bool				
-	}
-]
-
-
 assistants = [
 	{
 		"key":"",
-		"user_key":"",//se descartaba
 		"puestoUniversitario":"",
 		"phone":,""//opcional
+		"role_key":"",//este es el tipo de usuario: ver tabla de roles
+		"id":"",//esta es la cédula
+		"name":"",
+		"surname":"",
+		"secondSurname":"",
+		"mail":"",
+		"password":""
 	}		
 ]
 
@@ -53,14 +67,20 @@ studentStates = [
 
 students = [
 	{
-		"key":0,
-		"user_key":"",//se descartaba
+		"key":"",
 		"birthdate":"",				
 		"carrers":[],
 		"justification":"",
 		"resumeUrl":"",
 		"gitHubUrl":"",
 		"websiteUrl":"",
-		"avatarUrl":""
+		"avatarUrl":"",
+		"role_key":"",//este es el tipo de usuario: ver tabla de roles
+		"id":"",//esta es la cédula
+		"name":"",
+		"surname":"",
+		"secondSurname":"",
+		"mail":"",
+		"password":""
 	}		
 ]
