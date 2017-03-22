@@ -21,7 +21,7 @@ proyects = [
 	{
 		"id":1,
 		"state":1,
-		"projectName":"",//ESTE NO ESTABA
+		"name":"",//ESTE NO ESTABA
 		"professor":"professor_id",
 		"assitant":"assitant_id",
 		"students":[],//students id's
