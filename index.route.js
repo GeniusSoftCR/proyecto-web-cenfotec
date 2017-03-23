@@ -1,12 +1,12 @@
 (function(){
 	'use strict';
 	angular
-	.module('appRoutes',['ui.router'])
+	.module('appRoutes',['ui.router','oc.lazyLoad'])
 	.config(configuration);
 
-	configuration.$inject = ['$stateProvider', '$urlRouterProvider'];
+	configuration.$inject = ['$stateProvider','$urlRouterProvider','$locationProvider'];//,'$ocLazyLoadProvider'
 
-	function configuration($stateProvider, $urlRouterProvider){
+	function configuration($stateProvider, $urlRouterProvider,$locationProvider){//
 		$stateProvider
 
 		.state('landing',{
@@ -20,12 +20,23 @@
 			controller: 'logInController',
 			controllerAs: 'logInCtrl'
 		})
-		.state('profile', {
-		    url: '/perfil',
-		    templateUrl:'./components/userProfile/userProfile.view.html'
+		.state('perfil', {
+		    url: '/perfil/:username',
+	        resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { return $ocLazyLoad.load([
+	            './components/profile/profile.controller.js'
+	          ])}]
+	        }, 
+			templateUrl:'./components/profile/profile.view.html',
+		    controller:'profileController',
+		    controllerAs:'ctrl'
+		})
+		.state('404', {
+		    url: '/404',
+			templateUrl:'./components/404.html'
 		})
 
-		$urlRouterProvider.otherwise('/landingPage');
+		$urlRouterProvider.otherwise('/404');
 	};
 
 })();
