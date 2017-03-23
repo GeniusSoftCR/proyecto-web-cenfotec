@@ -6,6 +6,7 @@
   admin_loadProjectsService.$inject = ['$http', 'localStorageService'];
 
   function admin_loadProjectsService($http,localStorageService){
+
     var publicAPI = {
       getProjectsStates : _getProjectStates,
       getProjects : _getProjects
@@ -33,13 +34,6 @@
       return projectsList;
     }
 
-  	// //Persistencia de los datos
-   //  function localStorageProjectsStatesList(jlist){
-   //    localStorageService.set('localProjectsStatesList', JSON.stringify(jlist));
-   //  }
-   //  function localStorageProjectsList(jlist){
-   //    localStorageService.set('localProjectsList', JSON.stringify(jlist));
-   //  }
   }
 
 })();

@@ -28,39 +28,9 @@
       //Definimos en local los estados de proyecto
       localStorageService.set('localProjectsStatesList', proyectStates);
 
-      var clients = [
-        {
-          "id" : 0,
-          "nombre":"Cenfotec",
-          "cedula":"3-101-293932",
-          "sector":"desarrollo",  
-          "responsable":{
-            "name":"Pablo Monestel",
-            "mail":"pmonestel@ucenfotec.ac.cr"
-          }
-        }
-      ]
-
-      var projects = [
-        {
-          "name": "Creación de app normal",
-          "id":0,
-          "state_key":1,
-          "clientId":0,
-          "professor": null,
-          "assitant": null,
-          "executiveSummary":"",
-          "objective":"",
-          "images":[
-            {
-              "url":""
-            }
-          ],
-          "founding": 0,
-          "students":[],//students id's
-          
-        }
-      ];
+      var clients = [];
+      var projects = [];
+      var projectStates = [];
       var latestClientId = 0;
       var latestProjectId = 0;
       var publicApi = {
@@ -71,10 +41,19 @@
         updateLocal: _updateLocal,
         getclientId : _getClientId,
         getProjectId : _getProjectId,
+        getProjectsStates : _getProjectsStates,
         getLocal : _getLocal
       };
       return publicApi;
-
+      function _getProjectsStates () {
+        var storedList = localStorageService.get('localProjectsStatesList');
+        if(storedList == null){
+          projectStates = [];
+        }else{
+          projectStates = storedList;
+        }
+        return projects;
+      }
       function _addProject (pProject, pClient) {
         var localListProjects = localStorageService.get('localProjectsList');
         if(localListProjects == null){
@@ -100,8 +79,16 @@
         console.log('inside Delete Project')
       }
 
-      function _putProject (pProject) {
-        console.log('inside Put Project')
+      function _putProject (pProjectId, pUpdateProject) {
+        var projects = localStorageService.get('localProjectsList');
+        for (var i = 0; i < projects.length; i++){
+          if (projects[i].id == pProjectId) {
+            projects.splice(i, 1, pUpdateProject);
+            break;
+          }
+        }
+        console.log(projects);
+        localStorageService.set('localProjectsList', projects);
       }
 
       function _updateLocal () {

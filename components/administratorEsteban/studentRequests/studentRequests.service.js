@@ -6,50 +6,7 @@
   studentRequestsService.$inject = ['$http', 'localStorageService'];
 
   function studentRequestsService($http,localStorageService){
-    var studentsList = [
-    {
-      "state_key":1,
-      "state_name":"Postulado",
-      "key": 1,
-      "role_key":"1",
-      "id":"123456789",
-      "name":"Esteban",
-      "surname":"Fonseca",
-      "secondSurname":"Blanco",
-      "mail":"efonsecab@ucenfotec.ac.cr",
-      "password":"123",
-      "birthdate":"20/08/2017",
-      "carrers":[1,2,3],
-      "courses":[4,5,6],
-      "justification":"",
-      "resumeUrl":"",//url,
-      "gitHubUrl":"",
-      "websiteUrl":"",
-      "avatarUrl":"http://www.nsqdigitalmedia.com/wp-content/uploads/avatar-11.png"
-    },
-    {
-      "state_key":1,
-      "state_name":"Postulado",
-      "key": 2,
-      "role_key":"1",
-      "id":"123456789",
-      "name":"Adrián",
-      "surname":"Fonseca",
-      "secondSurname":"Blanco",
-      "mail":"jorgeb@ucenfotec.ac.cr",
-      "password":"123",
-      "birthdate":"20/08/2017",
-      "carrers":[1,2,5],
-      "courses":[4,5,7],
-      "justification":"",
-      "resumeUrl":"",//url,
-      "gitHubUrl":"",
-      "websiteUrl":"",
-      "avatarUrl":"https://www.heartit.co/wp-content/uploads/avatar-7.png"
-    }    
-    ];
-    localStorageStudentsList(studentsList);
-
+    
     var publicAPI = {
       getRequests : _getStudents,
       changeRequestState : _changeStudentsState
@@ -58,11 +15,11 @@
 
     //trae la lista de estudiantes
     function _getStudents(){
-      var storedList = localStorageService.get('localStudentsList');
+      var storedList = localStorageService.get('localStudents');
       if(storedList == null){
         studentsList = [];
       }else{
-        studentsList = JSON.parse(storedList);
+        studentsList = storedList;
       }
       return studentsList;
     }
@@ -81,8 +38,7 @@
     }
     //inserta los nuevos registros al localStorage
     function localStorageStudentsList(jlist){
-      //localStorageService.set('key', JSON.stringify(value));
-      localStorageService.set('localStudentsList', JSON.stringify(jlist));
+      localStorageService.set('localStudents', jlist);
     }
 
   }

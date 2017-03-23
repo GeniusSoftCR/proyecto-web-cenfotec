@@ -6,41 +6,42 @@
   studentService.$inject = ['$http','localStorageService'];
 
   function studentService($http,localStorageService){
+   
+
+var studentStates = [
+      {
+        "id":1,
+        "state": "postulate",
+        "name":"Postulado"
+      },
+      {
+        "id":1,
+        "state": "elegible",
+        "name":"Elegible"
+      },
+      {
+        "id":1,
+        "state": "active",
+        "name":"Active"
+      },
+      {
+        "id":1,
+        "state": "inactive",
+        "name":"Inactivo"
+      },
+      {
+        "id":1,
+        "state": "rejected",
+        "name":"Rechazado"
+      },
+      {
+        "id":1,
+        "state": "vetoed",
+        "name":"Vetado"
+      }                             
+    ];
 
 
-
-     var studentStates = [
-          {
-            "id":1,
-            "state": "postulate",
-            "name":"Postulado"
-          },
-          {
-            "id":2,
-            "state": "elegible",
-            "name":"Elegible"
-          },
-          {
-            "id":3,
-            "state": "active",
-            "name":"Active"
-          },
-          {
-            "id":4,
-            "state": "inactive",
-            "name":"Inactivo"
-          },
-          {
-            "id":5,
-            "state": "rejected",
-            "name":"Rechazado"
-          },
-          {
-            "id":6,
-            "state": "vetoed",
-            "name":"Vetado"
-          }                             
-        ];
     var student = [];
 
 
@@ -56,6 +57,7 @@
       //users.push(pUser);
       student.push(pStudent);
       localStorageService.set('localStudents',student);
+      console.log(localStorageService.get('localStudents'))
     }
 
     function _getStudent(){
@@ -70,3 +72,4 @@
   
   }
 })();
+

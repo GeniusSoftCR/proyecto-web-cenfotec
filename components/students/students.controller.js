@@ -3,14 +3,17 @@
     .module('cshApp')
     .controller('studentController', studentController);
     
-    studentController.$inject = ['$scope','studentService','ImageService','filepickerService','$window','Upload'];
+    studentController.$inject = ['$scope','studentService','ImageService','filepickerService','$window','Upload','localStorageService','addCareersService'];
 
     
-    function studentController($scope, studentService,ImageService,filepickerService,$window,Upload){ //se inyecta el service userService en el controlador para que se tenga acceso
+    function studentController($scope, studentService,ImageService,filepickerService,$window,Upload, localStorageService,addCareersService){ //se inyecta el service userService en el controlador para que se tenga acceso
       //controlador
       
 
       var studentCtrl = this; //binding del controlador con el html, solo en el controlador
+      var careers = addCareersService.getCareer();
+      studentCtrl.careers = careers;
+
       studentCtrl.cloudObj = ImageService.getConfiguration();
 
 
@@ -31,7 +34,7 @@
 
        function onSuccess(Blob){
         // cshReqCtrl.files.push(Blob);
-        studentCtrl.stu.studentFile = Blob.url;
+        studentCtrl.stu.resumeUrl = Blob.url;
         // $window.localStorage.setItem('files', JSON.stringify(cshReqCtrl.files));
       };
 
@@ -51,39 +54,41 @@
 
       studentCtrl.save= function(pimage){
         var newStudent ={
-          statusId: 1,
+          state_key : 1,
+          state: "Postulado",
+          role_key: 4,
+          role: "student",
           name : studentCtrl.stu.name,
-          firstName : studentCtrl.stu.firstName,
-          surName : studentCtrl.stu.surName,
+          surname : studentCtrl.stu.surName,
+          secondSurname : studentCtrl.stu.secondSurname,
           id : studentCtrl.stu.id,
-          birthday : studentCtrl.stu.birthday,
-          email : studentCtrl.stu.email,
+          birthdate : studentCtrl.stu.birthdate,
+          mail : studentCtrl.stu.mail,
           password : studentCtrl.stu.password,
-          career : studentCtrl.stu.career,
-          course : studentCtrl.stu.course,
-          studentFile : studentCtrl.stu.studentFile,
-          userGit : studentCtrl.stu.userGit,
-          link : studentCtrl.stu.link,
+          carrers : studentCtrl.stu.carrers,
+          resumeUrl : studentCtrl.stu.resumeUrl,
+          gitHubUrl : studentCtrl.stu.gitHubUrl,
+          websiteUrl : studentCtrl.stu.websiteUrl,
           cellphoneNumber : studentCtrl.stu.cellphoneNumber,
-          avatar: pimage
+          avatarUrl: pimage
         }
         console.log(newStudent);
         
         studentService.addStudent(newStudent);
 
         studentCtrl.stu.name = null;
-        studentCtrl.stu.firstName = null;
         studentCtrl.stu.surName = null;
+        studentCtrl.stu.secondSurname = null;
         studentCtrl.stu.id = null;
-        studentCtrl.stu.birthday = null;
-        studentCtrl.stu.email = null;
+        studentCtrl.stu.birthdate = null;
+        studentCtrl.stu.mail = null;
         studentCtrl.stu.password = null;
-        studentCtrl.stu.career = null;
-        studentCtrl.stu.course = null;
-        studentCtrl.stu.userGit = null;
-        studentCtrl.stu.link = null;
+        studentCtrl.stu.carrers = null;
+        studentCtrl.stu.resumeUrl = null;
+        studentCtrl.stu.gitHubUrl = null;
+        studentCtrl.stu.websiteUrl = null;
         studentCtrl.stu.cellphoneNumber = null;
-        studentCtrl.stu.avatar = null;
+        studentCtrl.stu.avatarUrl = null;
       }
     }
      //se establece un objeto de angular normal

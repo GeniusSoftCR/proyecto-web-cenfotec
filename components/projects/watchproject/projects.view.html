@@ -1,46 +1,48 @@
 <!--=======================================================================================
 =            Este el component de Cenfotec Sotware House Ver proyecto       =
 ========================================================================================-->
-<div class="dashboard">
-  <div class="wrap">
-    <h1 style="color: #000">Estas en el proyecto ID: {{ watchProjectCtrl.projectId }}</h1>
-    <div class="row cf">
-      <div class="col-sm-12 col-md-6">
-        <div class="box">
-          <h1 class="boxTitle">Todo List</h1>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <div class="box">
-          <h1 class="boxTitle">Datos del Proyecto</h1>
-          <div class="boxContent">
-            <p>Nombre: {{ watchProjectCtrl.project.name }}</p>
-            <p>Empresa: {{ watchProjectCtrl.client.company }}</p>
-            <p>Estado: {{ watchProjectCtrl.status.name }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="box cf">
-        <h1 class="boxTitle">Expediente</h1>
+<div ng-include="'components/dashboard/header/header.view.html'"></div>
+<div class="wrapper">
+  <div class="menu" ng-include="'components/dashboard/menu/menu.view.html'"></div>
+  <div class="dashboard">
+    <div class="wrap">
+      <div class="row cf">
         <div class="col-sm-12 col-md-6">
-          <div class="box boxAlternative">
-            <h1 class="boxTitle">Archivos</h1>
+          <div class="box">
+            <h1 class="boxTitle">Todo List</h1>
           </div>
         </div>
         <div class="col-sm-12 col-md-6">
-          <div ui-view="anotaciones"></div>
-        </div> 
+          <div class="box">
+            <h1 class="boxTitle">Datos del Proyecto</h1>
+            <div class="boxContent">
+              <p>Nombre: {{ watchProjectCtrl.project.name }}</p>
+              <p>Empresa: {{ watchProjectCtrl.client.company }}</p>
+              <p>Estado: {{ watchProjectCtrl.status.name }}</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row cf">
-      <div class="col-sm-12 col-md-3">
+      <div class="row">
+        <div class="box cf">
+          <h1 class="boxTitle">Expediente</h1>
+          <div class="col-sm-12 col-md-6">
+            <div ui-view="archivos"></div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <div ui-view="anotaciones"></div>
+          </div> 
+        </div>
       </div>
-      <div class="col-sm-12 col-md-3">
-        <div ui-view="estudiantes"></div>
-      </div>
-      <div class="col-sm-12 col-md-3">
+      <div class="row cf">
+        <div class="col-sm-12 col-md-3">
+          <div ui-view="profesores"></div>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <div ui-view="estudiantes"></div>
+        </div>
+        <div class="col-sm-12 col-md-3">
+        </div>
       </div>
     </div>
   </div>
