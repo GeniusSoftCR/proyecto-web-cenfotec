@@ -48,7 +48,18 @@
 	        templateUrl: 'components/projects/assignTeachers/assignTeachers.projects.view.html',
 	        controller: 'assignTeachersController',
 	        controllerAs: 'assignTeachersCtrl'
+	      },
+	      'header@watchProject': { //Andres asignar estudiantes
+	        templateUrl: 'components/dashboard/header/header.view.html',
+	        controller: 'headerController',
+	        controllerAs: 'headerCtrl'
+	      },
+	      'menu@watchProject': { //Andres asignar estudiantes
+	        templateUrl: 'components/dashboard/menu/menu.view.html',
+	        controller: 'menuController',
+	        controllerAs: 'menuCtrl'
 	      }
+
 	    }
 		})
 		//steph estudiantes
