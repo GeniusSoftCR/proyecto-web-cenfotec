@@ -1,3 +1,6 @@
 (function () {
-	angular.module('cshApp', ['appRoutes','LocalDataModule','ngMaterial']);
+	angular.module('cshApp', [
+		'appRoutes',
+		'LocalDataModule'
+	]);
 })();
