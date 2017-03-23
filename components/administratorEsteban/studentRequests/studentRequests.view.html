@@ -1,0 +1,63 @@
+<!--Mostrar solicitudes de estudiantes-->
+<div>
+	<!-- cargar las solicitudes -->
+	Lista de solicitudes
+	<ul ng-repeat="request in studentReqCtrl.requestsList | filter:{state_key:'1'}">
+		<li>
+			<!--muestra solamente el nombre del solicitante-->
+			{{request.name}}
+			<!--el botón para abrir el detalle de la solicitud-->
+			<button ng-click="studentReqCtrl.viewRequest(request)">Ver solicitud</button>
+		</li>
+	</ul>
+</div>
+
+<!--Muestra el detalle de la solicitud seleccionada-->
+<!--la idea es que sea un modal-->
+<div class="unModal" id="requestModal" ng-Show="studentReqCtrl.modal">
+	<div class="unModal-header">
+		Solicitud de {{request.name}}
+	</div>
+	<!--despliega todo el contenido de la solicitud-->
+	<div class="unModal-body">
+		Estado: {{studentReqCtrl.req.state_key}}
+		Estudiante: {{studentReqCtrl.req.name}}
+		Apellido: {{studentReqCtrl.req.surname}}
+		Apellido 2: {{studentReqCtrl.req.secondSurname}}
+		Fecha de nacimiento: {{studentReqCtrl.req.surname}}
+		Correo: {{studentReqCtrl.req.mail}}
+		Cédula: {{studentReqCtrl.req.id}}
+		Carreras:
+		<ul ng-repeat="carrer in studentReqCtrl.req.carrers">
+			<li>
+				<!--muestra solamente el nombre del solicitante-->
+				{{carrer}}
+			</li>
+		</ul>
+		Cursos:
+		<ul ng-repeat="course in studentReqCtrl.req.courses">
+			<li>
+				<!--muestra solamente el nombre del solicitante-->
+				{{course}}
+			</li>
+		</ul>
+		Currículo:
+		<button>Ver currículo</button>
+		Foto:
+		<img ng-src="{{studentReqCtrl.req.avatarUrl}}" width="50" height="50">
+
+		<!--sección oculta (contiene la justificacion del rechazo)-->
+		<div class="extra" ng-Show="studentReqCtrl.rejection">
+			<label>Justificación</label>
+			<input type="text" name="Justification" ng-model="studentReqCtrl.req.justification">
+			<div ng-show="studentReqCtrl.validate">La justificación es requerida</div>
+			<button ng-click="studentReqCtrl.rejectRequest(studentReqCtrl.req)">Confirmar rechazo</button>
+		</div>
+	</div>
+	<!--procesamiento de la solicitud (aprueba o rechaza)-->
+	<div class="unModal-footer">
+		<button ng-click="studentReqCtrl.approveRequest(studentReqCtrl.req)">Aprobar solicitud</button>
+		<button ng-click="studentReqCtrl.rejection=true">Rechazar solicitud</button><!--muestra la seccion oculta-->
+	</div>
+
+</div>

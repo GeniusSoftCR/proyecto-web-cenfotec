@@ -24,6 +24,7 @@
 
       function onSuccess(Blob){
         // cshReqCtrl.files.push(Blob);
+        console.log(Blob);
         cshReqCtrl.projectFile = Blob.url;
         // $window.localStorage.setItem('files', JSON.stringify(cshReqCtrl.files));
       };
@@ -37,21 +38,35 @@
       }
 
       cshReqCtrl.save= function(pimage){
-        var newProjectRequest ={
-          id : 1,
+        var newClient = {
+          id : cshReqService.getclientId(),
           company : cshReqCtrl.clientData.company,
-          idnumber : cshReqCtrl.clientData.identificationNumber,
-          statusId : 1,
-          client : {
-            clientName : cshReqCtrl.clientData.clientName,
-            clientMail : cshReqCtrl.clientData.clientMail
-          },
-          funds : cshReqCtrl.clientData.fundsToMakeProject,
-          projectFile : cshReqCtrl.projectFile,
-          image: pimage
+          companyIdNumber : cshReqCtrl.clientData.identificationNumber,
+          clientName : cshReqCtrl.clientData.clientName,
+          clientMail : cshReqCtrl.clientData.clientMail
         }
 
-        movieService.addMovie(newMovie);
+        var newProjectRequest ={
+          name: cshReqCtrl.clientData.projectName,
+          id : cshReqService.getProjectId(),
+          state_key : 1,
+          clientId: newClient.id,
+          professor: null,
+          assitant: null,
+          executiveSummary : cshReqCtrl.projectFile,
+          objective: '',
+           images:[
+            {
+              "url": pimage
+            }
+          ],
+          funds : cshReqCtrl.clientData.fundsToMakeProject,
+          students: [],
+          files :[]
+        }
+        
+
+        cshReqService.addProject(newProjectRequest, newClient);
 
         cshReqCtrl.clientData.company = null;
         cshReqCtrl.clientData.identificationNumber = null;

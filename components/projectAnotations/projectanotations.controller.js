@@ -4,9 +4,10 @@
   angular.module('cshApp')
     .controller('projectAnotationsController', projectAnotations);
 
-    function projectAnotations ($scope, projectAnotationsService) {
+    function projectAnotations ($scope, projectAnotationsService, $stateParams) {
       var anotationsCtrl = this;
-
+      var projectId = $stateParams.proyectoId;
+      anotationsCtrl.projectId = projectId;
       function init(){ 
         anotationsCtrl.anotations = projectAnotationsService.getAnotations();
       }
@@ -16,12 +17,15 @@
       anotationsCtrl.showModal = function () {
         anotationsCtrl.modalAnotation = true;
       }
+      anotationsCtrl.closeModal = function () {
+        anotationsCtrl.modalAnotation = false;
+      }
 
       anotationsCtrl.activeMenuIndex;
       anotationsCtrl.showSubmenu = function (item) {
         if(anotationsCtrl.activeParentIndex == item){
             anotationsCtrl.activeParentIndex = "";
-        }else{
+        } else {
             anotationsCtrl.activeParentIndex = item;
         }
       }
@@ -31,11 +35,11 @@
       anotationsCtrl.save= function () {
         var newAnotation = {
           id : 1,
-          projectId : 1,
+          projectId : anotationsCtrl.projectId,
           name : anotationsCtrl.data.name,
           description : anotationsCtrl.data.desc,
           iduserCreate: 1
-        } 
+        }
         projectAnotationsService.addAnotation(newAnotation);
         anotationsCtrl.modalAnotation = false;
         anotationsCtrl.data.name = null;

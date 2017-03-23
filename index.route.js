@@ -25,7 +25,41 @@
 		  controller: 'cshReqController',
 		  controllerAs: 'cshReqCtrl'
 		})
-
+		//Andres ver proyecto
+		.state('watchProject',{
+			url: '/proyecto/:proyectoId',
+			views: {
+				'': { //andres ver proyecto
+					templateUrl: '/components/projects/watchproject/projects.view.html',
+					controller: 'watchProjectController',
+					controllerAs: 'watchProjectCtrl'
+				},
+	      'anotaciones@watchProject': { //ANdres anotaciones
+	        templateUrl: 'components/projectAnotations/projectanotations.view.html',
+	        controller: 'projectAnotationsController',
+	        controllerAs: 'anotationsCtrl'
+	      },
+	      'estudiantes@watchProject': { //Andres asignar estudiantes
+	        templateUrl: 'components/assignStudents/assignStudents.projects.view.html',
+	        controller: 'assignStudentsController',
+	        controllerAs: 'assignStudentsCtrl'
+	      }
+	    }
+		})
+		//steph estudiantes
+		.state('estudiantes',{
+	      url: '/estudiantes',
+	      templateUrl: 'components/students/students.view.html',
+	      controller: 'studentController',
+	      controllerAs: 'studentCtrl'
+	    })
+		//esteban ver proyectos
+		.state('administrator-projects',{
+			url: '/admin/proyectos',
+			templateUrl: '/components/administratorEsteban/projects/projects.view.html',
+			controller: 'loadProjectsController',
+			controllerAs: 'projectsCtrl'
+		})
 		$urlRouterProvider.otherwise('/landingPage');
 	}
 
