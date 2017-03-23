@@ -11,6 +11,9 @@
   top: 42px;
   z-index: 5; 
   overflow-y: auto;
+  @media screen and (max-width: 988px) {
+    left: -100%;
+  }
   a {
     color: #fff;
     font-weight: 300;
@@ -42,6 +45,9 @@
   width: 100%;
   float: left;
   padding-left: 13%;
+  @media screen and (max-width: 988px) {
+    padding-left: 25px; 
+  }
 }
 
 .mainHeader {
@@ -59,6 +65,20 @@
   nav {
     float: right;
     padding-right: 43px;
+  }
+  .movil {
+    width: 50%;
+    float: left;
+    display: none;
+    @media screen and (max-width: 988px) {
+      display: block;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
   }
 }
 .user {

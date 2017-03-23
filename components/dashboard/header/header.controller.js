@@ -5,6 +5,11 @@
     .controller('headerController', headerCtrl);
 
     function headerCtrl ($scope) {
+      var headerCtrl = this;
+      headerCtrl.menuOpenorClose = function (event){
+        var jQueryElement = angular.element(event.target);
+        console.log(jQueryElement);
+      }
       
     }
 })();

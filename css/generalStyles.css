@@ -352,6 +352,9 @@ body {
   top: 42px;
   z-index: 5;
   overflow-y: auto; }
+  @media screen and (max-width: 988px) {
+    .menu {
+      left: -100%; } }
   .menu a {
     color: #fff;
     font-weight: 300;
@@ -376,6 +379,9 @@ body {
   width: 100%;
   float: left;
   padding-left: 13%; }
+  @media screen and (max-width: 988px) {
+    .dashboard {
+      padding-left: 25px; } }
 
 .mainHeader {
   background-image: linear-gradient(51deg, #222222 0%, #1b1b1b 45%, #000000 100%);
@@ -391,6 +397,18 @@ body {
   .mainHeader nav {
     float: right;
     padding-right: 43px; }
+  .mainHeader .movil {
+    width: 50%;
+    float: left;
+    display: none; }
+    @media screen and (max-width: 988px) {
+      .mainHeader .movil {
+        display: block; } }
+    .mainHeader .movil a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      display: block; }
 
 .user {
   padding: 10px; }
