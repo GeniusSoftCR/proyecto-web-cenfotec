@@ -21,7 +21,7 @@
 		//Andres solicitud de proyecto
 		.state('solicitud-proyecto',{
 		  url: '/solicitud-proyecto',
-		  templateUrl: 'components/projectRequests/cshrequest.view.html',
+		  templateUrl: 'components/projects/projectRequests/cshrequest.view.html',
 		  controller: 'cshReqController',
 		  controllerAs: 'cshReqCtrl'
 		})
@@ -35,14 +35,19 @@
 					controllerAs: 'watchProjectCtrl'
 				},
 	      'anotaciones@watchProject': { //ANdres anotaciones
-	        templateUrl: 'components/projectAnotations/projectanotations.view.html',
+	        templateUrl: 'components/projects/projectAnotations/projectanotations.view.html',
 	        controller: 'projectAnotationsController',
 	        controllerAs: 'anotationsCtrl'
 	      },
 	      'estudiantes@watchProject': { //Andres asignar estudiantes
-	        templateUrl: 'components/assignStudents/assignStudents.projects.view.html',
+	        templateUrl: 'components/projects/assignStudents/assignStudents.projects.view.html',
 	        controller: 'assignStudentsController',
 	        controllerAs: 'assignStudentsCtrl'
+	      },
+	      'profesores@watchProject': { //Andres asignar estudiantes
+	        templateUrl: 'components/projects/assignTeachers/assignTeachers.projects.view.html',
+	        controller: 'assignTeachersController',
+	        controllerAs: 'assignTeachersCtrl'
 	      }
 	    }
 		})
@@ -53,6 +58,20 @@
 	      controller: 'studentController',
 	      controllerAs: 'studentCtrl'
 	    })
+		 //Steph registro de usuarios
+		.state('registrerProfessor',{
+		      url: '/registrerProfessor',
+		      templateUrl: 'components/administratorSteph/registrerProfessor/userProfessor.view.html',
+		      controller: 'userProfessorController',
+		      controllerAs: 'userProfessorCtrl'
+		    })
+
+		.state('addCareers',{
+		      url: '/addCareers',
+		      templateUrl: 'components/administratorSteph/addCareers/addCareers.view.html',
+		      controller: 'addCareersController',
+		      controllerAs: 'addCareersCtrl'
+		    })
 		//esteban ver proyectos
 		.state('administrator-projects',{
 			url: '/admin/proyectos',

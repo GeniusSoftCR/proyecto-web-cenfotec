@@ -1,0 +1,32 @@
+<section>
+		<h1>Agregar carrera</h1>
+		<form class="careerForm">                            
+            <div class="input-group">
+            <label>Código de Carrera:</label>
+                <input ng-model="addCareersCtrl.id" id="txtidCareer" type="text" class="form-control" name="id" placeholder="Ingrese el código de la carrera" required maxlength="6" minlength="2">
+           </div>
+
+           <div class="input-group">
+            <label>Nombre de Carrera:</label>
+                <input ng-model="addCareersCtrl.nameCareer" id="txtNameCareer" type="text" class="form-control" name="nameCareer" placeholder="Ingrese el nombre de la carrera" required>
+           </div>
+
+            <div class="input-group">
+            <label>Nombre de Carrera:</label>
+              <select ng-model="addCareersCtrl.levelCareer" id="txtlevelCareer" type="text" class="form-control" name="level" required>
+                <option value="" disabled>Seleccione una opción</option>
+                <option value="Maestría">Diplomado</option>
+                <option value="Maestría">Maestría</option>
+                <option value="Licenciatura">Licenciatura</option>
+                <option value="Bachillerato">Bachillerato</option>
+                <option value="Diplomado">Diplomado</option>
+                <option value="Técnico">Técnico</option>
+              </select>
+           </div>
+
+
+          <div class="input-group"> 
+        		<input ng-disabled="careerForm.$valid" type="submit" ng-click="addCareersCtrl.save()" class="btn-small btn-red" value="Agregar">
+        	</div>
+	</form>
+</section>

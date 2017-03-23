@@ -100,8 +100,16 @@
         console.log('inside Delete Project')
       }
 
-      function _putProject (pProject) {
-        console.log('inside Put Project')
+      function _putProject (pProjectId, pUpdateProject) {
+        var projects = localStorageService.get('localProjectsList');
+        for (var i = 0; i < projects.length; i++){
+          if (projects[i].id == pProjectId) {
+            projects.splice(i, 1, pUpdateProject);
+            break;
+          }
+        }
+        console.log(projects);
+        localStorageService.set('localProjectsList', projects);
       }
 
       function _updateLocal () {

@@ -29,7 +29,6 @@
       }
 
       function _deleteAnotation (pAnotation) {
-        console.log("delete:" + pAnotation);
         anotations.splice(pAnotation, 1);
       }
 
