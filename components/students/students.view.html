@@ -1,3 +1,11 @@
+<div class="headPage">
+  <div class="container">
+    <h1>Solicitud de estudiantes</h1>
+  </div>
+</div>
+<div class="projectsRequest">
+  <div class="smallContainer">
+
 <section>
     <div class="panel panel-info" >
         <div class="panel-header">
@@ -52,12 +60,11 @@
                 </select>
             </div>
 
-        
-
-            <div class="input-group">  
-              <label>CV</label>
-              <p><a class="btn btn-default" ng-click="studentCtrl.pickFile()" ng-model="studentCtrl.stu.resumeUrl">Seleccione el archivo</a></p>
-            </div>
+            <div class="row">  
+              <label>Resumen ejecutivo</label>
+              <a class="btnUpload" ng-click="studentCtrl.pickFile()" ng-model="studentCtrl.stu.resumeUrl">
+              <i class="fa fa-cloud-upload"></i> Seleccione el CV</a>
+            </div><!-- //-Row -->
 
             <h3>Infromación Adicional</h3>
             
@@ -74,7 +81,7 @@
 
 
             <div a="input-group">
-             <lal>N[umero de teléfono:</label>
+             <label>N[umero de teléfono:</label>
               <input ng-model="studentCtrl.stu.cellphoneNumber" id="cellphoneNumber" type="text" class="form-control" maxlength="8" name="cellphoneNumber" placeholder="Ingrese n[umero de tel[efono">
             </div>
 
@@ -84,13 +91,15 @@
               <input type="file"  id="photo" ng-model="studentCtrl.stu.image">
             </div>
 
-          <div class="input-group"> 
-            <input ng-disabled="studentForm.$valid" type="submit" ng-click="studentCtrl.preSave()" class="btn1" value="Registrarse">
+            <div class="input-group"> 
+            <input ng-disabled="studentForm.$valid" type="submit" ng-click="studentCtrl.preSave()" name="submitBtn" class="btn" value="Registrarse">
             
             </div>
-           </div>
+
 
           </form>
          </div>
 
     </section>
+      </div>  <!-- //-Container -->
+</div> <!-- //Finalizamos teachers register container -->

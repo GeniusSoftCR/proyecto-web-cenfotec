@@ -92,7 +92,7 @@
 		 */
 		
 		 .state('students',{
-		       url: '/students',
+		       url: '/solicitudEstudiantes',
 		       templateUrl: 'components/students/students.view.html',
 		       controller: 'studentController',
 		       controllerAs: 'studentCtrl'
