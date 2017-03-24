@@ -164,6 +164,10 @@ ul {
   text-align: center;
   max-width: 170px; }
 
+.btn-normal{
+  margin: 0 auto;
+}
+
 p {
   margin: 0; }
 

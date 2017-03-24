@@ -23,9 +23,9 @@
 						</div>
 						<!-- carga los proyectos -->
 					    <div class="item cf" ng-repeat="project in projectsCtrl.projects | filter:{state_key:search}">
-					        <p>{{project.name}}</p>
+					        <p class="itemName">{{project.name}}</p>
 					        <div class="moreAnotations">
-					        	<button class="btn btn-blue btn-small btn-file"ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</button>
+					        	<button class="btn btn-blue btn-small btn-normal"ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</button>
 					        </div>
 					    </div><!--item-->
 		            </div><!--boxContent-->
