@@ -368,7 +368,8 @@ body {
     text-decoration: none;
     padding: 14px 0px;
     font-size: 12px;
-    text-transform: uppercase;
+    font-family: 'montserrat';
+    font-weight: 100;
     display: block;
     transition: all .3s; }
     .menu a:hover {
