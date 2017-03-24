@@ -13,8 +13,9 @@
     })
     .constant('USER_ROLES', {
       all: '*',
-      admin: 'admin',
-      assistant: 'assistant',
+      admin: 'administrador',
+      assistant: 'asistente',
+      professor : 'profesor',
       student: 'student'
     })
       //Run = confuiguracion que se aplica al correr la aplicacion *vigila*

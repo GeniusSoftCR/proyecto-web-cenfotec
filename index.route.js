@@ -21,7 +21,7 @@
 			url: '/logIn',
 			templateUrl: './components/logIn/logIn.view.html',
 			controller: 'logInController',
-			controllerAs: 'logInCtrl'
+			controllerAs: 'vm'
 		})
 		.state('404',{
 			url: '/404',
