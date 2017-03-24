@@ -15,9 +15,6 @@
       filesCtrl.projectFiles = [];
       //archivo específico a borrar
       filesCtrl.file = {};
-      
-      console.log("Recién declarado");
-      console.log(filesCtrl.projectFiles);
 
       /*ACTUALIZAR LISTA DE ARCHIVOS*/
       filesCtrl.loadProjectFiles= function(){
@@ -30,8 +27,6 @@
           if(filesCtrl.projectsList[i].id==filesCtrl.projectID){
             //2)copia la lista de archivos del proyecto actual*
             filesCtrl.projectFiles=filesCtrl.projectsList[i].files;
-            console.log("Actualizado");
-            console.log(filesCtrl.projectFiles);
           }
         }
 
@@ -52,7 +47,6 @@
       function onSuccess(Blob){
         filesCtrl.fileName = Blob.filename;
         filesCtrl.fileUrl = Blob.url;
-        // filesCtrl.addNewFile();
       };
       //Fin: Manejo de archivos
 
@@ -60,12 +54,9 @@
       filesCtrl.addNewFile= function(){
         pickFile();
         //1)crea un objeto para el nuevo archivo
-        var newFile = {name:filesCtrl.fileName,url:filesCtrl.fileUrl}
-        console.log(newFile);
+        var newFile = {name:filesCtrl.fileName,url:filesCtrl.fileUrl};
         //2)agrega el objeto a la lista de archivos(temporal)
         filesCtrl.projectFiles.push(newFile);
-        console.log("Agregando archivo");
-        console.log(filesCtrl.projectFiles);
 
         //recorre el arreglo de proyectos
         for(i = 0; i < filesCtrl.projectsList.length; i++){
@@ -80,8 +71,6 @@
 
         //refresca la lista de archivos
         filesCtrl.loadProjectFiles();
-        console.log("Actualizado 2");
-        console.log(filesCtrl.projectFiles);
       }
 
       /*ELIMINAR ARCHIVO*/
