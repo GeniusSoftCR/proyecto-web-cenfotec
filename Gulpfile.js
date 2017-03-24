@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 'use strict';
 var gulp = require('gulp'),
   sass = require('gulp-sass'),
@@ -35,28 +31,18 @@ gulp.task('js', function () {
 // Vigila cambios que se produzcan en el código
 // y lanza las tareas relacionadas
 gulp.task('watch', function () {
-<<<<<<< HEAD
   livereload.listen();
-=======
->>>>>>> dev
   gulp.watch(['./css/sass/**/*.scss'], ['css']);
-
   gulp.watch([
     './components/**/*.js',
     './components/**/*.js',
     './*.js'
   ], ['js']);
-
   gulp.watch([
     './components/**/*.html',
     './*.html'
   ], ['html']);
-
 })
-
-<<<<<<< HEAD
-gulp.task('serve', ['connect','css','html','js','watch'])
-=======
 gulp.task('serve', ['connect','css','html','js','watch'])
 
->>>>>>> dev
+

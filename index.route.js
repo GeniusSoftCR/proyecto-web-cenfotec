@@ -212,8 +212,6 @@
 		 	    controller:'profileController',
 		 	    controllerAs:'ctrl'
 		 	})
-		
->>>>>>> dev
 
 		$urlRouterProvider.otherwise('/404');
 	};
