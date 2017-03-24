@@ -24,16 +24,16 @@
       }
       return projectsList;
     }
-
-    /*function _getClients(){
+    //devuelve lista de clientes
+    function _getClients () {
       var storedList = localStorageService.get('localClientList');
       if(storedList == null){
-        clientList = [];
+        clients = [];
       }else{
-        clientList = storedList;
+        clients = storedList;
       }
-      return clientList;
-    }*/
+      return clients;
+    }
 
   }
 
