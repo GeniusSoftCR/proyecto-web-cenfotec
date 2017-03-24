@@ -4,36 +4,24 @@
 	angular.module('cshApp')
 	.controller('logInController',logInController);
 
-	logInController.$inject = ['$q','$timeout','$log','$rootScope','$scope','$location','AUTH_EVENTS','AuthService','localStorageService'];
+	logInController.$inject = ['$q','$timeout','$log','$location','AUTH_EVENTS','AuthService'];
 
 	
- 	function logInController ($q,$timeout,$log,$rootScope,$scope,$location,AUTH_EVENTS,logInService,AuthService,localStorageService){
+ 	function logInController ($q,$timeout,$log,$location,AUTH_EVENTS,AuthService){
+ 		//vm = view model
+		var vm = this;
 
-		this.user = { 
-			email: "kaguilara@ucenfotec.ac.cr", 
-			password : "2310"
-		};
+		vm.user = {};
 
-	    this.logIn = function(user){
-
-			this.loading = true;
-
-
-			var logInRequest = AuthService._authenticate;
-
-				console.log(logInRequest);
-
-			$q.when(logInRequest).then(function (){
-				$q.when(logInRequest).then(function() {    
-			      
-			           
-			        $log.info("Login success: "+logInRequest);
-			        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   
-			        
-			        $location.path('/addCareers');
-			      
-			    });
-			})
+		vm.logIn = function(credentials){ 
+			var userInfo = {
+				email: credentials.email,
+				password: credentials.password
+			};
+			
+			vm.loading = true;
+			
+			var logInRequest = AuthService.logIn();			
 	    };
 
 	};
