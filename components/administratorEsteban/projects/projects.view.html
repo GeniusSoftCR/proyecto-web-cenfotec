@@ -1,50 +1,46 @@
 <div ng-include="'components/dashboard/header/header.view.html'"></div>
 <div class="wrapper">
 <div class="menu" ng-include="'components/dashboard/menu/menu.view.html'"></div>
-	<div class="dashboard">
-		<div class="wrap">
-			<div class="row cf">
-				<!--Seccion para listar proyectos-->
-				<div ng-Show="projectsCtrl.listingProjects">
-					<!--escoger el estado de los proyectos a listar-->
-					<form>
-						<label for="projectsSelect">Estados de proyecto:</label><br>
-						<select name="projectsSelect" ng-model="search">
-					      <option value="" disabled="disabled">Seleccione un estado</option>
-					      <option ng-repeat="state in projectsCtrl.statesList" ng-value="{{state.id}}" >{{state.name}}</option>
-					    </select>
-					</form>
+<div class="dashboard">
+	<div class="wrap">
+		<div class="row cf">
+			<!--Seccion para listar proyectos-->
+			<div ng-Show="projectsCtrl.listingProjects">
+				<!--escoger el estado de los proyectos a listar-->
+				<form>
+					<label for="projectsSelect">Estados de proyecto:</label><br>
+					<select name="projectsSelect" ng-model="search">
+				      <option value="" disabled="disabled">Seleccione un estado</option>
+				      <option ng-repeat="state in projectsCtrl.statesList" ng-value="{{state.id}}" >{{state.name}}</option>
+				    </select>
+				</form>
 
-					<!--desplegar los proyectos-->
-					<div>
-						<!--mensaje para cuando no existen proyectos-->
-						<div class="message" ng-Show="projectsCtrl.message">
-							<p>No existen proyectos con el estado "{{projectsCtrl.state.name}}"</p>
-						</div>
-						<!-- carga los proyectos -->
-						<table id="tblProjects">
-						  <thead>
-						    <tr>
-						    	<th>Proyectos</th>
-						    	<th>Estado</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr ng-repeat="project in projectsCtrl.projects | filter:{state_key:search}">
-						        <td>{{project.name}}</td>
-						        <td>{{project.state_key}}</td>
-						        <td><a ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</a></td>
-						    </tr>
-						  </tbody>
-						</table>
+				<!--desplegar los proyectos-->
+				<div>
+					<!--mensaje para cuando no existen proyectos-->
+					<div class="message" ng-Show="projectsCtrl.message">
+						<p>No existen proyectos con el estado "{{projectsCtrl.state.name}}"</p>
 					</div>
-
+					<!-- carga los proyectos -->
+					<table id="tblProjects">
+					  <thead>
+					    <tr>
+					    	<th>Proyectos</th>
+					    	<th>Estado</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr ng-repeat="project in projectsCtrl.projects | filter:{state_key:search}">
+					        <td>{{project.name}}</td>
+					        <td>{{project.state_key}}</td>
+					        <td><a ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</a></td>
+					    </tr>
+					  </tbody>
+					</table>
 				</div>
+
 			</div>
 		</div>
-	</div><!--Fin dashboard-->
-	<!--aquí debería mostrarse el proyecto con todas las subvistas de cada uno-->
-	<div class="project" ng-Show="projectsCtrl.projectView">
-		
-	</div>
+	</div><!--fin wrap-->
+</div><!--Fin dashboard-->
 </div><!--Fin wrapper-->
