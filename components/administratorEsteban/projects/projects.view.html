@@ -25,7 +25,7 @@
 					    <div class="item cf" ng-repeat="project in projectsCtrl.projects | filter:{state_key:search}">
 					        <p>{{project.name}}</p>
 					        <div class="moreAnotations">
-					        	<a ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</a>
+					        	<button class="btn btn-blue btn-small btn-file"ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</button>
 					        </div>
 					    </div><!--item-->
 		            </div><!--boxContent-->
