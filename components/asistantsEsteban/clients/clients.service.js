@@ -9,8 +9,8 @@
   function clientsService($http,localStorageService){
 
     var publicAPI = {
-      getProjects : _getProjects
-      //getClients : _getClients
+      getProjects : _getProjects,
+      getClients : _getClients
     };
     return publicAPI;
 
