@@ -19,13 +19,10 @@
 
       <div ng-show="clientsCtrl.clientContainer">
 
-      	<p>Cliente: {{clientsCtrl.client.nombre}}</p>
-      	<p>Cédula: {{clientsCtrl.client.cedula}}</p>
-      	<p>Responsable: {{clientsCtrl.client.responsable.name}}</p>
-      	<p>Correo: {{clientsCtrl.client.responsable.mail}}</p>
-      	<p>Sector: {{clientsCtrl.client.sector}}</p>
-      	<p>Objetivo: {{clientsCtrl.client.objective}}</p>
-      	<p>Fondos: {{clientsCtrl.client.founding}}</p>
+      	<p>Cliente: {{clientsCtrl.client.company}}</p>
+        <p>Cédula: {{clientsCtrl.client.companyIdNumber}}</p>
+        <p>Responsable: {{clientsCtrl.client.clientName}}</p>
+        <p>Correo: {{clientsCtrl.client.clientMail}}
 
       </div>
   </div>
