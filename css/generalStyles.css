@@ -485,3 +485,13 @@ body {
     font-weight: 100; }
     #login a:hover {
       text-decoration: underline; }
+
+.select-blue {
+  border-radius: 25px;
+  background-color: #1b264f;
+  color: #fff;
+}
+.select-blue:hover{
+  background-color: #fff;
+  color: #1b264f;
+}
