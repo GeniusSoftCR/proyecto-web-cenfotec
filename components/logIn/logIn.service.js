@@ -25,13 +25,13 @@
 		var cacheSession = function(userData){
 			logInCtrl.set ("logInUser", true);
 			var user = {
-				email : logInCtrl.email,
-				password : logInCtrl.password
+				email : credentials.email,
+				password : credentials.password
 			}
 
 			logInCtrl.setList("user", user)
 		}
-		var uncacheSession
+		
 	
 
 })();
