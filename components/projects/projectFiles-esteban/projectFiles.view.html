@@ -4,17 +4,16 @@
     <div class="boxContent">
       <div class="barrascrolleable">
       	<ul>
-      		<li class="item" ng-repeat="file in filesCtrl.projectFiles track by $index">
-      			Nombre del archivo: {{file.name}}
-      			Url del archivo: {{file.url}}
-      			<button ng-click="filesCtrl.removeFile(file)">Borrar archivo</button>
+      		<li class="item cf" ng-repeat="file in filesCtrl.projectFiles track by $index">
+      			<p class="itemName">{{file.name}}</p>
+      			<button class="btn btn-blue btn-small" ng-click="filesCtrl.removeFile(file)">Borrar</button>
       		</li>
       	</ul>
       </div>
 
       <div>  
       	<!-- botón para agregar el archivo -->
-          <button class="btn btn-red btn-small" ng-click="filesCtrl.addNewFile()">Agregar archivo</button>
+          <button class="btn btn-red btn-small" ng-click="filesCtrl.addNewFile()">+Agregar archivo</button>
       </div>
 
     </div>
