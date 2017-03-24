@@ -30,7 +30,7 @@
 			        $log.info("Login success: "+logInRequest);
 			        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   
 			        
-			        $location.path('/404');
+			        $location.path('/addCareers');
 			      
 			    });
 			})
