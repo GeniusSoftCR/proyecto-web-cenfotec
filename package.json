@@ -16,13 +16,10 @@
     "url": "https://github.com/GeniusSoftCR/ProyectoWeb-Cenfotec/issues"
   },
   "homepage": "https://github.com/GeniusSoftCR/ProyectoWeb-Cenfotec#readme",
-  "devDependencies": {
+  "dependencies": {
     "gulp": "^3.9.1",
     "gulp-connect": "^4.0.0",
     "gulp-sass": "^2.3.1",
     "nib": "^1.1.0"
-  },
-  "dependencies": {
-    "oclazyload": "^1.1.0"
   }
 }
