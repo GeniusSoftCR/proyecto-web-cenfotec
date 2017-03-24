@@ -10,6 +10,7 @@
 
     var publicAPI = {
       getProjects : _getProjects
+      //getClients : _getClients
     };
     return publicAPI;
 
@@ -23,6 +24,16 @@
       }
       return projectsList;
     }
+
+    /*function _getClients(){
+      var storedList = localStorageService.get('localClientList');
+      if(storedList == null){
+        clientList = [];
+      }else{
+        clientList = storedList;
+      }
+      return clientList;
+    }*/
 
   }
 
