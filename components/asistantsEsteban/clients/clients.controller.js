@@ -9,23 +9,26 @@
 		var clientsCtrl = this;
 		//trae la lista de proyectos
 		clientsCtrl.projects = clientsService.getProjects();
+		//trae la lista de clientes
+		clientsCtrl.clients = clientsService.getClients();
 		clientsCtrl.clientContainer = false;
 		clientsCtrl.client = {};
-		
-		//contendrá la lista de clientes
-		/*clientsCtrl.clients = [];
-		//concatena los clientes de cada proyecto en una colección para ser consumida en la vista
-		for(i = 0; i < clientsCtrl.projects.length; i++){
-		    //lo agrega a la lista de miembros
-		    clientsCtrl.clients.push(projectMembCtrl.teachers[i]);
-		}*/
       	
       	clientsCtrl.showInfo= function(project){
 	        //oculta la sección de información del cliente
 	        clientsCtrl.clientContainer = true;
-	        console.log(project.clientId);
+	        //almacena el proyecto que viene por parámetro
+	        clientsCtrl.project=project;
+	        //recorre todos los clientes
+        	for(j = 0; j < clientsCtrl.clients.length; j++){
+        		//verifica cuando el id de proyecto coincide con el id de cliente
+        		if(clientsCtrl.project.id==clientsCtrl.clients[j].id){
+        			clientsCtrl.client = clientsCtrl.clients[j];
+        		}
+        	}
+	        
 	   	}
-
+	   	
     }
 
 })();
