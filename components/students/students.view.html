@@ -1,0 +1,96 @@
+<section>
+    <div class="panel panel-info" >
+        <div class="panel-header">
+           <h1>Envío de solicitud de estudiante</h1>
+        </div>
+        <div class="panel-body" >
+        <form class="studentForm">                            
+            <div class="input-group">
+            <label>Nombre:</label>
+                <input ng-model="studentCtrl.stu.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese su nombre" required>
+            </div>
+
+            <div class="input-group">
+            <label>Primer Apellido:</label>
+                <input ng-model="studentCtrl.stu.surName" id="txtFirstName" type="text" class="form-control" name="lastName" placeholder="Ingrese su primer apellido" required>
+            </div>
+
+
+
+
+            <div class="input-group">
+            <label>Segundo Apellido:</label>
+                <input ng-model="studentCtrl.stu.secondSurname" id="txtSurname" type="text" class="form-control" name="surName" placeholder="Ingrese su segundo apellido" required>
+            </div>
+
+            <div class="input-group">
+            <label>Cédula de identidad:</label>
+              <input ng-model="studentCtrl.stu.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su c]edula" maxlength="9" required>
+            </div>
+
+            <div class="input-group">
+            <label>Fecha de nacimiento:</label>
+                <input type="date" class="form-control" ng-model="studentCtrl.stu.birthdate" required>
+            </div>
+
+            <div class="input-group">
+            <label>Correo electrónico:</label>
+               <input ng-model="studentCtrl.stu.mail" id="txtEmail" type="email" class="form-control" name="mail" ng-required="true" placeholder="Correo electrónico" required>
+            </div>
+
+            <div class="input-group">
+            <label>Contraseña:</label>
+                <input ng-model="studentCtrl.stu.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required>
+            </div>
+
+
+            <div class="input-group">
+              <label>Carreras:</label>
+                <select name="addCarrersStu" ng-model="studentCtrl.stu.carrers" multiple>
+                  <option value="" disabled="disabled">Seleccione un estado</option>
+                  <option ng-repeat="career in studentCtrl.careers" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><!--carrers-->
+                </select>
+            </div>
+
+        
+
+            <div class="input-group">  
+              <label>CV</label>
+              <p><a class="btn btn-default" ng-click="studentCtrl.pickFile()" ng-model="studentCtrl.stu.resumeUrl">Seleccione el archivo</a></p>
+            </div>
+
+            <h3>Infromación Adicional</h3>
+            
+            <div class="input-group">
+              <label>Usuario GitHub</label>
+              <input ng-model="studentCtrl.stu.gitHubUrl" id="gitHub" type="text" class="form-control" name="gitHubUrl" placeholder="Ingrese su usario de GitHub">
+              </div>
+            
+
+            <div class="input-group">
+              <label>Link de sitio web:</label>
+                <input ng-model="studentCtrl.stu.websiteUrl" id="link" type="text" class="form-control" name="websiteUrl" placeholder="Ingrese link-sitio web">
+            </div>
+
+
+            <div a="input-group">
+             <lal>N[umero de teléfono:</label>
+              <input ng-model="studentCtrl.stu.cellphoneNumber" id="cellphoneNumber" type="text" class="form-control" maxlength="8" name="cellphoneNumber" placeholder="Ingrese n[umero de tel[efono">
+            </div>
+
+            <div class="input-group">
+            
+              <label>Avatar</label>
+              <input type="file"  id="photo" ng-model="studentCtrl.stu.image">
+            </div>
+
+          <div class="input-group"> 
+            <input ng-disabled="studentForm.$valid" type="submit" ng-click="studentCtrl.preSave()" class="btn1" value="Registrarse">
+            
+            </div>
+           </div>
+
+          </form>
+         </div>
+
+    </section>

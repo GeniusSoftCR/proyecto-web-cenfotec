@@ -1,0 +1,15 @@
+@import "../../bower_components/susy/sass/susy";
+
+@import "generalSettings/grid";
+@import "generalSettings/tipografia";
+@import "generalSettings/general";
+@import "generalSettings/header";
+
+//Component de Solicitud de proyecto por parte de cliente
+@import "components/clientRequest/cshRequest.view";
+//Component de Anotaciones
+@import "components/projects/anotations";
+
+@import "components/header";
+
+@import "components/logIn/logIn"

@@ -1,0 +1,48 @@
+<!--=======================================================================================
+=            Este el component de Cenfotec Sotware House Anotaciones en Proyecyo          =
+========================================================================================-->
+
+<div class="listAnotations box boxAlternative">
+  <h1 class="boxTitle">Anotaciones</h1>
+  <div class="boxContent">
+    <div class="item cf" ng-repeat="(anotationIndex, anotation) in anotationsCtrl.anotations">
+        <p class="itemName">{{ anotation.name }}</p>
+        <a class="itemMore" ng-click="anotationsCtrl.showSubmenu(anotationIndex)"><i class="fa fa-ellipsis-h"></i></a>
+        <div class="menuExtend" ng-show="anotationsCtrl.isShowing(anotationIndex)">
+          <nav class="anotationOptions">
+            <ul>
+              <li><a href="javascript:;" ng-click="anotationsCtrl.delete($index)">Eliminar</a></li>
+              <li><a href="javascript:;" ng-click="anotationsCtrl.preModify($index)">Modificar</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+<!--             <div class="itemExtended">
+      <p> {{anotation.description }}</p>
+      <a href="javascript:;" ng-click="anotationsCtrl.delete($index)">Eliminar</a>
+      <a href="javascript:;" ng-click="anotationsCtrl.preModify($index)">Modificar</a>
+      <div class="itemModify">
+        <input ng-model="anotationsCtrl.itemChange.name"></input>
+        <textarea cols="30" rows="10" class="descAnotation" ng-model="anotationsCtrl.itemChange.description"></textarea>
+        <a href="javascript:;" ng-click="anotationsCtrl.modify($index)">Guardar modificación</a>
+      </div>
+    </div> -->
+    <div class="cf">
+      <div class="createAnotation">
+        <a href="javascript:;" ng-click="anotationsCtrl.showModal()"  class="btn btn-red btn-small"><i class="fa fa-plus"></i> Crear Anotación</a>
+      </div>
+      <div class="moreAnotations">
+        <a href="javascript:;" ng-click="" class="btn btn-blue btn-small">Ver Más</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modalElement" id="newAnotation" ng-show="anotationsCtrl.modalAnotation">
+  <div class="modalElement_container">
+    <a href="javascript:;" ng-click="anotationsCtrl.closeModal()">Cerrar</a>
+    <h2>Nueva Anotación</h2>
+    <input class="nameAnotation" ng-model="anotationsCtrl.data.name"></input>
+    <textarea name="descAnotation" cols="30" rows="10" class="descAnotation" ng-model="anotationsCtrl.data.desc"></textarea>
+    <a href="javascript:;" ng-click="anotationsCtrl.save()" class="btn">Enviar</a>
+  </div>
+</div>

@@ -3,9 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cenfotec Software House</title>
+<<<<<<< HEAD
+=======
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/generalStyles.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">	
+>>>>>>> dev
 </head>
 <body ng-cloak>
 	<div ui-view></div>
+<<<<<<< HEAD
 	<!-- Angular -->
 		<script src="bower_components/angular/angular.min.js"></script>
 	<!-- App external modules .js -->
@@ -20,5 +27,123 @@
 			<script src="index.route.js"></script>  	
 	  	<!-- #Services -->
 			<script src="data/data.service.js"></script>
+=======
+
+	<!-- Filestack *Andres* -->
+	<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+	<!-- AngularJs -->
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
+	<!-- Cloudinary -->
+	<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+	<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+	<script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+
+	<!-- AppJs -->
+	<script src="app.js"></script>
+	<script src="index.route.js"></script>
+  <script src="data/db.js"></script>
+  <script src="components/authentication/auth.service.js"></script>
+  <script src="components/authentication/authinterceptor.js"></script>
+  <script src="components/authentication/session.js"></script>
+	
+	<!-- FileStack -->
+	<script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
+	<script src="components/services/image.service.js"></script>
+
+	<!--===========================
+	=            KEVIN            =
+	============================-->
+	
+
+	<!--Scripts del inicio de sesion Kevin :)-->
+	<script src="components/logIn/logIn.controller.js"></script>
+	
+	<!--=============================
+	=            ANDRRES            =
+	==============================-->
+	
+	<!-- solicitud de  cliente desde Landing CSH - Andres-->
+	<script src="components/projects/projectRequests/cshrequest.controller.js"></script>
+	<script src="components/projects/projectRequests/cshrequest.service.js"></script>
+
+	<!-- Crear Anotación en projecto - Andres -->
+	<script src="components/projects/projectAnotations/projectanotations.controller.js"></script>
+	<script src="components/projects/projectAnotations/projectanotations.service.js"></script>
+
+	<!-- asignar estudiantes - Andres -->
+	<script src="components/projects/assignStudents/assignStudents.projects.controller.js"></script>
+	<script src="components/projects/assignStudents/assignStudents.projects.service.js"></script>
+
+	<!-- asignar profesores - Andres -->
+	<script src="components/projects/assignTeachers/assignTeachers.projects.controller.js"></script>
+	<script src="components/projects/assignTeachers/assignTeachers.projects.service.js"></script>
+
+	<!-- ver proyecto - Andres -->
+	<script src="components/projects/watchproject/projects.controller.js"></script>
+	<script src="components/projects/watchproject/projects.service.js"></script>
+
+	<!-- dashboard header - Andres -->
+	<script src="components/dashboard/header/header.controller.js"></script>
+	<script src="components/dashboard/header/header.service.js"></script>
+	<!-- dashboard menu - Andres -->
+	<script src="components/dashboard/menu/menu.controller.js"></script>
+	<script src="components/dashboard/menu/menu.service.js"></script>
+
+
+<!--=============================
+=            ESTEBAN            =
+==============================-->
+<!--**Scripts de *Esteban** -->
+<!--Solicitudes de estudiantes-->
+<script src="components/administratorEsteban/studentRequests/studentRequests.service.js"></script>
+<script src="components/administratorEsteban/studentRequests/studentRequests.controller.js"></script>
+<!--Listar proyectos por actor-->
+<script src="components/administratorEsteban/projects/admin_projects.service.js"></script>
+<script src="components/administratorEsteban/projects/projects.controller.js"></script>
+<!-- <script src="components/asistantsEsteban/projects/asis_projects.service.js"></script>
+<script src="components/asistantsEsteban/projects/projects.controller.js"></script> 
+<script src="components/teachersEsteban/projects/teacher_projects.service.js"></script>
+<script src="components/teachersEsteban/projects/projects.controller.js"></script> 
+<script src="components/studentsEsteban/projects/students_projects.service.js"></script>
+<script src="components/studentsEsteban/projects/projects.controller.js"></script>  -->
+<!--Agregar y eliminar archivos por actor--><!--SE PUEDE USAR UNA VISTA PARA TODOS LOS ACTORES?-->
+<script src="components/projects/projectFiles-esteban/projectFiles.service.js"></script>
+<script src="components/projects/projectFiles-esteban/projectFiles.controller.js"></script> 
+<!-- Reportes -->
+<script src="components/administratorEsteban/reports/projectMembers/projectMembers.service.js"></script>
+<script src="components/administratorEsteban/reports/projectMembers/projectMembers.controller.js"></script>
+<!-- Clientes -->
+<script src="components/asistantsEsteban/clients/clients.service.js"></script>
+<script src="components/asistantsEsteban/clients/clients.controller.js"></script> 
+<!--**Scripts de *Esteban** -->
+
+
+<!--================================
+=            Stephanie            =
+=================================-->
+<script src="components/students/students.service.js"></script>
+<script src="components/students/students.controller.js"></script>
+
+<script src="components/administratorSteph/registrerProfessor/userProfessor.service.js"></script>
+<script src="components/administratorSteph/registrerProfessor/userProfessor.controller.js"></script>
+
+<script src="components/administratorSteph/registrerAssistant/userAssistant.service.js"></script>
+<script src="components/administratorSteph/registrerAssistant/userAssistant.controller.js"></script>
+
+<script src="components/administratorSteph/registrerAdmi/userAdmi.service.js"></script>
+<script src="components/administratorSteph/registrerAdmi/userAdmi.controller.js"></script>
+
+<script src="components/administratorSteph/addCareers/addCareers.service.js"></script>
+<script src="components/administratorSteph/addCareers/addCareers.controller.js"></script>
+
+
+<!--=====================================
+=            Hector Scripts            =
+======================================-->
+
+
+>>>>>>> dev
 </body>
 </html>

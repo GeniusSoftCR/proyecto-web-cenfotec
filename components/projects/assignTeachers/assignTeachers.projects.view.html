@@ -1,0 +1,55 @@
+<!--=======================================================================================
+=            Este el component de Cenfotec Sotware House asignamiento de profesores      =
+========================================================================================-->
+
+
+<div class="projectStudentAssigned">
+  <div class="box">
+    <h1 class="boxTitle">Profesores Asistentes</h1>
+    <div class="listStudents boxContent">
+      <div class="item cf" ng-repeat="teacher in assignTeachersCtrl.teachersData">
+        <div class="avatar small"> <img src="{{ teacher.avatar }}"> </div>
+        <p class="name">{{ teacher.name }} {{ teacher.surName }} {{ student.secondsurName }}</p>
+        <a class="trash" href="javascript:;" ng-click="assignTeachersCtrl.remove($index)"><i class="fa fa-trash"></i></a>
+      </div>
+    </div>
+    <div class="cf">
+      <div class="addTeachers">
+        <a href="javascript:;" ng-click="assignTeachersCtrl.openModal()"  class="btn btn-red btn-small"><i class="fa fa-plus"></i>Asignar Profesor</a>
+      </div>
+    </div>
+  </div>  <!-- //-Container -->
+</div> <!-- //Finalizamos Project Anotations-->
+
+
+<div class="modalElement" id="newStudent" ng-show="assignTeachersCtrl.modal">
+  <div class="modalElement_container">
+    <a href="javascript:;" ng-click="assignTeachersCtrl.closeModal()">Cerrar</a>
+    <h2>Asignar profesor asistente a proyecto</h2>
+    <form>
+        <label>Buscar Profesor:</label>
+        <input type="text" placeholder="Ingresa aquí el nombre" ng-model="teacherSearch">
+        <h3>Lista de profesores:</h3>
+        <div class="student cf" ng-repeat="teacher in assignTeachersCtrl.teachers  | filter:teacherSearch | startFrom:assignTeachersCtrl.currentPage*assignTeachersCtrl.pageSize | limitTo:assignTeachersCtrl.pageSize">
+          <div class="col-sm-12  col-md-3">
+            <div class="avatar">
+              <img src="{{ teacher.avatar }}" alt=" {{ teacher.name }} ">
+            </div>
+          </div>
+          <div class="col-sm-12  col-md-3">
+            <p>{{ teacher.name }}</p>
+          </div>
+          <div class="col-sm-12  col-md-3">
+            <input type="checkbox" name="teacherSelected" ng-true-value="{{ teacher.id }}" ng-model="assignTeachersCtrl.assign.teacherChecked">
+          </div>
+        </div>
+        <button ng-disabled="assignTeachersCtrl.currentPage == 0" ng-click="assignTeachersCtrl.currentPage=assignTeachersCtrl.currentPage-1">
+            Previous
+        </button>
+        {{assignTeachersCtrl.currentPage+1}}/{{assignTeachersCtrl.numberOfPages()}}
+        <button ng-disabled="assignTeachersCtrl.currentPage >= assignTeachersCtrl.students.length/assignTeachersCtrl.pageSize - 1" ng-click="assignTeachersCtrl.currentPage=assignTeachersCtrl.currentPage+1">
+            Next</button>
+        <a href="javascript:;" ng-click="assignTeachersCtrl.assignTeacher()" class="btn btn-small btn-red">Asignar</a>
+    </form>
+  </div>
+</div>

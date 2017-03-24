@@ -1,0 +1,51 @@
+<!--=======================================================================================
+=            Este el component de Cenfotec Sotware House Solicitud de Clientes            =
+========================================================================================-->
+<div class="headPage">
+  <div class="container">
+    <h1>Solicitud de proyecto</h1>
+  </div>
+</div>
+<div class="projectsRequest">
+  <div class="smallContainer">
+    <form>
+      <div class="row">
+        <label>Empresa:</label>
+        <input type="text" name="company" ng-model="cshReqCtrl.clientData.company">
+      </div><!-- //-Row -->
+      <div class="row">  
+          <label>Cédula jurídica o cédula física:</label>
+          <input type="text" name="identificationNumber" ng-model="cshReqCtrl.clientData.identificationNumber">
+      </div><!-- //-Row -->
+      <div class="row">  
+          <label>Responsable de proyecto:</label>
+          <input type="text" name="clientName" ng-model="cshReqCtrl.clientData.clientName">
+      </div><!-- //-Row -->
+      <div class="row">  
+          <label>Correo electrónico:</label>
+          <input type="text" name="clientMail" ng-model="cshReqCtrl.clientData.clientMail">
+      </div><!-- //-Row -->
+      <div class="row">  
+          <label>Resumen ejecutivo</label>
+          <a class="btnUpload" ng-click="cshReqCtrl.pickFile()">
+          <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
+          </a>
+      </div><!-- //-Row -->
+      <div class="row">
+        <label>Nombre de proyecto:</label>
+        <input type="text" name="company" ng-model="cshReqCtrl.clientData.projectName" placeholder="Ej: Aplicación de iOS">
+      </div><!-- //-Row -->
+      <div class="row">  
+          <label>Fondos para realizar proyecto:</label>
+          <input type="text" name="fundsToMakeProject" ng-model="cshReqCtrl.clientData.fundsToMakeProject">
+      </div><!-- //-Row -->
+      <div class="row">  
+          <label>Imágenes:</label>
+          <input type="file" name="projectImages"  id="imageProjectRequest" ng-model="cshReqCtrl.clientData.projectImages">
+      </div><!-- //-Row -->
+      <div class="row">  
+        <button type="submit" name="submitBtn" class="btn" ng-click="cshReqCtrl.preSave()">Enviar solicitud</button>
+      </div><!-- //-Row -->
+    </form> <!-- //-Form -->
+  </div>  <!-- //-Container -->
+</div> <!-- //Finalizamos teachers register container -->
