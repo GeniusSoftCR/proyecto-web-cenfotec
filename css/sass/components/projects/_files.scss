@@ -1,0 +1,64 @@
+body {
+  margin: 0; 
+}
+.dashboard {
+  background: #efeff1; 
+  padding: 40px; 
+}
+.box {
+  background: #fff;
+  padding: 0; 
+  border-radius: 10px;
+  margin: 10px  0;  
+}
+.boxTitle {
+  color: #1b264f;
+  border-bottom: 7px solid #efeff1;
+  font-size: 18px;
+  padding: 10px; 
+  font-weight: 400;  
+}
+.boxContent {
+  padding: 10px 20px 20px; 
+}
+.boxAlternative {
+  background: #efeff1; 
+  .boxTitle {
+    border-bottom: 7px solid #fff;
+  }
+}
+
+.listAnotations {
+  .item {
+    background: #f8f9fb;
+    border-radius: 15px;
+    padding:  10px 10px;  
+    font-weight: 300; 
+    margin-top: 10px;
+    position: relative;
+  }
+  .itemName {
+    float: left;
+  }
+  .itemMore {
+    float: right;
+    font-size: 20px; 
+  }
+}
+
+.createAnotation {
+  float: left;
+}
+
+.moreAnotations {
+  float: right;
+}
+
+.item {
+  background: #efeff1;
+  border-radius: 15px;
+  padding: 10px 10px;
+  font-weight: 300;
+  margin-top: 10px;
+  position: relative;
+}
