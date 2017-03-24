@@ -1,5 +1,6 @@
 
 (function(){
+  'use strict';
   angular.module('cshApp', ['ui.router', 'angular-filepicker', 'ngFileUpload','LocalDataBase', 'LocalStorageModule'])
     .config(function (filepickerProvider) {
     filepickerProvider.setKey('ATHNKI5KATbile6a9svfXz');
