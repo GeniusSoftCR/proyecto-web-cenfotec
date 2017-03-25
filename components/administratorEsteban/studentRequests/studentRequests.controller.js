@@ -45,6 +45,9 @@
         /*4)Back End:enviar notificación por correo*/
         }else{studentReqCtrl.validation=true;}
       }
+      studentReqCtrl.closeModal = function (_param) {
+        assignStudentsCtrl.modal = false;
+      }
 
     }
 
