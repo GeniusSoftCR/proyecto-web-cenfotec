@@ -1,5 +1,5 @@
 (function(){
-  angular.module('cshApp', ['ui.router', 'angular-filepicker', 'ngFileUpload','LocalDataBase', 'LocalStorageModule'])
+  angular.module('cshApp', ['appRoutes','angular-filepicker', 'ngFileUpload','LocalDataBase', 'LocalStorageModule'])
     .config(function (filepickerProvider) {
     filepickerProvider.setKey('ATHNKI5KATbile6a9svfXz');
   })
@@ -19,10 +19,10 @@
       student: 'student'
     })
       //Run = confuiguracion que se aplica al correr la aplicacion *vigila*
-      .run(function ($rootScope, AUTH_EVENTS, AuthService) {
+    .run(function ($rootScope, AUTH_EVENTS, AuthService) {
       //on esta atento a eventos en rootscope -- $stateChangeStartesrta atento a cambios
-        $rootScope.$on('$stateChangeStart', function (event, next) {
+      $rootScope.$on('$stateChangeStart', function (event, next) {
           //
-        });
       });
+    });
 })();
