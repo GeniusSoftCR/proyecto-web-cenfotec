@@ -1,8 +1,11 @@
 (function(){
 	'use strict';
 	angular
-	.module('cshApp')
+	.module('appRoutes',['ui.router'])
+
 	.config(configuration)
+
+	configuration.$inject = ['$stateProvider', '$urlRouterProvider']
 
 	function configuration($stateProvider, $urlRouterProvider){
 		$stateProvider
@@ -182,20 +185,20 @@
 		 * HECTOR
 		 *
 		 */
-		 	.state('perfil', {
-		 	    url: '/perfil/:username',
-		         resolve: {  
-		           load: ['$ocLazyLoad', function($ocLazyLoad) { return $ocLazyLoad.load([
-		             './components/profile/profile.controller.js'
-		           ])}]
-		         }, 
-		 		templateUrl:'./components/profile/profile.view.html',
-		 	    controller:'profileController',
-		 	    controllerAs:'ctrl'
-		 	})
+		 .state('perfil', {
+		     url: '/perfil/:username',
+		        resolve: {  
+		          load: ['$ocLazyLoad', function($ocLazyLoad) { return $ocLazyLoad.load([
+		            './components/profile/profile.controller.js'
+		          ])}]
+		        }, 
+		 	templateUrl:'./components/profile/profile.view.html',
+		     controller:'profileController',
+		     controllerAs:'ctrl'
+		 })
 		
 
-		$urlRouterProvider.otherwise('/landingPage');
+		$urlRouterProvider.otherwise('/ladingPage');
 	}
 
 })();
