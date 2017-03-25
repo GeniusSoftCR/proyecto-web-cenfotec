@@ -30,6 +30,7 @@
           if (credentials.email == val.email && credentials.password == val.password){
             delete val.password;
             user = val;
+
           }else{
             return null;
           };        
@@ -37,19 +38,14 @@
         return user;
       };
 
-      var request = validation();
-
+      var request = validation();    
       $q.when(request).then( function(){
-        SessionService.create
-        (
-          request.email,
-          request.role
-          )
+        SessionService.create(request.email,request.role)
       });
-      return request.email
+      return request.email;
     };
     AuthService.logOut = function(){
-      SessionService.destroy()
+      SessionService.destroy();
     }
   }
 })();
