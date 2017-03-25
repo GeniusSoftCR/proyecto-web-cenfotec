@@ -46,7 +46,7 @@
         }else{studentReqCtrl.validation=true;}
       }
       studentReqCtrl.closeModal = function (_param) {
-        assignStudentsCtrl.modal = false;
+        studentReqCtrl.modal = false;
       }
 
     }
