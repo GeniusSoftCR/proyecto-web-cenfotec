@@ -13,7 +13,7 @@
             <div class="item" ng-show="clientsCtrl.message">
               <p class="itemName">No hay clientes por mostrar</p>
             </div>
-            <div ng-repeat="project in clientsCtrl.projects track by $index">
+            <div class="item" ng-repeat="project in clientsCtrl.projects track by $index">
               <p class="itemName">{{project.name}}</p>
               <div class="moreAnotations">
                 <button class="btn btn-blue btn-small btn-normal" ng-click="clientsCtrl.showInfo(project)">Ver Cliente</button>
