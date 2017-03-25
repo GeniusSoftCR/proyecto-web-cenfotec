@@ -204,6 +204,9 @@ input, textarea {
   background-color: #efeff1;
   margin: 10px 0; }
 
+table thead tr {
+  border-bottom: 8px solid #1b264f; }
+
 .headPage {
   background: #000;
   padding: 20px; }
