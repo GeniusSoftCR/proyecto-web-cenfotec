@@ -17,7 +17,8 @@ select {
 	float: right;
 	background-color: #1b264f;
 	color: #fff;
-}
-select option:hover {
-    background-color: #fff;
+	
+	option:hover {
+	  background-color: #fff;
+	}
 }
