@@ -4,10 +4,10 @@
   angular.module('cshApp')
   .service('AuthService', AuthService);
 
-  AuthService.$inject = ['$http','SessionService','localStorageService','logInService'];
+  AuthService.$inject = ['$q','$http','SessionService','localStorageService','logInService'];
 
 
-  function AuthService($http,SessionService,localStorageService,logInService) {
+  function AuthService($q,$http,SessionService,localStorageService,logInService) {
     // API CODE 
 
     //////////////////////////
@@ -20,26 +20,32 @@
     //////////////////////////////////
 
     function _logIn(credentials) {
+
       var validation = function(){
-        var comparation = {},
-            usersLocal = logInService;
+        var usersLocal = logInService;
+        var user = {};
 
         angular.forEach(usersLocal, function(val ,key){
-        if (credentials.email === val.email && credentials.password === val.password){
-          comparation.email = val.email;
-          comparation.password = val.password;
-        }else{
-          comparation = { };
-        };
 
-        return comparation;
-      });
-      }
-      var request = validation();
+          if (credentials.email == val.email && credentials.password == val.password){
+            delete val.password;
+            user = val;
 
+          }else{
+            return null;
+          };        
+        });
+        return user;
+      };
+
+      var request = validation();    
       $q.when(request).then( function(){
-
+        SessionService.create(request.email,request.role)
       });
+      return request.email;
+    };
+    AuthService.logOut = function(){
+      SessionService.destroy();
     }
   }
 })();

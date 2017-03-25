@@ -14,6 +14,24 @@
 			password : "2310",
 			role: "admin",
 			id : "111"
+			},
+			{ 
+			email: "efonscab@ucenfotec.ac.cr", 
+			password : "2310",
+			role: "professor",
+			id : "222"
+			},
+			{ 
+			email: "sbarrantesr@ucenfotec.ac.cr", 
+			password : "2310",
+			role: "assistant",
+			id : "333"
+			},
+			{
+			email: "hmurillop@ucenfotec.ac.cr", 
+			password : "2310",
+			role: "student",
+			id : "444"
 			}
 		];
 
