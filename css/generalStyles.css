@@ -490,7 +490,6 @@ body {
     font-weight: 100; }
     #login a:hover {
       text-decoration: underline; }
-
 .nav {
   width: 33.33333%;
   padding-left: 0.83333%;
@@ -710,3 +709,4 @@ header {
     vertical-align: middle; }
   .brand-logo:hover {
     border-color: transparent; }
+
