@@ -5,7 +5,7 @@
 	<div class="wrap">
 		<div class="row cf">
 			<!--Seccion para listar proyectos-->
-			<div class="col-sm-12 col-md-6" ng-Show="projectsCtrl.listingProjects">
+			<div class="col-md-6" ng-Show="projectsCtrl.listingProjects">
 				<div id="projectsList" class="box">
 		            <h1 class="boxTitle">
 			            Lista de proyectos
@@ -18,8 +18,8 @@
 		            <div class="boxContent">
 			            <!--desplegar los proyectos-->
 						<!--mensaje para cuando no existen proyectos-->
-						<div class="message" ng-Show="projectsCtrl.message">
-							<p>No existen proyectos con el estado "{{projectsCtrl.state.name}}"</p>
+						<div class="item" ng-Show="projectsCtrl.message">
+							<p class="itemName">No existen proyectos con el estado "{{projectsCtrl.state.name}}"</p>
 						</div>
 						<!-- carga los proyectos -->
 					    <div class="item" ng-repeat="project in projectsCtrl.projects | filter:{state_key:search}">
