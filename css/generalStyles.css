@@ -111,7 +111,8 @@
   font-weight: 900; }
 
 body {
-  font-family: 'montserrat'; }
+  font-family: 'montserrat';
+  background-color: #efeff1; }
 
 h1, h2, h3, h4, h5 {
   font-family: 'montserrat'; }
@@ -358,6 +359,9 @@ select {
   float: right;
   background-color: #1b264f;
   color: #fff; }
+
+select option:hover {
+  background-color: #fff; }
 
 .menu {
   background-image: linear-gradient(51deg, #000000 0%, #1b1b1b 45%, #222222 100%);
