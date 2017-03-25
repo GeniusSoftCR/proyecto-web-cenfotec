@@ -6,7 +6,7 @@
 		<div class="row cf">
 			<!--Seccion para listar proyectos-->
 			<div class="col-sm-12 col-md-6" ng-Show="projectsCtrl.listingProjects">
-				<div class="box">
+				<div id="projectsList" class="box">
 		            <h1 class="boxTitle">
 			            Lista de proyectos
 						<!--escoger el estado de los proyectos a listar-->
@@ -22,11 +22,12 @@
 							<p>No existen proyectos con el estado "{{projectsCtrl.state.name}}"</p>
 						</div>
 						<!-- carga los proyectos -->
-					    <div class="item cf" ng-repeat="project in projectsCtrl.projects | filter:{state_key:search}">
+					    <div class="item" ng-repeat="project in projectsCtrl.projects | filter:{state_key:search}">
 					        <p class="itemName">{{project.name}}</p>
 					        <div class="moreAnotations">
 					        	<button class="btn btn-blue btn-small btn-normal"ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</button>
 					        </div>
+					        <div class="cf"></div>
 					    </div><!--item-->
 		            </div><!--boxContent-->
 		        </div><!--box-->
