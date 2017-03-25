@@ -722,3 +722,6 @@ header {
     vertical-align: middle; }
   .brand-logo:hover {
     border-color: transparent; }
+
+#prueba {
+  background-color: #000; }
