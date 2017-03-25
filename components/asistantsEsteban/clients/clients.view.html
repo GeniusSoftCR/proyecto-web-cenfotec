@@ -13,12 +13,21 @@
             <div class="item" ng-show="clientsCtrl.message">
               <p class="itemName">No hay clientes por mostrar</p>
             </div>
-            <ul>
-              <li ng-repeat="project in clientsCtrl.projects track by $index">
-                {{project.name}}
-                <button ng-click="clientsCtrl.showInfo(project)">Ver Cliente</button>
-              </li>
-            </ul>
+            <div ng-repeat="project in clientsCtrl.projects track by $index">
+              <p class="itemName">{{project.name}}</p>
+              <div class="moreAnotations">
+                <button class="btn btn-blue btn-small btn-normal" ng-click="clientsCtrl.showInfo(project)">Ver Cliente</button>
+              </div>
+              <div class="cf"></div>
+
+<div ng-show="clientsCtrl.clientContainer">
+  <p>Cliente: {{clientsCtrl.client.company}}</p>
+  <p>Cédula: {{clientsCtrl.client.companyIdNumber}}</p>
+  <p>Responsable: {{clientsCtrl.client.clientName}}</p>
+  <p>Correo: {{clientsCtrl.client.clientMail}}
+</div>
+                <!-- <button class="btn btn-blue btn-small btn-normal"ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</button> -->
+            </div>
 
           </div><!--boxContent-->
         </div><!--box-->
@@ -29,24 +38,3 @@
 </div><!--Fin wrapper-->
 
  
-<!-- mensaje para cuando la lista de proyectos está vacía-->
-<div ng-show="clientsCtrl.message">
-  <p>No hay clientes por mostrar</p>
-</div>
-<!-- lista el nombre de cada proyecto y un botón para ver la info de cliente-->
-<div>
-  <p>Lista de proyectos</p>
-    <ul ng-repeat="project in clientsCtrl.projects track by $index">
-        <li>
-          {{project.name}}
-          <button ng-click="clientsCtrl.showInfo(project)">Ver Cliente</button>
-        </li>
-    </ul>
-</div>
-
-<div ng-show="clientsCtrl.clientContainer">
-  <p>Cliente: {{clientsCtrl.client.company}}</p>
-  <p>Cédula: {{clientsCtrl.client.companyIdNumber}}</p>
-  <p>Responsable: {{clientsCtrl.client.clientName}}</p>
-  <p>Correo: {{clientsCtrl.client.clientMail}}
-</div>
