@@ -204,8 +204,17 @@ input, textarea {
   background-color: #efeff1;
   margin: 10px 0; }
 
-table {
+#reporte table thead {
   border-bottom: 8px solid #1b264f; }
+
+#reporte table {
+  border-collapse: collapse;
+  width: 100%; }
+
+#reporte th, #reporte td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; }
 
 .headPage {
   background: #000;
