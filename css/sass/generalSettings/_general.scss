@@ -1,5 +1,6 @@
 body {
   font-family: 'montserrat';
+  background-color: #efeff1;
 }
 
 h1, h2, h3, h4, h5 {
@@ -103,4 +104,8 @@ input, textarea {
   border: 1px solid rgba(0, 0, 0, 0.17);
   background-color: #efeff1;
   margin: 10px 0;  
+}
+
+table{
+  border-bottom: 8px solid #1b264f;
 }
