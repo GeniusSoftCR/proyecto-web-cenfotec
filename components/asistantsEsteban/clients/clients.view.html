@@ -7,7 +7,7 @@
       <!--Seccion para listar cliente del proyecto-->
       <div class="col-md-6">
         <div id="projectsList" class="box">
-          <h1 class="boxTitle">Lista de proyectos</h1>
+          <h1 class="boxTitle">Clientes</h1>
           <div class="boxContent">
             <!-- mensaje para cuando la lista de proyectos está vacía-->
             <div class="item" ng-show="clientsCtrl.message">
@@ -20,13 +20,14 @@
               </div>
               <div class="cf"></div>
 
-<div ng-show="clientsCtrl.clientContainer">
-  <p>Cliente: {{clientsCtrl.client.company}}</p>
-  <p>Cédula: {{clientsCtrl.client.companyIdNumber}}</p>
-  <p>Responsable: {{clientsCtrl.client.clientName}}</p>
-  <p>Correo: {{clientsCtrl.client.clientMail}}</p>
-</div>
                 <!-- <button class="btn btn-blue btn-small btn-normal"ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</button> -->
+            </div>
+            <!--ESTO DEBERÍA IR EN UN MODAL-->
+            <div ng-show="clientsCtrl.clientContainer">
+              <p>Cliente: {{clientsCtrl.client.company}}</p>
+              <p>Cédula: {{clientsCtrl.client.companyIdNumber}}</p>
+              <p>Responsable: {{clientsCtrl.client.clientName}}</p>
+              <p>Correo: {{clientsCtrl.client.clientMail}}</p>
             </div>
 
           </div><!--boxContent-->
