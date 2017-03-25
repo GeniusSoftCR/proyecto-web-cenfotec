@@ -14,7 +14,6 @@
 			url: '/landingPage',
 			templateUrl: './components/landingPage/landingPage.html'
 		})
-
 		/**
 		 *
 		 * KEVIN
