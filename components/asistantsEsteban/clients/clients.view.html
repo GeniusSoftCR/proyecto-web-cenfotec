@@ -1,29 +1,52 @@
 <div ng-include="'components/dashboard/header/header.view.html'"></div>
-  <div class="wrapper">
-    <div class="menu" ng-include="'components/dashboard/menu/menu.view.html'"></div>
-    <div class="dashboard">
-      <!-- mensaje para cuando la lista de proyectos está vacía-->
-      <div ng-show="clientsCtrl.message">
-      	<p>No hay clientes por mostrar</p>
-      </div>
-      <!-- lista el nombre de cada proyecto y un botón para ver la info de cliente-->
-      <div>
-      	<p>Lista de proyectos</p>
-          <ul ng-repeat="project in clientsCtrl.projects track by $index">
+<div class="wrapper">
+<div class="menu" ng-include="'components/dashboard/menu/menu.view.html'"></div>
+<div class="dashboard">
+  <div class="wrap">
+    <div class="row cf">
+      <!--Seccion para listar cliente del proyecto-->
+      <div class="col-md-6">
+        <div id="projectsList" class="box">
+          <h1 class="boxTitle">Lista de proyectos</h1>
+          <div class="boxContent">
+            <!-- mensaje para cuando la lista de proyectos está vacía-->
+            <div class="item" ng-show="clientsCtrl.message">
+              <p class="itemName">No hay clientes por mostrar</p>
+            </div>
+            <ul ng-repeat="project in clientsCtrl.projects track by $index">
               <li>
-              	{{project.name}}
-              	<button ng-click="clientsCtrl.showInfo(project)">Ver Cliente</button>
+                {{project.name}}
+                <button ng-click="clientsCtrl.showInfo(project)">Ver Cliente</button>
               </li>
-          </ul>
-      </div>
+            </ul>
 
-      <div ng-show="clientsCtrl.clientContainer">
+          </div><!--boxContent-->
+        </div><!--box-->
+      </div><!--Seccion para listar cliente del proyecto-->
+    </div><!--Fin row-->
+  </div><!--Fin wrap-->
+</div><!--Fin dashboard-->
+</div><!--Fin wrapper-->
 
-      	<p>Cliente: {{clientsCtrl.client.company}}</p>
-        <p>Cédula: {{clientsCtrl.client.companyIdNumber}}</p>
-        <p>Responsable: {{clientsCtrl.client.clientName}}</p>
-        <p>Correo: {{clientsCtrl.client.clientMail}}
+ 
+<!-- mensaje para cuando la lista de proyectos está vacía-->
+<div ng-show="clientsCtrl.message">
+  <p>No hay clientes por mostrar</p>
+</div>
+<!-- lista el nombre de cada proyecto y un botón para ver la info de cliente-->
+<div>
+  <p>Lista de proyectos</p>
+    <ul ng-repeat="project in clientsCtrl.projects track by $index">
+        <li>
+          {{project.name}}
+          <button ng-click="clientsCtrl.showInfo(project)">Ver Cliente</button>
+        </li>
+    </ul>
+</div>
 
-      </div>
-  </div>
+<div ng-show="clientsCtrl.clientContainer">
+  <p>Cliente: {{clientsCtrl.client.company}}</p>
+  <p>Cédula: {{clientsCtrl.client.companyIdNumber}}</p>
+  <p>Responsable: {{clientsCtrl.client.clientName}}</p>
+  <p>Correo: {{clientsCtrl.client.clientMail}}
 </div>
