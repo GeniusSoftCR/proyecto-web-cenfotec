@@ -18,44 +18,80 @@
 
 		<!--Muestra el detalle de la solicitud seleccionada-->
 		<!--la idea es que sea un modal-->
-		<div class="unModal" id="requestModal" ng-Show="studentReqCtrl.modal">
-			<div class="unModal-header">
-				Solicitud de {{request.name}}
-			</div>
-			<!--despliega todo el contenido de la solicitud-->
-			<div class="unModal-body">
-				<p>Estado: {{studentReqCtrl.req.state_key}}</p>
-				<p>Estudiante: {{studentReqCtrl.req.name}}</p>
-				<p>Apellido: {{studentReqCtrl.req.surname}}</p>
-				<p>Apellido 2: {{studentReqCtrl.req.secondSurname}}</p>
-				<p>Fecha de nacimiento: {{studentReqCtrl.req.birthdate}}</p>
-				<p>Correo: {{studentReqCtrl.req.mail}}</p>
-				<p>Cédula: {{studentReqCtrl.req.id}}</p>
-				<ul>Carreras:
-					<li ng-repeat="carrer in studentReqCtrl.req.carrers">
-						<!--muestra solamente el nombre del solicitante-->
-						<p>{{ carrer }}</p>
-					</li>
-				</ul>
-				Currículo:
-				<button>Ver currículo</button>
-				Foto:
-				<img ng-src="{{studentReqCtrl.req.avatarUrl}}" style="width: 50px; height: 50px">
+		<div class="modalElement" id="requestModal" ng-Show="studentReqCtrl.modal">
+			<div class="modalElement_container">
+				<a href="javascript:;" ng-click="assignStudentsCtrl.closeModal()">Cerrar</a>
+	    		<h2>Solicitud de {{request.name}}</h2>
+				<form>
+					<!--despliega todo el contenido de la solicitud-->
+					<div class="unModal-body">
+						<p>Estado: {{studentReqCtrl.req.state_key}}</p>
+						<p>Estudiante: {{studentReqCtrl.req.name}}</p>
+						<p>Apellido: {{studentReqCtrl.req.surname}}</p>
+						<p>Apellido 2: {{studentReqCtrl.req.secondSurname}}</p>
+						<p>Fecha de nacimiento: {{studentReqCtrl.req.birthdate}}</p>
+						<p>Correo: {{studentReqCtrl.req.mail}}</p>
+						<p>Cédula: {{studentReqCtrl.req.id}}</p>
+						<ul>Carreras:
+							<li ng-repeat="carrer in studentReqCtrl.req.carrers">
+								<!--muestra solamente el nombre del solicitante-->
+								<p>{{ carrer }}</p>
+							</li>
+						</ul>
+						Currículo:
+						<button>Ver currículo</button>
+						Foto:
+						<img ng-src="{{studentReqCtrl.req.avatarUrl}}" style="width: 50px; height: 50px">
 
-				<!--sección oculta (contiene la justificacion del rechazo)-->
-				<div class="extra" ng-Show="studentReqCtrl.rejection">
-					<label>Justificación</label>
-					<input type="text" name="Justification" ng-model="studentReqCtrl.req.justification">
-					<div ng-show="studentReqCtrl.validate">La justificación es requerida</div>
-					<button ng-click="studentReqCtrl.rejectRequest(studentReqCtrl.req)">Confirmar rechazo</button>
-				</div>
-			</div>
-			<!--procesamiento de la solicitud (aprueba o rechaza)-->
-			<div class="unModal-footer">
-				<button ng-click="studentReqCtrl.approveRequest(studentReqCtrl.req)">Aprobar solicitud</button>
-				<button ng-click="studentReqCtrl.rejection=true">Rechazar solicitud</button><!--muestra la seccion oculta-->
-			</div>
+						<!--sección oculta (contiene la justificacion del rechazo)-->
+						<div class="extra" ng-Show="studentReqCtrl.rejection">
+							<label>Justificación</label>
+							<input type="text" name="Justification" ng-model="studentReqCtrl.req.justification">
+							<div ng-show="studentReqCtrl.validate">La justificación es requerida</div>
+							<button ng-click="studentReqCtrl.rejectRequest(studentReqCtrl.req)">Confirmar rechazo</button>
+						</div>
+					</div>
+					<!--procesamiento de la solicitud (aprueba o rechaza)-->
+					<div class="unModal-footer">
+						<button ng-click="studentReqCtrl.approveRequest(studentReqCtrl.req)">Aprobar solicitud</button>
+						<button ng-click="studentReqCtrl.rejection=true">Rechazar solicitud</button><!--muestra la seccion oculta-->
+					</div>
+				</form>
+			</div><!--modalElement_container-->
+		</div><!--modalElement-->
 
-		</div>
 	</div>
+</div>
+
+
+<div class="modalElement" id="newStudent" ng-show="assignStudentsCtrl.modalStudent">
+  <div class="modalElement_container">
+    <a href="javascript:;" ng-click="assignStudentsCtrl.closeModal()">Cerrar</a>
+    <h2>Asignar estudiante a proyecto</h2>
+    <form>
+        <label>Buscar estudiante:</label>
+        <input type="text" placeholder="Ingresa aquí el nombre" ng-model="studentSearch">
+        <h3>Lista de estudiantes:</h3>
+        <div class="student cf" ng-repeat="student in assignStudentsCtrl.students  | filter:studentSearch | startFrom:assignStudentsCtrl.currentPage*assignStudentsCtrl.pageSize | limitTo:assignStudentsCtrl.pageSize">
+          <div class="col-sm-12  col-md-3">
+            <div class="avatar">
+              <img src="{{ student.avatar }}" alt=" {{ student.name }} ">
+            </div>
+          </div>
+          <div class="col-sm-12  col-md-3">
+            <p>{{ student.name }}</p>
+          </div>
+          <div class="col-sm-12  col-md-3">
+            <input type="checkbox" name="studentSelected" ng-true-value="{{ student.id }}" ng-model="assignStudentsCtrl.assign.studentChecked">
+          </div>
+        </div>
+        <button ng-disabled="assignStudentsCtrl.currentPage == 0" ng-click="assignStudentsCtrl.currentPage=assignStudentsCtrl.currentPage-1">
+            Previous
+        </button>
+        {{assignStudentsCtrl.currentPage+1}}/{{assignStudentsCtrl.numberOfPages()}}
+        <button ng-disabled="assignStudentsCtrl.currentPage >= assignStudentsCtrl.students.length/assignStudentsCtrl.pageSize - 1" ng-click="assignStudentsCtrl.currentPage=assignStudentsCtrl.currentPage+1">
+            Next</button>
+        <a href="javascript:;" ng-click="assignStudentsCtrl.assignStudent()" class="btn btn-small btn-red">Asignar</a>
+    </form>
+  </div>
 </div>
