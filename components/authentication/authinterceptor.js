@@ -3,7 +3,7 @@
   angular.module('cshApp')
   .service('AuthInterceptor', AuthInterceptor);
 
-  function AuthInterceptor($rootScope, $q,AUTH_EVENTS){
+  function AuthInterceptor($rootScope,$q,AUTH_EVENTS){
     return {
       responseError: function (response) { 
         $rootScope.$broadcast({

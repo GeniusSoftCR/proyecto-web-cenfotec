@@ -5,13 +5,13 @@
 
 	function SessionService(){
 	 
-		  this.create = function (userId, userRole) {//sessionId
+		  this.create = function (userEmail, userRole) {//sessionId
 		  	//this.id = sessionId;
-		    this.userId = userId;
+		    this.userEmail = userEmail;
 		    this.userRole = userRole;
 		  };
 		  this.destroy = function () {
-		    this.userId = null;
+		    this.userEmail = null;
 		    this.userRole = null;
 		  };    
 	};
