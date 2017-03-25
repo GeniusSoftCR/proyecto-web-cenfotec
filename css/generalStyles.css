@@ -350,6 +350,15 @@ body {
 #projectsList .btn-normal {
   margin: 0 auto; }
 
+.col-md-6:last-child {
+  float: left; }
+
+select {
+  border-radius: 25px;
+  float: right;
+  background-color: #1b264f;
+  color: #fff; }
+
 .menu {
   background-image: linear-gradient(51deg, #000000 0%, #1b1b1b 45%, #222222 100%);
   padding: 10px 0;
