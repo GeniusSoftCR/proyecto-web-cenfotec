@@ -28,7 +28,7 @@
 			id : "333"
 			},
 			{
-			email: "hmurrillop@ucenfotec.ac.cr", 
+			email: "hmurillop@ucenfotec.ac.cr", 
 			password : "2310",
 			role: "student",
 			id : "444"
