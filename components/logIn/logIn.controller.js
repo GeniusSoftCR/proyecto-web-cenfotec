@@ -21,7 +21,7 @@
 			
 			vm.loading = true;
 			
-			var logInRequest = AuthService.logIn();
+			var logInRequest = AuthService.logIn(credentials);
 			
 			if(logInRequest){
 				$log.info("Login success: "+ logInRequest);
