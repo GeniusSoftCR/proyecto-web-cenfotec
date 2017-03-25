@@ -9,7 +9,6 @@
 
 	function configuration($stateProvider, $urlRouterProvider){
 		$stateProvider
-
 		.state('landing',{
 			url: '/landingPage',
 			templateUrl: './components/landingPage/landingPage.html'
