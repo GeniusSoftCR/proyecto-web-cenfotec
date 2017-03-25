@@ -6,40 +6,32 @@
 		<div class="row cf">
 			<!--Seccion para listar proyectos-->
 			<div class="col-sm-12 col-md-6" ng-Show="projectsCtrl.listingProjects">
-				<!--escoger el estado de los proyectos a listar-->
-				<form>
-					<label for="projectsSelect">Estados de proyecto:</label><br>
-					<select name="projectsSelect" ng-model="search">
-				      <option value="" disabled="disabled">Seleccione un estado</option>
-				      <option ng-repeat="state in projectsCtrl.statesList" ng-value="{{state.id}}" >{{state.name}}</option>
-				    </select>
-				</form>
-
-				<!--desplegar los proyectos-->
-				<div>
-					<!--mensaje para cuando no existen proyectos-->
-					<div class="message" ng-Show="projectsCtrl.message">
-						<p>No existen proyectos con el estado "{{projectsCtrl.state.name}}"</p>
-					</div>
-					<!-- carga los proyectos -->
-					<table id="tblProjects">
-					  <thead>
-					    <tr>
-					    	<th>Proyectos</th>
-					    	<th>Estado</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr ng-repeat="project in projectsCtrl.projects | filter:{state_key:search}">
-					        <td>{{project.name}}</td>
-					        <td>{{project.state_key}}</td>
-					        <td><a ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</a></td>
-					    </tr>
-					  </tbody>
-					</table>
-				</div>
-
-			</div><!--MI CODIGO-->
+				<div id="projectsList" class="box">
+		            <h1 class="boxTitle">
+			            Lista de proyectos
+						<!--escoger el estado de los proyectos a listar-->
+			            <select name="projectsSelect" ng-model="search">
+					      <option value="" disabled="disabled">Seleccione un estado</option>
+					      <option ng-repeat="state in projectsCtrl.statesList" ng-value="{{state.id}}" >{{state.name}}</option>
+					    </select>
+		            </h1>
+		            <div class="boxContent">
+			            <!--desplegar los proyectos-->
+						<!--mensaje para cuando no existen proyectos-->
+						<div class="message" ng-Show="projectsCtrl.message">
+							<p>No existen proyectos con el estado "{{projectsCtrl.state.name}}"</p>
+						</div>
+						<!-- carga los proyectos -->
+					    <div class="item" ng-repeat="project in projectsCtrl.projects | filter:{state_key:search}">
+					        <p class="itemName">{{project.name}}</p>
+					        <div class="moreAnotations">
+					        	<button class="btn btn-blue btn-small btn-normal"ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</button>
+					        </div>
+					        <div class="cf"></div>
+					    </div><!--item-->
+		            </div><!--boxContent-->
+		        </div><!--box-->
+			</div><!--Seccion para listar proyectos-->
 		</div><!--Fin row-->
 	</div><!--Fin wrap-->
 </div><!--Fin dashboard-->
