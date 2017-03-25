@@ -24,18 +24,17 @@
 			</div>
 			<!--despliega todo el contenido de la solicitud-->
 			<div class="unModal-body">
-				Estado: {{studentReqCtrl.req.state_key}}
-				Estudiante: {{studentReqCtrl.req.name}}
-				Apellido: {{studentReqCtrl.req.surname}}
-				Apellido 2: {{studentReqCtrl.req.secondSurname}}
-				Fecha de nacimiento: {{studentReqCtrl.req.birthdate}}
-				Correo: {{studentReqCtrl.req.mail}}
-				Cédula: {{studentReqCtrl.req.id}}
-				Carreras:
-				<ul>
+				<p>Estado: {{studentReqCtrl.req.state_key}}</p>
+				<p>Estudiante: {{studentReqCtrl.req.name}}</p>
+				<p>Apellido: {{studentReqCtrl.req.surname}}</p>
+				<p>Apellido 2: {{studentReqCtrl.req.secondSurname}}</p>
+				<p>Fecha de nacimiento: {{studentReqCtrl.req.birthdate}}</p>
+				<p>Correo: {{studentReqCtrl.req.mail}}</p>
+				<p>Cédula: {{studentReqCtrl.req.id}}</p>
+				<ul>Carreras:
 					<li ng-repeat="carrer in studentReqCtrl.req.carrers">
 						<!--muestra solamente el nombre del solicitante-->
-						{{ carrer }}
+						<p>{{ carrer }}</p>
 					</li>
 				</ul>
 				Currículo:
