@@ -16,6 +16,9 @@
 
       studentCtrl.cloudObj = ImageService.getConfiguration();
 
+      studentCtrl.send = false;
+      studentCtrl.toSend = true;
+
 
       //Files
       studentCtrl.pickFile = pickFile;
@@ -89,6 +92,9 @@
         studentCtrl.stu.websiteUrl = null;
         studentCtrl.stu.cellphoneNumber = null;
         studentCtrl.stu.avatarUrl = null;
+
+      studentCtrl.send = true;
+      studentCtrl.toSend = false;
       }
     }
      //se establece un objeto de angular normal
