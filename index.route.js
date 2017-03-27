@@ -185,14 +185,14 @@
 		 */
 		 .state('perfil', {
 		     url: '/perfil/:username',
-		        resolve: {  
+		     resolve: {  
 		          load: ['$ocLazyLoad', function($ocLazyLoad) { return $ocLazyLoad.load([
 		            './components/profile/profile.controller.js'
 		          ])}]
-		        }, 
+		    }, 
 		 	templateUrl:'./components/profile/profile.view.html',
-		     controller:'profileController',
-		     controllerAs:'ctrl'
+		    controller:'profileController',
+		    controllerAs:'vm'
 		 })
 		
 
