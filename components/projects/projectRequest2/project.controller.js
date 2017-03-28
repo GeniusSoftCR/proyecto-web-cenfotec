@@ -1,10 +1,10 @@
 function(){
   angular
     .module('cshApp')
-    .controller('studentRequestsController', studentRequestsController);
-      studentRequestsController.$inject= ['studentRequestsService'];
+    .controller('projectRequestsController', projectRequestsController);
+      projectRequestsController.$inject= ['projectRequestsService'];
 
-    function studentRequestsController(studentRequestsService){
+    function projectRequestsController(projectRequestsService){
      
       var studentReqCtrl = this;
       //inicia cargando la lista de solicitudes
