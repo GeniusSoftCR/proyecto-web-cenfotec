@@ -204,8 +204,16 @@ input, textarea {
   background-color: #efeff1;
   margin: 10px 0; }
 
-table {
-  border-bottom: 8px solid #1b264f; }
+#reporte table {
+  border-collapse: collapse; }
+
+#reporte table thead {
+  border-bottom: 4px solid #1b264f; }
+
+#reporte th, #reporte td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 2px solid #ddd; }
 
 .headPage {
   background: #000;
@@ -236,6 +244,15 @@ h1 {
     cursor: pointer; }
     .projectsRequest .btnUpload:hover {
       background-color: #adadad; }
+
+.thanks {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #15ae0c;
+  color: #fff;
+  margin-top: 90px;
+  border-radius: 11px; }
 
 .projectAnotations {
   background: #efeff1;
