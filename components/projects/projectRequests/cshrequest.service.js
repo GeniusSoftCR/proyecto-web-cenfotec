@@ -1,7 +1,9 @@
 (function(){
   /* Servicio de Request de proyecto de Cenfotec Software House */
   'use strict';
-  angular.module('cshApp').service('cshReqService', cshReqServiceFn);
+  angular
+  .module('cshApp')
+  .service('cshReqService', cshReqServiceFn);
     function cshReqServiceFn (localStorageService, $http) {
       var proyectStates = [{
         "id":1,
