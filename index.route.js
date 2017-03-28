@@ -151,20 +151,20 @@
 		})
 		 .state('perfil', {
 		     url: '/perfil/:username',
-		        resolve: {  
+		     resolve: {  
 		          load: ['$ocLazyLoad', function($ocLazyLoad) { return $ocLazyLoad.load([
 		            './components/profile/profile.controller.js'
 		          ])}]
-		        }, 
+		    }, 
 		 	templateUrl:'./components/profile/profile.view.html',
-		     controller:'profileController',
-		     controllerAs:'ctrl'
+  		     controller:'profileController',
+		     controllerAs:'vm'
 		 })		
 		.state('404',{
 			url: '/404',
 			templateUrl: './components/404.html'
 		})
-
+    
 		$urlRouterProvider.otherwise('/');
 		// $locationProvider.html5Mode(true);
 	}
