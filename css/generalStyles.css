@@ -745,3 +745,7 @@ header {
 
 #prueba {
   background-color: #000; }
+
+i.glyphicon {
+  top: 45px;
+  left: 15px; }
