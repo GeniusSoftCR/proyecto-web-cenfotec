@@ -1,12 +1,15 @@
 (function(){
   /* Controlador de Request de proyecto de Cenfotec Software House */
   'use strict';
-  angular.module('cshApp')
-    .controller('cshReqController', cshReqCtrlFn);
+  angular
+  .module('cshApp')
+  .controller('cshReqController', cshReqCtrlFn);
 
     function cshReqCtrlFn ($scope, ImageService, filepickerService, $window,Upload, cshReqService) {
       var cshReqCtrl = this;
       cshReqCtrl.cloudObj = ImageService.getConfiguration();
+      cshReqCtrl.send = false;
+      cshReqCtrl.toSend = true;
       //Files
       cshReqCtrl.pickFile = pickFile;
       cshReqCtrl.onSuccess = onSuccess;
@@ -67,7 +70,8 @@
         
 
         cshReqService.addProject(newProjectRequest, newClient);
-
+        cshReqCtrl.toSend = false;
+        cshReqCtrl.send = true;
         cshReqCtrl.clientData.company = null;
         cshReqCtrl.clientData.identificationNumber = null;
         cshReqCtrl.clientData.clientName = null;

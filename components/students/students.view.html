@@ -1,12 +1,28 @@
-<div class="headPage">
+<header>
+  <div class="landingContainer">
+    <nav class="landingMenu">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="#!/landingPage#inicio">Inicio</a></li>                
+        <li><a href="#!/landingPage#servicios">Servicios</a></li>
+        <li><a href="#!/landingPage#nosotros">Nosotros</a></li>
+        <li class="brand-logo"><img src="http://www.cenfotecsoftwarehouse.com/images/Cenfotec-Software-House-Logo.png"></li>
+        <li><a href="#!/solicitud-proyecto">Solicitudes</a></li>
+        <li><a href="#!/solicitudEstudiantes">Estudiantes</a></li>
+        <li><a href="#!/logIn">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="headPage" style="padding-top: 110px;">
+
   <div class="container">
-    <h1>Solicitud de estudiantes</h1>
+    <h1>Nueva solicitud</h1>
   </div>
 </div>
 <div class="projectsRequest">
   <div class="smallContainer">
 
-<section>
+<section ng-show="studentCtrl.toSend">
     <div class="panel panel-info" >
         <div class="panel-header">
            <!-- <h1>Envío de solicitud de estudiante</h1> -->
@@ -81,7 +97,7 @@
 
 
             <div a="input-group">
-             <label>N[umero de teléfono:</label>
+             <label>Número de teléfono:</label>
               <input ng-model="studentCtrl.stu.cellphoneNumber" id="cellphoneNumber" type="text" class="form-control" maxlength="8" name="cellphoneNumber" placeholder="Ingrese n[umero de tel[efono">
             </div>
 
@@ -103,3 +119,6 @@
     </section>
       </div>  <!-- //-Container -->
 </div> <!-- //Finalizamos teachers register container -->
+<div class="thanks"  ng-show="studentCtrl.send">
+  <p>La solicitud de estudiante ha sido enviada. Nuestros asesores te contactaran lo más pronto posible</p>
+</div>
