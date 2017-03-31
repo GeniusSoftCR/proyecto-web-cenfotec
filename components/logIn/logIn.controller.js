@@ -4,7 +4,7 @@
 	angular.module('cshApp')
 	.controller('logInController',logInController);
 
-	logInController.$inject = ['$q','$timeout','$log','$location', '$rootScope','AUTH_EVENTS','AuthService',];
+	logInController.$inject = ['$q','$timeout','$log','$location', '$rootScope','AUTH_EVENTS','AuthService'];
 
 	
  	function logInController ($q,$timeout,$log,$location,$rootScope,AUTH_EVENTS,AuthService){
@@ -12,6 +12,7 @@
 		var vm = this;
 
 		vm.user = {};
+
 
 		vm.logIn = function(credentials){ 
 			var userInfo = {

@@ -1,41 +1,51 @@
 (function(){
 	'use strict';
 	angular
-	.module('appRoutes',['ui.router'])
+	.module('appRoutes',['ui.router','oc.lazyLoad'])
 
 	.config(configuration)
 
-	configuration.$inject = ['$stateProvider', '$urlRouterProvider']
+	configuration.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-	function configuration($stateProvider, $urlRouterProvider){
+	function configuration($stateProvider, $urlRouterProvider,$ocLazyLoad){
+
 		$stateProvider
+
 		.state('landing',{
 			url: '/',
 			templateUrl: './components/landing/landing.html'
 		})
+
 		.state('studentRequest',{
 			url: '/solicitud-estudiante',
 		    templateUrl: 'components/students/students.view.html',
 		    controller: 'studentController',
 		    controllerAs: 'studentCtrl'
 		})
+
 		.state('proyectRequest',{
 			url: '/solicitud-proyecto',
 		    templateUrl:'components/projects/projectRequests/cshrequest.view.html',
 		    controller: 'cshReqController',
 		    controllerAs: 'cshReqCtrl'
 		})
+
 		.state('logIn',{
 			url: '/entrar',
-			templateUrl: './components/logIn/logIn.view.html'
+			templateUrl: './components/logIn/logIn.view.html',
+			controller: 'logInController',
+			controllerAs: 'vm'
 		})
+
 		.state('main',{
 			url:'/inicio',
 			templateUrl: './components/main.html',
 		})
+
 		.state('main.proyect',{
 			url:'/proyecto/:proyectoId'		 	
 		})
+
 		.state('watchProject',{
 			url: '/proyecto/:proyectoId',
 			views: {
@@ -149,6 +159,7 @@
 			controller: 'clientsController',
 			controllerAs: 'clientsCtrl'
 		})
+
 		 .state('perfil', {
 		     url: '/perfil/:username',
 		     resolve: {  
@@ -157,9 +168,11 @@
 		          ])}]
 		    }, 
 		 	templateUrl:'./components/profile/profile.view.html',
-  		     controller:'profileController',
-		     controllerAs:'vm'
-		 })		
+  		    controller:'profileController',
+		    controllerAs:'vm'
+		 })	
+
+
 		.state('404',{
 			url: '/404',
 			templateUrl: './components/404.html'
