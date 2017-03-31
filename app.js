@@ -5,8 +5,8 @@
     ['appRoutes','angular-filepicker', 'ngFileUpload','LocalDataBase', 'LocalStorageModule'])
 
     .config(function (filepickerProvider) {
-    filepickerProvider.setKey('A6EzU2EhNTYmcvkWhu2cCz');
-  })
+      filepickerProvider.setKey('A6EzU2EhNTYmcvkWhu2cCz');
+    })
     .constant('AUTH_EVENTS', {
       loginSuccess: 'auth-login-success',
       loginFailed: 'auth-login-failed',

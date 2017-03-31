@@ -32,15 +32,9 @@
 
 		.state('logIn',{
 			url: '/entrar',
-		     resolve: {  
-		          load: ['$ocLazyLoad', function($ocLazyLoad) { return $ocLazyLoad.load([
-		            './components/logIn/logIn.controller.js'
-		          ])}],
-
-		    }, 
 			templateUrl: './components/logIn/logIn.view.html',
-			controller:'logInController',
-			controlerAs:'vm'
+			controller: 'logInController',
+			controllerAs: 'vm'
 		})
 
 		.state('main',{
@@ -166,18 +160,6 @@
 			controllerAs: 'clientsCtrl'
 		})
 
-
-
-
-
-
-
-
-
-
-
-
-
 		 .state('perfil', {
 		     url: '/perfil/:username',
 		     resolve: {  
@@ -189,23 +171,6 @@
   		    controller:'profileController',
 		    controllerAs:'vm'
 		 })	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		.state('404',{
