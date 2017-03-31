@@ -9,7 +9,7 @@ Team Genius Soft
 
 ## install dependencies (in your proyect folder)
 npm install && bower install
-```
+
 
 ## run it (in your proyect folder)
 gulp serve
