@@ -29,7 +29,7 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4>Solicitud de {{request.name}}</h4>
+	        <h4>Solicitud de {{vm.req.name}}</h4>
 	      </div>
 	      <div class="modal-body">
 	        <a href="javascript:;" ng-click="vm.closeModal()">Cerrar</a>
@@ -41,7 +41,7 @@
 					<p>Estudiante: {{vm.req.name}}</p>
 					<p>Apellido: {{vm.req.surname}}</p>
 					<p>Apellido 2: {{vm.req.secondSurname}}</p>
-					<p>Fecha de nacimiento: {{vm.req.birthdate}}</p>
+					<p>Fecha de nacimiento: {{vm.req.birthdate | date :  "dd.MM.y"}}</p>
 					<p>Correo: {{vm.req.mail}}</p>
 					<p>Cédula: {{vm.req.id}}</p>
 					<ul>Carreras:
