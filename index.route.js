@@ -8,7 +8,7 @@
 	configuration.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 	function configuration($stateProvider, $urlRouterProvider,$ocLazyLoad){
-		
+
 		$stateProvider
 
 		.state('landing',{
@@ -51,6 +51,18 @@
 		    },
 			templateUrl: '/components/projects/projects.view.html',
 			controller: 'loadProjectsController',
+			controllerAs: 'vm'
+		})
+
+		.state('main.students',{
+			url:'/estudiantes',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/students/studentRequests.controller.js')
+	          }]
+		    },
+			templateUrl: '/components/students/studentRequests.view.html',
+			controller: 'studentRequestsController',
 			controllerAs: 'vm'
 		})
 
