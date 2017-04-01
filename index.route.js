@@ -1,81 +1,99 @@
 (function(){
 	'use strict';
 	angular
-	.module('appRoutes',['ui.router'])
+	.module('appRoutes',['ui.router','oc.lazyLoad'])
 
 	.config(configuration)
 
-	configuration.$inject = ['$stateProvider', '$urlRouterProvider']
+	configuration.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-	function configuration($stateProvider, $urlRouterProvider){
+	function configuration($stateProvider, $urlRouterProvider,$ocLazyLoad){
+		
 		$stateProvider
+
 		.state('landing',{
 			url: '/',
 			templateUrl: './components/landing/landing.html'
 		})
+
 		.state('studentRequest',{
 			url: '/solicitud-estudiante',
 		    templateUrl: 'components/students/students.view.html',
 		    controller: 'studentController',
 		    controllerAs: 'studentCtrl'
 		})
+
 		.state('proyectRequest',{
 			url: '/solicitud-proyecto',
 		    templateUrl:'components/projects/projectRequests/cshrequest.view.html',
 		    controller: 'cshReqController',
 		    controllerAs: 'cshReqCtrl'
 		})
+
 		.state('logIn',{
 			url: '/entrar',
-			templateUrl: './components/logIn/logIn.view.html'
+			templateUrl: './components/logIn/logIn.view.html',
+			controller: 'logInController',
+			controllerAs: 'vm'
 		})
+
 		.state('main',{
 			url:'/inicio',
 			templateUrl: './components/main.html',
 		})
-		.state('main.proyect',{
-			url:'/proyecto/:proyectoId'		 	
+
+		.state('main.proyects',{
+			url:'/proyectos',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/projects/projects.controller.js')
+	          }]
+		    },
+			templateUrl: '/components/projects/projects.view.html',
+			controller: 'loadProjectsController',
+			controllerAs: 'vm'
 		})
-		.state('watchProject',{
-			url: '/proyecto/:proyectoId',
-			views: {
-				'': {
-					templateUrl: '/components/projects/watchproject/projects.view.html',
-					controller: 'watchProjectController',
-					controllerAs: 'watchProjectCtrl'
-				},
-			    'anotaciones@watchProject': { //ANdres anotaciones
-			    	templateUrl: 'components/projects/projectAnotations/projectanotations.view.html',
-			    	controller: 'projectAnotationsController',
-			    	controllerAs: 'anotationsCtrl'
-				},
-		      	'estudiantes@watchProject': { //Andres asignar estudiantes
-		        	templateUrl: 'components/projects/assignStudents/assignStudents.projects.view.html',
-		        	controller: 'assignStudentsController',
-		        	controllerAs: 'assignStudentsCtrl'
-		      	},
-		      	'profesores@watchProject': { //Andres asignar estudiantes
-		      	  templateUrl: 'components/projects/assignTeachers/assignTeachers.projects.view.html',
-		      	  controller: 'assignTeachersController',
-		      	  controllerAs: 'assignTeachersCtrl'
-		      	},
-				'header@watchProject': { //Andres asignar estudiantes
-				  templateUrl: 'components/dashboard/header/header.view.html',
-				  controller: 'headerController',
-				  controllerAs: 'headerCtrl'
-				},
-				'menu@watchProject': { //Andres asignar estudiantes
-				  templateUrl: 'components/dashboard/menu/menu.view.html',
-				  controller: 'menuController',
-				  controllerAs: 'menuCtrl'
-				},
-				'archivos@watchProject': { //Esteban archivos
-				  templateUrl: 'components/projects/projectFiles-esteban/projectFiles.view.html',
-				  controller: 'filesController',
-				  controllerAs: 'filesCtrl'
-				}
-	    	}
-		})		
+
+		// .state('watchProject',{
+		// 	url: '/proyectos/:proyectoId',
+		// 	views: {
+		// 		'': {
+		// 			templateUrl: '/components/projects/watchproject/projects.view.html',
+		// 			controller: 'watchProjectController',
+		// 			controllerAs: 'watchProjectCtrl'
+		// 		},
+		// 	    'anotaciones@watchProject': { //ANdres anotaciones
+		// 	    	templateUrl: 'components/projects/projectAnotations/projectanotations.view.html',
+		// 	    	controller: 'projectAnotationsController',
+		// 	    	controllerAs: 'anotationsCtrl'
+		// 		},
+		//       	'estudiantes@watchProject': { //Andres asignar estudiantes
+		//         	templateUrl: 'components/projects/assignStudents/assignStudents.projects.view.html',
+		//         	controller: 'assignStudentsController',
+		//         	controllerAs: 'assignStudentsCtrl'
+		//       	},
+		//       	'profesores@watchProject': { //Andres asignar estudiantes
+		//       	  templateUrl: 'components/projects/assignTeachers/assignTeachers.projects.view.html',
+		//       	  controller: 'assignTeachersController',
+		//       	  controllerAs: 'assignTeachersCtrl'
+		//       	},
+		// 		'header@watchProject': { //Andres asignar estudiantes
+		// 		  templateUrl: 'components/dashboard/header/header.view.html',
+		// 		  controller: 'headerController',
+		// 		  controllerAs: 'headerCtrl'
+		// 		},
+		// 		'menu@watchProject': { //Andres asignar estudiantes
+		// 		  templateUrl: 'components/dashboard/menu/menu.view.html',
+		// 		  controller: 'menuController',
+		// 		  controllerAs: 'menuCtrl'
+		// 		},
+		// 		'archivos@watchProject': { //Esteban archivos
+		// 		  templateUrl: 'components/projects/projectFiles-esteban/projectFiles.view.html',
+		// 		  controller: 'filesController',
+		// 		  controllerAs: 'filesCtrl'
+		// 		}
+	 //    	}
+		// })		
 		.state('students',{
 		       url: '/solicitudEstudiantes',
 		       templateUrl: 'components/students/students.view.html',
@@ -113,13 +131,13 @@
 			controller: 'studentRequestsController',
 			controllerAs: 'studentReqCtrl'
 		})
-		.state('administrator-projects',{
-			url: '/admin/proyectos',
-			templateUrl: '/components/administratorEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('asistant-projects',{
+		// .state('administrator-projects',{
+		// 	url: '/admin/proyectos',
+		// 	templateUrl: '/components/administratorEsteban/projects/projects.view.html',
+		// 	controller: 'loadProjectsController',
+		// 	controllerAs: 'projectsCtrl'
+		// })
+		/*.state('asistant-projects',{
 			url: '/asis/proyectos',
 			templateUrl: '/components/asistantsEsteban/projects/projects.view.html',
 			controller: 'loadProjectsController',
@@ -149,6 +167,7 @@
 			controller: 'clientsController',
 			controllerAs: 'clientsCtrl'
 		})
+*/
 		 .state('perfil', {
 		     url: '/perfil/:username',
 		     resolve: {  
@@ -157,9 +176,11 @@
 		          ])}]
 		    }, 
 		 	templateUrl:'./components/profile/profile.view.html',
-  		     controller:'profileController',
-		     controllerAs:'vm'
-		 })		
+  		    controller:'profileController',
+		    controllerAs:'vm'
+		 })	
+
+
 		.state('404',{
 			url: '/404',
 			templateUrl: './components/404.html'

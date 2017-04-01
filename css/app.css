@@ -1,0 +1,231 @@
+/*
+  TIPOGRAFÍA
+  **/
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Thin.ttf");font-weight: 100; }
+
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_ExtraLight.ttf");font-weight: 300; }
+
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Regular.ttf");font-weight: 400; }
+
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Medium.ttf");font-weight: 500; }
+
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_SemiBold.ttf");font-weight: 600; }
+
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Bold.ttf");font-weight: 700; }
+
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Black.ttf");font-weight: 900; }
+
+/*
+  NORMALIZE
+  **/
+body {
+  font-family: 'montserrat';
+  background-color: #efeff1;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'montserrat';
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/*
+  NAVEGACIÓN LATERAL
+  **/
+#aside_col {
+  background-color: #000;
+  padding: 0;
+  height: 100%;
+  position: fixed;
+  float: left;
+}
+#aside_col p,a,.fa {
+  color: #fff;
+  text-align: center;
+}
+#aside_col li {
+  display: list-item;
+  text-align: center;
+}
+#aside_col li:hover {
+  border-right: 5px solid #f1c40f;
+  color: #f1c40f;
+}
+#aside_col li:hover .fa {
+  color: #f1c40f;
+}
+#aside_col li a {
+  max-width: 107px;
+}
+#aside_col li:hover a {
+  color: #fff;
+}
+#aside_col a {
+  font-weight: 300;
+  text-decoration: none;
+  padding: 14px 0px;
+  font-size: 14px;
+  font-family: 'montserrat';
+  font-weight: 100;
+  display: block;
+}
+#aside_col i {
+  font-size: 24px;
+  display: block;
+}
+#aside_col .logo {
+  height: 53px;
+}
+#aside_col .logo img {
+  margin: 10px 10px;
+}
+#aside_col .logo li {
+  padding: 10px 0 11px 10px;
+}
+#aside_col .logo img {
+  max-width: 40px;
+}
+
+/*
+  HEADER
+  **/
+#navegacion {
+  background-color: #000;
+  border-radius: 0;
+}
+.img-profile {
+  margin-right: 10px;
+  width: 29px;
+  height: 29px;}
+#profile {
+  padding: 12px 21px 11px 21px;}
+
+/*
+  MAIN
+  **/
+/*#header {
+  margin-left: 115px;
+}*/
+#main_col {
+  float: right;
+}
+ /*Listas de usuarios*/
+.list-member {
+  background: #efeff1;
+  border: 2px solid #000;
+  padding: 8px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.list-member img {
+  max-width: 96px;
+  max-height: 96px;
+  margin: 0 auto;
+  border: 7px solid #fff;
+}
+.list-member > .btn-group {
+  margin: 0 auto;
+}
+.list-member > .btn-group > .btn {
+  margin-left: 5px;
+}
+/*
+  Sobreescribiendo bootstrap
+  **/
+ /*Paneles*/
+.panel .panel-heading {
+  background: #000;
+  color: #fff;
+}
+.panel-footer {
+  height: 55px;
+}
+  /*Botones*/
+.btn {
+  margin-left: 5px;
+}
+/*.btn-danger {
+  background: #a30b37;}*/
+.btn-warning {
+  color: #000
+}
+.btn-warning:hover, .btn-warning:focus {
+  color: #000
+}
+.btn-inverse {
+  background: #000;
+}
+/*.btn-inverse:hover,
+.btn-inverse.hover,
+.btn-inverse:focus,
+.btn-inverse:active,
+.btn-inverse.active,
+.open > .dropdown-toggle.btn-inverse {
+  color: #ffffff;
+  background-color: #415b76;
+  border-color: #415b76;
+}*/
+
+¨/*Modals*/
+.modal-header {
+  min-height: 16.42857143px;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #000;
+}
+.modal-header {
+    background: #000;
+    color: #fff;
+}
+.modal-header .close {
+  margin-top: -2px;
+}
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.modal-body {
+  position: relative;
+  padding: 15px;
+}
+.modal-footer {
+  background: #f5f5f5;
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+/*Anchors*/
+a {
+  color: #fff;}
+a:hover, a:focus {
+  color: #fff;}
+
+/*Navegaciones*/
+/*Sobreescribe el estilo del texto*/
+.navbar-default .navbar-nav > li > a {
+  color: #fff;}
+/*.navbar-default .navbar-nav > li:focus > a {
+  color: #f1c40f;}*/
+.navbar-default .navbar-nav > li:hover > a {
+  color: #f1c40f;}
+.navbar-default .navbar-nav > .open > a {
+  color: #fff;}
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: transparent;
+  color: #f1c40f;
+}
+/*Sobreescribe el estilo de la flecha*/
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #f1c40f;
+  border-bottom-color: #f1c40f;}
+
+#myScrollspy {
+	height:200px;
+	overflow-y: scroll;
+}
