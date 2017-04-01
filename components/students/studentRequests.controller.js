@@ -20,6 +20,7 @@
       //mostrar detalle
       vm.viewRequest= function(request){
         vm.req=request;
+        // setTimeout(function(){$('#myModal').modal('hide')},3000);
       }
       vm.approveRequest= function(request){
         //1)1er param:solicitud actual, 2do param: estado(rechazado=2)
