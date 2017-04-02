@@ -44,6 +44,8 @@
 					<p>Fecha de nacimiento: {{vm.req.birthdate | date :  "dd/MM/y"}}</p>
 					<p>Correo: {{vm.req.mail}}</p>
 					<p>Cédula: {{vm.req.id}}</p>
+					<div class="col-md-11">
+					</div>
 					<ul>Carreras:
 						<li ng-repeat="carrer in vm.req.carrers">
 							<!--muestra solamente el nombre del solicitante-->
@@ -55,10 +57,13 @@
 
 					<!--sección oculta (contiene la justificacion del rechazo)-->
 					<div class="extra" ng-Show="vm.rejection">
-						<label>Justificación</label>
-						<input type="text" name="Justification" ng-model="vm.req.justification">
-						<div ng-show="vm.validate">La justificación es requerida</div>
-						<button class="btn btn-sm btn-embossed btn-danger" ng-click="vm.rejectRequest(vm.req)">Confirmar rechazo</button>
+						<form novalidate>
+							<div class="form-group">
+								<label>Justificación</label>
+								<input class="form-control" type="text" placeholder="agregue una justificación" ng-model="vm.req.justification">
+								<div ng-show="vm.validate">La justificación es requerida</div>
+							</div>
+						</form>
 					</div>
 				</div>
 				
@@ -67,9 +72,10 @@
 	      <div class="modal-footer">
 	      <!--procesamiento de la solicitud (aprueba o rechaza)-->
 			<div class="unModal-footer">
-				<button class="btn btn-sm btn-embossed btn-warning" ng-click="vm.approveRequest(vm.req)">Aprobar</button>
-				<button class="btn btn-sm btn-embossed btn-warning" ng-click="vm.rejection=true">Rechazar</button><!--muestra la seccion oculta-->
-	        <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
+				<button ng-show="vm.confirm" class="btn btn-sm btn-embossed btn-danger" ng-click="vm.rejectRequest(vm.req)">Confirmar rechazo</button>
+				<button ng-show="vm.btnYes" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.approveRequest(vm.req)">Aprobar</button>
+				<button ng-show="vm.btnNo" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.rejection=true;vm.confirm=true;vm.btnYes=false;vm.btnNo=false">Rechazar</button><!--muestra la seccion oculta-->
+	        <button ng-click="vm.hideConfirm()" type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
 			</div>
 	      </div>
 	    </div>
