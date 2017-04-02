@@ -113,10 +113,13 @@ ul {
  /*Listas de usuarios*/
 .list-member {
   background: #efeff1;
-  border: 2px solid #000;
+  /*border: 2px solid #000;*/
   padding: 8px;
   margin-bottom: 50px;
   text-align: center;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.75);
 }
 .list-member img {
   max-width: 96px;
