@@ -87,7 +87,7 @@
 			url: '/proyectos/:proyectoId',
 			views: {
 				'': {
-					templateUrl: '/components/projects/watchproject/projects.view.html',
+					templateUrl: '/components/projects/project/watchproject/projects.view.html',
 					controller: 'watchProjectController',
 					controllerAs: 'watchProjectCtrl'
 				},
