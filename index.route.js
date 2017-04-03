@@ -25,7 +25,7 @@
 
 		.state('proyectRequest',{
 			url: '/solicitud-proyecto',
-		    templateUrl:'components/projects/projectRequests/cshrequest.view.html',
+		    templateUrl:'components/projects/project/projectRequests/cshrequest.view.html',
 		    controller: 'cshReqController',
 		    controllerAs: 'cshReqCtrl'
 		})
@@ -92,7 +92,8 @@
 					controllerAs: 'watchProjectCtrl'
 				},
 			    'anotaciones@watchProject': { //ANdres anotaciones
-			    	templateUrl: 'components/projects/proyect/projectAnotations/projectanotations.view.html',
+				templateUrl: 'components/projects/project/projectAnotations/projectanotations.view.html',
+
 			    	controller: 'projectAnotationsController',
 			    	controllerAs: 'anotationsCtrl'
 				},
@@ -117,15 +118,17 @@
 				  controllerAs: 'menuCtrl'
 				},
 				'archivos@watchProject': { //Esteban archivos
-				  templateUrl: 'components/projects/proyect/projectFiles-esteban/projectFiles.view.html',
-				  controller: 'filesController',
-				  controllerAs: 'filesCtrl'
+					resolve: {  
+			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+			          	return $ocLazyLoad.load('./components/projects/project/projectFiles-esteban/projectFiles.controller.js')
+			          }]
+				    },
+					templateUrl: 'components/projects/project/projectFiles-esteban/projectFiles.view.html',
+					controller: 'filesController',
+					controllerAs: 'filesCtrl'
 				}
 	    	}
 		})	
-
-
-
 		.state('students',{
 		       url: '/solicitudEstudiantes',
 		       templateUrl: 'components/students/students.view.html',
