@@ -9,7 +9,7 @@
 					  <!-- Trigger the modal with a button -->
 					    <li class="list-group-item" ng-repeat="request in vm.requestsList | filter:{state_key:'1'}">
 					    	{{request.name}}
-					    	<button ng-click="vm.viewRequest(request)" class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#myModal">Ver solicitud</button>
+					    	<button ng-click="vm.viewRequest(request)" class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#modalRequest">Ver solicitud</button>
 					    </li>
 					    <li class="list-group-item">Estudiante a<button class="btn btn-sm btn-embossed btn-warning pull-right">Ver solicitud</button></li>
 					    <li class="list-group-item">Estudiante b<button class="btn btn-sm btn-embossed btn-warning pull-right">Ver solicitud</button></li>
@@ -22,7 +22,7 @@
 	</div><!--Primer row-->
 	<!--Fuera del row coloco el modal-->
 	<!-- Modal -->
-	<div id="myModal" class="modal fade" role="dialog">
+	<div id="modalRequest" class="modal fade" role="dialog">
 	  <div class="modal-dialog">
 
 	    <!-- Modal content-->
@@ -41,7 +41,6 @@
 					<p>Fecha de nacimiento: {{vm.req.birthdate | date :  "dd/MM/y"}}</p>
 					<p>Correo: {{vm.req.mail}}</p>
 					<p>Cédula: {{vm.req.id}}</p>
-					<div class="col-md-11">
 						<p>Carreras:</p>
 						<ul>
 							<li ng-repeat="carrer in vm.req.carrers">
@@ -49,7 +48,6 @@
 								<p>{{ carrer }}</p>
 							</li>
 						</ul>
-					</div>
 					<!-- Currículo:
 					<button>Ver currículo</button> -->
 
