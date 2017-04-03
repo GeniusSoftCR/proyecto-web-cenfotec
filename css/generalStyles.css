@@ -749,3 +749,6 @@ header {
 i.glyphicon {
   top: 45px;
   left: 15px; }
+
+#profile-container {
+  background: black; }

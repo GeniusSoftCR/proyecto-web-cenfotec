@@ -38,7 +38,7 @@
 		})
 
 		.state('main',{
-			url:'/inicio/:username',
+			url:'/inicio',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 	          	return $ocLazyLoad.load('./components/main.controller.js')
@@ -49,15 +49,14 @@
 			controllerAs:'vm'
 		})
 		
-		// .state('main.profile',{
-		// 	url:'/:pUsuario',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/projects/projects.controller.js')
-	 //          }]
-		//     },
-		// 	templateUrl: './components/profile/profile.view.html'			
-		// })
+		.state('main.profile',{
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/projects/projects.controller.js')
+	          }]
+		    },
+			templateUrl: './components/profile/profile.view.html'			
+		})
 		
 		.state('main.proyects',{
 			url:'/proyectos',
