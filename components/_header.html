@@ -5,14 +5,15 @@
 	  <div class="collapse navbar-collapse" id="navbar-collapse-01">
 	    <ul class="nav navbar-nav navbar-right">
 	      <li>
-	      	<a href="#"><!-- Indicator with number -->
+	      	<a ui-sref="main({{vm.user.username}})"><!-- Indicator with number -->
 				<i class="fa fa-bell"></i><span class="navbar-new">2</span>
 				</a>
 			  </li>
 	      <li class="dropdown">
-              <a id="profile" href="#" class="dropdown-toggle" data-toggle="dropdown">
-              	<img class="img-circle img-profile" src="../imgs/users/esteban.jpg">
-              	<span class="nombreUsuario">Esteban</span>
+              <a id="profile" ui-sref="main({{vm.user.username}})" class="dropdown-toggle" data-toggle="dropdown">
+              	<img class="img-circle img-profile" ng-src="{{ vm.user.img }}">
+               
+              	<span class="nombreUsuario">{{vm.user.username}}</span>
                 <b class="caret"></b>
               </a>
               <span class="dropdown-arrow"></span>

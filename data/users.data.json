@@ -4,6 +4,7 @@
     "username":"hmurillop",
     "password" : "2310",
     "role": "student",
+    "img":"../imgs/users/hector.jpg",
     "id" : "444"
   },  
   { 
@@ -18,6 +19,7 @@
     "username":"efonsecab",
     "password" : "2310",
     "role": "professor",
+    "img":"../../imgs/users/esteban.jpg",
     "id" : "222"
   },
   { 
