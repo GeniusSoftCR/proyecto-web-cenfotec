@@ -1,22 +1,22 @@
-<!--=======================================================================================
-=            Este el component de Cenfotec Sotware House Archivos en Proyecto          =
-========================================================================================-->
-
-<div class="listAnotations box boxAlternative">
-  <h1 class="boxTitle">Archivos</h1>
-  <div class="boxContent">
-    <div class="item cf" ng-repeat="file in filesCtrl.projectFiles track by $index">
-      <p class="itemName">{{file.name}}</p>
-      <div class="moreAnotations">
-        <button class="btn btn-blue btn-small btn-normal" ng-click="filesCtrl.removeFile(file)">Borrar</button>
-      </div>
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" href="#files">
+    Archivos
+    <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+  </div>
+  <div id="files" class="panel-collapse collapse">
+    <div class="panel-body">
+      <li class="list-group-item">
+        {{file.name}}
+        <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
+          <span class="fui-trash"></span>
+        </button>
+      </li>
+      <li class="list-group-item">Archivo b<button class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-trash"></span></button></li>
+      <li class="list-group-item">Archivo c<button class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-trash"></span></button></li>
+      <li class="list-group-item">Archivo d<button class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-trash"></span></button></li>
     </div>
-
-    <div class="cf">
-      <div class="createAnotation">
-        <a href="javascript:;" ng-click="filesCtrl.addNewFile()" class="btn btn-red btn-small"><i class="fa fa-plus"></i> Agregar archivo</a>
-      </div>
+    <div class="panel-footer">
+      <button ng-click="filesCtrl.addNewFile()" class="btn btn-sm btn-embossed btn-warning pull-right">Agregar</button>
     </div>
-
   </div>
 </div>
