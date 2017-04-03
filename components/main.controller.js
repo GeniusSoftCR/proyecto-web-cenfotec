@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module('cshApp')
-	.controller('mainController',mainController);
+	.controller('mainController', mainController);
 
 	mainController.$inject = ['$location','AuthService'];
 
@@ -15,6 +15,13 @@
  		
  		//vm = view model
 		var vm = this;
+		//////////////
+		
 		vm.user = AuthService.getAuthUser();
+		vm.logOut = function () {
+			AuthService.logOut();
+			$location.path('/entrar');
+		}
+		
 	};
 })();

@@ -26,6 +26,7 @@
     "email": "sbarrantesr@ucenfotec.ac.cr", 
     "username":"sbarrantesr",
     "password" : "2310",
+    "img":"../../imgs/users/stephbr.jpg",    
     "role": "assistant",
     "id" : "333"
   }

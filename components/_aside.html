@@ -6,13 +6,14 @@
   <!--MENÚ LATERAL-->
   <nav>
     <ul>
-      <li><a ui-sref="main"><i class="fa fa-home"></i>Inicio</a></li>
+      <li><a ui-sref="main.profile"><i class="fa fa-home"></i>Inicio</a></li>
       <li><a ui-sref="main.proyects"><i class="fa fa-th-list"></i>Proyectos</a></li><!--href="#!/admin/proyectos"-->
       <li><a href=""><i class="fa fa-user-plus"></i>Clientes</a></li><!--href="#!/asis/clientes"-->
       <li><a ui-sref="main.students"><i class="fa fa-users"></i>Estudiantes</a></li>
       <li><a href=""><i class="fa fa-user-secret"></i>Profesores</a></li>
       <li><a href=""><i class="fa fa-user-circle-o"></i>Asistentes</a></li>
       <li><a href=""><i class="fa fa-list-alt"></i>Reportes</a></li><!--href="#!/admin/reportes/miembrosProyecto"-->
+      <li><a ng-click="vm.logOut()" href=""><i class="fa fa-sign-out"></i>Salir</a></li><!--href="#!/admin/reportes/miembrosProyecto"-->
     </ul>
   </nav>
 </aside>

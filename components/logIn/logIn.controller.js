@@ -11,7 +11,8 @@
 
  		if(AuthService.isAuth()){
  			var authUser = AuthService.getAuthUser();
- 			$location.path('/inicio/' + authUser);
+ 			
+ 			$location.path('/inicio/usuario');
  		}else{
  			$location.path('/entrar');
  		}
