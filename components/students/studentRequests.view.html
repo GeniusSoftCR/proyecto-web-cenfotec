@@ -27,16 +27,13 @@
 
 	    <!-- Modal content-->
 	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4>Nueva solicitud</h4>
-	      </div>
-	      <div class="modal-body">
-	        <a href="javascript:;" ng-click="vm.closeModal()">Cerrar</a>
-    		
-			<form>
-				<!--despliega todo el contenido de la solicitud-->
-				<div class="unModal-body">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4>Nueva solicitud</h4>
+			</div>
+			<!--despliega todo el contenido de la solicitud-->
+			<div class="unModal-body">
+				<form>
 					<p>
 						<img ng-src="{{vm.req.avatarUrl}}" style="width: 50px; height: 50px">
 						Estudiante: {{vm.req.name}} {{vm.req.surname}} {{vm.req.secondSurname}}
@@ -45,12 +42,13 @@
 					<p>Correo: {{vm.req.mail}}</p>
 					<p>Cédula: {{vm.req.id}}</p>
 					<div class="col-md-11">
-					<ul>Carreras:
-						<li ng-repeat="carrer in vm.req.carrers">
-							<!--muestra solamente el nombre del solicitante-->
-							<p>{{ carrer }}</p>
-						</li>
-					</ul>
+						<p>Carreras:</p>
+						<ul>
+							<li ng-repeat="carrer in vm.req.carrers">
+								<!--muestra solamente el nombre del solicitante-->
+								<p>{{ carrer }}</p>
+							</li>
+						</ul>
 					</div>
 					<!-- Currículo:
 					<button>Ver currículo</button> -->
@@ -65,22 +63,19 @@
 							</div>
 						</form>
 					</div>
-				</div>
-				
-			</form>
-	      </div>
-	    </div>
-		<div class="modal-footer">
-			<!--procesamiento de la solicitud (aprueba o rechaza)-->
-			<div class="unModal-footer">
-				<button ng-show="vm.confirm" class="btn btn-sm btn-embossed btn-danger" ng-click="vm.rejectRequest(vm.req)">Confirmar rechazo</button>
-				<button ng-show="vm.btnYes" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.approveRequest(vm.req)">Aprobar</button>
-				<button ng-show="vm.btnNo" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.rejection=true;vm.confirm=true;vm.btnYes=false;vm.btnNo=false">Rechazar</button><!--muestra la seccion oculta-->
-				<button ng-click="vm.hideConfirm()" type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
+				</form>
 			</div>
-		</div>
-
-	  </div>
+			<div class="modal-footer">
+				<!--procesamiento de la solicitud (aprueba o rechaza)-->
+				<div class="unModal-footer">
+					<button ng-show="vm.confirm" class="btn btn-sm btn-embossed btn-danger" ng-click="vm.rejectRequest(vm.req)">Confirmar rechazo</button>
+					<button ng-show="vm.btnYes" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.approveRequest(vm.req)">Aprobar</button>
+					<button ng-show="vm.btnNo" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.rejection=true;vm.confirm=true;vm.btnYes=false;vm.btnNo=false">Rechazar</button><!--muestra la seccion oculta-->
+					<button ng-click="vm.hideConfirm()" type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+	    </div><!--FinModal-Content-->
+	  </div><!--FinModal-Dialog-->
 	</div><!--FinModal-->
 </main>
 
