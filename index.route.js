@@ -83,46 +83,49 @@
 			controllerAs: 'vm'
 		})
 
-		// .state('watchProject',{
-		// 	url: '/proyectos/:proyectoId',
-		// 	views: {
-		// 		'': {
-		// 			templateUrl: '/components/projects/watchproject/projects.view.html',
-		// 			controller: 'watchProjectController',
-		// 			controllerAs: 'watchProjectCtrl'
-		// 		},
-		// 	    'anotaciones@watchProject': { //ANdres anotaciones
-		// 	    	templateUrl: 'components/projects/projectAnotations/projectanotations.view.html',
-		// 	    	controller: 'projectAnotationsController',
-		// 	    	controllerAs: 'anotationsCtrl'
-		// 		},
-		//       	'estudiantes@watchProject': { //Andres asignar estudiantes
-		//         	templateUrl: 'components/projects/assignStudents/assignStudents.projects.view.html',
-		//         	controller: 'assignStudentsController',
-		//         	controllerAs: 'assignStudentsCtrl'
-		//       	},
-		//       	'profesores@watchProject': { //Andres asignar estudiantes
-		//       	  templateUrl: 'components/projects/assignTeachers/assignTeachers.projects.view.html',
-		//       	  controller: 'assignTeachersController',
-		//       	  controllerAs: 'assignTeachersCtrl'
-		//       	},
-		// 		'header@watchProject': { //Andres asignar estudiantes
-		// 		  templateUrl: 'components/dashboard/header/header.view.html',
-		// 		  controller: 'headerController',
-		// 		  controllerAs: 'headerCtrl'
-		// 		},
-		// 		'menu@watchProject': { //Andres asignar estudiantes
-		// 		  templateUrl: 'components/dashboard/menu/menu.view.html',
-		// 		  controller: 'menuController',
-		// 		  controllerAs: 'menuCtrl'
-		// 		},
-		// 		'archivos@watchProject': { //Esteban archivos
-		// 		  templateUrl: 'components/projects/projectFiles-esteban/projectFiles.view.html',
-		// 		  controller: 'filesController',
-		// 		  controllerAs: 'filesCtrl'
-		// 		}
-	 //    	}
-		// })		
+		.state('watchProject',{
+			url: '/proyectos/:proyectoId',
+			views: {
+				'': {
+					templateUrl: '/components/projects/proyect/watchproject/projects.view.html',
+					controller: 'watchProjectController',
+					controllerAs: 'watchProjectCtrl'
+				},
+			    'anotaciones@watchProject': { //ANdres anotaciones
+			    	templateUrl: 'components/projects/proyect/projectAnotations/projectanotations.view.html',
+			    	controller: 'projectAnotationsController',
+			    	controllerAs: 'anotationsCtrl'
+				},
+		      	'estudiantes@watchProject': { //Andres asignar estudiantes
+		        	templateUrl: 'components/projects/proyect/assignStudents/assignStudents.projects.view.html',
+		        	controller: 'assignStudentsController',
+		        	controllerAs: 'assignStudentsCtrl'
+		      	},
+		      	'profesores@watchProject': { //Andres asignar estudiantes
+		      	  templateUrl: 'components/projects/proyect/assignTeachers/assignTeachers.projects.view.html',
+		      	  controller: 'assignTeachersController',
+		      	  controllerAs: 'assignTeachersCtrl'
+		      	},
+				'header@watchProject': { //Andres asignar estudiantes
+				  templateUrl: 'components/dashboard/header/header.view.html',
+				  controller: 'headerController',
+				  controllerAs: 'headerCtrl'
+				},
+				'menu@watchProject': { //Andres asignar estudiantes
+				  templateUrl: 'components/dashboard/menu/menu.view.html',
+				  controller: 'menuController',
+				  controllerAs: 'menuCtrl'
+				},
+				'archivos@watchProject': { //Esteban archivos
+				  templateUrl: 'components/projects/proyect/projectFiles-esteban/projectFiles.view.html',
+				  controller: 'filesController',
+				  controllerAs: 'filesCtrl'
+				}
+	    	}
+		})	
+
+
+
 		.state('students',{
 		       url: '/solicitudEstudiantes',
 		       templateUrl: 'components/students/students.view.html',
