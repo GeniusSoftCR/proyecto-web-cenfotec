@@ -31,7 +31,7 @@
 		         
 		        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   
 		        
-		        $location.path('/inicio/'+authRequest.username);
+		        $location.path('/inicio/usuario');
 			}else{
 
 		        $log.error("Login failed")
