@@ -50,7 +50,7 @@
         //3)actualizar la lista de solicitudes
         vm.fetchRequestsList();
         //cerrar el modal
-        $('#modalRequest').modal('hide');
+        $('#studentReq-Modal').modal('hide');
         /*4)Back End:enviar notificación por correo*/
         }else{vm.validation=true;}
       }
