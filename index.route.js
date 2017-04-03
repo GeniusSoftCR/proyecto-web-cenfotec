@@ -50,6 +50,7 @@
 		})
 		
 		.state('main.profile',{
+			url:'/usuario',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 	          	return $ocLazyLoad.load('./components/projects/projects.controller.js')
