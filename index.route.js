@@ -117,9 +117,14 @@
 				//   controllerAs: 'menuCtrl'
 				// },
 				'archivos@watchProject': { //Esteban archivos
-				  templateUrl: 'components/projects/project/projectFiles-esteban/projectFiles.view.html',
-				  controller: 'filesController',
-				  controllerAs: 'filesCtrl'
+					resolve: {  
+			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+			          	return $ocLazyLoad.load('./components/projects/project/projectFiles-esteban/projectFiles.controller.js')
+			          }]
+				    },
+					templateUrl: 'components/projects/project/projectFiles-esteban/projectFiles.view.html',
+					controller: 'filesController',
+					controllerAs: 'filesCtrl'
 				}
 	    	}
 		})		
