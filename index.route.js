@@ -39,9 +39,25 @@
 
 		.state('main',{
 			url:'/inicio',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/main.controller.js')
+	          }]
+		    },			
 			templateUrl: './components/main.html',
+			controller:'mainController',
+			controllerAs:'vm'
 		})
-
+		
+		.state('main.profile',{
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/projects/projects.controller.js')
+	          }]
+		    },
+			templateUrl: './components/profile/profile.view.html'			
+		})
+		
 		.state('main.proyects',{
 			url:'/proyectos',
 			resolve: {  

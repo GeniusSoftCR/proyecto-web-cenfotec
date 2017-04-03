@@ -4,48 +4,65 @@
   angular.module('cshApp')
   .service('AuthService', AuthService);
 
-  AuthService.$inject = ['$q','$http','SessionService','localStorageService','logInService'];
+  AuthService.$inject = ['$q','$http','SessionService','localStorageService','userService'];
 
 
-  function AuthService($q,$http,SessionService,localStorageService,logInService) {
-    // API CODE 
-
-    //////////////////////////
+  function AuthService($q,$http,SessionService,localStorageService,userService) {
 
     var service = {
-      logIn:_logIn
+      logIn:_logIn,
+      logOut:_logOut,
+      isAuth:_isAuth,
+      getAuthUser:_getAuthUser
     };
     return service;
-
-    //////////////////////////////////
+    
+    //////////////////////////
 
     function _logIn(credentials) {
+      var users = userService.getUsers();
 
       var validation = function(){
-        var usersLocal = logInService;
+
         var user = {};
+        var userSearch = true;
 
-        angular.forEach(usersLocal, function(val ,key){
+        angular.forEach(users, function(val ,key){
 
-          if (credentials.email == val.email && credentials.password == val.password){
-            delete val.password;
-            user = val;
-
-          }else{
-            return null;
-          };        
+          if (userSearch) {
+            if ( credentials.email == val.email && credentials.password == val.password){
+              userSearch = false;
+              delete val.password;
+              user = val;
+            }else{
+              user = false;
+            };
+          };
         });
+
         return user;
       };
 
-      var request = validation();    
+      var request = validation(); 
+
       $q.when(request).then( function(){
-        SessionService.create(request.email,request.role)
+        SessionService.create(request)
+
+        console.log(SessionService.session)
       });
-      return request.email;
+      return request;
     };
-    AuthService.logOut = function(){
+
+    function _logOut(){
       SessionService.destroy();
+    }
+
+    function _isAuth(){
+      return !!SessionService.session;
+    }
+    
+    function _getAuthUser() {
+      return SessionService.session;
     }
   }
 })();

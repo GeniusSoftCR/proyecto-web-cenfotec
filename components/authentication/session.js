@@ -3,16 +3,20 @@
 	angular.module('cshApp')
 	.service('SessionService', SessionService)
 
-	function SessionService(){
-	 
-		  this.create = function (userEmail, userRole) {//sessionId
-		  	//this.id = sessionId;
-		    this.userEmail = userEmail;
-		    this.userRole = userRole;
-		  };
-		  this.destroy = function () {
-		    this.userEmail = null;
-		    this.userRole = null;
-		  };    
+	SessionService.$inject = ['localStorageService'];
+
+	function SessionService(localStorageService){
+		
+		this.session = localStorageService.get('session');
+
+		this.create = function (user) {//sessionId
+			this.session = user;
+			localStorageService.set('session',user);
+		};
+
+		this.destroy = function () {
+			delete this.session;
+			localStorageService.remove('session');
+		};
 	};
 })();
