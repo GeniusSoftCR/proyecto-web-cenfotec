@@ -69,16 +69,16 @@
 				
 			</form>
 	      </div>
-	      <div class="modal-footer">
-	      <!--procesamiento de la solicitud (aprueba o rechaza)-->
+	    </div>
+		<div class="modal-footer">
+			<!--procesamiento de la solicitud (aprueba o rechaza)-->
 			<div class="unModal-footer">
 				<button ng-show="vm.confirm" class="btn btn-sm btn-embossed btn-danger" ng-click="vm.rejectRequest(vm.req)">Confirmar rechazo</button>
 				<button ng-show="vm.btnYes" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.approveRequest(vm.req)">Aprobar</button>
 				<button ng-show="vm.btnNo" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.rejection=true;vm.confirm=true;vm.btnYes=false;vm.btnNo=false">Rechazar</button><!--muestra la seccion oculta-->
-	        <button ng-click="vm.hideConfirm()" type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
+				<button ng-click="vm.hideConfirm()" type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
 			</div>
-	      </div>
-	    </div>
+		</div>
 
 	  </div>
 	</div><!--FinModal-->
