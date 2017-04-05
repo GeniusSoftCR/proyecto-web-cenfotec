@@ -43,7 +43,10 @@
 						<p><b>Correo:</b> {{vm.req.mail}}</p>
 						<p><b>Cédula:</b> {{vm.req.id}}</p>
 						<p><b>Carreras:</b>
-							<div ng-repeat="carrer in vm.req.carrers">{{ carrer }} /</div>
+							<p ng-repeat="carrer in vm.req.carrers">
+						        <span class="label label-default">{{ carrer }}</span>
+						    </p>
+							<!-- <div ng-repeat="carrer in vm.req.carrers">{{ carrer }} /</div> -->
 						</p>
 					</div>
 					<!-- Currículo:
