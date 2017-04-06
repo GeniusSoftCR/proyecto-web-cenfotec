@@ -15,12 +15,12 @@
       vm.rejection=false; //oculta bloque de la jsutificación
       vm.confirm=false;   //oculta botón de confirmar
 
-      //recargar la lista de solicitudes
+      //Recargar la lista de solicitudes
       vm.fetchRequestsList= function(){
         vm.requestsList = studentRequestsService.getRequests();
       }
 
-      //mostrar el detalle de la solicitud
+      //Mostrar el detalle de la solicitud
       vm.viewRequest= function(request){
         vm.req=request;     //binding de la solicitud seleccionada
         //en el modal:
@@ -28,17 +28,14 @@
         vm.btnNo=true;      //muestra botón de rechazar
         vm.rejection=false; //oculta bloque de la jsutificación
         vm.confirm=false;   //oculta botón de confirmar
+        $('#justification').closest('.form-group').removeClass('has-error');
+        vm.req.justification=null;
         // setTimeout(function(){$('#myModal').modal('hide')},3000);
       }
-      //ocultar confirmación
-      vm.hideConfirm= function(request){
-        vm.rejection=false;
-        vm.confirm=false;
-        vm.btnYes=true;
-        vm.btnNo=true;
-      }
+
+      //Aprobar una solicitud
       vm.approveRequest= function(request){
-        //1)1er param:solicitud actual, 2do param: estado(rechazado=2)
+        //1)1er param:solicitud actual, 2do param: estado(aprobado=2)
         studentRequestsService.changeRequestState(request,2);
         //3)actualizar la lista de solicitudes
         vm.fetchRequestsList();
@@ -46,9 +43,13 @@
         $('#studentReq-Modal').modal('hide');
         /*4)Back End:enviar notificación por correo*/
       }
+
+      //Rechazar una solicitud
       vm.rejectRequest= function(request){
+        //si el input de la justificación no está vacío
         if(vm.req.justification!=null){
-          vm.validate=false;
+          vm.validate=false;  //oculta mensaje "justificación requerida"
+          $('#justification').closest('.form-group').removeClass('has-error');
           //1)1er param:solicitud actual, 2do param: estado(rechazado=3)
           studentRequestsService.changeRequestState(request,3);
           //2)oculta la sección de la justificación
@@ -58,6 +59,7 @@
           vm.fetchRequestsList();
           //cerrar el modal
           $('#studentReq-Modal').modal('hide');
+          //
           vm.rejection=false;
           vm.confirm=false;
           vm.btnYes=true;
