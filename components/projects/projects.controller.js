@@ -5,7 +5,7 @@
     loadProjectsController.$inject= ['admin_loadProjectsService'];//, 'cshReqService'
 
     function loadProjectsController(admin_loadProjectsService){
-      console.log('hola mundo');
+      
       var vm = this;
       //inicia cargando la lista de estados de proyecto
       vm.statesList = admin_loadProjectsService.getProjectsStates();
