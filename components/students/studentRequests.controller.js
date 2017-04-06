@@ -7,22 +7,27 @@
     function studentRequestsController(studentRequestsService){
      
       var vm = this;
-      //inicia cargando la lista de solicitudes
+      //carga la lista de solicitudes
       vm.requestsList = studentRequestsService.getRequests();
-      vm.btnYes=true;
-      vm.btnNo=true;
-      //oculta secciones del view
-      vm.rejection=false;//contiene la justificación
-      vm.confirm=false;//botón para confirmar el rechazo
+      //en el modal:
+      vm.btnYes=true;     //muestra botón de aprobar
+      vm.btnNo=true;      //muestra botón de rechazar
+      vm.rejection=false; //oculta bloque de la jsutificación
+      vm.confirm=false;   //oculta botón de confirmar
 
       //recargar la lista de solicitudes
       vm.fetchRequestsList= function(){
         vm.requestsList = studentRequestsService.getRequests();
       }
 
-      //mostrar detalle
+      //mostrar el detalle de la solicitud
       vm.viewRequest= function(request){
-        vm.req=request;
+        vm.req=request;     //binding de la solicitud seleccionada
+        //en el modal:
+        vm.btnYes=true;     //muestra botón de aprobar
+        vm.btnNo=true;      //muestra botón de rechazar
+        vm.rejection=false; //oculta bloque de la jsutificación
+        vm.confirm=false;   //oculta botón de confirmar
         // setTimeout(function(){$('#myModal').modal('hide')},3000);
       }
       //ocultar confirmación
