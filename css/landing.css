@@ -1,4 +1,6 @@
-
+body{
+	font-family: 'montserrat'
+}
 /*estilos del header*/
 #color{
 	background: #000;
@@ -7,6 +9,7 @@
 	position: fixed;
 	width: 100%;
 	border-radius: 0;
+	z-index: 1;
 }
 	#color a{
 	font-family: 'montserrat';
@@ -39,7 +42,7 @@
 				color: #fff;
 				font-family: 'montserrat';
 				font-weight: 300;
-				padding: 0 0 10% 30%;
+				padding: 0 0 10% 40%;
 				margin: 0;
 			}
 	/*estilos del segundo section*/
@@ -47,7 +50,14 @@
 			background: #fff;
 		}
 			#nosotros h2{
+				width: 20%;
 				margin: 0;
+				color: #000;
+				font-size: 2.5em;
+				font-family: 'montserrat';
+				font-weight: 400;
+				margin: 0 auto;
+				padding: 3% 0;
 			}
 			#description{
 				width: 50%;
@@ -55,8 +65,19 @@
 				font-size: 1em;
 				font-weight: 300;
 				font-family: 'montserrat';
+				padding: 0 3%;
 			}
+			#cenfo{
+				position: relative;
+				z-index: 999;
+			}
+				#cenfo img{
+					margin-top: 15%;
+					border-radius: 2%;
+					position: absolute;
+				}
 
+	/*estilos del tercer section*/
 	/*estilos del tercer section*/
 	#services{
 		background: #000;
@@ -65,16 +86,18 @@
 			color: #fff;
 			width: 10%;
 			margin: 0 auto;
-			padding: 3% 0; 
+			padding: 3% 0;
+			font-family: 'montserrat';
+			font-size: 300;
 		}
 		#services div{
 			background-image: url(../imgs/code.jpg);
-			width: 200px;
-			height: 200px;
+			background-position: center;
+			width: 300px;
+			height: 300px;
 			border-radius: 50%;
 			margin: 0 auto;
 		}
-
 	
 /*estilos del footer*/
 .footer-main {
@@ -88,7 +111,7 @@
 	    color: #fbb803;  
 	}
 	.footer-main img {
-		max-width: 100px;
+		width: 20%;
 		display: inline;
 	}
 .footerSecond {
