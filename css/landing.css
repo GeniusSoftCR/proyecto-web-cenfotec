@@ -84,13 +84,12 @@ body{
 	}
 		#services h2{
 			color: #fff;
-			width: 10%;
 			margin: 0 auto;
 			padding: 3% 0;
 			font-family: 'montserrat';
 			font-size: 300;
 		}
-		#services div{
+		#fondo2{
 			background-image: url(../imgs/code.jpg);
 			background-position: center;
 			width: 300px;
@@ -98,6 +97,20 @@ body{
 			border-radius: 50%;
 			margin: 0 auto;
 		}
+		#service ul{
+			
+		}
+			#services li p{
+				color: #fff;
+				font-size: 1em;
+				font-weight: 100;
+				font-family: 'montserrat';
+			}
+		
+			#services li span{
+				width: 40px;
+				font-size: 2em;
+			}
 	
 /*estilos del footer*/
 .footer-main {
