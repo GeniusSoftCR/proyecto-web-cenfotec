@@ -78,7 +78,9 @@ body{
 				}
 
 	/*estilos del tercer section*/
-	/*estilos del tercer section*/
+	.center{
+		
+	}
 	#services{
 		background: #000;
 	}
@@ -87,7 +89,9 @@ body{
 			margin: 0 auto;
 			padding: 3% 0;
 			font-family: 'montserrat';
-			font-size: 300;
+			font-weight: 400;
+			width: 20%;
+			margin: 0 auto;s
 		}
 		#fondo2{
 			background-image: url(../imgs/code.jpg);
@@ -95,11 +99,14 @@ body{
 			width: 300px;
 			height: 300px;
 			border-radius: 50%;
-			margin: 0 auto;
 		}
 		#service ul{
-			
+			width: 30%;
+
 		}
+			#service li{
+				padding: 0 10%;
+			}
 			#services li p{
 				color: #fff;
 				font-size: 1em;
@@ -109,7 +116,8 @@ body{
 		
 			#services li span{
 				width: 40px;
-				font-size: 2em;
+				font-size: 1.5em;
+				color: #f8c300;
 			}
 	
 /*estilos del footer*/
