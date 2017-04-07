@@ -2,7 +2,7 @@
   'use strict';
   angular.module('cshApp', 
 
-    ['appRoutes','angular-filepicker', 'ngFileUpload','LocalDataBase', 'LocalStorageModule'])
+    ['appRoutes','angular-filepicker', 'ngFileUpload', 'LocalStorageModule'])
 
     .config(function (filepickerProvider) {
       filepickerProvider.setKey('A6EzU2EhNTYmcvkWhu2cCz');
@@ -20,13 +20,13 @@
       admin: 'administrador',
       assistant: 'asistente',
       professor : 'profesor',
-      student: 'student'
+      student: 'estudiante'
     })
       //Run = confuiguracion que se aplica al correr la aplicacion *vigila*
     .run(function ($rootScope, AUTH_EVENTS, AuthService) {
       //on esta atento a eventos en rootscope -- $stateChangeStartesrta atento a cambios
-      $rootScope.$on('$stateChangeStart', function (event, next) {
-          //
+      $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
+        // if (toState.urk) {}
       });
     });
 })();

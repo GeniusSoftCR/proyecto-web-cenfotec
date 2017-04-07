@@ -1,0 +1,33 @@
+[
+  {
+    "email": "hmurillop@ucenfotec.ac.cr", 
+    "username":"hmurillop",
+    "password" : "2310",
+    "role": "student",
+    "img":"../imgs/users/hector.jpg",
+    "id" : "444"
+  },  
+  { 
+    "email": "kaguilara@ucenfotec.ac.cr",
+    "username":"kaguilara",
+    "password" : "2310",
+    "role": "admin",
+    "id" : "111"
+  },
+  { 
+    "email": "efonsecab@ucenfotec.ac.cr", 
+    "username":"efonsecab",
+    "password" : "2310",
+    "role": "professor",
+    "img":"../../imgs/users/esteban.jpg",
+    "id" : "222"
+  },
+  { 
+    "email": "sbarrantesr@ucenfotec.ac.cr", 
+    "username":"sbarrantesr",
+    "password" : "2310",
+    "img":"../../imgs/users/stephbr.jpg",    
+    "role": "assistant",
+    "id" : "333"
+  }
+]

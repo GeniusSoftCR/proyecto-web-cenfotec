@@ -2,7 +2,7 @@
 <html lang="es" ng-app="cshApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Cenfotec Software House</title>
+	<title>Cenfotec Software House | El lugar para sus proyectos</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<!-- CSS Links -->	
 		<!-- font awsome -->
@@ -13,7 +13,8 @@
 		<link rel="stylesheet" type="text/css" href="bower_components/flat-ui/dist/css/flat-ui.min.css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/app.css">
-		<!-- <link rel="stylesheet" href="css/generalStyles.css"> -->
+		<link rel="stylesheet" href="css/landing.css">
+		
 	<link rel="icon" href="imgs/cshLogo.png">
 </head>
 <body>
@@ -23,7 +24,7 @@
 	<!-- Filestack *Andres* -->
 	<script src="//api.filestackapi.com/filestack.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>	
+	<!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
 	<script src="bower_components/flat-ui/dist/js/flat-ui.min.js"></script>
 
 	<!-- AngularJs -->
@@ -31,6 +32,8 @@
 	<script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
+
+
 
 	<!-- Cloudinary -->
 	<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
@@ -40,7 +43,10 @@
 	<!-- AppJs -->
 	<script src="app.js"></script>
 	<script src="index.route.js"></script>
-  	<script src="data/db.js"></script>
+  	
+
+  	<!-- Services -->
+	<script src="components/services/userData.service.js"></script>  	  	
 
   	<!-- Auteticacion *Kevin* -->
   	<script src="components/authentication/session.js"></script>
@@ -62,6 +68,29 @@
 	<script src="components/logIn/logIn.service.js"></script>
 	
 
+	<!--=============================
+	=            ANDRES             =
+	==============================-->
+	<!-- solicitud de  cliente desde Landing CSH - Andres-->
+	<script src="components/projects/project/projectRequests/cshrequest.controller.js"></script>
+	<script src="components/projects/project/projectRequests/cshrequest.service.js"></script>
+
+	<!-- Crear Anotación en projecto - Andres -->
+	<!-- <script src="components/projects/project/projectAnotations/projectanotations.controller.js"></script> -->
+	<script src="components/projects/project/projectAnotations/projectanotations.service.js"></script>
+
+	<!-- asignar estudiantes - Andres -->
+	<script src="components/projects/project/assignStudents/assignStudents.projects.controller.js"></script>
+	<script src="components/projects/project/assignStudents/assignStudents.projects.service.js"></script>
+
+	<!-- asignar profesores - Andres -->
+	<script src="components/projects/project/assignTeachers/assignTeachers.projects.controller.js"></script>
+	<script src="components/projects/project/assignTeachers/assignTeachers.projects.service.js"></script>
+
+	<!-- ver proyecto - Andres -->
+	<script src="components/projects/project/watchproject/projects.controller.js"></script>
+	<script src="components/projects/project/watchproject/projects.service.js"></script>
+
 
 	<!--=============================
 	=            ESTEBAN            =
@@ -69,18 +98,15 @@
 
 	<!--**Scripts de *Esteban** -->
 	<script src="components/projects/admin_projects.service.js"></script>
+	<script src="components/students/studentRequests.service.js"></script>
+	<script src="components/projects/project/projectFiles-esteban/projectFiles.service.js"></script>
 	
-	<!-- <script src="components/projects/projects.controller.js"></script> -->
 	<!--Solicitudes de estudiantes-->
-	<script src="components/administratorEsteban/studentRequests/studentRequests.service.js"></script>
-	<script src="components/administratorEsteban/studentRequests/studentRequests.controller.js"></script>
 
 	<!-- Reportes -->
 	<script src="components/administratorEsteban/reports/projectMembers/projectMembers.service.js"></script>
-	<script src="components/administratorEsteban/reports/projectMembers/projectMembers.controller.js"></script>
 	<!-- Clientes -->
 	<script src="components/asistantsEsteban/clients/clients.service.js"></script>
-	<script src="components/asistantsEsteban/clients/clients.controller.js"></script> 
 	<!--**Scripts de *Esteban** -->
 
 
