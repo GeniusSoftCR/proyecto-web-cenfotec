@@ -38,12 +38,12 @@ p{
 			#banner h2{
 				color: #fff;
 				margin: 0;
-				padding: 30% 0 0 30%;
+				padding-top: 30%;
 			}
 			#banner p{
 				color: #fff;
-				padding: 0 0 20% 40%;
-				margin: 0;
+				padding-bottom: 20%;
+				
 			}
 	/*estilos del segundo section*/
 		#nosotros{
@@ -51,14 +51,16 @@ p{
 		}
 			#nosotros h2{
 				color: #000;
+				margin-bottom: 30%;
 			}
 			#description{
 				width: 50%;
 				color: #000;
 				font-size: 1em;
-				font-weight: 300;
+				font-weight: 3003
 				font-family: 'montserrat';
 				padding: 0 3%;
+				margin-bottom: 6%;
 
 			}
 			#cenfo{
@@ -109,7 +111,7 @@ p{
 	/*Estilos del 4 section*/
 		#contacto{
 			background: #fff;
-
+			padding-bottom: 4%;
 		}
 			#contacto h2{
 				color: #000;
