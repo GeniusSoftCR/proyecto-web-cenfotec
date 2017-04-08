@@ -1,0 +1,24 @@
+#projectsList{
+	p {
+		display: inline-block;
+		max-width: 300px;
+	}
+	.btn-normal{
+		margin:0 auto;
+	}
+}
+
+.col-md-6:last-child {
+	float: left;
+}
+
+select {
+	border-radius: 25px;
+	float: right;
+	background-color: #1b264f;
+	color: #fff;
+	
+	option:hover {
+	  background-color: #fff;
+	}
+}

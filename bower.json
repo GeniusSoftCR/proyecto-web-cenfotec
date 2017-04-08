@@ -1,8 +1,9 @@
 {
   "name": "proyectoweb-cenfotec",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "authors": [
+    "hmurillop <hmurillop@ucenfotec.ac.cr>"
     "KaguilarA <kaguilara@ucenfotec.ac.cr>"
   ],
   "license": "ISC",
