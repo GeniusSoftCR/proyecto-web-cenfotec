@@ -143,7 +143,12 @@ ul {
   background: #d4d4d4;
   border-radius: 4px;
 }*/
-
+#studentReq-Modal .modal-label{
+  margin-left: 5px;
+}
+#studentReq-Modal .modal-label:first-child{
+  margin-left: 10px;
+}
 /*
   Sobreescribiendo bootstrap
   **/

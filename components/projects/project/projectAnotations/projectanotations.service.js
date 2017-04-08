@@ -3,15 +3,15 @@
   'use strict';
   angular.module('cshApp').service('projectAnotationsService', projectAnotations);
     function projectAnotations () {
-      var anotations = [
-        {
-          id : 1,
-          projectId : 1,
-          name : 'La primera anotación',
-          description : 'Esta es la descripción general de la anotación que estamos realizando, algo muy interesante',
-          iduserCreate: 1
-        }
-      ];
+      var anotations = [];
+      //   {
+      //     id : 1,
+      //     projectId : 1,
+      //     name : 'La primera anotación',
+      //     description : 'Esta es la descripción general de la anotación que estamos realizando, algo muy interesante',
+      //     iduserCreate: 1
+      //   }
+      // ];
       var publicApi = {
         addAnotation : _addAnotation,
         getAnotations : _getAnotations,

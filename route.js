@@ -71,6 +71,18 @@
 			controllerAs: 'vm'
 		})
 
+		.state('main.proyects2',{
+			url:'/proyectos2',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/projects/projectRequest2/projectRequests.controller.js')
+	          }]
+		    },
+			templateUrl: './components/projects/projectRequest2/projectRequests.view.html',
+			controller: 'projectRequestsController',
+			controllerAs: 'vm'
+		})
+
 		.state('main.students',{
 			url:'/estudiantes',
 			resolve: {  

@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="panel panel-default">
-				<div class="panel-heading">Solicitudes de estudiantes</div>
+				<div class="panel-heading">Solicitudes de proyectos</div>
 				<div class="panel-body">
 					<div class="card">
 					  <ul class="list-group list-group-flush" id="myScrollspy">
@@ -11,7 +11,7 @@
 					    	{{request.name}}
 					    	<button ng-click="vm.viewRequest(request)" class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#studentReq-Modal">Ver solicitud</button>
 					    </li>
-					    <p ng-show="vm.va">No hay soliditudes neuvas</p>
+					    <p ng-show="vm.va">No hay solicitudes nuevas</p>
 					  </ul>
 					</div>
 				</div>
@@ -33,21 +33,18 @@
 			<!--despliega todo el contenido de la solicitud-->
 			<div class="modal-body">
 				<form>
-						<p>
-							<img ng-src="{{vm.req.avatarUrl}}" style="width: 50px; height: 50px">
-							<b>{{vm.req.name}} {{vm.req.surname}} {{vm.req.secondSurname}}</b>
-						</p>
+						<!--Aquí va el nombre del proyecto-->
+						<p><b>{{vm.req.name}}</b></p>
 						<hr>
 					<div class="student-info">
-						<p><b>Fecha de nacimiento:</b> {{vm.req.birthdate | date : "dd/MM/y"}}</p>
-						<p><b>Correo:</b> {{vm.req.mail}}</p>
-						<p><b>Cédula:</b> {{vm.req.id}}</p>
-						<p><b>Carreras:</b>							
-					        <span ng-repeat="carrer in vm.req.carrers" class="label label-default modal-label">{{ carrer }}</span>
-						</p>
+						<p><b>Empresa: </b> {{vm.req}}</p>
+						<p><b>Cédula: </b> {{vm.req}}</p>
+						<p><b>Responsable: </b> {{vm.req}}</p>
+						<p><b>Correo: </b> {{vm.req}}</p>
+						<p><b>Fondos: </b> {{vm.req}}</p>
+						<!-- <p><b>Resumen Ejecutivo: </b> {{vm.}}</p>
+						<p><b>Imágenes: </b> {{vm.}}</p> -->
 					</div>
-					<!-- Currículo:
-					<button>Ver currículo</button> -->
 
 					<!--sección oculta (contiene la justificacion del rechazo)-->
 					<div class="extra" ng-Show="vm.rejection">
