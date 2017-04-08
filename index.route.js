@@ -13,7 +13,8 @@
 
 		.state('landing',{
 			url: '/',
-			templateUrl: './components/landing/landing.html'
+			templateUrl: './components/landing/landing.html',
+			css: 'css/landing.css'
 		})
 
 		.state('studentRequest',{
