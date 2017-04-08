@@ -37,15 +37,15 @@
 						<p><b>{{vm.req.name}}</b></p>
 						<hr>
 					<div class="student-info">
-						<p><b>Empresa: </b> {{vm.req}}</p>
-						<p><b>Cédula: </b> {{vm.req}}</p>
-						<p><b>Responsable: </b> {{vm.req}}</p>
-						<p><b>Correo: </b> {{vm.req}}</p>
+						<p><b>Empresa: </b> {{vm.cli.company}}</p>
+						<p><b>Cédula: </b> {{vm.cli.companyIdNumber}}</p>
+						<p><b>Responsable: </b> {{vm.cli.clientName}}</p>
+						<p><b>Correo: </b> {{vm.cli.clientMail}}</p>
 						<p><b>Fondos: </b> {{vm.req.funds}}</p>
 						<!-- <p><b>Resumen Ejecutivo: </b> {{vm.}}</p>
 						<p><b>Imágenes: </b> {{vm.}}</p> -->
 					</div>
-
+<!--[{"id":1,"company":"Dumond","companyIdNumber":"2","clientName":"Kevin Flynn","clientMail":"fynn@tron.com"}]-->
 					<!--sección oculta (contiene la justificacion del rechazo)-->
 					<div class="extra" ng-Show="vm.rejection">
 						<form novalidate>
