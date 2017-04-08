@@ -10,6 +10,26 @@
     /*Servicio para profesores*/
     var users = [];
 
+
+    users = localStorageService.get('localUsers');
+    if (users == null) {
+      var req = {
+        method: 'GET',
+        url: '../../data/users.data.json',
+        headers: {
+          'Content-Type': undefined
+        }
+      };
+
+      $http(req).then(function(response){
+       localStorageService.set('localUsers',response.data);
+      });
+     // 
+    };
+
+
+
+
     var publicAPI = {
         addUser : _addUser,
         getUser: _getUser,
@@ -17,8 +37,7 @@
         deleteUser : _deleteUser,
         updateUser : _updateUser
     };
-    return publicAPI; // todas las funciones que sean llamadas por ajax deben estar debajo del return, para que ciuando angular corra el script haga el return y devuelva el api , las funciones debajo del return son privadas y se devuelve el api que es el que contiene las funciones
-
+    return publicAPI;
 
 
     function _addUser(pUser){
@@ -61,15 +80,9 @@
 
 
     function _getUsers(){
-      console.log(localStorageService.get('localUsers'));
-      var listaStored = localStorageService.get('localUsers');
-      if (listaStored == null ) {
-        users = [];
-      }else {
-        users = listaStored;
-      };
-      return users;
-    }
+      return localStorageService.get('localUsers');
+    };
+
 
     function _updateUser(pUser) {
       localStorageService.set(['localUsers'],pUser);
