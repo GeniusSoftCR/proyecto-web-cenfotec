@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/GeniusSoftCR/ProyectoWeb-Cenfotec#readme",
   "dependencies": {
+    "angular-password": "^1.0.3",
     "gulp": "^3.9.1",
     "gulp-connect": "^4.0.0",
     "gulp-sass": "^2.3.1",
