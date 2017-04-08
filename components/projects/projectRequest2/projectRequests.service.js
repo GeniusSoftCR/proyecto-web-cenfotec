@@ -3,12 +3,12 @@
   .module('cshApp')
   .service('projectRequestsService', projectRequestsService);
 
-  projectRequestsService.$inject = ['$http','cshReqServiceFn','localStorageService'];
+  projectRequestsService.$inject = ['$http','localStorageService'];
 
   function projectRequestsService($http,localStorageService){
     var publicAPI = {
       getRequests : _getProjects,
-      changeProjectsState : _changeProjectsStates
+      changeProjectState : _changeProjectState
     };
     return publicAPI;
 
