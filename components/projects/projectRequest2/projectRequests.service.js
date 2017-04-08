@@ -9,6 +9,7 @@
     
     var publicAPI = {
       getRequests : _getProjects,
+      getClients : _getClients,
       changeRequestState : _changeProjectsState
     };
     return publicAPI;
@@ -22,6 +23,16 @@
         projectsList = storedList;
       }
       return projectsList;
+    }
+    //devuelve lista de clientes
+    function _getClients () {
+      var storedList = localStorageService.get('localClientList');
+      if(storedList == null){
+        clients = [];
+      }else{
+        clients = storedList;
+      }
+      return clients;
     }
 
     //cambia el estado a aprobado o rechazado según el parámetro
