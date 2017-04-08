@@ -23,6 +23,14 @@
       studentCtrl.pickFile = pickFile;
       studentCtrl.onSuccess = onSuccess;
 
+      studentCtrl.submitForm = function() {
+
+            // check to make sure the form is completely valid
+            if (studentCtrl.studentForm.$valid) {
+                alert('our form is amazing');
+            }
+
+        };
 
       function pickFile(){
           filepickerService.pick(

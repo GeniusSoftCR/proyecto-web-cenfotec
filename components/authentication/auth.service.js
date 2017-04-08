@@ -8,6 +8,8 @@
 
   function AuthService($q,$http,SessionService,localStorageService,userService) {
 
+
+
     var service = {
       logIn:_logIn,
       logOut:_logOut,
@@ -23,7 +25,7 @@
 
       var validation = function(){
 
-        var user = {};
+        var user = {"email":"hmurillop@ucenfotec.ac.cr","username":"hmurillop","role":"student","img":"../imgs/users/hector.jpg","id":"444"};
         var userSearch = true;
 
         angular.forEach(users, function(val ,key){
