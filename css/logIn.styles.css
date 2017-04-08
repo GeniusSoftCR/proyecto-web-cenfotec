@@ -22,6 +22,7 @@ a{
 }
 	a:hover{
 		color: #f8c300;
+		text-decoration: underline;
 	}
 	#fondo1{
 		background-image: url(../imgs/fondo1.png);
