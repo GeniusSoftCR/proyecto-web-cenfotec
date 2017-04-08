@@ -37,7 +37,6 @@
 
 		return users;
 
-		
 		}
 
 		var cacheSession = function(userData){
@@ -49,7 +48,5 @@
 
 			logInCtrl.setList("user", user)
 		}
-		
-	
 
 })();

@@ -1,6 +1,4 @@
-/*
-  TIPOGRAFÍA
-  **/
+/*TIPOGRAFÍA*/
 @font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Thin.ttf");font-weight: 100; }
 
 @font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_ExtraLight.ttf");font-weight: 300; }
@@ -17,7 +15,7 @@
 
 /*
   NORMALIZE
-  **/
+  */
 body {
   font-family: 'montserrat';
   background-color: #efeff1;
@@ -29,7 +27,9 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-
+.btn .btn-warning{
+  color: #fff;
+}
 /*
   NAVEGACIÓN LATERAL
   **/
@@ -143,12 +143,7 @@ ul {
   background: #d4d4d4;
   border-radius: 4px;
 }*/
-#studentReq-Modal .modal-label{
-  margin-left: 5px;
-}
-#studentReq-Modal .modal-label:first-child{
-  margin-left: 10px;
-}
+
 /*
   Sobreescribiendo bootstrap
   **/
@@ -166,9 +161,7 @@ ul {
 }
 /*.btn-danger {
   background: #a30b37;}*/
-.btn-warning {
-  color: #000
-}
+
 .btn-warning:hover, .btn-warning:focus {
   color: #000
 }
@@ -245,6 +238,6 @@ a:hover, a:focus {
   border-bottom-color: #f1c40f;}
 
 #myScrollspy {
-	height:200px;
-	overflow-y: scroll;
+  height:200px;
+  overflow-y: scroll;
 }
