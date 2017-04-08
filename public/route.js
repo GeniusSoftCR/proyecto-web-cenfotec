@@ -13,22 +13,28 @@
 
 		.state('landing',{
 			url: '/',
+			templateUrl: './public/components/landing/landing.html',
+			css: './public/css/landing.css'
       	})
 
 		.state('studentRequest',{
 			url: '/solicitud-estudiante',
+		    templateUrl: './public/components/students/students.view.html',
 		    controller: 'studentController',
 		    controllerAs: 'studentCtrl'
 		})
 
 		.state('proyectRequest',{
 			url: '/solicitud-proyecto',
+		    templateUrl:'./public/components/projects/project/projectRequests/cshrequest.view.html',
 		    controller: 'cshReqController',
 		    controllerAs: 'cshReqCtrl'
 		})
 
 		.state('logIn',{
 			url: '/entrar',
+			templateUrl: './public/components/logIn/logIn.view.html',
+			css: './public/css/logIn.styles.css',
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
@@ -37,8 +43,10 @@
 			url:'/inicio',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./public/components/main.controller.js')
 	          }]
 		    },			
+			templateUrl: './public/components/main.html',
 			controller:'mainController',
 			controllerAs:'vm'
 		})
@@ -47,16 +55,20 @@
 			url:'/usuario',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./public/components/projects/projects.controller.js')
 	          }]
 		    },
+			templateUrl: './public/components/profile/profile.view.html'			
 		})
 		
 		.state('main.proyects',{
 			url:'/proyectos',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./public/components/projects/projects.controller.js')
 	          }]
 		    },
+			templateUrl: './public/components/projects/projects.view.html',
 			controller: 'loadProjectsController',
 			controllerAs: 'vm'
 		})
@@ -65,8 +77,10 @@
 			url:'/proyectos2',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./public/components/projects/projectRequest2/projectRequests.controller.js')
 	          }]
 		    },
+			templateUrl: './public/components/projects/projectRequest2/projectRequests.view.html',
 			controller: 'projectRequestsController',
 			controllerAs: 'vm'
 		})
@@ -75,8 +89,10 @@
 			url:'/estudiantes',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./public/components/students/studentRequests.controller.js')
 	          }]
 		    },
+			templateUrl: './public/components/students/studentRequests.view.html',
 			controller: 'studentRequestsController',
 			controllerAs: 'vm'
 		})
@@ -85,14 +101,17 @@
 			url: '/proyectos/:proyectoId',
 			views: {
 				'': {
+					templateUrl: './public/components/projects/project/watchproject/projects.view.html',
 					controller: 'watchProjectController',
 					controllerAs: 'watchProjectCtrl'
 				},
 			    'anotaciones@watchProject': { //Andres anotaciones
 			    	resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+			          	return $ocLazyLoad.load('./public/components/projects/project/projectAnotations/projectanotations.controller.js')
 			          }]
 				    },
+			    	templateUrl: './public/components/projects/project/projectAnotations/projectanotations.view.html',
 			    	controller: 'projectAnotationsController',
 			    	controllerAs: 'anotationsCtrl'
 				},
@@ -119,8 +138,10 @@
 				'archivos@watchProject': { //Esteban archivos
 					resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+			          	return $ocLazyLoad.load('./public/components/projects/project/projectFiles-esteban/projectFiles.controller.js')
 			          }]
 				    },
+					templateUrl: './public/components/projects/project/projectFiles-esteban/projectFiles.view.html',
 					controller: 'filesController',
 					controllerAs: 'filesCtrl'
 				}
@@ -128,32 +149,38 @@
 		})		
 		.state('students',{
 		       url: '/solicitudEstudiantes',
+		       templateUrl: './public/components/students/students.view.html',
 		       controller: 'studentController',
 		       controllerAs: 'studentCtrl'
 		     })
 		 .state('registrerProfessor',{
 		       url: '/registrerProfessor',
+		       templateUrl: './public/components/administratorSteph/registrerProfessor/userProfessor.view.html',
 		       controller: 'userProfessorController',
 		       controllerAs: 'userProfessorCtrl'
 		     })
 
 		 .state('addCareers',{
 		       url: '/addCareers',
+		       templateUrl: './public/components/administratorSteph/addCareers/addCareers.view.html',
 		       controller: 'addCareersController',
 		       controllerAs: 'addCareersCtrl'
 		     })
 		 .state('registrerAssistant',{
 		       url: '/registrerAssistant',
+		       templateUrl: './public/components/administratorSteph/registrerAssistant/userAssistant.view.html',
 		       controller: 'userAssistantController',
 		       controllerAs: 'userAssistantCtrl'
 		     })
 		 .state('registrerAdmi',{
 		       url: '/registrerAdmi',
+		       templateUrl: './public/components/administratorSteph/registrerAdmi/userAdmi.view.html',
 		       controller: 'userAdmiController',
 		       controllerAs: 'userAdmiCtrl'
 		     })
 		.state('administrator-studentRequests',{
 			url: '/admin/solicitudesEstudiantes',
+			templateUrl: './public/components/administratorEsteban/studentRequests/studentRequests.view.html',
 			controller: 'studentRequestsController',
 			controllerAs: 'studentReqCtrl'
 		})
@@ -198,8 +225,10 @@
 		     url: '/perfil/:username',
 		     resolve: {  
 		          load: ['$ocLazyLoad', function($ocLazyLoad) { return $ocLazyLoad.load([
+		            './public/components/profile/profile.controller.js'
 		          ])}]
 		    }, 
+		 	templateUrl:'./public/components/profile/profile.view.html',
   		    controller:'profileController',
 		    controllerAs:'vm'
 		 })	
@@ -207,6 +236,7 @@
 
 		.state('404',{
 			url: '/404',
+			templateUrl: './public/components/404.html'
 		})
     
 		$urlRouterProvider.otherwise('/');
