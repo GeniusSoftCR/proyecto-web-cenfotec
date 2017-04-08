@@ -34,6 +34,7 @@
 		.state('logIn',{
 			url: '/entrar',
 			templateUrl: './components/logIn/logIn.view.html',
+			css: 'css/logIn.styles.css',
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
