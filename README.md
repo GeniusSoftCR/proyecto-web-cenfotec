@@ -4,7 +4,7 @@ Team Genius Soft
 ## Setup
 
 ```sh
-## install node pacakges (in root ej: C\:Users\yourUserName)
+## install node packages (in root ej: C\:Users\yourUserName)
 (sudo) npm install -g gulp gulp-cli nodemon
 
 ## install dependencies (in your proyect folder)
