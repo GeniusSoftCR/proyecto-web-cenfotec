@@ -71,7 +71,7 @@
 			controllerAs: 'vm'
 		})
 
-		.state('main.proyects',{
+		.state('main.proyects2',{
 			url:'/proyectos2',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
@@ -79,7 +79,7 @@
 	          }]
 		    },
 			templateUrl: './components/projects/projectRequest2/projectRequests.view.html',
-			controller: 'loadProjectsController',
+			controller: 'projectRequestsController',
 			controllerAs: 'vm'
 		})
 
