@@ -105,7 +105,7 @@
 					controller: 'watchProjectController',
 					controllerAs: 'watchProjectCtrl'
 				},
-			    'anotaciones@watchProject': { //ANdres anotaciones
+			    'anotaciones@watchProject': { //Andres anotaciones
 			    	resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 			          	return $ocLazyLoad.load('./components/projects/project/projectAnotations/projectanotations.controller.js')
