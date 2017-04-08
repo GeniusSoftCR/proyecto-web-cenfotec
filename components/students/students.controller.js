@@ -3,10 +3,10 @@
     .module('cshApp')
     .controller('studentController', studentController);
     
-    studentController.$inject = ['$scope','studentService','ImageService','filepickerService','$window','Upload','localStorageService','addCareersService'];
+    studentController.$inject = ['$scope','userService','ImageService','filepickerService','$window','Upload','localStorageService','addCareersService'];
 
     
-    function studentController($scope, studentService,ImageService,filepickerService,$window,Upload, localStorageService,addCareersService){ //se inyecta el service userService en el controlador para que se tenga acceso
+    function studentController($scope, userService,ImageService,filepickerService,$window,Upload, localStorageService,addCareersService){ //se inyecta el service userService en el controlador para que se tenga acceso
       //controlador
       
 
@@ -16,13 +16,13 @@
 
       studentCtrl.cloudObj = ImageService.getConfiguration();
 
-      studentCtrl.send = false;
-      studentCtrl.toSend = true;
-
+   
+      studentCtrl.submitted = false;
 
       //Files
       studentCtrl.pickFile = pickFile;
       studentCtrl.onSuccess = onSuccess;
+
 
       function pickFile(){
           filepickerService.pick(
@@ -43,7 +43,7 @@
 
 
       function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
-        studentCtrl.studentList = studentService.getStudent();
+        studentCtrl.studentList = userService.getUser();
       }
       init();
 
@@ -77,7 +77,7 @@
         }
         console.log(newStudent);
         
-        studentService.addStudent(newStudent);
+        userService.addUser(newStudent);
 
         studentCtrl.stu.name = null;
         studentCtrl.stu.surName = null;
@@ -93,8 +93,7 @@
         studentCtrl.stu.cellphoneNumber = null;
         studentCtrl.stu.avatarUrl = null;
 
-      studentCtrl.send = true;
-      studentCtrl.toSend = false;
+        studentCtrl.submitted = true;
       }
     }
      //se establece un objeto de angular normal

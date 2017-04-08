@@ -1,4 +1,5 @@
-<header>
+<main>
+<!--<header>
   <div class="landingContainer">
     <nav class="landingMenu">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -8,117 +9,191 @@
         <li class="brand-logo"><img src="http://www.cenfotecsoftwarehouse.com/images/Cenfotec-Software-House-Logo.png"></li>
         <li><a href="#!/solicitud-proyecto">Solicitudes</a></li>
         <li><a href="#!/solicitudEstudiantes">Estudiantes</a></li>
-        <li><a href="#!/logIn">Iniciar sesión</a></li>
+        <li><a href="#!/entrar">Iniciar sesión</a></li>
       </ul>
     </nav>
   </div>
-</header>
-<div class="headPage" style="padding-top: 110px;">
+</header>-->
 
-  <div class="container">
-    <h1>Nueva solicitud</h1>
-  </div>
-</div>
-<div class="projectsRequest">
-  <div class="smallContainer">
+<div class="panel panel-default">
+  <div class="panel-heading"><h4>SOLICITUD ESTUDIANTE</h4></div>
+  
+  <div class="panel-body">
+    <div class="col-md-12">
+      <form class="studentForm" novalidate>
+        <h3 style="text-align: center;">Ingrese su información</h3>
+        <div class="col-md-7 col-md-offset-1"">
+          <div class="row">
+            <div class="col-md-4">
+            <h4>Obligatoria</h4> 
+          </div>
+          </div>
+              <div class="form-group col-md-4" style="display: inline-block">
+                  <label>Nombre:</label>
+                    <input 
+                    ng-model="studentCtrl.stu.name" 
+                    id="txtName" 
+                    type="text" 
+                    class="form-control" 
+                    name="name" 
+                    required>
 
-<section ng-show="studentCtrl.toSend">
-    <div class="panel panel-info" >
-        <div class="panel-header">
-           <!-- <h1>Envío de solicitud de estudiante</h1> -->
-        </div>
-        <div class="panel-body" >
-        <form class="studentForm">                            
-            <div class="input-group">
-            <label>Nombre:</label>
-                <input ng-model="studentCtrl.stu.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese su nombre" required>
-            </div>
-
-            <div class="input-group">
-            <label>Primer Apellido:</label>
-                <input ng-model="studentCtrl.stu.surName" id="txtFirstName" type="text" class="form-control" name="lastName" placeholder="Ingrese su primer apellido" required>
-            </div>
-
-
-
-
-            <div class="input-group">
-            <label>Segundo Apellido:</label>
-                <input ng-model="studentCtrl.stu.secondSurname" id="txtSurname" type="text" class="form-control" name="surName" placeholder="Ingrese su segundo apellido" required>
-            </div>
-
-            <div class="input-group">
-            <label>Cédula de identidad:</label>
-              <input ng-model="studentCtrl.stu.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su c]edula" maxlength="9" required>
-            </div>
-
-            <div class="input-group">
-            <label>Fecha de nacimiento:</label>
-                <input type="date" class="form-control" ng-model="studentCtrl.stu.birthdate" required>
-            </div>
-
-            <div class="input-group">
-            <label>Correo electrónico:</label>
-               <input ng-model="studentCtrl.stu.mail" id="txtEmail" type="email" class="form-control" name="mail" ng-required="true" placeholder="Correo electrónico" required>
-            </div>
-
-            <div class="input-group">
-            <label>Contraseña:</label>
-                <input ng-model="studentCtrl.stu.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required>
-            </div>
-
-
-            <div class="input-group">
-              <label>Carreras:</label>
-                <select name="addCarrersStu" ng-model="studentCtrl.stu.carrers" multiple>
-                  <option value="" disabled="disabled">Seleccione un estado</option>
-                  <option ng-repeat="career in studentCtrl.careers" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><!--carrers-->
-                </select>
-            </div>
-
-            <div class="row">  
-              <label>Resumen ejecutivo</label>
-              <a class="btnUpload" ng-click="studentCtrl.pickFile()" ng-model="studentCtrl.stu.resumeUrl">
-              <i class="fa fa-cloud-upload"></i> Seleccione el CV</a>
-            </div><!-- //-Row -->
-
-            <h3>Infromación Adicional</h3>
-            
-            <div class="input-group">
-              <label>Usuario GitHub</label>
-              <input ng-model="studentCtrl.stu.gitHubUrl" id="gitHub" type="text" class="form-control" name="gitHubUrl" placeholder="Ingrese su usario de GitHub">
+                    <p ng-show="studentForm.name.$invalid && !studentForm.name.$pristine" class="help-block">El nombre es requerido.</p>
               </div>
-            
 
-            <div class="input-group">
+
+
+              <div class="form-group col-md-4" style="display: inline-block">
+                   <label>Primer Apellido:</label>
+                    <input 
+                    ng-model="studentCtrl.stu.surName" 
+                    id="txtFirstName" 
+                    type="text" 
+                    class="form-control" 
+                    name="lastName" 
+                    required>
+
+                    <p ng-show="studentForm.lastName.$invalid && !studentForm.lastName.$pristine" class="help-block">El apellido es requerido.</p>
+              </div>
+
+              <div class="form-group col-md-4" style="display: inline-block">
+                    <label>Segundo Apellido:</label>
+                    <input 
+                    ng-model="studentCtrl.stu.secondSurname" 
+                    id="txtSurname" 
+                    type="text" 
+                    class="form-control" 
+                    name="surName" 
+                    required>
+
+                    <p ng-show="studentForm.surName.$invalid && !studentForm.surName.$pristine" class="help-block">El apellido es requerido.</p>
+              </div>
+
+              <div class="form-group col-md-4" style="display: inline-block">
+                    <label>Cédula de identidad:</label>
+                    <input 
+                    ng-model="studentCtrl.stu.id" 
+                    id="txtid" 
+                    type="text" 
+                    class="form-control" 
+                    name="id" 
+                    required
+                    unique
+                    maxlength="9"
+                    minlength="9">
+
+                    <p ng-show="studentForm.id.$invalid && !studentForm.id.$pristine" class="help-block">El apellido es requerido.</p>
+              </div>
+
+              <div class="form-group col-md-4" style="display: inline-block">
+                    <label>Fecha de nacimiento:</label>
+                    <input 
+                    ng-model="studentCtrl.stu.birthdate" 
+                    id="txtid" 
+                    type="date" 
+                    class="form-control" 
+                    name="birthdate" 
+                    ng-required="requeridoNombre">
+
+                    <p ng-show="studentForm.birthdate.$invalid && !studentForm.birthdate.$pristine" class="help-block">La fecha es requerido.</p>
+              </div>
+
+              <div class="form-group col-md-4" style="display: inline-block">
+                    <label>Correo electrónico:</label>
+                    <input 
+                    ng-model="studentCtrl.stu.mail" 
+                    id="txtEmail" 
+                    type="email" 
+                    class="form-control" 
+                    name="mail" 
+                    required
+                    unique>
+
+                    <p ng-show="studentForm.mail.$invalid && !studentForm.mail.$pristine" class="help-block">La fecha es requerido.</p>
+              </div>
+
+              <div class="form-group col-md-6" style="display: inline-block">
+                  <label>Curriculum Vitae:</label>
+                    <p><a class="form-control btn btn-sm btn-embossed btn-warning pull-right" 
+                    ng-click="studentCtrl.pickFile()" 
+                    ng-model="studentCtrl.stu.resumeUrl" 
+                    name="resumeUrl">Seleccione el archivo</a></p>
+
+                    <p ng-show="studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine" class="help-block">El CV es requerido.</p>
+              </div>
+
+            
+              <div class="col-lg-6 col-sm-3 col-xs-3">
+              <label>Avatar:</label>
+                <div class="input-group">
+                    <label class="input-group-btn">
+                        <span class="btn btn-primary" style="background-color: #FBB803; color: black;">
+                            Escoger<input type="file" style="display: none" id="photo" multiple ng-model="studentCtrl.stu.image" required>
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" style="color: #fff" readonly>
+                    <p ng-show="studentForm.photo.$invalid && !studentForm.photo.$pristine" class="help-block">La foto es requerida.</p>
+                </div>
+              </div>
+
+           <div class="form-group col-md-12" style="display: inline-block">
+              <label>Carrera(s):</label>
+              <div class="form-group">
+                <select name="addCarrersStu"  class="form-control" ng-model="studentCtrl.stu.carrers" multiple>
+                  <option ng-repeat="career in studentCtrl.careers" id="career" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><
+                </select>
+                <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>
+              </div>
+            </div>
+        
+        </div>
+
+
+        <div class="col-md-3">
+          <h4 style="text-align: center;">Opcional</h4>
+            
+            <div class="form-group col-md-12" style="display: block; text-align: center;" >
+                <label>Usuario GitHub</label>
+                <input 
+                ng-model="studentCtrl.stu.gitHubUrl" 
+                id="gitHub" 
+                type="text" 
+                class="form-control" 
+                name="gitHubUrl">
+            </div>
+              
+
+          <div class="form-group col-md-12" style="display: block" >
               <label>Link de sitio web:</label>
-                <input ng-model="studentCtrl.stu.websiteUrl" id="link" type="text" class="form-control" name="websiteUrl" placeholder="Ingrese link-sitio web">
-            </div>
+                <input 
+                ng-model="studentCtrl.stu.websiteUrl" 
+                id="link" type="text" 
+                class="form-control" 
+                name="websiteUrl">
+          </div>
 
 
-            <div a="input-group">
+          <div class="form-group col-md-12">
              <label>Número de teléfono:</label>
-              <input ng-model="studentCtrl.stu.cellphoneNumber" id="cellphoneNumber" type="text" class="form-control" maxlength="8" name="cellphoneNumber" placeholder="Ingrese n[umero de tel[efono">
-            </div>
-
-            <div class="input-group">
-            
-              <label>Avatar</label>
-              <input type="file"  id="photo" ng-model="studentCtrl.stu.image">
-            </div>
-
-            <div class="input-group"> 
-            <input ng-disabled="studentForm.$valid" type="submit" ng-click="studentCtrl.preSave()" name="submitBtn" class="btn" value="Registrarse">
-            
-            </div>
+              <input 
+              ng-model="studentCtrl.stu.cellphoneNumber" 
+              id="cellphoneNumber" 
+              type="text"
+              class="form-control" 
+              maxlength="8" 
+              name="cellphoneNumber">
+          </div> 
+        </div>
 
 
-          </form>
-         </div>
+        <div class="form-group col-md-12" style="display: block; text-align: center;"> 
+          <input ng-disabled="studentForm.$invalid" type="submit" ng-click="studentCtrl.preSave()" class="btn btn-lg btn-embossed" value="Registrarse">
+        </div>
 
-    </section>
-      </div>  <!-- //-Container -->
-</div> <!-- //Finalizamos teachers register container -->
-<div class="thanks"  ng-show="studentCtrl.send">
-  <p>La solicitud de estudiante ha sido enviada. Nuestros asesores te contactaran lo más pronto posible</p>
+        
+
+    </form>
+
 </div>
+
+</main>  
