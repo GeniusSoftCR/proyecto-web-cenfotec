@@ -1,0 +1,41 @@
+<div ng-include="'components/dashboard/header/header.view.html'"></div>
+<div class="wrapper">
+<div class="menu" ng-include="'components/dashboard/menu/menu.view.html'"></div>
+<div class="dashboard">
+  <div class="wrap">
+    <div class="row cf">
+      <!--Seccion para listar cliente del proyecto-->
+      <div class="col-md-6">
+        <div id="projectsList" class="box">
+          <h1 class="boxTitle">Clientes</h1>
+          <div class="boxContent">
+            <!-- mensaje para cuando la lista de proyectos está vacía-->
+            <div class="item" ng-show="clientsCtrl.message">
+              <p class="itemName">No hay clientes por mostrar</p>
+            </div>
+            <div class="item" ng-repeat="project in clientsCtrl.projects track by $index">
+              <p class="itemName">{{project.name}}</p>
+              <div class="moreAnotations">
+                <button class="btn btn-blue btn-small btn-normal" ng-click="clientsCtrl.showInfo(project)">Ver Cliente</button>
+              </div>
+              <div class="cf"></div>
+
+                <!-- <button class="btn btn-blue btn-small btn-normal"ui-sref="watchProject({ proyectoId: {{ project.id }} })">Ver proyecto</button> -->
+            </div>
+            <!--ESTO DEBERÍA IR EN UN MODAL-->
+            <div ng-show="clientsCtrl.clientContainer">
+              <p>Cliente: {{clientsCtrl.client.company}}</p>
+              <p>Cédula: {{clientsCtrl.client.companyIdNumber}}</p>
+              <p>Responsable: {{clientsCtrl.client.clientName}}</p>
+              <p>Correo: {{clientsCtrl.client.clientMail}}</p>
+            </div>
+
+          </div><!--boxContent-->
+        </div><!--box-->
+      </div><!--Seccion para listar cliente del proyecto-->
+    </div><!--Fin row-->
+  </div><!--Fin wrap-->
+</div><!--Fin dashboard-->
+</div><!--Fin wrapper-->
+
+ 
