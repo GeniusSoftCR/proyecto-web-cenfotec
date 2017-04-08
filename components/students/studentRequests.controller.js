@@ -54,7 +54,5 @@
         /*4)Back End:enviar notificación por correo*/
         }else{vm.validation=true;}
       }
-
     }
-
 })();

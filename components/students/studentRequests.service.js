@@ -40,7 +40,5 @@
     function localStorageStudentsList(jlist){
       localStorageService.set('localStudents', jlist);
     }
-
   }
-
 })();

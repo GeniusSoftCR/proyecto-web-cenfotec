@@ -6,7 +6,6 @@
 
   AuthService.$inject = ['$q','$http','SessionService','localStorageService','userService'];
 
-
   function AuthService($q,$http,SessionService,localStorageService,userService) {
 
     var service = {
@@ -66,4 +65,3 @@
     }
   }
 })();
-

@@ -6,7 +6,6 @@
 
 	logInController.$inject = ['$log','$location','$rootScope','AUTH_EVENTS','AuthService'];
 
-	
  	function logInController ($log,$location,$rootScope,AUTH_EVENTS,AuthService){
 
  		if(AuthService.isAuth()){
@@ -16,7 +15,6 @@
  		}else{
  			$location.path('/entrar');
  		}
-
  		//vm = view model
 		var vm = this;
 
@@ -26,19 +24,14 @@
 			var authRequest = AuthService.logIn(credentials);
 			
 			if(authRequest){
-
-				$log.info("Login success: "+ authRequest.username);
-		         
-		        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   
-		        
+				$log.info("Login success: "+ authRequest.username);		         
+		        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   		        
 		        $location.path('/inicio/usuario');
 			}else{
-
 		        $log.error("Login failed")
 		        $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
 		        $location.path('/entrar');
 			}
 	    };
-
 	};
 })();

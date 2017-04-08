@@ -6,7 +6,6 @@
 
 	mainController.$inject = ['$location','AuthService'];
 
-	
  	function mainController ($location,AuthService){
 
  		if(!AuthService.isAuth()){
@@ -21,7 +20,6 @@
 		vm.logOut = function () {
 			AuthService.logOut();
 			$location.path('/entrar');
-		}
-		
+		}	
 	};
 })();

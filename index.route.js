@@ -11,9 +11,7 @@
 
 		$stateProvider
 
-		.state('landing',
-			
-		{
+		.state('landing',{
 			url: '/',
 			templateUrl: './components/landing/landing.html'
 		})
@@ -230,5 +228,4 @@
 		$urlRouterProvider.otherwise('/');
 		// $locationProvider.html5Mode(true);
 	}
-
 })();
