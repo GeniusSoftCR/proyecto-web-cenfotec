@@ -74,7 +74,7 @@
           secondSurname : studentCtrl.stu.secondSurname,
           id : studentCtrl.stu.id,
           birthdate : studentCtrl.stu.birthdate,
-          mail : studentCtrl.stu.mail,
+          email : studentCtrl.stu.email,
           password : studentCtrl.stu.password,
           carrers : studentCtrl.stu.carrers,
           resumeUrl : studentCtrl.stu.resumeUrl,
@@ -92,7 +92,7 @@
         studentCtrl.stu.secondSurname = null;
         studentCtrl.stu.id = null;
         studentCtrl.stu.birthdate = null;
-        studentCtrl.stu.mail = null;
+        studentCtrl.stu.email = null;
         studentCtrl.stu.password = null;
         studentCtrl.stu.carrers = null;
         studentCtrl.stu.resumeUrl = null;
