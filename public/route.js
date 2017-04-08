@@ -97,6 +97,18 @@
 			controllerAs: 'vm'
 		})
 
+		.state('main.careers',{
+			url:'/carreras',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./public/components/administratorSteph/addCareers/addCareers.controller.js')
+	          }]
+		    },
+			templateUrl: './public/components/administratorSteph/addCareers/addCareers.view.html',
+			controller: 'addCareersController',
+			controllerAs: 'vm'
+		})
+
 		.state('watchProject',{
 			url: '/proyectos/:proyectoId',
 			views: {
@@ -158,13 +170,6 @@
 		       templateUrl: './public/components/administratorSteph/registrerProfessor/userProfessor.view.html',
 		       controller: 'userProfessorController',
 		       controllerAs: 'userProfessorCtrl'
-		     })
-
-		 .state('addCareers',{
-		       url: '/addCareers',
-		       templateUrl: './public/components/administratorSteph/addCareers/addCareers.view.html',
-		       controller: 'addCareersController',
-		       controllerAs: 'addCareersCtrl'
 		     })
 		 .state('registrerAssistant',{
 		       url: '/registrerAssistant',
