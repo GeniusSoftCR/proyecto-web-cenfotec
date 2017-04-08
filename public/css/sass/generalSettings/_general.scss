@@ -1,0 +1,120 @@
+body {
+  font-family: 'montserrat';
+  background-color: #efeff1;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'montserrat'; 
+}
+
+img {
+  width: 100%; 
+}
+ul {
+  list-style-type: none;
+  margin: 9px 0;
+  padding: 0; 
+}
+.btn {
+  background-color: #fbb803;
+  border-radius: 33px;
+  padding: 15px;
+  display: block;
+  margin: 30px auto;
+  border: 0;
+  color: #000;
+  text-decoration: none; 
+  font-size: 20px;
+  font-weight: 500;    
+  transition: all .3s;
+  cursor: pointer;
+  max-width: 200px; 
+  &:hover {
+    background-color: transparent;
+    border: 1px solid #fbb803;
+    color: #fbb803;
+  }
+}
+
+.btn-blue {
+  background-color: #1b264f;
+  color: #fff;
+  &:hover {
+  color: #1b264f;
+  border: 1px solid #1b264f;
+  } 
+}
+
+.btn-red {
+  background-color: #a30b37;
+  color: #fff;
+  &:hover {
+  color: #a30b37;
+  border: 1px solid #a30b37;
+  }
+}
+
+.btn-small {
+  border-radius: 33px;
+  padding: 10px;
+  font-size: 12px; 
+  text-align: center;
+  max-width: 170px;
+}
+
+p {
+  margin: 0; 
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+
+//MODAL
+
+.modalElement {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  height: 100%;
+  padding-top: 50px; 
+  text-align: center;
+  &_container {
+    padding: 20px; 
+    max-width: 500px;
+    margin: 0 auto;
+    background: #f8f9fb;
+    border-radius: 10px;
+  }
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px; 
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  background-color: #efeff1;
+  margin: 10px 0;  
+}
+
+#reporte table {
+  border-collapse: collapse;}
+
+#reporte table thead{
+  border-bottom: 4px solid #1b264f;
+}
+
+#reporte th, #reporte td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
