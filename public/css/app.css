@@ -27,9 +27,6 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-.btn .btn-warning{
-  color: #fff;
-}
 /*
   NAVEGACIÓN LATERAL
   **/
@@ -158,6 +155,9 @@ ul {
   /*Botones*/
 .btn {
   margin-left: 5px;
+}
+.btn-warning{
+  color: #000;
 }
 /*.btn-danger {
   background: #a30b37;}*/
