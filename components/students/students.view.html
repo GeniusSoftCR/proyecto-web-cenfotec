@@ -99,24 +99,24 @@
                     <p ng-show="studentForm.birthdate.$invalid && !studentForm.birthdate.$pristine" class="help-block">La fecha es requerido.</p>
               </div>
 
-              <div class="form-group col-md-4" style="display: inline-block" ng-class="{ 'has-error' : studentForm.mail.$invalid && !studentForm.mail.$pristine }">
+              <div class="form-group col-md-4" style="display: inline-block" ng-class="{ 'has-error' : studentForm.email.$invalid && !studentForm.email.$pristine }">
                     <label>Correo electrónico:</label>
                     <input 
-                    ng-model="studentCtrl.stu.mail" 
+                    ng-model="studentCtrl.stu.email" 
                     id="txtEmail" 
                     type="email" 
                     class="form-control" 
-                    name="mail" 
+                    name="email" 
                     required
                     unique>
 
-                    <p ng-show="studentForm.mail.$invalid && !studentForm.mail.$pristine" class="help-block">El correo es requerido.</p>
+                    <p ng-show="studentForm.email.$invalid && !studentForm.email.$pristine" class="help-block">El correo es requerido.</p>
                     <div class="custom-error" ng-show="myForm.email1.$dirty && myForm.email1.$invalid">Inválido:
                      
-                     <span ng-show="studentForm.mail.$error.required">Correo es requirido.</span>
+                     <span ng-show="studentForm.email.$error.required">Correo es requirido.</span>
 
                     <span
-                    ng-show="studentForm.mail.$error.mail">Por favor, escriba una dirección de correo valida.</span>
+                    ng-show="studentForm.email.$error.email">Por favor, escriba una dirección de correo valida.</span>
                 </div>
 
               </div>
