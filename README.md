@@ -4,8 +4,8 @@ Team Genius Soft
 ## Setup
 
 ```sh
-## install gulp (in root ej: C\:Users\yourUserName)
-(sudo) npm install -g gulp gulp-cli
+## install node packages (in root ej: C\:Users\yourUserName)
+(sudo) npm install -g gulp gulp-cli nodemon
 
 ## install dependencies (in your proyect folder)
 npm install && bower install
