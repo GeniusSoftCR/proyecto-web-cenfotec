@@ -1,0 +1,136 @@
+.menu {
+  background-image: linear-gradient(51deg, #000000 0%, #1b1b1b 45%, #222222 100%);
+  padding: 10px 0;
+  width: 10%;
+  text-align: center;
+  color: #fff;
+  float: left;
+  position: fixed;
+  height: 100%; 
+  left: 0;
+  top: 42px;
+  z-index: 5; 
+  overflow-y: auto;
+  @media screen and (max-width: 988px) {
+    left: -100%;
+  }
+  a {
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 14px 0px;
+    font-size: 12px; 
+    font-family: 'montserrat';
+    font-weight: 100; 
+    display: block;
+    transition: all .3s;
+    &:hover {
+      background-color: #313131;
+    }
+  }
+  i {
+    font-size: 24px; 
+    display: block;
+  }
+}
+
+.logo {
+  img {
+    max-width: 50px;
+  }
+}
+
+.dashboard {
+  background: #efeff1;
+  padding: 40px;
+  width: 100%;
+  float: left;
+  padding-left: 13%;
+  @media screen and (max-width: 988px) {
+    padding-left: 25px; 
+  }
+}
+
+.mainHeader {
+  background-image: linear-gradient(51deg, #222222 0%, #1b1b1b 45%, #000000 100%);
+  color: #Fff; 
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 42px;
+  z-index: 5; 
+  ul {
+    padding: 0;
+    margin: 0; 
+  }
+  nav {
+    float: right;
+    padding-right: 43px;
+  }
+  .movil {
+    width: 50%;
+    float: left;
+    display: none;
+    @media screen and (max-width: 988px) {
+      display: block;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+  }
+}
+.user {
+  padding: 10px;
+}
+.fl li {
+  float: left;
+}
+
+.user {
+  .avatar {
+    float: left;
+  }
+  i {
+    float: left;
+  }
+}
+
+.notifications {
+  position: relative;
+  .notificationsQuantity {
+    position: absolute;
+    z-index: 2;
+    background: #fbb803;
+    padding: 3px 7px;
+    border-radius: 52%;
+    font-size: 10px;
+    margin-top: 4px;
+  }
+  i {
+    padding: 12px 10px;
+  }
+}
+
+.sub-menu {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .4s;
+}
+
+.has-child {
+  &:hover {
+    .sub-menu {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.sub-menu {
+  background: #ccc; 
+}
