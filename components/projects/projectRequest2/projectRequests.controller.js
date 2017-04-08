@@ -9,6 +9,8 @@
       var vm = this;
       //carga la lista de solicitudes
       vm.requestsList = projectRequestsService.getRequests();
+      //carga la lista de clientes
+      vm.clients = projectRequestsService.getClients();
       //en el modal:
       vm.btnYes=true;     //muestra botón de aprobar
       vm.btnNo=true;      //muestra botón de rechazar
@@ -23,6 +25,15 @@
       //Mostrar el detalle de la solicitud
       vm.viewRequest= function(request){
         vm.req=request;     //binding de la solicitud seleccionada
+
+        //recorre todos los clientes
+        for(j = 0; j < vm.clients.length; j++){
+          //verifica cuando el id de proyecto coincide con el id de cliente
+          if(vm.req.id==vm.clients[j].id){
+            vm.cli = vm.clients[j]; //bindind del cliente de la solicitud
+          }
+        }
+        
         //en el modal:
         vm.btnYes=true;     //muestra botón de aprobar
         vm.btnNo=true;      //muestra botón de rechazar
