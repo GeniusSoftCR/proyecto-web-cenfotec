@@ -15,7 +15,7 @@
 			url: '/',
 			templateUrl: './components/landing/landing.html',
 			css: 'css/landing.css'
-		})
+      	})
 
 		.state('studentRequest',{
 			url: '/solicitud-estudiante',
