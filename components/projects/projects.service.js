@@ -8,7 +8,6 @@
         getClientbyId : _getClientbyId,
         getStatusId : _getStatusId
       }
-
       return publicApi;
       //Obtener projecto desde ID
       function _getProjectbyId (projectId) {

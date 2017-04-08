@@ -71,7 +71,5 @@
           vm.req.justification=null;
         }
       }
-
     }
-
 })();

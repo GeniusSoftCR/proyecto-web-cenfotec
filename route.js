@@ -13,8 +13,9 @@
 
 		.state('landing',{
 			url: '/',
-			templateUrl: './components/landing/landing.html'
-		})
+			templateUrl: './components/landing/landing.html',
+			css: 'css/landing.css'
+      	})
 
 		.state('studentRequest',{
 			url: '/solicitud-estudiante',
@@ -33,6 +34,7 @@
 		.state('logIn',{
 			url: '/entrar',
 			templateUrl: './components/logIn/logIn.view.html',
+			css: 'css/logIn.styles.css',
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
@@ -240,5 +242,4 @@
 		$urlRouterProvider.otherwise('/');
 		// $locationProvider.html5Mode(true);
 	}
-
 })();
