@@ -16,11 +16,17 @@
   },
   { 
     "email": "efonsecab@ucenfotec.ac.cr", 
+    "name": "Esteban",
+    "surname": "Fonseca",
+    "secondSurname": "Blanco",
     "username":"efonsecab",
     "password" : "2310",
     "role": "professor",
     "img":"../../imgs/users/esteban.jpg",
-    "id" : "222"
+    "id" : "222",
+    "birthdate": "20/08/1993",
+    "cellphoneNumber": "88032506",
+    "gitHubUrl":"efonsebla"
   },
   { 
     "email": "sbarrantesr@ucenfotec.ac.cr", 

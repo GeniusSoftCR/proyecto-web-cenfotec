@@ -1,5 +1,6 @@
 'use strict';
 var gulp = require('gulp'),
+  nodemon = require('gulp-nodemon'),
   sass = require('gulp-sass'),
   nib = require('nib'),
   connect = require('gulp-connect');
@@ -27,6 +28,11 @@ gulp.task('js', function () {
   gulp.src('./components/**/*.html')
     .pipe(connect.reload())
 })
+gulp.task('nodemon', function () {
+  nodemon({
+    script: 'server.js'
+  })
+})
 
 // Vigila cambios que se produzcan en el código
 // y lanza las tareas relacionadas
@@ -46,5 +52,5 @@ gulp.task('watch', function () {
 
 })
 
-gulp.task('serve', ['connect','css','html','js','watch'])
+gulp.task('serve', ['connect','css','html','js','watch','nodemon'])
 

@@ -97,16 +97,16 @@
 			    	controller: 'projectAnotationsController',
 			    	controllerAs: 'anotationsCtrl'
 				},
-		      	'estudiantes@watchProject': { //Andres asignar estudiantes
-		        	templateUrl: 'components/projects/proyect/assignStudents/assignStudents.projects.view.html',
-		        	controller: 'assignStudentsController',
-		        	controllerAs: 'assignStudentsCtrl'
-		      	},
-		      	'profesores@watchProject': { //Andres asignar estudiantes
-		      	  templateUrl: 'components/projects/proyect/assignTeachers/assignTeachers.projects.view.html',
-		      	  controller: 'assignTeachersController',
-		      	  controllerAs: 'assignTeachersCtrl'
-		      	},
+		      	// 'estudiantes@watchProject': { //Andres asignar estudiantes
+		       //  	templateUrl: 'components/projects/proyect/assignStudents/assignStudents.projects.view.html',
+		       //  	controller: 'assignStudentsController',
+		       //  	controllerAs: 'assignStudentsCtrl'
+		      	// },
+		      	// 'profesores@watchProject': { //Andres asignar estudiantes
+		      	//   templateUrl: 'components/projects/proyect/assignTeachers/assignTeachers.projects.view.html',
+		      	//   controller: 'assignTeachersController',
+		      	//   controllerAs: 'assignTeachersCtrl'
+		      	// },
 				'header@watchProject': { //Andres asignar estudiantes
 				  templateUrl: 'components/dashboard/header/header.view.html',
 				  controller: 'headerController',
