@@ -3,12 +3,14 @@
   .module('cshApp')
   .service('projectRequestsService', projectRequestsService);
 
-  projectRequestsService.$inject = ['$http','cshReqServiceFn','localStorageService'];
+  projectRequestsService.$inject = ['$http', 'localStorageService'];
 
   function projectRequestsService($http,localStorageService){
+    
     var publicAPI = {
       getRequests : _getProjects,
-      changeProjectsState : _changeProjectsStates
+      getClients : _getClients,
+      changeRequestState : _changeProjectsState
     };
     return publicAPI;
 
@@ -16,24 +18,34 @@
     function _getProjects(){
       var storedList = localStorageService.get('localProjectsList');
       if(storedList == null){
-        localProjectsList = [];
+        projectsList = [];
       }else{
-        localProjectsList = storedList;
+        projectsList = storedList;
       }
-      return localProjectsList;
+      return projectsList;
+    }
+    //devuelve lista de clientes
+    function _getClients () {
+      var storedList = localStorageService.get('localClientList');
+      if(storedList == null){
+        clients = [];
+      }else{
+        clients = storedList;
+      }
+      return clients;
     }
 
-    //cambia el estado a en proceso o rechazado según el parámetro
-    function _changeProjectState(request,newState){
+    //cambia el estado a aprobado o rechazado según el parámetro
+    function _changeProjectsState(request,newState){
       request.state_key=newState;
       var index = null;
-      angular.forEach(localProjectsList, function(project, position) {
+      angular.forEach(projectsList, function(student, position) {
         if (student.mail === request.mail) {
           index = position;
         }
       });
-      localProjectsList[index]=request;
-      localProjectsStatesList(localProjectsList);
+      projectsList[index]=request;
+      localStorageStudentsList(projectsList);
     }
     //inserta los nuevos registros al localStorage
     function localStorageStudentsList(jlist){
@@ -41,4 +53,5 @@
     }
 
   }
+
 })();
