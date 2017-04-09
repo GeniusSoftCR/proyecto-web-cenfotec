@@ -165,6 +165,21 @@
 		       controller: 'studentController',
 		       controllerAs: 'studentCtrl'
 		     })
+		.state('main.users',{
+			url:'/usuarios',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./public/components/administratorSteph/registerUser/userAp.controller.js')
+	          }]
+		    },
+			templateUrl: './public/components/administratorSteph/registerUser/userAp.view.html',
+			controller: 'userApController',
+			controllerAs: 'vm'
+		})
+
+
+
+
 		 .state('registrerProfessor',{
 		       url: '/registrerProfessor',
 		       templateUrl: './public/components/administratorSteph/registrerProfessor/userProfessor.view.html',

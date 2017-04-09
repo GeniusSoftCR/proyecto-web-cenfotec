@@ -82,7 +82,8 @@
           <div class="panel-body">
             <div class="card">
               <ul class="list-group list-group-flush" id="myScrollspy">
-              <table id="listCareer">
+              <div class="table-responsive">
+              <table id="listCareer" class="table table-striped">
                 <thead id="head-career">
                   <tr>
                     <th>Código</th>
@@ -92,7 +93,7 @@
                 </thead>
 
                 <tbody>
-                  <tr ng-repeat="career in addCareersCtrl.userList | filter: addCareersCtrl.grade">
+                  <tr ng-repeat="career in addCareersCtrl.careerList | filter: grade">
                       <td>{{career.id}}</td>
                       <td>{{career.nameCareer}}</td>
                       <td>{{career.grade}}</td>
@@ -100,6 +101,7 @@
                   </tr>
                 </tbody>
               </table>
+              </div>
               </ul>
             </div>
           </div>

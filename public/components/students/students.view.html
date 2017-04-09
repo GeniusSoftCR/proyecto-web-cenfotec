@@ -20,7 +20,7 @@
   
   <div class="panel-body">
     <div class="col-md-12">
-      <form class="studentForm" ng-submit="studentCtrl.submitForm()" novalidate>
+      <form class="studentForm" novalidate>
         <h3 style="text-align: center;">Ingrese su información</h3>
         <div class="col-md-7 col-md-offset-1"">
           <div class="row">
@@ -152,7 +152,7 @@
            <div class="form-group col-md-12" style="display: inline-block" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
               <label>Carrera(s):</label>
               <div class="form-group">
-                <select name="addCarrersStu"  class="form-control" ng-model="studentCtrl.stu.carrers" multiple>
+                <select name="addCarrersStu"  class="form-control" ng-model="studentCtrl.stu.careers" multiple>
                   <option ng-repeat="career in studentCtrl.careers" id="career" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><
                 </select>
                 <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>
