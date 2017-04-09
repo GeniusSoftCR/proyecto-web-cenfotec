@@ -23,14 +23,7 @@
       studentCtrl.pickFile = pickFile;
       studentCtrl.onSuccess = onSuccess;
 
-      studentCtrl.submitForm = function() {
 
-            // check to make sure the form is completely valid
-            if (studentCtrl.studentForm.$valid) {
-                alert('our form is amazing');
-            }
-
-        };
 
       function pickFile(){
           filepickerService.pick(
@@ -76,7 +69,7 @@
           birthdate : studentCtrl.stu.birthdate,
           email : studentCtrl.stu.email,
           password : studentCtrl.stu.password,
-          carrers : studentCtrl.stu.carrers,
+          careers : studentCtrl.stu.careers,
           resumeUrl : studentCtrl.stu.resumeUrl,
           gitHubUrl : studentCtrl.stu.gitHubUrl,
           websiteUrl : studentCtrl.stu.websiteUrl,
@@ -94,7 +87,7 @@
         studentCtrl.stu.birthdate = null;
         studentCtrl.stu.email = null;
         studentCtrl.stu.password = null;
-        studentCtrl.stu.carrers = null;
+        studentCtrl.stu.careers = null;
         studentCtrl.stu.resumeUrl = null;
         studentCtrl.stu.gitHubUrl = null;
         studentCtrl.stu.websiteUrl = null;
