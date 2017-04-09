@@ -6,7 +6,7 @@
   addCareersService.$inject = ['$http','localStorageService'];
 
   function addCareersService($http,localStorageService){
-    var career = [{}];
+    var career = [];
 
     var publicAPI = {
         addCareer : _addCareer,
