@@ -310,32 +310,105 @@
                 <!-- train section -->
                 <div class="bhoechie-tab-content">
                     <center>
-                      <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Train Reservation</h3>
+                      <form name="userFormAsis" class="row">
+          <div class="panel panel-default">
+          <div class="panel-heading">Registrar asistentes</div>
+          <div class="panel-body">
+
+            <div class="input-group col-md-5" style="display: inline-block;">
+              <label>Nombre:</label>
+              <input ng-model="userAprCtrl.asis.name" type="text" class="form-control" name="txtNameA" placeholder="Ingrese el nombre" required>
+            </div>
+
+            <div class="input-group col-md-5" style="display: inline-block;">
+              <label>Primer Apellido:</label>
+              <input ng-model="userAprCtrl.asis.surname" id="txtlastName" type="text" class="form-control" name="surname" placeholder="Ingrese el Apellido" required>
+            </div>
+
+            <div class="input-group col-md-5" style="display: inline-block;">
+              <label>Segundo Apellido:</label>
+              <input ng-model="userAprCtrl.asis.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" placeholder="Ingrese el Apellido" required>
+            </div>
+
+            <div class="input-group col-md-5" style="display: inline-block;">
+              <label>Cédula de identidad:</label>
+              <input ng-model="userAprCtrl.asist.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su cédula" maxlength="9" required>
+            </div>
+
+            <div class="input-group col-md-5" style="display: inline-block;">
+              <label>Correo:</label>
+              <input ng-model="userAprCtrl.asis.mail" id="txtemail" type="email" class="form-control" name="mail" placeholder="Ingrese el correo" required>
+            </div>
+
+            <div class="input-group col-md-5" style="display: inline-block;">
+              <label>Contraseña:</label>
+              <input ng-model="userAprCtrl.asis.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required unique>
+            </div>
+
+            <div class="input-group col-md-5" style="display: inline-block;">
+              <label>Puesto de Trabajo:</label>
+              <input ng-model="userAprCtrl.asis.jobPosition" id="txtjobPosition" type="text" class="form-control" name="jobPosition" placeholder="Ingrese el puesto de trabajo" required>
+            </div>
+
+            <div class="input-group col-md-5" style="display: inline-block;">
+              <label>Teléfono:</label>
+              <input ng-model="userAprCtrl.asis.phone" id="txtphone" type="text" class="form-control" name="phone" placeholder="Ingrese el número de teléfono" required minlength="8" maxlength="8">
+            </div>
+
+            <div class="input-group col-md-5" style="display: block;">
+              <label>Avatar</label>
+              <input type="file"  required id="photo" ng-model="userAprCtrl.asis.image">
+              
+            </div>
+
+            <div class="input-group"> 
+              <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="userAprCtrl.preSaveAs()" class="btn btn-sm btn-embossed btn-warning pull-right" value="Registrar" id="buttonRegis">
+            </div>
+
+            <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert>
+        </div>
+        </div>
+        </form>
                     </center>
                 </div>
     
                 <!-- hotel search -->
                 <div class="bhoechie-tab-content">
                     <center>
-                      <h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Hotel Directory</h3>
-                    </center>
+                      <div class="col-md-12">
+        <div class="panel panel-default">
+                <div class="panel-heading">Lista de Usuarios</div>
+                <div class="panel-body">
+                  <div class="card">
+                    <ul class="list-group list-group-flush" id="myScrollspy">
+                    <table id="listUsersCSH">
+                      <thead id="head-user">
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Apellido</th>
+                          <th>Tipo de Usuario</th>
+                          <th>Correo electrónico</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr ng-repeat="user in userAprCtrl.userList | filter: {role: professor, role: administrador, role: asistente}">
+                            <td>{{user.name}}</td>
+                            <td>{{user.surname}}</td>
+                            <td>{{user.role}}</td>
+                            <td>{{user.mail}}</td>
+                            <td><button class="btn btn-sm btn-embossed btn-warning pull-right" ng-click="userAprCtrl.deleteUser(user.id)">Eliminar</button></td>
+                            <td><button class="btn btn-sm btn-embossed btn-warning pull-right" id="modi" ng-click="userAprCtrl.viewProf(userAprCtrl.ap.id)">Modificar</button></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </ul>
+                  </div>
                 </div>
-                <div class="bhoechie-tab-content">
-                    <center>
-                      <h1 class="glyphicon glyphicon-cutlery" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Restaurant Diirectory</h3>
-                    </center>
-                </div>
-                <div class="bhoechie-tab-content">
-                    <center>
-                      <h1 class="glyphicon glyphicon-credit-card" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Credit Card</h3>
+                 <div class="panel-footer"></div>
+              </div>
+            </div>
+            </div>
                     </center>
                 </div>
             </div>
