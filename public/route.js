@@ -173,6 +173,7 @@
 	          }]
 		    },
 			templateUrl: './public/components/administratorSteph/registerUser/userAp.view.html',
+			css: './public/css/users.css',
 			controller: 'userApController',
 			controllerAs: 'vm'
 		})

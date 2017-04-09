@@ -1,4 +1,4 @@
-<main>
+<!--<main>
   <div class="row">
     <div class="col-md-12">
     <div id="principalSelect">
@@ -201,14 +201,147 @@
  </div> 
  </div>
 
+</main>-->
+
+
+
+
+<main>
+<div class="row">
+        <div class="col-lg-11 col-md-8 col-sm-6 col-xs-4 bhoechie-tab-container">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
+              <div class="list-group">
+                <a href="#" class="list-group-item active text-center">
+                  <h4 class="glyphicon glyphicon-user"></h4><br/>Profesor
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4 class="glyphicon glyphicon-plus-sign"></h4><br/>Asistente
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4 class="glyphicon glyphicon-th-list"></h4><br/>Lista
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+                <!-- flight section -->
+                <div class="bhoechie-tab-content active">
+                    <center>
+                      <form class="userForm row">
+                          <div class="panel-heading">Formulario registro de usuarios</div>
+                          <div class="panel-body">
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Nombre:</label>
+                              <input ng-model="userAprCtrl.ap.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese el nombre" required>
+                            </div>
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Primer Apellido:</label>
+                              <input ng-model="userAprCtrl.ap.surname" id="txtlastName" type="text" class="form-control" name="surname" placeholder="Ingrese el Apellido" required>
+                            </div>
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Segundo Apellido:</label>
+                              <input ng-model="userAprCtrl.ap.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" placeholder="Ingrese el Apellido" required>
+                            </div>
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Cédula de identidad:</label>
+                              <input ng-model="userAprCtrl.ap.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su cédula" maxlength="9" required>
+                            </div>
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Rol de Usuario:</label>
+                              <select ng-model="userAprCtrl.ap.role" class="form-control">
+                                <option value="" disabled>Seleccione un rol</option>
+                                <option value="administrador">Administrador</option>
+                                <option value="profesor">Profesor</option>
+                              </select>
+                            </div>
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Especialidad:</label>
+                              <input ng-model="userAprCtrl.ap.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" placeholder="Ingrese la especialidad" required>
+                            </div>
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Correo:</label>
+                              <input overwrite-email ng-model="userAprCtrl.ap.mail" id="txtemail" type="email" class="form-control" name="mail" placeholder="Ingrese el correo" required>
+                            </div>
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Contraseña:</label>
+                              <input ng-model="userAprCtrl.ap.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required unique>
+                            </div>
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Miembro del Consejo:</label>
+                              <select class="form-control" required ng-model="userAprCtrl.ap.councilMember" name="councilMember">
+                                <option value="" disabled>Seleccione una opción</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </div>
+
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Habilitado para proyectos:</label>
+                              <select class="form-control" required ng-model="userAprCtrl.ap.availableForProyects" name="availableForProyects">
+                                <option value="" disabled>Seleccione una opción</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </div>
+
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Avatar</label>
+                              <input type="file"  required id="photo" ng-model="userAprCtrl.ap.image">
+                            </div>
+
+                            <div class="input-group"> 
+                              <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="userAprCtrl.preSave()" class="btn btn-sm btn-embossed btn-warning pull-right" value="Registrar" id="buttonRegis">
+                            </div>
+
+                            <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert>
+                        </div>
+                      </form>
+                    </center>
+                </div>
+                <!-- train section -->
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Train Reservation</h3>
+                    </center>
+                </div>
+    
+                <!-- hotel search -->
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Hotel Directory</h3>
+                    </center>
+                </div>
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <h1 class="glyphicon glyphicon-cutlery" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Restaurant Diirectory</h3>
+                    </center>
+                </div>
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <h1 class="glyphicon glyphicon-credit-card" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Credit Card</h3>
+                    </center>
+                </div>
+            </div>
+        </div>
+  </div>
 </main>
-
-
-
-
-
-
-
 
 
 
