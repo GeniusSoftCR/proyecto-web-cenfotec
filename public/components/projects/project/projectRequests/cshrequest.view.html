@@ -27,51 +27,51 @@
 </header>
 <main>
   <div class="panel-heading">
-    <div class="col-md-12 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3">
       <h2>Solicitud de Proyecto para Cenfotec Software House</h2>
     </div>
   </div>
-  <div class="projectsRequest" ng-show="cshReqCtrl.toSend">
+  <div class="projectsRequest col-md-12" ng-show="cshReqCtrl.toSend">
     <div>
-      <form>
-        <div>
+      <form class="form-group col-md-7">
+        <div class="form-group col-md-4 ibck">
           <label for="#companyName">Nombre de la empresa: </label>
-          <input type="text" id="companyName" name="company" ng-model="cshReqCtrl.clientData.company">
+          <input type="text" id="companyName" name="company" class="form-control" ng-model="cshReqCtrl.clientData.company" required>
         </div>
-        <div>
+        <div class="form-group col-md-4 ibck">
           <label for="#idCompany">Cédula jurídica o fisica de la empresa: </label>
-          <input type="text" id="idCompany" name="identificationNumber" ng-model="cshReqCtrl.clientData.identificationNumber">
+          <input type="text" id="idCompany" name="identificationNumber" class="form-control" ng-model="cshReqCtrl.clientData.identificationNumber" required>
         </div>
-        <div>
+        <div class="form-group col-md-4 ibck">
           <label for="#projectManager">Encargado del proyecto: </label>
-          <input type="text" id="projectManager" name="clientName" ng-model="cshReqCtrl.clientData.clientName">
+          <input type="text" id="projectManager" name="clientName" class="form-control" ng-model="cshReqCtrl.clientData.clientName" required>
         </div>
-        <div>
+        <div class="form-group col-md-4 ibck">
           <label for="#email">Correo electrónico: </label>
-          <input type="text" id="email" name="clientMail" ng-model="cshReqCtrl.clientData.clientMail">
+          <input type="email" id="email" name="clientMail" class="form-control" ng-model="cshReqCtrl.clientData.clientMail" required>
         </div>
-        <div>
+        <div class="form-group col-md-4 ibck">
           <label for="#resume">Resumen ejecutivo: </label>
           <a class="btnUpload" id="resume" ng-click="cshReqCtrl.pickFile()">
           <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
           </a>
         </div>
-        <div>
+        <div class="form-group col-md-4 ibck">
           <label for="#projectName">Nombre del proyecto: </label>
-          <input type="text" id="projectName" name="company" ng-model="cshReqCtrl.clientData.projectName" placeholder="Ej: Aplicación de iOS">
+          <input type="text" id="projectName" name="company" class="form-control" ng-model="cshReqCtrl.clientData.projectName" placeholder="Ej: Aplicación de iOS" required>
         </div>
-        <div>
+        <div class="form-group col-md-4 ibck">
           <label for="money">Fondos para el proyecto: </label>
-          <input type="text" id="money" name="fundsToMakeProject" ng-model="cshReqCtrl.clientData.fundsToMakeProject">
+          <input type="text" id="money" name="fundsToMakeProject" class="form-control" ng-model="cshReqCtrl.clientData.fundsToMakeProject" required>
         </div>
-        <div>
-          <label for="images">Algunas imagenes sobre el proyecto: </label>
-          <input type="file" name="projectImages"  id="imageProjectRequest" ng-model="cshReqCtrl.clientData.projectImages">
-        </div>
-        <div>
-          <button type="submit" name="submitBtn" class="btn btn-warning" ng-click="cshReqCtrl.preSave()">Enviar solicitud</button>
+        <div class="form-group col-md-4 ibck">
+          <<label for="images">Algunas imagenes sobre el proyecto: </label>
+          <input type="file" id="imageProjectRequest" name="projectImages" class="form-control" ng-model="cshReqCtrl.clientData.projectImages">
         </div>
       </form>
+      <div class="form-group col-md-12" style="display: block; text-align: center;"> 
+            <button type="submit" name="submitBtn" class="btn btn-warning" ng-click="cshReqCtrl.preSave()">Enviar solicitud</button>
+          </div>   
     </div>
   </div>
   <div class="thanks" ng-show="cshReqCtrl.send">
