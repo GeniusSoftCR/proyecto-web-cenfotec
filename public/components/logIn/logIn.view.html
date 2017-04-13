@@ -32,8 +32,9 @@
 		</div>
 		<div class="col-md-5">
 			<form ng-submit="vm.logIn(vm.user)" name="userLogIn" novalidate>
-				<div class="col-md-12 col-md-offset-1">
-					<h2>Iniciar sesión en Cenfotec Software House</h2>
+				<div id="tituloLog" class="col-md-12 col-md-offset-1">
+					<h2>Iniciar sesión en</h2>
+					<h2>Cenfotec Software House</h2>
 				</div>
 				
 				<div class="form-group has-feedback col-md-6 col-md-offset-4">
@@ -41,7 +42,7 @@
   					<span class="form-control-feedback fui-user"></span>
 				</div>
 				<div class="form-group has-feedback col-md-6 col-md-offset-4">
-  					<input type="password" ng-model="vm.user.password" placeholder="Contraserña" class="form-control data" />
+  					<input type="password" ng-model="vm.user.password" placeholder="Contraseña" class="form-control data" />
   					<span class="form-control-feedback fui-lock"></span>
 				</div>
 				<div class="form-group has-feedback col-md-9 col-md-offset-5">
