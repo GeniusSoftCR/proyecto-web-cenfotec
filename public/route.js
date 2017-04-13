@@ -27,6 +27,7 @@
 		.state('proyectRequest',{
 			url: '/solicitudProyecto',
 		    templateUrl:'./public/components/projects/project/projectRequests/cshrequest.view.html',
+		    css: './public/css/projectRequest.styles.css',
 		    controller: 'cshReqController',
 		    controllerAs: 'cshReqCtrl'
 		})
