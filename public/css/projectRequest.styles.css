@@ -10,6 +10,10 @@ body{
 	}
 	label{
 		font-weight: 300;
+		margin: 8% 0 0 0;
+	}
+	input[type="email"]{
+		border: 1px solid #909291;
 	}
 	input[type="text"]::-webkit-input-placeholder {
   		font-weight: 100;
@@ -17,6 +21,9 @@ body{
 	}
 	input[type="text"]{
 		font-weight: 300;
+		border: 1px solid #909291;
+	}
+	input[type="file"]{
 		border: 1px solid #909291;
 	}
 		#resume{
@@ -28,3 +35,9 @@ body{
 			#resume:hover{
 				color: #f1c40f;
 			}
+.margen1{
+	margin-top: 5%;
+}
+#margen2{
+	margin-top: 3%;
+}
