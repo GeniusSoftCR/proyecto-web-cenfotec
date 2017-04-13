@@ -18,14 +18,14 @@
       	})
 
 		.state('studentRequest',{
-			url: '/solicitud-estudiante',
+			url: '/solicitudEstudiante',
 		    templateUrl: './public/components/students/students.view.html',
 		    controller: 'studentController',
 		    controllerAs: 'studentCtrl'
 		})
 
 		.state('proyectRequest',{
-			url: '/solicitud-proyecto',
+			url: '/solicitudProyecto',
 		    templateUrl:'./public/components/projects/project/projectRequests/cshrequest.view.html',
 		    controller: 'cshReqController',
 		    controllerAs: 'cshReqCtrl'
@@ -176,9 +176,6 @@
 			controller: 'userApController',
 			controllerAs: 'vm'
 		})
-
-
-
 
 		 .state('registrerProfessor',{
 		       url: '/registrerProfessor',
