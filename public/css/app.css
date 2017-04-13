@@ -31,6 +31,9 @@ h2{
     font-family: 'montserrat';
     font-weight: 400;
   }
+.ibck{
+  display: inline-block;
+}
 /*
   NAVEGACIÓN LATERAL
   **/

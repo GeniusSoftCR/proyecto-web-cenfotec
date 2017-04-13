@@ -3,11 +3,10 @@ body{
 	background-color: #fff;
 }
 	h2{
-		width: 40%;
 		font-weight: 400;
 		font-size: 2em;
 		color: #000;
-		margin: 11% 0 4% 8%;
+		margin: 24% 0 5% 10%;
 	}
 	label{
 		font-weight: 300;
@@ -15,16 +14,10 @@ body{
 	input[type="text"]::-webkit-input-placeholder {
   		font-weight: 100;
   		color: #909291;
-
 	}
 	input[type="text"]{
 		font-weight: 300;
 		border: 1px solid #909291;
-		margin-bottom: 3%;
-	}
-
-	form{
-		margin: 0 30%;
 	}
 		#resume{
 			color: #000;
