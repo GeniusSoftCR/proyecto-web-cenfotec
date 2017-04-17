@@ -1,30 +1,14 @@
-h2{
+body{
 	font-family: 'montserrat';
+}
+h2{
 	font-weight: 400;
 	font-size: 2.5em;
+	margin: 30% 0 36%;
 }
 p{
-	font-family: 'montserrat';
 	font-weight: 300;
 }
-/*estilos del header*/
-	#color{
-		background: #000;
-		margin: 0;
-		padding: 0 20%;
-		position: fixed;
-		width: 100%;
-		border-radius: 0;
-		z-index: 4;
-	}
-		#color a{
-		font-family: 'montserrat';
-		font-weight: 100;
-		}
-		#color img{
-			width: 70%;
-			padding: 15% 0 0 30%;
-		}
 /*estilos del main*/
 	/*estilos del primer section*/
 		#banner{
@@ -39,7 +23,6 @@ p{
 			#banner p{
 				color: #fff;
 				padding-bottom: 20%;
-				
 			}
 	/*estilos del segundo section*/
 		#nosotros{
@@ -47,14 +30,13 @@ p{
 		}
 			#nosotros h2{
 				color: #000;
-				margin-bottom: 30%;
+				margin: 30% 0 36%;
 			}
 			#description{
 				width: 50%;
 				color: #000;
 				font-size: 1em;
-				font-weight: 3003
-				font-family: 'montserrat';
+				font-weight: 300;
 				padding: 0 3%;
 				margin-bottom: 6%;
 				text-align: justify;
@@ -74,21 +56,18 @@ p{
 		}
 			#services h2{
 				color: #fff;
-				margin: 20% 0;
 			}
 		
 			#services ul{
 				margin-bottom: 20%;
 			}
 				#services li{
-					padding: 3% 0;
+					padding: 2% 0;
 				}
 				#services li p{
 					color: #fff;
 					font-size: 1em;
 					font-weight: 100;
-					font-family: 'montserrat';
-					text-align: justify;
 				}
 					#services li p:hover{
 						color: #f8c300;
@@ -112,7 +91,6 @@ p{
 		}
 			#contacto h2{
 				color: #000;
-				margin: 20% 0;
 			}	
 			#contacto p{
 				color: #000;
@@ -132,7 +110,6 @@ p{
 		font-weight: 300;
 	}
 		#genius{
-			font-family: 'montserrat';
 			color: #f8c300;
 			font-weight: 100;
 		}

@@ -18,7 +18,7 @@
   */
 body {
   font-family: 'montserrat';
-  background-color: #efeff1;
+  background-color: #fff;
 }
 h1, h2, h3, h4, h5 {
   font-family: 'montserrat';
@@ -26,6 +26,13 @@ h1, h2, h3, h4, h5 {
 ul {
   list-style-type: none;
   padding: 0;
+}
+h2{
+    font-family: 'montserrat';
+    font-weight: 400;
+  }
+.ibck{
+  display: inline-block;
 }
 /*
   NAVEGACIÓN LATERAL
