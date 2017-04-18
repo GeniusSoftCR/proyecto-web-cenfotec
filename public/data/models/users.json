@@ -98,8 +98,7 @@
 				"justification":"",	//justificación(para el rechazo)
 				"resumeUrl":"",		//url del resúmen ejecutivo,
 				"gitHubUrl":"",		//ulr de gitHub
-				"websiteUrl":"",	//url personal
-          		"cellphoneNumber":""//celular
+				"websiteUrl":""		//url personal
 			}		
 		]
 	}
