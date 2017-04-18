@@ -95,7 +95,6 @@
 				"student_key":"",	//representación del identificador único
 				"birthdate":"",		//fecha de nacimiento
 				"careers":[],		//carreras
-				"courses":[],		//cursos
 				"justification":"",	//justificación(para el rechazo)
 				"resumeUrl":"",		//url del resúmen ejecutivo,
 				"gitHubUrl":"",		//ulr de gitHub
