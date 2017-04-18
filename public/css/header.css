@@ -1,6 +1,6 @@
 /*estilos del header*/
 	.navbar{
-		padding: 2% 0 2% 18%;
+		padding: 1% 0 1% 18%;
 	}
 	#color{
 		background: #000;
@@ -12,8 +12,9 @@
 		}
 		#color img{
 			width: 70%;
-			padding: 0 0 0 30%;
+			padding: 9% 0 0 35%;
 		}
 		.navbar-nav{
 			margin: 0 auto;
 		}
+	

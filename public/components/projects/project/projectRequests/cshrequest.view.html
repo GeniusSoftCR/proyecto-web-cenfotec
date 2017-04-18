@@ -2,68 +2,85 @@
 =            Este el component de Cenfotec Sotware House Solicitud de Clientes            =
 ========================================================================================-->
 <header>
-  <div class="landingContainer">
-    <nav class="landingMenu">
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#!/landingPage#inicio">Inicio</a></li>                
-        <li><a href="#!/landingPage#servicios">Servicios</a></li>
-        <li><a href="#!/landingPage#nosotros">Nosotros</a></li>
-        <li class="brand-logo"><img src="http://www.cenfotecsoftwarehouse.com/images/Cenfotec-Software-House-Logo.png"></li>
-        <li><a href="#!/solicitud-proyecto">Solicitudes</a></li>
+  <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" id="color">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Desplegar navegación</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>   
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#banner">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><img id='logo' src='public/imgs/cshLogo.png'></li>
+        <li><a href="#!/solicitudProyecto">Proyectos</a></li>
         <li><a href="#!/solicitudEstudiantes">Estudiantes</a></li>
-        <li><a href="#!/logIn">Iniciar sesión</a></li>
+        <li><a href="#!/entrar">Iniciar sesión</a></li>
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
-<div class="headPage" style="padding-top: 110px;">
-  <div class="container">
-    <h1>Solicitud de proyecto</h1>
+<main>
+  <div class="panel-heading">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Solicitud de Proyecto para Cenfotec Software House</h2>
+    </div>
   </div>
-</div>
-<div class="projectsRequest" ng-show="cshReqCtrl.toSend">
-  <div class="smallContainer">
-    <form>
-      <div class="row">
-        <label>Empresa:</label>
-        <input type="text" name="company" ng-model="cshReqCtrl.clientData.company">
-      </div><!-- //-Row -->
-      <div class="row">  
-          <label>Cédula jurídica o cédula física:</label>
-          <input type="text" name="identificationNumber" ng-model="cshReqCtrl.clientData.identificationNumber">
-      </div><!-- //-Row -->
-      <div class="row">  
-          <label>Responsable de proyecto:</label>
-          <input type="text" name="clientName" ng-model="cshReqCtrl.clientData.clientName">
-      </div><!-- //-Row -->
-      <div class="row">  
-          <label>Correo electrónico:</label>
-          <input type="text" name="clientMail" ng-model="cshReqCtrl.clientData.clientMail">
-      </div><!-- //-Row -->
-      <div class="row">  
-          <label>Resumen ejecutivo</label>
-          <a class="btnUpload" ng-click="cshReqCtrl.pickFile()">
-          <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
-          </a>
-      </div><!-- //-Row -->
-      <div class="row">
-        <label>Nombre de proyecto:</label>
-        <input type="text" name="company" ng-model="cshReqCtrl.clientData.projectName" placeholder="Ej: Aplicación de iOS">
-      </div><!-- //-Row -->
-      <div class="row">  
-          <label>Fondos para realizar proyecto:</label>
-          <input type="text" name="fundsToMakeProject" ng-model="cshReqCtrl.clientData.fundsToMakeProject">
-      </div><!-- //-Row -->
-      <div class="row">  
-          <label>Imágenes:</label>
-          <input type="file" name="projectImages"  id="imageProjectRequest" ng-model="cshReqCtrl.clientData.projectImages">
-      </div><!-- //-Row -->
-      <div class="row">  
-        <button type="submit" name="submitBtn" class="btn" ng-click="cshReqCtrl.preSave()">Enviar solicitud</button>
-      </div><!-- //-Row -->
-    </form> <!-- //-Form -->
-  </div>  <!-- //-Container -->
-</div> <!-- //Finalizamos teachers register container -->
-<div class="thanks" ng-show="cshReqCtrl.send">
-  <p>La solicitud de proyectos ha sido enviada. Nuestros asesores lo contactaran lo más pronto posible</p>
-</div>
+  <div class="projectsRequest col-md-12" ng-show="cshReqCtrl.toSend">
+    <div>
+      <form class="container">
+        <div class="col-md-4">
+          <div class="col-md-12 ibck">
+            <label for="#companyName">Nombre de la empresa: </label>
+            <input type="text" id="companyName" name="company" class="form-control" ng-model="cshReqCtrl.clientData.company" required>
+          </div>
+          <div class="col-md-12 ibck">
+            <label for="#idCompany">Cédula jurídica o fisica de la empresa: </label>
+            <input type="text" id="idCompany" name="identificationNumber" class="form-control" ng-model="cshReqCtrl.clientData.identificationNumber" required>
+          </div>
+          <div class="col-md-12 ibck">
+            <label for="#projectManager">Encargado del proyecto: </label>
+            <input type="text" id="projectManager" name="clientName" class="form-control" ng-model="cshReqCtrl.clientData.clientName" required>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-12 ibck">
+            <label for="#email">Correo electrónico: </label>
+            <input type="email" id="email" name="clientMail" class="form-control" ng-model="cshReqCtrl.clientData.clientMail" required>
+          </div>
+          <div class="col-md-12 ibck">
+            <label for="#projectName">Nombre del proyecto: </label>
+            <input type="text" id="projectName" name="company" class="form-control" ng-model="cshReqCtrl.clientData.projectName" placeholder="Ej: Aplicación de iOS" required>
+          </div>
+          <div class="col-md-12 ibck">
+            <label for="money">Fondos para el proyecto: </label>
+            <input type="text" id="money" name="fundsToMakeProject" class="form-control" ng-model="cshReqCtrl.clientData.fundsToMakeProject" required>
+          </div>
+        </div>
+        <div class="col-md-4 margen1">
+          <div class="col-md-12 ibck">
+            <label for="#resume">Resumen ejecutivo: </label>
+            <a class="btnUpload" id="resume" ng-click="cshReqCtrl.pickFile()">
+            <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
+            </a>
+          </div>
+          <div class="col-md-12 ibck">
+            <label for="images">Algunas imagenes sobre el proyecto: </label>
+            <input type="file" id="imageProjectRequest" name="projectImages" class="form-control" ng-model="cshReqCtrl.clientData.projectImages">
+          </div>
+        </div>
+      </form>
+      <div class="form-group col-md-12" style="display: block; text-align: center;"> 
+            <button type="submit" name="submitBtn" class="btn btn-warning" id="margen2" ng-click="cshReqCtrl.preSave()">Enviar solicitud</button>
+          </div>   
+    </div>
+  </div>
+  <div class="thanks" ng-show="cshReqCtrl.send">
+    <p>La solicitud de proyectos ha sido enviada. Nuestros asesores lo contactaran lo más pronto posible</p>
+  </div>
+</main>
