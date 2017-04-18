@@ -11,7 +11,7 @@
 					    	{{request.name}}
 					    	<button ng-click="vm.viewRequest(request)" class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#studentReq-Modal">Ver solicitud</button>
 					    </li>
-					    <p ng-show="vm.va">No hay soliditudes neuvas</p>
+					    <p ng-show="vm.va">No hay soliditudes nuevas</p>
 					  </ul>
 					</div>
 				</div>
@@ -40,10 +40,10 @@
 						<hr>
 					<div class="student-info">
 						<p><b>Fecha de nacimiento:</b> {{vm.req.birthdate | date : "dd/MM/y"}}</p>
-						<p><b>Correo:</b> {{vm.req.mail}}</p>
+						<p><b>Correo:</b> {{vm.req.email}}</p>
 						<p><b>Cédula:</b> {{vm.req.id}}</p>
 						<p><b>Carreras:</b>							
-					        <span ng-repeat="carrer in vm.req.carrers" class="label label-default modal-label">{{ carrer }}</span>
+					        <span ng-repeat="career in vm.req.careers" class="label label-default modal-label">{{ career }}</span>
 						</p>
 					</div>
 					<!-- Currículo:
