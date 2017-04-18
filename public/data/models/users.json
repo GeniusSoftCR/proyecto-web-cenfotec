@@ -22,7 +22,7 @@
 	{
 		"users":[
 			{
-				"key":"",			//representamos el identificador del usuario
+				"user_key":"",		//representación del identificador único
 				"role_key":"",		//rol del usuario
 				"id": "",			//cédula
 				"name":"",			//nombre
@@ -38,22 +38,20 @@
 	{	
 		"professors":[
 			{
-				"id":"",
-				"user_id":,
-				"councilMember":,//bool
-				"specialty":"",
-				"availableForProyects"://bool
+				"professor_key":"",	//representación del identificador único
+				"councilMember":,	//booleano
+				"specialty":""		//especialidad
 				
 			}
 		]
 	},
 	{
-		"assitants":[{
-			"id":"",
-			"user_id":"",
-			"puestoUniversitario":"",
-			"councilMember":,//bool
-			"phone":,""//opcional
+		"assitants":[
+			{
+				"assitant_key":"",	//representación del identificador único
+				"position":"",		//puesto universitario
+				"councilMember":,	//booleano
+				"phone":,""			//teléfono(opcional)
 			}
 		
 		]
@@ -64,47 +62,46 @@
 				"id":1,
 				"state": "postulate",
 				"name":"Postulado"
-			}
+			},
 			{
-				"id":1,
+				"id":2,
 				"state": "elegible",
 				"name":"Elegible"
-			}
+			},
 			{
-				"id":1,
+				"id":3,
 				"state": "active",
 				"name":"Active"
-			}
+			},
 			{
-				"id":1,
+				"id":4,
 				"state": "inactive",
 				"name":"Inactivo"
-			}
+			},
 			{
-				"id":1,
+				"id":5,
 				"state": "rejected",
 				"name":"Rechazado"
-			}
+			},
 			{
-				"id":1,
+				"id":6,
 				"state": "vetoed",
 				"name":"Vetado"
-			}															
+			}														
 		]
 	},
 	{
 		"students":[
 			{
-				"id":"",
-				"user_id":"",
-				"birthdate":"",
-				"carrers":[],
-				"courses":[],
-				"justification":"",
-				"resumeUrl":"",//url,
-				"gitHubUrl":"",
-				"websiteUrl":"",
-				"avatarUrl""
+				"student_key":"",	//representación del identificador único
+				"birthdate":"",		//fecha de nacimiento
+				"careers":[],		//carreras
+				"courses":[],		//cursos
+				"justification":"",	//justificación(para el rechazo)
+				"resumeUrl":"",		//url del resúmen ejecutivo,
+				"gitHubUrl":"",		//ulr de gitHub
+				"websiteUrl":"",	//url personal
+          		"cellphoneNumber":""//celular
 			}		
 		]
 	}
