@@ -28,20 +28,27 @@ db.once('open', function() {
 var index = require('./index');
 var users = require('./users/user.api');
 
-
-//Set static Folder
-// app.use(express.static(path.join(__dirname, './public')));
+	
+// Set static Folder
+// app.use(express.static(path.join(__dirname, 'public')));
 
 //Body Parser MW
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 //Define Express Routes
 app.use('/api', users);
 app.use('/', index);
 
-//Listen Server
 app.listen(port, function(){
   console.log('server started on port ' + port);
 });
