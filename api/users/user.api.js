@@ -13,12 +13,12 @@ router.get('/users', function(req, res, next) {
 });
 
 //CAMBIO HECHO POR ESTEBAN
-router.put('/users/update???', function(req, res, next) {
-  User.findByIdAndUpdate(req.body.id,{$set:req.body}, function(err, users){
-    res.json({success: false, message: 'Ha ocurrido un error'});
-    res.json({success:true,msg:'Se ha actualizado correctamente.'});
-  });
-});
+// router.put('/users/update???', function(req, res, next) {
+//   User.findByIdAndUpdate(req.body.id,{$set:req.body}, function(err, users){
+//     res.json({success: false, message: 'Ha ocurrido un error'});
+//     res.json({success:true,msg:'Se ha actualizado correctamente.'});
+//   });
+// });
 
 //localhost:3000/api/peliculas/nueva
 //Creamos una pelicula por el api
