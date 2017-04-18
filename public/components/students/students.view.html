@@ -23,29 +23,27 @@
   </nav>
 </header>
 <main>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4>SOLICITUD ESTUDIANTE</h4>
+  <section id="requestStudent">
+    <div class="col-md-6" id="fondoStudent">
+      <div class="col-md-8 col-md-offset-2">
+        <img src="public/imgs/cshLogo.png" alt="">
+        <h1>Cenfotec Software House</h1>
+      </div>  
     </div>
-  </div>
-  <div class="panel-body">
-    <div class="col-md-12">
-      <form class="studentForm" novalidate>
-        <h2 style="text-align: center;">Solicitud de registro de Estudiante</h2>
-          <!-- Formulario Obligatorio -->
-          <div class="col-md-7 col-md-offset-1"">
-              <div class="row">
-                <div class="col-md-4">
-                  <h4>Obligatoria</h4> 
-                </div>
-              </div>
-              <!-- Nombre -->
-              <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : studentForm.name.$invalid && !studentForm.name.$pristine }">
-                <label>Nombre:</label>
-                <input id="txtName" type="text" name="name" class="form-control" ng-model="studentCtrl.stu.name" required>
-                <p ng-show="studentForm.name.$invalid && !studentForm.name.$pristine" class="help-block">Su nombre es requerido.</p>
-              </div>
-              <!-- Primer Apellido -->
+    <div class="col-md-5">
+      <form ng-submit="studentCtrl.preSave()" name="studentForm" novalidate>
+        <div id="tituloLog" class="col-md-12 col-md-offset-1">
+          <h2>Solicitud estudiante</h2>
+        </div>
+
+        <!--<h4>Obligatoria</h4>-->
+         <!-- Nombre -->
+        <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : studentForm.name.$invalid && !studentForm.name.$pristine }">
+          <label>Nombre:</label>
+          <input id="txtName" type="text" name="name" class="form-control" ng-model="studentCtrl.stu.name" required>
+          <p ng-show="studentForm.name.$invalid && !studentForm.name.$pristine" class="help-block">Su nombre es requerido.</p>
+        </div>
+        <!-- Primer Apellido -->
               <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : studentForm.lastName.$invalid && !studentForm.lastName.$pristine }">
                 <label>Primer apellido:</label>
                 <input ng-model="studentCtrl.stu.surName" id="txtFirstName" type="text" class="form-control" name="lastName" required ng-minlength="3" ng-maxlength="15">
@@ -115,7 +113,40 @@
                     <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>
                 </div>
               </div>
+              <div class="col-md-3">
+
+            <!--<h4 style="text-align: center;">Opcional</h4>-->
+            <!-- Usuario de Github -->
+            <div class="form-group col-md-12" style="display: block; text-align: center;" >
+              <label>Usuario GitHub</label>
+              <input ng-model="studentCtrl.stu.gitHubUrl" id="gitHub" type="text" class="form-control" name="gitHubUrl">
+            </div>  
+            <!-- Link de sitio web -->
+            <div class="form-group col-md-12" style="display: block" >
+              <label>Link de sitio web:</label>
+              <input ng-model="studentCtrl.stu.websiteUrl" id="link" type="text" class="form-control" name="websiteUrl">
+            </div>
+            <!-- Telefono -->
+            <div class="form-group col-md-12">
+             <label>Número de teléfono:</label>
+              <input ng-model="studentCtrl.stu.cellphoneNumber" id="cellphoneNumber" type="number" class="form-control" maxlength="8" name="cellphoneNumber">
+            </div> 
           </div>
+
+          <div class="form-group col-md-12" style="display: block; text-align: center;"> 
+            <button type="submit" class="btn btn-warning btn-embossed" ng-click="studentCtrl.preSave()" ng-disabled="studentForm.$invalid">Registrarse</button>
+          </div>        
+          </div>
+</section>
+</main>
+
+
+
+
+
+<main>
+
+
           <!-- Formulario Opcional -->
           <div class="col-md-3">
             <h4 style="text-align: center;">Opcional</h4>
@@ -143,3 +174,10 @@
     </div>
   </div>
 </main>  
+
+
+
+
+
+
+

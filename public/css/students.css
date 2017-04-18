@@ -1,0 +1,33 @@
+	#fondoStudent{
+		background-image: url(../imgs/fondo1.png);
+		background-size: 95%;
+		background-repeat: no-repeat;
+	}
+		#fondoStudent div{
+			padding: 40% 0 51% 0;
+		}
+			#fondoStudent div h1{
+				color: #fff;
+				font-family: 'montserrat';
+				font-weight: 400;
+				font-size: 2em;
+				text-align: center;
+			}
+			#fondoStudent div img{
+				padding-left: 44%;
+			}
+#thex i{
+	color: #f1c40f;
+	font-size: 1.4em;
+}
+#tituloLog{
+	padding: 20% 0 7%;
+	text-align: center;
+}
+	#tituloLog h2{
+		color: #000;
+		font-family: 'montserrat';
+		font-weight: 400;
+		font-size: 2em;
+		margin: 0;
+	}
