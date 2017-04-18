@@ -22,15 +22,16 @@
 	{
 		"users":[
 			{
-				"id": "",
-				"role_id":"",
-				"identification":,//Number
-				"name":"",
-				"surname":"",
-				"secondSurname":"",
-				"mail":"",
-				"password":""
-
+				"key":"",			//representamos el identificador del usuario
+				"role_key":"",		//rol del usuario
+				"id": "",			//cédula
+				"name":"",			//nombre
+				"surname":"",		//apellido1
+				"secondSurname":"", //apellido2
+				"email":"",			//correo electrónico
+				"password":"",		//contraseña
+				"state":"",			//estado
+				"avatar":""			//imagen de perfil
 			}
 		]
 	},
@@ -41,8 +42,6 @@
 				"user_id":,
 				"councilMember":,//bool
 				"specialty":"",
-				"assistant":,//bool
-				"councilMember":,//bool
 				"availableForProyects"://bool
 				
 			}
