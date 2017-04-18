@@ -37,6 +37,16 @@
 		]
 	},
 	{	
+		"admin":[
+			{
+				"professor_key":"",	//representación del identificador único
+				"councilMember":,	//booleano
+				"jobPosition":""	//puesto universitario
+				
+			}
+		]
+	},
+	{	
 		"professors":[
 			{
 				"professor_key":"",	//representación del identificador único
