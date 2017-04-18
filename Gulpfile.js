@@ -11,13 +11,10 @@ gulp.task('connect', function () {
     root:'public',
     port: 8000,
     livereload: true
-  })
+  });
+  nodemon();
 })
-gulp.task('nodemon', function () {
-  // nodemon({
-  //   script: 'server.js'
-  // })
-})
+
 // Preprocesador sass
 gulp.task('css', function () {
   gulp.src('./css/sass/generalStyles.scss')
@@ -53,6 +50,8 @@ gulp.task('watch', function () {
 
 })
 
-gulp.task('serve', ['connect','css','html','js','watch','nodemon'])
+gulp.task('serve', ['connect','css','html','js','watch'])
+
+
 
 
