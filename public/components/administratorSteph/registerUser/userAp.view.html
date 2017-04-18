@@ -1,106 +1,118 @@
 <main>
-  <div class="row">
-    <div class="col-md-12">
-    <div id="principalSelect">
-        <input type="radio" value="registerAP" ng-model="select">
-        <label>Registrar Profesores/Administrador</label>
-        <label><input class="option" type="radio" value="registerAsis" ng-model="select"></label>
-        <label>Registrar Asistentes</label>
-        <input class="option" type="radio" value="listUsers" ng-model="select">
-        <label>Lista de Usuarios</label>
-  </div>
-  <hr>
-
-    <div ng-switch="select" id="users" class="col-md-12">
-            
-      <div ng-switch-when="registerAP">
-          
-      <form class="userForm row">
-        <div class="panel panel-default">
-          <div class="panel-heading">Registrar Profesores o Administrador</div>
-          <div class="panel-body">
-
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Nombre:</label>
-              <input ng-model="userAprCtrl.ap.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese el nombre" required>
+<div class="row">
+        <div class="col-lg-11 col-md-8 col-sm-6 col-xs-4 bhoechie-tab-container">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
+              <div class="list-group">
+                <a href="#" class="list-group-item active text-center">
+                  <h4 class="glyphicon glyphicon-user"></h4><br/>Profesor
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4 class="glyphicon glyphicon-plus-sign"></h4><br/>Asistente
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4 class="glyphicon glyphicon-th-list"></h4><br/>Lista
+                </a>
+              </div>
             </div>
+            <div class="col-lg-10 col-md-10 col-sm-5 col-xs-5 bhoechie-tab">
+                <!-- flight section -->
+                <div class="bhoechie-tab-content active">
+                    <center>
+                      <form class="userForm row">
+                          <div class="panel">Formulario registro de usuarios</div>
+                          <div class="panel-body">
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Primer Apellido:</label>
-              <input ng-model="userAprCtrl.ap.surname" id="txtlastName" type="text" class="form-control" name="surname" placeholder="Ingrese el Apellido" required>
-            </div>
+                            <div class="input-group col-md-3" style="display: inline-block;">
+                              <label>Nombre:</label>
+                              <input ng-model="userAprCtrl.ap.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese el nombre" required>
+                            </div>
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Segundo Apellido:</label>
-              <input ng-model="userAprCtrl.ap.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" placeholder="Ingrese el Apellido" required>
-            </div>
+                            <div class="input-group col-md-3" style="display: inline-block;">
+                              <label>Primer Apellido:</label>
+                              <input ng-model="userAprCtrl.ap.surname" id="txtlastName" type="text" class="form-control" name="surname" placeholder="Ingrese el Apellido" required>
+                            </div>
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Cédula de identidad:</label>
-              <input ng-model="userAprCtrl.ap.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su cédula" maxlength="9" required>
-            </div>
+                            <div class="input-group col-md-3" style="display: inline-block;">
+                              <label>Segundo Apellido:</label>
+                              <input ng-model="userAprCtrl.ap.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" placeholder="Ingrese el Apellido" required>
+                            </div>
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Rol de Usuario:</label>
-              <select ng-model="userAprCtrl.ap.role" class="form-control">
-                <option value="" disabled>Seleccione un rol</option>
-                <option value="administrador">Administrador</option>
-                <option value="profesor">Profesor</option>
-              </select>
-            </div>
+                            <div class="input-group col-md-3" style="display: inline-block;">
+                              <label>Cédula de identidad:</label>
+                              <input ng-model="userAprCtrl.ap.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su cédula" maxlength="9" required>
+                            </div>
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Especialidad:</label>
-              <input ng-model="userAprCtrl.ap.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" placeholder="Ingrese la especialidad" required>
-            </div>
+                            <div class="input-group col-md-3" style="display: inline-block;">
+                              <label>Rol de Usuario:</label>
+                              <select ng-model="userAprCtrl.ap.role" class="form-control">
+                                <option value="" disabled>Seleccione un rol</option>
+                                <option value="administrador">Administrador</option>
+                                <option value="profesor">Profesor</option>
+                              </select>
+                            </div>
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Correo:</label>
-              <input overwrite-email ng-model="userAprCtrl.ap.mail" id="txtemail" type="email" class="form-control" name="mail" placeholder="Ingrese el correo" required>
-            </div>
+                            <div class="input-group col-md-3" style="display: inline-block;">
+                              <label>Especialidad:</label>
+                              <input ng-model="userAprCtrl.ap.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" placeholder="Ingrese la especialidad" required>
+                            </div>
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Contraseña:</label>
-              <input ng-model="userAprCtrl.ap.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required unique>
-            </div>
+                            <div class="input-group col-md-3" style="display: inline-block;">
+                              <label>Correo:</label>
+                              <input overwrite-email ng-model="userAprCtrl.ap.mail" id="txtemail" type="email" class="form-control" name="mail" placeholder="Ingrese el correo" required>
+                            </div>
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Miembro del Consejo:</label>
-              <select class="form-control" required ng-model="userAprCtrl.ap.councilMember" name="councilMember">
-                <option value="" disabled>Seleccione una opción</option>
-                <option value="Si">Si</option>
-                <option value="No">No</option>
-              </select>
-            </div>
+                            <div class="input-group col-md-3" style="display: inline-block;">
+                              <label>Contraseña:</label>
+                              <input ng-model="userAprCtrl.ap.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required unique>
+                            </div>
+
+                            <div class="input-group col-md-3" style="display: inline-block;">
+                              <label>Miembro del Consejo:</label>
+                              <select class="form-control" required ng-model="userAprCtrl.ap.councilMember" name="councilMember">
+                                <option value="" disabled>Seleccione una opción</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </div>
 
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Habilitado para proyectos:</label>
-              <select class="form-control" required ng-model="userAprCtrl.ap.availableForProyects" name="availableForProyects">
-                <option value="" disabled>Seleccione una opción</option>
-                <option value="Si">Si</option>
-                <option value="No">No</option>
-              </select>
-            </div>
+                            <div class="input-group col-md-5" style="display: inline-block;">
+                              <label>Habilitado para proyectos:</label>
+                              <select class="form-control" required ng-model="userAprCtrl.ap.availableForProyects" name="availableForProyects">
+                                <option value="" disabled>Seleccione una opción</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </div>
 
-            <div class="input-group col-md-5" style="display: inline-block;">
-              <label>Avatar</label>
-              <input type="file"  required id="photo" ng-model="userAprCtrl.ap.image">
-            </div>
 
-            <div class="input-group"> 
-              <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="userAprCtrl.preSave()" class="btn btn-sm btn-embossed btn-warning pull-right" value="Registrar" id="buttonRegis">
-            </div>
+                            <div class="col-md-5" ng-class="{ 'has-error' : userForm.photo.$invalid && !userForm.photo.$pristine}">
+                              <label>Avatar:</label>
+                              <div class="input-group">
+                                  <label class="input-group-btn">
+                                      <span class="btn btn-primary" style="background-color: #FBB803; color: black;">
+                                          Escoger<input type="file" style="display: none" id="photo" multiple ng-model="userAprCtrl.ap.image" required>
+                                      </span>
+                                  </label>
+                                  <input type="text" class="form-control" style="color: #fff" readonly>
+                                  <p ng-show="userForm.photo.$invalid && !userForm.photo.$pristine" class="help-block">La foto es requerida.</p>
+                              </div>
+                            </div>
 
-            <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert>
-          </div>
-        </div>
-        </form>
-      </div>
+                            <div class="input-group"> 
+                              <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="userAprCtrl.preSave()" class="btn btn-sm btn-embossed btn-warning pull-right" value="Registrar" id="buttonRegis">
+                            </div>
 
-    <div ng-switch-when="registerAsis">
+                            <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert>
+                        </div>
+                      </form>
+                    </center>
+                </div>
 
-        <form name="userFormAsis" class="row">
+                <!-- train section -->
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <form name="userFormAsis" class="row">
           <div class="panel panel-default">
           <div class="panel-heading">Registrar asistentes</div>
           <div class="panel-body">
@@ -159,11 +171,13 @@
         </div>
         </div>
         </form>
-  </div>
-
-    <div ng-switch-when="listUsers">
-
-      <div class="col-md-12">
+                    </center>
+                </div>
+    
+                <!-- hotel search -->
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <div class="col-md-12">
         <div class="panel panel-default">
                 <div class="panel-heading">Lista de Usuarios</div>
                 <div class="panel-body">
@@ -197,18 +211,12 @@
               </div>
             </div>
             </div>
-
- </div> 
- </div>
-
+                    </center>
+                </div>
+            </div>
+        </div>
+  </div>
 </main>
-
-
-
-
-
-
-
 
 
 
