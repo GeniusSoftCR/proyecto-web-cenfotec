@@ -31,7 +31,18 @@
 				"email":"",			//correo electrónico
 				"password":"",		//contraseña
 				"state":"",			//estado
-				"avatar":""			//imagen de perfil
+				"avatar":"",		//imagen de perfil
+				"phone":""			//teléfono (opcional)
+			}
+		]
+	},
+	{	
+		"admin":[
+			{
+				"professor_key":"",	//representación del identificador único
+				"councilMember":,	//booleano
+				"jobPosition":""	//puesto universitario
+				
 			}
 		]
 	},
@@ -49,8 +60,7 @@
 		"assitants":[
 			{
 				"assitant_key":"",	//representación del identificador único
-				"jobPosition":"",	//puesto universitario
-				"phone":,""			//teléfono(opcional)
+				"jobPosition":""	//puesto universitario
 			}
 		
 		]
@@ -98,8 +108,7 @@
 				"justification":"",	//justificación(para el rechazo)
 				"resumeUrl":"",		//url del resúmen ejecutivo,
 				"gitHubUrl":"",		//ulr de gitHub
-				"websiteUrl":"",	//url personal
-          		"cellphoneNumber":""//celular
+				"websiteUrl":""		//url personal
 			}		
 		]
 	}

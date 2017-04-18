@@ -162,7 +162,8 @@
 		})		
 		.state('students',{
 		       url: '/solicitudEstudiantes',
-		       templateUrl: './components/students/students.view.html',
+		       templateUrl: './public/components/students/students.view.html',
+		       css: './public/css/students.css',
 		       controller: 'studentController',
 		       controllerAs: 'studentCtrl'
 		     })
@@ -173,7 +174,8 @@
 	          	return $ocLazyLoad.load('./components/administratorSteph/registerUser/userAp.controller.js')
 	          }]
 		    },
-			templateUrl: './components/administratorSteph/registerUser/userAp.view.html',
+			templateUrl: './public/components/administratorSteph/registerUser/userAp.view.html',
+			css: './public/css/users.css',
 			controller: 'userApController',
 			controllerAs: 'vm'
 		})
