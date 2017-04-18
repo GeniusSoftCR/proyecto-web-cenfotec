@@ -31,7 +31,8 @@
 				"email":"",			//correo electrónico
 				"password":"",		//contraseña
 				"state":"",			//estado
-				"avatar":""			//imagen de perfil
+				"avatar":"",		//imagen de perfil
+				"phone":""			//teléfono (opcional)
 			}
 		]
 	},
@@ -49,8 +50,7 @@
 		"assitants":[
 			{
 				"assitant_key":"",	//representación del identificador único
-				"jobPosition":"",	//puesto universitario
-				"phone":,""			//teléfono(opcional)
+				"jobPosition":""	//puesto universitario
 			}
 		
 		]
