@@ -14,7 +14,7 @@
         <li><a href="#banner">Inicio</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#services">Servicios</a></li>
-        <li><img id='logo' src='public/imgs/cshLogo.png'></li>
+        <li><img id='logo' src='./imgs/cshLogo.png'></li>
         <li><a href="#!/solicitudProyecto">Proyectos</a></li>
         <li><a href="#!/solicitudEstudiantes">Estudiantes</a></li>
         <li><a href="#!/entrar">Iniciar sesión</a></li>
@@ -26,7 +26,7 @@
 	<section id="login">
 		<div class="col-md-6" id="fondo1">
 			<div class="col-md-8 col-md-offset-2">
-				<img src="public/imgs/cshLogo.png" alt="">
+				<img src="./imgs/cshLogo.png" alt="">
 				<h1>Cenfotec Software House</h1>
 			</div>	
 		</div>
@@ -49,8 +49,8 @@
 					<button ng-disabled="userLogIn.$invalid || userLogIn.$pending" class="btn btn-warning col-md-4" type="submit">Iniciar sesión</button>
 				</div>
 				<!-- Recuperar Contraseña -->
-				<div class="form-group has-feedback col-md-10 col-md-offset-4">
-					<a data-toggle="modal" data-target="#forgotPass">Restablecer contraseña</a>
+				<div class="form-group has-feedback col-md-8 col-md-offset-4">
+					<a data-toggle="modal" data-target="#forgotPass">Olvidó su contraseña</a>
 					<div class="modal fade" id="forgotPass" role="dialog">
 						<div class="modal-dialog">
 							<div class="modal-content">
@@ -60,11 +60,11 @@
 
 								</div>
 								<div class="modal-body">
-									<p>Para recuperar su contraseña introdusca su correo electrónico</p>
+									<p>Para recuperar su contraseña introduzca su correo electrónico</p>
 
-									<input class="col-md-11" type="email" placeholder="Correo electrónico" required>
+									<input class="col-md-11" type="email" ng-model="vm.forgot.email" placeholder="Correo electrónico" required>
 
-									<button class="btn btn-warning">Recuperar</button>
+									<button class="btn btn-warning" id="btnForgot" ng-click="vm.forgot()">Recuperar</button>
 								</div>
 								<div class="modal-footer">
 									

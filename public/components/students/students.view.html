@@ -14,7 +14,7 @@
         <li><a href="#banner">Inicio</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#services">Servicios</a></li>
-        <li><img id='logo' src='public/imgs/cshLogo.png'></li>
+        <li><img id='logo' src='./imgs/cshLogo.png'></li>
         <li><a href="#!/solicitudProyecto">Proyectos</a></li>
         <li><a href="#!/solicitudEstudiantes">Estudiantes</a></li>
         <li><a href="#!/entrar">Iniciar sesión</a></li>
@@ -24,14 +24,14 @@
 </header>
 <main>
   <section id="requestStudent">
-    <div class="col-md-6" id="fondoStudent">
+    <div class="col-md-4" id="fondoStudent">
       <div class="col-md-8 col-md-offset-2">
         <img src="public/imgs/cshLogo.png" alt="">
         <h1>Cenfotec Software House</h1>
       </div>  
     </div>
-    <div class="col-md-5">
-      <form ng-submit="studentCtrl.preSave()" name="studentForm" novalidate>
+    <div class="col-md-7">
+      <form ng-submit="studentCtrl.preSave()" name="studentForm" novalidate style="margin: auto;">
         <div id="tituloLog" class="col-md-12 col-md-offset-1">
           <h2>Solicitud estudiante</h2>
         </div>
@@ -85,13 +85,13 @@
                 </div>
               </div>
               <!-- Curriculum Vitae -->
-              <div class="form-group col-md-6 ibck" ng-class="{ 'has-error' : studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine }">
+              <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine }">
                 <label>Curriculum Vitae:</label>
                 <p><a class="form-control btn btn-sm btn-embossed btn-warning pull-right" ng-click="studentCtrl.pickFile()" ng-model="studentCtrl.stu.resumeUrl" name="resumeUrl">Seleccione el archivo</a></p>
                 <p ng-show="studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine" class="help-block">El CV es requerido.</p>
               </div>
               <!-- Avatar -->
-              <div class="col-lg-6 col-sm-3 col-xs-3" ng-class="{ 'has-error' : studentForm.photo.$invalid && !studentForm.photo.$pristine}">
+              <div class="col-lg-4 col-sm-3 col-xs-3" ng-class="{ 'has-error' : studentForm.photo.$invalid && !studentForm.photo.$pristine}">
                 <label>Avatar:</label>
                 <div class="input-group">
                     <label class="input-group-btn">
@@ -104,80 +104,37 @@
                 </div>
               </div>
               <!-- Carrera -->
-              <div class="form-group col-md-12 ibck" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
+              <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
                 <label>Carrera(s):</label>
                 <div class="form-group">
-                    <select name="addCarrersStu"  class="form-control" ng-model="studentCtrl.stu.careers" multiple>
+                    <select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="studentCtrl.stu.careers" multiple>
                       <option ng-repeat="career in studentCtrl.careers" id="career" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><
                     </select>
                     <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>
                 </div>
               </div>
-              <div class="col-md-3">
 
             <!--<h4 style="text-align: center;">Opcional</h4>-->
             <!-- Usuario de Github -->
-            <div class="form-group col-md-12" style="display: block; text-align: center;" >
+            <div class="form-group col-md-4" style="display: inline-block; text-align: center;" >
               <label>Usuario GitHub</label>
               <input ng-model="studentCtrl.stu.gitHubUrl" id="gitHub" type="text" class="form-control" name="gitHubUrl">
             </div>  
             <!-- Link de sitio web -->
-            <div class="form-group col-md-12" style="display: block" >
+            <div class="form-group col-md-4" style="display: inline-block" >
               <label>Link de sitio web:</label>
               <input ng-model="studentCtrl.stu.websiteUrl" id="link" type="text" class="form-control" name="websiteUrl">
             </div>
             <!-- Telefono -->
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-4">
              <label>Número de teléfono:</label>
-              <input ng-model="studentCtrl.stu.cellphoneNumber" id="cellphoneNumber" type="number" class="form-control" maxlength="8" name="cellphoneNumber">
+              <input ng-model="studentCtrl.stu.cellphoneNumber" id="cellphoneNumber" type="text" class="form-control" maxlength="8" name="cellphoneNumber">
             </div> 
-          </div>
 
-          <div class="form-group col-md-12" style="display: block; text-align: center;"> 
-            <button type="submit" class="btn btn-warning btn-embossed" ng-click="studentCtrl.preSave()" ng-disabled="studentForm.$invalid">Registrarse</button>
+          <div class="form-group col-md-12" style="display: inline-block; text-align: center;"> 
+            <button type="submit" id="btnRegister" class="btn btn-warning btn-embossed" ng-click="studentCtrl.preSave()" ng-disabled="studentForm.$invalid">Registrarse</button>
           </div>        
           </div>
 </section>
 </main>
-
-
-
-
-
-<main>
-
-
-          <!-- Formulario Opcional -->
-          <div class="col-md-3">
-            <h4 style="text-align: center;">Opcional</h4>
-            <!-- Usuario de Github -->
-            <div class="form-group col-md-12" style="display: block; text-align: center;" >
-              <label>Usuario GitHub</label>
-              <input ng-model="studentCtrl.stu.gitHubUrl" id="gitHub" type="text" class="form-control" name="gitHubUrl">
-            </div>  
-            <!-- Link de sitio web -->
-            <div class="form-group col-md-12" style="display: block" >
-              <label>Link de sitio web:</label>
-              <input ng-model="studentCtrl.stu.websiteUrl" id="link" type="text" class="form-control" name="websiteUrl">
-            </div>
-            <!-- Telefono -->
-            <div class="form-group col-md-12">
-             <label>Número de teléfono:</label>
-              <input ng-model="studentCtrl.stu.cellphoneNumber" id="cellphoneNumber" type="number" class="form-control" maxlength="8" name="cellphoneNumber">
-            </div> 
-          </div>
-
-          <div class="form-group col-md-12" style="display: block; text-align: center;"> 
-            <button type="submit" class="btn btn-warning btn-embossed" ng-click="studentCtrl.preSave()" ng-disabled="studentForm.$invalid">Registrarse</button>
-          </div>        
-      </form>
-    </div>
-  </div>
-</main>  
-
-
-
-
-
-
 

@@ -1,10 +1,10 @@
 	#fondoStudent{
 		background-image: url(../imgs/fondo1.png);
-		background-size: 95%;
+		
 		background-repeat: no-repeat;
 	}
 		#fondoStudent div{
-			padding: 40% 0 51% 0;
+			padding: 80% 0 51% 0;
 		}
 			#fondoStudent div h1{
 				color: #fff;
@@ -14,15 +14,16 @@
 				text-align: center;
 			}
 			#fondoStudent div img{
-				padding-left: 44%;
+				padding-left: 40%;
 			}
 #thex i{
 	color: #f1c40f;
 	font-size: 1.4em;
 }
 #tituloLog{
-	padding: 20% 0 7%;
+	padding-top: 15%;
 	text-align: center;
+	margin-bottom: 5%;
 }
 	#tituloLog h2{
 		color: #000;
@@ -31,3 +32,15 @@
 		font-size: 2em;
 		margin: 0;
 	}
+
+#btnRegister{
+	padding: 3%;
+}
+
+form{
+	padding-left: 18%; 
+}
+
+input{
+	margin-bottom: 10%;
+}
