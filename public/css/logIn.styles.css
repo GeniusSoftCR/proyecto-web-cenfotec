@@ -19,11 +19,12 @@ span{
 }
 a{
 	color: #000;
-	font-weight: 100;
+	font-weight: 300;
 	font-family: 'montserrat';
+	margin: 0;
 }
 	a:hover{
-		color: #f8c300;
+		color: #f1c40f;
 	}
 	#fondo1{
 		background-image: url(../imgs/fondo1.png);
@@ -46,4 +47,7 @@ a{
 #thex i{
 	color: #f1c40f;
 	font-size: 1.4em;
+}
+#btnForgot{
+	margin-top: 4%;
 }

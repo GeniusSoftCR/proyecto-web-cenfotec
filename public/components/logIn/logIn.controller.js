@@ -33,5 +33,15 @@
 		        $location.path('/entrar');
 			}
 	    };
+
+	    vm.forgot = function(mail){
+	    	curl -s --user 'api:key-811af3049a4906a2e9b528a64659d3a3' \
+		    https://api.mailgun.net/v3/sandbox40990a1ff61e460cb06dc8e8fc1c5090.mailgun.org \
+		    -F from='Excited User <sandbox40990a1ff61e460cb06dc8e8fc1c5090.mailgun.org>' \
+		    -F to=sandbox40990a1ff61e460cb06dc8e8fc1c5090.mailgun.org \
+		    -F to=kaguilara@ucenfotec.ac.cr \
+		    -F subject='Hello' \
+		    -F text='Testing some Mailgun awesomness!'
+	    }
 	};
 })();
