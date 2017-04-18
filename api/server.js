@@ -25,12 +25,12 @@ db.once('open', function() {
 });
 
 //We define files where we are gonna generated main routes for the app
-var index = require('./api/index');
-var users = require('./api/users/user.api');
+var index = require('./index');
+var users = require('./users/user.api');
 
 
 //Set static Folder
-app.use(express.static(path.join(__dirname, './public')));
+// app.use(express.static(path.join(__dirname, './public')));
 
 //Body Parser MW
 app.use(bodyParser.json());
