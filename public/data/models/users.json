@@ -22,39 +22,45 @@
 	{
 		"users":[
 			{
-				"id": "",
-				"role_id":"",
-				"identification":,//Number
-				"name":"",
-				"surname":"",
-				"secondSurname":"",
-				"mail":"",
-				"password":""
-
+				"user_key":"",		//representación del identificador único
+				"role_key":"",		//rol del usuario
+				"id": "",			//cédula
+				"name":"",			//nombre
+				"surname":"",		//apellido1
+				"secondSurname":"", //apellido2
+				"email":"",			//correo electrónico
+				"password":"",		//contraseña
+				"state":"",			//estado
+				"avatar":"",		//imagen de perfil
+				"phone":""			//teléfono (opcional)
+			}
+		]
+	},
+	{	
+		"admin":[
+			{
+				"professor_key":"",	//representación del identificador único
+				"councilMember":,	//booleano
+				"jobPosition":""	//puesto universitario
+				
 			}
 		]
 	},
 	{	
 		"professors":[
 			{
-				"id":"",
-				"user_id":,
-				"councilMember":,//bool
-				"specialty":"",
-				"assistant":,//bool
-				"councilMember":,//bool
-				"availableForProyects"://bool
+				"professor_key":"",	//representación del identificador único
+				"councilMember":,	//booleano
+				"specialty":""		//especialidad
 				
 			}
 		]
 	},
 	{
-		"assitants":[{
-			"id":"",
-			"user_id":"",
-			"puestoUniversitario":"",
-			"councilMember":,//bool
-			"phone":,""//opcional
+		"assitants":[
+			{
+				"assitant_key":"",	//representación del identificador único
+				"jobPosition":""	//puesto universitario
 			}
 		
 		]
@@ -65,47 +71,44 @@
 				"id":1,
 				"state": "postulate",
 				"name":"Postulado"
-			}
+			},
 			{
-				"id":1,
+				"id":2,
 				"state": "elegible",
 				"name":"Elegible"
-			}
+			},
 			{
-				"id":1,
+				"id":3,
 				"state": "active",
 				"name":"Active"
-			}
+			},
 			{
-				"id":1,
+				"id":4,
 				"state": "inactive",
 				"name":"Inactivo"
-			}
+			},
 			{
-				"id":1,
+				"id":5,
 				"state": "rejected",
 				"name":"Rechazado"
-			}
+			},
 			{
-				"id":1,
+				"id":6,
 				"state": "vetoed",
 				"name":"Vetado"
-			}															
+			}														
 		]
 	},
 	{
 		"students":[
 			{
-				"id":"",
-				"user_id":"",
-				"birthdate":"",
-				"carrers":[],
-				"courses":[],
-				"justification":"",
-				"resumeUrl":"",//url,
-				"gitHubUrl":"",
-				"websiteUrl":"",
-				"avatarUrl""
+				"student_key":"",	//representación del identificador único
+				"birthdate":"",		//fecha de nacimiento
+				"careers":[],		//carreras
+				"justification":"",	//justificación(para el rechazo)
+				"resumeUrl":"",		//url del resúmen ejecutivo,
+				"gitHubUrl":"",		//ulr de gitHub
+				"websiteUrl":""		//url personal
 			}		
 		]
 	}
