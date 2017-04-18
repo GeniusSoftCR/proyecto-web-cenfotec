@@ -58,17 +58,15 @@
 
       studentCtrl.save= function(pimage){
         var newStudent ={
-          state_key : 1,
-          state: "Postulado",
           role_key: 4,
-          role: "student",
           name : studentCtrl.stu.name,
           surname : studentCtrl.stu.surName,
           secondSurname : studentCtrl.stu.secondSurname,
           id : studentCtrl.stu.id,
           birthdate : studentCtrl.stu.birthdate,
           email : studentCtrl.stu.email,
-          password : studentCtrl.stu.password,
+          password : null,
+          justificacion: null,
           careers : studentCtrl.stu.careers,
           resumeUrl : studentCtrl.stu.resumeUrl,
           gitHubUrl : studentCtrl.stu.gitHubUrl,
@@ -86,7 +84,6 @@
         studentCtrl.stu.id = null;
         studentCtrl.stu.birthdate = null;
         studentCtrl.stu.email = null;
-        studentCtrl.stu.password = null;
         studentCtrl.stu.careers = null;
         studentCtrl.stu.resumeUrl = null;
         studentCtrl.stu.gitHubUrl = null;
