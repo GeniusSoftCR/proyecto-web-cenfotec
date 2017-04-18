@@ -49,8 +49,7 @@
 		"assitants":[
 			{
 				"assitant_key":"",	//representación del identificador único
-				"position":"",		//puesto universitario
-				"councilMember":,	//booleano
+				"jobPosition":"",	//puesto universitario
 				"phone":,""			//teléfono(opcional)
 			}
 		
