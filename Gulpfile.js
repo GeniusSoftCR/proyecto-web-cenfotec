@@ -8,11 +8,16 @@ var gulp = require('gulp'),
 // Servidor web de desarrollo
 gulp.task('connect', function () {
   connect.server({
+    root:'public',
     port: 8000,
     livereload: true
   })
 })
-
+gulp.task('nodemon', function () {
+  // nodemon({
+  //   script: 'server.js'
+  // })
+})
 // Preprocesador sass
 gulp.task('css', function () {
   gulp.src('./css/sass/generalStyles.scss')
@@ -28,11 +33,7 @@ gulp.task('js', function () {
   gulp.src('./components/**/*.html')
     .pipe(connect.reload())
 })
-gulp.task('nodemon', function () {
-  nodemon({
-    script: 'server.js'
-  })
-})
+
 
 // Vigila cambios que se produzcan en el código
 // y lanza las tareas relacionadas
