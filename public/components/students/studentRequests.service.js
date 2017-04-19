@@ -15,6 +15,16 @@
 
     //trae la lista de estudiantes
     function _getStudents(){
+      return $http.get('http://localhost:3000/api/users');
+    }
+
+    function _updateUsers(pUser){
+      return $http.put('http://localhost:3000/api/users',pUser);
+    }
+    //enviar url y registro actualizado
+
+    //trae la lista de estudiantes
+    function _getStudents(){
       var storedList = localStorageService.get('localStudents');
       if(storedList == null){
         studentsList = [];
