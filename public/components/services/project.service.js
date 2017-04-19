@@ -4,9 +4,9 @@
 	.module('cshApp')
 	.service('projectService', projectService);
 
-	projectService.$inject = ['$log','$http','localStorageService'];
+	projectService.$inject = ['$log','$http'];
 	/*Servicio para profesores y asistentes*/
-	function projectService($log,$http,localStorageService){
+	function projectService($log,$http){
 
 		var publicApi = {
 			addProject: _addProject,
