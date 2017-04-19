@@ -56,6 +56,23 @@
           });
       }
 
+      studentCtrl.testSave = function(){
+        var newUser = {
+          "idNum":"115240447",
+          "name":"Hector",
+          "surname":"Murillo",
+          "secondSurname":"Porras",
+          "password":"2310",
+          "email":"hmurillop@ucenfotec.ac.cr",
+          "username":"hmurillop",
+          "state":"inRevision",
+          "role":"student"
+        }
+        userService.addUser(newUser).then(function (res) {
+          console.log(res)
+        })
+      }      
+
       studentCtrl.save= function(pimage){
         var newStudent ={
           role_key: 4,

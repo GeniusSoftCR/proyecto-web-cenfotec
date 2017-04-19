@@ -40,14 +40,20 @@
     return publicAPI;
 
 
-    function _addUser(pUser){
-      //users.push(pUser);
-      $log.info(pUser)
-      var user = _getUser();
-      users.push(pUser);
-      $log.info(user);
-      localStorageService.set('localUsers', users);
+    // function _addUser(pUser){
+    //   //users.push(pUser);
+    //   $log.info(pUser)
+    //   var user = _getUser();
+    //   users.push(pUser);
+    //   $log.info(user);
+    //   localStorageService.set('localUsers', users);
+    // }
+
+    function _addUser(newUser){
+      return $http.post('http://localhost:3000/api/user/add', newUser );
     }
+
+
 
     function _deleteUser (id) {
       console.log(id)
