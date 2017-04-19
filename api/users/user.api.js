@@ -44,7 +44,7 @@ router.get('/users', function(req, res, next) {
     res.json(users);
   });
 });
-//localhost:3000/api/user/add
+
 
 //CAMBIO HECHO POR ESTEBAN
 // router.put('/user/update???', function(req, res, next) {
@@ -54,8 +54,7 @@ router.get('/users', function(req, res, next) {
 //   });
 // });
 
-//localhost:3000/api/peliculas/nueva
-//Creamos una pelicula por el api
+//localhost:3000/api/user/add
 router.post('/user/add', function(req, res, next) {  
   var user = new User();
 
