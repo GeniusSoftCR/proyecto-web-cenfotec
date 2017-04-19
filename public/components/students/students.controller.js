@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   angular
     .module('cshApp')
     .controller('studentController', studentController);
@@ -58,6 +58,7 @@
 
       studentCtrl.testSave = function(){
         var newUser = {
+
           "idNum":"116570743",
           "name":"Kevin",
           "surname":"Aguilar",
