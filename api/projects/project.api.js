@@ -15,7 +15,7 @@ var projectSchema = new Schema({
 	money: {type: String, required: true}
 }, {collection : 'projects'});
 
-var Project = mongoose.model('Project', projectSchema):
+var Project = mongoose.model('Project', projectSchema);
 
 //API
 router.get('/projects' function(req, res, next){

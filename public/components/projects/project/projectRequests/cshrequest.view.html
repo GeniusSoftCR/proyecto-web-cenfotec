@@ -1,6 +1,3 @@
-<!--=======================================================================================
-=            Este el component de Solicitudes de Proyectos de Cenfotec Sotware House             =
-========================================================================================-->
 <header>
   <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" id="color">
     <div class="navbar-header">
@@ -29,60 +26,79 @@
   <div class="panel-heading">
     <div class="col-md-6 col-md-offset-3">
       <h2>Solicitud de Proyecto para Cenfotec Software House</h2>
-    </div>
+    </div> 
   </div>
-  <div class="projectsRequest col-md-12" ng-show="cshReqCtrl.toSend">
+  <div class="projectsRequest col-md-12" ng-show="vm.toSend">
     <div>
-      <form class="container">
-        <div class="col-md-4">
-          <div class="col-md-12 ibck">
-            <label for="#companyName">Nombre de la empresa: </label>
-            <input00 type="text" id="companyName" name="company" class="form-control" ng-model="cshReqCtrl.clientData.company" required>
-          </div>
-          <div class="col-md-12 ibck">
-            <label for="#idCompany">Cédula jurídica o fisica de la empresa: </label>
-            <input type="text" id="idCompany" name="identificationNumber" class="form-control" ng-model="cshReqCtrl.clientData.identificationNumber" required>
-          </div>
-          <div class="col-md-12 ibck">
-            <label for="#projectManager">Encargado del proyecto: </label>
-            <input type="text" id="projectManager" name="clientName" class="form-control" ng-model="cshReqCtrl.clientData.clientName" required>
+      <form name="projectRequest" class="container">
+        
+        <div class="col-md-12 ibck">
+          <div class="col-md-4 col-xs-12">
+            <label for="#companyName">Nombre de la empresa:</label>
+            <input type="text" id="companyName" name="company" class="form-control" ng-model="vm.company" required>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="col-md-12 ibck">
-            <label for="#email">Correo electrónico: </label>
-            <input type="email" id="email" name="
-
-            clientMail" class="form-control" ng-model="cshReqCtrl.clientData.clientMail" required>
+        
+        <div class="col-md-12 ibck">
+          <div class="col-md-4 col-xs-12">
+            <label for="#idCompany">Cédula jurídica o fisica de la empresa:</label>
+            <input type="text" id="idCompany" name="nId" class="form-control" ng-model="vm.nId" required>
           </div>
-          <div class="col-md-12 ibck">
-            <label for="#projectName">Nombre del proyecto: </label>
-            <input type="text" id="projectName" name="company" class="form-control" ng-model="cshReqCtrl.clientData.projectName" placeholder="Ej: Aplicación de iOS" required>
+        </div>
+        
+        <div class="col-md-12 ibck">
+          <div class="col-md-4 col-xs-12">
+            <label for="#projectManager">Encargado del proyecto:</label>
+            <input type="text" id="projectManager" name="clientName" class="form-control" ng-model="vm.clientName" required>
           </div>
-          <div class="col-md-12 ibck">
+        </div>
+        
+        <div class="col-md-12 ibck">
+          <div class="col-md-4 col-xs-12">
+            <label for="#email">Correo electrónico:</label>
+            <input type="email" id="email" name="clientMail" class="form-control" ng-model="vm.clientMail" required>
+          </div>
+        </div>
+        
+        <div class="col-md-12 ibck">
+          <div class="col-md-4 col-xs-12">
+            <label for="#projectName">Nombre del proyecto:</label>
+            <input type="text" id="projectName" name="company" class="form-control" ng-model="vm.projectName" placeholder="Ej: Aplicación de iOS" required>
+          </div>
+        </div>
+        
+        <div class="col-md-12 ibck">
+          <div class="col-md-4 col-xs-12">
             <label for="money">Fondos para el proyecto: </label>
-            <input type="text" id="money" name="fundsToMakeProject" class="form-control" ng-model="cshReqCtrl.clientData.fundsToMakeProject" required>
+            <input type="text" id="money" name="money" class="form-control" ng-model="vm.money" required>
           </div>
         </div>
-        <div class="col-md-4 margen1">
-          <div class="col-md-12 ibck">
+        
+        <div class="col-md-12 ibck">
+          <div class="col-md-4 col-xs-12">
             <label for="#resume">Resumen ejecutivo: </label>
-            <a class="btnUpload" id="resume" ng-click="cshReqCtrl.pickFile()">
-            <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
+            <a class="btnUpload" id="resume" ng-click="vm.pickFile()">
+              <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
             </a>
           </div>
-          <div class="col-md-12 ibck">
+        </div>
+        
+        <div class="col-md-12 ibck">
+          <div class="col-md-4 col-xs-12">
             <label for="images">Algunas imagenes sobre el proyecto: </label>
-            <input type="file" id="imageProjectRequest" name="projectImages" class="form-control" ng-model="cshReqCtrl.clientData.projectImages">
+            <input type="file" id="imageProjectRequest" name="projectImages" class="form-control" ng-model="vm.projectImages">
           </div>
         </div>
+
       </form>
-      <div class="form-group col-md-12" style="display: block; text-align: center;"> 
-            <button type="submit" name="submitBtn" class="btn btn-warning" id="margen2" ng-click="cshReqCtrl.preSave()">Enviar solicitud</button>
-          </div>   
+
+      <div class="form-group col-md-12" style="display: block; text-align: center;">
+        <button type="submit" name="submitBtn" class="btn btn-warning" id="margen2" ng-click="vm.preSave()">Enviar solicitud</button>
+      </div>
+
     </div>
   </div>
   <div class="thanks" ng-show="cshReqCtrl.send">
-    <p>La solicitud de proyectos ha sido enviada. Nuestros asesores lo contactaran lo más pronto posible</p>
+      <p>La solicitud de proyectos ha sido enviada. Nuestros asesores lo contactaran lo más pronto posible</p>
   </div>
 </main>
