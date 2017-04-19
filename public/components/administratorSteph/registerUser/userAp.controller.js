@@ -35,7 +35,10 @@
       userAprCtrl.send = false;
       userAprCtrl.toSend = true;
 
-      userAprCtrl.preSave = function(){
+
+      //Guarda los datos del Profesor
+
+      userAprCtrl.preSaveProf = function(){
         userAprCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
         Upload.upload(userAprCtrl.cloudObj)
           .success(function(data){
@@ -53,38 +56,78 @@
       }
 
       userAprCtrl.save = function(pimage,pkey){
-        var newUser ={
-          key : pkey,
-          role : userAprCtrl.ap.role,
-          name : userAprCtrl.ap.name,
-          surname : userAprCtrl.ap.surname,
-          secondSurname : userAprCtrl.ap.secondSurname,
-          id : userAprCtrl.ap.id,
-          specialty : userAprCtrl.ap.specialty,
-          mail : userAprCtrl.ap.mail,
-          password : userAprCtrl.ap.password,
-          councilMember : userAprCtrl.ap.councilMember,
-          availableForProyects : userAprCtrl.ap.availableForProyects,
-          avatar:  pimage,
+        var newUserProf ={
+          role_key: 2,
+          name : userAprCtrl.prof.name,
+          surname : userAprCtrl.prof.surname,
+          secondSurname : userAprCtrl.prof.secondSurname,
+          id : userAprCtrl.prof.id,
+          specialty : userAprCtrl.prof.specialty,
+          mail : userAprCtrl.prof.mail,
+          password : userAprCtrl.prof.password,
+          councilMember : userAprCtrl.prof.councilMember,
+          avatar:  pimage
         }
 
-        userService.addUser(newUser);
+        userService.addUser(newUserProf);
 
-        userAprCtrl.ap.name = null;
-        userAprCtrl.ap.surname = null;
-        userAprCtrl.ap.secondSurname = null;
-        userAprCtrl.ap.id = null;
-        userAprCtrl.ap.specialty = null;
-        userAprCtrl.ap.mail = null;
-        userAprCtrl.ap.password = null;
-        userAprCtrl.ap.councilMember = null;
-        userAprCtrl.ap.availableForProyects = null;
-        userAprCtrl.ap.image = null;
+        userAprCtrl.prof.name = null;
+        userAprCtrl.prof.surname = null;
+        userAprCtrl.prof.secondSurname = null;
+        userAprCtrl.prof.id = null;
+        userAprCtrl.prof.specialty = null;
+        userAprCtrl.prof.mail = null;
+        userAprCtrl.prof.password = null;
+        userAprCtrl.prof.councilMember = null;
+        userAprCtrl.prof.image = null;
 
         userAprCtrl.send = true;
         userAprCtrl.toSend = false;
       }
 
+      //Guarda los datos del Administrador
+      userAprCtrl.preSaveAdmi = function(){
+        userAprCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
+        Upload.upload(userAprCtrl.cloudObj)
+          .success(function(data){
+            userAprCtrl.saveAdmi(data.url);
+          });
+      }
+
+
+      userAprCtrl.saveAdmi = function(pimage){
+        var newUserAdmi ={
+          role_key: 1,
+          name : userAprCtrl.admi.name,
+          surname : userAprCtrl.admi.surname,
+          secondSurname : userAprCtrl.admi.secondSurname,
+          id : userAprCtrl.admi.id,
+          mail : userAprCtrl.admi.mail,
+          password : userAprCtrl.admi.password,
+          jobPosition : userAprCtrl.admi.jobPosition,
+          councilMember : userAprCtrl.admi.councilMember,
+          phone : userAprCtrl.admi.phone,
+          avatar:  pimage
+        }
+
+        userService.addUser(newUserAdmi);
+
+        userAprCtrl.admi.name = null;
+        userAprCtrl.admi.surname = null;
+        userAprCtrl.admi.secondSurname = null;
+        userAprCtrl.admi.id = null;
+        userAprCtrl.admi.mail = null;
+        userAprCtrl.admi.password = null;
+        userAprCtrl.admi.jobPosition = null;
+        userAprCtrl.admi.councilMember = null;
+        userAprCtrl.admi.phone = null;
+        userAprCtrl.admi.image = null;
+
+        userAprCtrl.send = true;
+        userAprCtrl.toSend = false;
+      }
+
+      //Guarda los datos del Asistente
       userAprCtrl.preSaveAs = function(){
         userAprCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
         Upload.upload(userAprCtrl.cloudObj)
@@ -96,8 +139,7 @@
 
       userAprCtrl.saveAs = function(pimage){
         var newUserAssistant ={
-          key : 3,
-          role : "asistente",
+          role_key: 3,
           name : userAprCtrl.asis.name,
           surname : userAprCtrl.asis.surname,
           secondSurname : userAprCtrl.asis.secondSurname,
@@ -108,11 +150,6 @@
           phone : userAprCtrl.asis.phone,
           avatar:  pimage
         }
-
-
-    //"puestoUniversitario":"", CAMBIARLO EN DATA
-
-
 
         userService.addUser(newUserAssistant);
 
@@ -130,7 +167,7 @@
 
 
 
-
+/*
       userAprCtrl.deleteUser = function (id) {
         console.log(id);
         userService.deleteUser(id);
@@ -175,7 +212,7 @@
         }
       }
       userService.updateUser(newUserProfessor);
-  }
+  }*/
 }
   
 })();
