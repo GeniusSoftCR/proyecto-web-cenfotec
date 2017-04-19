@@ -24,9 +24,10 @@
                       <form class="userForm row" validate>
                           <h3>Registro Profesores</h3>
 
-                            <div class="input-group col-md-3" style="display: inline-block;">
+                            <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
                               <label>Nombre:</label>
                               <input ng-model="userAprCtrl.prof.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese el nombre" required>
+                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Su nombre es requerido.</p>
                             </div>
 
                             <div class="input-group col-md-3" style="display: inline-block;">
