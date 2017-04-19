@@ -58,13 +58,13 @@
 
       studentCtrl.testSave = function(){
         var newUser = {
-          "idNum":"115240447",
-          "name":"Hector",
-          "surname":"Murillo",
-          "secondSurname":"Porras",
+          "idNum":"116570743",
+          "name":"Kevin",
+          "surname":"Aguilar",
+          "secondSurname":"Alvarado",
           "password":"2310",
-          "email":"hmurillop@ucenfotec.ac.cr",
-          "username":"hmurillop",
+          "email":"kaguilara@ucenfotec.ac.cr",
+          "username":"kaguilara",
           "state":"inRevision",
           "role":"student"
         }
