@@ -15,7 +15,7 @@
 
     //trae la lista de estudiantes
     function _getStudents(){
-      return $http.get('http://localhost:3000/api/users');
+      return $http.get('http://localhost:3000/api/users/students');
     }
 
     function _updateUsers(pUser){
