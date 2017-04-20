@@ -50,16 +50,10 @@ router.get('/users', function(req, res, next) {
 //CAMBIO HECHO POR ESTEBAN
 router.get('/users/students', function(req, res, next) {
   //busca los usuarios estudiantes
-  User.find({'role':'student'}).then(function(err, users){
-    res.send(users);
+  User.find({'role':'student'}, function(err, users){
+    res.json(users);
   });
-  //inicio ejemplo de Pablo
-  // User.find().then(function(users){
-  //   res.send(users);
-  // });//fin ejemplo de Pablo
-
 });
-
 // router.put('/user/update???', function(req, res, next) {
 //   User.findByIdAndUpdate(req.body.id,{$set:req.body}, function(err, users){
 //     res.json({success: false, message: 'Ha ocurrido un error'});
