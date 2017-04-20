@@ -36,7 +36,8 @@
         getUser: _getUser,
         getUsers: _getUsers,
         deleteUser : _deleteUser,
-        updateUser : _updateUser
+        updateUser : _updateUser,
+        getRequests : _getStudents
     };
     return publicAPI;
 
@@ -54,6 +55,10 @@
       return $http.post('http://localhost:3000/api/user/add', newUser );
     }
 
+    //trae la lista de estudiantes
+    function _getStudents(){
+      return $http.get('http://localhost:3000/api/users/students');
+    }
 
 
     function _deleteUser (id) {
