@@ -19,6 +19,7 @@ var UsersSchema = new Schema({
   phone:        {type: String},
   avatar:       {type: String},
   password:     {type: String, required: true},
+  confirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
   role:         {type: String, required: true, em:roles },
   //Student only
