@@ -56,7 +56,7 @@ router.get('/users', function(req, res, next) {
 
 //localhost:3000/api/peliculas/nueva
 //Creamos una pelicula por el api
-router.post('/users/add', function(req, res, next) {  
+router.post('/user/add', function(req, res, next) {  
   var user = new User();
 
   // user._id = mongoose.Schema.Types.ObjectId
