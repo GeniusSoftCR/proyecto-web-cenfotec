@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   angular
     .module('cshApp')
     .controller('studentController', studentController);
@@ -58,13 +58,14 @@
 
       studentCtrl.testSave = function(){
         var newUser = {
-          "idNum":"116060947",
-          "name":"Stephanie",
-          "surname":"Barrantes",
-          "secondSurname":"Ramírez",
+
+          "idNum":"115470522",
+          "name":"Esteban",
+          "surname":"Fonseca",
+          "secondSurname":"Blanco",
           "password":"2310",
-          "email":"sbarrantes@ucenfotec.ac.cr",
-          "username":"sbarrantesr",
+          "email":"efonsecab@ucenfotec.ac.cr",
+          "username":"efonsecab",
           "state":"inRevision",
           "role":"student"
         }
