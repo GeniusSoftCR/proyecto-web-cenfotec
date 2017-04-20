@@ -19,6 +19,7 @@ var UsersSchema = new Schema({
   phone:        {type: String},
   avatar:       {type: String},
   password:     {type: String, required: true},
+  confirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
   role:         {type: String, required: true, em:roles },
   //Student only
@@ -44,18 +45,28 @@ router.get('/users', function(req, res, next) {
     res.json(users);
   });
 });
-//localhost:3000/api/user/add
+
 
 //CAMBIO HECHO POR ESTEBAN
-// router.put('/users/update???', function(req, res, next) {
+router.get('/users/students', function(req, res, next) {
+  //busca los usuarios estudiantes
+  User.find({'role':'student'}, function(err, users){
+    res.json(users);
+  });
+});
+// router.put('/user/update???', function(req, res, next) {
 //   User.findByIdAndUpdate(req.body.id,{$set:req.body}, function(err, users){
 //     res.json({success: false, message: 'Ha ocurrido un error'});
 //     res.json({success:true,msg:'Se ha actualizado correctamente.'});
 //   });
 // });
 
+
 //localhost:3000/api/peliculas/nueva
 //Creamos una pelicula por el api
+
+//localhost:3000/api/user/add
+
 router.post('/user/add', function(req, res, next) {  
   var user = new User();
 
