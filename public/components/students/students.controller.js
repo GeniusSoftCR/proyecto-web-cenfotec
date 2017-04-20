@@ -1,7 +1,8 @@
 ﻿(function(){
+  'use strict'
   angular
     .module('cshApp')
-    .controller('studentController', studentController);
+    .controller('studentController', studentController) ;
     
     studentController.$inject = ['$scope','userService','ImageService','filepickerService','$window','Upload','localStorageService','addCareersService'];
 
@@ -42,6 +43,20 @@
         // $window.localStorage.setItem('files', JSON.stringify(cshReqCtrl.files));
       };
 
+      var password = document.getElementById("txtpassword"),
+          confirm_password = document.getElementById("txtconfirmPassword");
+
+      function validatePassword(){
+        if(password.value != confirm_password.value) {
+          confirm_password.setCustomValidity("La contraseña es diferente");
+        } else {
+          confirm_password.setCustomValidity('');
+        }
+      }
+
+      password.onchange = validatePassword;
+      confirm_password.onkeyup = validatePassword;
+
 
       function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
         studentCtrl.studentList = userService.getUser();
@@ -56,7 +71,7 @@
           });
       }
 
-      studentCtrl.testSave = function(){
+      /*studentCtrl.testSave = function(){
         var newUser = {
 
           "idNum":"115470522",
@@ -72,10 +87,10 @@
         userService.addUser(newUser).then(function (res) {
           console.log(res)
         })
-      }      
+      }     */
 
       studentCtrl.save= function(pimage){
-        var newStudent ={
+        var newUser ={
           role_key: 4,
           name : studentCtrl.stu.name,
           surname : studentCtrl.stu.surName,
@@ -83,7 +98,8 @@
           id : studentCtrl.stu.id,
           birthdate : studentCtrl.stu.birthdate,
           email : studentCtrl.stu.email,
-          password : null,
+          password : studentCtrl.stu.password,
+          confirmPassword : studentCtrl.stu.confirmPassword,
           justificacion: null,
           careers : studentCtrl.stu.careers,
           resumeUrl : studentCtrl.stu.resumeUrl,
@@ -92,9 +108,10 @@
           cellphoneNumber : studentCtrl.stu.cellphoneNumber,
           avatarUrl: pimage
         }
-        console.log(newStudent);
         
-        userService.addUser(newStudent);
+        userService.addUser(newUser).then(function (res) {
+          console.log(res)
+        })
 
         studentCtrl.stu.name = null;
         studentCtrl.stu.surName = null;
@@ -102,6 +119,8 @@
         studentCtrl.stu.id = null;
         studentCtrl.stu.birthdate = null;
         studentCtrl.stu.email = null;
+        studentCtrl.stu.password = null;
+        studentCtrl.stu.confirmPassword = null;
         studentCtrl.stu.careers = null;
         studentCtrl.stu.resumeUrl = null;
         studentCtrl.stu.gitHubUrl = null;

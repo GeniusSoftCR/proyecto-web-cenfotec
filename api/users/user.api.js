@@ -1,12 +1,12 @@
 //Dependencias
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-/////////////////////////////////////////////////
-var Schema = mongoose.Schema;
-
-var states = ['inRevision'];
-var roles = ['admin','professor','assistant','student'];
+var express = require('express'),
+    router = express.Router(),
+    mongoose = require('mongoose'),
+    ///////////////////////////////
+    Schema = mongoose.Schema,
+    //////////////////////////////
+    states = ['inRevision'],
+    roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
   // _id  :        ObjectId,
@@ -19,6 +19,7 @@ var UsersSchema = new Schema({
   phone:        {type: String},
   avatar:       {type: String},
   password:     {type: String, required: true},
+  confirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
   role:         {type: String, required: true, em:roles },
   //Student only
@@ -60,7 +61,12 @@ router.get('/users/students', function(req, res, next) {
 //   });
 // });
 
+
+//localhost:3000/api/peliculas/nueva
+//Creamos una pelicula por el api
+
 //localhost:3000/api/user/add
+
 router.post('/user/add', function(req, res, next) {  
   var user = new User();
 

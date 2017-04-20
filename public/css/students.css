@@ -1,6 +1,21 @@
+*{
+	font-family: 'montserrat';
+	font-weight: 100;
+	color: black;
+}
+
+/*h6{
+	font-weight: bold;
+	font-family: 'montserrat';
+}*/
+
+h2{
+	font-weight: bold;
+	font-family: 'montserrat';
+}
+
 	#fondoStudent{
 		background-image: url(../imgs/fondo1.png);
-		
 		background-repeat: no-repeat;
 	}
 		#fondoStudent div{
@@ -26,21 +41,22 @@
 	margin-bottom: 5%;
 }
 	#tituloLog h2{
-		color: #000;
+		color: gray;
 		font-family: 'montserrat';
-		font-weight: 400;
+		font-weight: bold;
 		font-size: 2em;
 		margin: 0;
 	}
 
 #btnRegister{
-	padding: 3%;
+	padding: 2%;
 }
 
-form{
-	padding-left: 18%; 
+label,{
+	font-family: 'montserrat';
 }
 
-input{
+input,{
+	font-family: 'montserrat';
 	margin-bottom: 10%;
 }
