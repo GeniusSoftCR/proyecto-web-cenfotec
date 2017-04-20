@@ -1,11 +1,12 @@
-/* Controlador de Request de proyecto de Cenfotec Software House */
 (function(){
-  'use strict';
+  'use strict'
   angular
   .module('cshApp')
-  .controller('projectController' projectController);
+  .controller('projectController', projectController);
 
-  function projectController($scope, ImageService, filepickerService, $window, Upload, projectService){
+  projectController.$inject = ['$scope', '$window', 'projectService', 'ImageService', 'filepickerService', 'Upload'];
+
+  function projectController($scope, $window, projectService, ImageService, filepickerService, Upload){
     var vm = this;
     vm.cloudObj = ImageService.getConfiguration();
     vm.send = false;
@@ -15,8 +16,7 @@
 
     function pickFile(){
       filepickerService.pick(
-        {
-          extension: '.pdf',
+        {extension: '.pdf',
           language: 'es',
           container: 'modal',
           services: ['COMPUTER']
@@ -29,21 +29,32 @@
       vm.projectFile = Blob.url;
     };
     vm.preSave = function(){
-      vm.cloudObj.data.file = document.getElementById("imageProjectRequest").files[0];
-      Upload.upload(vm.cloudObj)
-        .sucess(function(data){
+        vm.cloudObj.data.file = document.getElementById("imageProjectRequest").files[0];
+        Upload.upload(vm.cloudObj)
+          .sucess(function(data){
           vm.save(data.url);
-        })
-    };
+          });
+      }
+
     vm.save = function(pimage){
       var newProjectRequest = {
-        projectName: vm.projectName,
-        email: vm.email,
         nId : vm.nId,
+        projectName: vm.projectName,
         companyName : vm.companyName,
+        email: vm.email,
         projectManager : vm.projectManager,
-        money : vm.money
-      }
-    }
+        money : vm.money,
+        industry : vm.industry,
+        images : [
+          {
+            "url" : pimage
+          }
+        ],
+        state : 'inRevision'
+      };
+      projectService.addProject(newProjectRequest).then(function(res){
+        console.log(res);
+      })
+    };
   };
 })()

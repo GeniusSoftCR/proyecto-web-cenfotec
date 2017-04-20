@@ -31,60 +31,54 @@
   <div class="projectsRequest col-md-12" ng-show="vm.toSend">
     <div>
       <form name="projectRequest" class="container">
-        
-        <div class="col-md-12 ibck">
-          <div class="col-md-4 col-xs-12">
+        <div class="col-md-4 col-xs-12">
+          <div class="col-md-12 ibck">
             <label for="#companyName">Nombre de la empresa:</label>
-            <input type="text" id="companyName" name="company" class="form-control" ng-model="vm.company" required>
+            <input type="text" id="companyName" name="companyName" class="form-control" ng-model="vm.companyName" required>
           </div>
-        </div>
-        
-        <div class="col-md-12 ibck">
-          <div class="col-md-4 col-xs-12">
+
+          <div class="col-md-12 ibck">
             <label for="#idCompany">Cédula jurídica o fisica de la empresa:</label>
             <input type="text" id="idCompany" name="nId" class="form-control" ng-model="vm.nId" required>
           </div>
-        </div>
-        
-        <div class="col-md-12 ibck">
-          <div class="col-md-4 col-xs-12">
+
+          <div class="col-md-12 ibck">
             <label for="#projectManager">Encargado del proyecto:</label>
-            <input type="text" id="projectManager" name="clientName" class="form-control" ng-model="vm.clientName" required>
+            <input type="text" id="projectManager" name="projectManager" class="form-control" ng-model="vm.projectManager" required>
           </div>
         </div>
         
-        <div class="col-md-12 ibck">
-          <div class="col-md-4 col-xs-12">
+        <div class="col-md-4 col-xs-12">
+          <div class="col-md-12 ibck">
             <label for="#email">Correo electrónico:</label>
-            <input type="email" id="email" name="clientMail" class="form-control" ng-model="vm.clientMail" required>
+            <input type="email" id="email" name="email" class="form-control" ng-model="vm.email" required>
           </div>
-        </div>
-        
-        <div class="col-md-12 ibck">
-          <div class="col-md-4 col-xs-12">
+
+          <div class="col-md-12 ibck">
             <label for="#projectName">Nombre del proyecto:</label>
             <input type="text" id="projectName" name="company" class="form-control" ng-model="vm.projectName" placeholder="Ej: Aplicación de iOS" required>
           </div>
-        </div>
-        
-        <div class="col-md-12 ibck">
-          <div class="col-md-4 col-xs-12">
+
+          <div class="col-md-12 ibck">
             <label for="money">Fondos para el proyecto: </label>
             <input type="text" id="money" name="money" class="form-control" ng-model="vm.money" required>
           </div>
         </div>
         
-        <div class="col-md-12 ibck">
-          <div class="col-md-4 col-xs-12">
+        <div class="col-md-4 col-xs-12">
+          <div class="col-md-12 ibck">
             <label for="#resume">Resumen ejecutivo: </label>
             <a class="btnUpload" id="resume" ng-click="vm.pickFile()">
               <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
             </a>
           </div>
-        </div>
-        
-        <div class="col-md-12 ibck">
-          <div class="col-md-4 col-xs-12">
+
+          <div class="col-md-12 ibck">
+            <label for="#Industria de la empresa">Ingrese la industria de la empresa:</label>
+            <input type="text" id="industry" name="industry" class="form-control" ng-model="vm.industry">
+          </div>
+
+          <div class="col-md-12 ibck">
             <label for="images">Algunas imagenes sobre el proyecto: </label>
             <input type="file" id="imageProjectRequest" name="projectImages" class="form-control" ng-model="vm.projectImages">
           </div>
@@ -98,7 +92,7 @@
 
     </div>
   </div>
-  <div class="thanks" ng-show="cshReqCtrl.send">
+  <div class="thanks" ng-show="vm.send">
       <p>La solicitud de proyectos ha sido enviada. Nuestros asesores lo contactaran lo más pronto posible</p>
   </div>
 </main>

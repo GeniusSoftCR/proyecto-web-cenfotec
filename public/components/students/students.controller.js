@@ -1,7 +1,8 @@
 ﻿(function(){
+  'use strict'
   angular
     .module('cshApp')
-    .controller('studentController', studentController);
+    .controller('studentController', studentController) ;
     
     studentController.$inject = ['$scope','userService','ImageService','filepickerService','$window','Upload','localStorageService','addCareersService'];
 
