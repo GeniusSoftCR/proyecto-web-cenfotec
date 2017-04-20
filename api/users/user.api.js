@@ -1,12 +1,12 @@
 //Dependencias
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-/////////////////////////////////////////////////
-var Schema = mongoose.Schema;
-
-var states = ['inRevision'];
-var roles = ['admin','professor','assistant','student'];
+var express = require('express'),
+    router = express.Router(),
+    mongoose = require('mongoose'),
+    ///////////////////////////////
+    Schema = mongoose.Schema,
+    //////////////////////////////
+    states = ['inRevision'],
+    roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
   // _id  :        ObjectId,
