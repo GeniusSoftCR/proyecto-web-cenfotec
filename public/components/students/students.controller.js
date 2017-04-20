@@ -86,10 +86,10 @@
         userService.addUser(newUser).then(function (res) {
           console.log(res)
         })
-      }     */ 
+      }     */
 
       studentCtrl.save= function(pimage){
-        var newStudent ={
+        var newUser ={
           role_key: 4,
           name : studentCtrl.stu.name,
           surname : studentCtrl.stu.surName,
@@ -97,7 +97,8 @@
           id : studentCtrl.stu.id,
           birthdate : studentCtrl.stu.birthdate,
           email : studentCtrl.stu.email,
-          password : null,
+          password : studentCtrl.stu.password,
+          confirmPassword : studentCtrl.stu.confirmPassword,
           justificacion: null,
           careers : studentCtrl.stu.careers,
           resumeUrl : studentCtrl.stu.resumeUrl,
@@ -106,9 +107,10 @@
           cellphoneNumber : studentCtrl.stu.cellphoneNumber,
           avatarUrl: pimage
         }
-        console.log(newStudent);
         
-        userService.addUser(newStudent);
+        userService.addUser(newUser).then(function (res) {
+          console.log(res)
+        })
 
         studentCtrl.stu.name = null;
         studentCtrl.stu.surName = null;
@@ -116,6 +118,8 @@
         studentCtrl.stu.id = null;
         studentCtrl.stu.birthdate = null;
         studentCtrl.stu.email = null;
+        studentCtrl.stu.password = null;
+        studentCtrl.stu.confirmPassword = null;
         studentCtrl.stu.careers = null;
         studentCtrl.stu.resumeUrl = null;
         studentCtrl.stu.gitHubUrl = null;

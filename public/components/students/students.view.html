@@ -64,7 +64,7 @@
                 <input ng-model="studentCtrl.stu.id" id="txtid" type="text" class="form-control" name="id" 
                     required unique maxlength="9" minlength="9">
 
-                <p ng-show="studentForm.id.$invalid && !studentForm.id.$pristine" class="help-block">El apellido es requerido.</p>
+                <p ng-show="studentForm.id.$invalid && !studentForm.id.$pristine" class="help-block">La cédula es requerida.</p>
               </div>
               <!-- Fecha de nacimiento -->
               <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.birthdate.$invalid && !studentForm.birthdate.$pristine }">
@@ -88,11 +88,11 @@
               <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.password.$invalid && !studentForm.password.$pristine }">
                 <label>Contraseña:</label>
                 <input ng-model="studentCtrl.stu.password" id="txtpassword" type="password" class="form-control" name="password" required unique>
-                <p ng-show="studentForm.password.$invalid && !studentForm.password.$pristine" class="help-block">El correo es requerido.</p>
+                <p ng-show="studentForm.password.$invalid && !studentForm.password.$pristine" class="help-block">La contraseña es requerida.</p>
                 <div class="custom-error" ng-show="myForm.password.$dirty && myForm.password.$invalid">Inválido:  
-                  <span ng-show="studentForm.password.$error.required">Correo es requirido.</span>
+                  <span ng-show="studentForm.password.$error.required">Contraseña requirida.</span>
 
-                  <span ng-show="studentForm.password.$error.password">Por favor, escriba una dirección de correo valida.</span>
+                  <span ng-show="studentForm.password.$error.password">Por favor, escriba una contraseña de correo valida.</span>
                 </div>
               </div>
 
@@ -102,9 +102,9 @@
                 <input ng-model="studentCtrl.stu.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" required unique>
                 <p ng-show="studentForm.confirmPassword.$invalid && !studentForm.confirmPassword.$pristine" class="help-block">El correo es requerido.</p>
                 <div class="custom-error" ng-show="myForm.confirmPassword.$dirty && myForm.confirmPassword.$invalid">Inválido:  
-                  <span ng-show="studentForm.confirmPassword.$error.required">Correo es requirido.</span>
+                  <span ng-show="studentForm.confirmPassword.$error.required">Confirmar contraseña es requirido.</span>
 
-                  <span ng-show="studentForm.confirmPassword.$error.confirmPassword">Por favor, escriba una dirección de correo valida.</span>
+                  <span ng-show="studentForm.confirmPassword.$error.confirmPassword">Por favor, escriba la misma contraseña.</span>
                 </div>
               </div>
 
@@ -138,7 +138,7 @@
                 </div>
               </div>
 
-           <!--<h6>Información opcional:</h6>-->
+           <!--<h6>Información opcional:</h6>
             <!-- Usuario de Github -->
             <div class="form-group col-md-4" style="display: inline-block; text-align: left;" >
               <label>Usuario GitHub</label>
