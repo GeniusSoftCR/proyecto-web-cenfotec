@@ -42,6 +42,20 @@
         // $window.localStorage.setItem('files', JSON.stringify(cshReqCtrl.files));
       };
 
+      var password = document.getElementById("txtpassword"),
+          confirm_password = document.getElementById("txtconfirmPassword");
+
+      function validatePassword(){
+        if(password.value != confirm_password.value) {
+          confirm_password.setCustomValidity("La contraseña es diferente");
+        } else {
+          confirm_password.setCustomValidity('');
+        }
+      }
+
+      password.onchange = validatePassword;
+      confirm_password.onkeyup = validatePassword;
+
 
       function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
         studentCtrl.studentList = userService.getUser();
@@ -56,7 +70,7 @@
           });
       }
 
-      studentCtrl.testSave = function(){
+      /*studentCtrl.testSave = function(){
         var newUser = {
 
           "idNum":"115470522",
@@ -72,7 +86,7 @@
         userService.addUser(newUser).then(function (res) {
           console.log(res)
         })
-      }      
+      }     */ 
 
       studentCtrl.save= function(pimage){
         var newStudent ={
