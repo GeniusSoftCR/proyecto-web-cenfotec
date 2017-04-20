@@ -47,6 +47,12 @@ router.get('/users', function(req, res, next) {
 
 
 //CAMBIO HECHO POR ESTEBAN
+router.get('/users', function(req, res, next) {
+  //busca los usuarios estudiantes
+  User.find({role:"4"}, function(err, users){
+    res.json(users);
+  });
+});
 // router.put('/user/update???', function(req, res, next) {
 //   User.findByIdAndUpdate(req.body.id,{$set:req.body}, function(err, users){
 //     res.json({success: false, message: 'Ha ocurrido un error'});
