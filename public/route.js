@@ -28,8 +28,13 @@
 			url: '/solicitudProyecto',
 		    templateUrl:'./components/projects/project/projectRequests/cshrequest.view.html',
 		    css: './css/projectRequest.styles.css',
-		    controller: 'cshReqController',
-		    controllerAs: 'cshReqCtrl'
+		    resolve: {
+		    	load: ['$ocLazyLoad', function($ocLazyLoad){
+		    		return $ocLazyLoad.load('./components/projects/project/projectRequests/cshrequest.controller.js')
+		    	}]
+		    },
+		    controller: 'projectController',
+		    controllerAs: 'vm'
 		})
 
 		.state('logIn',{

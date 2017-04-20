@@ -1,82 +1,60 @@
 (function(){
-  /* Controlador de Request de proyecto de Cenfotec Software House */
-  'use strict';
+  'use strict'
   angular
   .module('cshApp')
-  .controller('cshReqController', cshReqCtrlFn);
+  .controller('projectController', projectController);
 
-    function cshReqCtrlFn ($scope, ImageService, filepickerService, $window,Upload, cshReqService) {
-      var cshReqCtrl = this;
-      cshReqCtrl.cloudObj = ImageService.getConfiguration();
-      cshReqCtrl.send = false;
-      cshReqCtrl.toSend = true;
-      //Files
-      cshReqCtrl.pickFile = pickFile;
-      cshReqCtrl.onSuccess = onSuccess;
+  projectController.$inject = ['$scope', '$window', 'projectService', 'ImageService', 'filepickerService', 'Upload'];
 
-      function pickFile(){
-          filepickerService.pick(
-              {extension: '.pdf',
-              language: 'es',
-              container: 'modal',
-              services: ['COMPUTER']
-              },
-              onSuccess
-          );
-      };
+  function projectController($scope, $window, projectService, ImageService, filepickerService, Upload){
+    var vm = this;
+    vm.cloudObj = ImageService.getConfiguration();
+    vm.send = false;
+    vm.toSend = true;
+    vm.pickFile = pickFile;
+    vm.onSuccess = onSuccess;
 
-      function onSuccess(Blob){
-        // cshReqCtrl.files.push(Blob);
-        console.log(Blob);
-        cshReqCtrl.projectFile = Blob.url;
-        // $window.localStorage.setItem('files', JSON.stringify(cshReqCtrl.files));
-      };
-
-      cshReqCtrl.preSave = function(){
-        cshReqCtrl.cloudObj.data.file = document.getElementById("imageProjectRequest").files[0];
-        Upload.upload(cshReqCtrl.cloudObj)
-          .success(function(data){
-            cshReqCtrl.save(data.url);
+    function pickFile(){
+      filepickerService.pick(
+        {extension: '.pdf',
+          language: 'es',
+          container: 'modal',
+          services: ['COMPUTER']
+        },
+        onSuccess
+      );
+    };
+    function onSuccess(Blob){
+      console.log(Blob);
+      vm.projectFile = Blob.url;
+    };
+    vm.preSave = function(){
+        vm.cloudObj.data.file = document.getElementById("imageProjectRequest").files[0];
+        Upload.upload(vm.cloudObj)
+          .sucess(function(data){
+          vm.save(data.url);
           });
       }
 
-      cshReqCtrl.save= function(pimage){
-        var newClient = {
-          id : cshReqService.getclientId(),
-          company : cshReqCtrl.clientData.company,
-          companyIdNumber : cshReqCtrl.clientData.identificationNumber,
-          clientName : cshReqCtrl.clientData.clientName,
-          clientMail : cshReqCtrl.clientData.clientMail
-        }
-
-        var newProjectRequest ={
-          name: cshReqCtrl.clientData.projectName,
-          id : cshReqService.getProjectId(),
-          state_key : 1,
-          clientId: newClient.id,
-          professor: null,
-          assitant: null,
-          executiveSummary : cshReqCtrl.projectFile,
-          objective: '',
-           images:[
-            {
-              "url": pimage
-            }
-          ],
-          funds : cshReqCtrl.clientData.fundsToMakeProject,
-          students: [],
-          files :[]
-        }
-        
-
-        cshReqService.addProject(newProjectRequest, newClient);
-        cshReqCtrl.toSend = false;
-        cshReqCtrl.send = true;
-        cshReqCtrl.clientData.company = null;
-        cshReqCtrl.clientData.identificationNumber = null;
-        cshReqCtrl.clientData.clientName = null;
-        cshReqCtrl.clientData.clientMail = null;
-        cshReqCtrl.clientData.fundsToMakeProject = null;
-      }
-    }
-})();
+    vm.save = function(pimage){
+      var newProjectRequest = {
+        nId : vm.nId,
+        projectName: vm.projectName,
+        companyName : vm.companyName,
+        email: vm.email,
+        projectManager : vm.projectManager,
+        money : vm.money,
+        industry : vm.industry,
+        images : [
+          {
+            "url" : pimage
+          }
+        ],
+        state : 'inRevision'
+      };
+      projectService.addProject(newProjectRequest).then(function(res){
+        console.log(res);
+      })
+    };
+  };
+})()
