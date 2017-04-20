@@ -60,7 +60,12 @@ router.get('/users/students', function(req, res, next) {
 //   });
 // });
 
+
+//localhost:3000/api/peliculas/nueva
+//Creamos una pelicula por el api
+
 //localhost:3000/api/user/add
+
 router.post('/user/add', function(req, res, next) {  
   var user = new User();
 
