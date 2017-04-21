@@ -26,38 +26,38 @@
 
                             <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
                               <label>Nombre:</label>
-                              <input ng-model="userAprCtrl.prof.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese el nombre" required>
+                              <input ng-model="userAprCtrl.prof.name" id="txtName" type="text" class="form-control" name="name"  required>
                             <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Su nombre es requerido.</p>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Primer Apellido:</label>
-                              <input ng-model="userAprCtrl.prof.surname" id="txtlastName" type="text" class="form-control" name="surname" placeholder="Ingrese el Apellido" required>
+                              <input ng-model="userAprCtrl.prof.surname" id="txtlastName" type="text" class="form-control" name="surname"  required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Segundo Apellido:</label>
-                              <input ng-model="userAprCtrl.prof.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" placeholder="Ingrese el Apellido" required>
+                              <input ng-model="userAprCtrl.prof.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Cédula de identidad:</label>
-                              <input ng-model="userAprCtrl.prof.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su cédula" maxlength="9" required>
+                              <input ng-model="userAprCtrl.prof.id" id="txtid" type="text" class="form-control" name="id" maxlength="9" required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Especialidad:</label>
-                              <input ng-model="userAprCtrl.prof.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" placeholder="Ingrese la especialidad" required>
+                              <input ng-model="userAprCtrl.prof.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Correo:</label>
-                              <input overwrite-email ng-model="userAprCtrl.prof.mail" id="txtemail" type="email" class="form-control" name="mail" placeholder="Ingrese el correo" required>
+                              <input overwrite-email ng-model="userAprCtrl.prof.mail" id="txtemail" type="email" class="form-control" name="mail" required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Contraseña:</label>
-                              <input ng-model="userAprCtrl.prof.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required unique>
+                              <input ng-model="userAprCtrl.prof.password" id="txtPassword" type="password" class="form-control" name="password" required unique>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
@@ -69,8 +69,8 @@
                               </select>
                             </div>
 
-                            <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : userForm.photo.$invalid && !userForm.photo.$pristine}">
-                              <label>Avatar:</label>
+                            <div class="form-group col-md-4 ibck" style="margin-top: -2%" ng-class="{ 'has-error' : userForm.photo.$invalid && !userForm.photo.$pristine}">
+                              <label style="margin-top: 4px">Avatar:</label>
                               <div class="input-group">
                                   <label class="input-group-btn">
                                       <span class="btn btn-primary" style="background-color: #FBB803; color: black;">
@@ -83,7 +83,7 @@
                             </div>
 
                             <div class="input-group"> 
-                              <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="userAprCtrl.preSaveProf()" class="btn btn-sm btn-embossed btn-warning pull-right" value="Registrar" id="buttonRegis">
+                              <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="userAprCtrl.preSaveProf()" class="btn btn-sm btn-embossed btn-warning pull-center" value="Registrar" id="buttonRegis">
                             </div>
 
                             <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert>
@@ -98,37 +98,37 @@
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Nombre:</label>
-                              <input ng-model="userAprCtrl.admi.name" id="txtName" type="text" class="form-control" name="name" placeholder="Ingrese el nombre" required>
+                              <input ng-model="userAprCtrl.admi.name" id="txtName" type="text" class="form-control" name="name"  required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Primer Apellido:</label>
-                              <input ng-model="userAprCtrl.admi.surname" id="txtlastName" type="text" class="form-control" name="surname" placeholder="Ingrese el Apellido" required>
+                              <input ng-model="userAprCtrl.admi.surname" id="txtlastName" type="text" class="form-control" name="surname" required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Segundo Apellido:</label>
-                              <input ng-model="userAprCtrl.admi.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" placeholder="Ingrese el Apellido" required>
+                              <input ng-model="userAprCtrl.admi.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Cédula de identidad:</label>
-                              <input ng-model="userAprCtrl.admi.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su cédula" maxlength="9" required>
+                              <input ng-model="userAprCtrl.admi.id" id="txtid" type="text" class="form-control" name="id" maxlength="9" required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Correo:</label>
-                              <input overwrite-email ng-model="userAprCtrl.admi.mail" id="txtemail" type="email" class="form-control" name="mail" placeholder="Ingrese el correo" required>
+                              <input overwrite-email ng-model="userAprCtrl.admi.mail" id="txtemail" type="email" class="form-control" name="mail" required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Contraseña:</label>
-                              <input ng-model="userAprCtrl.admi.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required unique>
+                              <input ng-model="userAprCtrl.admi.password" id="txtPassword" type="password" class="form-control" name="password" required unique>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
                               <label>Puesto de Trabajo:</label>
-                              <input ng-model="userAprCtrl.admi.jobPosition" id="txtjobPosition" type="text" class="form-control" name="jobPosition" placeholder="Ingrese el puesto de trabajo" required>
+                              <input ng-model="userAprCtrl.admi.jobPosition" id="txtjobPosition" type="text" class="form-control" name="jobPosition" required>
                             </div>
 
                             <div class="form-group col-md-4 ibck" style="display: inline-block;">
@@ -170,42 +170,42 @@
 
                         <div class="form-group col-md-4 ibck" style="display: inline-block;">
                           <label>Nombre:</label>
-                          <input ng-model="userAprCtrl.asis.name" type="text" class="form-control" name="txtNameA" placeholder="Ingrese el nombre" required>
+                          <input ng-model="userAprCtrl.asis.name" type="text" class="form-control" name="txtNameA" required>
                         </div>
 
                         <div class="form-group col-md-4 ibck" style="display: inline-block;">
                           <label>Primer Apellido:</label>
-                          <input ng-model="userAprCtrl.asis.surname" id="txtlastName" type="text" class="form-control" name="surname" placeholder="Ingrese el Apellido" required>
+                          <input ng-model="userAprCtrl.asis.surname" id="txtlastName" type="text" class="form-control" name="surname"  required>
                         </div>
 
                         <div class="form-group col-md-4 ibck" style="display: inline-block;">
                           <label>Segundo Apellido:</label>
-                          <input ng-model="userAprCtrl.asis.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" placeholder="Ingrese el Apellido" required>
+                          <input ng-model="userAprCtrl.asis.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" required>
                         </div>
 
                         <div class="form-group col-md-4 ibck" style="display: inline-block;">
                           <label>Cédula de identidad:</label>
-                          <input ng-model="userAprCtrl.asist.id" id="txtid" type="text" class="form-control" name="id" placeholder="Ingrese su cédula" maxlength="9" required>
+                          <input ng-model="userAprCtrl.asist.id" id="txtid" type="text" class="form-control" name="id"  maxlength="9" required>
                         </div>
 
                         <div class="form-group col-md-4 ibck" style="display: inline-block;">
                           <label>Correo:</label>
-                          <input ng-model="userAprCtrl.asis.mail" id="txtemail" type="email" class="form-control" name="mail" placeholder="Ingrese el correo" required>
+                          <input ng-model="userAprCtrl.asis.mail" id="txtemail" type="email" class="form-control" name="mail" required>
                         </div>
 
                         <div class="form-group col-md-4 ibck" style="display: inline-block;">
                           <label>Contraseña:</label>
-                          <input ng-model="userAprCtrl.asis.password" id="txtPassword" type="password" class="form-control" name="password" placeholder="Contraseña" required unique>
+                          <input ng-model="userAprCtrl.asis.password" id="txtPassword" type="password" class="form-control" name="password" required unique>
                         </div>
 
                         <div class="form-group col-md-4 ibck" style="display: inline-block;">
                           <label>Puesto de Trabajo:</label>
-                          <input ng-model="userAprCtrl.asis.jobPosition" id="txtjobPosition" type="text" class="form-control" name="jobPosition" placeholder="Ingrese el puesto de trabajo" required>
+                          <input ng-model="userAprCtrl.asis.jobPosition" id="txtjobPosition" type="text" class="form-control" name="jobPosition" required>
                         </div>
 
                         <div class="form-group col-md-4 ibck" style="display: inline-block;">
                           <label>Teléfono:</label>
-                          <input ng-model="userAprCtrl.asis.phone" id="txtphone" type="text" class="form-control" name="phone" placeholder="Ingrese el número de teléfono" required minlength="8" maxlength="8">
+                          <input ng-model="userAprCtrl.asis.phone" id="txtphone" type="text" class="form-control" name="phone"  required minlength="8" maxlength="8">
                         </div>
 
                         <div class="form-group col-md-4 ibck" style="display: block;">
