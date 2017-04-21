@@ -100,7 +100,7 @@
           avatarUrl: pimage,
           password : studentCtrl.stu.password,
           confirmPassword : studentCtrl.stu.confirmPassword,
-          state: 'inRevision',
+          state: 'postulate',
           role: 'student',
           birthdate : studentCtrl.stu.birthdate,
           careers : studentCtrl.stu.careers,
