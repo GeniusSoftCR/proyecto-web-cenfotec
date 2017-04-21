@@ -10,10 +10,10 @@
 
 		var publicApi = {
 			addProject: _addProject,
-			
+			getProjects: _getProjects
 		}
 		return publicApi;
-
+		//agrega un nuevo proyecto
 		function _addProject(newProject){
 			return $http.post('http://localhost:3000/api/projects/add', newProject);
 		}

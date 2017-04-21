@@ -34,11 +34,11 @@
 				<div class="panel-body">
 					<!--mensaje para cuando no existen proyectos-->
 					<div class="item" ng-Show="vm.message">
-						<p class="itemName">No existen proyectos con el estado "{{vm.state.name}}"</p>
+						<p class="itemName">No existen proyectos con el estado "{{search}}"</p>
 					</div>
 					<div class="card">
 					  <ul class="list-group list-group-flush" id="myScrollspy">
-					    <li class="list-group-item" ng-repeat="project in vm.projects | filter:{state_key:search}">
+					    <li class="list-group-item" ng-repeat="project in vm.projects | filter:{state:search}">
 					    	{{project.name}}
 					    	<button ui-sref="watchProject({ proyectoId: {{ project.id }} })" class="btn btn-sm btn-embossed btn-warning pull-right">Ver proyecto</button>
 					    </li>
