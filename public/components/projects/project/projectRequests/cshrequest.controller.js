@@ -45,17 +45,16 @@
         projectManager : vm.projectManager,
         money : vm.money,
         industry : vm.industry,
+        state : 'inRevision',
         images : [
           {
             "url" : pimage
           }
-        ],
-        state : 'inRevision'
+        ]
       };
+      console.log(newProjectRequest.images)
       projectService.addProject(newProjectRequest).then(function(res){
         console.log(res);
-        var output = getElementById("retro");
-        output.vale='Su solicitud ha sido enviada correctamente';
       })
     };
   };
