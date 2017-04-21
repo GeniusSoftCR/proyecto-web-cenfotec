@@ -54,12 +54,13 @@ router.get('/users/students', function(req, res, next) {
     res.json(users);
   });
 });
-router.get('/users/students2', function(req, res, next) {
-  //busca los usuarios estudiantes
-  User.find({'role':'student'}).then(function(err, users){
-    res.send(users);
-  });
-});
+//Según Pablo
+// router.get('/users/students2', function(req, res, next) {
+//   //busca los usuarios estudiantes
+//   User.find({'role':'student'}).then(function(err, users){
+//     res.send(users);
+//   });
+// });
 // module.exports.findAll = function(req,res){
 //   User.find().then(function(users){
 //     res.send(users);
