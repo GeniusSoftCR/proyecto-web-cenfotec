@@ -31,7 +31,7 @@
     vm.preSave = function(){
         vm.cloudObj.data.file = document.getElementById("imageProjectRequest").files[0];
         Upload.upload(vm.cloudObj)
-          .sucess(function(data){
+          .success(function(data){
           vm.save(data.url);
           });
       }
@@ -54,6 +54,8 @@
       };
       projectService.addProject(newProjectRequest).then(function(res){
         console.log(res);
+        var output = getElementById("retro");
+        output.vale='Su solicitud ha sido enviada correctamente';
       })
     };
   };
