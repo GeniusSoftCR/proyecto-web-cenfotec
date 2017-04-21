@@ -4,10 +4,10 @@
     .module('cshApp')
     .controller('studentController', studentController);
     
-    studentController.$inject = ['$scope','userService','ImageService','filepickerService','$window','Upload','localStorageService','addCareersService'];
+    studentController.$inject = ['$scope','$window','userService','ImageService','filepickerService','Upload','addCareersService'];
 
     
-    function studentController($scope, userService,ImageService,filepickerService,$window,Upload, localStorageService,addCareersService){
+    function studentController($scope,$window,userService,ImageService,filepickerService,Upload,addCareersService){
       //controlador
       
 
@@ -24,6 +24,7 @@
       studentCtrl.pickFile = pickFile;
       studentCtrl.onSuccess = onSuccess;
 
+      studentCtrl.soloLetras = '';
 
 
       function pickFile(){
@@ -43,25 +44,27 @@
         // $window.localStorage.setItem('files', JSON.stringify(cshReqCtrl.files));
       };
 
-      var password = document.getElementById("txtpassword"),
-          confirm_password = document.getElementById("txtconfirmPassword");
-
-      function validatePassword(){
-        if(password.value != confirm_password.value) {
-          confirm_password.setCustomValidity("La contraseña es diferente");
-        } else {
-          confirm_password.setCustomValidity('');
-        }
-      }
-
-      password.onchange = validatePassword;
-      confirm_password.onkeyup = validatePassword;
-
+      
 
       function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
         studentCtrl.studentList = userService.getUser();
       }
       init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       studentCtrl.preSave = function(){
         studentCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
@@ -70,6 +73,17 @@
             studentCtrl.save(data.url);
           });
       }
+
+
+
+
+
+
+
+
+
+
+
 
       /*studentCtrl.testSave = function(){
         var newUser = {
