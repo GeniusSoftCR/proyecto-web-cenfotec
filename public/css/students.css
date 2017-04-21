@@ -1,62 +1,14 @@
-*{
+body{
 	font-family: 'montserrat';
-	font-weight: 100;
-	color: black;
+	background-color: #fff;
 }
-
-/*h6{
-	font-weight: bold;
-	font-family: 'montserrat';
-}*/
-
-h2{
-	font-weight: bold;
-	font-family: 'montserrat';
-}
-
-	#fondoStudent{
-		background-image: url(../imgs/fondo1.png);
-		background-repeat: no-repeat;
-	}
-		#fondoStudent div{
-			padding: 80% 0 51% 0;
-		}
-			#fondoStudent div h1{
-				color: #fff;
-				font-family: 'montserrat';
-				font-weight: 400;
-				font-size: 2em;
-				text-align: center;
-			}
-			#fondoStudent div img{
-				padding-left: 40%;
-			}
-#thex i{
-	color: #f1c40f;
-	font-size: 1.4em;
-}
-#tituloLog{
-	padding-top: 15%;
-	text-align: center;
-	margin-bottom: 5%;
-}
-	#tituloLog h2{
-		color: gray;
-		font-family: 'montserrat';
-		font-weight: bold;
+	h2{
+		font-weight: 400;
 		font-size: 2em;
-		margin: 0;
+		color: #000;
+		margin: 24% 0 5% 10%;
 	}
-
-#btnRegister{
-	padding: 2%;
-}
-
-label,{
-	font-family: 'montserrat';
-}
-
-input,{
-	font-family: 'montserrat';
-	margin-bottom: 10%;
-}
+	label{
+		font-weight: 300;
+		margin: 8% 0 0 0;
+	}
