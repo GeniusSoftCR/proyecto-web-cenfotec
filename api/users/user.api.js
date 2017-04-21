@@ -5,11 +5,8 @@ var express = require('express'),
     ///////////////////////////////
     Schema = mongoose.Schema,
     //////////////////////////////
-<<<<<<< HEAD
-    states = ['inRevision','approved','rejected'],
-=======
+
     states = ['inRevision', 'elegible', 'active', 'inactive', 'rejected'],
->>>>>>> refs/remotes/origin/dev
     roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
