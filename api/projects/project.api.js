@@ -15,14 +15,18 @@ var projectSchema = new Schema({
 	money:        {type: String, required: true},
 	industry:     {type: String, required: true},
 	state:        {type: String, required: true, em:states},
-	image:        {type: String}
+	image:        {type: String},
+	////////////////////////////////////////////
+	students:     {type: Array, default: null},
+	professor:    {type: String, default: null},
+	assitant:     {type: String, default: null}
 
 }, {collection : 'projects'});
 
 var Project = mongoose.model('Project', projectSchema);
 
 //API
-router.get('/projects', function(req, res, next) {
+router.get('/projects/load', function(req, res, next) {
   Project.find({}, function(err, projects){
     res.json(projects);
   });
