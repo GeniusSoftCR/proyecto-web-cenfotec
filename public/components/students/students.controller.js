@@ -24,9 +24,6 @@
       studentCtrl.pickFile = pickFile;
       studentCtrl.onSuccess = onSuccess;
 
-      studentCtrl.soloLetras = '';
-
-
       function pickFile(){
           filepickerService.pick(
               {extension:'.pdf',
@@ -52,20 +49,6 @@
       init();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       studentCtrl.preSave = function(){
         studentCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
         Upload.upload(studentCtrl.cloudObj)
@@ -73,16 +56,6 @@
             studentCtrl.save(data.url);
           });
       }
-
-
-
-
-
-
-
-
-
-
 
 
       /*studentCtrl.testSave = function(){
@@ -105,10 +78,10 @@
 
       studentCtrl.save= function(pimage){
         var newUser ={
+          idNum : studentCtrl.stu.id,
           name : studentCtrl.stu.name,
           surname : studentCtrl.stu.surName,
           secondSurname : studentCtrl.stu.secondSurname,
-          idNum : studentCtrl.stu.id,
           email : studentCtrl.stu.email,
           phone : studentCtrl.stu.phone,
           avatarUrl: pimage,
@@ -120,7 +93,7 @@
           careers : studentCtrl.stu.careers,
           justificacion: null,
           resumeUrl : studentCtrl.stu.resumeUrl,
-          githubUrl : studentCtrl.stu.gitHubUrl,
+          githubUrl : studentCtrl.stu.githubUrl,
           websiteUrl : studentCtrl.stu.websiteUrl
         }
 
