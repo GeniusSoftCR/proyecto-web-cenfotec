@@ -8,7 +8,7 @@
       
       var vm = this;
       //inicia cargando la lista de estados de proyecto
-      vm.statesList = projectService.getProjectsStates();
+      // vm.statesList = projectService.getProjectsStates();
       vm.projects = projectService.getProjects();
 
       /*ADMINISTRA SECCIONES A DESPLEGAR*/
