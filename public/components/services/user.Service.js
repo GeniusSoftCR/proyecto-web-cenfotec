@@ -18,7 +18,8 @@
         getUsers: _getUsers,
         deleteUser : _deleteUser,
         updateUser : _updateUser,
-        getRequests : _getStudents
+        getRequests : _getStudents,
+        changeRequestState : _changeStudentsState
     };
     return publicAPI;
 
@@ -39,6 +40,12 @@
     //trae la lista de estudiantes
     function _getStudents(){
       return $http.get('http://localhost:3000/api/users/students');
+    }
+    //actualiza el estado de los estudiantes
+    //cambia el estado a elegible o rechazado según el parámetro
+    function _changeStudentsState(request,newState){
+      request.state=newState;
+      return $http.put('http://localhost:3000/api/user/students/update',request);      
     }
 
 
