@@ -2,17 +2,18 @@
   'use strict'
   angular
     .module('cshApp')
-    .controller('studentController', studentController) ;
+    .controller('studentController', studentController);
     
     studentController.$inject = ['$scope','userService','ImageService','filepickerService','$window','Upload','localStorageService','addCareersService'];
 
     
-    function studentController($scope, userService,ImageService,filepickerService,$window,Upload, localStorageService,addCareersService){ //se inyecta el service userService en el controlador para que se tenga acceso
+    function studentController($scope, userService,ImageService,filepickerService,$window,Upload, localStorageService,addCareersService){
       //controlador
       
 
       var studentCtrl = this; //binding del controlador con el html, solo en el controlador
       var careers = addCareersService.getCareer();
+      studentCtrl.stu = {};
       studentCtrl.careers = careers;
 
       studentCtrl.cloudObj = ImageService.getConfiguration();
@@ -91,29 +92,35 @@
 
       studentCtrl.save= function(pimage){
         var newUser ={
-          role_key: 4,
           name : studentCtrl.stu.name,
           surname : studentCtrl.stu.surName,
           secondSurname : studentCtrl.stu.secondSurname,
-          id : studentCtrl.stu.id,
-          birthdate : studentCtrl.stu.birthdate,
+          idNum : studentCtrl.stu.id,
           email : studentCtrl.stu.email,
+          phone : studentCtrl.stu.phone,
+          avatarUrl: pimage,
           password : studentCtrl.stu.password,
           confirmPassword : studentCtrl.stu.confirmPassword,
-          justificacion: null,
+          role: 'student',
+          birthdate : studentCtrl.stu.birthdate,
           careers : studentCtrl.stu.careers,
+          justificacion: null,
           resumeUrl : studentCtrl.stu.resumeUrl,
-          gitHubUrl : studentCtrl.stu.gitHubUrl,
-          websiteUrl : studentCtrl.stu.websiteUrl,
-          cellphoneNumber : studentCtrl.stu.cellphoneNumber,
-          avatarUrl: pimage
+          githubUrl : studentCtrl.stu.gitHubUrl,
+          websiteUrl : studentCtrl.stu.websiteUrl
         }
+
+        console.log(newUser);
         
-        userService.addUser(newUser).then(function (res) {
-          console.log(res)
+        userService.addUser(newUser).then(
+          function (res) {
+              console.log(res)
+          },function (res) {
+            console.log(res)
         })
 
-        studentCtrl.stu.name = null;
+        studentCtrl.stu = {}
+       /* studentCtrl.stu.name = null;
         studentCtrl.stu.surName = null;
         studentCtrl.stu.secondSurname = null;
         studentCtrl.stu.id = null;
@@ -128,9 +135,7 @@
         studentCtrl.stu.cellphoneNumber = null;
         studentCtrl.stu.avatarUrl = null;
 
-        studentCtrl.submitted = true;
+        studentCtrl.submitted = true;*/
       }
     }
-     //se establece un objeto de angular normal
-
 })();

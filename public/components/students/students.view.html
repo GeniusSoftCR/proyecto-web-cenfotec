@@ -132,14 +132,21 @@
                 <label>Carrera(s):</label>
                 <div class="form-group">
                     <select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="studentCtrl.stu.careers" multiple>
+                      <option value="Desarrollo Web">Desarrollo Web</option>
+                      <option value="Desarrollo Web">Telematica</option>
+                    </select>
+
+
+
+                    <!--<select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="studentCtrl.stu.careers" multiple>
                       <option ng-repeat="career in studentCtrl.careers" id="career" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><
                     </select>
-                    <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>
+                    <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>-->
                 </div>
               </div>
 
            <!--<h6>Información opcional:</h6>
-            <!-- Usuario de Github -->
+            <!--Usuario de Github -->
             <div class="form-group col-md-4" style="display: inline-block; text-align: left;" >
               <label>Usuario GitHub</label>
               <input ng-model="studentCtrl.stu.gitHubUrl" id="gitHub" type="text" class="form-control" name="gitHubUrl">
@@ -152,11 +159,11 @@
             <!-- Telefono -->
             <div class="form-group col-md-4">
              <label>Número de teléfono:</label>
-              <input ng-model="studentCtrl.stu.cellphoneNumber" id="cellphoneNumber" type="text" class="form-control" maxlength="8" name="cellphoneNumber">
+              <input ng-model="studentCtrl.stu.phone" id="phone" type="text" class="form-control" maxlength="8" name="phone">
             </div> 
 
           <div class="form-group col-md-12" style="display: inline-block; text-align: center;"> 
-            <button type="button" id="btnRegister" class="btn btn-warning btn-embossed" ng-click="studentCtrl.preSave()" ng-disabled="studentForm.$invalid">Registrarse</button>
+            <button type="button" id="btnRegister" class="btn btn-warning btn-embossed" ng-click="studentCtrl.preSave()">Registrarse</button>
           </div> 
       </form>       
 
