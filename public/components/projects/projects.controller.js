@@ -11,8 +11,6 @@
       // vm.statesList = projectService.getProjectsStates();
       projectService.getProjects().then(function(res){
         vm.projects =  res.data;
-        console.log(vm.projects[0]);
-        console.log(vm.projects[0].state);
       })
 
       /*ADMINISTRA SECCIONES A DESPLEGAR*/
