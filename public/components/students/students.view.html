@@ -30,7 +30,7 @@
   </div>
   <div class="studentRequest col-md-12">
         <!--<h6>Información obligatoria:</h6>-->
-        <form name="studentForm" class="container">
+        <form name="studentForm" class="container" autocomplete="off">
          <!-- Nombre -->
           <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.name.$invalid && !studentForm.name.$pristine }">
             <label>Nombre:</label>
@@ -84,27 +84,29 @@
 
           <!-- Password -->
           <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.password.$invalid && !studentForm.password.$pristine }">
-            <label>Contraseña:</label>
-            <input ng-model="studentCtrl.stu.password" id="txtpassword" type="password" class="form-control" name="password" required unique>
-            <p ng-show="studentForm.password.$invalid && !studentForm.password.$pristine" class="help-block">La contraseña es requerida.</p>
-            <div class="custom-error" ng-show="myForm.password.$dirty && myForm.password.$invalid">Inválido:  
-              <span ng-show="studentForm.password.$error.required">Contraseña requirida.</span>
-              <span ng-show="studentForm.password.$error.password">Por favor, escriba una contraseña de correo valida.</span>
+            <label for="newPassword">Contraseña:</label>
+            <input ng-model="studentCtrl.stu.password" id="txtpassword" type="password" class="form-control" name="newPassword" required unique>
+            <div class="clearfix">
+            <p ng-show="studentForm.newPassword.$error" ng-if="studentForm.$submitted || studentForm.newPassword.$dirty">
+              <div ng-show="required" class="message slide-left">La contraseña es requerida</p>
             </div>
           </div>
+          </div>
+
 
           <!-- Confirm Password -->
           <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.confirmPassword.$invalid && !studentForm.confirmPassword.$pristine }">
-            <label>Confirmar contraseña:</label>
-            <input ng-model="studentCtrl.stu.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" required unique>
-            <p ng-show="studentForm.confirmPassword.$invalid && !studentForm.confirmPassword.$pristine" class="help-block">El correo es requerido.</p>
-            <div class="custom-error" ng-show="myForm.confirmPassword.$dirty && myForm.confirmPassword.$invalid">Inválido:  
-              <span ng-show="studentForm.confirmPassword.$error.required">Confirmar contraseña es requirido.</span>
-              <span ng-show="studentForm.confirmPassword.$error.confirmPassword">Por favor, escriba la misma contraseña.</span>
+            <label for="confirmPassword">Confirmar contraseña:</label>
+            <input ng-model="studentCtrl.stu.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required unique>
+            <div class="clearfix">
+            <div ng-messages="profileForm.confirmPassword.$error" ng-if="profileForm.$submitted || profileForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+              <!--<div ng-message="required" class="message slide-left">You did not enter a field name</div>-->
+              <div ng-message="passwordMatch" class="message slide-left">Your passwords did not match</div>
             </div>
           </div>
+          </div>
 
-          <!-- Curriculum Vitae -->
+        <!-- Curriculum Vitae -->
           <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine }">
             <label>Curriculum Vitae:</label>
             <p><a class="form-control btn btn-sm btn-embossed btn-warning pull-right" ng-click="studentCtrl.pickFile()" ng-model="studentCtrl.stu.resumeUrl" name="resumeUrl">Seleccione el archivo</a></p>
