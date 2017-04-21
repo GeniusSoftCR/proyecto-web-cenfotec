@@ -10,28 +10,28 @@ var express = require('express'),
 
 var UsersSchema = new Schema({  
   // _id  :        ObjectId,
-  idNum :       {type: String, required: true},
+  idNum :       {type: String, required: true,minlength:9,maxlength:9},
   name:         {type: String, required: true},
   surname:      {type: String, required: true},
   secondSurname:{type: String, required: true},
   email:        {type: String, required: true, unique: true},
-  phone:        {type: String},
+  phone:        {type: String, minlength:8,maxlength:8},
   avatar:       {type: String},
   password:     {type: String, required: true},
   confirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
   role:         {type: String, required: true, em:roles },
   //Student only
-  birthdate:     {type: Date, default:null},
-  careers:       {type: Array, default:null},
-  justification: {type: String, default:null},
-  resumeUrl:     {type: String, default:null},
-  githubUrl:     {type: String, default:null},
-  websiteUrl:    {type: String, default:null},
+  birthdate:     {type: Date},
+  careers:       {type: Array},
+  justification: {type: String},
+  resumeUrl:     {type: String},
+  githubUrl:     {type: String},
+  websiteUrl:    {type: String},
   //Professor only
-  specialty:     {type: String, default:null},
+  specialty:     {type: String},
   //Admin and assitant olny
-  jobPosition:   {type: String, default:null}
+  jobPosition:   {type: String}
 
 }, {collection: 'users'});
 
