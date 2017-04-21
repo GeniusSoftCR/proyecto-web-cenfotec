@@ -9,13 +9,15 @@ var express = require('express'),
 var projectSchema = new Schema({
 	idNum :       {type: String, required: true},
 	name :        {type: String, required: true},
-	companyName : {type: String, required: true},
-	email :       {type: String, required: true},
-	manager :     {type: String, required: true},
+	client:       {
+					companyName : {type: String, required: true},
+					email :       {type: String, required: true},
+					manager :     {type: String, required: true},
+					industry:     {type: String, required: true}
+				  },
 	money:        {type: String, required: true},
-	industry:     {type: String, required: true},
 	state:        {type: String, required: true, em:states},
-	image:        {type: String},
+	images:        [{url : {type: String}}],
 	////////////////////////////////////////////
 	students:     {type: Array},
 	professor:    {type: String},
@@ -33,19 +35,10 @@ router.get('/projects/load', function(req, res, next) {
 });
 
 router.post('/projects/add', function(req, res, next){
-	var project = new Project();
 
-	project.idNum = req.body.nId;
-	project.name = req.body.projectName;
-	project.companyName = req.body.companyName;
-	project.email = req.body.email;
-	project.manager = req.body.projectManager;
-	project.money = req.body.money;
-	project.industry = req.body.industry
-	project.state = req.body.state;
-	project.image = req.body.images;
+	var project = Object.assign(new Project(),req.body)
 
-	console.log(project.name);
+	console.log(project);
 	  
 	project.save(function(err){
 		if (err) {
