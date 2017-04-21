@@ -7,7 +7,7 @@
 					<div class="card">
 					  <ul class="list-group list-group-flush" id="myScrollspy">
 					  <!-- Trigger the modal with a button -->
-					    <li class="list-group-item" ng-repeat="request in vm.requestsList | filter:{state_key:'1'}">
+					    <li class="list-group-item" ng-repeat="request in vm.requestsList | filter:{state:'inRevision'}">
 					    	{{request.name}}
 					    	<button ng-click="vm.viewRequest(request)" class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#studentReq-Modal">Ver solicitud</button>
 					    </li>
@@ -41,7 +41,7 @@
 					<div class="student-info">
 						<p><b>Fecha de nacimiento:</b> {{vm.req.birthdate | date : "dd/MM/y"}}</p>
 						<p><b>Correo:</b> {{vm.req.email}}</p>
-						<p><b>Cédula:</b> {{vm.req.id}}</p>
+						<p><b>Cédula:</b> {{vm.req.idNum}}</p>
 						<p><b>Carreras:</b>							
 					        <span ng-repeat="career in vm.req.careers" class="label label-default modal-label">{{ career }}</span>
 						</p>
