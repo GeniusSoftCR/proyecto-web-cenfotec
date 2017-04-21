@@ -39,7 +39,7 @@ router.post('/projects/add', function(req, res, next){
 	project.money = req.body.money;
 	project.industry = req.body.industry
 	project.state = req.body.state;
-	project.image = req.body.images
+	project.image = req.body.images;
 
 	console.log(project.name);
 	  
