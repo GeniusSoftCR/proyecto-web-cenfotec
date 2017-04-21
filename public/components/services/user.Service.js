@@ -12,25 +12,6 @@
     var users = [];
 
 
-    users = localStorageService.get('localUsers');
-    if (users == null) {
-      var req = {
-        method: 'GET',
-        url: '../../data/users.data.json',
-        headers: {
-          'Content-Type': undefined
-        }
-      };
-
-      $http(req).then(function(response){
-       localStorageService.set('localUsers',response.data);
-      });
-     // 
-    };
-
-
-
-
     var publicAPI = {
         addUser : _addUser,
         getUser: _getUser,
@@ -70,8 +51,8 @@
 
     }
 
-    function _getUser(index){
-      var listaStored = localStorageService.get('localUsers');
+   function _getUser(index){
+      /*var listaStored = localStorageService.get('localUsers');
 
 
         $log.info('_getUser---'+listaStored)
@@ -80,14 +61,14 @@
         angular.forEach(listaStored, function(user) {
 
 
-          console.log('user----'+user.index);
+          //console.log('user----'+user.index);
 
 
           if (user.index === index) {
             return user;
           }
 
-        })
+        })*/
       }
 
 
