@@ -5,33 +5,34 @@ var express = require('express'),
     ///////////////////////////////
     Schema = mongoose.Schema,
     //////////////////////////////
-    states = ['inRevision', 'elegible', 'active', 'inactive', 'rejected'],
+
+    states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'];
     roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
   // _id  :        ObjectId,
-  idNum :       {type: String, required: true},
+  idNum :       {type: String, required: true,minlength:9,maxlength:9},
   name:         {type: String, required: true},
   surname:      {type: String, required: true},
   secondSurname:{type: String, required: true},
   email:        {type: String, required: true, unique: true},
-  phone:        {type: String},
+  phone:        {type: String, minlength:8,maxlength:8},
   avatar:       {type: String},
   password:     {type: String, required: true},
   confirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
   role:         {type: String, required: true, em:roles },
   //Student only
-  birthdate:     {type: Date, default:null},
-  careers:       {type: Array, default:null},
-  justification: {type: String, default:null},
-  resumeUrl:     {type: String, default:null},
-  githubUrl:     {type: String, default:null},
-  websiteUrl:    {type: String, default:null},
+  birthdate:     {type: Date},
+  careers:       {type: Array},
+  justification: {type: String},
+  resumeUrl:     {type: String},
+  githubUrl:     {type: String},
+  websiteUrl:    {type: String},
   //Professor only
-  specialty:     {type: String, default:null},
+  specialty:     {type: String},
   //Admin and assitant olny
-  jobPosition:   {type: String, default:null}
+  jobPosition:   {type: String}
 
 }, {collection: 'users'});
 
@@ -65,12 +66,12 @@ router.get('/users/students', function(req, res, next) {
 //     res.send(users);
 //   });
 // };
-// router.put('/user/update???', function(req, res, next) {
-//   User.findByIdAndUpdate(req.body.id,{$set:req.body}, function(err, users){
-//     res.json({success: false, message: 'Ha ocurrido un error'});
-//     res.json({success:true,msg:'Se ha actualizado correctamente.'});
-//   });
-// });
+router.put('/user/students/update', function(req, res, next) {
+  User.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
+    res.json({success: false, msg: 'Ha ocurrido un error'});
+    res.json({success:true,msg:'Se ha actualizado correctamente.'});
+  });
+});
 
 
 //localhost:3000/api/peliculas/nueva
