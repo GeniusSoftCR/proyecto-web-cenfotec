@@ -41,7 +41,7 @@
           <!-- Cedula Fisica o Juridica -->
           <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.nId.$invalid && !projectRequest.nId.$pristine}">
             <label for="#idCompany">Cédula jurídica o fisica de la empresa:</label>
-            <input type="number" id="idCompany" name="nId" class="form-control" ng-model="vm.nId" required unique maxlength="9" minlength="9">
+            <input type="number" id="idCompany" name="nId" class="form-control" min="111111111" ng-model="vm.nId" required unique maxlength="9" minlength="9">
             <p ng-show="projectRequest.nId.$invalid && !projectRequest.nId.$pristine" class="help-block">La cédula de la empresa es requerido.</p>
           </div>
           <!-- Encargado del proyecto -->
@@ -68,7 +68,7 @@
 
           <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.money.$invalid && !projectRequest.money.$pristine}">
             <label for="money">Fondos para el proyecto (En dólares):</label>
-            <input type="number" id="money" name="money" class="form-control" ng-model="vm.money" required>
+            <input type="number" id="money" min="1" name="money" class="form-control" ng-model="vm.money" required>
             <p ng-show="projectRequest.money.$invalid && !projectRequest.money.$pristine" class="help-block">El presupuesto del proyecto es requerido.</p>
           </div>
         </div>
