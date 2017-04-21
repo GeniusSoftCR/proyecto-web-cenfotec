@@ -1,4 +1,4 @@
-﻿(function(){
+(function(){
   'use strict'
   angular
     .module('cshApp')
@@ -18,7 +18,6 @@
 
       studentCtrl.cloudObj = ImageService.getConfiguration();
 
-   
       studentCtrl.submitted = false;
 
       //Files
@@ -101,6 +100,7 @@
           avatarUrl: pimage,
           password : studentCtrl.stu.password,
           confirmPassword : studentCtrl.stu.confirmPassword,
+          state: 'inRevision',
           role: 'student',
           birthdate : studentCtrl.stu.birthdate,
           careers : studentCtrl.stu.careers,
@@ -117,7 +117,7 @@
               console.log(res)
           },function (res) {
             console.log(res)
-        })
+        });
 
         studentCtrl.stu = {}
        /* studentCtrl.stu.name = null;
