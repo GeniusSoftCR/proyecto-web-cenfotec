@@ -17,9 +17,9 @@ var projectSchema = new Schema({
 	state:        {type: String, required: true, em:states},
 	image:        {type: String},
 	////////////////////////////////////////////
-	students:     {type: Array, default: null},
-	professor:    {type: String, default: null},
-	assitant:     {type: String, default: null}
+	students:     {type: Array},
+	professor:    {type: String},
+	assitant:     {type: String}
 
 }, {collection : 'projects'});
 
