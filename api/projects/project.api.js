@@ -26,7 +26,7 @@ var projectSchema = new Schema({
 var Project = mongoose.model('Project', projectSchema);
 
 //API
-router.get('/projects', function(req, res, next) {
+router.get('/projects/load', function(req, res, next) {
   Project.find({}, function(err, projects){
     res.json(projects);
   });
