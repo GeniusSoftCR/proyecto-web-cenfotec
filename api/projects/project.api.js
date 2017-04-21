@@ -14,8 +14,8 @@ var projectSchema = new Schema({
 	manager :     {type: String, required: true},
 	money:        {type: String, required: true},
 	industry:     {type: String, required: true},
-	state:        {type: String, required: true, em:states}
-	image:        {type: String},
+	state:        {type: String, required: true, em:states},
+	image:        {type: String}
 
 }, {collection : 'projects'});
 
