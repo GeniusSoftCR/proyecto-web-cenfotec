@@ -5,7 +5,7 @@ var express = require('express'),
     ///////////////////////////////
     Schema = mongoose.Schema,
     //////////////////////////////
-    states = ['inRevision'],
+    states = ['inRevision','approved','rejected'],
     roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
@@ -66,12 +66,12 @@ router.get('/users/students', function(req, res, next) {
 //     res.send(users);
 //   });
 // };
-// router.put('/user/update???', function(req, res, next) {
-//   User.findByIdAndUpdate(req.body.id,{$set:req.body}, function(err, users){
-//     res.json({success: false, message: 'Ha ocurrido un error'});
-//     res.json({success:true,msg:'Se ha actualizado correctamente.'});
-//   });
-// });
+router.put('/user/students/update', function(req, res, next) {
+  User.findByIdAndUpdate(req.body.id,{$set:{state: req.body.state}}, function(err, users){
+    res.json({success: false, message: 'Ha ocurrido un error'});
+    res.json({success:true,msg:'Se ha actualizado correctamente.'});
+  });
+});
 
 
 //localhost:3000/api/peliculas/nueva
