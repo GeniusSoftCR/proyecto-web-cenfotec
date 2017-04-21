@@ -67,8 +67,8 @@ router.get('/users/students', function(req, res, next) {
 //   });
 // };
 router.put('/user/students/update', function(req, res, next) {
-  User.findByIdAndUpdate(req.body.id,{$set:{state: req.body.state}}, function(err, users){
-    res.json({success: false, message: 'Ha ocurrido un error'});
+  User.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
+    res.json({success: false, msg: 'Ha ocurrido un error'});
     res.json({success:true,msg:'Se ha actualizado correctamente.'});
   });
 });
