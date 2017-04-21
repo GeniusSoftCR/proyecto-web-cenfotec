@@ -18,7 +18,7 @@
 			return $http.post('http://localhost:3000/api/projects/add', newProject);
 		}
 		//trae la lista de proyectos
-	    function _getStudents(){
+	    function _getProjects(){
 	      return $http.get('http://localhost:3000/api/projects/load');
 	    }
 	}
