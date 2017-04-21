@@ -17,7 +17,8 @@ var projectSchema = new Schema({
 				  },
 	money:        {type: String, required: true},
 	state:        {type: String, required: true, em:states},
-	images:        [{url : {type: String}}],
+	images:       [{url : {type: String}}],
+	objetive:     {type: String},
 	////////////////////////////////////////////
 	students:     {type: Array},
 	professor:    {type: String},
