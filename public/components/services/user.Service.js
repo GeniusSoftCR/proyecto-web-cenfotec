@@ -45,7 +45,7 @@
     //cambia el estado a elegible o rechazado según el parámetro
     function _changeStudentsState(request,newState){
       request.state=newState;
-      return $http.put('http://localhost:3000/api/users/students/update',request);      
+      return $http.put('http://localhost:3000/api/user/students/update',request);      
     }
 
 
