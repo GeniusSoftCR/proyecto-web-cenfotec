@@ -14,7 +14,9 @@ var projectSchema = new Schema({
 	manager :     {type: String, required: true},
 	money:        {type: String, required: true},
 	industry:     {type: String, required: true},
-	state:        {type: String, required: true, em:states}
+	state:        {type: String, required: true, em:states},
+	image:        {type: String}
+
 }, {collection : 'projects'});
 
 var Project = mongoose.model('Project', projectSchema);
@@ -37,9 +39,10 @@ router.post('/projects/add', function(req, res, next){
 	project.money = req.body.money;
 	project.industry = req.body.industry
 	project.state = req.body.state;
+	project.image = req.body.images
 
 	console.log(project.name);
-	
+	  
 	project.save(function(err){
 		if (err) {
       		res.json({success: false, message: 'Ha ocurrido un error'});
