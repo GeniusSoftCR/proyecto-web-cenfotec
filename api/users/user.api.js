@@ -5,8 +5,12 @@ var express = require('express'),
     ///////////////////////////////
     Schema = mongoose.Schema,
     //////////////////////////////
+<<<<<<< HEAD
 
     states = ['postulate', 'elegible', 'active', 'inactive', 'rejected'],
+=======
+    states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
+>>>>>>> refs/remotes/origin/dev
     roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
@@ -14,9 +18,8 @@ var UsersSchema = new Schema({
   idNum :       {type: String, required: true},
   name:         {type: String, required: true},
   surname:      {type: String, required: true},
-  secondSurname:{type: String, required: true},  
-  email:        {type: String, required: true,  unique: true},
-  username:     {type: String, required: true,  unique: true},
+  secondSurname:{type: String, required: true},
+  email:        {type: String, required: true, unique: true},
   phone:        {type: String},
   avatar:       {type: String},
   password:     {type: String, required: true},
@@ -88,14 +91,26 @@ router.post('/user/add', function(req, res, next) {
   user.name = req.body.name;
   user.surname = req.body.surname;
   user.secondSurname = req.body.secondSurname;
-  user.password = req.body.password;
   user.email = req.body.email;
-  user.username = req.body.username;
   user.phone = req.body.phone;
   user.avatar = req.body.avatar;
-  user.state = req.body.state;  
+  user.password = req.body.password;
+  user.birthdate = req.body.birthdate;
+  user.careers = req.body.careers;
+  user.justification = req.body.justification;
+  user.resumeUrl = req.body.resumeUrl;
+  user.githubUrl = req.body.githubUrl;
+  user.websiteUrl = req.body.websiteUrl;
+  user.confirmPassword = req.body.confirmPassword;
+  user.state = req.body.state; 
+
+
+
+//user = req.body
+
   //User Roles
   user.role = req.body.role;
+
 
 
 
