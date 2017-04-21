@@ -11,8 +11,6 @@
       // vm.statesList = projectService.getProjectsStates();
       projectService.getProjects().then(function(res){
         vm.projects =  res.data;
-        console.log(vm.requestsList);
-        //output.vale='Su solicitud ha sido enviada correctamente';
       })
 
       /*ADMINISTRA SECCIONES A DESPLEGAR*/
