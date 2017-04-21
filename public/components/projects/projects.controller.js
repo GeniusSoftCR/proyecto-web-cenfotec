@@ -2,14 +2,14 @@
   angular
     .module('cshApp')
     .controller('loadProjectsController', loadProjectsController);
-    loadProjectsController.$inject= ['admin_loadProjectsService'];//, 'cshReqService'
+    loadProjectsController.$inject= ['projectService'];//, 'cshReqService'
 
-    function loadProjectsController(admin_loadProjectsService){
+    function loadProjectsController(projectService){
       
       var vm = this;
       //inicia cargando la lista de estados de proyecto
-      vm.statesList = admin_loadProjectsService.getProjectsStates();
-      vm.projects = admin_loadProjectsService.getProjects();
+      vm.statesList = projectService.getProjectsStates();
+      vm.projects = projectService.getProjects();
 
       /*ADMINISTRA SECCIONES A DESPLEGAR*/
       //seccion donde se muestra la lista de proyectos (filtrados)
