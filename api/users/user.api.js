@@ -48,24 +48,13 @@ router.get('/users', function(req, res, next) {
 
 
 //CAMBIO HECHO POR ESTEBAN
+//busca los usuarios estudiantes
 router.get('/users/students', function(req, res, next) {
-  //busca los usuarios estudiantes
   User.find({'role':'student'}, function(err, users){
     res.json(users);
   });
 });
-//Según Pablo
-// router.get('/users/students2', function(req, res, next) {
-//   //busca los usuarios estudiantes
-//   User.find({'role':'student'}).then(function(err, users){
-//     res.send(users);
-//   });
-// });
-// module.exports.findAll = function(req,res){
-//   User.find().then(function(users){
-//     res.send(users);
-//   });
-// };
+//procesar solicitudes de estudiantes
 router.put('/user/students/update', function(req, res, next) {
   User.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
     res.json({success: false, msg: 'Ha ocurrido un error'});
@@ -73,12 +62,7 @@ router.put('/user/students/update', function(req, res, next) {
   });
 });
 
-
-//localhost:3000/api/peliculas/nueva
-//Creamos una pelicula por el api
-
-//localhost:3000/api/user/add
-
+//registrar usuarios
 router.post('/user/add', function(req, res, next) {  
   var user = new User();
 

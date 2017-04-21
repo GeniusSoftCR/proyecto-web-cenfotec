@@ -23,7 +23,12 @@
 				<div class="panel-heading">Lista de proyectos
 					<select class="form-control select select-primary pull-right" data-toggle="select" ng-model="search">
 			      		<option value="" disabled="disabled">Seleccione un estado</option>
-				      	<option ng-repeat="state in vm.statesList" ng-value="{{state.id}}" >{{state.name}}</option>
+				      	<!-- <option ng-repeat="state in vm.statesList" ng-value="{{state.id}}" >{{state.name}}</option> -->
+				      	<option ng-value="inRevision">En revisón</option>
+					    <option ng-value="aproved">Aprobados</option>
+					    <option ng-value="reject">Rechazados</option>
+					    <option ng-value="inProcess">En proceso</option>
+					    <option ng-value="ended">Finalizados</option>
 				    </select>
 				</div>
 				<div class="panel-body">
