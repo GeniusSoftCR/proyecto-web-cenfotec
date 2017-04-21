@@ -5,28 +5,7 @@
   .module('cshApp')
   .service('cshReqService', cshReqServiceFn);
     function cshReqServiceFn (localStorageService, $http) {
-      var proyectStates = [{
-        "id":1,
-        "state":"inRevision",
-        "name":"En revision",
-        "default":true
-      }, {
-        "id":2,
-        "state":"aproved",
-        "name":"Aprobado"
-      }, {
-        "id":3,
-        "state":"active",
-        "name":"Rechazado"
-      }, {
-        "id":4,
-        "state":"inProcess",
-        "name":"En proceso"
-      },{
-        "id":5,
-        "state":"ended",
-        "name":"Finalizado"
-      }];
+      
       //Definimos en local los estados de proyecto
       localStorageService.set('localProjectsStatesList', proyectStates);
 
@@ -55,22 +34,6 @@
           projectStates = storedList;
         }
         return projects;
-      }
-      function _addProject (pProject, pClient) {
-        var localListProjects = localStorageService.get('localProjectsList');
-        if(localListProjects == null){
-        }else{
-          projects = localListProjects;
-        }
-        var localListClients = localStorageService.get('clients');
-        if(localListClients == null){
-        }else{
-          clients = localListClients;
-        }
-        projects.push(pProject);
-        clients.push(pClient);
-        localStorageService.set('localClientList', clients);
-        localStorageService.set('localProjectsList', projects);
       }
 
       function _getProjects () {
