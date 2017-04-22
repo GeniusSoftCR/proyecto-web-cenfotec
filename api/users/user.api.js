@@ -2,6 +2,7 @@
 var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
+
     ///////////////////////////////
     Schema = mongoose.Schema,
     //////////////////////////////
@@ -17,7 +18,7 @@ var UsersSchema = new Schema({
   secondSurname:{type: String, required: true},
   email:        {type: String, required: true, unique: true},
   phone:        {type: String, minlength:8,maxlength:8},
-  avatar:       {type: String},
+  avatar:       {type: String, required: true},
   password:     {type: String, required: true},
   confirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
@@ -25,7 +26,7 @@ var UsersSchema = new Schema({
   //Student only
   birthdate:     {type: Date},
   careers:       {type: Array},
-  justification: {type: String},
+  justification: {type: String, default: null},
   resumeUrl:     {type: String},
   githubUrl:     {type: String},
   websiteUrl:    {type: String},
@@ -99,18 +100,9 @@ router.post('/user/add', function(req, res, next) {
   user.phone = req.body.phone;
   user.avatar = req.body.avatar;
   user.password = req.body.password;
-  user.birthdate = req.body.birthdate;
-  user.careers = req.body.careers;
-  user.justification = req.body.justification;
-  user.resumeUrl = req.body.resumeUrl;
-  user.githubUrl = req.body.githubUrl;
-  user.websiteUrl = req.body.websiteUrl;
   user.confirmPassword = req.body.confirmPassword;
-  user.state = req.body.state; 
-
-
-
-//user = req.body
+  user.state = req.body.state;
+  user.role = req.body.role;
 
   //User Roles
   user.role = req.body.role;
@@ -135,7 +127,8 @@ router.post('/user/add', function(req, res, next) {
       user.jobPosition = req.body.jobPosition;
       break;
   }
-  console.log(user.name)  
+  
+  console.log(user)  
 
   user.save(function(err){
     if (err) {
