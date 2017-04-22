@@ -2,11 +2,14 @@ body{
 	font-family: 'montserrat';
 	background-color: #fff;
 }
+main{
+	margin-top: 10%;
+}
 	h2{
 		font-weight: 400;
 		font-size: 2em;
 		color: #000;
-		margin: 24% 0 5% 10%;
+		margin: 0 0 5% 10%;
 	}
 	label{
 		font-weight: 300;
@@ -40,4 +43,7 @@ body{
 }
 #margen2{
 	margin-top: 3%;
+}
+#objetiveM{
+	margin: 0;
 }
