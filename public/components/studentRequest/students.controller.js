@@ -15,19 +15,23 @@
           vm.onSuccess = onSuccess;
           vm.submitted = false;
       //funcion que guarda archivos
-      function pickFile(){
-        filepickerService.pick(
-          {extension:'.pdf',
+      
+    function pickFile(){
+      filepickerService.pick(
+        {extension: '.pdf',
           language: 'es',
           container: 'modal',
-          services: ['COMPUTER']},
-          onSuccess
-        );
-      }
-      //Files
-      function onSuccess(Blob){
-        vm.resumeUrl = Blob.url;
-      };
+          services: ['COMPUTER']
+        },
+        onSuccess
+      );
+    };
+    function onSuccess(Blob){
+      console.log(Blob);
+      vm.resumeUrl = Blob.url;
+    };
+
+
       // cloudinary
       vm.preSave = function(){
         vm.cloudObj.data.file = document.getElementById("photo").files[0];
@@ -62,6 +66,6 @@
         userService.addUser(newUser).then(function(res){
               console.log(res)
           });
-      }
+      };
   }
 })();

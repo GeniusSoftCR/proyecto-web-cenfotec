@@ -2,6 +2,7 @@
 var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
+
     ///////////////////////////////
     Schema = mongoose.Schema,
     //////////////////////////////
@@ -17,7 +18,7 @@ var UsersSchema = new Schema({
   secondSurname:{type: String, required: true},
   email:        {type: String, required: true, unique: true},
   phone:        {type: String, minlength:8,maxlength:8},
-  avatar:       {type: String},
+  avatar:       {type: String, required: true},
   password:     {type: String, required: true},
   confirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},

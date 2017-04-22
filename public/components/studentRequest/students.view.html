@@ -38,7 +38,6 @@
             <p ng-show="studentForm.name.$invalid && !studentForm.name.$pristine" class="help-block">Su nombre es requerido.</p>
           </div>
 
-
           <!-- Primer Apellido -->
           <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.surName.$invalid && !studentForm.surName.$pristine }">
             <label>Primer apellido:</label>
@@ -88,11 +87,10 @@
             <label for="newPassword">Contraseña:</label>
             <input ng-model="vm.password" id="txtpassword" type="password" class="form-control" name="newPassword" required unique>
             <div class="clearfix">
-            <p ng-show="studentForm.newPassword.$error" ng-if="studentForm.$submitted || studentForm.newPassword.$dirty">
-              <div ng-show="required" class="message slide-left">La contraseña es requerida</p></div>
+            <p ng-show="studentForm.newPassword.$error" ng-if="studentForm.$submitted || studentForm.newPassword.$dirty"></p>
+              <p ng-show="required" class="message slide-left">La contraseña es requerida</p>
             </div>
           </div>
-
 
 
           <!-- Confirm Password -->
@@ -110,7 +108,7 @@
         <!-- Curriculum Vitae -->
           <div class="form-group col-md-4 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine }">
             <label>Curriculum Vitae:</label>
-            <p><a class="form-control btn btn-sm btn-embossed btn-warning pull-right" ng-click="studentCtrl.pickFile()" ng-model="vm.resumeUrl" name="resumeUrl">Seleccione el archivo</a></p>
+            <p><a class="form-control btn btn-sm btn-embossed btn-warning pull-right" ng-click="vm.pickFile()" ng-model="vm.resumeUrl" name="resumeUrl">Seleccione el archivo</a></p>
             <p ng-show="studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine" class="help-block">El CV es requerido.</p>
           </div>
 
@@ -119,7 +117,7 @@
             <label>Avatar:</label>
             <div class="input-group">
               <label class="input-group-btn">
-                <span class="btn btn-primary" style="background-color: #FBB803; color: black;">Escoger<input type="file" style="display: none" id="photo" multiple ng-model="vm.image" required>
+                <span class="btn btn-primary" style="background-color: #FBB803; color: black;">Escoger<input type="file" style="display: none" id="photo" multiple ng-model="vm.pimage" required>
                 </span>
                 </label>
               <input type="text" class="form-control" style="color: #fff">
@@ -162,7 +160,7 @@
           </div>
 
           <div class="form-group col-md-12 col-sm-12" style="display: block; text-align: center;"> 
-            <button type="submit" id="btnRegister" class="btn btn-warning btn-embossed" ng-click="vm.preSave()">Enviar solicitud de registro</button>
+            <button type="submit" id="btnRegister" class="btn btn-warning btn-embossed" ng-click="vm.preSave()">Enviar solicitud</button>
           </div>
         </form>
           
