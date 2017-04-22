@@ -41,6 +41,7 @@
         idNum : JSON.stringify(vm.nId),
         name: vm.projectName,
         money : JSON.stringify(vm.money),
+        objective : vm.objective,
         state : 'inRevision',
         client : {
           companyName : vm.companyName,
@@ -52,9 +53,8 @@
           {
             "url" : pimage
           }
-        ]
+        ],
       };
-      console.log(newProjectRequest.client)
       projectService.addProject(newProjectRequest).then(function(res){
         console.log(res);
       })
