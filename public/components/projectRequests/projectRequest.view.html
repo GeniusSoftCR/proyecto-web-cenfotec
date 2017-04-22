@@ -93,10 +93,10 @@
           </div>
         </div>
          <!-- Objetivo del proyecto -->
-        <div class="col-md-12 col-md-offset-3 ibck">
+        <div class="col-md-12 col-xs-12" id="objetiveM">
           <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.projectObjetive.$invalid && !projectRequest.projectObjetive.$pristine}">
             <label for="#projectObjetive">Ingrese el objetivo del proyecto:</label>
-            <input type="text" name="projectObjetive" id="projectObjetive" ng-model="vm.objective" required>
+            <textarea class="col-md-12" name="projectObjetive" id="projectObjetive" ng-model="vm.objective" required></textarea>
             <p ng-show="projectRequest.projectObjetive.$invalid && !projectRequest.projectObjetive.$pristine" class="help-block">El objetivo del proyecto es requerido.</p>
           </div>
         </div>
