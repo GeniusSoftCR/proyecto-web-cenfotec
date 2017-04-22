@@ -25,7 +25,7 @@ var UsersSchema = new Schema({
   //Student only
   birthdate:     {type: Date},
   careers:       {type: Array},
-  justification: {type: String},
+  justification: {type: String, default: null},
   resumeUrl:     {type: String},
   githubUrl:     {type: String},
   websiteUrl:    {type: String},
