@@ -8,8 +8,6 @@
 
   function AuthService($q,$http,SessionService,localStorageService,userService) {
 
-
-
     var service = {
       logIn:_logIn,
       logOut:_logOut,
@@ -21,38 +19,41 @@
     //////////////////////////
 
     function _logIn(credentials) {
-      var users = userService.getUsers();
+    }
 
-      var validation = function(){
+    // function _logIn(credentials) {
+    //   var users = userService.getUsers();
 
-        var user = {"email":"hmurillop@ucenfotec.ac.cr","username":"hmurillop","role":"student","img":"../imgs/users/hector.jpg","id":"444"};
-        var userSearch = true;
+    //   var validation = function(){
 
-        angular.forEach(users, function(val ,key){
+    //     var user = {"email":"hmurillop@ucenfotec.ac.cr","username":"hmurillop","role":"student","img":"../imgs/users/hector.jpg","id":"444"};
+    //     var userSearch = true;
 
-          if (userSearch) {
-            if ( credentials.email == val.email && credentials.password == val.password){
-              userSearch = false;
-              delete val.password;
-              user = val;
-            }else{
-              user = false;
-            };
-          };
-        });
+    //     angular.forEach(users, function(val ,key){
 
-        return user;
-      };
+    //       if (userSearch) {
+    //         if ( credentials.email == val.email && credentials.password == val.password){
+    //           userSearch = false;
+    //           delete val.password;
+    //           user = val;
+    //         }else{
+    //           user = false;
+    //         };
+    //       };
+    //     });
 
-      var request = validation(); 
+    //     return user;
+    //   };
 
-      $q.when(request).then( function(){
-        SessionService.create(request)
+    //   var request = validation(); 
 
-        console.log(SessionService.session)
-      });
-      return request;
-    };
+    //   $q.when(request).then( function(){
+    //     SessionService.create(request)
+
+    //     console.log(SessionService.session)
+    //   });
+    //   return request;
+    // };
 
     function _logOut(){
       SessionService.destroy();

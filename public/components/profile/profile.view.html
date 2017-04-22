@@ -1,5 +1,11 @@
 <div class="row">
-	<div class="col-md-7">
-		<h1 class="text-right">Bienvenido {{vm.user.username}}</h1>
+	<div class="col-md-10">
+		<div class="profile text-right">
+			<img class="avatar" ng-src="../../imgs/users/{{vm.user.username}}.jpg " alt="">
+			<!-- ../../imgs/users/stephbr.jpg -->
+		</div>
+		<h3 class="text-right">Bienvenido {{vm.user.username}}</h1>
+		<h4 class="text-right">{{vm.user.state}}</h2>
+		<h4 class="text-right">{{vm.user.role}}</h2>
 	</div>
 </div>
