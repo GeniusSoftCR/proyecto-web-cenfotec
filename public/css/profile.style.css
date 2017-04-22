@@ -1,0 +1,6 @@
+div.profile img.avatar{
+	border-radius: 100%;
+	max-height: 140px;
+	margin-left: 50%;
+	margin-top: 40px;
+}

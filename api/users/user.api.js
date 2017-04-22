@@ -45,9 +45,33 @@ router.get('/users', function(req, res, next) {
     res.json(users);
   });
 });
+router.put('/user', function(req, res, next) {
+  User.findOne(req.body, function(err,user) {
+    if (user) {      
+      switch(user.state){
+        case "eligible" || "active" || "inactive":
+          user.password = undefined;
+          res.json(user);
+        break;
+        
+        case "postulate":
+          res.json({"error":"Solicitud de registro en revisión","succes":true});
+        break;  
 
+        case "banned":
+          res.json({"error":"Usuario bloqueado, contacte administrador","succes":true});
+        break;
 
-//CAMBIO HECHO POR ESTEBAN
+        case "rejected":
+          res.json({"error":"Solicitud de registro rechazada","succes":true});
+        break;  
+      }
+    }else{
+      res.json({"error":"Los datos ingresados son incorrectos"});
+    };
+  });
+});
+
 //busca los usuarios estudiantes
 router.get('/users/students', function(req, res, next) {
   User.find({'role':'student'}, function(err, users){

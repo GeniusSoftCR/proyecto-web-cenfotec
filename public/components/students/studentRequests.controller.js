@@ -42,7 +42,7 @@
       //Aprobar una solicitud
       vm.approveRequest= function(request){
         //1)1er param:solicitud actual, 2do param: estado(aprobado=2)
-        userService.changeRequestState(request,"elegible").then(function(res){
+        userService.changeRequestState(request,"eligible").then(function(res){
           console.log("Estudiante aprobado" + res.data);
         });
         //3)actualizar la lista de solicitudes
