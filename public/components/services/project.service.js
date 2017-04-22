@@ -13,7 +13,7 @@
 			getProjects: _getProjects
 		}
 		return publicApi;
-		//agrega un nuevo proyecto
+		//guarda las solicitudes de proyectos
 		function _addProject(newProject){
 			return $http.post('http://localhost:3000/api/projects/add', newProject);
 		}
