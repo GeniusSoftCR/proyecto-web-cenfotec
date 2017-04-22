@@ -26,11 +26,11 @@
 
 		.state('proyectRequest',{
 			url: '/solicitudProyecto',
-		    templateUrl:'./components/projects/project/projectRequests/cshrequest.view.html',
+		    templateUrl:'./components/projectRequests/projectRequest.view.html',
 		    css: './css/projectRequest.styles.css',
 		    resolve: {
 		    	load: ['$ocLazyLoad', function($ocLazyLoad){
-		    		return $ocLazyLoad.load('./components/projects/project/projectRequests/cshrequest.controller.js')
+		    		return $ocLazyLoad.load('./components/projectRequests/projectRequest.controller.js')
 		    	}]
 		    },
 		    controller: 'projectController',
