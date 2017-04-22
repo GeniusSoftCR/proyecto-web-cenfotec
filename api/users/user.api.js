@@ -78,9 +78,6 @@ router.post('/user/add', function(req, res, next) {
   user.confirmPassword = req.body.confirmPassword;
   user.state = req.body.state;
   user.role = req.body.role;
-  
-
-//user = req.body
 
   //User Roles
   user.role = req.body.role;
@@ -105,7 +102,8 @@ router.post('/user/add', function(req, res, next) {
       user.jobPosition = req.body.jobPosition;
       break;
   }
-  console.log(user.name)  
+  
+  console.log(user)  
 
   user.save(function(err){
     if (err) {
