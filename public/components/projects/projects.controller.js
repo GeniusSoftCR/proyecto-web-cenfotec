@@ -20,15 +20,6 @@
       //bloque de un proyecto específico
       vm.projectView=false;
 
-
-      /*ACCESO A UN PROYECTO*/
-      vm.accessProject= function(project){
-        //oculta la sección de listar los proyectos
-        vm.listingProjects=false;
-        //"entra" a la sección de un proyecto específico
-        vm.projectView=true;
-      }
-
     }
 
 })();
