@@ -75,16 +75,10 @@ router.post('/user/add', function(req, res, next) {
   user.phone = req.body.phone;
   user.avatar = req.body.avatar;
   user.password = req.body.password;
-  user.birthdate = req.body.birthdate;
-  user.careers = req.body.careers;
-  user.justification = req.body.justification;
-  user.resumeUrl = req.body.resumeUrl;
-  user.githubUrl = req.body.githubUrl;
-  user.websiteUrl = req.body.websiteUrl;
   user.confirmPassword = req.body.confirmPassword;
-  user.state = req.body.state; 
-
-
+  user.state = req.body.state;
+  user.role = req.body.role;
+  
 
 //user = req.body
 

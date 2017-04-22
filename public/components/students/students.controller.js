@@ -84,45 +84,28 @@
           secondSurname : studentCtrl.stu.secondSurname,
           email : studentCtrl.stu.email,
           phone : studentCtrl.stu.phone,
-          avatarUrl: pimage,
+          avatar : pimage,
           password : studentCtrl.stu.password,
           confirmPassword : studentCtrl.stu.confirmPassword,
           state: 'postulate',
           role: 'student',
           birthdate : studentCtrl.stu.birthdate,
           careers : studentCtrl.stu.careers,
-          justificacion: null,
+          justification: null,
           resumeUrl : studentCtrl.stu.resumeUrl,
           githubUrl : studentCtrl.stu.githubUrl,
-          websiteUrl : studentCtrl.stu.websiteUrl
-        }
+          websiteUrl : studentCtrl.stu.websiteUrl,    
+          };
+
 
         console.log(newUser);
         
         userService.addUser(newUser).then(
           function (res) {
               console.log(res)
-          },function (res) {
-            console.log(res)
-        });
+          });
 
         studentCtrl.stu = {}
-       /* studentCtrl.stu.name = null;
-        studentCtrl.stu.surName = null;
-        studentCtrl.stu.secondSurname = null;
-        studentCtrl.stu.id = null;
-        studentCtrl.stu.birthdate = null;
-        studentCtrl.stu.email = null;
-        studentCtrl.stu.password = null;
-        studentCtrl.stu.confirmPassword = null;
-        studentCtrl.stu.careers = null;
-        studentCtrl.stu.resumeUrl = null;
-        studentCtrl.stu.gitHubUrl = null;
-        studentCtrl.stu.websiteUrl = null;
-        studentCtrl.stu.cellphoneNumber = null;
-        studentCtrl.stu.avatarUrl = null;
-
-        studentCtrl.submitted = true;*/
       }
     }
 })();

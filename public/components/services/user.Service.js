@@ -4,10 +4,10 @@
   .module('cshApp')
   .service('userService', userService);
   
-  userService.$inject = ['$log','$http','localStorageService'];
+  userService.$inject = ['$log','$http'];
 
   /*Servicio para profesores y asistentes*/
-  function userService($log,$http,localStorageService){
+  function userService($log,$http){
     /*Servicio para profesores*/
     var users = [];
 
