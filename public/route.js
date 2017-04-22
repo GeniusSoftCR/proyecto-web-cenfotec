@@ -17,11 +17,17 @@
 			css: './css/landing.css'
       	})
 
-		.state('studentRequest',{
-			url: '/solicitudEstudiante',
-		    templateUrl: './components/students/students.view.html',
+		.state('students',{
+		    url: '/solicitudEstudiantes',
+		    resolve: {
+		    	load: ['$ocLazyLoad', function($ocLazyLoad){
+		    		return $ocLazyLoad.load('./components/studentRequest/students.controller.js')
+		    	}]
+		    },
+		    templateUrl: './components/studentRequest/students.view.html',
+		    css: './css/students.css',
 		    controller: 'studentController',
-		    controllerAs: 'studentCtrl'
+		    controllerAs: 'vm'
 		})
 
 		.state('proyectRequest',{
@@ -78,7 +84,7 @@
 			controller: 'loadProjectsController',
 			controllerAs: 'vm'
 		})
-
+		//wtf?
 		.state('main.proyects2',{
 			url:'/proyectos2',
 			resolve: {  
@@ -165,13 +171,7 @@
 				}
 	    	}
 		})		
-		.state('students',{
-		       url: '/solicitudEstudiantes',
-		       templateUrl: './components/students/students.view.html',
-		       css: './css/students.css',
-		       controller: 'studentController',
-		       controllerAs: 'studentCtrl'
-		     })
+		
 		.state('main.users',{
 			url:'/usuarios',
 			resolve: {  

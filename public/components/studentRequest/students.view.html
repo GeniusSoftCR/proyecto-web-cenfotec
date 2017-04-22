@@ -32,49 +32,50 @@
         <!--<h6>Información obligatoria:</h6>-->
         <form name="studentForm" class="container" autocomplete="off">
          <!-- Nombre -->
-          <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.name.$invalid && !studentForm.name.$pristine }">
+          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.name.$invalid && !studentForm.name.$pristine }">
             <label>Nombre:</label>
-            <input id="txtName" type="text" name="name" class="form-control" ng-model="studentCtrl.stu.name" required>
+            <input id="txtName" type="text" ng-pattern="/[a-zA-Z]/" name="name" class="form-control" ng-model="vm.name" required>
             <p ng-show="studentForm.name.$invalid && !studentForm.name.$pristine" class="help-block">Su nombre es requerido.</p>
           </div>
 
+
           <!-- Primer Apellido -->
-          <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.surName.$invalid && !studentForm.surName.$pristine }">
+          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.surName.$invalid && !studentForm.surName.$pristine }">
             <label>Primer apellido:</label>
-            <input ng-model="studentCtrl.stu.surName" id="txtFirstName" type="text" class="form-control" name="surName" required ng-minlength="3" ng-maxlength="15">
+            <input ng-model="vm.surName" id="txtFirstName" type="text" class="form-control" name="surName" required ng-minlength="3" ng-maxlength="15">
             <p ng-show="studentForm.surName.$invalid && !studentForm.surName.$pristine" class="help-block">El apellido es requerido.</p>
             <p ng-show="userForm.surName.$error.minlength" class="help-block">Apellido muy corto.</p>
             <p ng-show="userForm.surName.$error.maxlength" class="help-block">Apellido muy largo.</p>
           </div>
 
           <!-- Segundo Apellido -->
-          <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.secondSurname.$invalid && !studentForm.secondSurname.$pristine }">
+          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.secondSurname.$invalid && !studentForm.secondSurname.$pristine }">
             <label>Segundo apellido:</label>
-            <input ng-model="studentCtrl.stu.secondSurname" id="txtSurname" type="text" class="form-control" name="secondSurname" required>
+            <input ng-model="vm.secondSurname" id="txtSurname" type="text" class="form-control" name="secondSurname" required>
 
             <p ng-show="studentForm.secondSurname.$invalid && !studentForm.secondSurname.$pristine" class="help-block">El apellido es requerido.</p>
           </div>
           
           <!-- Cedula de identidad -->
-          <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.id.$invalid && !studentForm.id.$pristine }">
+          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.id.$invalid && !studentForm.id.$pristine }">
             <label>Cédula de identidad:</label>
-            <input ng-model="studentCtrl.stu.id" id="txtid" type="text" class="form-control" name="id" required unique maxlength="9" minlength="9">
+            <input ng-model="vm.id" id="txtid" type="text" class="form-control" name="id" required unique maxlength="9" minlength="9">
 
             <p ng-show="studentForm.id.$invalid && !studentForm.id.$pristine" class="help-block">La cédula es requerida.</p>
           </div>
 
           <!-- Fecha de nacimiento -->
-          <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.birthdate.$invalid && !studentForm.birthdate.$pristine }">
+          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.birthdate.$invalid && !studentForm.birthdate.$pristine }">
             <label>Fecha de nacimiento:</label>
-            <input ng-model="studentCtrl.stu.birthdate" id="txtid" type="date" class="form-control" name="birthdate" ng-required="requeridoNombre">
+            <input ng-model="vm.birthdate" id="txtid" type="date" class="form-control" name="birthdate" ng-required="requeridoNombre">
 
             <p ng-show="studentForm.birthdate.$invalid && !studentForm.birthdate.$pristine" class="help-block">La fecha es requerido.</p>
           </div>
                 
           <!-- Correo electronico -->
-          <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.email.$invalid && !studentForm.email.$pristine }">
+          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.email.$invalid && !studentForm.email.$pristine }">
             <label>Correo electrónico:</label>
-            <input ng-model="studentCtrl.stu.email" id="txtEmail" type="email" class="form-control" name="email" required unique>
+            <input ng-model="vm.email" id="txtEmail" type="email" class="form-control" name="email" required unique>
             <p ng-show="studentForm.email.$invalid && !studentForm.email.$pristine" class="help-block">El correo es requerido.</p>
             <div class="custom-error" ng-show="myForm.email.$dirty && myForm.email.$invalid">Inválido:  
               <span ng-show="studentForm.email.$error.required">Correo es requirido.</span>
@@ -83,9 +84,9 @@
           </div>
 
           <!-- Password -->
-          <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.password.$invalid && !studentForm.password.$pristine }">
+          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.password.$invalid && !studentForm.password.$pristine }">
             <label for="newPassword">Contraseña:</label>
-            <input ng-model="studentCtrl.stu.password" id="txtpassword" type="password" class="form-control" name="newPassword" required unique>
+            <input ng-model="vm.password" id="txtpassword" type="password" class="form-control" name="newPassword" required unique>
             <div class="clearfix">
             <p ng-show="studentForm.newPassword.$error" ng-if="studentForm.$submitted || studentForm.newPassword.$dirty">
               <div ng-show="required" class="message slide-left">La contraseña es requerida</p></div>
@@ -95,9 +96,9 @@
 
 
           <!-- Confirm Password -->
-          <div class="form-group col-md-3 ibck" ng-class="{ 'has-error' : studentForm.confirmPassword.$invalid && !studentForm.confirmPassword.$pristine }">
+          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.confirmPassword.$invalid && !studentForm.confirmPassword.$pristine }">
             <label for="confirmPassword">Confirmar contraseña:</label>
-            <input ng-model="studentCtrl.stu.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required unique>
+            <input ng-model="vm.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required unique>
             <div class="clearfix">
             <div ng-messages="profileForm.confirmPassword.$error" ng-if="profileForm.$submitted || profileForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
               <!--<div ng-message="required" class="message slide-left">You did not enter a field name</div>-->
@@ -107,18 +108,18 @@
           </div>
 
         <!-- Curriculum Vitae -->
-          <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine }">
+          <div class="form-group col-md-4 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine }">
             <label>Curriculum Vitae:</label>
-            <p><a class="form-control btn btn-sm btn-embossed btn-warning pull-right" ng-click="studentCtrl.pickFile()" ng-model="studentCtrl.stu.resumeUrl" name="resumeUrl">Seleccione el archivo</a></p>
+            <p><a class="form-control btn btn-sm btn-embossed btn-warning pull-right" ng-click="studentCtrl.pickFile()" ng-model="vm.resumeUrl" name="resumeUrl">Seleccione el archivo</a></p>
             <p ng-show="studentForm.resumeUrl.$invalid && !studentForm.resumeUrl.$pristine" class="help-block">El CV es requerido.</p>
           </div>
 
           <!-- Avatar -->
-          <div class="col-lg-4 col-sm-3 col-xs-3" ng-class="{ 'has-error' : studentForm.photo.$invalid && !studentForm.photo.$pristine}">
+          <div class="col-md-4 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.photo.$invalid && !studentForm.photo.$pristine}">
             <label>Avatar:</label>
             <div class="input-group">
               <label class="input-group-btn">
-                <span class="btn btn-primary" style="background-color: #FBB803; color: black;">Escoger<input type="file" style="display: none" id="photo" multiple ng-model="studentCtrl.stu.image" required>
+                <span class="btn btn-primary" style="background-color: #FBB803; color: black;">Escoger<input type="file" style="display: none" id="photo" multiple ng-model="vm.image" required>
                 </span>
                 </label>
               <input type="text" class="form-control" style="color: #fff">
@@ -127,14 +128,14 @@
           </div>
                 
           <!-- Carrera -->
-          <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
+          <div class="form-group col-md-4 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
             <label>Carrera(s):</label>
             <div class="form-group">
-                <select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="studentCtrl.stu.careers" multiple>
+                <select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="vm.careers" multiple>
                   <option value="Desarrollo Web">Desarrollo Web</option>
                   <option value="Desarrollo Web">Telematica</option>
                 </select>
-                      <!--<select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="studentCtrl.stu.careers" multiple>
+                      <!--<select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="vm.careers" multiple>
                         <option ng-repeat="career in studentCtrl.careers" id="career" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><
                       </select>
                       <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>-->
@@ -143,25 +144,25 @@
 
           <!--<h6>Información opcional:</h6>
           <!-Usuario de Github-->
-          <div class="form-group col-md-4" style="display: inline-block; text-align: left;" >
+          <div class="form-group col-md-4 col-sm-12" style="display: inline-block; text-align: left;" >
             <label>Usuario GitHub</label>
-            <input ng-model="studentCtrl.stu.githubUrl" id="gitHub" type="text" class="form-control" name="githubUrl">
+            <input ng-model="vm.githubUrl" id="gitHub" type="text" class="form-control" name="githubUrl">
           </div>  
 
               <!-- Link de sitio web -->
-          <div class="form-group col-md-4" style="display: inline-block" >
+          <div class="form-group col-md-4 col-sm-12" style="display: inline-block" >
             <label>Link de sitio web:</label>
-            <input ng-model="studentCtrl.stu.websiteUrl" id="link" type="text" class="form-control" name="websiteUrl">
+            <input ng-model="vm.websiteUrl" id="link" type="text" class="form-control" name="websiteUrl">
           </div>
 
               <!-- Telefono -->
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-4 col-sm-12">
             <label>Número de teléfono:</label>
-            <input ng-model="studentCtrl.stu.phone" id="phone" type="text" class="form-control" maxlength="8" name="phone">
+            <input ng-model="vm.phone" ng-pattern="/^\d{1,10}$/" id="phone" type="text" class="form-control" maxlength="8" name="phone">
           </div>
 
-          <div class="form-group col-md-12" style="display: block; text-align: center;"> 
-            <button type="submit" id="btnRegister" class="btn btn-warning btn-embossed" ng-click="studentCtrl.preSave()">Registrarse</button>
+          <div class="form-group col-md-12 col-sm-12" style="display: block; text-align: center;"> 
+            <button type="submit" id="btnRegister" class="btn btn-warning btn-embossed" ng-click="vm.preSave()">Enviar solicitud de registro</button>
           </div>
         </form>
           
