@@ -16,6 +16,34 @@
             <button class="btn btn-sm btn-embossed btn-warning pull-right">Modificar</button>
           </div>
         </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" href="#timer">
+          Registro de horas trabajadas
+          <span class="glyphicon glyphicon-chevron-down pull-right">
+        </div>
+        <div id="timer" class="panel-collapse collapse">
+          <div class="panel-body">
+            <form name="timer">
+              <timer interval="1000" ng-model="projects.controller.js
+              ">{{hhours}} hour{{hoursS}}, {{mminutes}} minute{{minutesS}}, {{sseconds}} second{{secondsS}}</timer>
+
+              <label for="txtComment"></label>
+              <input type="text" id="txtComment">
+
+              <button class="btn btn-warning" ng-click="timerToggle()" type="button">{{btnText[timerStatus]}}</button>
+            </form>
+            
+          <div class="panel-footer">
+            <button class="btn btn-sm btn-embossed btn-warning pull-right">Guardar</button>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>
