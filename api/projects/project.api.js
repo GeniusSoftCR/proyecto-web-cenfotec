@@ -9,17 +9,20 @@ var express = require('express'),
 var projectSchema = new Schema({
 	idNum :       {type: String, required: true},
 	name :        {type: String, required: true},
-	companyName : {type: String, required: true},
-	email :       {type: String, required: true},
-	manager :     {type: String, required: true},
 	money:        {type: String, required: true},
-	industry:     {type: String, required: true},
+	objective:    {type: String, required: true},
 	state:        {type: String, required: true, em:states},
-	image:        {type: String},
+	client:       {
+					companyName : {type: String, required: true},
+					email :       {type: String, required: true},
+					manager :     {type: String, required: true},
+					industry:     {type: String, required: true}
+				  },
+	images:       [{url : {type: String}}],
 	////////////////////////////////////////////
-	students:     {type: Array, default: null},
-	professor:    {type: String, default: null},
-	assitant:     {type: String, default: null}
+	students:     {type: Array},
+	professor:    {type: String},
+	assitant:     {type: String}
 
 }, {collection : 'projects'});
 
@@ -32,21 +35,10 @@ router.get('/projects/load', function(req, res, next) {
   });
 });
 
+//Enviar Solicitud de proyecto
 router.post('/projects/add', function(req, res, next){
-	var project = new Project();
-
-	project.idNum = req.body.nId;
-	project.name = req.body.projectName;
-	project.companyName = req.body.companyName;
-	project.email = req.body.email;
-	project.manager = req.body.projectManager;
-	project.money = req.body.money;
-	project.industry = req.body.industry
-	project.state = req.body.state;
-	project.image = req.body.images;
-
-	console.log(project.name);
-	  
+	var project = Object.assign(new Project(),req.body)
+	console.log(project);  
 	project.save(function(err){
 		if (err) {
       		res.json({success: false, message: 'Ha ocurrido un error'});

@@ -9,8 +9,7 @@
       var vm = this;
       //carga la lista de solicitudes
       vm.requestsList = [];
-      //vm.requestsList = userService.getRequests();
-      console.log(vm.requestsList);
+
       //en el modal:
       vm.btnYes=true;     //muestra botón de aprobar
       vm.btnNo=true;      //muestra botón de rechazar
@@ -25,30 +24,7 @@
           //output.vale='Su solicitud ha sido enviada correctamente';
         })
       }
-
       vm.fetchRequestsList();
-      // vm.save = function(pimage){
-      //   var newProjectRequest = {
-      //     nId : vm.nId,
-      //     projectName: vm.projectName,
-      //     companyName : vm.companyName,
-      //     email: vm.email,
-      //     projectManager : vm.projectManager,
-      //     money : vm.money,
-      //     industry : vm.industry,
-      //     images : [
-      //       {
-      //         "url" : pimage
-      //       }
-      //     ],
-      //     state : 'inRevision'
-      //   };
-      //   projectService.addProject(newProjectRequest).then(function(res){
-      //     console.log(res);
-      //     var output = getElementById("retro");
-      //     output.vale='Su solicitud ha sido enviada correctamente';
-      //   })
-      // };
 
       //Mostrar el detalle de la solicitud
       vm.viewRequest= function(request){
@@ -91,7 +67,6 @@
           vm.fetchRequestsList();
           //cerrar el modal
           $('#studentReq-Modal').modal('hide');
-          //
           vm.rejection=false;
           vm.confirm=false;
           vm.btnYes=true;

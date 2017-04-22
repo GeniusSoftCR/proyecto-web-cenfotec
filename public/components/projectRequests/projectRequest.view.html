@@ -41,7 +41,7 @@
           <!-- Cedula Fisica o Juridica -->
           <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.nId.$invalid && !projectRequest.nId.$pristine}">
             <label for="#idCompany">Cédula jurídica o fisica de la empresa:</label>
-            <input type="number" id="idCompany" name="nId" class="form-control" ng-model="vm.nId" required unique maxlength="9" minlength="9">
+            <input type="number" id="idCompany" name="nId" class="form-control" min="111111111" ng-model="vm.nId" required unique maxlength="9" minlength="9">
             <p ng-show="projectRequest.nId.$invalid && !projectRequest.nId.$pristine" class="help-block">La cédula de la empresa es requerido.</p>
           </div>
           <!-- Encargado del proyecto -->
@@ -59,20 +59,20 @@
             <input type="email" id="email" name="email" class="form-control" ng-model="vm.email" required>
             <p ng-show="projectRequest.email.$invalid && !projectRequest.email.$pristine" class="help-block">El correo electrónico es requerido.</p>
           </div>
-
+          <!-- Nombre del proyecto -->
           <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.company.$invalid && !projectRequest.company.$pristine}">
             <label for="#projectName">Nombre del proyecto:</label>
             <input type="text" id="projectName" name="company" class="form-control" ng-model="vm.projectName" placeholder="Ej: Aplicación de iOS" required>
             <p ng-show="projectRequest.company.$invalid && !projectRequest.company.$pristine" class="help-block">El nombre del proyecto es requerido.</p>
           </div>
-
+          <!-- Fondos para el proyecto -->
           <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.money.$invalid && !projectRequest.money.$pristine}">
             <label for="money">Fondos para el proyecto (En dólares):</label>
-            <input type="number" id="money" name="money" class="form-control" ng-model="vm.money" required>
+            <input type="number" id="money" min="1" name="money" class="form-control" ng-model="vm.money" required>
             <p ng-show="projectRequest.money.$invalid && !projectRequest.money.$pristine" class="help-block">El presupuesto del proyecto es requerido.</p>
           </div>
         </div>
-        
+        <!-- Resumen ejecutivo -->
         <div class="col-md-4 col-xs-12">
           <div class="col-md-12 ibck">
             <label for="#resume">Resumen ejecutivo: </label>
@@ -80,16 +80,24 @@
               <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
             </a>
           </div>
-
+          <!-- Industria de la empresa -->
           <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.industry.$invalid && !projectRequest.industry.$pristine}">
             <label for="#Industria de la empresa">Ingrese la industria de la empresa:</label>
             <input type="text" id="industry" name="industry" class="form-control" ng-model="vm.industry">
             <p ng-show="projectRequest.money.$invalid && !projectRequest.money.$pristine" class="help-block">La industria del proyecto es requerida.</p>
           </div>
-
+          <!-- Imagenes del proyecto -->
           <div class="col-md-12 ibck">
             <label for="images">Algunas imagenes sobre el proyecto: </label>
             <input type="file" id="imageProjectRequest" name="projectImages" class="form-control" ng-model="vm.projectImages">
+          </div>
+        </div>
+         <!-- Objetivo del proyecto -->
+        <div class="col-md-12 col-md-offset-3 ibck">
+          <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.projectObjetive.$invalid && !projectRequest.projectObjetive.$pristine}">
+            <label for="#projectObjetive">Ingrese el objetivo del proyecto:</label>
+            <input type="text" name="projectObjetive" id="projectObjetive" ng-model="vm.objective" required>
+            <p ng-show="projectRequest.projectObjetive.$invalid && !projectRequest.projectObjetive.$pristine" class="help-block">El objetivo del proyecto es requerido.</p>
           </div>
         </div>
 

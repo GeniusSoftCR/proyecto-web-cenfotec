@@ -38,21 +38,23 @@
 
     vm.save = function(pimage){
       var newProjectRequest = {
-        nId : vm.nId,
-        projectName: vm.projectName,
-        companyName : vm.companyName,
-        email: vm.email,
-        projectManager : vm.projectManager,
-        money : vm.money,
-        industry : vm.industry,
+        idNum : JSON.stringify(vm.nId),
+        name: vm.projectName,
+        money : JSON.stringify(vm.money),
+        objective : vm.objective,
         state : 'inRevision',
+        client : {
+          companyName : vm.companyName,
+          email: vm.email,
+          manager : vm.projectManager,
+          industry : vm.industry
+        },
         images : [
           {
             "url" : pimage
           }
-        ]
+        ],
       };
-      console.log(newProjectRequest.images)
       projectService.addProject(newProjectRequest).then(function(res){
         console.log(res);
       })
