@@ -64,6 +64,7 @@
 	          	return $ocLazyLoad.load('./components/projects/projects.controller.js')
 	          }]
 		    },
+		    css: 'css/profile.style.css',
 			templateUrl: './components/profile/profile.view.html'			
 		})
 		
