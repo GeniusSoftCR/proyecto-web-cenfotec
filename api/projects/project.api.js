@@ -9,16 +9,16 @@ var express = require('express'),
 var projectSchema = new Schema({
 	idNum :       {type: String, required: true},
 	name :        {type: String, required: true},
+	money:        {type: String, required: true},
+	objective:    {type: String, required: true},
+	state:        {type: String, required: true, em:states},
 	client:       {
 					companyName : {type: String, required: true},
 					email :       {type: String, required: true},
 					manager :     {type: String, required: true},
 					industry:     {type: String, required: true}
 				  },
-	money:        {type: String, required: true},
-	state:        {type: String, required: true, em:states},
 	images:       [{url : {type: String}}],
-	objetive:     {type: String},
 	////////////////////////////////////////////
 	students:     {type: Array},
 	professor:    {type: String},
@@ -35,12 +35,10 @@ router.get('/projects/load', function(req, res, next) {
   });
 });
 
+//Enviar Solicitud de proyecto
 router.post('/projects/add', function(req, res, next){
-
 	var project = Object.assign(new Project(),req.body)
-
-	console.log(project);
-	  
+	console.log(project);  
 	project.save(function(err){
 		if (err) {
       		res.json({success: false, message: 'Ha ocurrido un error'});
