@@ -1,44 +1,33 @@
-<!--Seccion para listar proyectos-->
-<div ng-Show="projectsCtrl.listingProjects">
-	<!--escoger el estado de los proyectos a listar-->
-	<form>
-		<label for="projectsSelect">Estados de proyecto:</label><br>
-		<select name="projectsSelect" ng-model="search">
-	      	<option value="" disabled="disabled">Seleccione un estado</option>
-	      	<!-- <option ng-value="4">En proceso</option>
-	      	<option ng-value="5">Finalizado</option> -->
-	      	<option value="inProcess">En proceso</option>
-			<option value="ended">Finalizados</option>
-	    </select>
-	</form>
-
-	<!--desplegar los proyectos-->
-	<div>
-		<!--mensaje para cuando no existen proyectos-->
-		<div class="message" ng-Show="projectsCtrl.message">
-			<p>No existen proyectos con el estado "{{projectsCtrl.state.name}}"</p>
+<main>
+	<div class="row">
+		<div class="col-md-6">
+			
 		</div>
-		<!-- carga los proyectos -->
-		<table id="tblProjects">
-		  <thead>
-		    <tr>
-		    	<th>Proyectos</th>
-		    	<th>Estado</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr ng-repeat="project in projectsCtrl.asignedProjects | filter:{state:search}">
-		        <td>{{project.nombre}}</td>
-		        <td>{{project.state}}</td>
-		        <td><button ng-click="projectsCtrl.viewProject(project)">Ver proyecto</button></td>
-		    </tr>
-		  </tbody>
-		</table>
-	</div>
-
-</div>
-
-<!--aquí debería mostrarse el proyecto con todas las subvistas de cada uno-->
-<div class="project" ng-Show="projectsCtrl.projectView">
-	
-</div>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">Lista de proyectos
+					<select class="form-control select select-primary pull-right" data-toggle="select" ng-model="search">
+			      		<option value="" disabled="disabled">Seleccione un estado</option>
+				      	<option value="inProcess">En proceso</option>
+						<option value="ended">Finalizados</option>
+				    </select>
+				</div>
+				<div class="panel-body">
+					<!--mensaje para cuando no existen proyectos-->
+					<div class="item" ng-Show="vm.message">
+						<p class="itemName">No existen proyectos con el estado "{{search}}"</p>
+					</div>
+					<div class="card">
+					  <ul class="list-group list-group-flush" id="myScrollspy">
+					    <li class="list-group-item" ng-repeat="project in vm.projects | filter:{state:search}">
+					    	{{project.name}}
+					    	<button ui-sref="watchProject({ proyectoId: {{ project.idNum }} })" class="btn btn-sm btn-embossed btn-warning pull-right">Ver proyecto</button>
+					    </li>
+					  </ul>
+					</div>
+				</div>
+				<div class="panel-footer"></div>
+			</div>
+		</div>
+	</div><!--Primer row-->
+</main>
