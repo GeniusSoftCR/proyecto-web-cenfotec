@@ -52,8 +52,14 @@
         /*4)Back End:enviar notificación por correo*/
       }
 
+      vm.switch=function(){
+        $('#studentReq-Modal').modal('hide');
+        $('#retro-Modal').modal('show');
+      }
+
       //Rechazar una solicitud
       vm.rejectRequest= function(request){
+
         //si el input de la justificación no está vacío
         if(vm.req.justification!=null){
           vm.validate=false;  //oculta mensaje "justificación requerida"
@@ -71,6 +77,8 @@
           vm.confirm=false;
           vm.btnYes=true;
           vm.btnNo=true;
+          $('#retro-Modal').modal('show');
+          // setTimeout(function(){$('#retro-Modal').modal('hide')},3000);
           /*4)Back End:enviar notificación por correo*/
         } else { 
           vm.validate=true;
