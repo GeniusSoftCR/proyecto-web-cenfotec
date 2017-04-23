@@ -14,9 +14,13 @@ body{
 	}
 
 input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty{ 
-	border-bottom: 1px solid #D25349; 
+	border: 1px solid #D25349; 
 }
 
 input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty{ 
-	border-bottom: 2px solid #019739; 
+	border: 2px solid #019739; 
+}
+
+input{
+	border: none;
 }
