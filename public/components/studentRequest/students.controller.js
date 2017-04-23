@@ -50,7 +50,7 @@
           phone : vm.phone,
           avatar : pimage,
           password : vm.password,
-          confirmPassword : vm.confirmPassword,
+          //confirmPassword : vm.confirmPassword,
           state: 'postulate',
           role: 'student',
           birthdate : vm.birthdate,

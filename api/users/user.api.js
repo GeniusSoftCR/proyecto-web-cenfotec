@@ -20,7 +20,7 @@ var UsersSchema = new Schema({
   phone:        {type: String, minlength:8,maxlength:8},
   avatar:       {type: String, required: true},
   password:     {type: String, required: true},
-  confirmPassword:{type: String, required: true},
+  //onfirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
   role:         {type: String, required: true, em:roles },
   username:     {type: String},

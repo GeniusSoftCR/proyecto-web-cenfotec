@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 	angular
-	.module('appRoutes',['ui.router','oc.lazyLoad'])
+	.module('appRoutes',['ui.router','oc.lazyLoad','ngMessages'])
 
 	.config(configuration)
 
