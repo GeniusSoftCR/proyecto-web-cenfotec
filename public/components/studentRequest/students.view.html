@@ -32,36 +32,49 @@
         <!--<h6>Información obligatoria:</h6>-->
         <form name="studentForm" class="container" autocomplete="off">
          <!-- Nombre -->
-          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.name.$invalid && !studentForm.name.$pristine }">
-            <label>Nombre:</label>
-            <input id="txtName" type="text" ng-pattern="/[a-zA-Z]/" name="name" class="form-control" ng-model="vm.name" required>
-            <p ng-show="studentForm.name.$invalid && !studentForm.name.$pristine" class="help-block">Su nombre es requerido.</p>
+     
+          <div class="form-group col-md-3 col-sm-12 ibck">
+            <label for="name">Nombre:</label>
+              <input type="text" ng-model="vm.name" id="txtname" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+            <div ng-messages="studentForm.name.$error" ng-hide="studentForm.name.$pristine">
+            <div ng-message="required" ng-hide="studentForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+            <div ng-message="pattern" ng-hide="studentForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+            </div>
           </div>
 
           <!-- Primer Apellido -->
-          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.surName.$invalid && !studentForm.surName.$pristine }">
-            <label>Primer apellido:</label>
-            <input ng-model="vm.surName" id="txtFirstName" type="text" class="form-control" name="surName" required ng-minlength="3" ng-maxlength="15">
-            <p ng-show="studentForm.surName.$invalid && !studentForm.surName.$pristine" class="help-block">El apellido es requerido.</p>
-            <p ng-show="userForm.surName.$error.minlength" class="help-block">Apellido muy corto.</p>
-            <p ng-show="userForm.surName.$error.maxlength" class="help-block">Apellido muy largo.</p>
+          <div class="form-group col-md-3 col-sm-12 ibck">
+            <label for="surName">Primer apellido:</label>
+              <input type="text" ng-model="vm.surName" id="txtFirstName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+">
+            <div ng-messages="studentForm.surName.$error" ng-hide="studentForm.surName.$pristine">
+            <div ng-message="required" ng-hide="studentForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido!</div>
+            <div ng-message="pattern" ng-hide="studentForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+            </div>
           </div>
 
           <!-- Segundo Apellido -->
-          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.secondSurname.$invalid && !studentForm.secondSurname.$pristine }">
-            <label>Segundo apellido:</label>
-            <input ng-model="vm.secondSurname" id="txtSurname" type="text" class="form-control" name="secondSurname" required>
-
-            <p ng-show="studentForm.secondSurname.$invalid && !studentForm.secondSurname.$pristine" class="help-block">El apellido es requerido.</p>
+           <div class="form-group col-md-3 col-sm-12 ibck">
+            <label for="secondSurname">Segundo apellido:</label>
+              <input type="text" ng-model="vm.secondSurname" id="txtFirstName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+">
+            <div ng-messages="studentForm.secondSurname.$error" ng-hide="studentForm.secondSurname.$pristine">
+              <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+              <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+            </div>
           </div>
+
           
           <!-- Cedula de identidad -->
-          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.id.$invalid && !studentForm.id.$pristine }">
-            <label>Cédula de identidad:</label>
-            <input ng-model="vm.id" id="txtid" type="text" class="form-control" name="id" required unique maxlength="9" minlength="9">
-
-            <p ng-show="studentForm.id.$invalid && !studentForm.id.$pristine" class="help-block">La cédula es requerida.</p>
+          <div class="form-group col-md-3 col-sm-12 ibck">
+            <label for="id">Cédula de identidad</label>
+              <input type="text" ng-model="vm.id" id="txtid" class="form-control" name="id" pattern="[0-9]+" maxlength="9" minlength="9">
+            <div ng-messages="studentForm.id.$error" ng-hide="studentForm.id.$pristine">
+              <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+              <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
+              <div ng-message="maxlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+              <div ng-message="minlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+            </div>
           </div>
+
 
           <!-- Fecha de nacimiento -->
           <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.birthdate.$invalid && !studentForm.birthdate.$pristine }">
@@ -83,14 +96,15 @@
           </div>
 
           <!-- Password -->
-          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.password.$invalid && !studentForm.password.$pristine }">
-            <label for="newPassword">Contraseña:</label>
-            <input ng-model="vm.password" id="txtpassword" type="password" class="form-control" name="newPassword" required unique>
-            <div class="clearfix">
-            <p ng-show="studentForm.newPassword.$error" ng-if="studentForm.$submitted || studentForm.newPassword.$dirty"></p>
-              <p ng-show="required" class="message slide-left">La contraseña es requerida</p>
+          <div class="form-group col-md-3 col-sm-12 ibck">
+            <label for="newPassword">Contrasena</label>
+              <input type="password" ng-model="vm.password" id="txtpassword" class="form-control" name="newPassword" pattern="(?=^.{5,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+            <div ng-messages="studentForm.password.$error" ng-hide="studentForm.password.$pristine">
+              <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+              <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
             </div>
           </div>
+
 
 
           <!-- Confirm Password -->
@@ -140,6 +154,7 @@
             </div>
           </div>
 
+          
           <!--<h6>Información opcional:</h6>
           <!-Usuario de Github-->
           <div class="form-group col-md-4 col-sm-12" style="display: inline-block; text-align: left;" >
@@ -150,7 +165,7 @@
               <!-- Link de sitio web -->
           <div class="form-group col-md-4 col-sm-12" style="display: inline-block" >
             <label>Link de sitio web:</label>
-            <input ng-model="vm.websiteUrl" id="link" type="text" class="form-control" name="websiteUrl">
+            <input ng-model="vm.websiteUrl" id="link" type="url" pattern="https?://.+" title="Include http://" class="form-control" name="websiteUrl">
           </div>
 
               <!-- Telefono -->
