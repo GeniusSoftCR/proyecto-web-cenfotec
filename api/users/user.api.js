@@ -20,12 +20,13 @@ var UsersSchema = new Schema({
   phone:        {type: String, minlength:8,maxlength:8},
   avatar:       {type: String, required: true},
   password:     {type: String, required: true},
-  confirmPassword:{type: String, required: true},
+  //onfirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
   role:         {type: String, required: true, em:roles },
+  username:     {type: String},
   //Student only
-  birthdate:     {type: Date},
-  careers:       {type: Array},
+  birthdate:     {type: Date, required: true},
+  careers:       {type: Array, required: true},
   justification: {type: String, default: null},
   resumeUrl:     {type: String},
   githubUrl:     {type: String},
@@ -89,7 +90,7 @@ router.put('/user/students/update', function(req, res, next) {
 
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
-  var user = new User();
+  var user = Object.assign(new User())
 
   // user._id = mongoose.Schema.Types.ObjectId
   user.idNum = req.body.idNum;
@@ -132,7 +133,7 @@ router.post('/user/add', function(req, res, next) {
 
   user.save(function(err){
     if (err) {
-      res.json({success: false, message: 'Ha ocurrido un error'});
+      res.json({success: false, message: 'Ha ocurrido un error', error: err});
     } else {
       res.json({success: true, message: 'Se ha enviado el usuario correctamente'});
     }
