@@ -71,6 +71,8 @@
           vm.confirm=false;
           vm.btnYes=true;
           vm.btnNo=true;
+          $('#retro-Modal').modal('show');
+          setTimeout(function(){$('#retro-Modal').modal('hide')},3000);
           /*4)Back End:enviar notificación por correo*/
         } else { 
           vm.validate=true;
