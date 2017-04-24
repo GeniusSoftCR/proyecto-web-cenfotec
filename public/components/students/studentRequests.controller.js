@@ -38,7 +38,9 @@
         vm.confirm=false;   //oculta botón de confirmar
         $('#justification').closest('.form-group').removeClass('has-error');
         vm.req.justification=null;
-        // setTimeout(function(){$('#myModal').modal('hide')},3000);
+        vm.finalStep=false;
+        // setTimeout(function(){$('#rejectRetro').modal('hide')},3000);
+        //$('#retro').show('slow');
       }
 
       //Aprobar una solicitud
@@ -61,11 +63,13 @@
 
       vm.confirmation=function(x,y){
         userService.changeRequestState(x,y);
+          vm.fetchRequestsList();
+          vm.reloadPage();
       }
 
       //Rechazar una solicitud
       vm.rejectRequest= function(request){
-
+        vm.finalStep=false;
         //si el input de la justificación no está vacío
         if(vm.req.justification!=null){
           vm.validate=false;  //oculta mensaje "justificación requerida"
@@ -76,9 +80,9 @@
           vm.rejection=false;
           vm.confirm=false;
           //3)actualizar la lista de solicitudes
-          vm.confirmation(request,"rejected");
-          vm.fetchRequestsList();
-          vm.reloadPage();
+          //vm.confirmation(request,"rejected");
+          vm.param1=request;
+          vm.param2="rejected";
           //cerrar el modal
           vm.rejection=false;
           vm.confirm=false;
