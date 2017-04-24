@@ -2,15 +2,17 @@
   angular
     .module('cshApp')
     .controller('projectRequestsController', projectRequestsController);
-      projectRequestsController.$inject= ['projectRequestsService'];
+      projectRequestsController.$inject= ['projectService'];
 
-    function projectRequestsController(projectRequestsService){
+    function projectRequestsController(projectService){
      
       var vm = this;
       //carga la lista de solicitudes
-      vm.requestsList = projectRequestsService.getRequests();
+      projectService.getProjects().then(function(res){
+        vm.requestsList =  res.data;
+      })
       //carga la lista de clientes
-      vm.clients = projectRequestsService.getClients();
+          //vm.clients = projectService.getClients();
       //en el modal:
       vm.btnYes=true;     //muestra botón de aprobar
       vm.btnNo=true;      //muestra botón de rechazar
@@ -19,7 +21,7 @@
 
       //Recargar la lista de solicitudes
       vm.fetchRequestsList= function(){
-        vm.requestsList = projectRequestsService.getRequests();
+        vm.requestsList = projectService.getProjects();
       }
 
       //Mostrar el detalle de la solicitud
@@ -47,7 +49,7 @@
       //Aprobar una solicitud
       vm.approveRequest= function(request){
         //1)1er param:solicitud actual, 2do param: estado(aprobado=2)
-        projectRequestsService.changeRequestState(request,2);
+        projectService.changeRequestState(request,2);
         //3)actualizar la lista de solicitudes
         vm.fetchRequestsList();
         //cerrar el modal
@@ -62,7 +64,7 @@
           vm.validate=false;  //oculta mensaje "justificación requerida"
           $('#justification').closest('.form-group').removeClass('has-error');
           //1)1er param:solicitud actual, 2do param: estado(rechazado=3)
-          projectRequestsService.changeRequestState(request,3);
+          projectService.changeRequestState(request,3);
           //2)oculta la sección de la justificación
           vm.rejection=false;
           vm.confirm=false;

@@ -7,7 +7,7 @@
 					<div class="card">
 					  <ul class="list-group list-group-flush" id="myScrollspy">
 					  <!-- Trigger the modal with a button -->
-					    <li class="list-group-item" ng-repeat="request in vm.requestsList | filter:{state_key:'1'}">
+					    <li class="list-group-item" ng-repeat="request in vm.requestsList | filter:{state:'inRevision'}">
 					    	{{request.name}}
 					    	<button ng-click="vm.viewRequest(request)" class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#studentReq-Modal">Ver solicitud</button>
 					    </li>
