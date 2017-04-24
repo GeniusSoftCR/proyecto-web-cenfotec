@@ -85,15 +85,28 @@
           </div>
                 
           <!-- Correo electronico -->
+          <div class="form-group col-md-3 col-sm-12 ibck">
+            <label for="email">Correo electrónico</label>
+              <input type="text" ng-model="vm.email" id="txtid" class="form-control" name="email" pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)">
+            <div ng-messages="studentForm.email.$error" ng-hide="studentForm.email.$pristine">
+              <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+              <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
+            </div>
+          </div>
+
+
+
+
+<!--
           <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.email.$invalid && !studentForm.email.$pristine }">
             <label>Correo electrónico:</label>
-            <input ng-model="vm.email" id="txtEmail" type="email" class="form-control" name="email" required unique>
+            <input ng-model="vm.email" id="txtEmail" type="email" class="form-control" name="email" required unique pattern="[a-z0-9._%+-]+@[ucenfotec]+\.[com]$">
             <p ng-show="studentForm.email.$invalid && !studentForm.email.$pristine" class="help-block">El correo es requerido.</p>
             <div class="custom-error" ng-show="myForm.email.$dirty && myForm.email.$invalid">Inválido:  
               <span ng-show="studentForm.email.$error.required">Correo es requirido.</span>
               <span ng-show="studentForm.email.$error.email">Por favor, escriba una dirección de correo valida.</span>
             </div>
-          </div>
+          </div>-->
 
           <!-- Password -->
           <div class="form-group col-md-3 col-sm-12 ibck">
@@ -151,10 +164,21 @@
                         <option ng-repeat="career in studentCtrl.careers" id="career" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><
                       </select>
                       <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>-->
+
             </div>
           </div>
 
-          
+        
+
+
+
+
+
+
+
+
+
+
           <!--<h6>Información opcional:</h6>
           <!-Usuario de Github-->
           <div class="form-group col-md-4 col-sm-12" style="display: inline-block; text-align: left;" >
