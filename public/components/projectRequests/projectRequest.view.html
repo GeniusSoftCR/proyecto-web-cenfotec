@@ -52,7 +52,7 @@
       <!-- Encargado del proyecto -->
       <div class="form-group col-md-4 col-sm-12 ibck">
         <label for="#projectManager">Encargado del proyecto:</label>
-        <input type="text" ng-model="vm.projectManager" id="projectManager" class="form-control" name="projectManager" pattern="[ñáéíóúA-Za-z]+" required>
+        <input type="text" ng-model="vm.projectManager" id="projectManager" class="form-control" name="projectManager" pattern="[ñáéíóúA-Za-z ]+" required>
         <div ng-messages="projectRequest.projectManager.$error" ng-hide="projectRequest.projectManager.$pristine">
           <div ng-message="required" ng-hide="projectRequest.projectManager.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
           <div ng-message="pattern" ng-hide="projectRequest.projectManager.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
@@ -61,7 +61,7 @@
       <!-- Correo electronico -->
       <div class="form-group col-md-4 col-sm-12 ibck">
         <label for="#email">Correo electrónico:</label>
-        <input type="email" ng-model="vm.email" id="email" class="form-control" name="email" required pattern="([a-z0-9\.\-\_])">
+        <input type="email" ng-model="vm.email" id="email" class="form-control" name="email" required>
         <div ng-messages="projectRequest.email.$error" ng-hide="projectRequest.email.$pristine">
           <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
           <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
