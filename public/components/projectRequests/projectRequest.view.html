@@ -38,46 +38,50 @@
           <div ng-message="required" ng-hide="projectRequest.companyName.$pristine" class="red darken-2 center-align white-text"><p>Este campo es requerido</p></div>
         </div>
       </div>
+      <!-- Cedula Fisica o Juridica -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="#idCompany">Cédula jurídica o fisica de la empresa:</label>
+        <input type="text" ng-model="vm.nId"id="txtFirstName" class="form-control" name="nId" pattern="[0-9]+" maxlength="9" minlength="9" required>
+        <div ng-messages="projectRequest.nId.$error" ng-hide="projectRequest.nId.$pristine" required>
+          <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+          <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
+          <div ng-message="maxlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+          <div ng-message="minlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+        </div>
+      </div>
+      <!-- Encargado del proyecto -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="#projectManager">Encargado del proyecto:</label>
+        <input type="text" ng-model="vm.projectManager" id="projectManager" class="form-control" name="projectManager" pattern="[ñáéíóúA-Za-z]+" required>
+        <div ng-messages="projectRequest.projectManager.$error" ng-hide="projectRequest.projectManager.$pristine">
+          <div ng-message="required" ng-hide="projectRequest.projectManager.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+          <div ng-message="pattern" ng-hide="projectRequest.projectManager.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+        </div>
+      </div>
+      <!-- Correo electronico -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="#email">Correo electrónico:</label>
+        <input type="email" ng-model="vm.email" id="email" class="form-control" name="email" required pattern="([a-z0-9\.\-\_])">
+        <div ng-messages="projectRequest.email.$error" ng-hide="projectRequest.email.$pristine">
+          <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+          <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
+        </div>
+      </div>
+      <!-- Nombre del proyecto -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="#projectName">Nombre del proyecto:</label>
+        <input type="text" ng-model="vm.projectName" id="projectName" class="form-control" name="projectName" placeholder="Ej: Aplicación de iOS" required >
+        <div ng-messages="projectRequest.projectName.$error" ng-hide="projectRequest.projectName.$pristine">
+          <div ng-message="required" ng-hide="projectRequest.projectName.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+        </div>
+      </div>
+      <!-- Resumen ejecutivo -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="#resume">Resumen ejecutivo:</label>
+        <p><a ng-click="vm.pickFile()" class="form-control" style="background-color: #FBB803; color: black; cursor: pointer;" id="resumeUrl" ng-model="vm.projectFile" multiple required >Seleccione el archivo</a></p>
+      </div>
     </form>
   </div>
-
-
-
-  <div  ng-show="vm.toSend">
-    <div>
-      <form  >
-        <div class="col-md-4 col-xs-12">
-          
-          <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.companyName.$invalid && !projectRequest.companyName.$pristine}">
-            <p ng-show="projectRequest.companyName.$invalid && !projectRequest.companyName.$pristine" class="help-block">El nombre de la empresa es requerido.</p>
-          </div>
-          <!-- Cedula Fisica o Juridica -->
-          <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.nId.$invalid && !projectRequest.nId.$pristine}">
-            <label for="#idCompany">Cédula jurídica o fisica de la empresa:</label>
-            <input type="number" id="idCompany" name="nId" class="form-control" min="111111111" ng-model="vm.nId" required unique maxlength="9" minlength="9">
-            <p ng-show="projectRequest.nId.$invalid && !projectRequest.nId.$pristine" class="help-block">La cédula de la empresa es requerido.</p>
-          </div>
-          <!-- Encargado del proyecto -->
-          <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.projectManager.$invalid && !projectRequest.projectManager.$pristine}">
-            <label for="#projectManager">Encargado del proyecto:</label>
-            <input type="text" id="projectManager" name="projectManager" class="form-control" ng-model="vm.projectManager" required>
-            <p ng-show="projectRequest.projectManager.$invalid && !projectRequest.projectManager.$pristine" class="help-block">El encargado del proyecto es requerido.</p>
-          </div>
-        </div>
-        
-        <div class="col-md-4 col-xs-12">
-          <!-- Correo electronico -->
-          <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.email.$invalid && !projectRequest.email.$pristine}">
-            <label for="#email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" class="form-control" ng-model="vm.email" required>
-            <p ng-show="projectRequest.email.$invalid && !projectRequest.email.$pristine" class="help-block">El correo electrónico es requerido.</p>
-          </div>
-          <!-- Nombre del proyecto -->
-          <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.company.$invalid && !projectRequest.company.$pristine}">
-            <label for="#projectName">Nombre del proyecto:</label>
-            <input type="text" id="projectName" name="company" class="form-control" ng-model="vm.projectName" placeholder="Ej: Aplicación de iOS" required>
-            <p ng-show="projectRequest.company.$invalid && !projectRequest.company.$pristine" class="help-block">El nombre del proyecto es requerido.</p>
-          </div>
           <!-- Fondos para el proyecto -->
           <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.money.$invalid && !projectRequest.money.$pristine}">
             <label for="money">Fondos para el proyecto (En dólares):</label>
@@ -85,10 +89,10 @@
             <p ng-show="projectRequest.money.$invalid && !projectRequest.money.$pristine" class="help-block">El presupuesto del proyecto es requerido.</p>
           </div>
         </div>
-        <!-- Resumen ejecutivo -->
+        
         <div class="col-md-4 col-xs-12">
           <div class="col-md-12 ibck">
-            <label for="#resume">Resumen ejecutivo: </label>
+            
             <a class="btnUpload" id="resume" ng-click="vm.pickFile()">
               <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
             </a>

@@ -49,6 +49,7 @@
           manager : vm.projectManager,
           industry : vm.industry
         },
+        resume : vm.projectFile,
         images : [
           {
             "url" : pimage
