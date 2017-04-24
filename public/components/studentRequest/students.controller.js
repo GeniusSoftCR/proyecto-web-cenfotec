@@ -106,7 +106,7 @@
         vm.email = null;
         vm.mail = null;
         vm.phone = null;
-        vm.image = null;
+        vm.pimage = null;
         vm.password = null;
         vm.birthdate = null;
         vm.careers = null;

@@ -126,6 +126,9 @@
           <div class="col-md-4 col-sm-12 ibck">
             <label>Curriculum Vitae:</label>
             <p><a ng-click="vm.pickFile()" class="form-control" style="background-color: #FBB803; color: black; cursor: pointer;" id="resumeUrl" ng-model="vm.resumeUrl" multiple required >Seleccione el archivo</a></p>
+            <div ng-messages="studentForm.resumeUrl.$error" ng-hide="studentForm.resumeUrl.$pristine">
+              <div ng-message="required" ng-hide="studentForm.resumeUrl.$pristine" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+            </div>
           </div>
    
 
