@@ -27,14 +27,28 @@
       <h2>Solicitud de proyecto para Cenfotec Software House</h2>
     </div> 
   </div>
-  <div class="projectsRequest col-md-12" ng-show="vm.toSend">
+  <div class="projectsRequest col-md-12">
+    <form name="projectRequest" class="container"
+    autocomplete="off" ng-submit="vm.save()" novalidate>
+      <!-- Nombre de la empresa -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="#companyName">Nombre de la empresa:</label>
+        <input type="text" ng-model="vm.companyName" id="companyName" class="form-control" name="companyName" required pattern="[ñáéíóúA-Za-z ]+">
+        <div ng-messages="projectRequest.companyName.$error" ng-hide="projectRequest.companyName.$pristine">
+          <div ng-message="required" ng-hide="projectRequest.companyName.$pristine" class="red darken-2 center-align white-text"><p>Este campo es requerido</p></div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+
+  <div  ng-show="vm.toSend">
     <div>
-      <form name="projectRequest" class="container">
+      <form  >
         <div class="col-md-4 col-xs-12">
-          <!-- Nombre de la empresa -->
+          
           <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.companyName.$invalid && !projectRequest.companyName.$pristine}">
-            <label for="#companyName">Nombre de la empresa:</label>
-            <input type="text" id="companyName" name="companyName" class="form-control" ng-model="vm.companyName" required>
             <p ng-show="projectRequest.companyName.$invalid && !projectRequest.companyName.$pristine" class="help-block">El nombre de la empresa es requerido.</p>
           </div>
           <!-- Cedula Fisica o Juridica -->
