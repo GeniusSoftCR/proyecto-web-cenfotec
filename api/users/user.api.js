@@ -20,7 +20,6 @@ var UsersSchema = new Schema({
   phone:        {type: String, minlength:8,maxlength:8},
   avatar:       {type: String, required: true},
   password:     {type: String, required: true},
-  //onfirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
   role:         {type: String, required: true, em:roles },
   username:     {type: String},
@@ -101,7 +100,6 @@ router.post('/user/add', function(req, res, next) {
   user.phone = req.body.phone;
   user.avatar = req.body.avatar;
   user.password = req.body.password;
-  user.confirmPassword = req.body.confirmPassword;
   user.state = req.body.state;
   user.role = req.body.role;
 
