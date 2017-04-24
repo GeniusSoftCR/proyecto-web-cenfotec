@@ -114,18 +114,9 @@
         <label for="#projectObjetive">Ingrese el objetivo del proyecto:</label>
         <textarea class="col-md-12" name="projectObjetive" id="projectObjetive" ng-model="vm.objective" required></textarea>
       </div>
+      <!-- boton -->
+      <div class="form-group col-md-12 col-sm-12" style="display: block; text-align: center;"> 
+        <button type="submit" id="btnRegister" ng-disabled="disabled" class="btn btn-warning btn-embossed">Enviar solicitud</button>
     </form>
-  </div>
-
-      </form>
-
-      <div class="form-group col-md-12" style="display: block; text-align: center;">
-        <button type="submit" name="submitBtn" class="btn btn-warning" id="margen2" ng-click="vm.preSave()">Enviar solicitud</button>
-      </div>
-
-    </div>
-  </div>
-  <div class="alert-success">
-      <p>{{vm.retro}}</p>
   </div>
 </main>
