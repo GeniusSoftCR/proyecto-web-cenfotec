@@ -78,17 +78,20 @@
 
 
           <!-- Fecha de nacimiento -->
-          <div class="form-group col-md-3 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.birthdate.$invalid && !studentForm.birthdate.$pristine }">
-            <label>Fecha de nacimiento:</label>
+          <div class="form-group col-md-3 col-sm-12 ibck">
+            <label for="birthdate">Fecha de nacimiento:</label>
             <input ng-model="vm.birthdate" id="txtid" type="date" class="form-control" name="birthdate" required>
-
-            <p ng-show="studentForm.birthdate.$invalid && !studentForm.birthdate.$pristine" class="help-block">La fecha es requerido.</p>
+            <div ng-messages="studentForm.birthdate.$error" ng-hide="studentForm.birthdate.$pristine" required>
+              <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+            </div>
           </div>
-                
+
+
+               
           <!-- Correo electronico -->
           <div class="form-group col-md-3 col-sm-12 ibck">
             <label for="email">Correo electrónico</label>
-              <input type="text" ng-model="vm.email" id="txtid" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)">
+              <input type="text" ng-model="vm.email" id="txtid" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
             <div ng-messages="studentForm.email.$error" ng-hide="studentForm.email.$pristine">
               <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
               <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
@@ -98,11 +101,11 @@
 
           <!-- Password -->
           <div class="form-group col-md-3 col-sm-12 ibck">
-            <label for="newPassword">Contrasena</label>
-              <input type="password" ng-model="vm.password" id="txtpassword" class="form-control" name="newPassword" pattern="(?=^.{5,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required maxlength="5" minlength="1">
+            <label for="newPassword">Contraseña</label>
+              <input type="password" ng-model="vm.password" id="txtpassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required maxlength="8" minlength="1">
             <div ng-messages="studentForm.newPassword.$error" ng-hide="studentForm.newPassword.$pristine">
               <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
-              <div ng-message="pattern" class="red darken-2 center-align white-text">Favor cumplir con el formato de contrase;a</div>
+              <div ng-message="pattern" class="red darken-2 center-align white-text">Debe usar mayúscula, minúscula y números</div>
             </div>
           </div>
 
@@ -111,11 +114,11 @@
           <!-- Confirm Password -->
           <div class="form-group col-md-3 col-sm-12 ibck">
             <label for="confirmPassword">Confirmar contraseña:</label>
-            <input ng-model="vm.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required>
+            <input ng-model="vm.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
             <div class="clearfix">
               <div ng-messages="studentForm.confirmPassword.$error" ng-if="studentForm.$submitted || studentForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
               <div ng-message="required" class="message slide-left">Este campo es requerido!</div>
-              <div ng-message="passwordMatch" class="message slide-left">Contrase;a diferente</div>
+              <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente</div>
             </div>
           </div>
           </div>
@@ -178,7 +181,7 @@
               <!-- Telefono -->
           <div class="form-group col-md-4 col-sm-12" style="display: block;"> 
             <label for="phone">Número de teléfono:</label>
-            <input ng-model="vm.phone" pattern="\d{4}[\-]\d{2}[\-]\d{2}" id="phone" type="text" class="form-control" minlength="10" maxlength="10" name="phone">
+            <input ng-model="vm.phone" pattern="[0-9]+" id="phone" type="text" class="form-control" minlength="8" maxlength="8" name="phone">
              <div ng-messages="studentForm.phone.$error" ng-hide="studentForm.phone.$pristine">
               <div ng-message="pattern" ng-hide="studentForm.phone.$pristine" class="red darken-2 center-align white-text">Formato incorrecto (####-##-##)</div>
               <div ng-message="minlength" ng-hide="studentForm.phone.$pristine" class="red darken-2 center-align white-text">Complete la cantidad de numeros.</div>
@@ -187,7 +190,7 @@
           </div>
 
           <div class="form-group col-md-12 col-sm-12" style="display: block; text-align: center;"> 
-            <button type="submit" id="btnRegister" class="btn btn-warning btn-embossed">Enviar solicitud</button>
+            <button type="submit" id="btnRegister" ng-disabled="disabled" class="btn btn-warning btn-embossed">Enviar solicitud</button>
           </div>
         </form>
   </div>
