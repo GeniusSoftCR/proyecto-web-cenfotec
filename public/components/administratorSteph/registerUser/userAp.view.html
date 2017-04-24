@@ -1,95 +1,107 @@
 <main>
   <div class="row">
-        <div class="col-lg-11 col-md-8 col-sm-6 col-xs-4 bhoechie-tab-container">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
-              <div class="list-group">
-                <a href="#" class="list-group-item active text-center">
-                  <h4 class="glyphicon glyphicon-user"></h4><br/>Profesor
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-user"></h4><br/>Administrador
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-plus-sign"></h4><br/>Asistente
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-th-list"></h4><br/>Lista
-                </a>
+    <div class="col-lg-11 col-md-8 col-sm-6 col-xs-4 bhoechie-tab-container">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
+        <div class="list-group">
+          <a href="#" class="list-group-item active text-center"><h4 class="glyphicon glyphicon-user"></h4><br/>Profesor</a>
+          <a href="#" class="list-group-item text-center"><h4 class="glyphicon glyphicon-user"></h4><br/>Administrador</a>
+          <a href="#" class="list-group-item text-center"><h4 class="glyphicon glyphicon-user"></h4><br/>Asistente</a>
+          <a href="#" class="list-group-item text-center"><h4 class="glyphicon glyphicon-th-list"></h4><br/>Lista</a>
+        </div>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-5 col-xs-5 bhoechie-tab">
+      
+      <!-- flight section -->
+      <div class="bhoechie-tab-content active">
+        <center>
+          <form class="profForm" class="container" autocomplete="off" validate>  
+            <h4>Registro Profesores</h4>
+           
+            <div class="form-group col-md-4 col-sm-12 ibck">
+              <label for="name">Nombre:</label>
+              <input type="text" ng-model="vm.prof.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+              <div ng-messages="profForm.prof.name.$error" ng-hide="profForm.prof.name.$pristine">
+                <div ng-message="required" ng-hide="profForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                <div ng-message="pattern" ng-hide="profForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
               </div>
             </div>
-            <div class="col-lg-10 col-md-10 col-sm-5 col-xs-5 bhoechie-tab">
-                <!-- flight section -->
-                <div class="bhoechie-tab-content active">
-                    <center>
-                      <form class="userForm row" validate>  
-                         <h4>Registro Profesores</h4>
 
-                            <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
-                              <label>Nombre:</label>
-                              <input ng-model="userAprCtrl.prof.name" id="txtName" type="text" class="form-control" name="name"  required>
-                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Su nombre es requerido.</p>
-                            </div>
+            <!-- Primer Apellido -->
+            <div class="form-group col-md-4 col-sm-12 ibck">
+              <label for="surName">Primer apellido:</label>
+              <input type="text" ng-model="vm.prof.surname" id="txtlastName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
+              <div ng-messages="studentForm.surName.$error" ng-hide="studentForm.surName.$pristine">
+                <div ng-message="required" ng-hide="studentForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                <div ng-message="pattern" ng-hide="studentForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+              </div>
+            </div>
 
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Primer Apellido:</label>
-                              <input ng-model="userAprCtrl.prof.surname" id="txtlastName" type="text" class="form-control" name="surname"  required>
-                            </div>
+            <!-- Segundo Apellido -->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="secondSurname">Segundo apellido:</label>
+                <input type="text" ng-model="vm.secondSurname" id="txtFirstName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
+              <div ng-messages="studentForm.secondSurname.$error" ng-hide="studentForm.secondSurname.$pristine">
+                <div ng-message="required" ng-hide="studentForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                <div ng-message="pattern" ng-hide="studentForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+              </div>
+            </div>
 
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Segundo Apellido:</label>
-                              <input ng-model="userAprCtrl.prof.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" required>
-                            </div>
 
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Cédula de identidad:</label>
-                              <input ng-model="userAprCtrl.prof.id" id="txtid" type="text" class="form-control" name="id" maxlength="9" required>
-                            </div>
+            <div class="form-group col-md-4 ibck" style="display: inline-block;">
+              <label>Segundo Apellido:</label>
+              <input ng-model="vm.prof.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" required>
+            </div>
 
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Especialidad:</label>
-                              <input ng-model="userAprCtrl.prof.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" required>
-                            </div>
+              <div class="form-group col-md-4 ibck" style="display: inline-block;">
+                <label>Cédula de identidad:</label>
+                <input ng-model="vm.prof.id" id="txtid" type="text" class="form-control" name="id" maxlength="9" required>
+              </div>
 
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Correo:</label>
-                              <input overwrite-email ng-model="userAprCtrl.prof.mail" id="txtemail" type="email" class="form-control" name="mail" required>
-                            </div>
+              <div class="form-group col-md-4 ibck" style="display: inline-block;">
+                <label>Especialidad:</label>
+                <input ng-model="vm.prof.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" required>
+              </div>
 
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Contraseña:</label>
-                              <input ng-model="userAprCtrl.prof.password" id="txtPassword" type="password" class="form-control" name="password" required unique>
-                            </div>
+              <div class="form-group col-md-4 ibck" style="display: inline-block;">
+                <label>Correo:</label>
+                <input overwrite-email ng-model="vm.prof.mail" id="txtemail" type="email" class="form-control" name="mail" required>
+              </div>
 
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Miembro del Consejo:</label>
-                              <select class="form-control" required ng-model="userAprCtrl.prof.councilMember" name="councilMember">
-                                <option value="" disabled>Seleccione una opción</option>
-                                <option value="Si">Si</option>
-                                <option value="No">No</option>
-                              </select>
-                            </div>
+              <div class="form-group col-md-4 ibck" style="display: inline-block;">
+                <label>Contraseña:</label>
+                <input ng-model="vm.prof.password" id="txtPassword" type="password" class="form-control" name="password" required unique>
+              </div>
 
-                            <div class="form-group col-md-4 ibck" style="margin-top: -2%" ng-class="{ 'has-error' : userForm.photo.$invalid && !userForm.photo.$pristine}">
-                              <label style="margin-top: 4px">Avatar:</label>
-                              <div class="input-group">
-                                  <label class="input-group-btn">
-                                      <span class="btn btn-primary" style="background-color: #FBB803; color: black;">
-                                          Escoger<input type="file" style="display: none" id="photo" multiple ng-model="userAprCtrl.prof.image" required>
-                                      </span>
-                                  </label>
-                                  <input type="text" class="form-control" style="color: #fff" readonly>
-                                  <p ng-show="userForm.photo.$invalid && !userForm.photo.$pristine" class="help-block">La foto es requerida.</p>
-                              </div>
-                            </div>
+              <div class="form-group col-md-4 ibck" style="display: inline-block;">
+                <label>Miembro del Consejo:</label>
+                <select class="form-control" required ng-model="vm.prof.councilMember" name="councilMember">
+                  <option value="" disabled>Seleccione una opción</option>
+                  <option value="Si">Si</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
 
-                            <div class="input-group"> 
-                              <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="userAprCtrl.preSaveProf()" class="btn btn-sm btn-embossed btn-warning pull-center" value="Registrar" id="buttonRegis">
-                            </div>
-
-                            <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert>
-                      </form>
-                    </center>
+              <div class="form-group col-md-4 ibck" style="margin-top: -2%" ng-class="{ 'has-error' : userForm.photo.$invalid && !userForm.photo.$pristine}">
+                <label style="margin-top: 4px">Avatar:</label>
+                <div class="input-group">
+                    <label class="input-group-btn">
+                        <span class="btn btn-primary" style="background-color: #FBB803; color: black;">
+                                          Escoger<input type="file" style="display: none" id="photo" multiple ng-model="vm.prof.image" required>
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" style="color: #fff" readonly>
+                    <p ng-show="userForm.photo.$invalid && !userForm.photo.$pristine" class="help-block">La foto es requerida.</p>
                 </div>
+              </div>
+
+              <div class="input-group"> 
+                <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="vm.preSaveProf()" class="btn btn-sm btn-embossed btn-warning pull-center" value="Registrar" id="buttonRegis">
+              </div>
+
+              <alert class="thanks" ng-show="vm.send">Registro de usuario satisfactorio!</alert>
+          </form>
+        </center>
+      </div>
 
                 <div class="bhoechie-tab-content">
                     <center>
