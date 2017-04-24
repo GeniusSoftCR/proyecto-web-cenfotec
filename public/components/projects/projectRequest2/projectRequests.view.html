@@ -34,13 +34,15 @@
 			<div class="modal-body">
 				<form>
 						<!--Aquí va el nombre del proyecto-->
-						<p><b>{{vm.req.name}}</b></p>
+						<p><b>Proyecto {{vm.req.name}}</b></p>
 						<hr>
 					<div class="student-info">
 						<p><b>Empresa: </b> {{vm.req.client.companyName}}</p>
+						<p><b>Industria: </b> {{vm.req.client.industry}}</p>
 						<p><b>Cédula: </b> {{vm.req.idNum}}</p>
 						<p><b>Responsable: </b> {{vm.req.client.manager}}</p>
 						<p><b>Correo: </b> {{vm.req.client.email}}</p>
+						<p><b>Objetivo: </b> {{vm.req.objective}}</p>
 						<p><b>Fondos: </b> {{vm.req.money}}</p>
 					</div>
 					<!--sección oculta (contiene la justificacion del rechazo)-->
