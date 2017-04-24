@@ -7,11 +7,11 @@
 
     function userApController(userService,ImageService,Upload, localStorageService){ //se inyecta el service userService en el controlador para que se tenga acceso
       //controlador
-      var userAprCtrl = this; //binding del controlador con el html, solo en el controlador
-      userAprCtrl.cloudObj = ImageService.getConfiguration();
-      userAprCtrl.ap = {};
-      userAprCtrl.edit = {};
-      userAprCtrl.asis = {};
+      var vm = this; //binding del controlador con el html, solo en el controlador
+      vm.cloudObj = ImageService.getConfiguration();
+      vm.ap = {};
+      vm.edit = {};
+      vm.asis = {};
 
 
       $(document).ready(function() {
@@ -25,143 +25,134 @@
     });
 });
 
-      userAprCtrl.userList = [];
+      vm.userList = [];
       
-      userAprCtrl.userList = userService.getUsers();
+      vm.userList = userService.getUsers();
 
-      userAprCtrl.rejection=false;
-      userAprCtrl.edit.modal=false;
+      vm.rejection=false;
+      vm.edit.modal=false;
 
-      userAprCtrl.send = false;
-      userAprCtrl.toSend = true;
+      vm.send = false;
+      vm.toSend = true;
 
 
       //Guarda los datos del Profesor
 
-      userAprCtrl.preSaveProf = function(){
-        userAprCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
-        Upload.upload(userAprCtrl.cloudObj)
+      vm.preSaveProf = function(){
+        vm.cloudObj.data.file = document.getElementById("photo").files[0];
+        Upload.upload(vm.cloudObj)
           .success(function(data){
-
-            var role = userAprCtrl.ap.role;
-            var key = 0;
-
-            if (role == 'administrador') {
-              key = 1;
-            } else {
-              key = 2;
-            }
-            userAprCtrl.save(data.url,key);
+            vm.save(data.url,key);
           });
       }
 
-      userAprCtrl.save = function(pimage,pkey){
+      vm.save = function(pimage,pkey){
         var newUserProf ={
           role_key: 2,
-          name : userAprCtrl.prof.name,
-          surname : userAprCtrl.prof.surname,
-          secondSurname : userAprCtrl.prof.secondSurname,
-          id : userAprCtrl.prof.id,
-          specialty : userAprCtrl.prof.specialty,
-          mail : userAprCtrl.prof.mail,
-          password : userAprCtrl.prof.password,
-          councilMember : userAprCtrl.prof.councilMember,
+          name : vm.prof.name,
+          surname : vm.prof.surname,
+          secondSurname : vm.prof.secondSurname,
+          id : vm.prof.id,
+          specialty : vm.prof.specialty,
+          mail : vm.prof.mail,
+          password : vm.prof.password,
+          councilMember : vm.prof.councilMember,
           avatar:  pimage
         }
 
         userService.addUser(newUserProf);
 
-        userAprCtrl.prof.name = null;
-        userAprCtrl.prof.surname = null;
-        userAprCtrl.prof.secondSurname = null;
-        userAprCtrl.prof.id = null;
-        userAprCtrl.prof.specialty = null;
-        userAprCtrl.prof.mail = null;
-        userAprCtrl.prof.password = null;
-        userAprCtrl.prof.councilMember = null;
-        userAprCtrl.prof.image = null;
+        vm.prof.name = null;
+        vm.prof.surname = null;
+        vm.prof.secondSurname = null;
+        vm.prof.id = null;
+        vm.prof.specialty = null;
+        vm.prof.mail = null;
+        vm.prof.password = null;
+        vm.prof.councilMember = null;
+        vm.prof.image = null;
 
-        userAprCtrl.send = true;
-        userAprCtrl.toSend = false;
+        vm.send = true;
+        vm.toSend = false;
       }
 
       //Guarda los datos del Administrador
-      userAprCtrl.preSaveAdmi = function(){
-        userAprCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
-        Upload.upload(userAprCtrl.cloudObj)
+      vm.preSaveAdmi = function(){
+        vm.cloudObj.data.file = document.getElementById("photo").files[0];
+        Upload.upload(vm.cloudObj)
           .success(function(data){
-            userAprCtrl.saveAdmi(data.url);
+            vm.saveAdmi(data.url);
           });
       }
 
 
-      userAprCtrl.saveAdmi = function(pimage){
+      vm.saveAdmi = function(pimage){
         var newUserAdmi ={
           role_key: 1,
-          name : userAprCtrl.admi.name,
-          surname : userAprCtrl.admi.surname,
-          secondSurname : userAprCtrl.admi.secondSurname,
-          id : userAprCtrl.admi.id,
-          mail : userAprCtrl.admi.mail,
-          password : userAprCtrl.admi.password,
-          jobPosition : userAprCtrl.admi.jobPosition,
-          councilMember : userAprCtrl.admi.councilMember,
-          phone : userAprCtrl.admi.phone,
+          name : vm.admi.name,
+          surname : vm.admi.surname,
+          secondSurname : vm.admi.secondSurname,
+          id : vm.admi.id,
+          mail : vm.admi.mail,
+          password : vm.admi.password,
+          jobPosition : vm.admi.jobPosition,
+          councilMember : vm.admi.councilMember,
+          phone : vm.admi.phone,
           avatar:  pimage
         }
 
         userService.addUser(newUserAdmi);
 
-        userAprCtrl.admi.name = null;
-        userAprCtrl.admi.surname = null;
-        userAprCtrl.admi.secondSurname = null;
-        userAprCtrl.admi.id = null;
-        userAprCtrl.admi.mail = null;
-        userAprCtrl.admi.password = null;
-        userAprCtrl.admi.jobPosition = null;
-        userAprCtrl.admi.councilMember = null;
-        userAprCtrl.admi.phone = null;
-        userAprCtrl.admi.image = null;
+        vm.admi.name = null;
+        vm.admi.surname = null;
+        vm.admi.secondSurname = null;
+        vm.admi.id = null;
+        vm.admi.mail = null;
+        vm.admi.password = null;
+        vm.admi.jobPosition = null;
+        vm.admi.councilMember = null;
+        vm.admi.phone = null;
+        vm.admi.image = null;
 
-        userAprCtrl.send = true;
-        userAprCtrl.toSend = false;
+        vm.send = true;
+        vm.toSend = false;
       }
 
       //Guarda los datos del Asistente
-      userAprCtrl.preSaveAs = function(){
-        userAprCtrl.cloudObj.data.file = document.getElementById("photo").files[0];
-        Upload.upload(userAprCtrl.cloudObj)
+      vm.preSaveAs = function(){
+        vm.cloudObj.data.file = document.getElementById("photo").files[0];
+        Upload.upload(vm.cloudObj)
           .success(function(data){
-            userAprCtrl.saveAs(data.url);
+            vm.saveAs(data.url);
           });
       }
 
 
-      userAprCtrl.saveAs = function(pimage){
+      vm.saveAs = function(pimage){
         var newUserAssistant ={
           role_key: 3,
-          name : userAprCtrl.asis.name,
-          surname : userAprCtrl.asis.surname,
-          secondSurname : userAprCtrl.asis.secondSurname,
-          id : userAprCtrl.asis.id,
-          mail : userAprCtrl.asis.mail,
-          password : userAprCtrl.asis.password,
-          jobPosition : userAprCtrl.asis.jobPosition,
-          phone : userAprCtrl.asis.phone,
+          name : vm.asis.name,
+          surname : vm.asis.surname,
+          secondSurname : vm.asis.secondSurname,
+          id : vm.asis.id,
+          mail : vm.asis.mail,
+          password : vm.asis.password,
+          jobPosition : vm.asis.jobPosition,
+          phone : vm.asis.phone,
           avatar:  pimage
         }
 
         userService.addUser(newUserAssistant);
 
-        userAprCtrl.asis.name = null;
-        userAprCtrl.asis.surname = null;
-        userAprCtrl.asis.secondSurname = null;
-        userAprCtrl.asis.id = null;
-        userAprCtrl.asis.mail = null;
-        userAprCtrl.asis.password = null;
-        userAprCtrl.asis.jobPosition = null;
-        userAprCtrl.asis.phone = null;
-        userAprCtrl.asis.image = null;
+        vm.asis.name = null;
+        vm.asis.surname = null;
+        vm.asis.secondSurname = null;
+        vm.asis.id = null;
+        vm.asis.mail = null;
+        vm.asis.password = null;
+        vm.asis.jobPosition = null;
+        vm.asis.phone = null;
+        vm.asis.image = null;
       }
 
 
