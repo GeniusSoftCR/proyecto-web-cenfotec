@@ -51,17 +51,22 @@
     };
     vm.preSave = function(){
         vm.cloudObj.data.file = document.getElementById("imageProjectRequest").files[0];
-        Upload.upload(vm.cloudObj)
+        if (vm.cloudObj.data.file) {
+          Upload.upload(vm.cloudObj)
           .success(function(data){
           vm.save(data.url);
           });
+        }else{
+          vm.save();
+        }
+
       }
 
     vm.save = function(pimage){
       var newProjectRequest = {
-        idNum : JSON.stringify(vm.nId),
+        idNum : vm.nId,
         name: vm.projectName,
-        money : JSON.stringify(vm.money),
+        money : vm.money,
         objective : vm.objective,
         state : 'inRevision',
         client : {
