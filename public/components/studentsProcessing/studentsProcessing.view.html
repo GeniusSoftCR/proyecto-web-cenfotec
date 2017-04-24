@@ -8,7 +8,7 @@
 					  <ul class="list-group list-group-flush" id="myScrollspy">
 					  <!-- Trigger the modal with a button -->
 					    <li class="list-group-item" ng-repeat="request in vm.requestsList | filter:{state:'postulate'}">
-					    	{{request.name}} {{vm.req.surname}}
+					    	{{request.name}} {{request.surname}}
 					    	<button ng-click="vm.viewRequest(request)" class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#studentReq-Modal">Ver solicitud</button>
 					    </li>
 					    <p ng-show="vm.va">No hay solicitudes nuevas</p>
@@ -46,20 +46,8 @@
 					        <span ng-repeat="career in vm.req.careers" class="label label-default modal-label">{{ career }}</span>
 						</p>
 					</div>
-
-					<!--sección oculta (contiene la justificacion del rechazo)-->
-					<!-- <div class="extra" ng-Show="vm.rejection">
-						<form novalidate>
-							<div class="form-group">
-								<label>Justificación</label>
-								<div class="form-group">
-									<input id="justification" class="form-control" type="text" placeholder="agregue una justificación" ng-model="vm.req.justification">
-								</div>
-								<div ng-show="vm.validate">La justificación es requerida</div>
-							</div>
-						</form>
-					</div> -->
 				</form>
+				<p ng-show="vm.stuApro" class="alert alert-success">El estudiante ha sido aprobado</p>
 			</div>
 			<div class="modal-footer">
 				<!--procesamiento de la solicitud (aprueba o rechaza)-->
@@ -94,16 +82,17 @@
 						<div class="form-group">
 							<input id="justification" class="form-control" type="text" placeholder="agregue una justificación" ng-model="vm.req.justification">
 						</div>
-						<div ng-show="vm.validate">La justificación es requerida</div>
+						<!-- <div ng-show="vm.validate">La justificación es requerida</div> -->
 					</div>
 				</form>
 			</div>
-			<p>{{vm.response}}</p>
+			<p ng-show="vm.finalStep">¿Realmente desea rechazar al estudiante?</p>
+			<p ng-show="vm.stuReje" class="alert alert-success">El estudiante ha sido rechazado</p>
 		</div>
 		<div class="modal-footer">
-			<!--procesamiento de la solicitud (aprueba o rechaza)-->
 			<div class="unModal-footer">
-				<button ng-show="vm.confirm" class="btn btn-sm btn-embossed btn-danger" ng-click="vm.rejectRequest(vm.req)">Confirmar rechazo</button>
+				<button ng-show="vm.confirm" class="btn btn-sm btn-embossed btn-danger" ng-click="vm.rejectRequest(vm.req)">Rechazar</button>
+				<button ng-show="vm.finalStep" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.confirmation(vm.param1,vm.param2)">Confirmar</button>
 				<button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
 			</div>
 		</div>
