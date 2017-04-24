@@ -98,6 +98,21 @@
         userService.addUser(newUser).then(function(res){
               console.log(res)
           });
+
+        vm.id = null;
+        vm.name = null;
+        vm.surName = null;
+        vm.secondSurname = null;
+        vm.email = null;
+        vm.mail = null;
+        vm.phone = null;
+        vm.image = null;
+        vm.password = null;
+        vm.birthdate = null;
+        vm.careers = null;
+        vm.resumeUrl = null;
+        vm.githubUrl = null;
+        vm.websiteUrl = null;
       };
   }
 })();
