@@ -27,14 +27,6 @@
       //Mostrar el detalle de la solicitud
       vm.viewRequest= function(request){
         vm.req=request;     //binding de la solicitud seleccionada
-
-        //recorre todos los clientes
-        for(j = 0; j < vm.clients.length; j++){
-          //verifica cuando el id de proyecto coincide con el id de cliente
-          if(vm.req.id==vm.clients[j].id){
-            vm.cli = vm.clients[j]; //bindind del cliente de la solicitud
-          }
-        }
         
         //en el modal:
         vm.btnYes=true;     //muestra botón de aprobar
@@ -43,7 +35,6 @@
         vm.confirm=false;   //oculta botón de confirmar
         $('#justification').closest('.form-group').removeClass('has-error');
         vm.req.justification=null;
-        // setTimeout(function(){$('#myModal').modal('hide')},3000);
       }
 
       //Aprobar una solicitud
