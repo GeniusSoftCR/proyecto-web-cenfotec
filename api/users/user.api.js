@@ -2,12 +2,12 @@
 var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
-
+    bcrypt=require('bcryptjs'),
     ///////////////////////////////
     Schema = mongoose.Schema,
     //////////////////////////////
 
-    states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'];
+    states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
@@ -37,6 +37,22 @@ var UsersSchema = new Schema({
   jobPosition:   {type: String}
 
 }, {collection: 'users'});
+
+UsersSchema.pre('save', function(next) {  
+  var user = this;
+
+  if (!user.isModified('password')) return next();
+
+  bcrypt.genSalt(10, function(err, salt) {
+    if (err) return next(err);
+
+    bcrypt.hash(user.password, salt, function(err, hash) {
+        if (err) return next(err);
+        user.password = hash;
+        next();
+    });
+  });
+});
 
 
 var User = mongoose.model('User', UsersSchema);
