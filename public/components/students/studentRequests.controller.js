@@ -18,7 +18,7 @@
 
       //RECARGAR LISTA DE SOLICITUDES
       vm.reloadPage = function () {
-        setTimeout(function(){$window.location.reload()},1)
+        setTimeout(function(){$window.location.reload()},500)
       }
       vm.fetchRequestsList= function(){
         userService.getRequests().then(function(res){
@@ -36,6 +36,8 @@
         vm.btnNo=true;      //muestra botón de rechazar
         vm.rejection=false; //oculta bloque de la jsutificación
         vm.confirm=false;   //oculta botón de confirmar
+        vm.stuApro=false;
+        vm.stuReje=false;
         $('#justification').closest('.form-group').removeClass('has-error');
         vm.req.justification=null;
         vm.finalStep=false;
@@ -47,12 +49,13 @@
         userService.changeRequestState(request,"eligible").then(function(res){
           console.log("Estudiante aprobado" + res.data);
         });
-        // setTimeout(function(){$('#rejectRetro').modal('hide')},3000);
-        //$('#retro').show('slow');
-        //3)actualizar la lista de solicitudes
-        vm.fetchRequestsList();
-        //cerrar el modal
-        $('#studentReq-Modal').modal('hide');
+        vm.stuApro=true;
+        setTimeout(function(){
+          $('#studentReq-Modal').modal('hide');
+          //3)actualizar la lista de solicitudes
+          vm.fetchRequestsList();
+          vm.reloadPage();
+        },1500);
       }
 
       vm.switch=function(){
@@ -62,9 +65,13 @@
 
       vm.confirmation=function(x,y){
         userService.changeRequestState(x,y);
-        //3)actualizar la lista de solicitudes
-        vm.fetchRequestsList();
-        vm.reloadPage();
+        vm.stuReje=true;
+        setTimeout(function(){
+          $('#studentReq-Modal').modal('hide');
+          //3)actualizar la lista de solicitudes
+          vm.fetchRequestsList();
+          vm.reloadPage();
+        },1500);
       }
 
       //RECHAZAR SOLICITUD

@@ -47,7 +47,7 @@
 						</p>
 					</div>
 				</form>
-				<p class="alert alert-success">El estudiante ha sido aprobado</p>
+				<p ng-show="vm.stuApro" class="alert alert-success">El estudiante ha sido aprobado</p>
 			</div>
 			<div class="modal-footer">
 				<!--procesamiento de la solicitud (aprueba o rechaza)-->
@@ -87,7 +87,7 @@
 				</form>
 			</div>
 			<p ng-show="vm.finalStep">¿Realmente, desea rechazar al estudiante?</p>
-			<p class="alert alert-success">El estudiante ha sido rechazado</p>
+			<p ng-show="vm.stuReje" class="alert alert-success">El estudiante ha sido rechazado</p>
 		</div>
 		<div class="modal-footer">
 			<div class="unModal-footer">
