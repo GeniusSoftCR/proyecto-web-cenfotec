@@ -102,11 +102,11 @@
 			url:'/estudiantes',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./components/students/studentRequests.controller.js')
+	          	return $ocLazyLoad.load('./components/studentsProcessing/studentsProcessing.controller.js')
 	          }]
 		    },
-			templateUrl: './components/students/studentRequests.view.html',
-			controller: 'studentRequestsController',
+			templateUrl: './components/studentsProcessing/studentsProcessing.view.html',
+			controller: 'studentProcessingController',
 			controllerAs: 'vm'
 		})
 

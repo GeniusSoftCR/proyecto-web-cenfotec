@@ -1,10 +1,10 @@
 (function(){
   angular
     .module('cshApp')
-    .controller('studentRequestsController',studentRequestsController);
-      studentRequestsController.$inject= ['userService','$window'];
+    .controller('studentProcessingController',studentProcessingController);
+      studentProcessingController.$inject= ['userService','$window'];
 
-    function studentRequestsController(userService,$window){
+    function studentProcessingController(userService,$window){
      
       var vm = this;
       //carga la lista de solicitudes
