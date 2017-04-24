@@ -1,10 +1,10 @@
 (function(){
   angular
     .module('cshApp')
-    .controller('studentRequestsController', studentRequestsController);
-      studentRequestsController.$inject= ['userService'];
+    .controller('studentRequestsController',studentRequestsController);
+      studentRequestsController.$inject= ['userService','$window'];
 
-    function studentRequestsController(userService){
+    function studentRequestsController(userService,$window){
      
       var vm = this;
       //carga la lista de solicitudes
@@ -17,11 +17,16 @@
       vm.confirm=false;   //oculta botón de confirmar
 
       //Recargar la lista de solicitudes
+      vm.reloadPage = function () {
+        
+
+        setTimeout(function(){$window.location.reload()},1)
+      }
       vm.fetchRequestsList= function(){
         userService.getRequests().then(function(res){
           vm.requestsList = res.data;
           console.log(vm.requestsList);
-          //output.vale='Su solicitud ha sido enviada correctamente';
+          //$window.location.reload();
         })
         vm.validate=false;
       }
@@ -58,6 +63,10 @@
         $('#retro-Modal').modal('show');
       }
 
+      vm.confirmation=function(x,y){
+        userService.changeRequestState(x,y);
+      }
+
       //Rechazar una solicitud
       vm.rejectRequest= function(request){
 
@@ -66,19 +75,20 @@
           vm.validate=false;  //oculta mensaje "justificación requerida"
           $('#justification').closest('.form-group').removeClass('has-error');
           //1)1er param:solicitud actual, 2do param: estado(rechazado=3)
-          userService.changeRequestState(request,"rejected");
+          //userService.changeRequestState(request,"rejected");
           //2)oculta la sección de la justificación
           vm.rejection=false;
           vm.confirm=false;
           //3)actualizar la lista de solicitudes
+          vm.confirmation(request,"rejected");
           vm.fetchRequestsList();
+          vm.reloadPage();
           //cerrar el modal
           $('#studentReq-Modal').modal('hide');
           vm.rejection=false;
           vm.confirm=false;
           vm.btnYes=true;
           vm.btnNo=true;
-          $('#retro-Modal').modal('show');
           // setTimeout(function(){$('#retro-Modal').modal('hide')},3000);
           /*4)Back End:enviar notificación por correo*/
         } else { 
