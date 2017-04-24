@@ -23,6 +23,7 @@
           console.log(vm.requestsList);
           //output.vale='Su solicitud ha sido enviada correctamente';
         })
+        vm.validate=false;
       }
       vm.fetchRequestsList();
 
