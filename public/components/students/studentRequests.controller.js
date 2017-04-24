@@ -18,15 +18,11 @@
 
       //Recargar la lista de solicitudes
       vm.reloadPage = function () {
-        
-
         setTimeout(function(){$window.location.reload()},1)
       }
       vm.fetchRequestsList= function(){
         userService.getRequests().then(function(res){
           vm.requestsList = res.data;
-          console.log(vm.requestsList);
-          //$window.location.reload();
         })
         vm.validate=false;
       }
@@ -84,13 +80,13 @@
           vm.fetchRequestsList();
           vm.reloadPage();
           //cerrar el modal
-          $('#studentReq-Modal').modal('hide');
           vm.rejection=false;
           vm.confirm=false;
           vm.btnYes=true;
           vm.btnNo=true;
           // setTimeout(function(){$('#retro-Modal').modal('hide')},3000);
           /*4)Back End:enviar notificación por correo*/
+          vm.finalStep=true;
         } else { 
           vm.validate=true;
           $('#justification').closest('.form-group').addClass('has-error');
