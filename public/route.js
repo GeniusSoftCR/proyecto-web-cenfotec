@@ -20,7 +20,7 @@
 		.state('students',{
 		    url: '/solicitudEstudiantes',
 		    templateUrl: './components/studentRequest/studentsRequest.view.html',
-		    css: './css/students.css',
+		    css: './css/studentsRequest.style.css',
 		    resolve: {
 		    	load: ['$ocLazyLoad', function($ocLazyLoad){
 		    		return $ocLazyLoad.load('./components/studentRequest/studentsRequest.controller.js')

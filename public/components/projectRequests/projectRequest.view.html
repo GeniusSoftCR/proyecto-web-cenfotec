@@ -80,7 +80,7 @@
         <label for="money">Fondos para el proyecto (En dólares):</label>
         <input type="text" ng-model="vm.money" id="money" class="form-control" name="money" placeholder="$" pattern="[0-9]+" required>
         <div ng-messages="projectRequest.money.$error" ng-hide="projectRequest.money.$pristine" required>
-          <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+          <div ng-message="required" class="red darken-2 center-align white-text">El presupuesto del proyecto es requerido.</div>
           <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
         </div>
       </div>
@@ -89,40 +89,33 @@
         <label for="#resume">Resumen ejecutivo:</label>
         <p><a ng-click="vm.pickFile()" class="form-control" style="background-color: #FBB803; color: black; cursor: pointer;" id="resumeUrl" ng-model="vm.projectFile" multiple required >Seleccione el archivo</a></p>
       </div>
+      <!-- Industria de la empresa -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="#Industria de la empresa">Ingrese la industria de la empresa:</label>
+        <input type="text" ng-model="vm.industry" id="industry" class="form-control" name="industry" pattern="[ñáéíóúA-Za-z]+" required>
+        <div ng-messages="projectRequest.industry.$error" ng-hide="projectRequest.industry.$pristine">
+          <div ng-message="required" ng-hide="projectRequest.industry.$pristine" class="red darken-2 center-align white-text">La industria del proyecto es requerida.</div>
+          <div ng-message="pattern" ng-hide="projectRequest.industry.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+        </div>
+      </div>
+      <!-- Imagenes del proyecto -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="images">Algunas imagenes sobre el proyecto: </label>
+        <div class="input-group">
+          <label class="input-group-btn">
+            <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photo" multiple ng-model="vm.projectImages" required>
+            </span>
+          </label>
+          <input type="text" class="form-control" style="color: black" readonly>
+        </div>
+      </div>
+      <!-- Objetivo del proyecto -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="#projectObjetive">Ingrese el objetivo del proyecto:</label>
+        <textarea class="col-md-12" name="projectObjetive" id="projectObjetive" ng-model="vm.objective" required></textarea>
+      </div>
     </form>
   </div>
-
-            <p ng-show="projectRequest.money.$invalid && !projectRequest.money.$pristine" class="help-block">El presupuesto del proyecto es requerido.</p>
-          </div>
-        </div>
-        
-        <div class="col-md-4 col-xs-12">
-          <div class="col-md-12 ibck">
-            
-            <a class="btnUpload" id="resume" ng-click="vm.pickFile()">
-              <i class="fa fa-cloud-upload"></i> Seleccionar resumen ejecutivo en formato pdf
-            </a>
-          </div>
-          <!-- Industria de la empresa -->
-          <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.industry.$invalid && !projectRequest.industry.$pristine}">
-            <label for="#Industria de la empresa">Ingrese la industria de la empresa:</label>
-            <input type="text" id="industry" name="industry" class="form-control" ng-model="vm.industry">
-            <p ng-show="projectRequest.money.$invalid && !projectRequest.money.$pristine" class="help-block">La industria del proyecto es requerida.</p>
-          </div>
-          <!-- Imagenes del proyecto -->
-          <div class="col-md-12 ibck">
-            <label for="images">Algunas imagenes sobre el proyecto: </label>
-            <input type="file" id="imageProjectRequest" name="projectImages" class="form-control" ng-model="vm.projectImages">
-          </div>
-        </div>
-         <!-- Objetivo del proyecto -->
-        <div class="col-md-12 col-xs-12" id="objetiveM">
-          <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.projectObjetive.$invalid && !projectRequest.projectObjetive.$pristine}">
-            <label for="#projectObjetive">Ingrese el objetivo del proyecto:</label>
-            <textarea class="col-md-12" name="projectObjetive" id="projectObjetive" ng-model="vm.objective" required></textarea>
-            <p ng-show="projectRequest.projectObjetive.$invalid && !projectRequest.projectObjetive.$pristine" class="help-block">El objetivo del proyecto es requerido.</p>
-          </div>
-        </div>
 
       </form>
 
