@@ -106,7 +106,7 @@
 	          }]
 		    },
 			templateUrl: './components/studentsProcessing/studentsProcessing.view.html',
-			controller: 'studentRequestsController',
+			controller: 'studentProcessingController',
 			controllerAs: 'vm'
 		})
 
