@@ -75,6 +75,15 @@
           <div ng-message="required" ng-hide="projectRequest.projectName.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
         </div>
       </div>
+      <!-- Fondos para el proyecto -->
+      <div class="form-group col-md-4 col-sm-12 ibck">
+        <label for="money">Fondos para el proyecto (En dólares):</label>
+        <input type="text" ng-model="vm.money" id="money" class="form-control" name="money" placeholder="$" pattern="[0-9]+" required>
+        <div ng-messages="projectRequest.money.$error" ng-hide="projectRequest.money.$pristine" required>
+          <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+          <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
+        </div>
+      </div>
       <!-- Resumen ejecutivo -->
       <div class="form-group col-md-4 col-sm-12 ibck">
         <label for="#resume">Resumen ejecutivo:</label>
@@ -82,10 +91,7 @@
       </div>
     </form>
   </div>
-          <!-- Fondos para el proyecto -->
-          <div class="col-md-12 ibck" ng-class="{ 'has-error' : projectRequest.money.$invalid && !projectRequest.money.$pristine}">
-            <label for="money">Fondos para el proyecto (En dólares):</label>
-            <input type="number" id="money" min="1" name="money" class="form-control" ng-model="vm.money" required>
+
             <p ng-show="projectRequest.money.$invalid && !projectRequest.money.$pristine" class="help-block">El presupuesto del proyecto es requerido.</p>
           </div>
         </div>
