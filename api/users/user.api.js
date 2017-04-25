@@ -41,7 +41,7 @@ var UsersSchema = new Schema({
 UsersSchema.pre('save', function(next) {  
   var user = this;
 
-  if (!user.isModified('password')) return next();
+  if (!user.isModified('password')) return next();  
 
   bcrypt.genSalt(10, function(err, salt) {
     if (err) return next(err);
@@ -54,8 +54,26 @@ UsersSchema.pre('save', function(next) {
   });
 });
 
+UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+};
 
 var User = mongoose.model('User', UsersSchema);
+
+router.post('/user/login', function(req, res, next) {
+  User.findOne({email: req.body.email}, function(err, user) {
+      if (err) throw err;
+      // test a matching password
+      user.comparePassword(req.body.password, function(err, isMatch) {
+          if (err) throw err;
+          console.log('Password'+req.body.password+': ', isMatch); // -> Password123: true
+          res.json(400)
+      });
+  });  
+});
 
 //API General
 router.get('/users', function(req, res, next) {
@@ -64,6 +82,7 @@ router.get('/users', function(req, res, next) {
   });
 });
 router.put('/user', function(req, res, next) {
+ 
   User.findOne(req.body, function(err,user) {
     if (user) {      
       switch(user.state){
