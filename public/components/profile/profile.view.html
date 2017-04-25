@@ -1,11 +1,12 @@
 <div class="row">
 	<div class="col-md-10">
-		<div class="profile">
+		<div class="profile text-right">
 			<img class="avatar" ng-src="../../imgs/users/{{vm.user.username}}.jpg " alt="">
 			<!-- ../../imgs/users/stephbr.jpg -->
 		</div>
-		<h3 >Bienvenido {{vm.user.username}}</h1>
-		<h4 class="">{{vm.user.state}}</h2>
-		<h4 class="">{{vm.user.role}}</h2>
+		<h2 class="text-right">Bienvenido {{vm.user.username}}</h2>
+		<h5 class="text-right">{{vm.user.name +" "+ vm.user.surname +" "+ vm.user.secondSurname }}</h5>
+		<h4 class="text-right">{{vm.user.state}}</h4>
+		<h4 class="text-right">{{vm.user.role}}</h4>
 	</div>
 </div>
