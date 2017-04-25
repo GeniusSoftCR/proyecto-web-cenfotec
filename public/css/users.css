@@ -75,11 +75,17 @@ body{
 
 h4{
   font-family: 'montserrat';
-  font-size: 30px;
+  font-size: 18px;
   font-weight: normal;
+  text-align: center;
 }
 
 label{
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: left;
 }
+
+.tittle{
+  text-align: center;
+}
+

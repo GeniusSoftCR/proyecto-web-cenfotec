@@ -181,7 +181,7 @@
 			controllerAs: 'vm'
 		})
 
-		 .state('registrerProfessor',{
+		 /*.state('registrerProfessor',{
 		       url: '/registrerProfessor',
 		       templateUrl: './components/administratorSteph/registrerProfessor/userProfessor.view.html',
 		       controller: 'userProfessorController',
@@ -198,7 +198,7 @@
 		       templateUrl: './components/administratorSteph/registrerAdmi/userAdmi.view.html',
 		       controller: 'userAdmiController',
 		       controllerAs: 'userAdmiCtrl'
-		     })
+		     })*/
 		.state('administrator-studentRequests',{
 			url: '/admin/solicitudesEstudiantes',
 			templateUrl: './components/administratorEsteban/studentRequests/studentRequests.view.html',

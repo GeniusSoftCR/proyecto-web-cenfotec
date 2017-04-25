@@ -89,10 +89,11 @@ router.put('/user/students/update', function(req, res, next) {
 
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
-  var user = Object.assign(new User())
+  var user = Object.assign(new User(),req.body)
+
 
   // user._id = mongoose.Schema.Types.ObjectId
-  user.idNum = req.body.idNum;
+  /*user.idNum = req.body.idNum;
   user.name = req.body.name;
   user.surname = req.body.surname;
   user.secondSurname = req.body.secondSurname;
@@ -101,13 +102,11 @@ router.post('/user/add', function(req, res, next) {
   user.avatar = req.body.avatar;
   user.password = req.body.password;
   user.state = req.body.state;
-  user.role = req.body.role;
+  user.role = req.body.role;*/
+
 
   //User Roles
   user.role = req.body.role;
-
-
-
 
   console.log('USER ROLE ++++++++++++++++++++++++++++++++++++++++++'+req.body.role)
   switch (user.role){
