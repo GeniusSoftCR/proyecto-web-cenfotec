@@ -78,17 +78,16 @@ h2{
   font-size: 24px;
   display: block;
 }
-#aside_col .logo {
-  height: 53px;
-}
 #aside_col .logo img {
   margin: 10px 10px;
 }
 #aside_col .logo li {
   padding: 10px 0 11px 10px;
 }
-#aside_col .logo img {
+#aside_col .logo img{
   max-width: 40px;
+  margin-left: 35px;
+  margin-top: 20px;
 }
 
 /*
