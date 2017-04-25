@@ -65,11 +65,6 @@
 		
 		.state('main.profile',{
 			url:'/usuario',
-			resolve: {  
-	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./components/projects/projects.controller.js')
-	          }]
-		    },
 		    css: 'css/profile.style.css',
 			templateUrl: './components/profile/profile.view.html'			
 		})
