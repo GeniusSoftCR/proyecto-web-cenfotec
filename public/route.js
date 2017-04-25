@@ -50,7 +50,7 @@
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
-		/*ESTADOS PARA TRAAJAR LOS PROYECTOS*/
+		/*ESTADOS PARA TRABAJAR LOS PROYECTOS*/
 		.state('main',{
 			url:'/inicio',
 			resolve: {  
@@ -71,14 +71,19 @@
 
 		.state('main.projects',{
 			url:'/proyectos',
-			// resolve: {  
-	  //         load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	  //         	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
-	  //         }]
-		 //    },
-			templateUrl: './components/projects/projects.view.html'
-			//controller: 'loadProjectsController',
-			//controllerAs: 'vm'
+			templateUrl: './components/projects/projects.view.html',
+			views: {
+				'anotaciones@main.projects.project': {
+			    	resolve: {  
+			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+			          	return $ocLazyLoad.load('./components/projects/project/projectAnotations/projectanotations.controller.js')
+			          }]
+				    },
+			    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
+			    	controller: 'projectAnotationsController',
+			    	controllerAs: 'anotationsCtrl'
+				},
+			}
 		})
 		
 		.state('main.projects.viewProjects',{
