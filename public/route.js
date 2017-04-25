@@ -50,7 +50,7 @@
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
-
+		/*ESTADOS PARA TRABAJAR LOS PROYECTOS*/
 		.state('main',{
 			url:'/inicio',
 			resolve: {  
@@ -71,14 +71,22 @@
 
 		.state('main.projects',{
 			url:'/proyectos',
-			// resolve: {  
-	  //         load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	  //         	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
-	  //         }]
-		 //    },
-			templateUrl: './components/projects/projects.view.html'
-			//controller: 'loadProjectsController',
-			//controllerAs: 'vm'
+			// templateUrl: './components/projects/projects.view.html',
+			views: {
+				'': {
+					templateUrl: './components/projects/projects.view.html',
+				},
+				'projectsList@main.projects': {
+			    	resolve: {  
+			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+			          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
+			          }]
+				    },
+			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
+					controller: 'loadProjectsController',
+					controllerAs: 'vm'
+				},
+			}
 		})
 		
 		.state('main.projects.viewProjects',{
@@ -114,7 +122,7 @@
 					controller: 'watchProjectController',
 					controllerAs: 'watchProjectCtrl'
 				},
-			    'anotaciones@watchProject': { //Andres anotaciones
+			    'anotaciones@main.projects.project': { //Andres anotaciones
 			    	resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 			          	return $ocLazyLoad.load('./components/projects/project/projectAnotations/projectanotations.controller.js')
@@ -134,17 +142,7 @@
 		      	//   controller: 'assignTeachersController',
 		      	//   controllerAs: 'assignTeachersCtrl'
 		      	// },
-				// 'header@watchProject': { //Andres asignar estudiantes
-				//   templateUrl: 'components/dashboard/header/header.view.html',
-				//   controller: 'headerController',
-				//   controllerAs: 'headerCtrl'
-				// },
-				// 'menu@watchProject': { //Andres asignar estudiantes
-				//   templateUrl: 'components/dashboard/menu/menu.view.html',
-				//   controller: 'menuController',
-				//   controllerAs: 'menuCtrl'
-				// },
-				'archivos@watchProject': { //Esteban archivos
+				'archivos@main.projects.project': { //Esteban archivos
 					resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 			          	return $ocLazyLoad.load('./components/projects/project/projectFiles-esteban/projectFiles.controller.js')
