@@ -114,7 +114,7 @@
 					controller: 'watchProjectController',
 					controllerAs: 'watchProjectCtrl'
 				},
-			    'anotaciones@watchProject': { //Andres anotaciones
+			    'anotaciones@main.projects.project': { //Andres anotaciones
 			    	resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 			          	return $ocLazyLoad.load('./components/projects/project/projectAnotations/projectanotations.controller.js')
@@ -134,7 +134,7 @@
 		      	//   controller: 'assignTeachersController',
 		      	//   controllerAs: 'assignTeachersCtrl'
 		      	// },
-				'archivos@watchProject': { //Esteban archivos
+				'archivos@main.projects.project': { //Esteban archivos
 					resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 			          	return $ocLazyLoad.load('./components/projects/project/projectFiles-esteban/projectFiles.controller.js')
