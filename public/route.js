@@ -71,17 +71,20 @@
 
 		.state('main.projects',{
 			url:'/proyectos',
-			templateUrl: './components/projects/projects.view.html',
+			// templateUrl: './components/projects/projects.view.html',
 			views: {
-				'anotaciones@main.projects.project': {
+				'': {
+					templateUrl: './components/projects/projects.view.html',
+				},
+				'projectsList@main.projects': {
 			    	resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-			          	return $ocLazyLoad.load('./components/projects/project/projectAnotations/projectanotations.controller.js')
+			          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
 			          }]
 				    },
-			    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
-			    	controller: 'projectAnotationsController',
-			    	controllerAs: 'anotationsCtrl'
+			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
+					controller: 'loadProjectsController',
+					controllerAs: 'vm'
 				},
 			}
 		})
