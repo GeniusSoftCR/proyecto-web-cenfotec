@@ -2,39 +2,45 @@
   angular
     .module('cshApp')
     .controller('projectRequestsController', projectRequestsController);
-      projectRequestsController.$inject= ['projectService'];
+      projectRequestsController.$inject= ['projectService','$window'];
 
-    function projectRequestsController(projectService){
+    function projectRequestsController(projectService,$window){
      
       var vm = this;
       //carga la lista de solicitudes
-      projectService.getProjects().then(function(res){
-        vm.requestsList =  res.data;
-      })
-      //carga la lista de clientes
-          //vm.clients = projectService.getClients();
+      vm.requestsList = [];
+
       //en el modal:
       vm.btnYes=true;     //muestra botón de aprobar
       vm.btnNo=true;      //muestra botón de rechazar
       vm.rejection=false; //oculta bloque de la jsutificación
       vm.confirm=false;   //oculta botón de confirmar
 
-      //Recargar la lista de solicitudes
-      vm.fetchRequestsList= function(){
-        vm.requestsList = projectService.getProjects();
+      //RECARGAR LISTA DE SOLICITUDES
+      vm.reloadPage = function () {
+        setTimeout(function(){$window.location.reload()},500)
       }
+      vm.fetchRequestsList= function(){
+        userService.getRequests().then(function(res){
+          vm.requestsList = res.data;
+        })
+        vm.validate=false;
+      }
+      vm.fetchRequestsList();
 
-      //Mostrar el detalle de la solicitud
+      //MOSTRAR DETALLE DE LA SOLICITUD
       vm.viewRequest= function(request){
         vm.req=request;     //binding de la solicitud seleccionada
-        
         //en el modal:
         vm.btnYes=true;     //muestra botón de aprobar
         vm.btnNo=true;      //muestra botón de rechazar
         vm.rejection=false; //oculta bloque de la jsutificación
         vm.confirm=false;   //oculta botón de confirmar
+        vm.stuApro=false;
+        vm.stuReje=false;
         $('#justification').closest('.form-group').removeClass('has-error');
         vm.req.justification=null;
+        vm.finalStep=false;
       }
 
       //Aprobar una solicitud
