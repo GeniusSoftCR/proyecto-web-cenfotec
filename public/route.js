@@ -32,11 +32,11 @@
 
 		.state('proyectRequest',{
 			url: '/solicitudProyecto',
-		    templateUrl:'./components/projectRequests/projectRequest.view.html',
+		    templateUrl:'./components/projects/projectRequests/projectRequest.view.html',
 		    css: './css/projectRequest.styles.css',
 		    resolve: {
 		    	load: ['$ocLazyLoad', function($ocLazyLoad){
-		    		return $ocLazyLoad.load('./components/projectRequests/projectRequest.controller.js')
+		    		return $ocLazyLoad.load('./components/projects/projectRequests/projectRequest.controller.js')
 		    	}]
 		    },
 		    controller: 'projectController',
@@ -78,10 +78,10 @@
 			url:'/proyectos',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./components/projects/projects.controller.js')
+	          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
 	          }]
 		    },
-			templateUrl: './components/projects/projects.view.html',
+			templateUrl: './components/projects/viewProject/viewProjects.view.html',
 			controller: 'loadProjectsController',
 			controllerAs: 'vm'
 		})

@@ -30,7 +30,7 @@
   <div class="studentRequest col-md-12">
     <form name="studentForm" class="container" autocomplete="off" ng-submit="vm.preSave()" novalidate>
       <!-- Nombre -->
-      <div class="form-group col-md-3 col-sm-12 ibck">
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="name">Nombre:</label>
         <input type="text" ng-model="vm.name" id="txtname" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
         <div ng-messages="studentForm.name.$error" ng-hide="studentForm.name.$pristine">
@@ -39,7 +39,7 @@
         </div>
       </div>
       <!-- Primer Apellido -->
-      <div class="form-group col-md-3 col-sm-12 ibck">
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="surName">Primer apellido:</label>
         <input type="text" ng-model="vm.surName"id="txtFirstName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
         <div ng-messages="studentForm.surName.$error" ng-hide="studentForm.surName.$pristine">
@@ -48,7 +48,7 @@
         </div>
       </div>
       <!-- Segundo Apellido -->
-      <div class="form-group col-md-3 col-sm-12 ibck">
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="secondSurname">Segundo apellido:</label>
         <input type="text" ng-model="vm.secondSurname" id="txtFirstName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
         <div ng-messages="studentForm.secondSurname.$error" ng-hide="studentForm.secondSurname.$pristine">
@@ -57,7 +57,7 @@
         </div>
       </div>  
       <!-- Cedula de identidad -->
-      <div class="form-group col-md-3 col-sm-12 ibck">
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="id">Cédula de identidad</label>
         <input type="text" ng-model="vm.id" id="txtid" class="form-control" name="id" pattern="[0-9]+" maxlength="9" minlength="9" required>
         <div ng-messages="studentForm.id.$error" ng-hide="studentForm.id.$pristine" required>
@@ -68,7 +68,7 @@
         </div>
       </div>
       <!-- Fecha de nacimiento -->
-      <div class="form-group col-md-3 col-sm-12 ibck">
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="birthdate">Fecha de nacimiento:</label>
         <input ng-model="vm.birthdate" id="txtid" type="date" class="form-control" name="birthdate" required>
         <div ng-messages="studentForm.birthdate.$error" ng-hide="studentForm.birthdate.$pristine" required>
@@ -76,7 +76,7 @@
         </div>
       </div>
       <!-- Correo electronico -->
-      <div class="form-group col-md-3 col-sm-12 ibck">
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="email">Correo electrónico</label>
         <input type="email" ng-model="vm.email" id="txtid" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
         <div ng-messages="studentForm.email.$error" ng-hide="studentForm.email.$pristine">
@@ -85,7 +85,7 @@
         </div>
       </div>
       <!-- Password -->
-      <div class="form-group col-md-3 col-sm-12 ibck">
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="newPassword">Contraseña</label>
         <input type="password" ng-model="vm.password" id="txtpassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required maxlength="8" minlength="1">
         <div ng-messages="studentForm.newPassword.$error" ng-hide="studentForm.newPassword.$pristine">
@@ -94,7 +94,7 @@
         </div>
       </div>
       <!-- Confirm Password -->
-      <div class="form-group col-md-3 col-sm-12 ibck">
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="confirmPassword">Confirmar contraseña:</label>
         <input ng-model="vm.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
         <div class="clearfix">
@@ -104,7 +104,7 @@
         </div>
       </div>
       <!-- Cargar curriculum -->
-      <div class="col-md-4 col-sm-12 ibck">
+      <div class="col-md-4 col-sm-12 col-xs-12 ibck">
         <label>Curriculum Vitae:</label>
         <p><a ng-click="vm.pickFile()" class="form-control" style="background-color: #FBB803; color: black; cursor: pointer;" id="resumeUrl" ng-model="vm.resumeUrl" multiple required >Seleccione el archivo</a></p>
         <div ng-messages="studentForm.resumeUrl.$error" ng-hide="studentForm.resumeUrl.$pristine">
@@ -112,7 +112,7 @@
         </div>
       </div>
       <!-- Cargar imagen -->
-      <div class="col-md-4 col-sm-12 ibck">
+      <div class="col-md-4 col-sm-12 col-xs-12 ibck">
         <label>Avatar:</label>
         <div class="input-group">
           <label class="input-group-btn">
@@ -123,7 +123,7 @@
         </div>
       </div>
       <!-- Escoger carrera -->
-      <div class="form-group col-md-4 col-sm-12 ibck" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
         <label>Carrera(s):</label>
         <div class="form-group">
           <select for="career" name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="vm.careers" multiple required>
@@ -140,12 +140,12 @@
         </div>
       </div> 
       <!--Usuario de Github-->
-      <div class="form-group col-md-4 col-sm-12" style="display: inline-block; text-align: left;" >
+      <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: inline-block; text-align: left;" >
         <label>Usuario GitHub</label>
         <input ng-model="vm.githubUrl" id="gitHub" type="text" class="form-control" name="githubUrl">
       </div>  
       <!-- Link de sitio web -->
-      <div class="form-group col-md-4 col-sm-12" style="display: inline-block" >
+      <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: inline-block" >
         <label for="websiteUrl">Link de sitio web:</label>
         <input ng-model="vm.websiteUrl" id="link" type="url" pattern="https?://.+" title="Include http://" class="form-control" name="websiteUrl" type="url">
         <div ng-messages="studentForm.websiteUrl.$error" ng-hide="studentForm.websiteUrl.$pristine">
@@ -153,7 +153,7 @@
         </div>
       </div>
       <!-- Telefono -->
-      <div class="form-group col-md-4 col-sm-12" style="display: block;"> 
+      <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: block;"> 
         <label for="phone">Número de teléfono:</label>
         <input ng-model="vm.phone" pattern="[0-9]+" id="phone" type="text" class="form-control" minlength="8" maxlength="8" name="phone">
         <div ng-messages="studentForm.phone.$error" ng-hide="studentForm.phone.$pristine">
@@ -163,7 +163,7 @@
         </div>
       </div>
       <!-- boton -->
-      <div class="form-group col-md-12 col-sm-12" style="display: block; text-align: center;"> 
+      <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
         <button type="submit" id="btnRegister" ng-disabled="disabled" class="btn btn-warning btn-embossed">Enviar solicitud</button>
       </div>
     </form>
