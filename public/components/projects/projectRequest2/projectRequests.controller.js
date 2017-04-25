@@ -58,34 +58,44 @@
         },1500);
       }
 
-      //Rechazar una solicitud
-      vm.rejectRequest= function(request){
-        //si el input de la justificación no está vacío
-        if(vm.req.justification!=null){
-          vm.validate=false;  //oculta mensaje "justificación requerida"
-          $('#justification').closest('.form-group').removeClass('has-error');
-          //1)1er param:solicitud actual, 2do param: estado(rechazado=3)
-          projectService.changeRequestState(request,3);
-          //2)oculta la sección de la justificación
-          vm.rejection=false;
-          vm.confirm=false;
+      vm.switch=function(){
+        $('#studentReq-Modal').modal('hide');
+        $('#retro-Modal').modal('show');
+      }
+
+      vm.confirmation=function(x,y){
+        projectService.changeRequestState(x,y);
+        vm.stuReje=true;
+        setTimeout(function(){
+          $('#studentReq-Modal').modal('hide');
           //3)actualizar la lista de solicitudes
           vm.fetchRequestsList();
-          //cerrar el modal
-          $('#studentReq-Modal').modal('hide');
-          //
+          vm.reloadPage();
+        },1500);
+      }
+
+      //Rechazar una solicitud
+      vm.rejectRequest= function(request){
+        vm.finalStep=false;
+        //si la justificación no está vacía
+        if(vm.req.justification!=null){
+          //vm.validate=false;  //oculta mensaje "justificación requerida"
+          $('#justification').closest('.form-group').removeClass('has-error');
+          //1)seteo de parámetros. 1er param:solicitud actual, 2do param: estado(rechazado=3)
+          vm.param1=request;
+          vm.param2="rejected";
+          //2)mantenimientos
           vm.rejection=false;
           vm.confirm=false;
           vm.btnYes=true;
           vm.btnNo=true;
-          /*4)Back End:enviar notificación por correo*/
+          vm.finalStep=true;
         } else { 
-          vm.validate=true;
+          //vm.validate=true;
           $('#justification').closest('.form-group').addClass('has-error');
           vm.req.justification=null;
         }
       }
-
     }
 
 })();
