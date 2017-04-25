@@ -18,11 +18,13 @@ var projectSchema = new Schema({
 					manager :     {type: String, required: true},
 					industry:     {type: String, required: true}
 				  },
+	resume:       {type: String},
 	images:       [{url : {type: String}}],
 	////////////////////////////////////////////
 	students:     {type: Array},
 	professor:    {type: String},
-	assitant:     {type: String}
+	assitant:     {type: String},
+	hours:        {type: new Array}
 
 }, {collection : 'projects'});
 
