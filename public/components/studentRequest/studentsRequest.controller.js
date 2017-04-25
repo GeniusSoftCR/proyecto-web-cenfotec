@@ -60,6 +60,7 @@
     };
     function onSuccess(Blob){
       console.log(Blob);
+      vm.fileName = Blob.filename;
       vm.resumeUrl = Blob.url;
     };
 
@@ -108,6 +109,7 @@
         vm.phone = null;
         vm.pimage = null;
         vm.password = null;
+        m.confirmPassword = null;
         vm.birthdate = null;
         vm.careers = null;
         vm.resumeUrl = null;

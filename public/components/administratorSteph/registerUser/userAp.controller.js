@@ -10,6 +10,7 @@
       //controlador
       var vm = this; //binding del controlador con el html, solo en el controlador
       vm.cloudObj = ImageService.getConfiguration();
+      vm.prof = {};
       vm.send = false;
       vm.toSend = true;
 
@@ -68,6 +69,7 @@
           secondSurname : vm.prof.secondSurname,
           email : vm.prof.email,
           phone : vm.prof.phone,
+          councilMember : vm.prof.councilMember,
           avatar : pimage,
           password : vm.prof.password,
           state: null,

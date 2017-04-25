@@ -14,7 +14,7 @@
       <!-- flight section -->
       <div class="bhoechie-tab-content active">
         
-          <form class="profForm" name="profForm" class="container" autocomplete="off" validate ng-click="vm.preSaveProf()">  
+          <form class="profForm" name="profForm" class="container" autocomplete="off" ng-submit="vm.preSaveProf()" validate>  
             <div class="divtittle"><h4 class="tittle">Registro Profesores</h4></div>
            
             <div class="form-group col-md-3 col-sm-12 ibck">
@@ -69,12 +69,13 @@
           <!-- Correo electronico -->
           <div class="form-group col-md-3 col-sm-12 ibck">
             <label for="email">Correo electrónico</label>
-              <input type="text" ng-model="vm.prof.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
+              <input type="email" ng-model="vm.prof.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
             <div ng-messages="profForm.email.$error" ng-hide="profForm.email.$pristine">
               <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
-              <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
+              <div ng-message="pattern" class="red darken-2 center-align white-text">Correo inválido</div>
             </div>
           </div>
+
 
           <!-- Password -->
           <div class="form-group col-md-3 col-sm-12 ibck">
@@ -105,7 +106,7 @@
               <label for="councilMember">Miembro del Consejo:</label>
                <select class="form-control" required id="txtCouncil" ng-model="vm.prof.councilMember" name="councilMember" required>
                   <option value="" disabled>Seleccione una opción</option>
-                  <option value="Si">Si</option>
+                  <option value="Yes">Si</option>
                   <option value="No">No</option>
                 </select>  
               <div ng-messages="profForm.councilMember.$error" ng-hide="profForm.councilMember.$pristine">

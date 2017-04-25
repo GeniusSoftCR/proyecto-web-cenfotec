@@ -81,7 +81,7 @@
         <input type="email" ng-model="vm.email" id="txtid" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
         <div ng-messages="studentForm.email.$error" ng-hide="studentForm.email.$pristine">
           <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
-          <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
+          <div ng-message="pattern" class="red darken-2 center-align white-text">Debe tener la terminación @ucenfotec.ac.cr</div>
         </div>
       </div>
       <!-- Password -->
@@ -90,7 +90,7 @@
         <input type="password" ng-model="vm.password" id="txtpassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required maxlength="8" minlength="1">
         <div ng-messages="studentForm.newPassword.$error" ng-hide="studentForm.newPassword.$pristine">
           <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
-          <div ng-message="pattern" class="red darken-2 center-align white-text">Debe usar mayúscula, minúscula y números</div>
+          <div ng-message="pattern" class="red darken-2 center-align white-text">Debe  tener 8 caracteres con mayúscula(s), minúscula(s) y número(s)</div>
         </div>
       </div>
       <!-- Confirm Password -->
@@ -104,11 +104,22 @@
         </div>
       </div>
       <!-- Cargar curriculum -->
-      <div class="col-md-4 col-sm-12 col-xs-12 ibck">
+      <!-- <div class="col-md-4 col-sm-12 col-xs-12 ibck">
         <label>Curriculum Vitae:</label>
         <p><a ng-click="vm.pickFile()" class="form-control" style="background-color: #FBB803; color: black; cursor: pointer;" id="resumeUrl" ng-model="vm.resumeUrl" multiple required >Seleccione el archivo</a></p>
         <div ng-messages="studentForm.resumeUrl.$error" ng-hide="studentForm.resumeUrl.$pristine">
           <div ng-message="required" ng-hide="studentForm.resumeUrl.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+        </div>
+      </div> -->
+      <!-- CV2 -->
+      <div class="col-md-4 col-sm-12 col-xs-12 ibck">
+        <label>Curriculum Vitae:</label>
+        <div class="input-group">
+          <label class="input-group-btn">
+            <a ng-click="vm.pickFile()" class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<p><input type="file" style="display: none;" id="resumeUrl" multiple ng-model="vm.resumeUrl" required>{{file.name}}</p>
+            </a>
+          </label>
+          <input type="text" class="form-control" style="color: black" readonly>
         </div>
       </div>
       <!-- Cargar imagen -->
