@@ -15,7 +15,7 @@
     };
     return service;
 
-    ///////////////////////////////////////////////////  PUBLIC API ///////////
+    /////////////////////////////////////////////////// | PUBLIC API | //////////
     function _logIn(credentials) {
       return $http.put('http://localhost:3000/api/user/login',credentials)
     }

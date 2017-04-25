@@ -117,8 +117,8 @@ router.get('/users', function(req, res, next) {
 });
 // API method -> search user with object as filter -> return all matched users
 router.put('/users/search', function(req, res, next) { 
-  User.find(req.body, function(err,result) {
-    res.json(result);
+  User.find(req.body, function(err,results) {
+    res.json(results);
   });
 });
 
