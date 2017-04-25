@@ -11,7 +11,7 @@
       </div>
       <div class="col-lg-10 col-md-10 col-sm-5 col-xs-5 bhoechie-tab">
       
-      <!-- flight section -->
+      <!-- Sección de profesores-->
       <div class="bhoechie-tab-content active">
         
           <form class="profForm" name="profForm" class="container" autocomplete="off" ng-submit="vm.preSaveProf()" validate>  
@@ -144,19 +144,19 @@
      
       </div>
 
-      <!-- <div class="bhoechie-tab-content">
-          <center>
-            <form class="userAdmiForm row" novalidate  ng-click="vm.preSaveAdmi()">
-                <h4 class="tittle">Registro Administradores</h4>
+      <div class="bhoechie-tab-content">
+        <form class="userAdmiForm row" novalidate  ng-click="vm.preSaveAdmi()">
+            
+          <h4 class="tittle">Registro Administradores</h4>
 
-            <div class="form-group col-md-3 col-sm-12 ibck">
-              <label for="name">Nombre:</label>
-              <input type="text" ng-model="vm.admi.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
-              <div ng-messages="userAdmiForm.name.$error" ng-hide="userAdmiForm.name.$pristine">
-                <div ng-message="required" ng-hide="userAdmiForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
-                <div ng-message="pattern" ng-hide="userAdmiForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
-              </div>
+          <div class="form-group col-md-3 col-sm-12 ibck">
+            <label for="name">Nombre:</label>
+            <input type="text" ng-model="vm.admi.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+            <div ng-messages="userAdmiForm.name.$error" ng-hide="userAdmiForm.name.$pristine">
+              <div ng-message="required" ng-hide="userAdmiForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+              <div ng-message="pattern" ng-hide="userAdmiForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
             </div>
+          </div>
 
             
             <div class="form-group col-md-3 col-sm-12 ibck">
@@ -281,8 +281,7 @@
 
             <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert>
           </form>
-        </center>
-    </div> -->
+    </div>
 
                 
     <!-- <div class="bhoechie-tab-content">

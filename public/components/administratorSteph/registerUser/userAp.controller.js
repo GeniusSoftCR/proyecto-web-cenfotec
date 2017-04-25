@@ -98,7 +98,7 @@
     }
 })();
       
-/*vm.saveAs = function(pimage){
+      vm.saveAs = function(pimage){
         var newUserAssistant ={
           role_key: 3,
           name : vm.asis.name,
@@ -127,7 +127,7 @@
         vm.asis.jobPosition = null;
         vm.asis.phone = null;
         vm.asis.image = null;
-      };*/
+      };
 
       
 
@@ -177,8 +177,8 @@
         }
       }
       userService.updateUser(newUserProfessor);
-  }*/
-
+  }
+*/
 
 
 
