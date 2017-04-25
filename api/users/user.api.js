@@ -63,26 +63,25 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', UsersSchema);
 
-router.post('/user/login', function(req, res, next) {
-    var email = req.body.email || '';
-    var password = req.body.password || '';
+router.put('/user/login', function(req, res, next) {
+  var email = req.body.email || '';
+  var password = req.body.password || '';
 
-    if (email == '' || password == '') {
-        return res.send(401);
-    }
+  // if (email == '' || password == '') {
+  //  res.json({"error":"Datos invalidos"});
+  // }
 
   User.findOne({email: email}, function(err, user) {
     if (err) throw err;
-    // test a matching password   
-    user.comparePassword(password, function(err, isMatch) {
-
-      if (err) throw err;
-      if (!isMatch) {         
-        console.log('Attempt failed to login with: ' + user.username);
-        res.json({"error":"Los datos ingresados incorrectos"});
-      }else{
-        console.log('Password'+password+': ', isMatch); // -> Password123: true
-        if (user) {      
+    
+    if (user) {
+      user.comparePassword(password, function(err, isMatch) {
+        if (err) throw err;
+        if (!isMatch) {         
+          console.log('Attempt failed to login with: ' + user.username);
+          res.json({"error":"Contraseña no coincide, intente nuevamente"});
+        }else{
+          console.log('Password'+password+': ', isMatch); // -> Password123: true
           switch(user.state){
             case "eligible" || "active" || "inactive":
               user.password = undefined;
@@ -100,13 +99,15 @@ router.post('/user/login', function(req, res, next) {
             case "rejected":
               res.json({"error":"Solicitud de registro rechazada","succes":true});
             break;  
-          }
-        };
-      };  
-    });
+          };
+        };  
+      });
+    }else{
+      res.json({"error":"Usuario no encontrado, correo electrónico incorrecto"});
+    };
+    // test a matching password   
   });  
 });
-
 //API General
 
 // API method -> return ALL users 

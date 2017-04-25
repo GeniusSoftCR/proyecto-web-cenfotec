@@ -4,20 +4,21 @@
 	angular.module('cshApp')
 	.controller('logInController',logInController);
 
-	logInController.$inject = ['$log','$http','$location','$rootScope','AUTH_EVENTS','AuthService','SessionService'];
+	logInController.$inject = ['$timeout','$log','$http','$location','$rootScope','AUTH_EVENTS','AuthService','SessionService'];
 
- 	function logInController ($log,$http,$location,$rootScope,AUTH_EVENTS,AuthService,SessionService){
+ 	function logInController ($timeout,$log,$http,$location,$rootScope,AUTH_EVENTS,AuthService,SessionService){
 
- 		// if(AuthService.isAuth()){
- 		// 	var authUser = AuthService.getAuthUser();
- 			
- 		// 	$location.path('/inicio/usuario');
- 		// }else{
- 		// 	$location.path('/entrar');
- 		// }
+ 		if(AuthService.isAuth()){ 			
+ 			$location.path('/inicio/usuario');
+ 		}else{
+ 			$location.path('/entrar');
+ 		}
  		//vm = view model
 		var vm = this;
 		vm.loading = false;
+		vm.hideModal = function () {
+			$('#modal').modal('show');
+		};
 
 		vm.user = {};
 
@@ -38,16 +39,17 @@
 				}else{
 					vm.modal.config('logIn');
 					$('#modal').modal('show');
-
+					
 					vm.modal.tittle = "Inicio de sesión"
 					vm.modal.body = res.data.error
 					vm.user.password='';
 					console.log(res.data.error)
-
 					$log.error("Login failed")
 		        	$rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+
+		        	$timeout(function () {$('#modal').modal('hide')},1800)
+
 		        	$location.path('/entrar');
-		        	SessionService.create(request)
 				};
 			});	
 	    };
@@ -64,6 +66,6 @@
 	    			break;
 	    		};
 	    	}
-	    }
+	    };
 	};
 })();
