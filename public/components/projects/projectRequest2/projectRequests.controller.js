@@ -21,7 +21,7 @@
         setTimeout(function(){$window.location.reload()},500)
       }
       vm.fetchRequestsList= function(){
-        userService.getRequests().then(function(res){
+        projectService.getProjects().then(function(res){
           vm.requestsList = res.data;
         })
         vm.validate=false;
@@ -43,15 +43,19 @@
         vm.finalStep=false;
       }
 
-      //Aprobar una solicitud
+      //APROBAR SOLICITUD
       vm.approveRequest= function(request){
         //1)1er param:solicitud actual, 2do param: estado(aprobado=2)
-        projectService.changeRequestState(request,2);
-        //3)actualizar la lista de solicitudes
-        vm.fetchRequestsList();
-        //cerrar el modal
-        $('#studentReq-Modal').modal('hide');
-        /*4)Back End:enviar notificación por correo*/
+        projectService.changeRequestState(request,"aproved").then(function(res){
+          console.log("Proyecto aprobado" + res.data);
+        });
+        vm.stuApro=true;
+        setTimeout(function(){
+          $('#studentReq-Modal').modal('hide');
+          //3)actualizar la lista de solicitudes
+          vm.fetchRequestsList();
+          vm.reloadPage();
+        },1500);
       }
 
       //Rechazar una solicitud
