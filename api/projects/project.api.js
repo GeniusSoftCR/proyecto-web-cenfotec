@@ -24,7 +24,8 @@ var projectSchema = new Schema({
 	students:     {type: Array},
 	professor:    {type: String},
 	assitant:     {type: String},
-	hours:        {type: new Array}
+	hours:        {type: new Array},
+	justification:{type: String}
 
 }, {collection : 'projects'});
 
