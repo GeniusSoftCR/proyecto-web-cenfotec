@@ -26,7 +26,7 @@
 	    //cambia el estado a aprobado o rechazado según el parámetro
 	    function _changeProjectsState(request,newState){
 	      request.state=newState;
-	      return $http.put('http://localhost:3000/api/user/students/update',request);      
+	      return $http.put('http://localhost:3000/api/projects/update',request);      
 	    }
 	}
 })()

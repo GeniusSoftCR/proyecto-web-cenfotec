@@ -34,7 +34,7 @@
         //en el modal:
         vm.btnYes=true;     //muestra botón de aprobar
         vm.btnNo=true;      //muestra botón de rechazar
-        vm.rejection=false; //oculta bloque de la jsutificación
+        vm.rejection=false; //oculta bloque de la justificación
         vm.confirm=false;   //oculta botón de confirmar
         vm.stuApro=false;
         vm.stuReje=false;

@@ -29,9 +29,17 @@ var projectSchema = new Schema({
 var Project = mongoose.model('Project', projectSchema);
 
 //API
+//busca la lista de proyectos
 router.get('/projects/load', function(req, res, next) {
   Project.find({}, function(err, projects){
     res.json(projects);
+  });
+});
+//procesar solicitudes de proyectos
+router.put('/projects/update', function(req, res, next) {
+  Project.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
+    res.json({success: false, msg: 'Ha ocurrido un error'});
+    res.json({success:true,msg:'Se ha actualizado correctamente.'});
   });
 });
 
