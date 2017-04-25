@@ -96,6 +96,11 @@ h2{
 #navegacion {
   background-color: #000;
   border-radius: 0;
+  padding-top: 8px;
+  -webkit-box-shadow: 6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  -moz-box-shadow:    6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  box-shadow:         6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  max-height: 69px;
 }
 .img-profile {
   margin-right: 10px;
