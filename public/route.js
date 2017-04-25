@@ -50,7 +50,7 @@
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
-
+		/*ESTADOS PARA TRAAJAR LOS PROYECTOS*/
 		.state('main',{
 			url:'/inicio',
 			resolve: {  
