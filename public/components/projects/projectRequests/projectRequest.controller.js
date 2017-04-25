@@ -85,7 +85,7 @@
       projectService.addProject(newProjectRequest).then(function(res){
         console.log(res);
       });
-      vm.nid = null;
+      vm.nId = null;
       vm.projectName = null;
       vm.money = null;
       vm.objective = null;

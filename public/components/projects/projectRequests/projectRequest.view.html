@@ -28,10 +28,9 @@
     </div> 
   </div>
   <div class="projectsRequest col-md-12">
-    <form name="projectRequest" class="container"
-    autocomplete="off" ng-submit="vm.save()" novalidate>
+    <form name="projectRequest" class="container" autocomplete="off" ng-submit="vm.save()" novalidate>
       <!-- Nombre de la empresa -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#companyName">Nombre de la empresa:</label>
         <input type="text" ng-model="vm.companyName" id="companyName" class="form-control" name="companyName" required pattern="[ñáéíóúA-Za-z ]+">
         <div ng-messages="projectRequest.companyName.$error" ng-hide="projectRequest.companyName.$pristine">
@@ -39,7 +38,7 @@
         </div>
       </div>
       <!-- Cedula Fisica o Juridica -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#idCompany">Cédula jurídica o fisica de la empresa:</label>
         <input type="text" ng-model="vm.nId"id="txtFirstName" class="form-control" name="nId" pattern="[0-9]+" maxlength="9" minlength="9" required>
         <div ng-messages="projectRequest.nId.$error" ng-hide="projectRequest.nId.$pristine" required>
@@ -50,7 +49,7 @@
         </div>
       </div>
       <!-- Encargado del proyecto -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#projectManager">Encargado del proyecto:</label>
         <input type="text" ng-model="vm.projectManager" id="projectManager" class="form-control" name="projectManager" pattern="[ñáéíóúA-Za-z ]+" required>
         <div ng-messages="projectRequest.projectManager.$error" ng-hide="projectRequest.projectManager.$pristine">
@@ -59,7 +58,7 @@
         </div>
       </div>
       <!-- Correo electronico -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#email">Correo electrónico:</label>
         <input type="email" ng-model="vm.email" id="email" class="form-control" name="email" required>
         <div ng-messages="projectRequest.email.$error" ng-hide="projectRequest.email.$pristine">
@@ -68,7 +67,7 @@
         </div>
       </div>
       <!-- Nombre del proyecto -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#projectName">Nombre del proyecto:</label>
         <input type="text" ng-model="vm.projectName" id="projectName" class="form-control" name="projectName" placeholder="Ej: Aplicación de iOS" required >
         <div ng-messages="projectRequest.projectName.$error" ng-hide="projectRequest.projectName.$pristine">
@@ -76,7 +75,7 @@
         </div>
       </div>
       <!-- Fondos para el proyecto -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="money">Fondos para el proyecto (En dólares):</label>
         <input type="text" ng-model="vm.money" id="money" class="form-control" name="money" placeholder="$" pattern="[0-9]+" required>
         <div ng-messages="projectRequest.money.$error" ng-hide="projectRequest.money.$pristine" required>
@@ -85,21 +84,21 @@
         </div>
       </div>
       <!-- Resumen ejecutivo -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#resume">Resumen ejecutivo:</label>
         <p><a ng-click="vm.pickFile()" class="form-control" style="background-color: #FBB803; color: black; cursor: pointer;" id="resumeUrl" ng-model="vm.projectFile" multiple required >Seleccione el archivo</a></p>
       </div>
       <!-- Industria de la empresa -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#Industria de la empresa">Ingrese la industria de la empresa:</label>
-        <input type="text" ng-model="vm.industry" id="industry" class="form-control" name="industry" pattern="[ñáéíóúA-Za-z]+" required>
+        <input type="text" ng-model="vm.industry" id="industry" class="form-control" name="industry" pattern="[ñáéíóúA-Za-z ]+" required>
         <div ng-messages="projectRequest.industry.$error" ng-hide="projectRequest.industry.$pristine">
           <div ng-message="required" ng-hide="projectRequest.industry.$pristine" class="red darken-2 center-align white-text">La industria del proyecto es requerida.</div>
           <div ng-message="pattern" ng-hide="projectRequest.industry.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
         </div>
       </div>
       <!-- Imagenes del proyecto -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="images">Algunas imagenes sobre el proyecto: </label>
         <div class="input-group">
           <label class="input-group-btn">
@@ -110,13 +109,18 @@
         </div>
       </div>
       <!-- Objetivo del proyecto -->
-      <div class="form-group col-md-4 col-sm-12 ibck">
+      <div class="form-group col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
         <label for="#projectObjetive">Ingrese el objetivo del proyecto:</label>
-        <textarea class="col-md-12" name="projectObjetive" id="projectObjetive" ng-model="vm.objective" required></textarea>
+        <input type="text" ng-model="vm.objective" id="projectObjetive" class="form-control" name="projectObjetive" required>
+        <div ng-messages="projectRequest.projectObjetive.$error" ng-hide="projectRequest.projectObjetive.$pristine">
+          <div ng-message="required" ng-hide="projectRequest.projectObjetive.$pristine" class="red darken-2 center-align white-text">El objetivo del proyecto es requerido</div>
       </div>
       <!-- boton -->
-      <div class="form-group col-md-12 col-sm-12" style="display: block; text-align: center;"> 
+      <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
         <button type="submit" id="btnRegister" ng-disabled="disabled" class="btn btn-warning btn-embossed">Enviar solicitud</button>
+      </div>
+
+      <div ng-messages=""></div>
     </form>
   </div>
 </main>

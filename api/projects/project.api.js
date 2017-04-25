@@ -18,20 +18,31 @@ var projectSchema = new Schema({
 					manager :     {type: String, required: true},
 					industry:     {type: String, required: true}
 				  },
+	resume:       {type: String},
 	images:       [{url : {type: String}}],
 	////////////////////////////////////////////
 	students:     {type: Array},
 	professor:    {type: String},
-	assitant:     {type: String}
+	assitant:     {type: String},
+	hours:        {type: new Array},
+	justification:{type: String}
 
 }, {collection : 'projects'});
 
 var Project = mongoose.model('Project', projectSchema);
 
 //API
+//busca la lista de proyectos
 router.get('/projects/load', function(req, res, next) {
   Project.find({}, function(err, projects){
     res.json(projects);
+  });
+});
+//procesar solicitudes de proyectos
+router.put('/projects/update', function(req, res, next) {
+  Project.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
+    res.json({success: false, msg: 'Ha ocurrido un error'});
+    res.json({success:true,msg:'Se ha actualizado correctamente.'});
   });
 });
 
