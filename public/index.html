@@ -1,135 +1,82 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="cshApp">
-<head>
-	<meta charset="UTF-8">
-	<title>Cenfotec Software House</title>
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<!-- CSS Links -->	
-		<!-- font awsome -->
-		<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
-		<!-- Bootstrap -->
-		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<!-- Flat-UI -->
-		<link rel="stylesheet" type="text/css" href="bower_components/flat-ui/dist/css/flat-ui.min.css">
-		<!-- Custom CSS -->
-		<link rel="stylesheet" href="css/app.css">
-		<link rel="stylesheet" href="css/header.css">
-	<link rel="icon" href="imgs/cshLogo.png">
-</head>
-<body>
+	<html lang="es" ng-app="cshApp">
+		<head>
+			<meta charset="UTF-8">
+			<title>Cenfotec Software House</title>
+			<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+			<link rel="icon" href="imgs/cshLogo.png">
+			<!-- CSS Links -->	
+				<!-- font awsome -->
+					<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
+				<!-- Bootstrap -->
+					<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+				<!-- Flat-UI -->
+					<link rel="stylesheet" type="text/css" href="bower_components/flat-ui/dist/css/flat-ui.min.css">
+				<!-- Custom CSS -->
+					<link rel="stylesheet" href="css/app.css">
+					<link rel="stylesheet" href="css/header.css">
+		</head>
+		<body>
 
-	<div ui-view></div>
+			<div ui-view></div>
 
-	<!-- Filestack *Andres* -->
-	<script src="//api.filestackapi.com/filestack.js"></script>
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
-	<script src="bower_components/flat-ui/dist/js/flat-ui.min.js"></script>
+			<!-- General dependencies -->
+				<script src="//api.filestackapi.com/filestack.js"></script>
+				<script src="bower_components/jquery/dist/jquery.min.js"></script>
+				<script src="bower_components/flat-ui/dist/js/flat-ui.min.js"></script>
+			<!-- AngularJs -->
+				<script src="bower_components/angular/angular.min.js"></script>
+				<!-- AngularJs dependencies -->
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+					<script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
 
-	<!-- AngularJs -->
-	<script src="bower_components/angular/angular.min.js"></script>
-	<script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
-  	<script src="bower_components/angular-css/angular-css.min.js"></script>
-	<!-- Angular Timer-->
-	<!-- <script src="bower_components/angular-timer/"></script>
-	<script src="bower_components/angular-timer/dist/assets/js/angular-timer-bower.js"></script>
-	<script src="bower_components/angular-timer/dist/assets/js/angular-timer-bower.js"></script>
-	<script src="bower_components/angular-timer/docs/docs.js"></script>
-	<script src="bower_components/angular-timer/docs/prettify.js"></script>
-	<script src="bower_components/angular-timer/docs/application.js"></script> -->
-	<!-- Cloudinary -->
-	<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
-	<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
+		  			<script src="bower_components/angular-css/angular-css.min.js"></script>
+		  			<script src="bower_components/angular-password/angular-password.min.js"></script>
+		  			<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+					<!-- Cloudinary -->
+					<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+					<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+					<!-- FileStack -->
+					<script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>	
+					
+			<!-- App -->
+				<script src="app.js"></script>
+				<script src="route.js"></script>
 
+			<!-- Services -->
+		  		<!-- Authentication -->
+		  			<script src="components/services/authentication/session.service.js"></script>
+		  			<script src="components/services/authentication/auth.service.js"></script>
+		  			<script src="components/services/authentication/authinterceptor.service.js"></script>
+				<!-- User -->
+					<script src="components/services/user.service.js"></script>
+				<!-- Project -->
+					<script src="components/services/project.service.js"></script>
+				<!-- Images -->
+					<script src="components/services/image.service.js"></script>				
 
-	<!-- AppJs -->
-	<script src="app.js"></script>
-	<script src="route.js"></script>
-  	
-  	<!--Password-->
-  	<script src="bower_components/angular-password/angular-password.min.js"></script>
-
-
-  	<!-- Services -->
-	<script src="components/services/user.service.js"></script>
-
-  	<!-- Auteticacion *Kevin* -->
-  	<script src="components/authentication/session.js"></script>
-  	<script src="components/authentication/auth.service.js"></script>
-  	<script src="components/authentication/authinterceptor.js"></script>
-  
-	
-	<!-- FileStack -->
-	<script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
-	<script src="components/services/image.service.js"></script>
-
-	<!--===========================
-	=            KEVIN            =
-	============================-->
-	
-
-	<!--* Scripts del inicio de sesion *Kevin* -->
-	<script src="components/logIn/logIn.controller.js"></script>
-	<script src="components/services/project.service.js"></script>
-	
-
-	<!--=============================
-	=            ANDRES             =
-	==============================-->
-	<!-- solicitud de  cliente desde Landing CSH - Andres-->
-	
-	<!-- Crear Anotación en projecto - Andres -->
-	<!-- <script src="components/projects/project/projectAnotations/projectanotations.controller.js"></script> -->
-	<script src="components/projects/project/projectAnotations/projectanotations.service.js"></script>
-
-	<!-- asignar estudiantes - Andres -->
-	<script src="components/projects/project/assignStudents/assignStudents.projects.controller.js"></script>
-	<script src="components/projects/project/assignStudents/assignStudents.projects.service.js"></script>
-
-	<!-- asignar profesores - Andres -->
-	<script src="components/projects/project/assignTeachers/assignTeachers.projects.controller.js"></script>
-	<script src="components/projects/project/assignTeachers/assignTeachers.projects.service.js"></script>
-
-	<!-- ver proyecto - Andres -->
-	<script src="components/projects/project/watchproject/projects.controller.js"></script>
-	<script src="components/projects/project/watchproject/projects.service.js"></script>
-
-
-	<!--=============================
-	=            ESTEBAN            =
-	==============================-->
-
-	<!--**Scripts de *Esteban** -->
-	<!-- <script src="components/projects/admin_projects.service.js"></script> -->
-	<!-- <script src="components/students/studentRequests.service.js"></script> -->
-	<script src="components/projects/project/projectFiles-esteban/projectFiles.service.js"></script>
-	<!-- <script src="components/projects/projectRequest2/projectRequests.service.js"></script> -->
-	
-	<!--Solicitudes de estudiantes-->
-
-	<!-- Reportes -->
-	<script src="components/administratorEsteban/reports/projectMembers/projectMembers.service.js"></script>
-	<!-- Clientes -->
-	<script src="components/asistantsEsteban/clients/clients.service.js"></script>
-	<!--**Scripts de *Esteban** -->
-
-
-	<!--================================
-	=            Stephanie            =
-	=================================-->
-	<script src="bower_components/angular-messages/angular-messages.min.js"></script>
-
-	<script src="components/administratorSteph/registerUser/userAp.controller.js"></script>
-
-	<script src="components/administratorSteph/addCareers/addCareers.service.js"></script>
-	<script src="components/administratorSteph/addCareers/addCareers.controller.js"></script>
-
-	<!--=====================================
-	=            Hector Scripts            =
-	======================================-->
-
-
-</body>
-</html>
+			<!--Temporal-->
+				<!-- agregar archivos -->
+				<script src="components/projects/project/projectFiles-esteban/projectFiles.service.js"></script>
+				<!-- Reportes -->
+				<script src="components/TEMPORAL/administratorEsteban/reports/projectMembers/projectMembers.service.js"></script>
+				<!-- Clientes -->
+				<script src="components/TEMPORAL/asistantsEsteban/clients/clients.service.js"></script>
+				<!-- <script src="components/projects/project/projectAnotations/projectanotations.controller.js"></script> -->
+				<script src="components/projects/project/projectAnotations/projectanotations.service.js"></script>
+				<!-- asignar estudiantes - Andres -->
+				<script src="components/projects/project/assignStudents/assignStudents.projects.controller.js"></script>
+				<script src="components/projects/project/assignStudents/assignStudents.projects.service.js"></script>
+				<!-- asignar profesores - Andres -->
+				<script src="components/projects/project/assignTeachers/assignTeachers.projects.controller.js"></script>
+				<script src="components/projects/project/assignTeachers/assignTeachers.projects.service.js"></script>
+				<!-- ver proyecto - Andres -->
+				<script src="components/projects/project/watchproject/projects.service.js"></script>
+				<!-- Registrar usuarios -->
+				<script src="components/users/registerUser/userAp.controller.js"></script>
+				<!-- agregar carreras -->
+				<script src="components/config/addCareers/addCareers.service.js"></script>
+				<script src="components/config/addCareers/addCareers.controller.js"></script>
+		</body>
+	</html>

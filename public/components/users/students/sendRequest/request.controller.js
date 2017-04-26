@@ -2,11 +2,11 @@
   'use strict'
   angular
     .module('cshApp')
-    .controller('studentController', studentController);
+    .controller('sendRequest', sendRequest);
     
-    studentController.$inject  = ['$scope','$window','userService','ImageService','filepickerService','Upload','addCareersService'];
+    sendRequest.$inject  = ['$scope','$window','userService','ImageService','filepickerService','Upload','addCareersService'];
 
-    function studentController($scope,$window,userService,ImageService,filepickerService,Upload,addCareersService){
+    function sendRequest($scope,$window,userService,ImageService,filepickerService,Upload,addCareersService){
       var vm = this,
           careers = addCareersService.getCareer(); //llama a la funcion que llena el mutiselect
           vm.cloudObj = ImageService.getConfiguration();
