@@ -81,9 +81,12 @@ router.put('/user/login', function(req, res, next) {
           console.log('Attempt failed to login with: ' + user.username);
           res.json({"error":"Contraseña no coincide, intente nuevamente"});
         }else{
-          console.log('-Password-'+password+': ', isMatch); // -> Password123: true
-          switch(user.state){
-            case "eligible" || "active" || "inactive":
+          console.log('Password'+password+': ', isMatch); // -> Password123: true
+          switch(user.state)
+          {
+            case "eligible": 
+            case "active":
+            case "inactive":
               user.password = undefined;
               res.json(user);
             break;
