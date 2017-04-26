@@ -19,7 +19,8 @@
 
       //RECARGAR LISTA DE SOLICITUDES
       vm.reloadPage = function () {
-        setTimeout(function(){$window.location.reload()},100)
+        setTimeout(function(){$window.location.reload()},100);
+        $('.btnstep').disabled = false;
       }
       vm.fetchRequestsList= function(){
         projectService.getProjects().then(function(res){
@@ -52,6 +53,8 @@
           console.log("Proyecto aprobado" + res.data);
         });
         vm.stuApro=true;
+        document.getElementByClassName('.btnstep').disabled = true;
+
         setTimeout(function(){
           $('#studentReq-Modal').modal('hide');
           //3)actualizar la lista de solicitudes
