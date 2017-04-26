@@ -77,25 +77,25 @@
 		
 		
 
-		// .state('main.projects',{
-		// 	url:'/proyectos',
-		// 	// templateUrl: './components/projects/projects.view.html',
-		// 	views: {
-		// 		'': {
-		// 			templateUrl: './components/projects/projects.view.html',
-		// 		},
-		// 		'projectsList@main.projects': {
-		// 	    	resolve: {  
-		// 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-		// 	          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
-		// 	          }]
-		// 		    },
-		// 	    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
-		// 			controller: 'loadProjectsController',
-		// 			controllerAs: 'vm'
-		// 		},
-		// 	}
-		// })
+		.state('main.projects',{
+			url:'/proyectos',
+			// templateUrl: './components/projects/projects.view.html',
+			views: {
+				'': {
+					templateUrl: './components/projects/projects.view.html',
+				},
+				'projectsList@main.projects': {
+			    	resolve: {  
+			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+			          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
+			          }]
+				    },
+			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
+					controller: 'loadProjectsController',
+					controllerAs: 'vm'
+				},
+			}
+		})
 		// .state('main.projects.viewProjects',{
 		// 	url:'/todos',
 		// 	resolve: {  
@@ -164,17 +164,17 @@
 	 //    	}
 		// })		
 
-		// .state('main.students',{
-		// 	url:'/estudiantes',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/studentsProcessing/studentsProcessing.controller.js')
-	 //          }]
-		//     },
-		// 	templateUrl: './components/studentsProcessing/studentsProcessing.view.html',
-		// 	controller: 'studentProcessingController',
-		// 	controllerAs: 'vm'
-		// })
+		.state('main.students',{
+			url:'/estudiantes',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/users/students/resolveRequest/resolveRequest.controller.js')
+	          }]
+		    },
+			templateUrl: './components/users/students/resolveRequest/resolveRequest.view.html',
+			controller: 'studentProcessingController',
+			controllerAs: 'vm'
+		})
 
 		// .state('main.careers',{
 		// 	url:'/carreras',
