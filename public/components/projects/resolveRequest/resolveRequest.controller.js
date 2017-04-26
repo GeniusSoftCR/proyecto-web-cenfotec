@@ -46,6 +46,7 @@
 
       //APROBAR SOLICITUD
       vm.approveRequest= function(request){
+        request.rejectReason=undefined;
         //1)1er param:solicitud actual, 2do param: estado(aprobado=2)
         projectService.changeRequestState(request,"aproved").then(function(res){
           console.log("Proyecto aprobado" + res.data);
@@ -79,7 +80,7 @@
       vm.rejectRequest= function(request){
         vm.finalStep=false;
         //si la justificación no está vacía
-        if(vm.req.justification!=null){
+        if(vm.req.rejectReason!=null){
           //vm.validate=false;  //oculta mensaje "justificación requerida"
           $('#justification').closest('.form-group').removeClass('has-error');
           //1)seteo de parámetros. 1er param:solicitud actual, 2do param: estado(rechazado=3)
