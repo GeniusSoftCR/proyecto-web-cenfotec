@@ -22,6 +22,22 @@ input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty{
 }
 
 input{
+	display: inline-block;
 	border: none;
+	position:;
+	z-index: 2;
+}
+
+.form-group, .input-group{
+	margin-bottom: 3%;
+}
+
+#ng-message{
+	font-size: 0.730em;
+	font-family: 'montserrat';
+	border: none;
+	position: absolute;
+	z-index: 4;
+	color: red;
 }
 
