@@ -19,21 +19,22 @@ gulp.task('connect', function () {
 gulp.task('css', function () {
   gulp.src('./public/css/sass/generalStyles.scss')
     .pipe(sass({ use: nib() }))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./public/css'))
     .pipe(connect.reload())
 
-  gulp.src('./public/css/*.css')
+gulp.src('./public/css/*.css')
     .pipe(connect.reload())
 })
+
 gulp.task('html', function () {
     gulp.src('./public/components/**/*.html')
     .pipe(connect.reload())
 })
+
 gulp.task('js', function () {
   gulp.src('./public/components/**/*.html')
     .pipe(connect.reload())
 })
-
 
 // Vigila cambios que se produzcan en el código
 // y lanza las tareas relacionadas
