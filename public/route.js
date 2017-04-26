@@ -51,29 +51,29 @@
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
-		// .state('main.profile',{
-		// 	url:'/usuario',
-		//     css: './css/profile.style.css',
-		// 	templateUrl: './components/users/profile/profile.view.html',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/users/profile/profile.controller.js')
-	 //          }]
-		//     },			
-		// })
+		.state('main.profile',{
+			url:'/usuario',
+		    css: './css/profile.style.css',
+			templateUrl: './components/users/profile/profile.view.html',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/users/profile/profile.controller.js')
+	          }]
+		    },			
+		})
 
 		/*ESTADOS PARA TRABAJAR LOS PROYECTOS*/
-		// .state('main',{
-		// 	url:'/inicio',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/main.controller.js')
-	 //          }]
-		//     },			
-		// 	templateUrl: './components/main.html',
-		// 	controller:'mainController',
-		// 	controllerAs:'vm'
-		// })
+		.state('main',{
+			url:'/inicio',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/main.controller.js')
+	          }]
+		    },			
+			templateUrl: './components/main.html',
+			controller:'mainController',
+			controllerAs:'vm'
+		})
 		
 		
 
