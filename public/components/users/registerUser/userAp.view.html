@@ -23,6 +23,7 @@
                   <div ng-message="pattern" ng-hide="profForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
                 </div>
               </div>
+
               <!-- Primer Apellido -->
               <div class="form-group col-md-3 col-sm-12 ibck">
                 <label for="surName">Primer apellido:</label>
@@ -143,11 +144,11 @@
             </div>
             <!-- Primer Apellido-->
             <div class="form-group col-md-3 col-sm-12 ibck">
-              <label for="surname">Primer apellido:</label>
-              <input type="text" ng-model="vm.admi.surname" id="txtsurname" class="form-control" name="surname" pattern="[ñáéíóúA-Za-z ]+" required>
-              <div ng-messages="userAdmiForm.surname.$error" ng-hide="userAdmiForm.surname.$pristine">
-                <div ng-message="required" ng-hide="userAdmiForm.surname.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido</div>
-                <div ng-message="pattern" ng-hide="userAdmiForm.surname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+              <label for="surName">Primer apellido:</label>
+              <input type="text" ng-model="vm.admi.surName" id="txtsurName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
+              <div ng-messages="userAdmiForm.surName.$error" ng-hide="userAdmiForm.surName.$pristine">
+                <div ng-message="required" ng-hide="userAdmiForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido</div>
+                <div ng-message="pattern" ng-hide="userAdmiForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
               </div>
             </div>
             <!-- Segundo Apellido-->
@@ -284,7 +285,7 @@
             <!-- Correo-->
             <div class="form-group col-md-3 col-sm-12 ibck">
               <label for="email">Correo electrónico</label>
-              <input type="text" ng-model="vm.asis.mail" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
+              <input type="text" ng-model="vm.asis.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
               <div ng-messages="userFormAsis.email.$error" ng-hide="userFormAsis.email.$pristine">
                 <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
                 <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
@@ -351,38 +352,33 @@
           </form>
         </div>
         <!-- Sección de lista-->
-      <!-- <div class="bhoechie-tab-content">
-        <center>
-          <div class="col-md-12">
-                <h3>Lista de Usuarios</h3>
-                <div class="card">
-                  <ul class="list-group list-group-flush" id="myScrollspy">
-                  <table id="listUsersCSH">
-                    <thead id="head-user">
-                      <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Tipo de Usuario</th>
-                        <th>Correo electrónico</th>
-                      </tr>
-                    </thead>
-
-                      <tbody>
-                        <tr ng-repeat="user in userAprCtrl.userList | filter: {role: professor, role: administrador, role: asistente}">
-                          <td>{{user.name}}</td>
-                          <td>{{user.surname}}</td>
-                          <td>{{user.role}}</td>
-                          <td>{{user.mail}}</td>
-                          <td><button class="btn btn-sm btn-embossed btn-warning pull-right" ng-click="userAprCtrl.deleteUser(user.id)">Eliminar</button></td>
-                          <td><button class="btn btn-sm btn-embossed btn-warning pull-right" id="modi" ng-click="userAprCtrl.viewProf(userAprCtrl.ap.id)">Modificar</button></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </ul>
-                  </div>
+      <div class="bhoechie-tab-content">
+        <div class="col-md-12">
+          <h3>Lista de Usuarios</h3>
+              <ul class="list-group list-group-flush">
+                <table id="listUsersCSH">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido</th>
+                      <th>Tipo de Usuario</th>
+                      <th>Correo electrónico</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="user in userAprCtrl.userList | filter: {role: professor, role: administrador, role: asistente}">
+                      <td>{{user.name}}</td>
+                      <td>{{user.surname}}</td>
+                      <td>{{user.role}}</td>
+                      <td>{{user.mail}}</td>
+                      <td><button class="btn btn-sm btn-embossed btn-warning pull-right" ng-click="userAprCtrl.deleteUser(user.id)">Eliminar</button></td>
+                      <!-- <td><button class="btn btn-sm btn-embossed btn-warning pull-right" id="modi" ng-click="userAprCtrl.viewProf(userAprCtrl.ap.id)">Modificar</button></td> -->
+                    </tr>
+                  </tbody>
+                </table>
+              </ul>
           </div>
-        </center>
-      </div>  -->
+      </div>
       </div>
     </div>
   </div>

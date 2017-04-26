@@ -109,7 +109,7 @@
         var newUserAdmi ={
           idNum : vm.admi.id,
           name : vm.admi.name,
-          surname : vm.admi.surname,
+          surname : vm.admi.surName,
           secondSurname : vm.admi.secondSurname,
           email : vm.admi.email,
           phone : vm.admi.phone,
@@ -132,6 +132,7 @@
         vm.admi.phone = null;
         vm.admi.pimage = null;
         vm.admi.password = null;
+        vm.admi.confirmPassword = null;
         vm.admi.jobPosition = null; 
       };
 
@@ -148,7 +149,7 @@
         var newUserAssistant ={
           idNum : vm.asis.id,
           name : vm.asis.name,
-          surname : vm.asis.surname,
+          surname : vm.asis.surName,
           secondSurname : vm.asis.secondSurname,
           email : vm.asis.email,
           phone : vm.asis.phone,
@@ -156,7 +157,7 @@
           password : vm.asis.password,
           state : 'active',
           role: 'assistant',
-          jobPosition : vm.asis.jobPosition,
+          jobPosition : vm.asis.jobPosition
         };
 
         console.log(newUserAssistant);
