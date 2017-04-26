@@ -2,12 +2,12 @@
 var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
-
+    bcrypt=require('bcryptjs'),
     ///////////////////////////////
     Schema = mongoose.Schema,
     //////////////////////////////
 
-    states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'];
+    states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
@@ -20,13 +20,14 @@ var UsersSchema = new Schema({
   phone:        {type: String, minlength:8,maxlength:8},
   avatar:       {type: String, required: true},
   password:     {type: String, required: true},
+  //onfirmPassword:{type: String, required: true},
   state:        {type: String, required: true, em:states},
   role:         {type: String, required: true, em:roles },
   username:     {type: String},
   //Student only
   birthdate:     {type: Date, required: true},
   careers:       {type: Array, required: true},
-  justification: {type: String, default: null},
+  rejectReason: {type: String, default: undefined},
   resumeUrl:     {type: String},
   githubUrl:     {type: String},
   websiteUrl:    {type: String},
@@ -37,39 +38,94 @@ var UsersSchema = new Schema({
 
 }, {collection: 'users'});
 
+UsersSchema.pre('save', function(next) {  
+  var user = this;
+
+  if (!user.isModified('password')) return next();  
+
+  bcrypt.genSalt(10, function(err, salt) {
+    if (err) return next(err);
+
+    bcrypt.hash(user.password, salt, function(err, hash) {
+        if (err) return next(err);
+        user.password = hash;
+        next();
+    });
+  });
+});
+
+UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+};
 
 var User = mongoose.model('User', UsersSchema);
 
+router.put('/user/login', function(req, res, next) {
+  var email = req.body.email || '';
+  var password = req.body.password || '';
+
+  // if (email == '' || password == '') {
+  //  res.json({"error":"Datos invalidos"});
+  // }
+
+  User.findOne({email: email}, function(err, user) {
+    if (err) throw err;
+    
+    if (user) {
+      user.comparePassword(password, function(err, isMatch) {
+        if (err) throw err;
+        if (!isMatch) {         
+          console.log('Attempt failed to login with: ' + user.username);
+          res.json({"error":"Contraseña no coincide, intente nuevamente"});
+        }else{
+          console.log('Password'+password+': ', isMatch); // -> Password123: true
+          switch(user.state){
+            case "eligible" || "active" || "inactive":
+              user.password = undefined;
+              res.json(user);
+            break;
+            
+            case "postulate":
+              res.json({"error":"Solicitud de registro en revisión","succes":true});
+            break;  
+
+            case "banned":
+              res.json({"error":"Usuario bloqueado, contacte administrador","succes":true});
+            break;
+
+            case "rejected":
+              res.json({"error":"Solicitud de registro rechazada","succes":true});
+            break;  
+          };
+        };  
+      });
+    }else{
+      res.json({"error":"Usuario no encontrado, correo electrónico incorrecto"});
+    };
+    // test a matching password   
+  });  
+});
 //API General
+
+// API method -> return ALL users 
 router.get('/users', function(req, res, next) {
   User.find({}, function(err, users){
     res.json(users);
   });
 });
-router.put('/user', function(req, res, next) {
+// API method -> search user with object as filter -> return all matched users
+router.put('/users/search', function(req, res, next) { 
+  User.find(req.body, function(err,results) {
+    res.json(results);
+  });
+});
+
+router.put('/user', function(req, res, next) { 
   User.findOne(req.body, function(err,user) {
-    if (user) {      
-      switch(user.state){
-        case "eligible" || "active" || "inactive":
-          user.password = undefined;
-          res.json(user);
-        break;
-        
-        case "postulate":
-          res.json({"error":"Solicitud de registro en revisión","succes":true});
-        break;  
-
-        case "banned":
-          res.json({"error":"Usuario bloqueado, contacte administrador","succes":true});
-        break;
-
-        case "rejected":
-          res.json({"error":"Solicitud de registro rechazada","succes":true});
-        break;  
-      }
-    }else{
-      res.json({"error":"Los datos ingresados son incorrectos"});
-    };
+    res.json(users);
   });
 });
 
@@ -79,6 +135,7 @@ router.get('/users/students', function(req, res, next) {
     res.json(users);
   });
 });
+
 //procesar solicitudes de estudiantes
 router.put('/user/students/update', function(req, res, next) {
   User.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
@@ -89,7 +146,7 @@ router.put('/user/students/update', function(req, res, next) {
 
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
-  var user = Object.assign(new User(),req.body)
+
 
 
   // user._id = mongoose.Schema.Types.ObjectId
@@ -109,6 +166,9 @@ router.post('/user/add', function(req, res, next) {
   user.role = req.body.role;
 
   console.log('USER ROLE ++++++++++++++++++++++++++++++++++++++++++'+req.body.role)
+
+  var user = Object.assign(new User(), req.body)
+
   switch (user.role){
     case 'student':
       user.birthdate     = req.body.birthdate;

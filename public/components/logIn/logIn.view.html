@@ -28,7 +28,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<img src="./imgs/cshLogo.png" alt="">
 				<h1>Cenfotec Software House</h1>
-			</div>	
+			</div>
 		</div>
 		<div class="col-md-5">
 			<form ng-submit="vm.logIn(vm.user)" name="userLogIn" novalidate>
@@ -46,7 +46,7 @@
   					<span class="form-control-feedback fui-lock"></span>
 				</div>
 				<div class="form-group has-feedback col-md-9 col-md-offset-5">
-					<button ng-click="" class="btn btn-warning col-md-4" ng-disabled="vm.loading" type="submit">Iniciar sesión</button>
+					<button class="btn btn-warning col-md-4" ng-disabled="vm.loading">Iniciar sesión</button>
 				</div>
 				<div class="col-md-8 col-md-offset-4">
 					<a data-toggle="modal" data-target="#modal" ng-click="vm.modal.config('forgot')">Olvidó su contraseña</a>
@@ -75,10 +75,7 @@
 
 												<button class="btn btn-warning" id="btnForgot" ng-click="vm.forgot()">Recuperar</button>
 											</div>
-											<!-- LOGIN SECTION -->
-											<div ng-show="vm.modal.type == 'logIn'">									
-												<button class="btn btn-warning">Cerrar</button>
-											</div>											
+											<!-- LOGIN SECTION -->											
 										</form>
 									</div>
 									<div class="modal-footer">
