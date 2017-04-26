@@ -15,6 +15,7 @@
       /*ADMINISTRA SECCIONES A DESPLEGAR*/
       //mensaje de "no hay proyectos"
       vm.message=false;
+      console.log("entró");
 
     }
 
