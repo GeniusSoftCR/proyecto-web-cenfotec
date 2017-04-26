@@ -25,7 +25,7 @@ var projectSchema = new Schema({
 	professor:    {type: String},
 	assitant:     {type: String},
 	hours:        {type: new Array},
-	justification:{type: String}
+	rejectReason: {type: String, default: undefined}
 
 }, {collection : 'projects'});
 
