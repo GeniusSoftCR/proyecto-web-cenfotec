@@ -80,26 +80,24 @@
 		.state('main.projects',{
 			url:'/proyectos',
 			// templateUrl: './components/projects/projects.view.html',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load([
+	          		'./components/projects/viewProject/viewProjects.controller.js',
+	          		'./components/projects/resolveRequest/resolveRequest.controller.js'
+	          		])
+	          }]	          
+		    },
 			views: {
 				'': {
 					templateUrl: './components/projects/projects.view.html',
 				},
-				'projectsList@main.projects': {
-			    	resolve: {  
-			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-			          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
-			          }]
-				    },
-			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
-					controller: 'viewProjectsController',
+				'resolveRequest@main.projects': {
+			    	templateUrl: './components/projects/resolveRequest/resolveRequest.view.html',
+					controller: 'resolveRequestController',
 					controllerAs: 'vm'
 				},
 				'projectsList@main.projects': {
-			    	resolve: {  
-			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-			          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
-			          }]
-				    },
 			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
 					controller: 'viewProjectsController',
 					controllerAs: 'vm'
