@@ -188,18 +188,18 @@
 		// 	controllerAs: 'vm'
 		// })
 		
-		// .state('main.users',{
-		// 	url:'/usuarios',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/administratorSteph/registerUser/userAp.controller.js')
-	 //          }]
-		//     },
-		// 	templateUrl: './components/administratorSteph/registerUser/userAp.view.html',
-		// 	css: './css/users.css',
-		// 	controller: 'userApController',
-		// 	controllerAs: 'vm'
-		// })
+		.state('main.users',{
+			url:'/usuarios',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/users/registerUser/userAp.controller.js')
+	          }]
+		    },
+			templateUrl: './components/users/registerUser/userAp.view.html',
+			css: './css/users.css',
+			controller: 'userApController',
+			controllerAs: 'vm'
+		})
 
 		 /*.state('registrerProfessor',{
 		       url: '/registrerProfessor',
