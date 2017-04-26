@@ -14,13 +14,13 @@
       //en el modal:
       vm.btnYes=true;     //muestra botón de aprobar
       vm.btnNo=true;      //muestra botón de rechazar
+      vm.finalStep=true;
       vm.rejection=false; //oculta bloque de la jsutificación
       vm.confirm=false;   //oculta botón de confirmar
 
       //RECARGAR LISTA DE SOLICITUDES
       vm.reloadPage = function () {
         setTimeout(function(){$window.location.reload()},100);
-        $('.btnstep').disabled = false;
       }
       vm.fetchRequestsList= function(){
         projectService.getProjects().then(function(res){
@@ -53,8 +53,8 @@
           console.log("Proyecto aprobado" + res.data);
         });
         vm.stuApro=true;
-        document.getElementByClassName('.btnstep').disabled = true;
-
+        vm.btnYes=false;
+        vm.btnNo=false;
         setTimeout(function(){
           $('#studentReq-Modal').modal('hide');
           //3)actualizar la lista de solicitudes
@@ -71,6 +71,7 @@
       vm.confirmation=function(x,y){
         projectService.changeRequestState(x,y);
         vm.stuReje=true;
+        vm.finalStep=false;
         setTimeout(function(){
           $('#studentReq-Modal').modal('hide');
           //3)actualizar la lista de solicitudes

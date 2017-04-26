@@ -52,8 +52,8 @@
 			<div class="modal-footer">
 				<!--procesamiento de la solicitud (aprueba o rechaza)-->
 				<div class="unModal-footer">
-					<button ng-show="vm.btnYes" class="btn btn-sm btn-embossed btn-warning btnstep" ng-click="vm.approveRequest(vm.req)">Aprobar</button>
-					<button ng-show="vm.btnNo" class="btn btn-sm btn-embossed btn-warning btnstep" ng-click="vm.rejection=true;vm.confirm=true;vm.btnYes=false;vm.btnNo=false;vm.switch(vm.req)">Rechazar</button><!--muestra la seccion oculta-->
+					<button ng-show="vm.btnYes" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.approveRequest(vm.req)">Aprobar</button>
+					<button ng-show="vm.btnNo" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.rejection=true;vm.confirm=true;vm.btnYes=false;vm.btnNo=false;vm.switch(vm.req)">Rechazar</button><!--muestra la seccion oculta-->
 					<button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
