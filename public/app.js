@@ -1,8 +1,6 @@
 (function(){
   'use strict';
-  angular.module('cshApp', 
-
-    ['appRoutes','angular-filepicker', 'ngFileUpload', 'LocalStorageModule', 'angularCSS','ngPassword'])
+  angular.module('cshApp', ['appRoutes','angular-filepicker', 'ngFileUpload', 'LocalStorageModule', 'angularCSS','ngPassword'])
 
     .config(function (filepickerProvider) {
       filepickerProvider.setKey('A6EzU2EhNTYmcvkWhu2cCz');

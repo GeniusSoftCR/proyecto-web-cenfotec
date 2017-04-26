@@ -8,11 +8,11 @@
 
  	function logInController ($timeout,$log,$http,$location,$rootScope,AUTH_EVENTS,AuthService,SessionService){
 
- 		if(AuthService.isAuth()){ 			
- 			$location.path('/inicio/usuario');
- 		}else{
- 			$location.path('/entrar');
- 		}
+ 		// if(AuthService.isAuth()){ 			
+ 		// 	$location.path('/inicio/usuario');
+ 		// }else{
+ 		// 	$location.path('/entrar');
+ 		// }
  		//vm = view model
 		var vm = this;
 		vm.loading = false;
