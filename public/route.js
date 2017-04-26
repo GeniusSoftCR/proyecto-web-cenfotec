@@ -15,18 +15,18 @@
 			templateUrl: './components/landing/landing.html',
 			css: './css/landing.css'
       	})
-		// .state('studentsRequest',{
-		//     url: '/solicitudEstudiantes',
-		//     templateUrl: './components/users/students/sendRequest/request.view.html',
-		//     css: './css/studentsRequest.style.css',
-		//     resolve: {
-		//     	load: ['$ocLazyLoad', function($ocLazyLoad){
-		//     		return $ocLazyLoad.load('./components/users/students/sendRequest/request.controller.js')
-		//     	}]
-		//     },
-		//     controller: 'sendRequest',
-		//     controllerAs: 'vm'
-		// })
+		.state('studentsRequest',{
+		    url: '/solicitudEstudiantes',
+		    templateUrl: './components/users/students/sendRequest/request.view.html',
+		    css: './css/studentsRequest.style.css',
+		    resolve: {
+		    	load: ['$ocLazyLoad', function($ocLazyLoad){
+		    		return $ocLazyLoad.load('./components/users/students/sendRequest/request.controller.js')
+		    	}]
+		    },
+		    controller: 'sendRequest',
+		    controllerAs: 'vm'
+		})
 		// .state('proyectRequest',{
 		// 	url: '/solicitudProyecto',
 		//     templateUrl:'./components/projects/sendRequests/sendRequests.view.html',
@@ -80,18 +80,26 @@
 		.state('main.projects',{
 			url:'/proyectos',
 			// templateUrl: './components/projects/projects.view.html',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load([
+	          		'./components/projects/viewProject/viewProjects.controller.js',
+	          		'./components/projects/resolveRequest/resolveRequest.controller.js'
+	          		])
+	          }]	          
+		    },
 			views: {
 				'': {
 					templateUrl: './components/projects/projects.view.html',
 				},
+				'resolveRequest@main.projects': {
+			    	templateUrl: './components/projects/resolveRequest/resolveRequest.view.html',
+					controller: 'resolveRequestController',
+					controllerAs: 'vm'
+				},
 				'projectsList@main.projects': {
-			    	resolve: {  
-			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-			          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
-			          }]
-				    },
 			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
-					controller: 'loadProjectsController',
+					controller: 'viewProjectsController',
 					controllerAs: 'vm'
 				},
 			}
@@ -188,18 +196,18 @@
 		 	controllerAs: 'vm'
 		})
 		
-		// .state('main.users',{
-		// 	url:'/usuarios',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/administratorSteph/registerUser/userAp.controller.js')
-	 //          }]
-		//     },
-		// 	templateUrl: './components/administratorSteph/registerUser/userAp.view.html',
-		// 	css: './css/users.css',
-		// 	controller: 'userApController',
-		// 	controllerAs: 'vm'
-		// })
+		.state('main.users',{
+			url:'/usuarios',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/users/registerUser/userAp.controller.js')
+	          }]
+		    },
+			templateUrl: './components/users/registerUser/userAp.view.html',
+			css: './css/users.css',
+			controller: 'userApController',
+			controllerAs: 'vm'
+		})
 
 		 /*.state('registrerProfessor',{
 		       url: '/registrerProfessor',
@@ -218,7 +226,7 @@
 		       templateUrl: './components/administratorSteph/registrerAdmi/userAdmi.view.html',
 		       controller: 'userAdmiController',
 		       controllerAs: 'userAdmiCtrl'
-		     })
+		     })*/
 		.state('administrator-studentRequests',{
 			url: '/admin/solicitudesEstudiantes',
 			templateUrl: './components/administratorEsteban/studentRequests/studentRequests.view.html',
