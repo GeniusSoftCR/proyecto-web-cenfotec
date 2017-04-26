@@ -13,6 +13,7 @@
       //en el modal:
       vm.btnYes=true;     //muestra botón de aprobar
       vm.btnNo=true;      //muestra botón de rechazar
+      vm.finalStep=true;
       vm.rejection=false; //oculta bloque de la jsutificación
       vm.confirm=false;   //oculta botón de confirmar
 
@@ -51,6 +52,8 @@
           console.log("Estudiante aprobado" + res.data);
         });
         vm.stuApro=true;
+        vm.btnYes=false;
+        vm.btnNo=false;
         setTimeout(function(){
           $('#studentReq-Modal').modal('hide');
           //3)actualizar la lista de solicitudes
@@ -67,6 +70,7 @@
       vm.confirmation=function(x,y){
         userService.changeRequestState(x,y);
         vm.stuReje=true;
+        vm.finalStep=false;
         setTimeout(function(){
           $('#studentReq-Modal').modal('hide');
           //3)actualizar la lista de solicitudes
