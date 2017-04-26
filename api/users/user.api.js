@@ -163,9 +163,9 @@ router.post('/user/add', function(req, res, next) {
 
 
   //User Roles
-  user.role = req.body.role;
+/*  user.role = req.body.role;*/
 
-  console.log('USER ROLE ++++++++++++++++++++++++++++++++++++++++++'+req.body.role)
+ /* console.log('USER ROLE ++++++++++++++++++++++++++++++++++++++++++'+req.body.role)*/
 
   var user = Object.assign(new User(), req.body)
 

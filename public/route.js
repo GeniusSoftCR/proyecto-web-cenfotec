@@ -15,18 +15,18 @@
 			templateUrl: './components/landing/landing.html',
 			css: './css/landing.css'
       	})
-		// .state('studentsRequest',{
-		//     url: '/solicitudEstudiantes',
-		//     templateUrl: './components/users/students/sendRequest/request.view.html',
-		//     css: './css/studentsRequest.style.css',
-		//     resolve: {
-		//     	load: ['$ocLazyLoad', function($ocLazyLoad){
-		//     		return $ocLazyLoad.load('./components/users/students/sendRequest/request.controller.js')
-		//     	}]
-		//     },
-		//     controller: 'sendRequest',
-		//     controllerAs: 'vm'
-		// })
+		.state('studentsRequest',{
+		    url: '/solicitudEstudiantes',
+		    templateUrl: './components/users/students/sendRequest/request.view.html',
+		    css: './css/studentsRequest.style.css',
+		    resolve: {
+		    	load: ['$ocLazyLoad', function($ocLazyLoad){
+		    		return $ocLazyLoad.load('./components/users/students/sendRequest/request.controller.js')
+		    	}]
+		    },
+		    controller: 'sendRequest',
+		    controllerAs: 'vm'
+		})
 		// .state('proyectRequest',{
 		// 	url: '/solicitudProyecto',
 		//     templateUrl:'./components/projects/sendRequests/sendRequests.view.html',

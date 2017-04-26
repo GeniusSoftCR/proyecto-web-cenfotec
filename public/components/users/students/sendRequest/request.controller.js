@@ -109,7 +109,7 @@
         vm.phone = null;
         vm.pimage = null;
         vm.password = null;
-        m.confirmPassword = null;
+        vm.confirmPassword = null;
         vm.birthdate = null;
         vm.careers = null;
         vm.resumeUrl = null;
