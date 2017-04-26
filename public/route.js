@@ -91,7 +91,7 @@
 			          }]
 				    },
 			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
-					controller: 'loadProjectsController',
+					controller: 'viewProjectsController',
 					controllerAs: 'vm'
 				},
 			}

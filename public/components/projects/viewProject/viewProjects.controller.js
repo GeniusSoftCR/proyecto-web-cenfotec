@@ -1,10 +1,10 @@
 (function(){
   angular
     .module('cshApp')
-    .controller('loadProjectsController', loadProjectsController);
-    loadProjectsController.$inject= ['projectService'];
+    .controller('viewProjectsController', viewProjectsController);
+    viewProjectsController.$inject= ['projectService'];
 
-    function loadProjectsController(projectService){
+    function viewProjectsController(projectService){
       
       var vm = this;
       //inicia cargando la lista de estados de proyecto
