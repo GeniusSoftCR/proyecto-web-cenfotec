@@ -62,7 +62,7 @@
       }
 
       vm.save = function(pimage){
-        var   ={
+        var newUserProf  ={
           idNum : vm.prof.id,
           name : vm.prof.name,
           surname : vm.prof.surName,
@@ -95,18 +95,69 @@
         vm.send = true;
         vm.toSend = false;
       };
-    }
-})();
-      
+
       vm.preSaveAdmi = function(){
-        vm.cloudObj.data.file = document.getElementById("photo").files[0];
+        vm.cloudObj.data.file = document.getElementById("photoAdmi").files[0];
         Upload.upload(vm.cloudObj)
           .success(function(data){
-            vm.saveAd(data.url);
+            vm.saveAdmi(data.url);
           });
       }
 
-      vm.saveAd = function(pimage){
+      vm.saveAdmi = function(pimage){
+        var newUserAdmi ={
+          idNum : vm.admi.id,
+          name : vm.admi.name,
+          surname : vm.admi.surname,
+          secondSurname : vm.admi.secondSurname,
+          email : vm.admi.email,
+          phone : vm.admi.phone,
+          avatar:  pimage,
+          password : vm.admi.password,
+          state : null,
+          role: 'admin',
+          jobPosition : vm.admi.jobPosition
+        };
+
+        console.log(newUserAdmi);
+        //envia el usuario al user.service
+        userService.addUser(newUserAdmi).then(function(res){
+              console.log(res);
+          });
+
+        vm.admi.id = null;
+        vm.admi.name = null;
+        vm.admi.surname = null;
+        vm.admi.secondSurname = null;
+        vm.admi.email = null;
+        vm.admi.phone = null;
+        vm.admi.image = null;
+        vm.admi.password = null;
+        vm.admi.jobPosition = null;        
+      };
+
+
+
+
+
+
+
+
+
+
+
+    }
+})();
+      
+      /*vm.preSaveAsis = function(){
+        vm.cloudObj.data.file = document.getElementById("photo").files[0];
+        Upload.upload(vm.cloudObj)
+          .success(function(data){
+            vm.saveAsis(data.url);
+          });
+      }
+
+      vm.saveAsis = function(pimage){
         var newUserAssistant ={
           role_key: 3,
           name : vm.asis.name,
@@ -135,8 +186,9 @@
         vm.asis.jobPosition = null;
         vm.asis.phone = null;
         vm.asis.image = null;
-      };
+      };*/
 
+      
       
 
 

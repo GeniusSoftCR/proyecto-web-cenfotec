@@ -14,7 +14,7 @@
       <!-- Sección de profesores-->
       <div class="bhoechie-tab-content active">
         
-          <form class="profForm" name="profForm" class="container" autocomplete="off" ng-submit="vm.preSaveProf()" validate>  
+          <form class="profForm" name="profForm" class="container" autocomplete="off" ng-submit="vm.preSaveProf()" novalidate>  
             <div class="divtittle"><h4 class="tittle">Registro Profesores</h4></div>
            
             <div class="form-group col-md-3 col-sm-12 ibck">
@@ -145,7 +145,7 @@
       </div>
 
       <div class="bhoechie-tab-content">
-        <form class="userAdmiForm row" novalidate  ng-click="vm.preSaveAdmi()">
+        <form class="userAdmiForm row" novalidate autocomplete="off" ng-click="vm.preSaveAdmi()">
             
           <h4 class="tittle">Registro Administradores</h4>
 
@@ -286,7 +286,7 @@
                 
     <!-- <div class="bhoechie-tab-content">
       <center>
-        <form name="userFormAsis" class="row" ng-click="vm.preSaveAs()">
+        <form name="userFormAsis" class="row" ng-click="vm.preSaveAsis()">
           <h4 class="tittle">Registro Asistentes</h4>
           <div class="form-group col-md-3 col-sm-12 ibck">
               <label for="name">Nombre:</label>
