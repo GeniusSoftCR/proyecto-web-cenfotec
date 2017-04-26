@@ -19,7 +19,7 @@
 
       //RECARGAR LISTA DE SOLICITUDES
       vm.reloadPage = function () {
-        setTimeout(function(){$window.location.reload()},500)
+        setTimeout(function(){$window.location.reload()},100)
       }
       vm.fetchRequestsList= function(){
         projectService.getProjects().then(function(res){
