@@ -62,7 +62,7 @@
       }
 
       vm.save = function(pimage){
-        var newUserProf ={
+        var   ={
           idNum : vm.prof.id,
           name : vm.prof.name,
           surname : vm.prof.surName,
@@ -98,7 +98,15 @@
     }
 })();
       
-      vm.saveAs = function(pimage){
+      vm.preSaveAdmi = function(){
+        vm.cloudObj.data.file = document.getElementById("photo").files[0];
+        Upload.upload(vm.cloudObj)
+          .success(function(data){
+            vm.saveAd(data.url);
+          });
+      }
+
+      vm.saveAd = function(pimage){
         var newUserAssistant ={
           role_key: 3,
           name : vm.asis.name,
