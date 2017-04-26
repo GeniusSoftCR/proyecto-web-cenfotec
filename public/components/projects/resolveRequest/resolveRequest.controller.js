@@ -40,7 +40,7 @@
         vm.stuApro=false;
         vm.stuReje=false;
         $('#justification').closest('.form-group').removeClass('has-error');
-        vm.req.justification=null;
+        vm.req.rejectReason=null;
         vm.finalStep=false;
       }
 
@@ -95,7 +95,7 @@
         } else { 
           //vm.validate=true;
           $('#justification').closest('.form-group').addClass('has-error');
-          vm.req.justification=null;
+          vm.req.rejectReason=null;
         }
       }
     }
