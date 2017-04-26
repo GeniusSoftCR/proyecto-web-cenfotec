@@ -28,6 +28,8 @@
       return $http.post('http://localhost:3000/api/user/add', newUser);
     }
 
+  
+
     //trae la lista de estudiantes del back-end
     function _getStudents(){
       return $http.get('http://localhost:3000/api/users/students');
