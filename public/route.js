@@ -94,6 +94,16 @@
 					controller: 'viewProjectsController',
 					controllerAs: 'vm'
 				},
+				'projectsList@main.projects': {
+			    	resolve: {  
+			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+			          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
+			          }]
+				    },
+			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
+					controller: 'viewProjectsController',
+					controllerAs: 'vm'
+				},
 			}
 		})
 		// .state('main.projects.viewProjects',{

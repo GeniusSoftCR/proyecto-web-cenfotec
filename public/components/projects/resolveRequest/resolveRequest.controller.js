@@ -1,10 +1,10 @@
 (function(){
   angular
     .module('cshApp')
-    .controller('projectRequestsController', projectRequestsController);
-      projectRequestsController.$inject= ['projectService','$window'];
+    .controller('resolveRequestController', resolveRequestController);
+      resolveRequestController.$inject= ['projectService','$window'];
 
-    function projectRequestsController(projectService,$window){
+    function resolveRequestController(projectService,$window){
      
       var vm = this;
       //carga la lista de solicitudes
