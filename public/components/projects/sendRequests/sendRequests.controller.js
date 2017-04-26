@@ -2,11 +2,11 @@
   'use strict'
   angular
   .module('cshApp')
-  .controller('projectController', projectController);
+  .controller('sendRequest', sendRequest);
 
-  projectController.$inject = ['$scope', '$window', 'projectService', 'ImageService', 'filepickerService', 'Upload'];
+  sendRequest.$inject = ['$scope', '$window', 'projectService', 'ImageService', 'filepickerService', 'Upload'];
 
-  function projectController($scope, $window, projectService, ImageService, filepickerService, Upload){
+  function sendRequest($scope, $window, projectService, ImageService, filepickerService, Upload){
     var vm = this;
     vm.cloudObj = ImageService.getConfiguration();
     vm.send = false;
