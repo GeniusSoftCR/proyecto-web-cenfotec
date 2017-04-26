@@ -1,10 +1,10 @@
 <div class="panel panel-default">
 	<div class="panel-heading">Lista de proyectos
-		<select ng-show="vm.test" class="form-control select select-primary pull-right" data-toggle="select" ng-model="search">
+		<select class="form-control select select-primary pull-right" data-toggle="select" ng-model="search">
       		<option value="" disabled="disabled">Seleccione un estado</option>
-	      	<option value="inRevision">En revisón</option>
-		    <option value="aproved">Aprobados</option>
-		    <option value="reject">Rechazados</option>
+	      	<option ng-show="vm.test" value="inRevision">En revisón</option>
+		    <option ng-show="vm.test" value="aproved">Aprobados</option>
+		    <option ng-show="vm.test" value="reject">Rechazados</option>
 		    <option value="inProcess">En proceso</option>
 		    <option value="ended">Finalizados</option>
 	    </select>
