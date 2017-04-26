@@ -12,7 +12,7 @@ var express = require('express'),
 
 var UsersSchema = new Schema({  
   // _id  :        ObjectId,
-  idNum :       {type: String, required: true,minlength:9,maxlength:9},
+  idNum :       {type: String, required: true,minlength:9,maxlength:9, unique: true},
   name:         {type: String, required: true},
   surname:      {type: String, required: true},
   secondSurname:{type: String, required: true},
@@ -21,12 +21,12 @@ var UsersSchema = new Schema({
   avatar:       {type: String, required: true},
   password:     {type: String, required: true},
   //onfirmPassword:{type: String, required: true},
-  state:        {type: String, required: true, em:states},
+  state:        {type: String, em:states},
   role:         {type: String, required: true, em:roles },
   username:     {type: String},
   //Student only
-  birthdate:     {type: Date, required: true},
-  careers:       {type: Array, required: true},
+  birthdate:     {type: Date},
+  careers:       {type: Array},
   rejectReason: {type: String, default: undefined},
   resumeUrl:     {type: String},
   githubUrl:     {type: String},
@@ -186,7 +186,7 @@ router.post('/user/add', function(req, res, next) {
       break;
   }
   
-  console.log(user)  
+  console.log(user.role)  
 
   user.save(function(err){
     if (err) {

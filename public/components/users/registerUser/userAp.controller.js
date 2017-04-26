@@ -72,7 +72,7 @@
           councilMember : vm.prof.councilMember,
           avatar : pimage,
           password : vm.prof.password,
-          state: undefined,
+          state: 'active',
           role: 'professor',
          specialty : vm.prof.specialty
         };
@@ -115,7 +115,7 @@
           phone : vm.admi.phone,
           avatar:  pimage,
           password : vm.admi.password,
-          state : undefined,
+          state : 'active',
           role: 'admin',
           jobPosition : vm.admi.jobPosition
         };
@@ -124,7 +124,7 @@
           console.log(res)
         });
 
-        vm.admi.idNum = null;
+        vm.admi.id = null;
         vm.admi.name = null;
         vm.admi.surname = null;
         vm.admi.secondSurname = null;
@@ -154,6 +154,8 @@
           phone : vm.asis.phone,
           avatar:  pimage,
           password : vm.asis.password,
+          state : 'active',
+          role: 'assistant',
           jobPosition : vm.asis.jobPosition,
         };
 
