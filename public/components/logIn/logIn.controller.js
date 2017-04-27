@@ -47,7 +47,7 @@
 					$log.error("Login failed")
 		        	$rootScope.$broadcast(AUTH_EVENTS.loginFailed);
 
-		        	$timeout(function () {$('#modal').modal('hide')},1800)
+		        	$timeout(function () {$('#modal').modal('hide')},1850)
 
 		        	$location.path('/entrar');
 				};
