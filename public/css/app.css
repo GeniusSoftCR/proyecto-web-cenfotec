@@ -20,17 +20,16 @@ body {
   font-family: 'montserrat';
   background-color: #fff;
 }
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6, table, thead, tbody, td, th, tr, p, select, option, button, label, input, div, ol, ul, li, a{
   font-family: 'montserrat';
+  font-weight: 400;
+  margin: 0;
 }
 ul {
   list-style-type: none;
   padding: 0;
 }
-h2{
-    font-family: 'montserrat';
-    font-weight: 400;
-  }
+
 .ibck{
   display: inline-block;
 }
