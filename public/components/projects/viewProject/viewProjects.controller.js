@@ -11,13 +11,18 @@
       vm.empty=false; //mensaje de lista vacía
       vm.asignedProjects = [];  //filtro de proyectos
       vm.teacher=SessionService.session.idNum;
+      console.log("idNum: "+vm.teacher);
 
-      projectService.getProjects({}).then(function(res){
-        $q.when(res).then(function () {
-          vm.projects=res.data;
-          console.log(vm.projects);
-        })
-      });
+      vm.fetchRequestsList= function(){
+        projectService.getProjects({}).then(function(res){
+          $q.when(res).then(function () {
+            vm.projects=res.data;
+            console.log(vm.projects);
+          })
+        });
+      }
+      vm.fetchRequestsList();
+
 
       //TRAE LA LSITA DE PROYECTOS
       //FILTRA el select del view y FILTRA la lista de proyectos
@@ -28,18 +33,19 @@
           vm.test=true;
           break;
         case "professor":
-        
-        //buscar los proyectos a los que el profesor actual ha sido asignado
-        angular.forEach(vm.projects, function(value, key) {
-          if((vm.projects[i].professor === vm.teacher)||(vm.projects[i].assistant === vm.teacher)){
-            //filtra por proyectos "en proceso" y/o "finalizados"
-            if((vm.projects[i].state === "inProcess")||(vm.projects[i].state === "ended")){
-              vm.asignedProjects.push(vm.projects[i]);
+        console.log("rol: "+SessionService.session.role);
+          //buscar los proyectos a los que el profesor actual ha sido asignado
+          angular.forEach(vm.projects, function(project, key) {
+            console.log(key);
+            if((project.professor === vm.teacher)||(project.assistant === vm.teacher)){
+              //filtra por proyectos "en proceso" y/o "finalizados"
+              if((project.state === "inProcess")||(project.state === "ended")){
+                vm.asignedProjects.push(project);
+              }
             }
-          }
+          });
           vm.projects=vm.asignedProjects;
-        });
-        
+          break;        
       };
 
       //verificar si la lista(según el estado) está vacía
