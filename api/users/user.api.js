@@ -40,6 +40,13 @@ var UsersSchema = new Schema({
 
 UsersSchema.pre('save', function(next) {  
   var user = this;
+  //Configuracion previa a salvar (toma en cuenta el objeto enviado)
+  if (user) {
+    if(!user.avatar){
+      user.avatar = "../../imgs/user-profile-default.png";
+    }
+    user.username = user.email.split('@ucenfotec.ac.cr',1)[0];
+  }
 
   if (!user.isModified('password')) return next();  
 
@@ -149,8 +156,6 @@ router.put('/user/students/update', function(req, res, next) {
 
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
-
-
 
   // user._id = mongoose.Schema.Types.ObjectId
   /*user.idNum = req.body.idNum;
