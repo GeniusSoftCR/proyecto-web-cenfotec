@@ -38,6 +38,7 @@
               vm.asignedProjects.push(vm.projects[i]);
             }
           }
+          vm.projects=vm.asignedProjects;
         });
         
       };
