@@ -94,7 +94,7 @@
       <!-- Resumen ejecutivo -->
       <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#resume">Resumen ejecutivo:</label>
-        <p><a ng-click="vm.pickFile()" class="form-control" style="background-color: #FBB803; color: black; cursor: pointer;" id="resumeUrl" ng-model="vm.projectFile" multiple required >Seleccione el archivo</a></p>
+        <p><a ng-click="vm.pickFile()" class="form-control" style="background-color: #FBB803; color: black; cursor: pointer;" id="resumeUrl" ng-model="vm.projectFile" multiple>Seleccione el archivo</a></p>
       </div>
       <!-- Industria de la empresa -->
       <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
@@ -110,7 +110,7 @@
         <label for="images">Algunas imagenes sobre el proyecto: </label>
         <div class="input-group">
           <label class="input-group-btn">
-            <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photo" multiple ng-model="vm.projectImages" required>
+            <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photo" multiple ng-model="vm.projectImages">
             </span>
           </label>
           <input type="text" class="form-control" style="color: black" readonly>
@@ -119,9 +119,38 @@
      
       <!-- boton -->
       <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-        <button type="submit" id="btnRegister" ng-disabled="projectRequest.$pristine" data-toggle="modal" class="btn btn-warning btn-embossed">Enviar solicitud</button>
+        <button type="submit" id="btnRegister" ng-disabled="projectRequest.$invalid" data-toggle="modal" class="btn btn-warning btn-embossed">Enviar solicitud</button>
       </div>
-      
     </form>
+
+      <div class="col-md-8 col-md-offset-4">  
+            <div class="modal fade" id="modal" role="dialog" style="margin-top: 20vh">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title">{{vm.modal.title}}</h4>
+
+                  </div>
+                  <div class="modal-body">
+                    <form name="forgotPass">
+                      <p>{{vm.modal.body}}</p>
+
+                      <!-- FORGOT SECTION -->
+                      <div ng-show="vm.modal.type == 'forgot'">                   
+                        <input  class="col-md-11" type="email" ng-model="vm.forgot.email" placeholder="Correo electrónico" required>
+
+                        <button class="btn btn-warning" id="btnForgot" ng-click="vm.forgot()">Recuperar</button>
+                      </div>
+                      <!-- LOGIN SECTION -->                      
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
   </div>
 </main>

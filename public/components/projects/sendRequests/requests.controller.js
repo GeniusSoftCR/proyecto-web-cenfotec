@@ -14,7 +14,7 @@
     vm.pickFile = pickFile;
     vm.onSuccess = onSuccess;
 
-    //En el input de imagen muestra al lado de escoger, la imagen que se ha seleccionado
+    //retroalimetacion de las imagenes
     $(function() {
       $(document).on('change', ':file', function() {
         var input = $(this),
@@ -34,7 +34,7 @@
           });
         });
     });
-
+    //funcion que almacena el pdf
     function pickFile(){
       filepickerService.pick(
         {extension: '.pdf',
@@ -49,6 +49,7 @@
       console.log(Blob);
       vm.projectFile = Blob.url;
     };
+    //funcion q almacena las imagenes
     vm.preSave = function(){
         vm.cloudObj.data.file = document.getElementById("imageProjectRequest").files[0];
         if (vm.cloudObj.data.file) {
@@ -61,7 +62,7 @@
         }
 
       }
-
+    //Se envian el object al service
     vm.save = function(pimage){
       var newProjectRequest = {
         idNum : vm.nId,
@@ -93,6 +94,6 @@
       vm.email = null;
       vm.projectManager = null;
       vm.industry = null;
-    };
+    };  
   };
 })()
