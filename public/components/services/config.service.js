@@ -15,7 +15,7 @@
 		return publicApi;
 
 		function _addCarrers(newCarrer){
-
+			return $http.post('http://localhost:3000/api/config/add', newCarrer);
 		}
 	}
 })();
