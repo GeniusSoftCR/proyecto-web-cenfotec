@@ -15,12 +15,10 @@
 
       projectService.getProjects({}).then(function(res){
         $q.when(res).then(function () {
-          console.log("Funcione!!!");
           vm.projects=res.data;
           console.log(vm.projects);
         })
       });
-
 
       //TRAE LA LSITA DE PROYECTOS
       //FILTRA el select del view y FILTRA la lista de proyectos
@@ -32,9 +30,19 @@
           break;
         case "professor":
         
-        angular.forEach(vm.projects, function(value, key) {
-          console.log(key + ': ' + value);
-        });
+        // angular.forEach(vm.projects, function(value, key) {
+        //   console.log(key + ': ' + value);
+        // });
+        //buscar los proyectos a los que el profesor actual ha sido asignado
+        for (i = 0; i < vm.projects.length; i++){
+          if((vm.projects[i].professor === vm.teacher)||(vm.projects[i].assistant === vm.teacher)){
+            //filtra por proyectos "en proceso" y/o "finalizados"
+            if((vm.projects[i].state === "inProcess")||(vm.projects[i].state === "ended")){
+              vm.asignedProjects.push(vm.projects[i]);
+            }
+          }
+        }
+        vm.projects=vm.asignedProjects;
       };
 
       //verificar si la lista(según el estado) está vacía
