@@ -4,12 +4,12 @@ var express = require('express'),
 	//////////////////////////////
 	Schema = mongoose.Schema,
 	//////////////////////////////
-	grade = ['technical', 'diplomat', 'bachelor', 'bachelorsDegree', 'mastersDegree'];
+	degree = ['technical', 'diplomat', 'bachelor', 'bachelorsDegree', 'mastersDegree'];
 
 var configSchema = new Schema({
 	code : {type: String, required: true},
 	name : {type: String, required: true},
-	grade : {type: String, required: true}
+	degree : {type: String, required: true}
 	}, {collection : 'carrers'});
 
 var Carrers = mongoose.model('Carrers', carrersSchema);
