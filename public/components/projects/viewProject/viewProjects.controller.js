@@ -30,10 +30,13 @@
 
       vm.verify= function(){
         for (var i = vm.projects.length - 1; i >= 0; i--) {
-           console.log(vm.search);
+          if(vm.projects[i].state==vm.search){
+            vm.flag=true;
+            break;
+          }
         }
         if(vm.flag==false){
-          vm.message=true;//muestra el mensaje de lista vacía(para proyectos activos)
+          vm.message=true;//muestra el mensaje de lista vacía
         }
       }
 
