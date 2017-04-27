@@ -4,9 +4,9 @@
   .module('cshApp')
   .controller('configController', configController);
 
-  configController.$inject = ['$scope', 'Upload', 'configService'];
+  configController.$inject = ['$scope', 'Upload', 'configService', 'SessionService'];
 
-  function configController($scope, Upload, configService){
+  function configController($scope, Upload, configService, SessionService){
     var vm = this;
 
     vm.save = function(){

@@ -29,10 +29,9 @@ router.post('/config/addCareer', function(req, res, next){
 		if(err){
 			res.json({success: false, massage: 'Ha ocurrido un error'});
 		}else{
-			res.json({success : true, massage: 'Se ha enviado la carrera correctamente'})
+			res.json({success : true, massage: 'Se ha enviado la carrera correctamente'});
 		}
 	})
-	res.json({success : true, massage: 'Se ha enviado la carrera correctamente'})
 })
 
 module.exports = router;
