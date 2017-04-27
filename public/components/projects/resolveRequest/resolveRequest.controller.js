@@ -9,7 +9,6 @@
       var vm = this;
       //carga la lista de solicitudes
       vm.requestsList = [];
-      console.log("putitomon");
 
       //en el modal:
       vm.btnYes=true;     //muestra botón de aprobar

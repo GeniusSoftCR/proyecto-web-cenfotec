@@ -71,14 +71,14 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 var User = mongoose.model('User', UsersSchema);
 
 router.put('/user/login', function(req, res, next) {
-  var email = req.body.email || '';
+  var username = req.body.username || '';
   var password = req.body.password || '';
 
-  // if (email == '' || password == '') {
+  // if (username == '' || password == '') {
   //  res.json({"error":"Datos invalidos"});
   // }
 
-  User.findOne({email: email}, function(err, user) {
+  User.findOne({username: username}, function(err, user) {
     if (err) throw err;
     
     if (user) {
@@ -141,7 +141,10 @@ router.put('/user', function(req, res, next) {
 
 //busca los usuarios estudiantes
 router.get('/users/students', function(req, res, next) {
-  User.find({'role':'student'}, function(err, users){
+
+
+
+  User.find({'role':'student'||'client'}, function(err, users){
     res.json(users);
   });
 });
