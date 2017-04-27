@@ -1,42 +1,32 @@
 (function(){
-  'use strict'
   angular
-  .module('cshApp')
-  .controller('configController', configController);
+    .module('cshApp')
+    .controller('addCareersController', addCareersController);
+    
+    addCareersController.$inject = ['$scope','addCareersService','Upload','localStorageService'];
 
-  configController.$inject = ['$scope', 'Upload', 'carrersService'];
-
-  function configController($scope, Upload, carrersService){
-    var vm = this;
-
-    vm.save = function(){
-      var newCarrer = {
-        code : vm.carrerCode,
-        name : vm.carrerName,
-        grade : vm.carrerGrade
-      };
-      console.log(newCarrer)
-    }
-  }
-})()
-
-
-
-
-
-
-
-
-
-
+    
+    function addCareersController($scope, addCareersService,Upload, localStorageService){ //se inyecta el service userService en el controlador para que se tenga acceso
+      //controlador
       
 
-/*
+      var addCareersCtrl = this; //binding del controlador con el html, solo en el controlador
+      
+
+
       function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
         addCareersCtrl.careerList = addCareersService.getCareer();
       }
       init();
 
+
+      addCareersCtrl.save= function(){
+        var newCareer ={
+
+          id : addCareersCtrl.id,
+          nameCareer : addCareersCtrl.nameCareer,
+          grade : addCareersCtrl.grade
+        }
 
         console.log(newCareer);
         
@@ -58,4 +48,3 @@
      //se establece un objeto de angular normal
 
 })();
-*/
