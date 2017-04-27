@@ -104,7 +104,11 @@
 			url: '/proyecto/:proyectoId',
 			resolve: {  
 				load: ['$ocLazyLoad', function($ocLazyLoad) { 
-					return $ocLazyLoad.load('./components/projects/project/watchproject/projects.controller.js')
+					return $ocLazyLoad.load([
+						'./components/projects/project/watchproject/projects.controller.js',
+						'./components/projects/project/projectAnotations/projectanotations.controller.js',
+						'./components/projects/project/projectFiles-esteban/projectFiles.controller.js'
+						])
 				}]
 			},
 			views: {
@@ -113,16 +117,16 @@
 					controller: 'watchProjectController',
 					controllerAs: 'watchProjectCtrl'
 				},
-			    'anotaciones@main.project': { //Andres anotaciones
-			    	resolve: {  
-			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-			          	return $ocLazyLoad.load('./components/projects/project/projectAnotations/projectanotations.controller.js')
-			          }]
-				    },
+			    'anotaciones@main.project': {
 			    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
 			    	controller: 'projectAnotationsController',
 			    	controllerAs: 'anotationsCtrl'
 				},
+				'archivos@main.project': {
+					templateUrl: './components/projects/project/projectFiles-esteban/projectFiles.view.html',
+					controller: 'filesController',
+					controllerAs: 'filesCtrl'
+				}
 		   //    	'estudiantes@watchProject': { //Andres asignar estudiantes
 		   //      	templateUrl: 'components/projects/project/assignStudents/assignStudents.projects.view.html',
 		   //      	controller: 'assignStudentsController',
@@ -133,16 +137,6 @@
 					// controller: 'assignTeachersController',
 					// controllerAs: 'assignTeachersCtrl'
 		   //    	},
-				'archivos@main.project': { //Esteban archivos
-					resolve: {  
-			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-			          	return $ocLazyLoad.load('./components/projects/project/projectFiles-esteban/projectFiles.controller.js')
-			          }]
-				    },
-					templateUrl: './components/projects/project/projectFiles-esteban/projectFiles.view.html',
-					controller: 'filesController',
-					controllerAs: 'filesCtrl'
-				}
 	    	}
 		})		
 		/*FIN*/
