@@ -23,7 +23,7 @@
         case "professor":
           vm.teacher=SessionService.session.idNum;
           //buscar los proyectos a los que el profesor actual ha sido asignado
-          for (i = 0; i < vm.projects.length; i++) {
+          for (i = 0; i < vm.projects.length; i++){
             if((vm.projects[i].professor === vm.teacher)||(vm.projects[i].assistant === vm.teacher)){
               //filtra por proyectos "en proceso" y/o "finalizados"
               if((vm.projects[i].state === "inProcess")||(vm.projects[i].state === "ended")){
