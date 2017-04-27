@@ -40,6 +40,13 @@ var UsersSchema = new Schema({
 
 UsersSchema.pre('save', function(next) {  
   var user = this;
+  //Configuracion previa a salvar (toma en cuenta el objeto enviado)
+  if (user) {
+    if(!user.avatar){
+      user.avatar = "../../imgs/user-profile-default.png";
+    }
+    user.username = user.email.split('@ucenfotec.ac.cr',1)[0];
+  }
 
   if (!user.isModified('password')) return next();  
 
@@ -64,14 +71,14 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 var User = mongoose.model('User', UsersSchema);
 
 router.put('/user/login', function(req, res, next) {
-  var email = req.body.email || '';
+  var username = req.body.username || '';
   var password = req.body.password || '';
 
-  // if (email == '' || password == '') {
+  // if (username == '' || password == '') {
   //  res.json({"error":"Datos invalidos"});
   // }
 
-  User.findOne({email: email}, function(err, user) {
+  User.findOne({username: username}, function(err, user) {
     if (err) throw err;
     
     if (user) {
@@ -134,7 +141,10 @@ router.put('/user', function(req, res, next) {
 
 //busca los usuarios estudiantes
 router.get('/users/students', function(req, res, next) {
-  User.find({'role':'student'}, function(err, users){
+
+
+
+  User.find({'role':'student'||'client'}, function(err, users){
     res.json(users);
   });
 });
@@ -149,8 +159,6 @@ router.put('/user/students/update', function(req, res, next) {
 
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
-
-
 
   // user._id = mongoose.Schema.Types.ObjectId
   /*user.idNum = req.body.idNum;

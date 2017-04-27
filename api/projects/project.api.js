@@ -33,9 +33,18 @@ var Project = mongoose.model('Project', projectSchema);
 
 //API
 //busca la lista de proyectos
-router.get('/projects/load', function(req, res, next) {
-  Project.find({}, function(err, projects){
-    res.json(projects);
+// router.get('/projects/load', function(req, res, next) {
+//   Project.find({}, function(err, projects){
+//     res.json(projects);
+//   });
+// });
+router.put('/projects/load', function(req, res, next) { 
+  Project.find(req.body, function(err,results) {
+  	if(err){
+  		res.json({success: false, msg: 'Ha ocurrido un error'});
+  	}else{
+    	res.json(results);
+  	}
   });
 });
 //procesar solicitudes de proyectos
