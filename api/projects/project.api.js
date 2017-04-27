@@ -25,7 +25,7 @@ var projectSchema = new Schema({
 	professor:    {type: String},
 	assitant:     {type: String},
 	hours:        {type: new Array},
-	justification:{type: String}
+	rejectReason: {type: String, default: undefined}
 
 }, {collection : 'projects'});
 
@@ -53,8 +53,8 @@ router.post('/projects/add', function(req, res, next){
 	project.save(function(err){
 		if (err) {
       		res.json({success: false, message: 'Ha ocurrido un error'});
-    	} else {
-      		res.json({success: true, message: 'Se ha enviado el usuario correctamente'});
+    	}else{
+      		res.json({success: true, message: 'Se ha enviado el proyecto correctamente'});
     	}
 	})
 });

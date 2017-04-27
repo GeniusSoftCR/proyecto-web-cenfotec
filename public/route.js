@@ -184,17 +184,17 @@
 			controllerAs: 'vm'
 		})
 
-		// .state('main.careers',{
-		// 	url:'/carreras',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/administratorSteph/addCareers/addCareers.controller.js')
-	 //          }]
-		//     },
-		// 	templateUrl: './components/administratorSteph/addCareers/addCareers.view.html',
-		// 	controller: 'addCareersController',
-		// 	controllerAs: 'vm'
-		// })
+		.state('main.careers',{
+		 	url:'/carreras',
+		 	resolve: {  
+	           load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	           	return $ocLazyLoad.load('./components/config/addCareers/addCareers.controller.js')
+	           }]
+		     },
+		 	templateUrl: './components/config/addCareers/addCareers.view.html',
+		 	controller: 'addCareersController',
+		 	controllerAs: 'vm'
+		})
 		
 		.state('main.users',{
 			url:'/usuarios',
