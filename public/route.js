@@ -51,18 +51,7 @@
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
-		.state('main.profile',{
-			url:'/usuario',
-		    css: './css/profile.style.css',
-			templateUrl: './components/users/profile/profile.view.html',
-			resolve: {  
-	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./components/users/profile/profile.controller.js')
-	          }]
-		    },			
-		})
-
-		/*ESTADOS PARA TRABAJAR LOS PROYECTOS*/
+		/*Jerarquía de estados a partir del 'main' state*/
 		.state('main',{
 			url:'/inicio',
 			resolve: {  
@@ -74,12 +63,18 @@
 			controller:'mainController',
 			controllerAs:'vm'
 		})
-		
-		
-
+		.state('main.profile',{
+			url:'/usuario',
+		    css: './css/profile.style.css',
+			templateUrl: './components/users/profile/profile.view.html',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/users/profile/profile.controller.js')
+	          }]
+		    },			
+		})
 		.state('main.projects',{
 			url:'/proyectos',
-			// templateUrl: './components/projects/projects.view.html',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 	          	return $ocLazyLoad.load([
@@ -104,17 +99,6 @@
 				},
 			}
 		})
-		// .state('main.projects.viewProjects',{
-		// 	url:'/todos',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
-	 //          }]
-		//     },
-		// 	templateUrl: './components/projects/viewProject/viewProjects.view.html',
-		// 	controller: 'loadProjectsController',
-		// 	controllerAs: 'vm'
-		// })
 		// .state('main.projects2',{
 		// 	url:'/proyectos2',
 		// 	resolve: {  
