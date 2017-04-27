@@ -102,18 +102,18 @@
 		/*DENTRO DEL PROYECTO*/
 		.state('main.project',{
 			url: '/proyecto/:proyectoId',
+			resolve: {  
+				load: ['$ocLazyLoad', function($ocLazyLoad) { 
+					return $ocLazyLoad.load('./components/projects/project/watchproject/projects.controller.js')
+				}]
+			},
 			views: {
 				'': {
 					templateUrl: './components/projects/project/watchproject/projects.view.html',
 					controller: 'watchProjectController',
-					controllerAs: 'watchProjectCtrl',
-					resolve: {  
-						load: ['$ocLazyLoad', function($ocLazyLoad) { 
-							return $ocLazyLoad.load('./components/projects/project/watchproject/projects.controller.js')
-						}]
-					},
+					controllerAs: 'watchProjectCtrl'
 				},
-			    'anotaciones@main.projects.project': { //Andres anotaciones
+			    'anotaciones@main.project': { //Andres anotaciones
 			    	resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 			          	return $ocLazyLoad.load('./components/projects/project/projectAnotations/projectanotations.controller.js')
@@ -133,7 +133,7 @@
 					// controller: 'assignTeachersController',
 					// controllerAs: 'assignTeachersCtrl'
 		   //    	},
-				'archivos@main.projects.project': { //Esteban archivos
+				'archivos@main.project': { //Esteban archivos
 					resolve: {  
 			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 			          	return $ocLazyLoad.load('./components/projects/project/projectFiles-esteban/projectFiles.controller.js')
