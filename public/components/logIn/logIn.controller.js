@@ -21,7 +21,7 @@
 		};
 
 		vm.user = {};
-		
+
 		vm.logIn = function(credentials){ 
 			document.body.style.cursor='wait';
 			vm.loading = true;
