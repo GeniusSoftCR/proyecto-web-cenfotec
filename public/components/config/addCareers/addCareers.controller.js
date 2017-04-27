@@ -13,7 +13,7 @@
       var newCarrer = {
         code : vm.carrerCode,
         name : vm.carrerName,
-        grade : vm.carrerGrade
+        degree : vm.carrerDegree
       };
       console.log(newCarrer)
     }
