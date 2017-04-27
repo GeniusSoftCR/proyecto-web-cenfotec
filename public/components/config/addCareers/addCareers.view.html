@@ -1,11 +1,34 @@
-<!--<div ng-include="'components/dashboard/header/header.view.html'"></div>-->
-
 <main>
-  <div class="row">
+  <div class="container">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>Argregar nueva carrera</h2>
+        </div>
+        <div class="panel-body">
+          <div class="card">
+              <form class="careerForm" autocomplete="off" ng-submit="vm.save()" novalidate>                            
+                 <div class="form-group col-md-12">
+                  <label for="carrerName">Nombre de Carrera:</label>
+                  <input data-toggle="tooltip" title="Tooltip on bottom" type="text" ng-model="vm.carrerName" id="carrerName" class="form-control" name="nameCareer" minlength="3" maxlength="30" required >
+                  <div id="ng-message" ng-messages="careerForm.nameCareer.$error" ng-hide="careerForm.nameCareer.$pristine" >
+                    <div ng-message="required" ng-hide="careerForm.nameCareer.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                  </div>
+
+                 </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
     <div class="col-md-5">
       <div class="panel panel-default">
-        <div class="panel-heading">Agregar carrera</div>
-        <div class="panel-body">
+        
+        <div >
           <div class="card">
               <form class="careerForm">                            
                  <div class="form-group col-md-12" ng-class="{ 'has-error' : careerForm.name.$invalid && !careerForm.name.$pristine }">
@@ -107,5 +130,3 @@
           <div class="panel-footer"></div>
         </div>
       </div>
-    </div>
-</main>
