@@ -13,6 +13,7 @@
       vm.teacher=SessionService.session.idNum;
       console.log("idNum: "+vm.teacher);
 
+      //TRAE LA LSITA DE PROYECTOS
       vm.fetchRequestsList= function(){
         projectService.getProjects({}).then(function(res){
           $q.when(res).then(function () {
@@ -24,19 +25,17 @@
       vm.fetchRequestsList();
 
 
-      //TRAE LA LSITA DE PROYECTOS
       //FILTRA el select del view y FILTRA la lista de proyectos
       switch(SessionService.session.role){
         case "admin":
           console.log("Admin"+ vm.projects);
         case "assistant":
           vm.test=true;
-          break;
+          break; 
         case "professor":
-        console.log("rol: "+SessionService.session.role);
+          console.log("rol: "+SessionService.session.role);
           //buscar los proyectos a los que el profesor actual ha sido asignado
           angular.forEach(vm.projects, function(project, key) {
-            console.log(key);
             if((project.professor === vm.teacher)||(project.assistant === vm.teacher)){
               //filtra por proyectos "en proceso" y/o "finalizados"
               if((project.state === "inProcess")||(project.state === "ended")){
@@ -45,7 +44,7 @@
             }
           });
           vm.projects=vm.asignedProjects;
-          break;        
+          break;       
       };
 
       //verificar si la lista(según el estado) está vacía
