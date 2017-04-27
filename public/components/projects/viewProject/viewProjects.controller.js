@@ -7,7 +7,6 @@
     function viewProjectsController($q,projectService,SessionService){
 
       var vm = this;
-      var request=null;
       vm.flag=false;  //bandera de veirificacion
       vm.empty=false; //mensaje de lista vacía
       vm.asignedProjects = [];  //filtro de proyectos
