@@ -41,7 +41,7 @@
       <!-- Primer Apellido -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="surName">Primer apellido:</label>
-        <input type="text" ng-model="vm.surName"id="txtFirstName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
+        <input type="text" ng-model="vm.surName" id="txtFirstName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
         <div id="ng-message" ng-messages="studentForm.surName.$error" ng-hide="studentForm.surName.$pristine">
           <div ng-message="required" ng-hide="studentForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido</div>
           <div ng-message="pattern" ng-hide="studentForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
