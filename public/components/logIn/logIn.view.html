@@ -20,8 +20,8 @@
         <li><a href="#!/entrar">Iniciar sesión</a></li>
       </ul>
     </div>
-  </nav>
-</header>
+  </nav
+></header>
 <main>
 	<section id="login">
 		<div class="col-md-6" id="fondo1">
@@ -31,30 +31,29 @@
 			</div>
 		</div>
 		<div class="col-md-5">
-			<form ng-submit="vm.logIn(vm.user)" name="userLogIn" novalidate>
+			<form name="userLogInForm" ng-submit="vm.logIn(vm.user)"  novalidate="">
 				<div id="tituloLog" class="col-md-12 col-md-offset-1">
 					<h2>Iniciar sesión en</h2>
 					<h2>Cenfotec Software House</h2>
 				</div>
 				
 				<div class="form-group has-feedback col-md-6 col-md-offset-4" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
-  					<input type="text" ng-model="vm.user.username" placeholder="Nombre de usuario" class="form-control data" name="username" autofocus username/>
+  					<input type="text" ng-model="vm.user.username" placeholder="Nombre de usuario" class="form-control data" name="username" autofocus ng-required="true"/>
   					<span class="form-control-feedback fui-user"></span>
 				</div>
 				<div class="form-group has-feedback col-md-6 col-md-offset-4">
-  					<input type="password" ng-model="vm.user.password" placeholder="Contraseña" class="form-control data" name="password" />
+  					<input type="password" ng-model="vm.user.password" placeholder="Contraseña" class="form-control data" name="password" ng-required="true"/>
   					<span class="form-control-feedback fui-lock"></span>
 				</div>
 				<div class="form-group has-feedback col-md-9 col-md-offset-5">
-					<button class="btn btn-warning col-md-4" ng-disabled="vm.loading">Iniciar sesión</button>
+
+					<button class="btn btn-warning col-md-4" ng-disabled="userLogInForm.$invalid">Iniciar sesión</button>
 				</div>
 				<div class="col-md-8 pull-right">
 					<a data-toggle="modal" class="forgot-btn" data-target="#modal" ng-click="vm.modal.config('forgot')">¿Olvidó su contraseña?</a>
 				</div>
-
-
-
-
+				
+			</form>
 				<!-- Recuperar Contraseña -->
 				<div class="col-md-8 col-md-offset-4">	
 						<div class="modal fade" id="modal" role="dialog" style="margin-top: 20vh">
@@ -85,7 +84,6 @@
 							</div>
 						</div>
 				</div>
-			</form>
 		</div>
 	</section>
 </main>
