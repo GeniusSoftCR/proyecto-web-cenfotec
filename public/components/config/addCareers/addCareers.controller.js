@@ -15,17 +15,15 @@
         name : vm.carrerName,
         degree : vm.carrerDegree
       };
-      console.log(newCarrer)
+      console.log(newCarrer);
+      carrersService.addCarrers(newCarrer).then(function(res){
+        console.log(res);
+      });
+      vm.carrerCode = null;
+      vm.carrerName = null;
     }
   }
 })()
-
-
-
-
-
-
-
 
 
 
