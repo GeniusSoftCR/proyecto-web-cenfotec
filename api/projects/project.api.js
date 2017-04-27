@@ -23,7 +23,7 @@ var projectSchema = new Schema({
 	////////////////////////////////////////////
 	students:     {type: Array},
 	professor:    {type: String},
-	assitant:     {type: String},
+	assistant:     {type: String},
 	hours:        {type: new Array},
 	rejectReason: {type: String, default: undefined}
 
