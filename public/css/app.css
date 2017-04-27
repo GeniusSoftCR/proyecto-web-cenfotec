@@ -19,7 +19,7 @@
 body {
   background-color: #fff;
 }
-body, header, main, footer, aside, h1, h2, h3, h4, h5, h6, table, thead, tbody, td, th, tr, p, select, option, button, label, input, div, ol, ul, li, a, nav, span, pre, textarea, hgroup{
+h1, h2, h3, h4, h5, h6, table, thead, tbody, td, th, tr, p, select, option, button, label, input, div, ol, ul, li, a, nav, span, pre, textarea, hgroup{
   font-family: 'montserrat';
   font-weight: 400;
   margin: 0;
