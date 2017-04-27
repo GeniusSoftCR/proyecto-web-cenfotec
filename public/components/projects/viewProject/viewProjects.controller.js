@@ -6,10 +6,10 @@
 
     function viewProjectsController(projectService,SessionService){
       var vm = this;
-      console.log(SessionService.session.role);
-      // if(SessionService.session.role=="student"){
-      //   vm.test=true;
-      // }
+      vm.flag=false;
+      vm.message=false;
+
+      //el switch filtra el select del view y realiza peticiones de acuerdo al rol de usuario
       switch(SessionService.session.role){
         case "admin":
         case "assistant":
@@ -27,15 +27,20 @@
           });
           break;  
       };
-      //inicia cargando la lista de estados de proyecto
+
+      vm.verify= function(){
+        for (var i = vm.projects.length - 1; i >= 0; i--) {
+           console.log(vm.search);
+        }
+        if(vm.flag==false){
+          vm.message=true;//muestra el mensaje de lista vacía(para proyectos activos)
+        }
+      }
+
+      //metodo viejo para cargar la lista NO BORRAR PLS
       // projectService.getProjects().then(function(res){
       //   vm.projects =  res.data;
       // })
-
-      /*ADMINISTRA SECCIONES A DESPLEGAR*/
-      //mensaje de "no hay proyectos"
-      vm.message=false;
-
     }
 
 })();
