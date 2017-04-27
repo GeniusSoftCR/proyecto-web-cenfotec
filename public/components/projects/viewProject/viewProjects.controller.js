@@ -17,6 +17,7 @@
           break;
         default:
           vm.test=false;
+          vm.prof ={"professor":SessionService.session.idNum};
           projectService.getProjects(vm.prof).then(function(res){
             vm.projects =  res.data;
           })
