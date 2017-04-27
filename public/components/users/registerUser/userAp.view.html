@@ -44,7 +44,7 @@
               <!-- Cedula de identidad -->
               <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
                 <label for="id">Cédula de identidad</label>
-                  <input type="text" ng-model="vm.prof.id" id="txtid" class="form-control" name="id" pattern="[0-9]+" maxlength="9" minlength="9" required>
+                  <input type="text" ng-model="vm.prof.id" id="txtid" class="form-control" name="id" pattern="[0-9]+" maxlength="9" minlength="9" required unique>
                 <div id="ng-message" ng-messages="profForm.id.$error" ng-hide="profForm.id.$pristine" required>
                   <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
                   <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
@@ -124,7 +124,7 @@
               </div>
               <!-- botón -->
               <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-                <button type="submit" id="btnRegisterProf" ng-disabled="profForm.$valid" class="btn btn-warning btn-embossed">Registrar</button>
+                <button type="submit" id="btnRegisterProf" ng-disabled="profForm.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
               </div>
           </form>
           <div class="done"  ng-show="vm.send">
