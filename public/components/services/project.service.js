@@ -19,9 +19,13 @@
 			return $http.post('http://localhost:3000/api/projects/add', newProject);
 		}
 		//trae la lista de proyectos
+	    // function _getProjects(){
+	    //   return $http.get('http://localhost:3000/api/projects/load');
+	    // }
 	    function _getProjects(){
-	      return $http.get('http://localhost:3000/api/projects/load');
+	      return $http.put('http://localhost:3000/api/projects/load',filter);
 	    }
+
 	    //actualiza el estado de los proyectos
 	    //cambia el estado a aprobado o rechazado según el parámetro
 	    function _changeProjectsState(request,newState){

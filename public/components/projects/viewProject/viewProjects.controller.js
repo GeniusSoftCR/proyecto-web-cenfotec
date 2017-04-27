@@ -17,12 +17,15 @@
           break;
         default:
           vm.test=false;
+          projectService.getProjects().then(function(res){
+            vm.projects =  res.data;
+          })
           break;  
       };
       //inicia cargando la lista de estados de proyecto
-      projectService.getProjects().then(function(res){
-        vm.projects =  res.data;
-      })
+      // projectService.getProjects().then(function(res){
+      //   vm.projects =  res.data;
+      // })
 
       /*ADMINISTRA SECCIONES A DESPLEGAR*/
       //mensaje de "no hay proyectos"
