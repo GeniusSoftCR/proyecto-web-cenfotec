@@ -32,7 +32,7 @@
       <!-- Nombre de la empresa -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="#companyName">Nombre de la empresa:</label>
-        <input type="text" ng-model="vm.companyName" id="companyName" class="form-control" name="companyName" required pattern="[ñáéíóúA-Za-z ]+">
+        <input type="text" ng-model="vm.companyName" id="companyName" title="Nombre de la empresa" class="form-control" name="companyName" required pattern="[ñáéíóúA-Za-z ]+">
         <div ng-messages="projectRequest.companyName.$error" ng-hide="projectRequest.companyName.$pristine">
           <div id="ng-message" ng-message="required" ng-hide="projectRequest.companyName.$pristine" class="red darken-2 center-align white-text">El nombre de la empresa es requerido</div>
         </div>
@@ -40,7 +40,7 @@
       <!-- Cedula Fisica o Juridica -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="#idCompany">Cédula de la empresa:</label>
-        <input type="text" ng-model="vm.nId"id="txtFirstName" class="form-control" name="nId" pattern="[0-9]+" maxlength="9" minlength="9" required>
+        <input type="text" ng-model="vm.nId" id="idCompany" title="Cédula jurídica o física" class="form-control" name="nId" pattern="[0-9]+" maxlength="9" minlength="9" required>
         <div ng-messages="projectRequest.nId.$error" ng-hide="projectRequest.nId.$pristine" required>
           <div id="ng-message" ng-message="required" class="red darken-2 center-align white-text">La cédula es requerida</div>
           <div id="ng-message" ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
@@ -48,28 +48,37 @@
           <div id="ng-message" ng-message="minlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
         </div>
       </div>
-      <!-- Encargado del proyecto -->
+      <!-- Industria de la empresa -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
-        <label for="#projectManager">Encargado del proyecto:</label>
-        <input type="text" ng-model="vm.projectManager" id="projectManager" class="form-control" name="projectManager" pattern="[ñáéíóúA-Za-z ]+" required>
-        <div ng-messages="projectRequest.projectManager.$error" ng-hide="projectRequest.projectManager.$pristine">
-          <div id="ng-message" ng-message="required" ng-hide="projectRequest.projectManager.$pristine" class="red darken-2 center-align white-text">El encargado del proyecto es requerido</div>
-          <div id="ng-message"  ng-message="pattern" ng-hide="projectRequest.projectManager.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+        <label for="#Industria de la empresa">Industria de la empresa:</label>
+        <input type="text" ng-model="vm.industry" id="industry" title="Industria de la empresa" class="form-control" name="industry" pattern="[ñáéíóúA-Za-z ]+" placeholder="Ej: Comercio" required>
+        <div ng-messages="projectRequest.industry.$error" ng-hide="projectRequest.industry.$pristine">
+          <div id="ng-message" ng-message="required" ng-hide="projectRequest.industry.$pristine" class="red darken-2 center-align white-text">La industria del proyecto es requerida.</div>
+          <div id="ng-message" ng-message="pattern" ng-hide="projectRequest.industry.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
         </div>
       </div>
       <!-- Fondos para el proyecto -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
-        <label for="money">Fondos para el proyecto :</label>
-        <input type="text" ng-model="vm.money" id="money" class="form-control" name="money" placeholder="$ (En dólares)" pattern="[0-9]+" required>
+        <label for="money">Fondos para el proyecto:</label>
+        <input type="text" ng-model="vm.money" id="money" title="Fondos para el proyecto" class="form-control" name="money" placeholder="$ (En dólares)" pattern="[0-9]+" required>
         <div ng-messages="projectRequest.money.$error" ng-hide="projectRequest.money.$pristine" required>
           <div id="ng-message" ng-message="required" class="red darken-2 center-align white-text">El presupuesto del proyecto es requerido.</div>
           <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
         </div>
       </div>
+      <!-- Encargado del proyecto -->
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
+        <label for="#projectManager">Encargado del proyecto:</label>
+        <input type="text" ng-model="vm.projectManager" id="projectManager" title="Nombre del encargado del proyecto" class="form-control" name="projectManager" pattern="[ñáéíóúA-Za-z ]+" required>
+        <div ng-messages="projectRequest.projectManager.$error" ng-hide="projectRequest.projectManager.$pristine">
+          <div id="ng-message" ng-message="required" ng-hide="projectRequest.projectManager.$pristine" class="red darken-2 center-align white-text">El encargado del proyecto es requerido</div>
+          <div id="ng-message"  ng-message="pattern" ng-hide="projectRequest.projectManager.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+        </div>
+      </div>
       <!-- Correo electronico -->
       <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#email">Correo electrónico:</label>
-        <input type="email" ng-model="vm.email" id="email" class="form-control" name="email" required>
+        <input type="email" ng-model="vm.email" id="email" title="Correo electrónico del encargado del proyecto" class="form-control" name="email" required>
         <div ng-messages="projectRequest.email.$error" ng-hide="projectRequest.email.$pristine">
           <div id="ng-message" ng-message="required" class="red darken-2 center-align white-text">El correo electrónico es requerido</div>
           <div id="ng-message" ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
@@ -78,7 +87,7 @@
       <!-- Nombre del proyecto -->
       <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="#projectName">Nombre del proyecto:</label>
-        <input type="text" ng-model="vm.projectName" id="projectName" class="form-control" name="projectName" placeholder="Ej: Aplicación de iOS" required >
+        <input type="text" ng-model="vm.projectName" id="projectName" title="Nombre del proyecto" class="form-control" name="projectName" placeholder="Ej: Aplicación de iOS" required >
         <div ng-messages="projectRequest.projectName.$error" ng-hide="projectRequest.projectName.$pristine">
           <div id="ng-message"  ng-message="required" ng-hide="projectRequest.projectName.$pristine" class="red darken-2 center-align white-text">El nombre del proyecto es requerido</div>
         </div>
@@ -86,7 +95,7 @@
        <!-- Objetivo del proyecto -->
       <div class="form-group col-md-4 col-sm-12 col-xs-12">
         <label for="#projectObjetive">Ingrese el objetivo del proyecto:</label>
-        <input type="text" ng-model="vm.objective" id="projectObjetive" class="form-control" name="projectObjetive" required>
+        <input type="text" ng-model="vm.objective" id="projectObjetive" title="Objetivo General del proyecto" class="form-control" name="projectObjetive" required>
         <div ng-messages="projectRequest.projectObjetive.$error" ng-hide="projectRequest.projectObjetive.$pristine">
           <div id="ng-message" ng-message="required" ng-hide="projectRequest.projectObjetive.$pristine" class="red darken-2 center-align white-text">El objetivo del proyecto es requerido</div>
         </div>
@@ -96,15 +105,7 @@
         <label for="#resume">Resumen ejecutivo:</label>
         <p><a ng-click="vm.pickFile()" class="form-control" style="background-color: #FBB803; color: black; cursor: pointer;" id="resumeUrl" ng-model="vm.projectFile" multiple>Seleccione el archivo</a></p>
       </div>
-      <!-- Industria de la empresa -->
-      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
-        <label for="#Industria de la empresa">Ingrese la industria de la empresa:</label>
-        <input type="text" ng-model="vm.industry" id="industry" class="form-control" name="industry" pattern="[ñáéíóúA-Za-z ]+" required>
-        <div ng-messages="projectRequest.industry.$error" ng-hide="projectRequest.industry.$pristine">
-          <div id="ng-message" ng-message="required" ng-hide="projectRequest.industry.$pristine" class="red darken-2 center-align white-text">La industria del proyecto es requerida.</div>
-          <div id="ng-message" ng-message="pattern" ng-hide="projectRequest.industry.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
-        </div>
-      </div>
+      
       <!-- Imagenes del proyecto -->
       <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label for="images">Algunas imagenes sobre el proyecto: </label>
@@ -119,38 +120,22 @@
      
       <!-- boton -->
       <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-        <button type="submit" id="btnRegister" ng-disabled="projectRequest.$invalid" data-toggle="modal" class="btn btn-warning btn-embossed">Enviar solicitud</button>
+        <button type="submit" id="btnRegister" data-target="#modal" data-toggle="modal" class="btn btn-warning btn-embossed">Enviar solicitud</button>
       </div>
     </form>
-
-      <div class="col-md-8 col-md-offset-4">  
-            <div class="modal fade" id="modal" role="dialog" style="margin-top: 20vh">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
-                    <h4 class="modal-title">{{vm.modal.title}}</h4>
-
-                  </div>
-                  <div class="modal-body">
-                    <form name="forgotPass">
-                      <p>{{vm.modal.body}}</p>
-
-                      <!-- FORGOT SECTION -->
-                      <div ng-show="vm.modal.type == 'forgot'">                   
-                        <input  class="col-md-11" type="email" ng-model="vm.forgot.email" placeholder="Correo electrónico" required>
-
-                        <button class="btn btn-warning" id="btnForgot" ng-click="vm.forgot()">Recuperar</button>
-                      </div>
-                      <!-- LOGIN SECTION -->                      
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    
-                  </div>
-                </div>
-              </div>
+    <div class="col-md-8 col-md-offset-4">  
+      <div class="modal fade" id="modal" role="dialog" style="margin-top: 20vh">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
             </div>
+                  <div class="modal-body">
+                      <p>Se ha enviado la solicitud de proyecto correctamente</p>                  
+                  </div>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 </main>

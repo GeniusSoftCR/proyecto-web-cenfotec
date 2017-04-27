@@ -94,6 +94,20 @@
       vm.email = null;
       vm.projectManager = null;
       vm.industry = null;
-    };  
+    };
+    vm.modal = {
+        config:function (type) {
+          vm.modal.type = type;
+          switch(vm.modal.type){
+            case 'error':
+              vm.modal.title = "Recuperar contraseña";
+              vm.modal.body = "Para recuperar su contraseña introduzca su correo electrónico";
+            break;
+            case 'logIn':
+              vm.modal.title = "Error al inciar sesión";              
+            break;
+          };
+        }
+      };  
   };
 })()
