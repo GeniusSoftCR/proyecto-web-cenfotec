@@ -10,7 +10,7 @@
 
 		var publicApi = {
 			addCarrers: _addCarrers,
-			getCarrers: _getCarrers
+			//getCarrers: _getCarrers
 		};
 		return publicApi;
 
