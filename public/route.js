@@ -27,18 +27,18 @@
 		    controller: 'sendRequest',
 		    controllerAs: 'vm'
 		})
-		// .state('proyectRequest',{
-		// 	url: '/solicitudProyecto',
-		//     templateUrl:'./components/projects/sendRequests/sendRequests.view.html',
-		//     css: './css/projectRequest.styles.css',
-		//     resolve: {
-		//     	load: ['$ocLazyLoad', function($ocLazyLoad){
-		//     		return $ocLazyLoad.load('./components/projects/sendRequests/sendRequests.controller.js')
-		//     	}]
-		//     },
-		//     controller: 'sendRequest',
-		//     controllerAs: 'vm'
-		// })
+		.state('proyectRequest',{
+		 	url: '/solicitudProyecto',
+		     templateUrl:'./components/projects/sendRequests/requests.view.html',
+		     css: './css/projectRequest.styles.css',
+		     resolve: {
+		     	load: ['$ocLazyLoad', function($ocLazyLoad){
+		     		return $ocLazyLoad.load('./components/projects/sendRequests/requests.controller.js')
+		     	}]
+		     },
+		     controller: 'sendRequest',
+		     controllerAs: 'vm'
+		})
 		.state('logIn',{
 			url: '/entrar',
 		    resolve: {
@@ -192,7 +192,8 @@
 	           }]
 		     },
 		 	templateUrl: './components/config/addCareers/addCareers.view.html',
-		 	controller: 'addCareersController',
+		 	css: './css/addCarrers.style.css',
+		 	controller: 'configController',
 		 	controllerAs: 'vm'
 		})
 		
