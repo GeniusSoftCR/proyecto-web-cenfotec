@@ -39,7 +39,7 @@ var Project = mongoose.model('Project', projectSchema);
 //   });
 // });
 router.put('/projects/load', function(req, res, next) { 
-  User.find(req.body, function(err,results) {
+  Project.find(req.body, function(err,results) {
     res.json(results);
   });
 });

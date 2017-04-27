@@ -17,7 +17,7 @@
           break;
         default:
           vm.test=false;
-          projectService.getProjects().then(function(res){
+          projectService.getProjects(vm.prof).then(function(res){
             vm.projects =  res.data;
           })
           break;  
