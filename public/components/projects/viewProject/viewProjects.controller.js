@@ -20,7 +20,9 @@
           vm.prof ={"professor":SessionService.session.idNum};
           projectService.getProjects(vm.prof).then(function(res){
             vm.projects =  res.data;
-          })
+            vm.retro=res.data.msg;
+            console.log(vm.retro);
+          });
           break;  
       };
       //inicia cargando la lista de estados de proyecto
@@ -31,7 +33,6 @@
       /*ADMINISTRA SECCIONES A DESPLEGAR*/
       //mensaje de "no hay proyectos"
       vm.message=false;
-      console.log("entró");
 
     }
 
