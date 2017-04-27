@@ -4,15 +4,15 @@
       		<option value="" disabled="disabled">Seleccione un estado</option>
 	      	<!-- <option ng-show="vm.test" value="inRevision">En revisón</option> -->
 		    <option ng-show="vm.test" value="aproved">Aprobados</option>
-		    <option ng-show="vm.test" value="reject">Rechazados</option>
+		    <option ng-show="vm.test" value="rejected">Rechazados</option>
 		    <option value="inProcess">En proceso</option>
 		    <option value="ended">Finalizados</option>
 	    </select>
 	</div>
 	<div class="panel-body">
 		<!--mensaje para cuando no existen proyectos-->
-		<div class="item" ng-Show="vm.message">
-			<p class="itemName">Lista vacía</p>
+		<div ng-Show="vm.empty">
+			<p>No existen proyectos por mostrar</p>
 		</div>
 		<div class="card">
 		  <ul class="list-group list-group-flush" id="myScrollspy">
