@@ -4,19 +4,19 @@
   .module('cshApp')
   .controller('configController', configController);
 
-  configController.$inject = ['$scope', 'Upload', 'carrersService'];
+  configController.$inject = ['$scope', 'Upload', 'configService'];
 
-  function configController($scope, Upload, carrersService){
+  function configController($scope, Upload, configService){
     var vm = this;
 
     vm.save = function(){
-      var newCarrer = {
+      var newCareer = {
         code : vm.carrerCode,
         name : vm.carrerName,
         degree : vm.carrerDegree
       };
-      console.log(newCarrer);
-      carrersService.addCarrers(newCarrer).then(function(res){
+      console.log(newCareer);
+      configService.addCarrers(newCareer).then(function(res){
         console.log(res);
       });
       vm.carrerCode = null;

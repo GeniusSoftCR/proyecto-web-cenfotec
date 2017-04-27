@@ -2,20 +2,20 @@
 	'use strict'
 	angular
 	.module('cshApp')
-	.service('carrersService', carrersService);
+	.service('configService', configService);
 
-	carrersService.$inject = ['$log','$http'];
+	configService.$inject = ['$log','$http'];
 
-	function carrersService($log,$http){
+	function configService($log,$http){
 
 		var publicApi = {
-			addCarrers: _addCarrers,
+			addCarrers: _addCarrers
 			//getCarrers: _getCarrers
 		};
 		return publicApi;
 
-		function _addCarrers(newCarrer){
-			return $http.post('http://localhost:3000/api/config/add', newCarrer);
+		function _addCarrers(newCareer){
+			return $http.post('http://localhost:3000/api/config/addCareer', newCareer);
 		}
 	}
 })();
