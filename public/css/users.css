@@ -67,14 +67,24 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   display: none;
 }
 
-.panel{
-  background-color: black;
-  height: 46px;
-  max-width: 100%;
+body{
+  font-family: 'montserrat';
+  background-color: #fff;
 }
 
-.input-group{
-  margin-right: 40px;
-  margin-top: 15px;
+h4{
+  font-family: 'montserrat';
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+}
+
+label{
+  margin-top: 10px;
+  text-align: left;
+}
+
+.tittle{
+  text-align: center;
 }
 

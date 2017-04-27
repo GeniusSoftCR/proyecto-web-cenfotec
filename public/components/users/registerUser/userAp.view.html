@@ -10,268 +10,377 @@
         </div>
       </div>
       <div class="col-lg-10 col-md-10 col-sm-5 col-xs-5 bhoechie-tab">
-      
-      <!-- flight section -->
-      <div class="bhoechie-tab-content active">
-        <center>
-          <form class="profForm" class="container" autocomplete="off" validate>  
-            <h4>Registro Profesores</h4>
-           
-            <div class="form-group col-md-4 col-sm-12 ibck">
+        <!-- Sección de profesores-->
+        <div class="bhoechie-tab-content active">
+          <form class="profForm"  name="profForm" class="container" autocomplete="off" ng-submit="vm.preSaveProf()" novalidate>  
+            <h4 class="tittle">Registro Profesores</h4>
+              <div class="form-group col-md-3 col-sm-12 ibck">
+              <!-- Nombre -->
+                <label for="name">Nombre:</label>
+                <input type="text" ng-model="vm.prof.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+                <div ng-messages="profForm.name.$error" ng-hide="profForm.name.$pristine">
+                  <div ng-message="required" ng-hide="profForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                  <div ng-message="pattern" ng-hide="profForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+                </div>
+              </div>
+
+              <!-- Primer Apellido -->
+              <div class="form-group col-md-3 col-sm-12 ibck">
+                <label for="surName">Primer apellido:</label>
+                <input type="text" ng-model="vm.prof.surName" id="txtsurName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
+                <div ng-messages="profForm.surName.$error" ng-hide="profForm.surName.$pristine">
+                  <div ng-message="required" ng-hide="profForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido</div>
+                  <div ng-message="pattern" ng-hide="profForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+                </div>
+              </div>
+              <!-- Segundo Apellido -->
+              <div class="form-group col-md-3 col-sm-12 ibck">
+                <label for="secondSurname">Segundo apellido:</label>
+                  <input type="text" ng-model="vm.prof.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
+                <div ng-messages="profForm.secondSurname.$error" ng-hide="profForm.secondSurname.$pristine">
+                  <div ng-message="required" ng-hide="profForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                  <div ng-message="pattern" ng-hide="profForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+                </div>
+              </div>
+              <!-- Cedula de identidad -->
+              <div class="form-group col-md-3 col-sm-12 ibck">
+                <label for="id">Cédula de identidad</label>
+                  <input type="text" ng-model="vm.prof.id" id="txtid" class="form-control" name="id" pattern="[0-9]+" maxlength="9" minlength="9" required>
+                <div ng-messages="profForm.id.$error" ng-hide="profForm.id.$pristine" required>
+                  <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                  <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
+                  <div ng-message="maxlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+                  <div ng-message="minlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+                </div>
+              </div>
+              <!-- Especialidad -->
+              <div class="form-group col-md-3 col-sm-12 ibck">
+                <label for="specialty">Especialidad</label>
+                  <input type="text" ng-model="vm.prof.specialty" id="txtspecialty" class="form-control" name="specialty" required>
+                <div ng-messages="profForm.specialty.$error" ng-hide="profForm.specialty.$pristine" required>
+                  <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                </div>
+              </div>
+              <!-- Correo electronico -->
+              <div class="form-group col-md-3 col-sm-12 ibck">
+                <label for="email">Correo electrónico</label>
+                  <input type="email" ng-model="vm.prof.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
+                <div ng-messages="profForm.email.$error" ng-hide="profForm.email.$pristine">
+                  <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                  <div ng-message="pattern" class="red darken-2 center-align white-text">Correo inválido</div>
+                </div>
+              </div>
+              <!-- Password -->
+              <div class="form-group col-md-3 col-sm-12 ibck">
+                <label for="newPassword">Contraseña</label>
+                  <input type="password" ng-model="vm.prof.password" id="txtPassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required maxlength="8" minlength="1" unique>
+                <div ng-messages="profForm.newPassword.$error" ng-hide="profForm.newPassword.$pristine">
+                  <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                  <div ng-message="pattern" class="red darken-2 center-align white-text">Debe usar mayúscula, minúscula y números</div>
+                </div>
+              </div>
+              <!-- Confirm Password -->
+              <div class="form-group col-md-3 col-sm-12 ibck">
+                  <label for="confirmPassword">Confirmar contraseña:</label>
+                  <input ng-model="vm.prof.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
+                  <div class="clearfix">
+                    <div ng-messages="profForm.confirmPassword.$error" ng-if="profForm.$submitted || profForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+                    <div ng-message="required" class="message slide-left">Este campo es requerido!</div>
+                    <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Miembro del Consejo -->
+              <div class="form-group col-md-4 col-sm-12 ibck">
+                <label for="councilMember">Miembro del Consejo:</label>
+                <select class="form-control" required id="txtCouncil" ng-model="vm.prof.councilMember" name="councilMember" required>
+                  <option value="" disabled>Seleccione una opción</option>
+                  <option value="Yes">Si</option>
+                  <option value="No">No</option>
+                </select>  
+                <div ng-messages="profForm.councilMember.$error" ng-hide="profForm.councilMember.$pristine">
+                  <div ng-message="required" ng-hide="profForm.councilMember.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                </div>
+              </div>
+              <!-- Cargar imagen -->
+              <div class="col-md-4 col-sm-12 col-xs-12 ibck">
+                <label>Avatar:</label>
+                <div class="input-group">
+                  <label class="input-group-btn">
+                    <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photo" multiple ng-model="vm.pimage" required>
+                    </span>
+                  </label>
+                  <input type="text" class="form-control" style="color: black" readonly>
+                </div>
+              </div>
+              <!-- Telefono -->
+              <div class="form-group col-md-4 col-sm-12" style="display: block;"> 
+                <label for="phone">Número de teléfono:</label>
+                <input ng-model="vm.prof.phone" pattern="[0-9]+" id="phone" type="text" class="form-control" minlength="8" maxlength="8" name="phone">
+                 <div ng-messages="profForm.phone.$error" ng-hide="profForm.phone.$pristine">
+                    <div ng-message="pattern" ng-hide="profForm.phone.$pristine" class="red darken-2 center-align white-text">Formato incorrecto (####-##-##)</div>
+                    <div ng-message="minlength" ng-hide="profForm.phone.$pristine" class="red darken-2 center-align white-text">Complete la cantidad de numeros.</div>
+                    <div ng-message="maxlength" ng-hide="profForm.phone.$pristine" class="red darken-2 center-align white-text">Complete la cantidad de numeros.</div>
+                </div>
+              </div>
+              <!-- botón -->
+              <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
+                <button type="submit" id="btnRegisterProf" ng-disabled="profForm.$valid" class="btn btn-warning btn-embossed">Registrar</button>
+              </div>
+          </form>   
+        </div>
+        <!-- Sección de administradores-->
+        <div class="bhoechie-tab-content">
+          <form class="userAdmiForm" class="row" name="userAdmiForm" novalidate autocomplete="off" ng-submit="vm.preSaveAdmi()">
+            <h4 class="tittle">Registro Administradores</h4>
+            <!-- Nombre-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
               <label for="name">Nombre:</label>
-              <input type="text" ng-model="vm.prof.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
-              <div ng-messages="profForm.prof.name.$error" ng-hide="profForm.prof.name.$pristine">
-                <div ng-message="required" ng-hide="profForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido!</div>
-                <div ng-message="pattern" ng-hide="profForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+              <input type="text" ng-model="vm.admi.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+              <div ng-messages="userAdmiForm.name.$error" ng-hide="userAdmiForm.name.$pristine">
+                <div ng-message="required" ng-hide="userAdmiForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                <div ng-message="pattern" ng-hide="userAdmiForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
               </div>
             </div>
-
-            <!-- Primer Apellido -->
-            <div class="form-group col-md-4 col-sm-12 ibck">
+            <!-- Primer Apellido-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
               <label for="surName">Primer apellido:</label>
-              <input type="text" ng-model="vm.prof.surname" id="txtlastName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
-              <div ng-messages="studentForm.surName.$error" ng-hide="studentForm.surName.$pristine">
-                <div ng-message="required" ng-hide="studentForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido!</div>
-                <div ng-message="pattern" ng-hide="studentForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+              <input type="text" ng-model="vm.admi.surName" id="txtsurName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
+              <div ng-messages="userAdmiForm.surName.$error" ng-hide="userAdmiForm.surName.$pristine">
+                <div ng-message="required" ng-hide="userAdmiForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido</div>
+                <div ng-message="pattern" ng-hide="userAdmiForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
               </div>
             </div>
-
-            <!-- Segundo Apellido -->
+            <!-- Segundo Apellido-->
             <div class="form-group col-md-3 col-sm-12 ibck">
               <label for="secondSurname">Segundo apellido:</label>
-                <input type="text" ng-model="vm.secondSurname" id="txtFirstName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
-              <div ng-messages="studentForm.secondSurname.$error" ng-hide="studentForm.secondSurname.$pristine">
-                <div ng-message="required" ng-hide="studentForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Este campo es requerido!</div>
-                <div ng-message="pattern" ng-hide="studentForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+              <input type="text" ng-model="vm.admi.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
+              <div ng-messages="userAdmiForm.secondSurname.$error" ng-hide="userAdmiForm.secondSurname.$pristine">
+                <div ng-message="required" ng-hide="userAdmiForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                <div ng-message="pattern" ng-hide="userAdmiForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
               </div>
             </div>
-
-
-            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-              <label>Segundo Apellido:</label>
-              <input ng-model="vm.prof.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" required>
+            <!-- Cédula-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="id">Cédula de identidad</label>
+              <input type="text" ng-model="vm.admi.id" id="txtid" class="form-control" name="id" pattern="[0-9]+" maxlength="9" minlength="9" required>
+              <div ng-messages="userAdmiForm.id.$error" ng-hide="userAdmiForm.id.$pristine" required>
+                <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
+                <div ng-message="maxlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+                <div ng-message="minlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+              </div>
             </div>
-
-              <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                <label>Cédula de identidad:</label>
-                <input ng-model="vm.prof.id" id="txtid" type="text" class="form-control" name="id" maxlength="9" required>
+            <!-- Correo-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="email">Correo electrónico</label>
+                <input type="text" ng-model="vm.admi.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
+              <div ng-messages="userAdmiForm.email.$error" ng-hide="userAdmiForm.email.$pristine">
+                <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
               </div>
-
-              <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                <label>Especialidad:</label>
-                <input ng-model="vm.prof.specialty" id="txtspecialty" type="text" class="form-control" name="specialty" required>
+            </div>
+            <!-- Contraseña-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="newPassword">Contraseña</label>
+              <input type="password" ng-model="vm.admi.password" id="txtPassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required maxlength="8" minlength="1" unique>
+              <div ng-messages="userAdmiForm.newPassword.$error" ng-hide="userAdmiForm.newPassword.$pristine">
+                <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                <div ng-message="pattern" class="red darken-2 center-align white-text">Debe usar mayúscula, minúscula y números</div>
               </div>
-
-              <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                <label>Correo:</label>
-                <input overwrite-email ng-model="vm.prof.mail" id="txtemail" type="email" class="form-control" name="mail" required>
-              </div>
-
-              <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                <label>Contraseña:</label>
-                <input ng-model="vm.prof.password" id="txtPassword" type="password" class="form-control" name="password" required unique>
-              </div>
-
-              <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                <label>Miembro del Consejo:</label>
-                <select class="form-control" required ng-model="vm.prof.councilMember" name="councilMember">
-                  <option value="" disabled>Seleccione una opción</option>
-                  <option value="Si">Si</option>
-                  <option value="No">No</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-4 ibck" style="margin-top: -2%" ng-class="{ 'has-error' : userForm.photo.$invalid && !userForm.photo.$pristine}">
-                <label style="margin-top: 4px">Avatar:</label>
-                <div class="input-group">
-                    <label class="input-group-btn">
-                        <span class="btn btn-primary" style="background-color: #FBB803; color: black;">
-                                          Escoger<input type="file" style="display: none" id="photo" multiple ng-model="vm.prof.image" required>
-                        </span>
-                    </label>
-                    <input type="text" class="form-control" style="color: #fff" readonly>
-                    <p ng-show="userForm.photo.$invalid && !userForm.photo.$pristine" class="help-block">La foto es requerida.</p>
+            </div>
+            <!-- Confirmar contraseña-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="confirmPassword">Confirmar contraseña:</label>
+              <input ng-model="vm.admi.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
+              <div class="clearfix">
+                <div ng-messages="userAdmiForm.confirmPassword.$error" ng-if="userAdmiForm.$submitted || userAdmiForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+                  <div ng-message="required" class="message slide-left">Este campo es requerido!</div>
+                  <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente</div>
                 </div>
               </div>
-
-              <div class="input-group"> 
-                <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="vm.preSaveProf()" class="btn btn-sm btn-embossed btn-warning pull-center" value="Registrar" id="buttonRegis">
+            </div>
+            <!-- Puesto de trabajo-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="jobPosition">Puesto de trabajo:</label>
+              <input type="text" ng-model="vm.admi.jobPosition" id="txtjobPosition" class="form-control" name="jobPosition" required pattern="[ñáéíóúA-Za-z ]+">
+                <div ng-messages="userAdmiForm.jobPosition.$error" ng-hide="userAdmiForm.jobPosition.$pristine">
+                  <div ng-message="required" ng-hide="userAdmiForm.jobPosition.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                  <div ng-message="pattern" ng-hide="userAdmiForm.jobPosition.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+                </div>
+            </div>
+            <!-- Avatar -->
+            <div class="col-md-3 col-sm-12 ibck">
+              <label>Avatar:</label>
+              <div class="input-group">
+                  <label for="photoAdmi" class="input-group-btn">
+                      <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photoAdmi" multiple ng-model="vm.pimage" required>
+                      </span>
+                  </label>
+                  <input type="text" class="form-control" style="color: black" readonly>
               </div>
-
-              <alert class="thanks" ng-show="vm.send">Registro de usuario satisfactorio!</alert>
+              <div ng-messages="userAdmiForm.photoAdmi.$error" ng-hide="userAdmiForm.photoAdmi.$pristine">
+                  <div ng-message="required" ng-hide="userAdmiForm.photoAdmi.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+              </div>
+            </div>
+            <!-- Teléfono -->
+            <div class="form-group col-md-3 col-sm-12" style="display: block;"> 
+              <label for="phone">Número de teléfono:</label>
+              <input ng-model="vm.admi.phone" pattern="[0-9]+" id="phone" type="text" class="form-control" minlength="8" maxlength="8" name="phone">
+              <div ng-messages="userAdmiForm.phone.$error" ng-hide="userAdmiForm.phone.$pristine">
+                <div ng-message="pattern" ng-hide="userAdmiForm.phone.$pristine" class="red darken-2 center-align white-text">Formato incorrecto (####-##-##)</div>
+                <div ng-message="minlength" ng-hide="userAdmiForm.phone.$pristine" class="red darken-2 center-align white-text">Complete la cantidad de numeros.</div>
+                <div ng-message="maxlength" ng-hide="userAdmiForm.phone.$pristine" class="red darken-2 center-align white-text">Complete la cantidad de numeros.</div>
+              </div>
+            </div> 
+            <!-- Botón -->
+            <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
+              <button type="submit" id="buttonRegisAdmi" ng-disabled="userAdmiForm.$valid" class="btn btn-warning btn-embossed">Registrar</button>
+            </div>
+            <!-- <alert class="thanks" ng-show="vm.send">Registro de usuario satisfactorio!</alert> -->
           </form>
-        </center>
-      </div>
-
-                <div class="bhoechie-tab-content">
-                    <center>
-                      <form class="userForm row" validate>
-                          <h4>Registro Administradores</h4>
-
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Nombre:</label>
-                              <input ng-model="userAprCtrl.admi.name" id="txtName" type="text" class="form-control" name="name"  required>
-                            </div>
-
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Primer Apellido:</label>
-                              <input ng-model="userAprCtrl.admi.surname" id="txtlastName" type="text" class="form-control" name="surname" required>
-                            </div>
-
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Segundo Apellido:</label>
-                              <input ng-model="userAprCtrl.admi.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" required>
-                            </div>
-
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Cédula de identidad:</label>
-                              <input ng-model="userAprCtrl.admi.id" id="txtid" type="text" class="form-control" name="id" maxlength="9" required>
-                            </div>
-
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Correo:</label>
-                              <input overwrite-email ng-model="userAprCtrl.admi.mail" id="txtemail" type="email" class="form-control" name="mail" required>
-                            </div>
-
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Contraseña:</label>
-                              <input ng-model="userAprCtrl.admi.password" id="txtPassword" type="password" class="form-control" name="password" required unique>
-                            </div>
-
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Puesto de Trabajo:</label>
-                              <input ng-model="userAprCtrl.admi.jobPosition" id="txtjobPosition" type="text" class="form-control" name="jobPosition" required>
-                            </div>
-
-                            <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                              <label>Miembro del Consejo:</label>
-                              <select class="form-control" required ng-model="userAprCtrl.admi.councilMember" name="councilMember">
-                                <option value="" disabled>Seleccione una opción</option>
-                                <option value="Si">Si</option>
-                                <option value="No">No</option>
-                              </select>
-                            </div>
-
-                            <div class="form-group col-md-4 ibck" ng-class="{ 'has-error' : userForm.photo.$invalid && !userForm.photo.$pristine}">
-                              <label>Avatar:</label>
-                              <div class="input-group">
-                                  <label class="input-group-btn">
-                                      <span class="btn btn-primary" style="background-color: #FBB803; color: black;">
-                                          Escoger<input type="file" style="display: none" id="photo" multiple ng-model="userAprCtrl.admi.image" required>
-                                      </span>
-                                  </label>
-                                  <input type="text" class="form-control" style="color: #fff" readonly>
-                                  <p ng-show="userForm.photo.$invalid && !userForm.photo.$pristine" class="help-block">La foto es requerida.</p>
-                              </div>
-                            </div>
-
-                            <div class="form-group"> 
-                              <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="userAprCtrl.preSaveAdmi()" class="btn btn-sm btn-embossed btn-warning pull-right" value="Registrar" id="buttonRegis">
-                            </div>
-
-                            <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert>
-                      </form>
-                    </center>
-                </div>
-
-                <!-- train section -->
-                <div class="bhoechie-tab-content">
-                    <center>
-                      <form name="userFormAsis" class="row">
-                        <h4>Registro Asistentes</h4>
-
-                        <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                          <label>Nombre:</label>
-                          <input ng-model="userAprCtrl.asis.name" type="text" class="form-control" name="txtNameA" required>
-                        </div>
-
-                        <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                          <label>Primer Apellido:</label>
-                          <input ng-model="userAprCtrl.asis.surname" id="txtlastName" type="text" class="form-control" name="surname"  required>
-                        </div>
-
-                        <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                          <label>Segundo Apellido:</label>
-                          <input ng-model="userAprCtrl.asis.secondSurname" id="txtsurName" type="text" class="form-control" name="secondSurname" required>
-                        </div>
-
-                        <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                          <label>Cédula de identidad:</label>
-                          <input ng-model="userAprCtrl.asist.id" id="txtid" type="text" class="form-control" name="id"  maxlength="9" required>
-                        </div>
-
-                        <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                          <label>Correo:</label>
-                          <input ng-model="userAprCtrl.asis.mail" id="txtemail" type="email" class="form-control" name="mail" required>
-                        </div>
-
-                        <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                          <label>Contraseña:</label>
-                          <input ng-model="userAprCtrl.asis.password" id="txtPassword" type="password" class="form-control" name="password" required unique>
-                        </div>
-
-                        <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                          <label>Puesto de Trabajo:</label>
-                          <input ng-model="userAprCtrl.asis.jobPosition" id="txtjobPosition" type="text" class="form-control" name="jobPosition" required>
-                        </div>
-
-                        <div class="form-group col-md-4 ibck" style="display: inline-block;">
-                          <label>Teléfono:</label>
-                          <input ng-model="userAprCtrl.asis.phone" id="txtphone" type="text" class="form-control" name="phone"  required minlength="8" maxlength="8">
-                        </div>
-
-                        <div class="form-group col-md-4 ibck" style="display: block;">
-                          <label>Avatar</label>
-                          <input type="file"  required id="photo" ng-model="userAprCtrl.asis.image">
-                          
-                        </div>
-
-                        <div class="form-group"> 
-                          <input ng-disabled="userFormAsis.$valid" type="submit" ng-click="userAprCtrl.preSaveAs()" class="btn btn-sm btn-embossed btn-warning pull-right" value="Registrar" id="buttonRegis">
-                        </div>
-
-                        <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert>
-                    </form>
-                  </center>
-               </div>
-    
-                <!-- hotel search -->
-                <div class="bhoechie-tab-content">
-                    <center>
-                      <div class="col-md-12">
-                            <h3>Lista de Usuarios</h3>
-
-                              <div class="card">
-                                <ul class="list-group list-group-flush" id="myScrollspy">
-                                <table id="listUsersCSH">
-                                  <thead id="head-user">
-                                    <tr>
-                                      <th>Nombre</th>
-                                      <th>Apellido</th>
-                                      <th>Tipo de Usuario</th>
-                                      <th>Correo electrónico</th>
-                                    </tr>
-                                  </thead>
-
-                                    <tbody>
-                                      <tr ng-repeat="user in userAprCtrl.userList | filter: {role: professor, role: administrador, role: asistente}">
-                                          <td>{{user.name}}</td>
-                                          <td>{{user.surname}}</td>
-                                          <td>{{user.role}}</td>
-                                          <td>{{user.mail}}</td>
-                                          <td><button class="btn btn-sm btn-embossed btn-warning pull-right" ng-click="userAprCtrl.deleteUser(user.id)">Eliminar</button></td>
-                                          <td><button class="btn btn-sm btn-embossed btn-warning pull-right" id="modi" ng-click="userAprCtrl.viewProf(userAprCtrl.ap.id)">Modificar</button></td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                  </ul>
-                                </div>
-                        </div>
-                    </center>
-                </div>
-
-            </div>
         </div>
+        <!-- Sección de asistentes-->            
+        <div class="bhoechie-tab-content">
+          <form name="userFormAsis" class="row" ng-submit="vm.preSaveAsis()">
+            <h4 class="tittle">Registro Asistentes</h4>
+            <!-- Nombre-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="name">Nombre:</label>
+              <input type="text" ng-model="vm.asis.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+                <div ng-messages="userFormAsis.name.$error" ng-hide="userFormAsis.name.$pristine">
+                  <div ng-message="required" ng-hide="userFormAsis.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                  <div ng-message="pattern" ng-hide="userFormAsis.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+                </div>
+            </div>
+            <!-- Primer Apellido-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="surName">Primer apellido:</label>
+              <input type="text" ng-model="vm.asis.surName" id="txtsurName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
+              <div ng-messages="userFormAsis.surName.$error" ng-hide="userFormAsis.surName.$pristine">
+                <div ng-message="required" ng-hide="userFormAsis.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido</div>
+                <div ng-message="pattern" ng-hide="userFormAsis.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+              </div>
+            </div>
+            <!-- Segundo Apellido-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="secondSurname">Segundo apellido:</label>
+              <input type="text" ng-model="vm.asis.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
+              <div ng-messages="userFormAsis.secondSurname.$error" ng-hide="userFormAsis.secondSurname.$pristine">
+                <div ng-message="required" ng-hide="userFormAsis.secondSurname.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                <div ng-message="pattern" ng-hide="userFormAsis.secondSurname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+              </div>
+            </div>
+            <!-- Cédula-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="id">Cédula de identidad</label>
+              <input type="text" ng-model="vm.asis.id" id="txtid" class="form-control" name="id" pattern="[0-9]+" maxlength="9" minlength="9" required>
+              <div ng-messages="userFormAsis.id.$error" ng-hide="userFormAsis.id.$pristine" required>
+                <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
+                <div ng-message="maxlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+                <div ng-message="minlength" class="red darken-2 center-align white-text">Complete la cantidad de números</div>
+              </div>
+            </div>
+            <!-- Correo-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="email">Correo electrónico</label>
+              <input type="text" ng-model="vm.asis.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
+              <div ng-messages="userFormAsis.email.$error" ng-hide="userFormAsis.email.$pristine">
+                <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
+              </div>
+            </div>
+            <!-- Contraseña-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="newPassword">Contraseña</label>
+              <input type="password" ng-model="vm.asis.password" id="txtPassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required maxlength="8" minlength="1" unique>
+              <div ng-messages="userFormAsis.newPassword.$error" ng-hide="userFormAsis.newPassword.$pristine">
+                <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                <div ng-message="pattern" class="red darken-2 center-align white-text">Debe usar mayúscula, minúscula y números</div>
+              </div>
+            </div>
+            <!-- Confirmar contraseña-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="confirmPassword">Confirmar contraseña:</label>
+              <input ng-model="vm.asis.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
+              <div class="clearfix">
+                <div ng-messages="userFormAsis.confirmPassword.$error" ng-if="userFormAsis.$submitted || userFormAsis.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+                  <div ng-message="required" class="message slide-left">Este campo es requerido!</div>
+                  <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente</div>
+                </div>
+              </div>
+            </div>
+            <!-- Puesto-->
+            <div class="form-group col-md-3 col-sm-12 ibck">
+              <label for="jobPosition">Puesto de trabajo:</label>
+              <input type="text" ng-model="vm.asis.jobPosition" id="txtjobPosition" class="form-control" name="jobPosition" required pattern="[ñáéíóúA-Za-z ]+">
+              <div ng-messages="userFormAsis.jobPosition.$error" ng-hide="userFormAsis.jobPosition.$pristine">
+                <div ng-message="required" ng-hide="userFormAsis.jobPosition.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                <div ng-message="pattern" ng-hide="userFormAsis.jobPosition.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
+              </div>
+            </div>
+            <!-- Número de teléfono-->
+            <div class="form-group col-md-3 col-sm-12" style="display: block;"> 
+              <label for="phone">Número de teléfono:</label>
+              <input ng-model="vm.asis.phone" pattern="[0-9]+" id="phone" type="text" class="form-control" minlength="8" maxlength="8" name="phone">
+              <div ng-messages="userFormAsis.phone.$error" ng-hide="userFormAsis.phone.$pristine">
+                <div ng-message="pattern" ng-hide="userFormAsis.phone.$pristine" class="red darken-2 center-align white-text">Formato incorrecto (####-##-##)</div>
+                <div ng-message="minlength" ng-hide="userFormAsis.phone.$pristine" class="red darken-2 center-align white-text">Complete la cantidad de numeros.</div>
+                <div ng-message="maxlength" ng-hide="userFormAsis.phone.$pristine" class="red darken-2 center-align white-text">Complete la cantidad de numeros.</div>
+              </div>
+            </div>
+            <!-- Ávatar-->
+            <div class="col-md-3 col-sm-12 ibck">
+              <label>Avatar:</label>
+                <div class="input-group">
+                  <label for="photoAsis" class="input-group-btn">
+                    <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photoAsis" multiple ng-model="vm.pimage" required>
+                    </span>
+                  </label>
+                  <input type="text" class="form-control" style="color: black" readonly>
+                </div>
+                <div ng-messages="userFormAsis.photoAsis.$error" ng-hide="userFormAsis.photoAsis.$pristine">
+                  <div ng-message="required" ng-hide="userFormAsis.photoAsis.$pristine" class="red darken-2 center-align white-text">Este campo es requerido</div>
+                </div>
+            </div>
+            <!-- Botón-->
+            <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
+              <button type="submit" id="buttonRegisAsis" ng-disabled="userFormAsis.$valid" class="btn btn-warning btn-embossed">Registrar</button>
+            </div>
+            <!-- <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert> -->
+          </form>
+        </div>
+        <!-- Sección de lista-->
+      <div class="bhoechie-tab-content">
+        <div class="col-md-12">
+          <h3>Lista de Usuarios</h3>
+              <ul class="list-group list-group-flush">
+                <table id="listUsersCSH">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido</th>
+                      <th>Tipo de Usuario</th>
+                      <th>Correo electrónico</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="user in userAprCtrl.userList | filter: {role: professor, role: administrador, role: asistente}">
+                      <td>{{user.name}}</td>
+                      <td>{{user.surname}}</td>
+                      <td>{{user.role}}</td>
+                      <td>{{user.mail}}</td>
+                      <td><button class="btn btn-sm btn-embossed btn-warning pull-right" ng-click="userAprCtrl.deleteUser(user.id)">Eliminar</button></td>
+                      <!-- <td><button class="btn btn-sm btn-embossed btn-warning pull-right" id="modi" ng-click="userAprCtrl.viewProf(userAprCtrl.ap.id)">Modificar</button></td> -->
+                    </tr>
+                  </tbody>
+                </table>
+              </ul>
+          </div>
+      </div>
+      </div>
+    </div>
   </div>
 </main>
 
@@ -285,9 +394,9 @@
 
 
 
+<!-- 
 
 
-      <!--<section>
       <div class="Eliminar usuarios">
         <form name="userFormProfDelete">
 
@@ -353,7 +462,7 @@
     </div>
   </div>
 </div>
-
+ -->
 
 
 
