@@ -96,11 +96,11 @@
 			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
 					controller: 'viewProjectsController',
 					controllerAs: 'vm'
-				},
+				}
 			}
 		})
 		/*DENTRO DEL PROYECTO*/
-		.state('main.projects.project',{
+		.state('main.project',{
 			url: '/proyecto/:proyectoId',
 			views: {
 				'': {
