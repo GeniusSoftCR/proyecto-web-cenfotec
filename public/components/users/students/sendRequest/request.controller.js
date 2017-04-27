@@ -4,45 +4,47 @@
     .module('cshApp')
     .controller('sendRequest', sendRequest);
     
-    sendRequest.$inject  = ['$scope','$window','userService','ImageService','filepickerService','Upload','addCareersService'];
+    sendRequest.$inject  = ['$scope','$window','userService','ImageService','filepickerService','Upload']; //,'addCareersService'  **BUG**
 
-    function sendRequest($scope,$window,userService,ImageService,filepickerService,Upload,addCareersService){
-      var vm = this,
-          careers = addCareersService.getCareer(); //llama a la funcion que llena el mutiselect
-          vm.cloudObj = ImageService.getConfiguration();
-          vm.careers = careers; //guarda las carreras
-          vm.pickFile = pickFile;
-          vm.onSuccess = onSuccess;
-          vm.submitted = false;
+    function sendRequest($scope,$window,userService,ImageService,filepickerService,Upload){ //,addCareersService**BUG**
+      var vm = this;
+      //careers = addCareersService.getCareer(); //llama a la funcion que llena el mutiselect**BUG**
+
+      //VM
+      vm.cloudObj = ImageService.getConfiguration();
+      //vm.careers = careers; //guarda las carreras
+      vm.pickFile = pickFile;
+      vm.onSuccess = onSuccess;
+      vm.submitted = false;
 
 
-          //En el input de Avatar muestra al lado de escoger, la imagen que se ha seleccionad
-          $(function() {
+      //En el input de Avatar muestra al lado de escoger, la imagen que se ha seleccionad
+      $(function() {
 
-            // We can attach the `fileselect` event to all file inputs on the page
-            $(document).on('change', ':file', function() {
-              var input = $(this),
-                  numFiles = input.get(0).files ? input.get(0).files.length : 1,
-                  label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-              input.trigger('fileselect', [numFiles, label]);
+        // We can attach the `fileselect` event to all file inputs on the page
+        $(document).on('change', ':file', function() {
+          var input = $(this),
+              numFiles = input.get(0).files ? input.get(0).files.length : 1,
+              label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+          input.trigger('fileselect', [numFiles, label]);
+        });
+
+        // We can watch for our custom `fileselect` event like this
+        $(document).ready( function() {
+            $(':file').on('fileselect', function(event, numFiles, label) {
+
+                var input = $(this).parents('.input-group').find(':text'),
+                    log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+                if( input.length ) {
+                    input.val(log);
+                } else {
+                    if( log ) alert(log);
+                }
+
             });
-
-            // We can watch for our custom `fileselect` event like this
-            $(document).ready( function() {
-                $(':file').on('fileselect', function(event, numFiles, label) {
-
-                    var input = $(this).parents('.input-group').find(':text'),
-                        log = numFiles > 1 ? numFiles + ' files selected' : label;
-
-                    if( input.length ) {
-                        input.val(log);
-                    } else {
-                        if( log ) alert(log);
-                    }
-
-                });
-            });
-          });
+        });
+      });
 
 
 
