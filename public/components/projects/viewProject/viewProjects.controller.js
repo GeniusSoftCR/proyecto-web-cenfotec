@@ -14,14 +14,16 @@
         case "admin":
         case "assistant":
           vm.test=true;
+          vm.param ={};
+          projectService.getProjects(vm.param).then(function(res){
+            vm.projects =  res.data;
+          });
           break;
         default:
           vm.test=false;
-          vm.prof ={"professor":SessionService.session.idNum};
-          projectService.getProjects(vm.prof).then(function(res){
+          vm.param ={"professor":SessionService.session.idNum};
+          projectService.getProjects(vm.param).then(function(res){
             vm.projects =  res.data;
-            vm.retro=res.data.msg;
-            console.log(vm.retro);
           });
           break;  
       };
