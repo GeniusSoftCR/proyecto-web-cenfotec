@@ -63,7 +63,7 @@
         <input type="text" ng-model="vm.money" id="money" title="Fondos para el proyecto" class="form-control" name="money" placeholder="$ (En dólares)" pattern="[0-9]+" required>
         <div ng-messages="projectRequest.money.$error" ng-hide="projectRequest.money.$pristine" required>
           <div id="ng-message" ng-message="required" class="red darken-2 center-align white-text">El presupuesto del proyecto es requerido.</div>
-          <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
+          <div id="ng-message" ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
         </div>
       </div>
       <!-- Encargado del proyecto -->
@@ -120,7 +120,7 @@
      
       <!-- boton -->
       <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-        <button type="submit" id="btnRegister" data-target="#modal" data-toggle="modal" class="btn btn-warning btn-embossed">Enviar solicitud</button>
+        <button type="submit" id="btnRegister" data-target="#modal" ng-disabled="projectRequest.$invalid" data-toggle="modal" class="btn btn-warning btn-embossed" ng-click="projectRequest.$setPristine()">Enviar solicitud</button>
       </div>
     </form>
     <div class="col-md-8 col-md-offset-4">  
@@ -131,7 +131,7 @@
               <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
             </div>
                   <div class="modal-body">
-                      <p>Se ha enviado la solicitud de proyecto correctamente</p>                  
+                      <p>Se ha enviado la solicitud de proyecto correctamente</p>        
                   </div>
           </div>
         </div>
