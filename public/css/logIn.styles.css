@@ -51,3 +51,16 @@ a{
 #btnForgot{
 	margin-top: 4%;
 }
+
+div#modal div.modal-body p{
+	padding: 25px 0 20px 55px;
+	font-size: 20px;
+}
+
+div#modal div.modal-header .modal-title{
+	padding-left: 50px;
+}
+
+.forgot-btn{
+	padding-left: 50px;
+}

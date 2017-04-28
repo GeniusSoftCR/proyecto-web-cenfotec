@@ -46,6 +46,15 @@ router.put('/projects/load', function(req, res, next) {
   	}
   });
 });
+router.put('/projects/byTeacher', function(req, res, next) { 
+  Project.find({ $or:[ {'professor':req.body.id}, {'assistant':req.body.id} ]}, function(err,results) {
+  	if(err){
+  		res.json({success: false, msg: 'Ha ocurrido un error'});
+  	}else{
+    	res.json(results);
+  	}
+  });
+});
 //procesar solicitudes de proyectos
 router.put('/projects/update', function(req, res, next) {
   Project.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
