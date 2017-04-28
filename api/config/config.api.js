@@ -23,8 +23,9 @@ router.get('/config/getCareers', function(req, res, next){
 
 //Elimina la carrera
 router.delete('/config/deleteCareer', function(req,res,next){
-	Career.remove({"_id" : req.body}, function(err){
-		res.json('Carrera eliminada')
+	console.log(req);
+	Career.remove({_id : req.body._id}, function(err){
+		res.json(req.body)
 	})
 })
 
