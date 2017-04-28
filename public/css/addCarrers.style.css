@@ -18,12 +18,12 @@ input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty{
 	font-family: 'montserrat';
 	border: none;
 	position: absolute;
-	z-index: 4;
+	z-index: 2;
 	color: red;
 }
 input{
 	border: none;
 	display: inline-block;
 	border: none;
-	z-index: 2;
+	z-index: 1;
 }

@@ -7,28 +7,23 @@
 		font-weight: 300;
 		margin: 8% 0 0 0;
 	}
-
 input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty{ 
-	border: 1px solid #D25349; 
+	border: 2px solid #D25349; 
 }
-
 input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty{ 
 	border: 2px solid #019739; 
 }
-
 .form-group, .input-group{
 	margin-bottom: 3%;
 }
-
 #ng-message{
 	font-size: 0.730em;
 	font-family: 'montserrat';
 	border: none;
 	position: absolute;
-	z-index: 4;
+	z-index: 3;
 	color: red;
 }
-
 input{
 	border: none;
 	display: inline-block;
@@ -36,7 +31,16 @@ input{
 	position:;
 	z-index: 2;
 }
-
 button{
 	margin-top: 4%;
+}
+#colorWhite{
+	font-size: 1.3em;
+	color: #fff;
+	margin: 0;
+	text-align: center;
+}
+.modal-body p{
+	color: #000;
+	font-size: 1em;
 }
