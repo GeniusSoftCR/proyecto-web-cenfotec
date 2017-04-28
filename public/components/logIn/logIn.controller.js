@@ -7,12 +7,12 @@
 	logInController.$inject = ['$timeout','$log','$http','$location','$rootScope','AUTH_EVENTS','AuthService','SessionService'];
 
  	function logInController ($timeout,$log,$http,$location,$rootScope,AUTH_EVENTS,AuthService,SessionService){
-
- 		// if(AuthService.isAuth()){ 			
- 		// 	$location.path('/inicio/usuario');
- 		// }else{
- 		// 	$location.path('/entrar');
- 		// }
+ 		console.log(AuthService.isAuth())
+ 		if(AuthService.isAuth()){
+ 			$location.path('/inicio/perfil');
+ 		}else{
+ 			$location.path('/entrar');
+ 		}
  		//vm = view model
 		var vm = this;
 		vm.loading = false;
@@ -23,6 +23,9 @@
 		vm.user = {};
 		
 		vm.logIn = function(credentials){ 
+
+			credentials.username = credentials.username.split('@ucenfotec.ac.cr',1)[0];
+
 			document.body.style.cursor='wait';
 			vm.loading = true;
 
@@ -34,7 +37,7 @@
 
 					$log.info("Login success: "+ res.data.username);		         
        				$rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   		        
-      				$location.path('/inicio/usuario');
+      				$location.path('/inicio/perfil');
       				SessionService.create(res.data)					
 				}else{
 					vm.modal.config('logIn');

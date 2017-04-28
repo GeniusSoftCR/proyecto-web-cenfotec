@@ -64,7 +64,7 @@
 			controllerAs:'vm'
 		})
 		.state('main.profile',{
-			url:'/usuario',
+			url:'/perfil',
 		    css: './css/profile.style.css',
 			templateUrl: './components/users/profile/profile.view.html',
 			resolve: {  
