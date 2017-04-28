@@ -12,6 +12,10 @@
     vm.modal = {};
     vm.careers = {};
 
+    configService.getCareers().then(function(res){
+      vm.careers = res.data;
+    });
+
     vm.save = function(newCareer){
       console.log(newCareer);
       configService.addCareer(newCareer).then(function(res){
@@ -26,13 +30,8 @@
         });
     };
 
-    configService.getCareers().then(function(res){
-      vm.careers = res.data;
-    });
-
-    vm.deleteCareer = function(Deletedcareer){
-      console.log(Deletedcareer);
-      configService.deleteCareer(Deletedcareer).then(function(res){
+    vm.deleteCareer = function(career){
+      configService.deleteCareer({_id:career._id}).then(function(res){
         console.log(res);
       });
       configService.getCareers().then(function(res){

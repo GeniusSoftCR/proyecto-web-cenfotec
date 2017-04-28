@@ -22,9 +22,8 @@
 		function _getCarrers(){
 			return $http.get('http://localhost:3000/api/config/getCareers');
 		};
-		function _deleteCareer(Deletedcareer){
-			console.log(Deletedcareer);
-			return $http.delete('http://localhost:3000/api/config/deleteCareer', Deletedcareer);
+		function _deleteCareer(object){
+			return $http.put('http://localhost:3000/api/config/deleteCareer', object);
 		}
 	};
 })();
