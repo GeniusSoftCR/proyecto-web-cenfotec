@@ -37,6 +37,9 @@
       configService.getCareers().then(function(res){
       vm.careers = res.data;
     });
-    }
+    };
+    configService.getCareers().then(function(res){
+      vm.careers = res.data;
+    });
   }
 })();
