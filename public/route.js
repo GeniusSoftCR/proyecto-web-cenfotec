@@ -101,11 +101,11 @@
 		})
 		/*DENTRO DEL PROYECTO*/
 		.state('main.project',{
-			url: '/proyecto/:proyectoId',
+			url: '/proyecto/:id',
 			resolve: {  
 				load: ['$ocLazyLoad', function($ocLazyLoad) { 
 					return $ocLazyLoad.load([
-						'./components/projects/project/watchproject/projects.controller.js',
+						'./components/projects/project/watchproject/project.controller.js',
 						'./components/projects/project/projectAnotations/projectanotations.controller.js',
 						'./components/projects/project/projectFiles-esteban/projectFiles.controller.js'
 						])

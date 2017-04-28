@@ -8,8 +8,8 @@
       var watchProjectCtrl = this;
 
 
-      watchProjectCtrl.projectId = $stateParams.proyectoId;
-      console.log(watchProjectCtrl.projectId)
+      watchProjectCtrl.id = $stateParams.id;
+      console.log(watchProjectCtrl.id)
       //Objetemos toda la informacion del proyecto
       watchProjectCtrl.project = watchProjectService.getProjectbyId(watchProjectCtrl.projectId);
       //Obtenemos toda la información del cliente
