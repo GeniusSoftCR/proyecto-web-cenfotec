@@ -13,18 +13,6 @@
       vm.teacher=SessionService.session.idNum;
       console.log("idNum: "+vm.teacher);
 
-      //TRAE LA LSITA DE PROYECTOS
-      // vm.fetchRequestsList= function(){
-      //   projectService.getProjects({}).then(function(res){
-      //     $q.when(res).then(function () {
-      //       vm.projects=res.data;
-      //       console.log(vm.projects);
-      //     })
-      //   });
-      // }
-      // vm.fetchRequestsList();
-
-
       //FILTRA el select del view y FILTRA la lista de proyectos
       switch(SessionService.session.role){
         case "admin":
@@ -34,7 +22,9 @@
           projectService.getProjects({}).then(function(res){
           $q.when(res).then(function () {
             vm.projects=res.data;
-            console.log(vm.projects);
+            if(vm.projects.length==0){
+              vm.empty=true;
+            }
           })
         });
           break; 
