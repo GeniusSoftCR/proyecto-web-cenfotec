@@ -1,44 +1,28 @@
-<!--<div ng-include="'components/dashboard/header/header.view.html'"></div>-->
-
 <main>
-  <div class="row">
-    <div class="col-md-5">
+  <div class="container">
+    <div class="col-md-5 col-sm-12 col-xs-12">
       <div class="panel panel-default">
-        <div class="panel-heading">Agregar carrera</div>
+        <div class="panel-heading">
+          <h2>Argregar nueva carrera</h2>
+        </div>
         <div class="panel-body">
-          <div class="card">
-              <form class="careerForm">                            
-                 <div class="form-group col-md-12" ng-class="{ 'has-error' : careerForm.name.$invalid && !careerForm.name.$pristine }">
-                  <label>Nombre de Carrera:</label>
-                      <input 
-                      ng-model="addCareersCtrl.nameCareer" 
-                      id="txtNameCareer" 
-                      type="text" 
-                      class="form-control" 
-                      name="nameCareer" 
-                      required
-                      minlength="3"
-                      maxlength="30">
-
-                      <p ng-show="careerForm.name.$invalid && !careerForm.name.$pristine" class="help-block">Su nombre es requerido.</p>
+            <form class="careerForm" name="careerForm" autocomplete="off" ng-submit="vm.save()" novalidate>
+              <!-- Nombre de la carrera -->                        
+              <div class="form-group col-md-12">
+                <label for="carrerName">Nombre de Carrera:</label>
+                <input data-toggle="tooltip" title="Tooltip on bottom" type="text" ng-model="vm.carrerName" id="carrerName" class="form-control" name="nameCareer" minlength="3" maxlength="40" required >
+                <div id="ng-message" ng-messages="careerForm.nameCareer.$error" ng-hide="careerForm.nameCareer.$pristine" >
+                  <div ng-message="required" ng-hide="careerForm.nameCareer.$pristine" class="red darken-2 center-align white-text"><p>El nombre de la carrera es requerido</p></div>
+                </div>
+              </div>
+                 <div class="form-group col-md-6">
+                    <label for="carrerName">Código de Carrera:</label>
+                    <input title="Ingrese el código de la carrera" type="text" ng-model="vm.carrerCode" id="carrerCode" class="form-control" name="carrerCode" pattern="\b[A-Z0-9]{2,}\b" minlength="3" maxlength="9" required >
+                    <div id="ng-message" ng-messages="careerForm.carrerCode.$error" ng-hide="careerForm.carrerCode.$pristine" >
+                      <div ng-message="required" ng-hide="careerForm.carrerCode.$pristine" class="red darken-2 center-align white-text"><p>Este campo es requerido</p></div>
+                    </div>
                  </div>
-
-                 <div class="form-group col-md-6" ng-class="{ 'has-error' : careerForm.id.$invalid && !careerForm.id.$pristine }">
-                  <label>Código de Carrera:</label>
-                      <input 
-                      ng-model="addCareersCtrl.id" 
-                      id="txtidCareer" 
-                      type="text" 
-                      class="form-control" 
-                      name="id"  
-                      required 
-                      minlength="3"
-                      maxlength="9">
-                      <p ng-show="careerForm.id.$invalid && !careerForm.id.$pristine" class="help-block">Su nombre es requerido.</p>
-                 </div>
-
-
-                  <div class="form-group col-md-6">
+                 <div class="form-group col-md-6">
                   <label>Grado de Carrera:</label>
                     <select ng-model="vm.carrerDegree" id="carrerDegree" type="text" class="form-control" name="level" required>
                       <option value="" disabled>Seleccione el grado</option>
@@ -48,63 +32,35 @@
                       <option value="diplomat">Diplomado</option>
                       <option value="technical">Técnico</option>
                     </select>
-                 </div>
+                </div>
+                <div class="form-group col-md-12" style="display: block; text-align: center;">
+                  <button type="submit" class="btn btn-warning btn-embossed" ng-click="careerForm.$setPristine()">Agregar</button>
+                </div>
+              </form> 
 
-                  <div class="form-group col-md-12" style="display: block; text-align: center;"> 
-                   <input value="Agregar" type="submit" class="bbtn btn-lg btn-embossed" ng-click="addCareersCtrl.save()" ng-disabled="careerForm.$invalid">
-                  </div> 
-
-              </form>
-          </div>
-        </div>
-      <div class="panel-footer"></div>
-    </div>
-
-
-    </div>
-    <div class="col-md-7">
-
-        <div class="panel panel-default">
-          <div class="panel-heading">Lista de carreras
-            <div class="col-md-4 pull-right" style="margin-top: -5px; height: 3px">
-                <form action="" class="search-form">
-                    <div class="form-group has-feedback">
-                      <label for="search" class="sr-only">Search</label>
-                      <input type="text" class="form-control" name="search" id="search">
-                      <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                    </div>
-                </form>
-            </div>
-
-          </div>
-          <div class="panel-body">
-            <div class="card">
-              <ul class="list-group list-group-flush" id="myScrollspy">
-              <div class="table-responsive">
-              <table id="listCareer" class="table table-striped">
-                <thead id="head-career">
-                  <tr>
-                    <th>Código</th>
-                    <th>Carrera</th>
-                    <th>Grado</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr ng-repeat="career in addCareersCtrl.careerList | filter: grade">
-                      <td>{{career.id}}</td>
-                      <td>{{career.nameCareer}}</td>
-                      <td>{{career.grade}}</td>
-                      <td><button class="btn btn-sm btn-embossed btn-warning pull-right" ng-click="addCareersCtrl.deleteCareer(index)">Eliminar</button></td>
-                  </tr>
-                </tbody>
-              </table>
-              </div>
-              </ul>
-            </div>
-          </div>
-          <div class="panel-footer"></div>
-        </div>
       </div>
     </div>
+  </div>
+  <div class="col-md-7 col-sm-12 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Lista de carreras
+          <div class="col-md-4 pull-right">
+            <input type="text" class="form-control" name="search" placeholder="Buscar" id="search">
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+          </div>
+      </div>
+      <div class="panel-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Código</th>
+              <th>Grado</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </main>

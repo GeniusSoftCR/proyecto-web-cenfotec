@@ -26,7 +26,8 @@ db.once('open', function() {
 //We define files where we are gonna generated main routes for the app
 var index = require('./index'),
 	users = require('./users/user.api'),
-	projects = require('./projects/project.api');
+	projects = require('./projects/project.api'),
+	config = require('./config/config.api.js');
 
 	
 // Set static Folder
@@ -48,6 +49,7 @@ app.use(function (req, res, next) {
 //Define Express Routes
 app.use('/api', users);
 app.use('/api', projects);
+app.use('/api', config);
 app.use('/', index);
 
 app.listen(port, function(){
