@@ -42,7 +42,9 @@
           projectService.getProjectsByTeacher({"id":vm.teacher}).then(function(res){
             $q.when(res).then(function () {
               vm.projects=res.data;
-              console.log(vm.projects);
+              if(vm.projects.length==0){
+                vm.empty=true;
+              }
             })
           });
           break;       
