@@ -116,7 +116,8 @@
 					templateUrl: './components/projects/project/project.view.html',
 					controller: 'projectController',
 					controllerAs: 'vm'
-				},
+				}
+				//,
 			 //    'anotaciones@main.project': {
 			 //    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
 			 //    	controller: 'projectAnotationsController',
