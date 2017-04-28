@@ -18,7 +18,8 @@
 		  <ul class="list-group list-group-flush" id="myScrollspy">
 		    <li class="list-group-item" ng-repeat="project in vm.projects | filter:{state:vm.search}">
 		    	{{project.name}}
-		    	<button ui-sref="main.project({ proyectoId: {{ project.idNum }} })" class="btn btn-sm btn-embossed btn-warning pull-right">Ver proyecto</button>
+		    	<!-- <button ui-sref="main.project({ proyectoId: {{ project.idNum }} })" class="btn btn-sm btn-embossed btn-warning pull-right">Ver proyecto</button> -->
+		    	<button ui-sref="main.project" class="btn btn-sm btn-embossed btn-warning pull-right">Ver proyecto</button>
 		    </li>
 		  </ul>
 		</div>

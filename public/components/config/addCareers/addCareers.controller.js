@@ -8,26 +8,22 @@
 
   function configController($scope, Upload, configService, SessionService){
     var vm = this;
+    vm.carrer = {};
+    vm.modal = {};
 
-    vm.save = function(){
-      var newCareer = {
-        code : vm.carrerCode,
-        name : vm.carrerName,
-        degree : vm.carrerDegree
-      };
+    vm.save = function(newCareer){
       console.log(newCareer);
       configService.addCarrers(newCareer).then(function(res){
         console.log(res);
+        vm.carrer = {};
+        vm.modal.title = 'Agregar nueva carreras';
+        vm.modal.body = res.data.massage;
       });
-      vm.carrerCode = null;
-      vm.carrerName = null;
     }
   }
 })()
 
 
-
-      
 
 /*
       function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
