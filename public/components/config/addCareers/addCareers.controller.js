@@ -24,7 +24,13 @@
 
     configService.getCarrers().then(function(res){
       vm.careers = res.data;
-      console.log(vm.careers);
     });
+
+    vm.deleteCareer = function(Deletedcareer){
+      console.log(Deletedcareer);
+      configService.deleteCareer(Deletedcareer).then(function(res){
+        console.log(res);
+      });
+    }
   }
 })();
