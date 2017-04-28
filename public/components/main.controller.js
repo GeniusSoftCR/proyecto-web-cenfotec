@@ -8,9 +8,11 @@
 
  	function mainController ($location,AuthService){
 
- 		if(!AuthService.isAuth()){
- 			$location.path('/entrar');
- 		};
+ 		// if(AuthService.isAuth()){
+ 		// 	$location.path('/inicio/perfil');
+ 		// }else{
+ 		// 	$location.path('/entrar'); 			
+ 		// }
  		
  		//vm = view model
 		var vm = this;
