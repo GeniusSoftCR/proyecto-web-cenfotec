@@ -105,28 +105,28 @@
 			resolve: {  
 				load: ['$ocLazyLoad', function($ocLazyLoad) { 
 					return $ocLazyLoad.load([
-						'./components/projects/project/watchproject/project.controller.js',
+						'./components/projects/project/project.controller.js',
 						'./components/projects/project/projectAnotations/projectanotations.controller.js',
 						'./components/projects/project/projectFiles-esteban/projectFiles.controller.js'
-						])
+					])
 				}]
 			},
 			views: {
 				'': {
-					templateUrl: './components/projects/project/watchproject/projects.view.html',
-					controller: 'watchProjectController',
-					controllerAs: 'watchProjectCtrl'
+					templateUrl: './components/projects/project/project.view.html',
+					controller: 'projectController',
+					controllerAs: 'vm'
 				},
-			    'anotaciones@main.project': {
-			    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
-			    	controller: 'projectAnotationsController',
-			    	controllerAs: 'anotationsCtrl'
-				},
-				'archivos@main.project': {
-					templateUrl: './components/projects/project/projectFiles-esteban/projectFiles.view.html',
-					controller: 'filesController',
-					controllerAs: 'filesCtrl'
-				}
+			 //    'anotaciones@main.project': {
+			 //    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
+			 //    	controller: 'projectAnotationsController',
+			 //    	controllerAs: 'anotationsCtrl'
+				// },
+				// 'archivos@main.project': {
+				// 	templateUrl: './components/projects/project/projectFiles-esteban/projectFiles.view.html',
+				// 	controller: 'filesController',
+				// 	controllerAs: 'filesCtrl'
+				// }
 		   //    	'estudiantes@watchProject': { //Andres asignar estudiantes
 		   //      	templateUrl: 'components/projects/project/assignStudents/assignStudents.projects.view.html',
 		   //      	controller: 'assignStudentsController',
