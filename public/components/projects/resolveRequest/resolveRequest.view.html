@@ -40,7 +40,7 @@
 					<p><b>Responsable: </b> {{vm.req.client.manager}}</p>
 					<p><b>Correo: </b> {{vm.req.client.email}}</p>
 					<p><b>Objetivo: </b> {{vm.req.objective}}</p>
-					<p><b>Fondos: </b> {{vm.req.money}}</p>
+					<p><b>Fondos: </b> {{vm.req.money | currency}}</p>
 				</div>
 			</form>
 			<p ng-show="vm.stuApro" class="alert alert-success">El proyecto ha sido aprobado</p>
