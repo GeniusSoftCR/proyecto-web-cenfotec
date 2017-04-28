@@ -21,6 +21,13 @@ router.get('/config/getCareers', function(req, res, next){
 	});
 });
 
+//Elimina la carrera
+router.put('/config/deleteCareer', function(req,res,next){
+	Career.remove(req.body, function(err){
+		res.json(req.body)
+	})
+})
+
 //Registar Carrera
 router.post('/config/addCareer', function(req, res, next){
 	var career = Object.assign(new Career(),req.body)

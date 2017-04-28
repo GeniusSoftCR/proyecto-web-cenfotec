@@ -14,15 +14,15 @@
       console.log("idNum: "+vm.teacher);
 
       //TRAE LA LSITA DE PROYECTOS
-      vm.fetchRequestsList= function(){
-        projectService.getProjects({}).then(function(res){
-          $q.when(res).then(function () {
-            vm.projects=res.data;
-            console.log(vm.projects);
-          })
-        });
-      }
-      vm.fetchRequestsList();
+      // vm.fetchRequestsList= function(){
+      //   projectService.getProjects({}).then(function(res){
+      //     $q.when(res).then(function () {
+      //       vm.projects=res.data;
+      //       console.log(vm.projects);
+      //     })
+      //   });
+      // }
+      // vm.fetchRequestsList();
 
 
       //FILTRA el select del view y FILTRA la lista de proyectos
@@ -31,19 +31,22 @@
           console.log("Admin"+ vm.projects);
         case "assistant":
           vm.test=true;
+          projectService.getProjects({}).then(function(res){
+          $q.when(res).then(function () {
+            vm.projects=res.data;
+            console.log(vm.projects);
+          })
+        });
           break; 
         case "professor":
-          console.log("rol: "+SessionService.session.role);
-          //buscar los proyectos a los que el profesor actual ha sido asignado
-          angular.forEach(vm.projects, function(project, key) {
-            if((project.professor === vm.teacher)||(project.assistant === vm.teacher)){
-              //filtra por proyectos "en proceso" y/o "finalizados"
-              if((project.state === "inProcess")||(project.state === "ended")){
-                vm.asignedProjects.push(project);
+          projectService.getProjectsByTeacher({"id":vm.teacher}).then(function(res){
+            $q.when(res).then(function () {
+              vm.projects=res.data;
+              if(vm.projects.length==0){
+                vm.empty=true;
               }
-            }
+            })
           });
-          vm.projects=vm.asignedProjects;
           break;       
       };
 
