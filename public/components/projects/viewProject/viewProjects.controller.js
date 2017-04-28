@@ -14,15 +14,15 @@
       console.log("idNum: "+vm.teacher);
 
       //TRAE LA LSITA DE PROYECTOS
-      vm.fetchRequestsList= function(){
-        projectService.getProjects({}).then(function(res){
-          $q.when(res).then(function () {
-            vm.projects=res.data;
-            console.log(vm.projects);
-          })
-        });
-      }
-      vm.fetchRequestsList();
+      // vm.fetchRequestsList= function(){
+      //   projectService.getProjects({}).then(function(res){
+      //     $q.when(res).then(function () {
+      //       vm.projects=res.data;
+      //       console.log(vm.projects);
+      //     })
+      //   });
+      // }
+      // vm.fetchRequestsList();
 
 
       //FILTRA el select del view y FILTRA la lista de proyectos
@@ -31,6 +31,12 @@
           console.log("Admin"+ vm.projects);
         case "assistant":
           vm.test=true;
+          projectService.getProjects({}).then(function(res){
+          $q.when(res).then(function () {
+            vm.projects=res.data;
+            console.log(vm.projects);
+          })
+        });
           break; 
         case "professor":
           projectService.getProjectsByTeacher({"id":vm.teacher}).then(function(res){
