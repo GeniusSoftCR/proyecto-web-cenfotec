@@ -1,21 +1,26 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="row" id="profile-view">
-			<div class="col-md-4 user-profile">
+			<div class="col-md-1 user-profile">
 				<div class="profile">
 					<img class="avatar" ng-src="{{vm.user.avatar}}" alt="">
 					<!-- ../../imgs/users/stephbr.jpg -->
-				</div>		
+				</div>				
+			</div>
+			<div class="col-md-3">
 				<h3>{{vm.user.username}}</h3>
 				<h6>{{vm.user.idNum}}</h6>
 				<h6>{{vm.user.name +" "+ vm.user.surname +" "+ vm.user.secondSurname }}</h6>
 				<h6>{{vm.user.email}}</h6>
 				<h6>{{vm.user.role}}</h6>
-				<h6>Carreras:</h6>
+				<span ng-if="vm.user.careers">
+					<h6>Carreras:</h6>
 					<p ng-repeat="career in vm.user.careers">-{{career}}</p>
-				</div>
+				</span>				
+			</div>
+
 			<div class="col-md-8">
-			 <p> Insertar aqui </p>			
+			 <p> Insertar aqui  </p>			
 			</div>			
 		</div>
 	</div>
