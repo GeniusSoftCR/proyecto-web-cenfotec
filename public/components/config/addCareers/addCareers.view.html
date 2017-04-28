@@ -68,16 +68,23 @@
           </div>
       </div>
       <div class="panel-body">
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Código</th>
-                <th>Grado</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Código</th>
+              <th>Grado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="career in vm.careers">
+              <td>{{ career.name }}</td>
+              <td>{{ career.code }}</td>
+              <td>{{ career.degree }}</td>
+              <td> <button class="btn btn-warning" ng-click="vm.deleteCareer(career)">Eliminar carrera</button></td>
+            </tr>
+          </tbody>
+        </table>
         </div>
       </div>
     </div>

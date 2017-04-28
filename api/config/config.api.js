@@ -15,7 +15,7 @@ var configSchema = new Schema({
 var Career = mongoose.model('Careers', configSchema);
 
 //Lleva la lista de carreras
-router.get('/config/getCareer', function(req, res, next){
+router.get('/config/getCareers', function(req, res, next){
 	Career.find({}, function(err, career){
 		res.json(career);
 	});
