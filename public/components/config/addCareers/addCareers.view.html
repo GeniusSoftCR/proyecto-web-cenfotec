@@ -62,10 +62,10 @@
     <div class="col-md-7 col-sm-12 col-xs-12">
       <div class="panel panel-default">
         <div class="panel-heading">Lista de carreras
-          <div class="col-md-4 pull-right">
+          <!--<div class="col-md-4 pull-right">
             <input type="text" class="form-control" name="search" placeholder="Buscar" id="search">
             <span class="glyphicon glyphicon-search form-control-feedback"></span>
-          </div>
+          </div>-->
       </div>
       <div class="panel-body">
         <table class="table">
@@ -81,7 +81,7 @@
               <td>{{ career.name }}</td>
               <td>{{ career.code }}</td>
               <td>{{ career.degree }}</td>
-              <td> <button class="btn btn-warning" ng-click="vm.deleteCareer(career)">Eliminar carrera</button></td>
+              <td> <button class="btn btn-warning" ng-click="vm.deleteCareer(career)">Eliminar</button></td>
             </tr>
           </tbody>
         </table>

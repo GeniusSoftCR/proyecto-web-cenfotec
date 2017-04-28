@@ -9,8 +9,9 @@
 	function configService($log,$http){
 
 		var publicApi = {
-			addCarrer: _addCarrer,
-			getCarrers: _getCarrers
+			addCareer: _addCarrer,
+			getCareers: _getCarrers,
+			deleteCareer: _deleteCareer
 		};
 		return publicApi;
 
@@ -21,5 +22,8 @@
 		function _getCarrers(){
 			return $http.get('http://localhost:3000/api/config/getCareers');
 		};
+		function _deleteCareer(object){
+			return $http.put('http://localhost:3000/api/config/deleteCareer', object);
+		}
 	};
 })();
