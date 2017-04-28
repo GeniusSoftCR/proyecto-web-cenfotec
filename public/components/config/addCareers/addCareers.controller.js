@@ -12,25 +12,31 @@
     vm.modal = {};
     vm.careers = {};
 
+    configService.getCareers().then(function(res){
+      vm.careers = res.data;
+    });
+
     vm.save = function(newCareer){
       console.log(newCareer);
-      configService.addCarrer(newCareer).then(function(res){
+      configService.addCareer(newCareer).then(function(res){
         console.log(res);
         vm.carrer = {};
         vm.modal.title = 'Agregar nueva carreras';
         vm.modal.body = res.data.massage;
       });
+
+          configService.getCareers().then(function(res){
+          vm.careers = res.data;
+        });
     };
 
-    configService.getCarrers().then(function(res){
-      vm.careers = res.data;
-    });
-
-    vm.deleteCareer = function(Deletedcareer){
-      console.log(Deletedcareer);
-      configService.deleteCareer(Deletedcareer).then(function(res){
+    vm.deleteCareer = function(career){
+      configService.deleteCareer({_id:career._id}).then(function(res){
         console.log(res);
       });
+      configService.getCareers().then(function(res){
+      vm.careers = res.data;
+    });
     }
   }
 })();
