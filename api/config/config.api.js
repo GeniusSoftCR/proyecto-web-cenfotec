@@ -7,7 +7,7 @@ var express = require('express'),
 	degree = ['technical', 'diplomat', 'bachelor', 'bachelorsDegree', 'mastersDegree'];
 
 var configSchema = new Schema({
-	code :   {type: String, required: true},
+	code :   {type: String, required: true, unique: true},
 	name :   {type: String, required: true},
 	degree : {type: String, required: true}
 	}, {collection : 'careers'});

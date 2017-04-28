@@ -6,60 +6,79 @@
           <h2>Argregar nueva carrera</h2>
         </div>
         <div class="panel-body">
-            <form class="careerForm" name="careerForm" autocomplete="off" ng-submit="vm.save()" novalidate>
-              <!-- Nombre de la carrera -->                        
-              <div class="form-group col-md-12">
-                <label for="carrerName">Nombre de Carrera:</label>
-                <input data-toggle="tooltip" title="Tooltip on bottom" type="text" ng-model="vm.carrerName" id="carrerName" class="form-control" name="nameCareer" minlength="3" maxlength="40" required >
-                <div id="ng-message" ng-messages="careerForm.nameCareer.$error" ng-hide="careerForm.nameCareer.$pristine" >
-                  <div ng-message="required" ng-hide="careerForm.nameCareer.$pristine" class="red darken-2 center-align white-text"><p>El nombre de la carrera es requerido</p></div>
+          <form class="careerForm" name="careerForm" autocomplete="off" ng-submit="vm.save(vm.carrer)" novalidate>
+            <!-- Nombre de la carrera -->                        
+            <div class="form-group col-md-12">
+              <label for="carrerName">Nombre de Carrera:</label>
+              <input data-toggle="tooltip" title="Tooltip on bottom" type="text" ng-model="vm.carrer.name" id="carrerName" class="form-control" name="nameCareer" minlength="3" maxlength="40" required >
+              <div id="ng-message" ng-messages="careerForm.nameCareer.$error" ng-hide="careerForm.nameCareer.$pristine" >
+                <div ng-message="required" ng-hide="careerForm.nameCareer.$pristine" class="red darken-2 center-align white-text"><p>El nombre de la carrera es requerido</p></div>
+              </div>
+            </div>
+            <!-- Codigo de la carrera -->
+            <div class="form-group col-md-6">
+              <label for="carrerName">Código de Carrera:</label>
+              <input title="Ingrese el código de la carrera" type="text" ng-model="vm.carrer.code" id="carrerCode" class="form-control" name="carrerCode" pattern="\b[A-Z0-9]{2,}\b" minlength="3" maxlength="9" required >
+              <div id="ng-message" ng-messages="careerForm.carrerCode.$error" ng-hide="careerForm.carrerCode.$pristine" >
+                <div ng-message="required" ng-hide="careerForm.carrerCode.$pristine" class="red darken-2 center-align white-text"><p>Este campo es requerido</p></div>
+              </div>
+            </div>
+            <!-- Grado de la carrera -->
+            <div class="form-group col-md-6">
+              <label>Grado de Carrera:</label>
+              <select ng-model="vm.carrer.degree" id="carrerDegree" type="text" class="form-control" name="level" required>
+                <option value="" disabled>Seleccione el grado</option>
+                <option value="mastersDegree">Maestría</option>
+                <option value="bachelorsDegree">Licenciatura</option>
+                <option value="bachelor">Bachillerato</option>
+                <option value="diplomat">Diplomado</option>
+                <option value="technical">Técnico</option>
+              </select>
+            </div>
+            <!-- Boton -->
+            <div class="form-group col-md-12" style="display: block; text-align: center;">
+              <button type="submit" class="btn btn-warning btn-embossed" data-toggle="modal" data-target="#modal" ng-disabled="careerForm.$invalid" ng-click="careerForm.$setPristine()">Agregar</button>
+            </div>
+            <!-- Modal -->
+            <div class="col-md-8 col-md-offset-4">  
+              <div class="modal fade" id="modal" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 id="colorWhite">{{vm.modal.title}}</h2>
+                      <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>{{vm.modal.body}}</p>        
+                    </div>
+                  </div>
                 </div>
               </div>
-                 <div class="form-group col-md-6">
-                    <label for="carrerName">Código de Carrera:</label>
-                    <input title="Ingrese el código de la carrera" type="text" ng-model="vm.carrerCode" id="carrerCode" class="form-control" name="carrerCode" pattern="\b[A-Z0-9]{2,}\b" minlength="3" maxlength="9" required >
-                    <div id="ng-message" ng-messages="careerForm.carrerCode.$error" ng-hide="careerForm.carrerCode.$pristine" >
-                      <div ng-message="required" ng-hide="careerForm.carrerCode.$pristine" class="red darken-2 center-align white-text"><p>Este campo es requerido</p></div>
-                    </div>
-                 </div>
-                 <div class="form-group col-md-6">
-                  <label>Grado de Carrera:</label>
-                    <select ng-model="vm.carrerDegree" id="carrerDegree" type="text" class="form-control" name="level" required>
-                      <option value="" disabled>Seleccione el grado</option>
-                      <option value="mastersDegree">Maestría</option>
-                      <option value="bachelorsDegree">Licenciatura</option>
-                      <option value="bachelor">Bachillerato</option>
-                      <option value="diplomat">Diplomado</option>
-                      <option value="technical">Técnico</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-12" style="display: block; text-align: center;">
-                  <button type="submit" class="btn btn-warning btn-embossed" ng-click="careerForm.$setPristine()">Agregar</button>
-                </div>
-              </form> 
-
+            </div>
+          </form> 
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-7 col-sm-12 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">Lista de carreras
+    <div class="col-md-7 col-sm-12 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Lista de carreras
           <div class="col-md-4 pull-right">
             <input type="text" class="form-control" name="search" placeholder="Buscar" id="search">
             <span class="glyphicon glyphicon-search form-control-feedback"></span>
           </div>
       </div>
       <div class="panel-body">
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Código</th>
-              <th>Grado</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Código</th>
+                <th>Grado</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
