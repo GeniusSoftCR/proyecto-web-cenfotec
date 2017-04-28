@@ -7,30 +7,31 @@ var express = require('express'),
 	degree = ['technical', 'diplomat', 'bachelor', 'bachelorsDegree', 'mastersDegree'];
 
 var configSchema = new Schema({
-	code : {type: String, required: true},
-	name : {type: String, required: true},
+	code :   {type: String, required: true, unique: true},
+	name :   {type: String, required: true},
 	degree : {type: String, required: true}
-	}, {collection : 'carrers'});
+	}, {collection : 'careers'});
 
-var Carrers = mongoose.model('Carrers', carrersSchema);
+var Career = mongoose.model('Careers', configSchema);
 
 //Lleva la lista de carreras
-router.get('/config/load', function(req, res, next){
-	Carrers.find({}, function(err, carrers){
-		res.json(carrers);
+router.get('/config/getCareers', function(req, res, next){
+	Career.find({}, function(err, career){
+		res.json(career);
 	});
 });
 
 //Registar Carrera
-route.post('/config/add'), function(req, res, next){
-	var carrer = Object.assign(new Carrers(),req.body)
-	carrer.save(function(err){
+router.post('/config/addCareer', function(req, res, next){
+	var career = Object.assign(new Career(),req.body)
+	console.log(career);
+	career.save(function(err){
 		if(err){
 			res.json({success: false, massage: 'Ha ocurrido un error'});
 		}else{
-			res.json({success : true, massage: 'Se ha enviado la carrera correctamente'})
+			res.json({success : true, massage: 'Se ha enviado la carrera correctamente'});
 		}
 	})
-}
+})
 
 module.exports = router;

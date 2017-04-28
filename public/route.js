@@ -51,18 +51,7 @@
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
-		.state('main.profile',{
-			url:'/usuario',
-		    css: './css/profile.style.css',
-			templateUrl: './components/users/profile/profile.view.html',
-			resolve: {  
-	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./components/users/profile/profile.controller.js')
-	          }]
-		    },			
-		})
-
-		/*ESTADOS PARA TRABAJAR LOS PROYECTOS*/
+		/*Jerarquía de estados a partir del 'main' state*/
 		.state('main',{
 			url:'/inicio',
 			resolve: {  
@@ -74,12 +63,18 @@
 			controller:'mainController',
 			controllerAs:'vm'
 		})
-		
-		
-
+		.state('main.profile',{
+			url:'/usuario',
+		    css: './css/profile.style.css',
+			templateUrl: './components/users/profile/profile.view.html',
+			resolve: {  
+	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	          	return $ocLazyLoad.load('./components/users/profile/profile.controller.js')
+	          }]
+		    },			
+		})
 		.state('main.projects',{
 			url:'/proyectos',
-			// templateUrl: './components/projects/projects.view.html',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 	          	return $ocLazyLoad.load([
@@ -101,77 +96,50 @@
 			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
 					controller: 'viewProjectsController',
 					controllerAs: 'vm'
-				},
+				}
 			}
 		})
-		// .state('main.projects.viewProjects',{
-		// 	url:'/todos',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/projects/viewProject/viewProjects.controller.js')
-	 //          }]
-		//     },
-		// 	templateUrl: './components/projects/viewProject/viewProjects.view.html',
-		// 	controller: 'loadProjectsController',
-		// 	controllerAs: 'vm'
-		// })
-		// .state('main.projects2',{
-		// 	url:'/proyectos2',
-		// 	resolve: {  
-	 //          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          	return $ocLazyLoad.load('./components/projects/projectRequest2/projectRequests.controller.js')
-	 //          }]
-		//     },
-		// 	templateUrl: './components/projects/projectRequest2/projectRequests.view.html',
-		// 	controller: 'projectRequestsController',
-		// 	controllerAs: 'vm'
-		// })
-		// .state('main.projects.project',{
-		// 	url: '/proyecto/:proyectoId',
-		// 	views: {
-		// 		'': {
-		// 			templateUrl: './components/projects/project/watchproject/projects.view.html',
-		// 			controller: 'watchProjectController',
-		// 			controllerAs: 'watchProjectCtrl',
-		// 			resolve: {  
-	 //          			load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	 //          				return $ocLazyLoad.load('./components/projects/project/watchproject/projects.controller.js')
-	 //         		 }]
-		//    		 },
-		// 		},
-		// 	    'anotaciones@main.projects.project': { //Andres anotaciones
-		// 	    	resolve: {  
-		// 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-		// 	          	return $ocLazyLoad.load('./components/projects/project/projectAnotations/projectanotations.controller.js')
-		// 	          }]
-		// 		    },
-		// 	    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
-		// 	    	controller: 'projectAnotationsController',
-		// 	    	controllerAs: 'anotationsCtrl'
-		// 		},
-		      	// 'estudiantes@watchProject': { //Andres asignar estudiantes
-		       //  	templateUrl: 'components/projects/project/assignStudents/assignStudents.projects.view.html',
-		       //  	controller: 'assignStudentsController',
-		       //  	controllerAs: 'assignStudentsCtrl'
-		      	// },
-		      	// 'profesores@watchProject': { //Andres asignar estudiantes
-		      	//   templateUrl: 'components/projects/project/assignTeachers/assignTeachers.projects.view.html',
-		      	//   controller: 'assignTeachersController',
-		      	//   controllerAs: 'assignTeachersCtrl'
-		      	// },
-		// 		'archivos@main.projects.project': { //Esteban archivos
-		// 			resolve: {  
-		// 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-		// 	          	return $ocLazyLoad.load('./components/projects/project/projectFiles-esteban/projectFiles.controller.js')
-		// 	          }]
-		// 		    },
-		// 			templateUrl: './components/projects/project/projectFiles-esteban/projectFiles.view.html',
-		// 			controller: 'filesController',
-		// 			controllerAs: 'filesCtrl'
-		// 		}
-	 //    	}
-		// })		
-
+		/*DENTRO DEL PROYECTO*/
+		.state('main.project',{
+			url: '/proyecto/:proyectoId',
+			resolve: {  
+				load: ['$ocLazyLoad', function($ocLazyLoad) { 
+					return $ocLazyLoad.load([
+						'./components/projects/project/watchproject/projects.controller.js',
+						'./components/projects/project/projectAnotations/projectanotations.controller.js',
+						'./components/projects/project/projectFiles-esteban/projectFiles.controller.js'
+						])
+				}]
+			},
+			views: {
+				'': {
+					templateUrl: './components/projects/project/watchproject/projects.view.html',
+					controller: 'watchProjectController',
+					controllerAs: 'watchProjectCtrl'
+				},
+			    'anotaciones@main.project': {
+			    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
+			    	controller: 'projectAnotationsController',
+			    	controllerAs: 'anotationsCtrl'
+				},
+				'archivos@main.project': {
+					templateUrl: './components/projects/project/projectFiles-esteban/projectFiles.view.html',
+					controller: 'filesController',
+					controllerAs: 'filesCtrl'
+				}
+		   //    	'estudiantes@watchProject': { //Andres asignar estudiantes
+		   //      	templateUrl: 'components/projects/project/assignStudents/assignStudents.projects.view.html',
+		   //      	controller: 'assignStudentsController',
+		   //      	controllerAs: 'assignStudentsCtrl'
+		   //    	},
+		   //    	'profesores@watchProject': { //Andres asignar estudiantes
+					// templateUrl: 'components/projects/project/assignTeachers/assignTeachers.projects.view.html',
+					// controller: 'assignTeachersController',
+					// controllerAs: 'assignTeachersCtrl'
+		   //    	},
+	    	}
+		})		
+		/*FIN*/
 		.state('main.students',{
 			url:'/estudiantes',
 			resolve: {  

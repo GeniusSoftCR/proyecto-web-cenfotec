@@ -4,27 +4,26 @@ var express = require('express'),
 	//////////////////////////////
 	Schema = mongoose.Schema,
 	//////////////////////////////
-	states = ['inRevision', 'aproved', 'reject', 'inProcess', 'ended'];
+	states = ['inRevision', 'aproved', 'rejected', 'inProcess', 'ended'];
 
 var projectSchema = new Schema({
-	idNum :       {type: String, required: true},
 	name :        {type: String, required: true},
 	money:        {type: String, required: true},
 	objective:    {type: String, required: true},
 	state:        {type: String, required: true, em:states},
 	client:       {
 					companyName : {type: String, required: true},
+					idNum :       {type: String, required: true},
 					email :       {type: String, required: true},
 					manager :     {type: String, required: true},
-					industry:     {type: String, required: true}
+					industry:     {type: String, required: true},
+					resume:       {type: String}
 				  },
-	resume:       {type: String},
 	images:       [{url : {type: String}}],
 	////////////////////////////////////////////
-	students:     {type: Array},
-	professor:    {type: String},
-	assitant:     {type: String},
-	hours:        {type: new Array},
+	students:     {type: Array, default: undefined},
+	professor:    {type: String, default: undefined},
+	assistant:    {type: String, default: undefined},
 	rejectReason: {type: String, default: undefined}
 
 }, {collection : 'projects'});
