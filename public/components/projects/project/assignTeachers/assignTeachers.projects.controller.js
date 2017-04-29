@@ -1,17 +1,16 @@
 (function(){
-  /* Controlador de Request de proyecto de Cenfotec Software House */
   'use strict';
   angular.module('cshApp')
     .controller('assignTeachersController', assignTeachersCtrl)
     .filter('startFrom', pagination);
 
     function assignTeachersCtrl ($scope, assignTeachersService, watchProjectService, cshReqService, $stateParams, userProfessorService) {
-      var assignTeachersCtrl = this;
-      assignTeachersCtrl.modal = false;
-      assignTeachersCtrl.projectId = $stateParams.proyectoId;
+      var vm = this;
+      vm.modal = false;
+      vm.projectId = $stateParams.proyectoId;
       function init(){ 
 
-        var mainProject = watchProjectService.getProjectbyId(assignTeachersCtrl.projectId);
+        var mainProject = watchProjectService.getProjectbyId(vm.projectId);
         console.log(mainProject);
         var teachers = userProfessorService.getProfessors();
         if (mainProject.assitant == null) {
@@ -19,47 +18,47 @@
         }
         var assignedTeachers = mainProject.assitant;
         var teachersData = [];
-        assignTeachersCtrl.teachers = [];
-        assignTeachersCtrl.teachersData = teachersData;
+        vm.teachers = [];
+        vm.teachersData = teachersData;
 
         for (var i=0; i < assignedTeachers.length; i++) {
           for (var b=0; b < teachers.length; b++) {
             if (assignedTeachers[i] == teachers[b].id) {
-              assignTeachersCtrl.teachersData.push(teachers[b]);
+              vm.teachersData.push(teachers[b]);
             }
           }
         }
         for (var i=0; i < teachers.length; i++) {
           if (teachers[i].availableForProyects == "Si") {
-            assignTeachersCtrl.teachers.push(teachers[i]);
+            vm.teachers.push(teachers[i]);
           } else {
             console.log('dont do this');  
           }
         }
-      }
+      }//FIN DEL INIT
       init();
-      assignTeachersCtrl.currentPage = 0;
-      assignTeachersCtrl.pageSize = 1;
-      assignTeachersCtrl.numberOfPages=function(){
-          return Math.ceil(assignTeachersCtrl.teachers.length/assignTeachersCtrl.pageSize);                
+      vm.currentPage = 0;
+      vm.pageSize = 1;
+      vm.numberOfPages=function(){
+          return Math.ceil(vm.teachers.length/vm.pageSize);                
       }
 
-      assignTeachersCtrl.openModal = function (_param) {
-        assignTeachersCtrl.modal = true;
+      vm.openModal = function (_param) {
+        vm.modal = true;
       }
-      assignTeachersCtrl.closeModal = function (_param) {
-        assignTeachersCtrl.modal = false;
+      vm.closeModal = function (_param) {
+        vm.modal = false;
       }
-      assignTeachersCtrl.assignTeacher = function () {
-        var teacherSelected = assignTeachersCtrl.assign.teacherChecked;
-        var project = watchProjectService.getProjectbyId(assignTeachersCtrl.projectId);
+      vm.assignTeacher = function () {
+        var teacherSelected = vm.assign.teacherChecked;
+        var project = watchProjectService.getProjectbyId(vm.projectId);
         if (project.assitant == null) {
             project.assitant = [];
         }
         project.assitant.push(teacherSelected);
         var updateProjectRequest ={
           name: project.name,
-          id : assignTeachersCtrl.projectId,
+          id : vm.projectId,
           state_key : project.state_key,
           clientId: project.clientId,
           professor: project.professor,
@@ -71,18 +70,9 @@
           students: project.students,
           files :project.files
         }
-        cshReqService.putProject(assignTeachersCtrl.projectId, updateProjectRequest);
+        cshReqService.putProject(vm.projectId, updateProjectRequest);
         init();
       }
-
-    //   assignStudentsCtrl.remove = function (index) {
-    //     console.log(index);
-    //     var project = watchProjectService.getProjectbyId(assignStudentsCtrl.projectId);
-    //     project.students.splice(index, 1);
-    //     console.log(project);
-    //     cshReqService.putProject(assignStudentsCtrl.projectId, project);
-    //     init();
-    //   }
     }
 
     function pagination () {
