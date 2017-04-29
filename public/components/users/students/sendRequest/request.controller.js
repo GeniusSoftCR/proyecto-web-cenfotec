@@ -9,7 +9,10 @@
     function sendRequest($scope,$window,userService,ImageService,filepickerService,Upload){ //,addCareersService**BUG**
       var vm = this;
       //careers = addCareersService.getCareer(); //llama a la funcion que llena el mutiselect**BUG**
-
+      vm.send = false;
+      vm.toSend = true;
+      vm.sendBad = false;
+      vm.tosendBad = false;
       //VM
       vm.cloudObj = ImageService.getConfiguration();
       //vm.careers = careers; //guarda las carreras
@@ -100,7 +103,8 @@
         //envia el usuario al user.service
         userService.addUser(newUser).then(function(res){
               console.log(res)
-          });
+
+        });
 
         vm.id = null;
         vm.name = null;
@@ -117,6 +121,12 @@
         vm.resumeUrl = null;
         vm.githubUrl = null;
         vm.websiteUrl = null;
+
+        vm.send = true;
+        vm.toSend = false;
       };
+
+       vm.sendBad = true;
+      vm.tosendBad = false;
   }
 })();

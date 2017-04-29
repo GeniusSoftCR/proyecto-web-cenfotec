@@ -41,3 +41,17 @@ input{
 	color: red;
 }
 
+.thanks {
+  margin: 0 auto;
+  width: 600px;
+  background: #15ae0c;
+  color: #fff;
+  margin-top: 860px;
+  border-radius: 11px;
+  z-index: 1;
+  text-align: center;
+  transition: background .8s;
+  margin-bottom: 20px;
+  padding: 3px;
+  font-size: 6px;
+}
