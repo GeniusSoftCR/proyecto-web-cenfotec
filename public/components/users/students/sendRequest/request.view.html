@@ -136,7 +136,7 @@
       <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
         <label>Carrera(s):</label>
         <div class="form-group">
-          <select required ng-model="vm.career" name="selectCareer" class="form-control" multiple>
+          <select required ng-model="vm.career" name="selectCareer" class="form-control">
           <option ng-value="career" ng-repeat="career in vm.careers">{{career.name}}</option>
         </select>
     <!-- <select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="vm.careers" multiple>
