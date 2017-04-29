@@ -88,3 +88,23 @@ label{
   text-align: center;
 }
 
+input{
+  display: inline-block;
+  border: none;
+  position:;
+  z-index: 2;
+}
+
+.form-group, .input-group{
+  margin-bottom: 3%;
+}
+
+#ng-message{
+  font-size: 0.720em;
+  font-family: 'montserrat';
+  border: none;
+  position: absolute;
+  z-index: 4;
+  color: red;
+}
+
