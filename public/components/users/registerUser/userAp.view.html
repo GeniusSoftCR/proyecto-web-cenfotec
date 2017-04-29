@@ -1,6 +1,6 @@
 <main>
   <div class="row">
-    <div class="col-lg-11 col-md-8 col-sm-6 col-xs-4 bhoechie-tab-container">
+    <div class="col-lg-11 col-md-8 col-sm-6 col-xs-3 bhoechie-tab-container">
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
         <div class="list-group">
           <a href="#" class="list-group-item active text-center"><h4 class="glyphicon glyphicon-user"></h4><br/>Profesor</a>
@@ -13,7 +13,7 @@
         <!-- Sección de profesores-->
         <div class="bhoechie-tab-content active">
           <form class="profForm"  name="profForm" class="container" autocomplete="off" ng-submit="vm.preSaveProf()" novalidate>  
-            <h4 class="tittle">REGISTRO DE PROFESORES</h4>
+            <h3 class="tittle">REGISTRO DE PROFESORES</h3>
               <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <!-- Nombre -->
                 <label for="name">Nombre:</label>
@@ -83,10 +83,10 @@
                   <label for="confirmPassword">Confirmar contraseña:</label>
                   <input ng-model="vm.prof.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
                   <div class="clearfix">
-                    <div id="ng-message" ng-messages="profForm.confirmPassword.$error" ng-if="profForm.$submitted || profForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
-                    <div ng-message="required" class="message slide-left">Este campo es requerido!</div>
-                    <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente</div>
-                  </div>
+                  <div id="ng-message" ng-messages="profForm.confirmPassword.$error" ng-hide="profForm.confirmPassword.$pristine">
+                  <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
+                  <div ng-message="pattern" class="red darken-2 center-align white-text">Debe usar May. min. y números</div>
+                </div>
                 </div>
               </div>
               <!-- Miembro del Consejo -->
@@ -124,17 +124,17 @@
               </div>
               <!-- botón -->
               <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-                <button type="submit" id="btnRegisterProf" class="btn btn-warning btn-embossed">Registrar</button>
+                <button ng-click="profForm.$setPristine()" type="submit" id="btnRegisterProf" ng-disabled="profForm.$valid" class="btn btn-warning btn-embossed">Registrar</button>
               </div>
           </form>
-          <div class="done"  ng-show="vm.send">
-            <p>Profesor Registrado</p>
-          </div>   
+          <div class="thanks" ng-show="vm.sendProf">
+            <p>¡Profesor registrado correctamente!</p>
+          </div>
         </div>
         <!-- Sección de administradores-->
         <div class="bhoechie-tab-content">
           <form class="userAdmiForm" class="row" name="userAdmiForm" novalidate autocomplete="off" ng-submit="vm.preSaveAdmi()">
-            <h4 class="tittle">REGISTRO DE ADMINISTRADOR</h4>
+            <h3 class="tittle">REGISTRO DE ADMINISTRADOR</h3>
             <!-- Nombre-->
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="name">Nombre:</label>
@@ -145,7 +145,7 @@
               </div>
             </div>
             <!-- Primer Apellido-->
-            <div class="form-group col-md-3 col-sm-12 ibck">
+            <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="surName">Primer apellido:</label>
               <input type="text" ng-model="vm.admi.surName" id="txtsurName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
               <div id="ng-message" ng-messages="userAdmiForm.surName.$error" ng-hide="userAdmiForm.surName.$pristine">
@@ -154,7 +154,7 @@
               </div>
             </div>
             <!-- Segundo Apellido-->
-            <div class="form-group col-md-3 col-sm-12 ibck">
+            <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="secondSurname">Segundo apellido:</label>
               <input type="text" ng-model="vm.admi.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
               <div id="ng-message" ng-messages="userAdmiForm.secondSurname.$error" ng-hide="userAdmiForm.secondSurname.$pristine">
@@ -163,7 +163,7 @@
               </div>
             </div>
             <!-- Cédula-->
-            <div class="form-group col-md-3 col-sm-12 ibck">
+            <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="id">Cédula de identidad</label>
               <input type="text" ng-model="vm.admi.id" id="txtid" class="form-control" name="id" pattern="[0-9]+" maxlength="9" minlength="9" required>
               <div id="ng-message" ng-messages="userAdmiForm.id.$error" ng-hide="userAdmiForm.id.$pristine" required>
@@ -174,7 +174,7 @@
               </div>
             </div>
             <!-- Correo-->
-            <div class="form-group col-md-3 col-sm-12 ibck">
+            <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="email">Correo electrónico</label>
                 <input type="text" ng-model="vm.admi.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
               <div id="ng-message" ng-messages="userAdmiForm.email.$error" ng-hide="userAdmiForm.email.$pristine">
@@ -183,7 +183,7 @@
               </div>
             </div>
             <!-- Contraseña-->
-            <div class="form-group col-md-3 col-sm-12 ibck">
+            <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="newPassword">Contraseña</label>
               <input type="password" ng-model="vm.admi.password" id="txtPassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required maxlength="8" minlength="1" unique>
               <div id="ng-message" ng-messages="userAdmiForm.newPassword.$error" ng-hide="userAdmiForm.newPassword.$pristine">
@@ -192,9 +192,9 @@
               </div>
             </div>
             <!-- Confirmar contraseña-->
-            <div class="form-group col-md-3 col-sm-12 ibck">
+            <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="confirmPassword">Confirmar contraseña:</label>
-              <input ng-model="vm.admi.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
+              <input ng-model="vm.admi.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required  minlength="1">
               <div class="clearfix">
                 <div id="ng-message" ng-messages="userAdmiForm.confirmPassword.$error" ng-if="userAdmiForm.$submitted || userAdmiForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
                   <div ng-message="required" class="message slide-left">Este campo es requerido!</div>
@@ -203,7 +203,7 @@
               </div>
             </div>
             <!-- Puesto de trabajo-->
-            <div class="form-group col-md-3 col-sm-12 ibck">
+            <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="jobPosition">Puesto de trabajo:</label>
               <input type="text" ng-model="vm.admi.jobPosition" id="txtjobPosition" class="form-control" name="jobPosition" required pattern="[ñáéíóúA-Za-z ]+">
                 <div id="ng-message" ng-messages="userAdmiForm.jobPosition.$error" ng-hide="userAdmiForm.jobPosition.$pristine">
@@ -212,7 +212,7 @@
                 </div>
             </div>
             <!-- Avatar -->
-            <div class="col-md-3 col-sm-12 ibck">
+            <div class="form-group col-md-6 col-sm-12 col-xs-12 ibck">
               <label>Avatar:</label>
               <div class="input-group">
                   <label for="photoAdmi" class="input-group-btn">
@@ -226,7 +226,7 @@
               </div>
             </div>
             <!-- Teléfono -->
-            <div class="form-group col-md-3 col-sm-12" style="display: block;"> 
+            <div class="form-group col-md-6 col-sm-12" style="display: block;"> 
               <label for="phone">Número de teléfono:</label>
               <input ng-model="vm.admi.phone" pattern="[0-9]+" id="phone" type="text" class="form-control" minlength="8" maxlength="8" name="phone">
               <div id="ng-message" ng-messages="userAdmiForm.phone.$error" ng-hide="userAdmiForm.phone.$pristine">
@@ -237,15 +237,15 @@
             </div> 
             <!-- Botón -->
             <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-              <button type="submit" id="buttonRegisAdmi" ng-disabled="userAdmiForm.$valid" class="btn btn-warning btn-embossed">Registrar</button>
+              <button type="submit" ng-click="userAdmiForm.$setPristine()" id="buttonRegisAdmi" ng-disabled="userAdmiForm.$valid" class="btn btn-warning btn-embossed">Registrar</button>
             </div>
-            <alert class="thanks" ng-show="vm.send">Registro de usuario satisfactorio!</alert>
+           <div class="thanks" ng-show="vm.sendAdmi"><p>¡Administrador registrado correctamente!</p></div>
           </form>
         </div>
         <!-- Sección de asistentes-->            
         <div class="bhoechie-tab-content">
-          <form name="userFormAsis" class="row" novalidate autocomplete="off" ng-submit="vm.preSaveAsis()">
-            <h4 class="tittle">REGISTRO DE ASISTENTES</h4>
+          <form name="userFormAsis" class="userFormAsis" class="row" novalidate autocomplete="off" ng-submit="vm.preSaveAsis()">
+            <h3 class="tittle">REGISTRO DE ASISTENTES</h3>
             <!-- Nombre-->
             <div  class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="name">Nombre:</label>
@@ -323,7 +323,7 @@
               </div>
             </div>
             <!-- Número de teléfono-->
-            <div class="form-group col-md-3 col-sm-12" style="display: block;"> 
+            <div class="form-group col-md-6 col-sm-12 col-xs-12 ibck" style="display: block;"> 
               <label for="phone">Número de teléfono:</label>
               <input ng-model="vm.asis.phone" pattern="[0-9]+" id="phone" type="text" class="form-control" minlength="8" maxlength="8" name="phone">
               <div id="ng-message" ng-messages="userFormAsis.phone.$error" ng-hide="userFormAsis.phone.$pristine">
@@ -333,7 +333,7 @@
               </div>
             </div>
             <!-- Ávatar-->
-            <div class="col-md-3 col-sm-12 ibck">
+            <div class="form-group col-md-6 col-sm-12 col-xs-12 ibck">
               <label>Avatar:</label>
                 <div class="input-group">
                   <label for="photoAsis" class="input-group-btn">
@@ -347,10 +347,10 @@
                 </div>
             </div>
             <!-- Botón-->
-            <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-              <button type="submit" id="buttonRegisAsis" ng-disabled="userFormAsis.$valid" class="btn btn-warning btn-embossed">Registrar</button>
+            <div class="form-group col-md-12 col-sm-12 col-xs-12 ibck" style="display: block; text-align: center;"> 
+              <button type="submit" ng-click="userFormAsis.$setPristine()" id="buttonRegisAsis" ng-disabled="userFormAsis.$valid" class="btn btn-warning btn-embossed">Registrar</button>
             </div>
-            <!-- <alert class="thanks" ng-show="userAprCtrl.send">Registro de usuario satisfactorio!</alert> -->
+            <div class="thanks" ng-show="vm.sendAsis"><p>Asistente registrado correctamente!</p></div>
           </form>
         </div>
         <!-- Sección de lista-->
