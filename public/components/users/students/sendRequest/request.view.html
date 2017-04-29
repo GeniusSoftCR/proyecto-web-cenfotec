@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="studentRequest col-md-12">
-    <form name="studentForm" class="container" autocomplete="off" ng-submit="vm.preSave(vm)" novalidate>
+    <form name="studentForm" class="container" autocomplete="off" ng-submit="vm.preSave()" novalidate>
       <!-- Nombre -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="name">Nombre:</label>
@@ -72,7 +72,7 @@
         <label for="birthdate">Fecha de nacimiento:</label>
         <input ng-model="vm.birthdate" id="txtid" type="date" class="form-control" name="birthdate" required>
         <div id="ng-message" ng-messages="studentForm.birthdate.$error" ng-hide="studentForm.birthdate.$pristine" required>
-          <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+          <div ng-message="required" class="red darken-2 center-align white-text"></div>
         </div>
       </div>
       <!-- Correo electronico -->
@@ -99,7 +99,6 @@
         <input ng-model="vm.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
         <div class="clearfix">
           <div id="ng-message" ng-messages="studentForm.confirmPassword.$error" ng-if="studentForm.$submitted || studentForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
-          <div ng-message="required" class="message slide-left">Este campo es requerido</div>
           <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente</div></div>
         </div>
       </div>
@@ -137,19 +136,16 @@
       <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
         <label>Carrera(s):</label>
         <div class="form-group">
-          <select for="career" name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="vm.careers" multiple required>
-            <option value="Desarrollo Web">Desarrollo Web</option>
-            <option value="Telematica">Telematica</option>
-            <div id="ng-message" ng-messages="studentForm.career.$invalid && !studentForm.career.$pristine">
-              <div ng-message="required" class="message slide-left">La carrera es requerida</div>
-            </div>
+          <select required ng-model="vm.career" name="selectCareer" class="form-control">
+          <option ng-value="career" ng-repeat="career in vm.careers">{{career.name}}</option>
+        </select>
+    <!-- <select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="vm.careers" multiple>
+            <option ng-repeat="career in studentCtrl.careers" id="career" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><
           </select>
-                <!-- <select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="vm.careers" multiple>
-                <option ng-repeat="career in studentCtrl.careers" id="career" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><
-                </select>
-                  <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>  -->
+          <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>  -->
         </div>
       </div> 
+
       <!--Usuario de Github-->
       <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: inline-block; text-align: left;" >
         <label>Usuario GitHub</label>
@@ -174,17 +170,13 @@
         </div>
       </div>
       <!-- boton -->
-<!--       <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-        <button type="submit" id="btnRegister" ng-disabled="disabled" class="btn btn-warning btn-embossed">Enviar solicitud</button>
+     <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
+        <button type="submit" id="btnRegister" ng-disabled="disabled" class="btn btn-warning btn-embossed" ng-click="studentForm.$setPristine()">Enviar solicitud</button>
       </div>
- -->
-      
-       <!-- boton -->
-      <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-        <button type="submit" id="btnRegister" data-target="#modal" ng-disabled="studentForm.$invalid" data-toggle="modal" class="btn btn-warning btn-embossed" ng-click="studentForm.$setPristine()">Enviar solicitud</button>
-      </div>
-      
     </form>
   </div>
 </main>
 
+ --><div class="thanks" ng-show="vm.send">
+  <p>¡Solicitud enviada correctamente!<br> Nuestros asesores lo contactarán lo más pronto posible.</p>
+</div>
