@@ -72,7 +72,7 @@
         <label for="birthdate">Fecha de nacimiento:</label>
         <input ng-model="vm.birthdate" id="txtid" type="date" class="form-control" name="birthdate" required>
         <div id="ng-message" ng-messages="studentForm.birthdate.$error" ng-hide="studentForm.birthdate.$pristine" required>
-          <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido</div>
+          <div ng-message="required" class="red darken-2 center-align white-text"></div>
         </div>
       </div>
       <!-- Correo electronico -->
@@ -136,19 +136,16 @@
       <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck" ng-class="{ 'has-error' : studentForm.career.$invalid && !studentForm.career.$pristine}">
         <label>Carrera(s):</label>
         <div class="form-group">
-          <select for="career" name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="vm.careers" multiple required>
-            <option value="Desarrollo Web">Desarrollo Web</option>
-            <option value="Telematica">Telematica</option>
-            <div id="ng-message" ng-messages="studentForm.career.$invalid && !studentForm.career.$pristine">
-              <div ng-message="required" class="message slide-left">La carrera es requerida</div>
-            </div>
-          </select>
+          <select required ng-model="vm.career" name="selectCareer" class="form-control" multiple>
+          <option ng-value="career" ng-repeat="career in vm.careers">{{career.name}}</option>
+        </select>
     <!-- <select name="addCarrersStu" style="height: 45px"  id="career" class="form-control" ng-model="vm.careers" multiple>
             <option ng-repeat="career in studentCtrl.careers" id="career" ng-value="{{career.nameCareer}}" >{{career.nameCareer}}</option><
           </select>
           <p ng-show="studentForm.career.$invalid && !studentForm.career.$pristine" class="help-block">La foto es requerida.</p>  -->
         </div>
       </div> 
+
       <!--Usuario de Github-->
       <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: inline-block; text-align: left;" >
         <label>Usuario GitHub</label>
