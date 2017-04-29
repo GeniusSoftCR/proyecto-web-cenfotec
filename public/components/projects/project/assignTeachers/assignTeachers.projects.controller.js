@@ -11,8 +11,8 @@
       function init(){ 
 
         var mainProject = watchProjectService.getProjectbyId(vm.projectId);
-        console.log(mainProject);
         var teachers = userProfessorService.getProfessors();
+
         if (mainProject.assitant == null) {
             mainProject.assitant = [];
         }
@@ -49,6 +49,7 @@
       vm.closeModal = function (_param) {
         vm.modal = false;
       }
+      
       vm.assignTeacher = function () {
         var teacherSelected = vm.assign.teacherChecked;
         var project = watchProjectService.getProjectbyId(vm.projectId);
