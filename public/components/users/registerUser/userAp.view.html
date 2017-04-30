@@ -78,17 +78,17 @@
                   <div ng-message="pattern" class="red darken-2 center-align white-text">Debe usar May. min. y números</div>
                 </div>
               </div>
-              <!-- Confirm Password -->
-              <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
-                  <label for="confirmPassword">Confirmar contraseña:</label>
-                  <input ng-model="vm.prof.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
-                  <div class="clearfix">
-                  <div id="ng-message" ng-messages="profForm.confirmPassword.$error" ng-hide="profForm.confirmPassword.$pristine">
-                  <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
-                  <div ng-message="pattern" class="red darken-2 center-align white-text">Debe usar May. min. y números</div>
-                </div>
+             <!-- Confirmar contraseña-->
+            <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
+              <label for="confirmPassword">Confirmar contraseña:</label>
+              <input ng-model="vm.prof.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required  minlength="1">
+              <div class="clearfix">
+                <div id="ng-message" ng-messages="profForm.confirmPassword.$error" ng-if="profForm.$submitted || profForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+                  <div ng-message="required" class="message slide-left"></div>
+                  <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente</div>
                 </div>
               </div>
+            </div>
               <!-- Miembro del Consejo -->
               <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
                 <label for="councilMember">Miembro del Consejo:</label>
@@ -176,10 +176,10 @@
             <!-- Correo-->
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="email">Correo electrónico</label>
-                <input type="text" ng-model="vm.admi.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
+                <input type="email" ng-model="vm.admi.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
               <div id="ng-message" ng-messages="userAdmiForm.email.$error" ng-hide="userAdmiForm.email.$pristine">
                 <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
-                <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
+                <div ng-message="pattern" class="red darken-2 center-align white-text">Terminación @ucenfotec.ac.cr</div>
               </div>
             </div>
             <!-- Contraseña-->
@@ -187,7 +187,6 @@
               <label for="newPassword">Contraseña</label>
               <input type="password" ng-model="vm.admi.password" id="txtPassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required maxlength="8" minlength="1" unique>
               <div id="ng-message" ng-messages="userAdmiForm.newPassword.$error" ng-hide="userAdmiForm.newPassword.$pristine">
-                <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
                 <div ng-message="pattern" class="red darken-2 center-align white-text">Debe usar mayúscula, minúscula y números</div>
               </div>
             </div>
@@ -197,7 +196,6 @@
               <input ng-model="vm.admi.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required  minlength="1">
               <div class="clearfix">
                 <div id="ng-message" ng-messages="userAdmiForm.confirmPassword.$error" ng-if="userAdmiForm.$submitted || userAdmiForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
-                  <div ng-message="required" class="message slide-left">Este campo es requerido!</div>
                   <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente</div>
                 </div>
               </div>
@@ -290,7 +288,7 @@
               <input type="text" ng-model="vm.asis.email" id="txtemail" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
               <div id="ng-message" ng-messages="userFormAsis.email.$error" ng-hide="userFormAsis.email.$pristine">
                 <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido!</div>
-                <div ng-message="pattern" class="red darken-2 center-align white-text">Correo invalido</div>
+                <div ng-message="pattern" class="red darken-2 center-align white-text">Terminación @ucenfotec.ac.cr</div>
               </div>
             </div>
             <!-- Contraseña-->
@@ -308,7 +306,6 @@
               <input ng-model="vm.asis.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required maxlength="8" minlength="1">
               <div class="clearfix">
                 <div id="ng-message" ng-messages="userFormAsis.confirmPassword.$error" ng-if="userFormAsis.$submitted || userFormAsis.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
-                  <div ng-message="required" class="message slide-left">Este campo es requerido!</div>
                   <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente</div>
                 </div>
               </div>

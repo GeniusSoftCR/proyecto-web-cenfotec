@@ -93,7 +93,8 @@
         vm.prof.secondSurname = null;
         vm.prof.email = null;
         vm.prof.phone = null;
-        pimage = null;
+        vm.prof.councilMember = null;
+        vm.pimage = null;
         vm.prof.password = null;
         vm.prof.confirmPassword = null;
         vm.prof.specialty = null;
@@ -181,6 +182,7 @@
         vm.asis.phone = null;
         vm.asis.image = null;
         vm.asis.password = null;
+        vm.asis.confirmPassword = null;
         vm.asis.jobPosition = null;
         vm.sendAsis = true;
         vm.toSendAsis = false;
