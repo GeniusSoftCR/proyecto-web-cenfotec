@@ -34,9 +34,9 @@
       configService.deleteCareer({_id:career._id}).then(function(res){
         console.log(res);
       });
-      configService.getCareers().then(function(res){
+    };
+    configService.getCareers().then(function(res){
       vm.careers = res.data;
     });
-    }
   }
 })();
