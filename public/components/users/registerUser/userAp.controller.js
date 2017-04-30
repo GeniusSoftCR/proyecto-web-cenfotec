@@ -83,14 +83,15 @@
           console.log(res)
         });
 
-        vm.prof.idNum = null;
+        vm.prof.id = null;
         vm.prof.name = null;
-        vm.prof.surname = null;
+        vm.prof.surName = null;
         vm.prof.secondSurname = null;
         vm.prof.email = null;
         vm.prof.phone = null;
-        vm.prof.image = null;
+        pimage = null;
         vm.prof.password = null;
+        vm.prof.confirmPassword = null;
         vm.prof.specialty = null;
         vm.send = true;
         vm.toSend = false;
@@ -126,7 +127,7 @@
 
         vm.admi.id = null;
         vm.admi.name = null;
-        vm.admi.surname = null;
+        vm.admi.surName = null;
         vm.admi.secondSurname = null;
         vm.admi.email = null;
         vm.admi.phone = null;

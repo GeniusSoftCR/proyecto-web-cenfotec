@@ -25,7 +25,7 @@ var UsersSchema = new Schema({
   role:         {type: String, required: true, em:roles },
   username:     {type: String},
   //Student only
-  birthdate:     {type: Date, required: true},
+  birthdate:     {type: Date},
   careers:       {type: Array, default: undefined},
   rejectReason:  {type: String, default: undefined},
   resumeUrl:     {type: String},
