@@ -351,10 +351,9 @@
           <div class="thanks"  ng-show="vm.sendAsis"><p>Asistente registrado correctamente!</p></div>
         </div>
       <!-- Sección de lista-->
-      <div class="bhoechie-tab-content">
-        <div class="panel panel-default">
-          <div class="panel-heading">Lista de usuarios
-            <select class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
+      <div id="list" class="bhoechie-tab-content">
+          <div class="listUsers">LISTA DE USUARIOS
+            <select id="selectUsers" class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
               <option value="" disabled="disabled">Seleccione un rol</option>
               <option value="admin">Administrador</option>
               <option value="professor">Profesor</option>
@@ -362,40 +361,38 @@
               <option value="student">Estudiante</option>
             </select>
           </div>
-  <div class="panel-body">
-    <!--mensaje para cuando no existen proyectos-->
-    <div ng-Show="vm.empty">
-      <p>No existen usuarios por mostrar</p>
-    </div>
-    <div class="card">
-       <table class="table">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Correo electrónico</th>
-                  <th>Teléfono</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="user in vm.users |filter:{role:vm.search}">
-                  <td>{{user.name}}</td>
-                  <td>{{user.surname}}</td>
-                  <td>{{user.email}}</td>
-                  <td>{{user.phone}}</td>
-                </tr>
-              </tbody>
-            </table>
-    </div>
-  </div>
-  <div class="panel-footer"></div>
-</div> 
+          <div class="panel-body">
+            <!--mensaje para cuando no existen proyectos-->
+            <div ng-Show="vm.empty">
+              <p>No existen usuarios por mostrar</p>
+            </div>
+            <div class="card">
+               <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido</th>
+                      <th>Correo electrónico</th>
+                      <th>Teléfono</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="user in vm.users |filter:{role:vm.search}">
+                      <td>{{user.name}}</td>
+                      <td>{{user.surname}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.phone}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+    </div> 
       
       
     </div>
       </div>
       </div>
-    </div>
 </main>
 
 
