@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" href="#files">
+    Profesores
+    <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+  </div>
+  <div id="files" class="panel-collapse collapse">
+    <div class="panel-body">
+      Encargado: {{vm.professor}}
+      Asistente: {{vm.assistant}}
+      Proyecto: {{ vm.project.name }}
+    </div>
+    <div class="panel-footer">
+      <button ng-click="filesCtrl.addNewFile()" class="btn btn-sm btn-embossed btn-warning pull-right">Aignar encargao</button>
+      <button ng-click="filesCtrl.addNewFile()" class="btn btn-sm btn-embossed btn-warning pull-right">Asignar asistente</button>
+    </div>
+</div>
+
