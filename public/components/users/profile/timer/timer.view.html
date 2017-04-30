@@ -10,7 +10,7 @@
 		<div class="card">
 			<ul class="list-group list-group-flush" id="proyects-list">
 				<li class="list-group-item ng-binding ng-scope">	
-					<button class="btn btn-sm btn-embossed btn-warning" type="button" data-toggle="collapse"data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-model="vm.project"
+					<button ng-click="vm.pickProject()" class="btn btn-sm btn-embossed btn-warning" type="button" data-toggle="collapse"data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-model="vm.project"
 						><span ng-hide="vm.project.name">Seleccionar proyecto</span><span ng-if="vm.project.name">{{vm.project.name}} <span class="fa fa-check" ></span> </span></button>
 
 					<!-- Start button -->
@@ -20,8 +20,8 @@
 					<!-- Stop button -->
 					<button class="btn btn-sm btn-embossed btn-danger pull-right" ng-if="vm.counting" ng-click="vm.stopCount()"  ><span class="fa fa-stop" style="font-size:15px;"></span></button>
 
-					<input type="text" class="form-control pull-left" hg-show="vm.taskSearchState" placeholder="¿En que vamos a trabajar?" style="max-width:475px; max-height: 36px" ng-model="vm.task">
-					<input type="text" class="form-control pull-left" hg-show="vm.taskSearchState" placeholder="Buscar...proyectos que mas?" style="max-width:475px; max-height: 36px" ng-model="vm.taskSearch">		
+					<input type="text" class="form-control pull-left" ng-show="!vm.taskSearchState" placeholder="¿En que vamos a trabajar?" style="max-width:475px; max-height: 36px" ng-model="vm.task">
+					<input type="text" class="form-control pull-left" ng-show="vm.taskSearchState" placeholder="Buscar...proyectos que mas?" style="max-width:475px; max-height: 36px" ng-model="vm.taskSearch">		
 
 				</li>
 			</ul>

@@ -18,7 +18,7 @@
 
 		projectService.getProjects({students:{_id:vm.user._id}}).then(function (res) {
 			$q.when(res).then(function (err) {
-				
+
 				console.log(res)
 				vm.projects = res.data;
 			});
@@ -44,10 +44,12 @@
 		///// + PUBLIC FUNCTIONS +////////////////////////////////////
 		/////////////////////////////////////////////////////////////
 		//-counter
-		vm.startCount = _startCount;
-		vm.stopCount = _stopCount;
+		vm.startCount 	= _startCount;
+		vm.stopCount   	= _stopCount;
 		//-projects
-		vm.setProject = _setProject;
+		vm.pickProject 	= _pickProject;
+		vm.setProject 	= _setProject;
+
 
 
 		function _startCount() {
@@ -79,7 +81,10 @@
 		function _stopCount() {
 			vm.counting = false;
 		}
-		function _setProject(id) {
+		function _pickProject() {
+			vm.taskSearchState = !vm.taskSearchState;
+		}
+		function _setProject(id) {			
 			projectService.getProjects({_id:id}).then(function (res) {
 				$q.when(res).then(function () {
 					vm.project = res.data[0];
