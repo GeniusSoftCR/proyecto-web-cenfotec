@@ -20,6 +20,7 @@
       vm.onSuccess = onSuccess;
       vm.submitted = false;
       vm.careers = {};
+      vm.loading = false;
 
 
       configService.getCareers().then(function(res){
@@ -56,10 +57,10 @@
       });
 
 
-
      //funcion que guarda archivos
       
     function pickFile(){
+      vm.loading = true;
       filepickerService.pick(
         {extension: '.pdf',
           language: 'es',
@@ -72,6 +73,8 @@
     function onSuccess(Blob){
       console.log(Blob);
       vm.fileName = Blob.filename;
+      vm.loading = false;
+      console.log(vm.fileName);
       vm.resumeUrl = Blob.url;
     };
 
