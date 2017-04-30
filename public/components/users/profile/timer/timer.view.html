@@ -1,29 +1,42 @@
 <div class="panel panel-default ng-scope">
 	<div class="panel-heading">
-		Control de tiempo 
-		<span class="pull-right" style="margin-right: 21px">00:00</span>
+		Control de tiempo
+		<span style="margin-left: 330px">
+		Horas: {{vm.time.hour}}
+		Minutos: {{vm.time.min}}.<span ng-if="vm.showCero">0</span>{{vm.time.sec}}
+		</span>
 	</div>
 	<div class="panel-body">
 		<div class="card">
 			<ul class="list-group list-group-flush" id="proyects-list">
 				<li class="list-group-item ng-binding ng-scope">	
-						<button class="btn btn-sm btn-embossed btn-warning" type="button" data-toggle="collapse" style="margin-right: 5px"data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample">Seleccionar proyecto</button>
-					<button ng-click="vm.startCount()" class="btn btn-sm btn-embossed btn-info pull-right">Iniciar</button>
-					<input type="text" class="form-control pull-right" placeholder="¿En que vamos a trabajar?"style="max-width: 440px; max-height: 36px">
+					<button class="btn btn-sm btn-embossed btn-warning" type="button" data-toggle="collapse"data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-model="vm.project"
+						><span ng-hide="vm.project.name">Seleccionar proyecto</span><span ng-if="vm.project.name">{{vm.project.name}}</span></button>
+
+					<!-- Start button -->
+					<button class="btn btn-sm btn-embossed btn-success pull-right" ng-if="!vm.counting" ng-click="vm.startCount()" ng-disabled="(!vm.task || !vm.project)">
+						<span class="fa fa-play" style="font-size:15px;"></span>
+					</button>
+					<!-- Stop button -->
+					<button class="btn btn-sm btn-embossed btn-danger pull-right" ng-if="vm.counting" ng-click="vm.stopCount()"  ><span class="fa fa-stop" style="font-size:15px;"></span></button>
+
+					<input type="text" class="form-control pull-left" placeholder="¿En que vamos a trabajar?" style="max-width:475px; max-height: 36px" ng-model="vm.task">
 			
 				</li>
 			</ul>
 			<div class="collapse" id="timer-collapse">
 				<ul class="list-group list-group-flush" id="proyects-list">
-				<li class="list-group-item ng-binding ng-scope">					
-					<span>To-do</span>
-					<button class="btn btn-sm btn-embossed btn-danger pull-right" type="button" data-toggle="collapse" data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample">Seleccionar</button>				
+
+				<li class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects">					
+					<span>{{project.name}}</span>
+					<button class="btn btn-sm btn-embossed btn-danger pull-right" type="button" data-toggle="collapse" data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-click="vm.setProject(project._id)">Seleccionar</button>	
 				</li>			
 				</ul>
+
 			</div>		  
 		</div>
 	</div>
 	<div class="panel-footer">
-		
+		<h6>{{vm.project.name}}</h6>
 	</div>
 </div>	
