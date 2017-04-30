@@ -20,8 +20,9 @@
 					<!-- Stop button -->
 					<button class="btn btn-sm btn-embossed btn-danger pull-right" ng-if="vm.counting" ng-click="vm.stopCount()"  ><span class="fa fa-stop" style="font-size:15px;"></span></button>
 
-					<input type="text" class="form-control pull-left" placeholder="¿En que vamos a trabajar?" style="max-width:475px; max-height: 36px" ng-model="vm.task">
-			
+					<input type="text" class="form-control pull-left" hg-show="vm.taskSearchState" placeholder="¿En que vamos a trabajar?" style="max-width:475px; max-height: 36px" ng-model="vm.task">
+					<input type="text" class="form-control pull-left" hg-show="vm.taskSearchState" placeholder="Buscar...proyectos que mas?" style="max-width:475px; max-height: 36px" ng-model="vm.taskSearch">		
+
 				</li>
 			</ul>
 			<div class="collapse" id="timer-collapse">
