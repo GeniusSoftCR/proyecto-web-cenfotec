@@ -47,18 +47,28 @@
       vm.save= function () {
         var newAnotation = {
           id : 1,
-          projectId : vm.projectId,
+          projectId : vm.project.name,
           name : vm.name,
           description : vm.description,
-          iduserCreate: 1
+          iduserCreate: vm.user.name
         }
-        projectService.addAnotation(newAnotation);
+
+
+         console.log(newAnotation);
+        //envia el usuario al user.service
+        projectService.addAnotation(newAnotation).then(function(res){
+            console.log(res);
+            vm.anotation = {};
+            vm.modal.title = 'Anotación agregada';
+            vm.modal.body = res.data.message;
+
+        });
         vm.modalAnotation = false;
         vm.name = null;
         vm.description = null;
       }
 
-      vm.delete = function (index) {
+      /*vm.delete = function (index) {
         console.log(index);
         var anotationItem = vm.anotations[index];
         console.log(anotationItem);
@@ -79,6 +89,6 @@
         var anotationItemFinale = vm.itemChange;
         projectService.putAnotation(anotationItem, anotationItemFinale);
         init();
-      }
+      }*/
     } 
 })();
