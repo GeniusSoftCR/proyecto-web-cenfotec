@@ -72,8 +72,8 @@ router.post('/projects/add', function(req, res, next){
       		res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
     	}else{
       		res.json({success: true, message: 'Se ha enviado su solicitud de proyecto correctamente'});
-    	}
-	})
+    	};
+	});
 });
 
 module.exports = router;
