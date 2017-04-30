@@ -118,11 +118,11 @@
 					controller: 'projectController',
 					controllerAs: 'vm'
 				},
-		   //    	'teachers@main.project': {
-					// templateUrl: 'components/projects/project/assignTeachers/assignTeachers.view.html',
-					// controller: 'assignTeachersController',
-					// controllerAs: 'vm'
-		   //    	},
+		      	'teachers@main.project': {
+					templateUrl: 'components/projects/project/assignTeachers/assignTeachers.view.html',
+					controller: 'assignTeachersController',
+					controllerAs: 'vm'
+		      	},
 			    'anotaciones@main.project': {
 			    	templateUrl: './components/projects/project/anotations/anotations.view.html',
 			    	controller: 'projectAnotationsController',

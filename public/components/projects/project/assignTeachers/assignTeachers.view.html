@@ -6,12 +6,29 @@
   <div id="files" class="panel-collapse collapse">
     <div class="panel-body">
       Encargado: {{vm.professor}}
+      <ul>
+        <li class="list-group-item">
+          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-warning pull-right">
+            <span class="fui-plus"></span>
+          </button>
+          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right" disabled>
+            <span class="fui-trash"></span>
+          </button>
+        </li>
+      </ul>
       Asistente: {{vm.assistant}}
-      Proyecto: {{ vm.project.name }}
+      <ul>
+        <li class="list-group-item">
+          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-warning pull-right">
+            <span class="fui-plus"></span>
+          </button>
+          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right" disabled>
+            <span class="fui-trash"></span>
+          </button>
+        </li>
+      </ul>
     </div>
     <div class="panel-footer">
-      <button ng-click="filesCtrl.addNewFile()" class="btn btn-sm btn-embossed btn-warning pull-right">Aignar encargao</button>
-      <button ng-click="filesCtrl.addNewFile()" class="btn btn-sm btn-embossed btn-warning pull-right">Asignar asistente</button>
     </div>
 </div>
 
