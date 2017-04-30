@@ -19,6 +19,11 @@
       vm.toSendAdmi = true;
       vm.sendAsis = false;
       vm.toSendAsis = true;
+      vm.users = {};
+
+      userService.getUsers().then(function(res){
+        vm.users = res.data;
+      });
 
       //Muestra el formualrio en cada casilla
       $(document).ready(function() {
@@ -174,7 +179,7 @@
         userService.addUser(newUserAssistant).then(function(res){
               console.log(res);
         });
-        vm.asis.idNum = null;
+        vm.asis.id = null;
         vm.asis.name = null;
         vm.asis.surName = null;
         vm.asis.secondSurname = null;
@@ -186,6 +191,7 @@
         vm.asis.jobPosition = null;
         vm.sendAsis = true;
         vm.toSendAsis = false;
+
       };
    }
 })();

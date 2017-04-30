@@ -127,7 +127,7 @@
                 <button ng-click="profForm.$setPristine()" type="submit" id="btnRegisterProf" ng-disabled="profForm.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
               </div>
           </form>
-          <div class="thanks" ng-show="vm.sendProf">
+          <div class="thanks2" ng-show="vm.sendProf">
             <p>¡Profesor registrado correctamente!</p>
           </div>
         </div>
@@ -237,7 +237,7 @@
             <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
               <button type="submit" ng-click="userAdmiForm.$setPristine()" id="buttonRegisAdmi" ng-disabled="userAdmiForm.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
             </div>
-           <div class="thanks" ng-show="vm.sendAdmi"><p>¡Administrador registrado correctamente!</p></div>
+           <div class="thanks2" ng-show="vm.sendAdmi"><p>¡Administrador registrado correctamente!</p></div>
           </form>
         </div>
         <!-- Sección de asistentes-->            
@@ -346,40 +346,56 @@
             <!-- Botón-->
             <div class="form-group col-md-12 col-sm-12 col-xs-12 ibck" style="display: block; text-align: center;"> 
               <button type="submit" ng-click="userFormAsis.$setPristine()" id="buttonRegisAsis" ng-disabled="userFormAsis.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
+            </div>
           </form>
-          <div class="thanks" ng-show="vm.sendAsis"><p>Asistente registrado correctamente!</p></div>
+          <div class="thanks"  ng-show="vm.sendAsis"><p>Asistente registrado correctamente!</p></div>
         </div>
-        <!-- Sección de lista-->
+      <!-- Sección de lista-->
       <div class="bhoechie-tab-content">
-        <div class="col-md-12">
-          <h3>Lista de Usuarios</h3>
-              <ul class="list-group list-group-flush">
-                <table id="listUsersCSH">
-                  <thead>
-                    <tr>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Tipo de Usuario</th>
-                      <th>Correo electrónico</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="user in userAprCtrl.userList | filter: {role: professor, role: administrador, role: asistente}">
-                      <td>{{user.name}}</td>
-                      <td>{{user.surname}}</td>
-                      <td>{{user.role}}</td>
-                      <td>{{user.mail}}</td>
-                      <td><button class="btn btn-sm btn-embossed btn-warning pull-right" ng-click="userAprCtrl.deleteUser(user.id)">Eliminar</button></td>
-                      <!-- <td><button class="btn btn-sm btn-embossed btn-warning pull-right" id="modi" ng-click="userAprCtrl.viewProf(userAprCtrl.ap.id)">Modificar</button></td> -->
-                    </tr>
-                  </tbody>
-                </table>
-              </ul>
+        <div class="panel panel-default">
+          <div class="panel-heading">Lista de usuarios
+            <select class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
+              <option value="" disabled="disabled">Seleccione un rol</option>
+              <option value="admin">Administrador</option>
+              <option value="professor">Profesor</option>
+              <option value="assistant">Asistente</option>
+              <option value="student">Estudiante</option>
+            </select>
           </div>
+  <div class="panel-body">
+    <!--mensaje para cuando no existen proyectos-->
+    <div ng-Show="vm.empty">
+      <p>No existen usuarios por mostrar</p>
+    </div>
+    <div class="card">
+       <table class="table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Correo electrónico</th>
+                  <th>Teléfono</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="user in vm.users |filter:{role:vm.search}">
+                  <td>{{user.name}}</td>
+                  <td>{{user.surname}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.phone}}</td>
+                </tr>
+              </tbody>
+            </table>
+    </div>
+  </div>
+  <div class="panel-footer"></div>
+</div> 
+      
+      
+    </div>
       </div>
       </div>
     </div>
-  </div>
 </main>
 
 
@@ -393,6 +409,39 @@
 
 
 <!-- 
+
+
+
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+          <h3>Lista de usuarios</h3>
+
+          <div class="panel-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Tipo de Usuario</th>
+                  <th>Correo electrónico</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="user in vm.users | filter: {role : admin, professor, assistant}">
+                  <td>{{user.name}}</td>
+                  <td>{{user.surname}}</td>
+                  <td>{{user.role}}</td>
+                  <td>{{user.email}}</td>
+                  <td> <button class="btn btn-warning" ng-click="vm.deleteCareer(career)">Eliminar</button></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+
+
+
+
 
 
       <div class="Eliminar usuarios">

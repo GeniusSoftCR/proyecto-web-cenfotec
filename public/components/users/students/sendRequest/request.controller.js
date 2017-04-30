@@ -27,6 +27,10 @@
         vm.careers = res.data;
       });
 
+      function timeout_init(message) {
+      setTimeout('timeout_trigger()', 500);
+    }
+
 
       //En el input de Avatar muestra al lado de escoger, la imagen que se ha seleccionad
       $(function() {
