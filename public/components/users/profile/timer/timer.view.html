@@ -3,19 +3,9 @@
 		Control de tiempo
 
 		<span class="pull-right"style="padding-right: 15px">
-		Horas: {{vm.time.hour}}
-		Minutos: {{vm.time.min}}.<span ng-if="vm.showCero">0</span>{{vm.time.sec}}
+			Horas: {{vm.time.hour}}
+			Minutos: {{vm.time.min}}.<span ng-if="vm.showCero">0</span>{{vm.time.sec}}
 		</span>
-		<span class="pull-right btn btn-default navbar-btn btn-sm"ng-if="vm.project" >
-			 {{vm.project.name}}
-		</span>
-
-
-
-
-		<div class="form-group pull-right">
-   			<input type="button"  class="btn btn-sm btn-embossed btn-warning btn-wide ">
-  		</div>	
 	</div>
 	<div class="panel-body">
 		<div class="card">
