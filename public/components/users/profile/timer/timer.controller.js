@@ -17,7 +17,8 @@
 
 
 		projectService.getProjects({students:{_id:vm.user._id}}).then(function (res) {
-			$q.when(res).then(function () {
+			$q.when(res).then(function (err) {
+				
 				console.log(res)
 				vm.projects = res.data;
 			});
@@ -50,9 +51,18 @@
 
 
 		function _startCount() {
+			//private\
+			var pulseTime = 1000; // 1000 = 1 seg
+
+			//public
 			vm.counting = true;
-			$interval(function () {
+
+			$interval(_counter,pulseTime)
+
+			function _counter () 
+			{
 				if (vm.time.sec >= '9') {vm.showCero = false;}else{vm.showCero = true;}
+
 				vm.time.sec++
 
 				if (vm.time.sec == '60') {
@@ -64,8 +74,7 @@
 					vm.time.hour++;
 					vm.time.min = '00';
 				};
-
-			},1000)
+			};
 		};
 		function _stopCount() {
 			vm.counting = false;
