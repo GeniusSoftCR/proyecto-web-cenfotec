@@ -177,25 +177,6 @@
 			controller: 'userApController',
 			controllerAs: 'vm'
 		})
-
-		 /*.state('registrerProfessor',{
-		       url: '/registrerProfessor',
-		       templateUrl: './components/administratorSteph/registrerProfessor/userProfessor.view.html',
-		       controller: 'userProfessorController',
-		       controllerAs: 'userProfessorCtrl'
-		     })
-		 .state('registrerAssistant',{
-		       url: '/registrerAssistant',
-		       templateUrl: './components/administratorSteph/registrerAssistant/userAssistant.view.html',
-		       controller: 'userAssistantController',
-		       controllerAs: 'userAssistantCtrl'
-		     })
-		 .state('registrerAdmi',{
-		       url: '/registrerAdmi',
-		       templateUrl: './components/administratorSteph/registrerAdmi/userAdmi.view.html',
-		       controller: 'userAdmiController',
-		       controllerAs: 'userAdmiCtrl'
-		     })*/
 		
 		//  .state('perfil', {
 		//      url: '/perfil/:username',
@@ -205,8 +186,8 @@
 		//           ])}]
 		//     }, 
 		//  	templateUrl:'./components/profile/profile.view.html',
-  // 		    controller:'profileController',
-		//     controllerAs:'vm'
+  		// 		controller:'profileController',
+		//     	controllerAs:'vm'
 		//  })	
 
 
