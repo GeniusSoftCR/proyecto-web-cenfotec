@@ -4,31 +4,26 @@
   angular.module('cshApp')
     .controller('projectAnotationsController', projectAnotationsController);
 
-    projectAnotationsController.$inject = ['$q','$stateParams','projectService','AuthService'];
+    projectAnotationsController.$inject = ['$q','$stateParams','$timeout','projectService','AuthService'];
 
-    function projectAnotationsController ($q, $stateParams, projectService, AuthService) {
+    function projectAnotationsController ($q, $stateParams,$timeout, projectService, AuthService) {
       var vm = this;
-
       vm.project = {};
-      projectService.getProjects({_id:$stateParams.id}).then(function (res) {
-        $q.when(res).then(function () {
-          vm.project=res.data[0];
-        })        
-      });
-
       vm.user = AuthService.getAuthUser();
-      console.log(vm.user);
 
-      console.log(vm.project._id, vm.user._id);
+      projectService.getProjects({_id:$stateParams.id}).then(function (res) {
+        vm.project=res[0];
+        init();
+      });    
 
-
-      function init(){ 
+      function init(){
+        console.log(vm.project.name, vm.user.name);
         vm.anotations = projectService.getAnotations();
       }
-      init();
-
-      vm.modalAnotation = false;
+      
+     /* vm.modalAnotation = false;
       vm.extend = false;
+      
       vm.showModal = function () {
         vm.modalAnotation = true;
       }
@@ -48,7 +43,7 @@
       }
       vm.isShowing = function(index) {
           return vm.activeParentIndex === index;
-      };
+      };*/
       vm.save= function () {
         var newAnotation = {
           id : 1,

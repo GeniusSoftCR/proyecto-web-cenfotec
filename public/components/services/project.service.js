@@ -18,6 +18,8 @@
 		};
 
 
+
+
 		return publicApi;
 		//guarda las solicitudes de proyectos
 		function _addProject(newProject){
@@ -28,7 +30,9 @@
 	    //   return $http.get('http://localhost:3000/api/projects/load');
 	    // }
 	    function _getProjects(filter){
-	      return $http.put('http://localhost:3000/api/projects/load',filter);
+	      	return $http.put('http://localhost:3000/api/projects/load',filter).then(function (res) {
+	        	return res.data;
+        	});      
 	    }
 
 	    function _getProjectsByTeacher(filter){
@@ -43,7 +47,7 @@
 	    }
 
 	    function _getAnotations(filter){
-	      return $http.put('http://localhost:3000/api/projects/add/anotation',filter);
+	      return $http.get('http://localhost:3000/api/projects/add/anotation',filter);
 	    }
 /*
 	    function _getAnotations(filter){
