@@ -7,19 +7,20 @@
     function assignTeachersCtrl ($scope, assignTeachersService, watchProjectService, cshReqService, $stateParams, userProfessorService) {
       var vm = this;
       vm.modal = false;
+      //guarda el id del proyecto que viene por parámetro
       vm.projectId = $stateParams.proyectoId;
-      function init(){ 
-
+      function init(){
+        //trae el proyecto actual
         var mainProject = watchProjectService.getProjectbyId(vm.projectId);
+        //trae lista de profesores
         var teachers = userProfessorService.getProfessors();
 
         if (mainProject.assitant == null) {
             mainProject.assitant = [];
         }
         var assignedTeachers = mainProject.assitant;
-        var teachersData = [];
         vm.teachers = [];
-        vm.teachersData = teachersData;
+        vm.teachersData = [];
 
         for (var i=0; i < assignedTeachers.length; i++) {
           for (var b=0; b < teachers.length; b++) {
@@ -41,13 +42,6 @@
       vm.pageSize = 1;
       vm.numberOfPages=function(){
           return Math.ceil(vm.teachers.length/vm.pageSize);                
-      }
-
-      vm.openModal = function (_param) {
-        vm.modal = true;
-      }
-      vm.closeModal = function (_param) {
-        vm.modal = false;
       }
       
       vm.assignTeacher = function () {
