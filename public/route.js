@@ -196,49 +196,7 @@
 		       controller: 'userAdmiController',
 		       controllerAs: 'userAdmiCtrl'
 		     })*/
-		.state('administrator-studentRequests',{
-			url: '/admin/solicitudesEstudiantes',
-			templateUrl: './components/administratorEsteban/studentRequests/studentRequests.view.html',
-			controller: 'studentRequestsController',
-			controllerAs: 'studentReqCtrl'
-		})
-		// .state('administrator-projects',{
-		// 	url: '/admin/proyectos',
-		// 	templateUrl: '/components/administratorEsteban/projects/projects.view.html',
-		// 	controller: 'loadProjectsController',
-		// 	controllerAs: 'projectsCtrl'
-		// })
-		/*.state('asistant-projects',{
-			url: '/asis/proyectos',
-			templateUrl: '/components/asistantsEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('teacher-projects',{
-			url: '/prof/proyectos',
-			templateUrl: '/components/teachersEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('student-projects',{
-			url: '/estu/proyectos',
-			templateUrl: '/components/studentsEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('administrator-reports',{
-			url: '/admin/reportes/miembrosProyecto',
-			templateUrl: '/components/administratorEsteban/reports/projectMembers/projectMembers.view.html',
-			controller: 'projectMembersController',
-			controllerAs: 'projectMembCtrl'
-		})
-		.state('asistant-clients',{
-			url: '/asis/clientes',
-			templateUrl: '/components/asistantsEsteban/clients/clients.view.html',
-			controller: 'clientsController',
-			controllerAs: 'clientsCtrl'
-		})
-*/
+		
 		//  .state('perfil', {
 		//      url: '/perfil/:username',
 		//      resolve: {  

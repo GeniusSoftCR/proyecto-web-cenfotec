@@ -1,8 +1,33 @@
 (function(){
   'use strict';
   angular.module('cshApp')
+    .controller('projectController', projectController);
+    .filter('startFrom', pagination);
+
+    projectController.$inject = ['$q','$stateParams','projectService'];
+
+    function projectController ($q,$stateParams,projectService) {
+
+      var vm = this;
+      vm.project = {};
+      projectService.getProjects({_id:$stateParams.id}).then(function (res) {
+        $q.when(res).then(function () {
+          vm.project=res.data[0];
+        })        
+      });
+
+    } 
+})();
+
+
+
+(function(){
+  'use strict';
+  angular.module('cshApp')
     .controller('assignTeachersController', assignTeachersCtrl)
     .filter('startFrom', pagination);
+
+    assignTeachersController.$inject = ['$q','$stateParams','projectService'];
 
     function assignTeachersCtrl ($scope, watchProjectService, $stateParams) {
       var vm = this;
