@@ -14,7 +14,7 @@
 		///// + VM DEPENDENCIES && DECLARATIONS +/////////////////////
 		/////////////////////////////////////////////////////////////
 		vm.user = AuthService.getAuthUser();
-		vm.time = {};
+
 
 		projectService.getProjects({students:{_id:vm.user._id}}).then(function (res) {
 			$q.when(res).then(function () {
@@ -26,11 +26,13 @@
 		//////////////////////////////////////////////////////////////
 		///// + DEFAULTS +///////////////////////////////////////////
 		//
-		////// + bool ///////////////
+		////// - object /////////////
+		vm.time = {};
+		////// - boolean ////////////
 		vm.taskSearchState = false;
 		vm.showCero = true;
 		vm.counting = false;
-		////// + string ////////////
+		////// - string /////////////
 		vm.time.hour = '0';
 		vm.time.min = '0';
 		vm.time.sec='0';
@@ -40,9 +42,10 @@
 		///////////////////////////////////////////////////////////////
 		///// + PUBLIC FUNCTIONS +////////////////////////////////////
 		/////////////////////////////////////////////////////////////
+		//-counter
 		vm.startCount = _startCount;
 		vm.stopCount = _stopCount;
-		//
+		//-projects
 		vm.setProject = _setProject;
 
 
