@@ -5,16 +5,9 @@
   </div>
   <div id="files" class="panel-collapse collapse">
     <div class="panel-body">
-      <ul>
-        <li class="list-group-item" ng-repeat="file in filesCtrl.projectFiles track by $index">
-          {{file.name}}
-          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
-            <span class="fui-trash"></span>
-          </button>
-        </li>
-        <li class="list-group-item">Archivo quemado<button class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-trash"></span></button></li>
-      </ul>
-      ACA DEBE PRESENTARSE LAS OPCIONES DE ASIGNAR LOS PROFESORES
+      Encargado: {{vm.professor}}
+      Asistente: {{vm.assistant}}
+      <div class="row demo-tiles">
       <div class="col-xs-3">
         <div class="tile">
           <img src="img/icons/svg/compas.svg" alt="Compas" class="tile-image big-illustration">
@@ -22,6 +15,7 @@
           <p>100% convertable to HTML/CSS layout.</p>
           <a class="btn btn-primary btn-large btn-block" href="http://designmodo.com/flat">Get Pro</a>
         </div>
+      </div>
       </div>
     </div>
     <div class="panel-footer">
