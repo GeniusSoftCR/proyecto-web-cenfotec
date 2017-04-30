@@ -20,6 +20,7 @@
       vm.onSuccess = onSuccess;
       vm.submitted = false;
       vm.careers = {};
+      vm.loading = false;
 
 
       configService.getCareers().then(function(res){
@@ -56,22 +57,25 @@
       });
 
 
-
      //funcion que guarda archivos
       
     function pickFile(){
+      vm.loading = true;
       filepickerService.pick(
         {extension: '.pdf',
           language: 'es',
           container: 'modal',
           services: ['COMPUTER']
         },
+
         onSuccess
       );
     };
     function onSuccess(Blob){
       console.log(Blob);
       vm.fileName = Blob.filename;
+      vm.loading = false;
+      console.log(vm.fileName);
       vm.resumeUrl = Blob.url;
     };
 
@@ -98,7 +102,7 @@
           state: 'postulate',
           role: 'student',
           birthdate : vm.birthdate,
-          careers : vm.careers, //me parece q esto deberia ser un arreglo
+          careers : vm.career, //me parece q esto deberia ser un arreglo
           justification: null,
           resumeUrl : vm.resumeUrl,
           githubUrl : vm.githubUrl,
@@ -131,8 +135,5 @@
         vm.send = true;
         vm.toSend = false;
       };
-
-       vm.sendBad = true;
-      vm.tosendBad = false;
   }
 })();
