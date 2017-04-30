@@ -21,6 +21,13 @@ router.get('/config/getCareers', function(req, res, next){
 	});
 });
 
+//Elimina la carrera
+router.put('/config/deleteCareer', function(req,res,next){
+	Career.remove(req.body, function(err){
+		res.json(req.body)
+	})
+})
+
 //Registar Carrera
 router.post('/config/addCareer', function(req, res, next){
 	var career = Object.assign(new Career(),req.body)
@@ -29,7 +36,7 @@ router.post('/config/addCareer', function(req, res, next){
 		if(err){
 			res.json({success: false, massage: 'Ha ocurrido un error'});
 		}else{
-			res.json({success : true, massage: 'Se ha enviado la carrera correctamente'});
+			res.json({success : true, massage: 'Se ha registrado la carrera correctamente'});
 		}
 	})
 })

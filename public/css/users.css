@@ -56,11 +56,11 @@ div.bhoechie-tab-menu div.list-group>a.active:after{
   border-left: 10px solid #FBB803;
 }
 
-div.bhoechie-tab-content{
+div .bhoechie-tab-content{
   background-color: #ffffff;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 10px;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 40px;
 }
 
 div.bhoechie-tab div.bhoechie-tab-content:not(.active){
@@ -77,6 +77,7 @@ h4{
   font-size: 18px;
   font-weight: normal;
   text-align: center;
+  padding-bottom: 3px;
 }
 
 label{
@@ -88,3 +89,57 @@ label{
   text-align: center;
 }
 
+input{
+  display: inline-block;
+  border: none;
+  position:;
+  z-index: 2;
+}
+
+.form-group, .input-group{
+  margin-bottom: 3%;
+}
+
+#ng-message{
+  font-size: 0.720em;
+  font-family: 'montserrat';
+  border: none;
+  position: absolute;
+  z-index: 4;
+  color: red;
+}
+
+.profForm, .userAdmiForm, .userFormAsis{
+  padding-top: 5%;
+}
+
+
+.thanks {
+  margin: 0 auto;
+  width: 600px;
+  background: #15ae0c;
+  color: #fff;
+  margin-top: -100px;
+  border-radius: 11px;
+  z-index: 1;
+  text-align: center;
+  transition: background .8s;
+  margin-bottom: 20px;
+  padding: 3px;
+  font-size: 6px;
+}
+
+form h3{
+  padding-bottom: 4%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+button{
+  padding: 23px;
+}
+
+#btnRegisterProf{
+  margin-top: 12px;
+}

@@ -13,8 +13,12 @@
       vm.prof = {};
       vm.admi = {};
       vm.asis = {};
-      vm.send = false;
-      vm.toSend = true;
+      vm.sendProf = false;
+      vm.toSendProf = true;
+      vm.sendAdmi = false;
+      vm.toSendAdmi = true;
+      vm.sendAsis = false;
+      vm.toSendAsis = true;
 
       //Muestra el formualrio en cada casilla
       $(document).ready(function() {
@@ -83,17 +87,19 @@
           console.log(res)
         });
 
-        vm.prof.idNum = null;
+        vm.prof.id = null;
         vm.prof.name = null;
-        vm.prof.surname = null;
+        vm.prof.surName = null;
         vm.prof.secondSurname = null;
         vm.prof.email = null;
         vm.prof.phone = null;
-        vm.prof.image = null;
+        vm.prof.councilMember = null;
+        vm.pimage = null;
         vm.prof.password = null;
+        vm.prof.confirmPassword = null;
         vm.prof.specialty = null;
-        vm.send = true;
-        vm.toSend = false;
+        vm.sendProf = true;
+        vm.toSendProf = false;
       };
 
       vm.preSaveAdmi = function(){
@@ -126,7 +132,7 @@
 
         vm.admi.id = null;
         vm.admi.name = null;
-        vm.admi.surname = null;
+        vm.admi.surName = null;
         vm.admi.secondSurname = null;
         vm.admi.email = null;
         vm.admi.phone = null;
@@ -134,6 +140,9 @@
         vm.admi.password = null;
         vm.admi.confirmPassword = null;
         vm.admi.jobPosition = null; 
+
+      vm.sendAdmi = true;
+      vm.toSendAdmi = false;
       };
 
       vm.preSaveAsis = function(){
@@ -167,13 +176,16 @@
         });
         vm.asis.idNum = null;
         vm.asis.name = null;
-        vm.asis.surname = null;
+        vm.asis.surName = null;
         vm.asis.secondSurname = null;
         vm.asis.email = null;
         vm.asis.phone = null;
         vm.asis.image = null;
         vm.asis.password = null;
+        vm.asis.confirmPassword = null;
         vm.asis.jobPosition = null;
+        vm.sendAsis = true;
+        vm.toSendAsis = false;
       };
    }
 })();

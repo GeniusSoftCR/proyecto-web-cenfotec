@@ -46,6 +46,15 @@ router.put('/projects/load', function(req, res, next) {
   	}
   });
 });
+router.put('/projects/byTeacher', function(req, res, next) { 
+  Project.find({ $or:[ {'professor':req.body.id}, {'assistant':req.body.id} ]}, function(err,results) {
+  	if(err){
+  		res.json({success: false, msg: 'Ha ocurrido un error'});
+  	}else{
+    	res.json(results);
+  	}
+  });
+});
 //procesar solicitudes de proyectos
 router.put('/projects/update', function(req, res, next) {
   Project.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
@@ -60,11 +69,11 @@ router.post('/projects/add', function(req, res, next){
 	console.log(project);  
 	project.save(function(err){
 		if (err) {
-      		res.json({success: false, message: 'Ha ocurrido un error'});
+      		res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
     	}else{
-      		res.json({success: true, message: 'Se ha enviado el proyecto correctamente'});
-    	}
-	})
+      		res.json({success: true, message: 'Se ha enviado su solicitud de proyecto correctamente'});
+    	};
+	});
 });
 
 module.exports = router;

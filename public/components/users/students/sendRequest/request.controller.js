@@ -4,18 +4,27 @@
     .module('cshApp')
     .controller('sendRequest', sendRequest);
     
-    sendRequest.$inject  = ['$scope','$window','userService','ImageService','filepickerService','Upload']; //,'addCareersService'  **BUG**
+    sendRequest.$inject  = ['$scope','$window','userService','configService','ImageService','filepickerService','Upload']; //,'addCareersService'  **BUG**
 
-    function sendRequest($scope,$window,userService,ImageService,filepickerService,Upload){ //,addCareersService**BUG**
+    function sendRequest($scope,$window,userService,configService,ImageService,filepickerService,Upload){ //,addCareersService**BUG**
       var vm = this;
       //careers = addCareersService.getCareer(); //llama a la funcion que llena el mutiselect**BUG**
-
+      vm.send = false;
+      vm.toSend = true;
+      vm.sendBad = false;
+      vm.tosendBad = false;
       //VM
       vm.cloudObj = ImageService.getConfiguration();
       //vm.careers = careers; //guarda las carreras
       vm.pickFile = pickFile;
       vm.onSuccess = onSuccess;
       vm.submitted = false;
+      vm.careers = {};
+
+
+      configService.getCareers().then(function(res){
+        vm.careers = res.data;
+      });
 
 
       //En el input de Avatar muestra al lado de escoger, la imagen que se ha seleccionad
@@ -100,7 +109,8 @@
         //envia el usuario al user.service
         userService.addUser(newUser).then(function(res){
               console.log(res)
-          });
+
+        });
 
         vm.id = null;
         vm.name = null;
@@ -117,6 +127,12 @@
         vm.resumeUrl = null;
         vm.githubUrl = null;
         vm.websiteUrl = null;
+
+        vm.send = true;
+        vm.toSend = false;
       };
+
+       vm.sendBad = true;
+      vm.tosendBad = false;
   }
 })();

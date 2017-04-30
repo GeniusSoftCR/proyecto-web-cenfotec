@@ -18,8 +18,11 @@ gulp.task('connect', function () {
 // Preprocesador sass
 gulp.task('css', function () {
   gulp.src('./public/css/sass/generalStyles.scss')
+
+
     // .pipe(sass({ use: nib() }))
     // .pipe(gulp.dest('./public/css'))
+
     .pipe(connect.reload())
 
 gulp.src('./public/css/*.css')
