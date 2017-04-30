@@ -32,7 +32,7 @@
       <!-- Nombre de la empresa -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="#companyName">Nombre de la empresa:</label>
-        <input type="text" ng-model="vm.project.client.companyName" id="companyName" title="Nombre de la empresa" class="form-control" name="companyName" required pattern="[ñáéíóúA-Za-z ]+">
+        <input type="text" ng-model="vm.project.client.companyName" id="companyName" title="Nombre de la empresa" class="form-control" name="companyName" required>
         <div ng-messages="projectRequest.companyName.$error" ng-hide="projectRequest.companyName.$pristine">
           <div id="ng-message" ng-message="required" ng-hide="projectRequest.companyName.$pristine" class="red darken-2 center-align white-text">El nombre de la empresa es requerido</div>
         </div>
@@ -115,8 +115,7 @@
           </label>
           <input type="text" class="form-control" style="color: black" readonly>
         </div>
-      </div>
-     
+      </div>  
       <!-- boton -->
       <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
         <button type="submit" id="btnRegister" data-target="#modal" ng-disabled="projectRequest.$invalid" data-toggle="modal" class="btn btn-warning btn-embossed" ng-click="projectRequest.$setPristine()">Enviar solicitud</button>
@@ -131,13 +130,12 @@
                 <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
               </div>
               <div class="modal-body">
-                <p>{{vm.modal.body}}</p>        
+                <p class="text-center">{{vm.modal.body}}</p>        
               </div>
             </div>
           </div>
         </div>
       </div>
     </form>
-    
   </div>
 </main>
