@@ -30,6 +30,7 @@
 		////// - object /////////////
 		vm.time = {};
 		////// - boolean ////////////
+
 		vm.taskSearchState = false;
 		vm.showCero = true;
 		vm.counting = false;
@@ -84,7 +85,8 @@
 		function _pickProject() {
 			vm.taskSearchState = !vm.taskSearchState;
 		}
-		function _setProject(id) {			
+		function _setProject(id) {	
+			vm.taskSearchState = !vm.taskSearchState;		
 			projectService.getProjects({_id:id}).then(function (res) {
 				$q.when(res).then(function () {
 					vm.project = res.data[0];
