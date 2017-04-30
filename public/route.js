@@ -106,8 +106,9 @@
 				load: ['$ocLazyLoad', function($ocLazyLoad) { 
 					return $ocLazyLoad.load([
 						'./components/projects/project/project.controller.js',
-						'./components/projects/project/projectAnotations/anotations.controller.js',
-						'./components/projects/project/projectFiles-esteban/projectFiles.controller.js'
+						'./components/projects/project/assignTeachers/assignTeachers.controller.js',
+						'./components/projects/project/anotations/anotations.controller.js',
+						'./components/projects/project/files/files.controller.js'
 					])
 				}]
 			},
@@ -118,15 +119,15 @@
 					controllerAs: 'vm'
 				},
 		   //    	'teachers@main.project': {
-					// templateUrl: 'components/projects/project/assignTeachers/assignTeachers.projects.view.html',
+					// templateUrl: 'components/projects/project/assignTeachers/assignTeachers.view.html',
 					// controller: 'assignTeachersController',
-					// controllerAs: 'assignTeachersCtrl'
+					// controllerAs: 'vm'
 		   //    	},
 			    'anotaciones@main.project': {
-			     	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
-			     	controller: 'anotationsController',
-			     	controllerAs: 'vm'
-				},
+			    	templateUrl: './components/projects/project/anotations/anotations.view.html',
+			    	controller: 'projectAnotationsController',
+			    	controllerAs: 'anotationsCtrl'
+				}
 				// 'archivos@main.project': {
 				// 	templateUrl: './components/projects/project/projectFiles-esteban/projectFiles.view.html',
 				// 	controller: 'filesController',
@@ -177,68 +178,7 @@
 			controller: 'userApController',
 			controllerAs: 'vm'
 		})
-
-		 /*.state('registrerProfessor',{
-		       url: '/registrerProfessor',
-		       templateUrl: './components/administratorSteph/registrerProfessor/userProfessor.view.html',
-		       controller: 'userProfessorController',
-		       controllerAs: 'userProfessorCtrl'
-		     })
-		 .state('registrerAssistant',{
-		       url: '/registrerAssistant',
-		       templateUrl: './components/administratorSteph/registrerAssistant/userAssistant.view.html',
-		       controller: 'userAssistantController',
-		       controllerAs: 'userAssistantCtrl'
-		     })
-		 .state('registrerAdmi',{
-		       url: '/registrerAdmi',
-		       templateUrl: './components/administratorSteph/registrerAdmi/userAdmi.view.html',
-		       controller: 'userAdmiController',
-		       controllerAs: 'userAdmiCtrl'
-		     })*/
-		.state('administrator-studentRequests',{
-			url: '/admin/solicitudesEstudiantes',
-			templateUrl: './components/administratorEsteban/studentRequests/studentRequests.view.html',
-			controller: 'studentRequestsController',
-			controllerAs: 'studentReqCtrl'
-		})
-		// .state('administrator-projects',{
-		// 	url: '/admin/proyectos',
-		// 	templateUrl: '/components/administratorEsteban/projects/projects.view.html',
-		// 	controller: 'loadProjectsController',
-		// 	controllerAs: 'projectsCtrl'
-		// })
-		/*.state('asistant-projects',{
-			url: '/asis/proyectos',
-			templateUrl: '/components/asistantsEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('teacher-projects',{
-			url: '/prof/proyectos',
-			templateUrl: '/components/teachersEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('student-projects',{
-			url: '/estu/proyectos',
-			templateUrl: '/components/studentsEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('administrator-reports',{
-			url: '/admin/reportes/miembrosProyecto',
-			templateUrl: '/components/administratorEsteban/reports/projectMembers/projectMembers.view.html',
-			controller: 'projectMembersController',
-			controllerAs: 'projectMembCtrl'
-		})
-		.state('asistant-clients',{
-			url: '/asis/clientes',
-			templateUrl: '/components/asistantsEsteban/clients/clients.view.html',
-			controller: 'clientsController',
-			controllerAs: 'clientsCtrl'
-		})
-*/
+		
 		//  .state('perfil', {
 		//      url: '/perfil/:username',
 		//      resolve: {  
@@ -247,8 +187,8 @@
 		//           ])}]
 		//     }, 
 		//  	templateUrl:'./components/profile/profile.view.html',
-  // 		    controller:'profileController',
-		//     controllerAs:'vm'
+  		// 		controller:'profileController',
+		//     	controllerAs:'vm'
 		//  })	
 
 
