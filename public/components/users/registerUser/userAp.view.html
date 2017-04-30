@@ -106,7 +106,7 @@
                 <label>Avatar:</label>
                 <div class="input-group">
                   <label class="input-group-btn">
-                    <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photo" multiple ng-model="vm.pimage" required>
+                    <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photo" multiple ng-model="vm.pimage">
                     </span>
                   </label>
                   <input type="text" class="form-control" style="color: black" readonly>
@@ -124,7 +124,7 @@
               </div>
               <!-- botón -->
               <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-                <button ng-click="profForm.$setPristine()" type="submit" id="btnRegisterProf" ng-disabled="profForm.$valid" class="btn btn-warning btn-embossed">Registrar</button>
+                <button ng-click="profForm.$setPristine()" type="submit" id="btnRegisterProf" ng-disabled="profForm.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
               </div>
           </form>
           <div class="thanks" ng-show="vm.sendProf">
@@ -214,7 +214,7 @@
               <label>Avatar:</label>
               <div class="input-group">
                   <label for="photoAdmi" class="input-group-btn">
-                      <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photoAdmi" multiple ng-model="vm.pimage" required>
+                      <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photoAdmi" multiple ng-model="vm.pimage">
                       </span>
                   </label>
                   <input type="text" class="form-control" style="color: black" readonly>
@@ -235,7 +235,7 @@
             </div> 
             <!-- Botón -->
             <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-              <button type="submit" ng-click="userAdmiForm.$setPristine()" id="buttonRegisAdmi" ng-disabled="userAdmiForm.$valid" class="btn btn-warning btn-embossed">Registrar</button>
+              <button type="submit" ng-click="userAdmiForm.$setPristine()" id="buttonRegisAdmi" ng-disabled="userAdmiForm.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
             </div>
            <div class="thanks" ng-show="vm.sendAdmi"><p>¡Administrador registrado correctamente!</p></div>
           </form>
@@ -334,7 +334,7 @@
               <label>Avatar:</label>
                 <div class="input-group">
                   <label for="photoAsis" class="input-group-btn">
-                    <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photoAsis" multiple ng-model="vm.pimage" required>
+                    <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photoAsis" multiple ng-model="vm.pimage">
                     </span>
                   </label>
                   <input type="text" class="form-control" style="color: black" readonly>
@@ -345,7 +345,7 @@
             </div>
             <!-- Botón-->
             <div class="form-group col-md-12 col-sm-12 col-xs-12 ibck" style="display: block; text-align: center;"> 
-              <button type="submit" ng-click="userFormAsis.$setPristine()" id="buttonRegisAsis" ng-disabled="userFormAsis.$valid" class="btn btn-warning btn-embossed">Registrar</button>
+              <button type="submit" ng-click="userFormAsis.$setPristine()" id="buttonRegisAsis" ng-disabled="userFormAsis.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
             </div>
             <div class="thanks" ng-show="vm.sendAsis"><p>Asistente registrado correctamente!</p></div>
           </form>
