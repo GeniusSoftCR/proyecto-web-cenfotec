@@ -419,7 +419,7 @@
                       <th>Teléfono</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="myScrollspy">
                     <tr ng-repeat="user in vm.users | filter:{role:vm.search}">
                       <td>{{user.name}}</td>
                       <td>{{user.surname + ' ' + user.secondSurname}}</td>
@@ -430,12 +430,10 @@
                 </table>
             </div>
           </div>
-    </div> 
-      
-      
+      </div> 
     </div>
-      </div>
-      </div>
+  </div>
+</div>
 </main>
 
 
