@@ -1,0 +1,29 @@
+<div class="panel panel-default ng-scope">
+	<div class="panel-heading">
+		Control de tiempo 
+		<span class="pull-right" style="margin-right: 21px">00:00</span>
+	</div>
+	<div class="panel-body">
+		<div class="card">
+			<ul class="list-group list-group-flush" id="proyects-list">
+				<li class="list-group-item ng-binding ng-scope">	
+						<button class="btn btn-sm btn-embossed btn-warning" type="button" data-toggle="collapse" style="margin-right: 5px"data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample">Seleccionar proyecto</button>
+					<button ng-click="vm.startCount()" class="btn btn-sm btn-embossed btn-info pull-right">Iniciar</button>
+					<input type="text" class="form-control pull-right" placeholder="¿En que vamos a trabajar?"style="max-width: 440px; max-height: 36px">
+			
+				</li>
+			</ul>
+			<div class="collapse" id="timer-collapse">
+				<ul class="list-group list-group-flush" id="proyects-list">
+				<li class="list-group-item ng-binding ng-scope">					
+					<span>To-do</span>
+					<button class="btn btn-sm btn-embossed btn-danger pull-right" type="button" data-toggle="collapse" data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample">Seleccionar</button>				
+				</li>			
+				</ul>
+			</div>		  
+		</div>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>	
