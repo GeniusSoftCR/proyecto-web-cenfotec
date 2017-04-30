@@ -116,8 +116,12 @@
 					templateUrl: './components/projects/project/project.view.html',
 					controller: 'projectController',
 					controllerAs: 'vm'
-				}
-				//,
+				},
+		      	'teachers@main.project': {
+					templateUrl: 'components/projects/project/assignTeachers/assignTeachers.projects.view.html',
+					controller: 'assignTeachersController',
+					controllerAs: 'assignTeachersCtrl'
+		      	},
 			 //    'anotaciones@main.project': {
 			 //    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
 			 //    	controller: 'projectAnotationsController',
@@ -128,15 +132,10 @@
 				// 	controller: 'filesController',
 				// 	controllerAs: 'filesCtrl'
 				// }
-		   //    	'estudiantes@watchProject': { //Andres asignar estudiantes
+		   //    	'estudiantes@watchProject': {
 		   //      	templateUrl: 'components/projects/project/assignStudents/assignStudents.projects.view.html',
 		   //      	controller: 'assignStudentsController',
 		   //      	controllerAs: 'assignStudentsCtrl'
-		   //    	},
-		   //    	'profesores@watchProject': { //Andres asignar estudiantes
-					// templateUrl: 'components/projects/project/assignTeachers/assignTeachers.projects.view.html',
-					// controller: 'assignTeachersController',
-					// controllerAs: 'assignTeachersCtrl'
 		   //    	},
 	    	}
 		})		
