@@ -33,6 +33,7 @@ var UsersSchema = new Schema({
   websiteUrl:    {type: String},
   //Professor only
   specialty:     {type: String},
+  councilMember: {type: String},
   //Admin and assitant olny
   jobPosition:   {type: String}
 
@@ -191,6 +192,7 @@ router.post('/user/add', function(req, res, next) {
       break;
     case 'professor':
       user.specialty    = req.body.specialty;
+      user.councilMember = req.body.councilMember;
       break;
     case 'admin' || 'assistant':
       user.jobPosition = req.body.jobPosition;

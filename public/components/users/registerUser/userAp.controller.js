@@ -130,7 +130,7 @@
           console.log(res)
         });
 
-        vm.admi.id = null;
+        vm.admi.idNum = null;
         vm.admi.name = null;
         vm.admi.surName = null;
         vm.admi.secondSurname = null;
