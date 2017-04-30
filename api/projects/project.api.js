@@ -69,9 +69,9 @@ router.post('/projects/add', function(req, res, next){
 	console.log(project);  
 	project.save(function(err){
 		if (err) {
-      		res.json({success: false, message: 'Ha ocurrido un error'});
+      		res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
     	}else{
-      		res.json({success: true, message: 'Se ha enviado el proyecto correctamente'});
+      		res.json({success: true, message: 'Se ha enviado su solicitud de proyecto correctamente'});
     	}
 	})
 });
