@@ -13,8 +13,7 @@
       vm.prof = {};
       vm.admi = {};
       vm.asis = {};
-      vm.sendProf = false;
-      vm.toSendProf = true;
+      vm.modal = {};
       vm.sendAdmi = false;
       vm.toSendAdmi = true;
       vm.sendAsis = false;
@@ -89,7 +88,11 @@
         console.log(newUserProf);
         //envia el usuario al user.service
         userService.addUser(newUserProf).then(function(res){
-          console.log(res)
+          console.log(res);
+         vm.professor = {};
+            vm.modal.title = 'Registro de Usuario';
+
+            vm.modal.body = res.data.message;
         });
 
         vm.prof.id = null;
@@ -103,8 +106,6 @@
         vm.prof.password = null;
         vm.prof.confirmPassword = null;
         vm.prof.specialty = null;
-        vm.sendProf = true;
-        vm.toSendProf = false;
       };
 
       vm.preSaveAdmi = function(){
@@ -132,10 +133,14 @@
         };
 
         userService.addUser(newUserAdmi).then(function(res){
-          console.log(res)
+          console.log(res);
+          vm.admi = {};
+            vm.modal.title = 'Registro de Usuario';
+
+            vm.modal.body = res.data.message;
         });
 
-        vm.admi.idNum = null;
+        vm.admi.id = null;
         vm.admi.name = null;
         vm.admi.surName = null;
         vm.admi.secondSurname = null;
@@ -145,9 +150,6 @@
         vm.admi.password = null;
         vm.admi.confirmPassword = null;
         vm.admi.jobPosition = null; 
-
-      vm.sendAdmi = true;
-      vm.toSendAdmi = false;
       };
 
       vm.preSaveAsis = function(){

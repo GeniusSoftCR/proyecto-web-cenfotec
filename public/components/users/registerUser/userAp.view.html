@@ -122,14 +122,26 @@
                     <div ng-message="maxlength" ng-hide="profForm.phone.$pristine" class="red darken-2 center-align white-text">Ingrese 8 dígitos</div>
                 </div>
               </div>
-              <!-- botón -->
               <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-                <button ng-click="profForm.$setPristine()" type="submit" id="btnRegisterProf" ng-disabled="profForm.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
+                <button type="submit" id="btnRegister" data-target="#modal" ng-disabled="profForm.$invalid" data-toggle="modal" class="btn btn-warning btn-embossed" ng-click="profForm.$setPristine()">Registrar</button>
               </div>
           </form>
-          <div class="thanks2" ng-show="vm.sendProf">
-            <p>¡Profesor registrado correctamente!</p>
-          </div>
+          <!-- Modal-->
+              <div class="col-md-8 col-md-offset-4">  
+                <div class="modal fade" id="modal" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h2 id="colorWhite">{{vm.modal.title}}</h2>
+                        <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <p class="text-center">{{vm.modal.body}}</p>        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
         <!-- Sección de administradores-->
         <div class="bhoechie-tab-content">
@@ -235,10 +247,26 @@
             </div> 
             <!-- Botón -->
             <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
-              <button type="submit" ng-click="userAdmiForm.$setPristine()" id="buttonRegisAdmi" ng-disabled="userAdmiForm.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
+                <button type="submit" id="btnRegister" data-target="#modal" ng-disabled="userAdmiForm.$invalid" data-toggle="modal" class="btn btn-warning btn-embossed" ng-click="userAdmiForm.$setPristine()">Registrar</button>
             </div>
-           <div class="thanks2" ng-show="vm.sendAdmi"><p>¡Administrador registrado correctamente!</p></div>
+           
           </form>
+          <!-- Modal-->
+              <div class="col-md-8 col-md-offset-4">  
+                <div class="modal fade" id="modal" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h2 id="colorWhite">{{vm.modal.title}}</h2>
+                        <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <p class="text-center">{{vm.modal.body}}</p>        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
         <!-- Sección de asistentes-->            
         <div class="bhoechie-tab-content">
@@ -344,17 +372,32 @@
                 </div>
             </div>
             <!-- Botón-->
-            <div class="form-group col-md-12 col-sm-12 col-xs-12 ibck" style="display: block; text-align: center;"> 
-              <button type="submit" ng-click="userFormAsis.$setPristine()" id="buttonRegisAsis" ng-disabled="userFormAsis.$invalid" class="btn btn-warning btn-embossed">Registrar</button>
+            <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
+                <button type="submit" id="btnRegister" data-target="#modal" ng-disabled="userFormAsis.$invalid" data-toggle="modal" class="btn btn-warning btn-embossed" ng-click="userFormAsis.$setPristine()">Registrar</button>
             </div>
           </form>
-          <div class="thanks"  ng-show="vm.sendAsis"><p>Asistente registrado correctamente!</p></div>
+          <!-- Modal-->
+              <div class="col-md-8 col-md-offset-4">  
+                <div class="modal fade" id="modal" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h2 id="colorWhite">{{vm.modal.title}}</h2>
+                        <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <p class="text-center">{{vm.modal.body}}</p>        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
-      <!-- Sección de lista-->
+                <!-- Sección de lista-->
       <div id="list" class="bhoechie-tab-content">
           <div class="listUsers">LISTA DE USUARIOS
             <select id="selectUsers" class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
-              <option value="" disabled="disabled">Seleccione un rol</option>
+              <option value="" disabled="disabled">Filtrar rol de usuario:</option>
               <option value="admin">Administrador</option>
               <option value="professor">Profesor</option>
               <option value="assistant">Asistente</option>
@@ -377,9 +420,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="user in vm.users |filter:{role:vm.search}">
+                    <tr ng-repeat="user in vm.users | filter:{role:vm.search}">
                       <td>{{user.name}}</td>
-                      <td>{{user.surname}}</td>
+                      <td>{{user.surname + ' ' + user.secondSurname}}</td>
                       <td>{{user.email}}</td>
                       <td>{{user.phone}}</td>
                     </tr>
@@ -396,7 +439,7 @@
 </main>
 
 
-
+  
 
 
 

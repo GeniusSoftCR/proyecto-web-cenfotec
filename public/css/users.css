@@ -167,6 +167,7 @@ div .listUsers{
 
 #list{
   height: 550px;
+  font-family: 'montserrat';
 }
 
 #selectUsers{
@@ -178,4 +179,24 @@ div .listUsers{
 thead{
   background-color: #FBB803;
   border-radius: 3px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+}
+
+tbody, th{
+  font-size: 16px;
+
+  text-align: center;
+}
+
+#colorWhite{
+    font-size: 1.3em;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+}
+.modal-body p{
+    color: #000;
+    font-size: 1em;
 }
