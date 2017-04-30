@@ -1,7 +1,5 @@
 <!--sección para mostrar los profesores asignados-->
-<div class="projectStudentAssigned">
-  <div class="box">
-    <h1 class="boxTitle">Profesores Asistentes</h1>
+    
     <div class="listStudents boxContent">
       <div class="item cf" ng-repeat="teacher in assignTeachersCtrl.teachersData">
         <div class="avatar small"> <img src="{{ teacher.avatar }}"> </div>
@@ -9,19 +7,13 @@
         <a class="trash" href="javascript:;" ng-click="assignTeachersCtrl.remove($index)"><i class="fa fa-trash"></i></a>
       </div>
     </div>
-    <div class="cf">
-      <div class="addTeachers">
-        <a href="javascript:;" ng-click="assignTeachersCtrl.openModal()"  class="btn btn-red btn-small"><i class="fa fa-plus"></i>Asignar Profesor</a>
-      </div>
-    </div>
-  </div>
-</div>
+
+<a ng-click="assignTeachersCtrl.openModal()"  class="btn btn-red btn-small"><i class="fa fa-plus"></i>Asignar Profesor</a>
 <!--sección para mostrar los profesores asignados-->
 
 <!--MODAL-->
 <div class="modalElement" id="newStudent" ng-show="assignTeachersCtrl.modal">
   <div class="modalElement_container">
-    
     <h2>Asignar encargado</h2>
     <form>
         <label>Buscar Profesor:</label>
