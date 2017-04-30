@@ -50,7 +50,9 @@
 		//-projects
 		vm.pickProject 	= _pickProject;
 		vm.setProject 	= _setProject;
-
+		vm.msg = function () {
+			return 'hello';
+		}
 
 
 		function _startCount() {

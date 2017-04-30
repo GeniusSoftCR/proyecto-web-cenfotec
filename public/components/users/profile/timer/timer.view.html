@@ -1,13 +1,21 @@
 <div class="panel panel-default ng-scope">
 	<div class="panel-heading">
 		Control de tiempo
-		<span style="margin-left: 330px">
+
+		<span class="pull-right"style="padding-right: 15px">
 		Horas: {{vm.time.hour}}
 		Minutos: {{vm.time.min}}.<span ng-if="vm.showCero">0</span>{{vm.time.sec}}
 		</span>
+		<span class="pull-right btn btn-default navbar-btn btn-sm"ng-if="vm.project" >
+			 {{vm.project.name}}
+		</span>
+		<div class="form-group pull-right">
+   			<input type="button"  class="btn btn-default navbar-btn btn-xs">
+  		</div>	
 	</div>
 	<div class="panel-body">
 		<div class="card">
+
 			<ul class="list-group list-group-flush" id="proyects-list">
 				<li class="list-group-item ng-binding ng-scope">	
 					<button ng-click="vm.pickProject()" class="btn btn-sm btn-embossed btn-warning btn-wide" type="button" data-toggle="collapse"data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-model="vm.project"
@@ -29,8 +37,8 @@
 					</button>
 					<!-- Stop button -->
 					<button class="btn btn-sm btn-embossed btn-danger pull-right" ng-if="vm.counting" ng-click="vm.stopCount()"  ><span class="fa fa-stop" style="font-size:15px;"></span></button>
-
-					<input type="text" class="form-control pull-left" ng-if="!vm.taskSearchState" placeholder="¿En que vamos a trabajar?" style="max-width:475px; max-height: 36px" ng-model="vm.task">
+					
+					<input type="text" class="form-control pull-left" ng-if="!vm.taskSearchState" placeholder="Ingrese un comentario / objetivo" style="max-width:475px; max-height: 36px" ng-model="vm.task">
 					<input type="text" class="form-control pull-left" ng-if="vm.taskSearchState" placeholder="BUSCAR...." style="max-width:475px; max-height: 36px" ng-model="vm.taskSearch">		
 
 				</li>
@@ -38,7 +46,7 @@
 			<div class="collapse" id="timer-collapse">
 				<ul class="list-group list-group-flush" id="proyects-list">
 
-				<li class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects">					
+				<li class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects | filter:{name:vm.taskSearch}">					
 					<span>{{project.name}}</span>
 					<button class="btn btn-sm btn-embossed btn-danger pull-right" type="button" data-toggle="collapse" data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-click="vm.setProject(project._id)">Seleccionar</button>	
 				</li>			
@@ -47,7 +55,7 @@
 			</div>		  
 		</div>
 	</div>
-	<div class="panel-footer">
-		<h6>{{vm.project.name}}</h6>
+	<div class="panel-footer" style="max-height: 3px; padding-bottom: 0; background-color: #f1c40f">
+		
 	</div>
 </div>	
