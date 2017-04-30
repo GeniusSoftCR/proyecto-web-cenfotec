@@ -116,12 +116,12 @@
 					templateUrl: './components/projects/project/project.view.html',
 					controller: 'projectController',
 					controllerAs: 'vm'
-				}
-		   //    	'teachers@main.project': {
-					// templateUrl: 'components/projects/project/assignTeachers/assignTeachers.projects.view.html',
-					// controller: 'assignTeachersController',
-					// controllerAs: 'assignTeachersCtrl'
-		   //    	},
+				},
+		      	'teachers@main.project': {
+					templateUrl: 'components/projects/project/assignTeachers/assignTeachers.projects.view.html',
+					controller: 'assignTeachersController',
+					controllerAs: 'assignTeachersCtrl'
+		      	}
 			 //    'anotaciones@main.project': {
 			 //    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
 			 //    	controller: 'projectAnotationsController',
