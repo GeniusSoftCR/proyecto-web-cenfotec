@@ -17,6 +17,10 @@
  		//vm = view model
 		var vm = this;
 		//////////////
+
+		vm.isActive = function(route) {
+        	return route === $location.path();
+    	}
 		
 		vm.user = AuthService.getAuthUser();
 		vm.logOut = function () {
