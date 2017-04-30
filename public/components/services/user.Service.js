@@ -14,7 +14,7 @@
     //API
     var publicAPI = {
         addUser : _addUser,
-        //getUser: _getUser,
+        getUsers: _getUsers,
         //getUsers: _getUsers,
         //deleteUser : _deleteUser,
         //updateUser : _updateUser,
@@ -26,6 +26,10 @@
     //recibe el user enviado por el controlador y lo pasa al back-end
     function _addUser(newUser){
       return $http.post('http://localhost:3000/api/user/add', newUser);
+    }
+
+     function _getUsers(){
+      return $http.get('http://localhost:3000/api/users');
     }
 
   
