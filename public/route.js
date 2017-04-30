@@ -120,7 +120,7 @@
 		      	'teachers@main.project': {
 					templateUrl: 'components/projects/project/assignTeachers/assignTeachers.view.html',
 					controller: 'assignTeachersController',
-					controllerAs: 'assignTeachersCtrl'
+					controllerAs: 'vm'
 		      	}
 			 //    'anotaciones@main.project': {
 			 //    	templateUrl: './components/projects/project/projectAnotations/projectanotations.view.html',
