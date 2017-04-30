@@ -4,40 +4,16 @@
     .controller('assignTeachersController', assignTeachersCtrl)
     .filter('startFrom', pagination);
 
-    function assignTeachersCtrl ($scope, assignTeachersService, watchProjectService, cshReqService, $stateParams, userProfessorService) {
+    function assignTeachersCtrl ($scope, watchProjectService, $stateParams) {
       var vm = this;
-      vm.modal = false;
       //guarda el id del proyecto que viene por parámetro
       vm.projectId = $stateParams.proyectoId;
-      function init(){
-        //trae el proyecto actual
-        var mainProject = watchProjectService.getProjectbyId(vm.projectId);
-        //trae lista de profesores
-        var teachers = userProfessorService.getProfessors();
+      //trae el proyecto actual
+      var mainProject = watchProjectService.getProjectbyId(vm.projectId);
+      //trae lista de profesores
+      var teachers = userProfessorService.getProfessors();
+      //disponibilidad para proyectos
 
-        if (mainProject.assitant == null) {
-            mainProject.assitant = [];
-        }
-        var assignedTeachers = mainProject.assitant;
-        vm.teachers = [];
-        vm.teachersData = [];
-
-        for (var i=0; i < assignedTeachers.length; i++) {
-          for (var b=0; b < teachers.length; b++) {
-            if (assignedTeachers[i] == teachers[b].id) {
-              vm.teachersData.push(teachers[b]);
-            }
-          }
-        }
-        for (var i=0; i < teachers.length; i++) {
-          if (teachers[i].availableForProyects == "Si") {
-            vm.teachers.push(teachers[i]);
-          } else {
-            console.log('dont do this');  
-          }
-        }
-      }//FIN DEL INIT
-      init();
       vm.currentPage = 0;
       vm.pageSize = 1;
       vm.numberOfPages=function(){
@@ -66,7 +42,6 @@
           files :project.files
         }
         cshReqService.putProject(vm.projectId, updateProjectRequest);
-        init();
       }
     }
 
