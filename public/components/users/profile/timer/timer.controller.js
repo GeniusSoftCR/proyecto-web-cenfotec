@@ -4,9 +4,9 @@
 	angular.module('cshApp')
 	.controller('timerController', timerController);
 
-	timerController.$inject = ['$q','$interval','projectService','AuthService'];
+	timerController.$inject = ['$q','$interval','AuthService','projectService'];
 
- 	function timerController ($q,$interval,projectService,AuthService){
+ 	function timerController ($q,$interval,AuthService,projectService){
 	
  		//vm = view model
 		var vm = this;
@@ -14,16 +14,6 @@
 		///// + VM DEPENDENCIES && DECLARATIONS +/////////////////////
 		/////////////////////////////////////////////////////////////
 		vm.user = AuthService.getAuthUser();
-
-		///////////////////////////////////////////////////////////////
-		///// + PUBLIC FUNCTIONS +////////////////////////////////////
-		/////////////////////////////////////////////////////////////
-		vm.startCount = _startCount;
-		vm.stopCount = _stopCount;
-		vm.setProject = _setProject;
-
-		//////////////////////////////////////////////////////////////
-		///// + DEFAULTS +///////////////////////////////////////////
 		vm.time = {};
 
 		projectService.getProjects({students:{_id:vm.user._id}}).then(function (res) {
@@ -32,19 +22,28 @@
 				vm.projects = res.data;
 			});
 		});
-		////// + bool /////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////
+		///// + DEFAULTS +///////////////////////////////////////////
+		//
+		////// + bool ///////////////
 		vm.taskSearchState = false;
 		vm.showCero = true;
 		vm.counting = false;
-
-		////// + string ////////////////////////////////////////
+		////// + string ////////////
 		vm.time.hour = '0';
 		vm.time.min = '0';
 		vm.time.sec='0';
-
 		////////////////////////////////+ END DEAFULTS +/////
 		////////////////////////////////////////////////////
 
+		///////////////////////////////////////////////////////////////
+		///// + PUBLIC FUNCTIONS +////////////////////////////////////
+		/////////////////////////////////////////////////////////////
+		vm.startCount = _startCount;
+		vm.stopCount = _stopCount;
+		//
+		vm.setProject = _setProject;
 
 
 		function _startCount() {
