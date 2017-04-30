@@ -202,7 +202,9 @@ input, textarea {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.17);
   background-color: #efeff1;
-  margin: 10px 0; }
+  margin: 10px 0; 
+  resize: none;
+  }
 
 #reporte table {
   border-collapse: collapse; }

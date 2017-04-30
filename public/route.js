@@ -126,7 +126,7 @@
 			    'anotaciones@main.project': {
 			    	templateUrl: './components/projects/project/anotations/anotations.view.html',
 			    	controller: 'projectAnotationsController',
-			    	controllerAs: 'anotationsCtrl'
+			    	controllerAs: 'vm'
 				}
 				// 'archivos@main.project': {
 				// 	templateUrl: './components/projects/project/projectFiles-esteban/projectFiles.view.html',

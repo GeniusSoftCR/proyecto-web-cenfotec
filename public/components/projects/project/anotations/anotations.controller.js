@@ -2,70 +2,87 @@
   /* Controlador de Anotaciones de proyecto de Cenfotec Software House */
   'use strict';
   angular.module('cshApp')
-    .controller('projectAnotationsController', projectAnotations);
+    .controller('projectAnotationsController', projectAnotationsController);
 
-    function projectAnotations ($scope, projectAnotationsService, $stateParams) {
-      var anotationsCtrl = this;
-      var projectId = $stateParams.proyectoId;
-      anotationsCtrl.projectId = projectId;
+    projectAnotationsController.$inject = ['$q','$stateParams','projectService','AuthService'];
+
+    function projectAnotationsController ($q, $stateParams, projectService, AuthService) {
+      var vm = this;
+
+      vm.project = {};
+      projectService.getProjects({_id:$stateParams.id}).then(function (res) {
+        $q.when(res).then(function () {
+          vm.project=res.data[0];
+        })        
+      });
+
+      vm.user = AuthService.getAuthUser();
+      console.log(vm.user);
+
+      console.log(vm.project._id, vm.user._id);
+
+
       function init(){ 
-        anotationsCtrl.anotations = projectAnotationsService.getAnotations();
+        vm.anotations = projectService.getAnotations();
       }
       init();
-      anotationsCtrl.modalAnotation = false;
-      anotationsCtrl.extend = false;
-      anotationsCtrl.showModal = function () {
-        anotationsCtrl.modalAnotation = true;
+
+      vm.modalAnotation = false;
+      vm.extend = false;
+      vm.showModal = function () {
+        vm.modalAnotation = true;
       }
-      anotationsCtrl.closeModal = function () {
-        anotationsCtrl.modalAnotation = false;
+      vm.closeModal = function () {
+        vm.modalAnotation = false;
       }
 
-      anotationsCtrl.activeMenuIndex;
-      anotationsCtrl.showSubmenu = function (item) {
-        if(anotationsCtrl.activeParentIndex == item){
-            anotationsCtrl.activeParentIndex = "";
+
+
+      vm.activeMenuIndex;
+      vm.showSubmenu = function (item) {
+        if(vm.activeParentIndex == item){
+            vm.activeParentIndex = "";
         } else {
-            anotationsCtrl.activeParentIndex = item;
+            vm.activeParentIndex = item;
         }
       }
-      anotationsCtrl.isShowing = function(index) {
-          return anotationsCtrl.activeParentIndex === index;
+      vm.isShowing = function(index) {
+          return vm.activeParentIndex === index;
       };
-      anotationsCtrl.save= function () {
+      vm.save= function () {
         var newAnotation = {
           id : 1,
-          projectId : anotationsCtrl.projectId,
-          name : anotationsCtrl.data.name,
-          description : anotationsCtrl.data.desc,
+          projectId : vm.projectId,
+          name : vm.name,
+          description : vm.description,
           iduserCreate: 1
         }
-        projectAnotationsService.addAnotation(newAnotation);
-        anotationsCtrl.modalAnotation = false;
-        anotationsCtrl.data.name = null;
-        anotationsCtrl.data.desc = null;
+        projectService.addAnotation(newAnotation);
+        vm.modalAnotation = false;
+        vm.name = null;
+        vm.description = null;
       }
 
-      anotationsCtrl.delete = function (index) {
+      vm.delete = function (index) {
         console.log(index);
-        var anotationItem = anotationsCtrl.anotations[index];
+        var anotationItem = vm.anotations[index];
         console.log(anotationItem);
-        projectAnotationsService.deleteAnotation(index);
+        projectService.deleteAnotation(index);
         init();
       }
 
-      anotationsCtrl.preModify = function (index) {
-        var anotationItem = anotationsCtrl.anotations[index];
+      vm.preModify = function (index) {
+        var anotationItem = vm.anotations[index];
         var itemChange = {
           name: anotationItem.name,
           description: anotationItem.description
         }
-        anotationsCtrl.itemChange = itemChange;
+        vm.itemChange = itemChange;
       }
-      anotationsCtrl.modify = function (index) {
-        var anotationItem = anotationsCtrl.anotations[index];
-        var anotationItemFinale = anotationsCtrl.itemChange;
-        projectAnotationsService.putAnotation(anotationItem, anotationItemFinale);
+      vm.modify = function (index) {
+        var anotationItem = vm.anotations[index];
+        var anotationItemFinale = vm.itemChange;
+        projectService.putAnotation(anotationItem, anotationItemFinale);
         init();
       }
     } 
