@@ -67,6 +67,7 @@
           container: 'modal',
           services: ['COMPUTER']
         },
+
         onSuccess
       );
     };
@@ -101,7 +102,7 @@
           state: 'postulate',
           role: 'student',
           birthdate : vm.birthdate,
-          careers : vm.careers, //me parece q esto deberia ser un arreglo
+          careers : vm.career, //me parece q esto deberia ser un arreglo
           justification: null,
           resumeUrl : vm.resumeUrl,
           githubUrl : vm.githubUrl,
@@ -134,8 +135,5 @@
         vm.send = true;
         vm.toSend = false;
       };
-
-       vm.sendBad = true;
-      vm.tosendBad = false;
   }
 })();

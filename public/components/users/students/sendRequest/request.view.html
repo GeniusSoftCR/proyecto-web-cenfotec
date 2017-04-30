@@ -113,7 +113,7 @@
       </div> -->
 
       <div class="col-md-4 col-sm-12 col-xs-12 ibck">
-        <label>CV:</label>
+        <label>Curriculum Vitae:</label>
         <div class="input-group">
           <label class="input-group-btn">
             <a><p ng-click="vm.pickFile()" class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input style="display: none;" id="cv" ng-model="vm.resumeUrl" multiple>
@@ -139,7 +139,7 @@
       <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
         <label> Carrera(s):</label>
         <div class="form-group">
-          <select required ng-model="vm.career" name="selectCareer" class="form-control">
+          <select required ng-model="vm.career" name="career" class="form-control">
             <option value="{{career.name}}" ng-repeat="career in vm.careers">{{career.name}}</option>
         </select>
         </div>
@@ -153,9 +153,9 @@
       <!-- Link de sitio web -->
       <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: inline-block" >
         <label for="websiteUrl">Link de sitio web:</label>
-        <input ng-model="vm.websiteUrl" id="link" type="url" pattern="https?://.+" title="Include http://" class="form-control" name="websiteUrl" type="url">
+        <input ng-model="vm.websiteUrl" id="link"  pattern="(www.+[A-Za-z0-9.\-@_~]+.com)" class="form-control" name="websiteUrl">
         <div id="ng-message" ng-messages="studentForm.websiteUrl.$error" ng-hide="studentForm.websiteUrl.$pristine">
-          <div ng-message="pattern" ng-hide="studentForm.websiteUrl.$pristine" class="red darken-2 center-align white-text">Formato incorrecto, debe iniciar con http://...</div>
+          <div ng-message="pattern" ng-hide="studentForm.websiteUrl.$pristine" class="red darken-2 center-align white-text">Formato incorrecto</div>
         </div>
       </div>
       <!-- Telefono -->
