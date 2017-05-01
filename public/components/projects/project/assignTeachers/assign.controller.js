@@ -41,8 +41,11 @@
           vm.professor.surname="";
           vm.professor.secondSurname="";
         }else if(kind==2){
-          project.assitant=null;
-          console.log("va a eliminar al asistente");
+          console.log(project);
+          project.assistant=null;
+          vm.assistant.name="";
+          vm.assistant.surname="";
+          vm.assistant.secondSurname="";
         }
         projectService.updateProject(project).then(function(res){
           console.log("Profesor eliminado");
@@ -51,7 +54,6 @@
       }
 
       function init() {
-        console.log("entra al init");
         if(vm.project.professor==null || vm.project.professor==undefined){
           vm.addPro=true;
           vm.delPro=false;
