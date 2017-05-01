@@ -4,9 +4,9 @@
     .controller('assignTeachersController', assignTeachersController)
     .filter('startFrom', pagination);
 
-    assignTeachersController.$inject = ['$q','$stateParams','projectService'];
+    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService'];
 
-    function assignTeachersController ($q, $stateParams, projectService) {
+    function assignTeachersController ($q, $stateParams, projectService, userService) {
       var vm = this;
       vm.project = {};    //proyecto actual
       vm.addPro=false;    //btn agregar prof.encargado
@@ -29,6 +29,11 @@
         }else{
           vm.addPro=false;
           vm.delPro=true;
+          //trae el proyecto actual
+          userService.getProjects({_id:$stateParams.id}).then(function (res) {
+              vm.project=res.data[0];
+              init();
+          });
         }
         if(vm.project.assistant==null || vm.project.assistant==undefined){
           vm.addAsi=true;

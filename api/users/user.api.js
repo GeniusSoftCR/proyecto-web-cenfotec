@@ -142,9 +142,6 @@ router.put('/user', function(req, res, next) {
 
 //busca los usuarios estudiantes
 router.get('/users/students', function(req, res, next) {
-
-
-
   User.find({'role':'student'||'client'}, function(err, users){
     res.json(users);
   });

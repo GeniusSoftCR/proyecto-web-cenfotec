@@ -15,7 +15,6 @@
     var publicAPI = {
         addUser : _addUser,
         getUsers: _getUsers,
-        //getUsers: _getUsers,
         //deleteUser : _deleteUser,
         //updateUser : _updateUser,
         getRequests : _getStudents,
@@ -31,8 +30,6 @@
      function _getUsers(){
       return $http.get('http://localhost:3000/api/users');
     }
-
-  
 
     //trae la lista de estudiantes del back-end
     function _getStudents(){
