@@ -22,6 +22,19 @@
       });
 
 
+      vm.fetchProfessor= function(){
+        //trae el proyecto actual
+        userService.getUsers({idNum:vm.project.professor}).then(function (res) {
+            vm.professor=res.data[0];
+        });
+      }
+      vm.fetchAssistant= function(){
+        //trae el proyecto actual
+        userService.getUsers({idNum:vm.project.assistant}).then(function (res) {
+            vm.assistant=res.data[0];
+        });
+      }
+
       function init() {
         if(vm.project.professor==null || vm.project.professor==undefined){
           vm.addPro=true;
@@ -29,11 +42,7 @@
         }else{
           vm.addPro=false;
           vm.delPro=true;
-          //trae el proyecto actual
-          userService.getProjects({_id:$stateParams.id}).then(function (res) {
-              vm.project=res.data[0];
-              init();
-          });
+          vm.fetchProfessor();
         }
         if(vm.project.assistant==null || vm.project.assistant==undefined){
           vm.addAsi=true;
