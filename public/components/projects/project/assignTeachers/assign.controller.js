@@ -3,16 +3,16 @@
   angular.module('cshApp')
     .controller('assignTeachersController', assignTeachersController);
 
-    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService','SessionService'];
+    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService','AuthService'];
 
-    function assignTeachersController ($q, $stateParams, projectService, userService,SessionService) {
+    function assignTeachersController ($q, $stateParams, projectService, userService,AuthService) {
       var vm = this;
+      vm.user = AuthService.getAuthUser();
       vm.project = {};    //proyecto actual
       vm.addPro=false;    //btn agregar prof.encargado
       vm.addAsi=false;    //btn agregar prof.asistente
       vm.delPro=false;    //btn borrar prof.encargado
       vm.delAsi=false;    //btn borrar prof.asistente
-
 
       //trae el proyecto actual
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
@@ -97,12 +97,17 @@
           vm.delAsi=true;
           vm.fetchAssistant();
         }
-        if( (SessionService.session.role=="professor") && (SessionService.session.idNum!=vm.project.professor) ){
+        if( (vm.user.role=="professor") && (vm.user.idNum!=vm.project.professor) ){
           //le impide al usuario profesor ASISTENTE la función de agregar profesores
           vm.addPro=false;
           vm.delPro=false;
           vm.addAsi=false;
           vm.delAsi=false;
+        }
+        if( (vm.user.role=="professor") && (vm.user.idNum==vm.project.professor) ){
+          //le impide al usuario profesor ENCARGADO hacer operaciones de asignar o eliminar el encargado del proyecto (así mismo)
+          vm.addPro=false;
+          vm.delPro=false;
         }
       }
 
