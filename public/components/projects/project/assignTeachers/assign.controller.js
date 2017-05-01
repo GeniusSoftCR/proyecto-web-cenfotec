@@ -29,11 +29,6 @@
         }else{
           vm.addPro=false;
           vm.delPro=true;
-          //trae el proyecto actual
-          userService.getProjects({_id:$stateParams.id}).then(function (res) {
-              vm.project=res.data[0];
-              init();
-          });
         }
         if(vm.project.assistant==null || vm.project.assistant==undefined){
           vm.addAsi=true;

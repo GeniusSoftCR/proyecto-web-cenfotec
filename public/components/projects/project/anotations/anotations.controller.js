@@ -10,6 +10,8 @@
       var vm = this;
       vm.project = {};
       vm.user = AuthService.getAuthUser();
+      vm.anotation = {};
+
 
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
         vm.project=res.data[0];
@@ -18,7 +20,7 @@
 
       function init(){
         console.log(vm.project.name, vm.user.name);
-        vm.anotations = projectService.getAnotations();
+        vm.anotations = projectService.getAnotation();
       }
       
      /* vm.modalAnotation = false;
@@ -46,27 +48,28 @@
       };*/
       vm.save= function () {
         var newAnotation = {
-          id : 1,
-          projectId : vm.project.name,
-          name : vm.name,
+          _id : vm.project._id,
+          tittle : vm.tittle,
           description : vm.description,
-          iduserCreate: vm.user.name
-        }
-
+          author: vm.user._id
+        };
 
          console.log(newAnotation);
         //envia el usuario al user.service
         projectService.addAnotation(newAnotation).then(function(res){
-            console.log(res);
-            vm.anotation = {};
-            vm.modal.title = 'Anotación agregada';
-            vm.modal.body = res.data.message;
+
+            vm.anotation = res.data;
+
 
         });
-        vm.modalAnotation = false;
-        vm.name = null;
-        vm.description = null;
-      }
+          vm.modalAnotation = false;
+          vm.name = null;
+          vm.description = null;
+      };
+
+
+
+
 
       /*vm.delete = function (index) {
         console.log(index);

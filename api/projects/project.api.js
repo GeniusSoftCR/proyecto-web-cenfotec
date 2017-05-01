@@ -96,15 +96,27 @@ router.post('/projects/add', function(req, res, next){
 });
 
 router.post('/projects/add/anotation', function(req, res, next){
-	var anotation = Object.assign(new Anotation(),req.body)
-	console.log(anotation);  
-	anotation.save(function(err){
-		if (err) {
-      		res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
-    	}else{
-      		res.json({success: true, message: 'Se ha enviado su solicitud de proyecto correctamente'});
-    	};
-	});
-});
+	
+	Project.findOne({_id:req.body._id}).then(function(error,project){
 
+		if(error){
+        	res.json(error);
+    	}
+    	else if(project == null){
+        	res.json('No se ha encontrado el proyecto');;
+        	console.log(res.json);
+    	
+    	}else{
+        	projects.anotations.push(projects.anotations);
+        	project.save( function(err, data){
+	            if (err) {
+	      			res.json({error:data, success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
+	    		}else{
+	      			res.json({success: true, message: 'Anotación realizada'});
+	    		};
+        	});
+    	}
+
+  	});
+});
 module.exports = router;
