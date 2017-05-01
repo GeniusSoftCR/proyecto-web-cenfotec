@@ -49,11 +49,10 @@
       <ul>
         <li class="list-group-item" ng-repeat="teacher in vm.teachers track by $index">
           {{teacher.name}} {{teacher.surname}}
-          <button ng-click="vm.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
+          <button ng-click="vm.addTeacher(vm.project,vm.kind,teacher.idNum)" class="btn btn-sm btn-embossed btn-danger pull-right">
             <span class="fui-check"></span>
           </button>
         </li>
-        <li class="list-group-item">Profesor quemado<button class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-check"></span></button></li>
       </ul>
     </div>
     <div class="modal-footer">

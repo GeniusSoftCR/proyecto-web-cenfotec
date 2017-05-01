@@ -42,6 +42,7 @@
       //funcionalidad al abrir el modal
       vm.viewRequest= function(kind){
         vm.fetchTeachers();
+        vm.kind=kind;
       }
       //eliminar el profesor encargado
       vm.delTeacher= function(project,kind){
@@ -62,20 +63,14 @@
         init();
       }
       //eliminar el profesor encargado
-      vm.addTeacher= function(project,kind){
+      vm.addTeacher= function(project,kind,teacher){
         if(kind==1){
-          project.professor=null;
-          vm.professor.name="";
-          vm.professor.surname="";
-          vm.professor.secondSurname="";
+          project.professor=teacher;
         }else if(kind==2){
-          project.assistant=null;
-          vm.assistant.name="";
-          vm.assistant.surname="";
-          vm.assistant.secondSurname="";
+          project.assistant=teacher;
         }
         projectService.updateProject(project).then(function(res){
-          console.log("Profesor eliminado");
+          console.log("Profesor agregado");
         });
         init();
       }
