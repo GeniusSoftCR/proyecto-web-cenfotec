@@ -20,7 +20,7 @@
 
       function init(){
         console.log(vm.project.name, vm.user.name);
-        vm.anotations = projectService.getAnotation();
+        vm.anotations = vm.project.anotations;
       }
       
      /* vm.modalAnotation = false;
@@ -32,8 +32,6 @@
       vm.closeModal = function () {
         vm.modalAnotation = false;
       }
-
-
 
       vm.activeMenuIndex;
       vm.showSubmenu = function (item) {
@@ -48,50 +46,25 @@
       };*/
       vm.save= function () {
         var newAnotation = {
-          _id : vm.project._id,
           tittle : vm.tittle,
           description : vm.description,
           author: vm.user._id
         };
 
-         console.log(newAnotation);
+        vm.project.anotations.push(newAnotation);
+
+        console.log(newAnotation);
         //envia el usuario al user.service
-        projectService.addAnotation(newAnotation).then(function(res){
-
-            vm.anotation = res.data;
-
-
+        projectService.updateProject(vm.project).then(function(res){
+      
         });
           vm.modalAnotation = false;
-          vm.name = null;
+          vm.tittle = null;
           vm.description = null;
       };
 
 
 
 
-
-      /*vm.delete = function (index) {
-        console.log(index);
-        var anotationItem = vm.anotations[index];
-        console.log(anotationItem);
-        projectService.deleteAnotation(index);
-        init();
-      }
-
-      vm.preModify = function (index) {
-        var anotationItem = vm.anotations[index];
-        var itemChange = {
-          name: anotationItem.name,
-          description: anotationItem.description
-        }
-        vm.itemChange = itemChange;
-      }
-      vm.modify = function (index) {
-        var anotationItem = vm.anotations[index];
-        var anotationItemFinale = vm.itemChange;
-        projectService.putAnotation(anotationItem, anotationItemFinale);
-        init();
-      }*/
     } 
 })();

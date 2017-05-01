@@ -95,7 +95,23 @@ router.post('/projects/add', function(req, res, next){
 	});
 });
 
-router.post('/projects/add/anotation', function(req, res, next){
+/*router.put('/projects/update/anotation', function(req, res, next,err) {
+  Project.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
+  	if (err) {
+  		res.json({success: false, message: 'Ha ocurrido un error'});
+  	}else {
+  		res.json({success:true,message:'Se ha actualizado correctamente.'});
+  	}
+  });
+});
+*/
+
+
+
+
+
+/*
+router.put('/projects/update/anotation', function(req, res, next){
 	
 	Project.findOne({_id:req.body._id}).then(function(error,project){
 
@@ -107,7 +123,7 @@ router.post('/projects/add/anotation', function(req, res, next){
         	console.log(res.json);
     	
     	}else{
-        	projects.push(projects.anotations);
+        	project.anotations.push(anotations);
         	project.save( function(err, data){
 	            if (err) {
 	      			res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
@@ -118,5 +134,6 @@ router.post('/projects/add/anotation', function(req, res, next){
     	}
 
   	});
-});
+});*/
+
 module.exports = router;
