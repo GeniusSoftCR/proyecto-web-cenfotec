@@ -13,9 +13,7 @@
    <li class="list-group-item">{{vm.project.name}}<button class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-trash"></span></button></li>
     </div>
     <div class="panel-footer">
-      <div class="form-group pull-right">        
-        <button class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#annotation-Modal">Agregar</button>
-      </div>      
+      <button class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#annotation-Modal">Nueva Anotación</button>
   </div>
 </div>
 <!--Fuera, coloco el modal-->
@@ -26,8 +24,8 @@
 <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <span class="fa fa-plus"></span>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>        
+        <button type="button" class="close"  data-dismiss="modal">&times;</button>
+        <h4>Nueva anotación:</h4>
       </div>
       <div class="modal-body">
         <form>
@@ -44,7 +42,7 @@
     </div>
   <div class="modal-footer">
     <div class="unModal-footer">
-      <button class="btn btn-sm btn-embossed btn-warning" ng-click="vm.save()">Guardar anotación</button>
+      <button class="btn btn-sm btn-embossed btn-warning" ng-click="vm.save()">Crear anotación</button>
       <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
     </div>
   </div>

@@ -6,7 +6,6 @@ var express = require('express'),
 	mongoose = require('mongoose'),
 	//Variables del back de la aplicacion
 	app = express(),
-	io = require('socket.io'),
 	port = 3000,
 	dburl = 'mongodb://admin:proyectoweb1@ds155130.mlab.com:55130/csh';
 
@@ -14,7 +13,7 @@ var express = require('express'),
 //Se define la conexion con Mongoose
 mongoose.connect(dburl);
 
-var server = app.listen(port,_server());
+//Se revisa el estado de coneccion de la BD
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -53,9 +52,6 @@ app.use('/api', projects);
 app.use('/api', config);
 app.use('/', index);
 
-
-///////////////////// + Private + ////////////////////////
-
-function _server() {
-	console.log('server started on port ' + port);
-}
+app.listen(port, function(){
+  console.log('server started on port ' + port);
+});
