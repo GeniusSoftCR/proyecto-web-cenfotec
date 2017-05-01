@@ -1,17 +1,17 @@
 <div class="panel panel-default ng-scope">
 	<div class="panel-heading">
-		Control de tiempo
+		Historia de tiempo
 
-		<span class="pull-right"style="padding-right: 15px">
+<!-- 		<span class="pull-right"style="padding-right: 15px">
 			Horas: {{vm.time.hour}}
 			Minutos: {{vm.time.min}}.<span ng-if="vm.showCero">0</span>{{vm.time.sec}}
-		</span>
+		</span> -->
 	</div>
 	<div class="panel-body" >
 		<div class="card">
 			<ul class="list-group list-group-flush" id="proyects-list">
 				<li class="list-group-item ng-binding ng-scope">	
-					<button ng-click="vm.pickProject()" class="btn btn-sm btn-embossed btn-warning btn-wide" type="button" data-toggle="collapse"data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" 
+					<button ng-click="vm.pickProject()" class="btn btn-sm btn-embossed btn-warning btn-wide" type="button" data-toggle="collapse"data-target="#timeHistory" aria-expanded="false" aria-controls="collapseExample" 
 
 						ng-model="vm.project"
 						>
@@ -36,7 +36,7 @@
 
 					<div class="form-group has-feedback pull-left" style="width:475px;">
 						<span ng-if="!vm.taskSearchState">
-  							<input type="text" class="form-control" ng-if="!vm.taskSearchState" placeholder="Ingrese un comentario u objetivo" style="max-height: 36px" ng-model="vm.task">	
+  							<input type="text" class="form-control" ng-if="!vm.taskSearchState" placeholder="Ingrese un comentario / objetivo" style="max-height: 36px" ng-model="vm.task">	
 						</span>
 						<span ng-if="vm.taskSearchState">
 							<span class="form-control-feedback fui-search"></span>							
@@ -45,10 +45,10 @@
 					</div>
 				</li>
 			</ul>
-			<div class="collapse" id="timer-collapse">
-				<ul class="list-group list-group-flush" id="proyects-list">	
+			<div class="collapse" id="timeHistory-collapse">
+				<ul class="list-group list-group-flush" id="timeHistory">	
 
-				<li  ng-if="!vm.projects" class="list-group-item ng-binding ng-scope"> No hay proyectos asignados</li>
+				<li  ng-if="!vm.projects" class="list-group-item ng-binding ng-scope"> No hay registros</li>
 
 				<li class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects | filter:{name:vm.taskSearch}">					
 					<span>{{project.name}}</span>
@@ -59,7 +59,7 @@
 			</div>		  
 		</div>
 	</div>
-	<div class="panel-footer" style="max-height: 3px; padding-bottom: 0; background-color: #f1c40f">
+	<div class="panel-footer" style="max-height: 3px; padding-bottom: 0; background-color: #e67e22">
 		
 	</div>
 </div>	
