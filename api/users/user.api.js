@@ -172,24 +172,6 @@ router.put('/user/students/trackTime', function(req, res, next) {
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
 
-  // user._id = mongoose.Schema.Types.ObjectId
-  /*user.idNum = req.body.idNum;
-  user.name = req.body.name;
-  user.surname = req.body.surname;
-  user.secondSurname = req.body.secondSurname;
-  user.email = req.body.email;
-  user.phone = req.body.phone;
-  user.avatar = req.body.avatar;
-  user.password = req.body.password;
-  user.state = req.body.state;
-  user.role = req.body.role;*/
-
-
-  //User Roles
-/*  user.role = req.body.role;*/
-
- /* console.log('USER ROLE ++++++++++++++++++++++++++++++++++++++++++'+req.body.role)*/
-
   var user = Object.assign(new User(), req.body)
 
   switch (user.role){
