@@ -19,7 +19,7 @@
 				</div>			
 			</div>
 			<div class="col-md-8">
-				<div ui-view="timer"></div>
+				<div ng-if="vm.user.role == 'student'" ui-view="timer"></div>
 			</div>			
 		</div>
 	</div>

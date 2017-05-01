@@ -95,4 +95,16 @@ router.post('/projects/add', function(req, res, next){
 	});
 });
 
+router.post('/projects/add/anotation', function(req, res, next){
+	var anotation = Object.assign(new Anotation(),req.body)
+	console.log(anotation);  
+	anotation.save(function(err){
+		if (err) {
+      		res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
+    	}else{
+      		res.json({success: true, message: 'Se ha enviado su solicitud de proyecto correctamente'});
+    	};
+	});
+});
+
 module.exports = router;
