@@ -33,6 +33,7 @@ var UsersSchema = new Schema({
   websiteUrl:    {type: String},
   //Professor only
   specialty:     {type: String},
+  councilMember: {type: String},
   //Admin and assitant olny
   jobPosition:   {type: String}
 
@@ -191,6 +192,7 @@ router.post('/user/add', function(req, res, next) {
       break;
     case 'professor':
       user.specialty    = req.body.specialty;
+      user.councilMember = req.body.councilMember;
       break;
     case 'admin' || 'assistant':
       user.jobPosition = req.body.jobPosition;
@@ -203,7 +205,7 @@ router.post('/user/add', function(req, res, next) {
     if (err) {
       res.json({success: false, message: 'Ha ocurrido un error', error: err});
     } else {
-      res.json({success: true, message: 'Se ha enviado el usuario correctamente'});
+      res.json({success: true, message: '¡Registrado correctamente!'});
     }
   });
 });

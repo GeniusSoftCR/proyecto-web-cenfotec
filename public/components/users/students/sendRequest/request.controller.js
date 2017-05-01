@@ -12,10 +12,9 @@
       vm.send = false;
       vm.toSend = true;
       vm.sendBad = false;
+      vm.modal = {};
       vm.tosendBad = false;
-      //VM
       vm.cloudObj = ImageService.getConfiguration();
-      //vm.careers = careers; //guarda las carreras
       vm.pickFile = pickFile;
       vm.onSuccess = onSuccess;
       vm.submitted = false;
@@ -26,6 +25,7 @@
       configService.getCareers().then(function(res){
         vm.careers = res.data;
       });
+
 
 
       //En el input de Avatar muestra al lado de escoger, la imagen que se ha seleccionad
@@ -112,7 +112,11 @@
         console.log(newUser);
         //envia el usuario al user.service
         userService.addUser(newUser).then(function(res){
-              console.log(res)
+              console.log(res);
+            vm.student = {};
+            vm.modal.title = 'Solicitud de estudiante';
+
+            vm.modal.body = res.data.message;
 
         });
 
@@ -134,6 +138,8 @@
 
         vm.send = true;
         vm.toSend = false;
+      }
+
       };
-  }
+  
 })();

@@ -12,7 +12,7 @@
       vm.project = {};
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
         $q.when(res).then(function () {
-          vm.project=res.data[0];
+          vm.project=res.data;
         })        
       });
 
