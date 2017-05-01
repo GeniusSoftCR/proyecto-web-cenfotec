@@ -17,7 +17,7 @@
       });    
 
       function init(){
-        console.log(vm.project.name, vm.user.name);
+        //console.log(vm.project.name, vm.user.name);
         vm.anotations = projectService.getAnotations();
       }
       
