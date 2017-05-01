@@ -3,7 +3,6 @@
   angular
   .module('cshApp')
   .controller('assignStudents', assignStudents)
-  .filter('startFrom', pagination);
 
   assignStudents.$inject = ['$q','$stateParams','projectService', 'userService'];
 
@@ -16,7 +15,7 @@
     //proyecto actual
     projectService.getProjects({_id:$stateParams.id}).then(function(res){
       vm.project = res.data[0];
-      init();
+      //init();
     });
   };
 })();
