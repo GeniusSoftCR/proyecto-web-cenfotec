@@ -5,14 +5,32 @@
   </div>
   <!--MENÚ LATERAL-->
   <nav>
-    <ul>
-      <li><a ui-sref="main.profile"><i class="fa fa-user"></i>Perfil</a></li>
-      <li><a ui-sref="main.projects"><i class="fa fa-th-list"></i>Proyectos</a></li><!--href="#!/admin/proyectos"-->
-      <li><a href=""><i class="fa fa-user-plus"></i>Clientes</a></li><!--href="#!/asis/clientes"-->
-      <li><a ui-sref="main.students"><i class="fa fa-users"></i>Estudiantes</a></li>
-      <li><a ui-sref="main.users"><i class="fa fa-user-circle-o"></i>Usuarios</a></li>
-      <li><a href=""><i class="fa fa-list-alt"></i>Reportes</a></li><!--href="#!/admin/reportes/miembrosProyecto"-->
-      <li><a ui-sref="main.careers"><i class="fa fa-cogs"></i>Configuración</a></li><!--href="#!/admin/reportes/miembrosProyecto"-->
+    <ul> 
+      <li ng-class="{active:vm.activeTab('/inicio/perfil')}">
+        <a ui-sref="main.profile"><i class="fa fa-user"></i>Perfil</a>
+      </li>
+
+      <li ng-class="{active:vm.activeTab('/inicio/proyectos')}">
+        <a ui-sref="main.projects"><i class="fa fa-th-list"></i>Proyectos</a>
+      </li>
+<!--       <li  ng-class="{active:vm.activeTab('/inicio/perfil')}">
+        <a href=""><i class="fa fa-user-plus"></i>Clientes</a>
+      </li> -->
+      <li  ng-class="{active:vm.activeTab('/inicio/estudiantes')}" ng-if="vm.checkRole(['admin','professor','assitant'])">
+        <a ui-sref="main.students"><i class="fa fa-users"></i>Estudiantes</a>
+      </li>
+      <li  ng-class="{active:vm.activeTab('/inicio/usuarios')}" ng-if="vm.checkRole(['admin','professor','assitant'])">
+        <a ui-sref="main.users"><i class="fa fa-user-circle-o"></i>Usuarios</a>
+      </li>
+<!--       <li  ng-class="{active:vm.activeTab('/inicio/reportes')}">
+        <a href=""><i class="fa fa-list-alt"></i>Reportes</a>
+      </li> -->
+      <span>
+        
+      </span>
+      <li  ng-class="{active:vm.activeTab('/inicio/carreras')}" ng-if="vm.checkRole(['admin'])">
+        <a ui-sref="main.careers"><i class="fa fa-cogs"></i>Configuración</a>
+      </li>
     </ul>
   </nav>
 </aside>

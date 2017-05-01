@@ -7,11 +7,11 @@
 	logInController.$inject = ['$timeout','$log','$http','$location','$rootScope','AUTH_EVENTS','AuthService','SessionService'];
 
  	function logInController ($timeout,$log,$http,$location,$rootScope,AUTH_EVENTS,AuthService,SessionService){
- 		console.log(AuthService.isAuth())
+
  		if(AuthService.isAuth()){
  			$location.path('/inicio/perfil');
  		}else{
- 			$location.path('/entrar');
+ 			$location.path('/entrar'); 			
  		}
  		//vm = view model
 		var vm = this;
