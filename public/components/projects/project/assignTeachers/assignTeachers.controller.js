@@ -11,18 +11,35 @@
       vm.project = {};    //proyecto actual
       vm.addPro=false;    //btn agregar prof.encargado
       vm.addAsi=false;    //btn agregar prof.asistente
+      vm.delPro=false;    //btn borrar prof.encargado
+      vm.delAsi=false;    //btn borrar prof.asistente
+
 
       //trae el proyecto actual
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
-        $q.when(res).then(function () {
           vm.project=res.data[0];
-        })        
+          init();
       });
 
-      if(vm.project.professor!=null){
-        vm.addPro=true;
-        console.log(vm.project.professor);
-      }else{vm.addPro=false;}
+
+      function init() {
+        if(vm.project.professor==null){
+          vm.addPro=true;
+          vm.delPro=false;
+          console.log(vm.project.professor);
+        }else{
+          vm.addPro=false;
+          vm.delPro=true;
+        }
+        if(vm.project.assistant==null){
+          vm.addAsi=true;
+          vm.delAsi=false;
+          console.log(vm.project.assistant);
+        }else{
+          vm.addAsi=false;
+          vm.delAsi=true;
+        }
+      }
 
       //var mainProject = watchProjectService.getProjectbyId(vm.projectId);
       //trae lista de profesores
