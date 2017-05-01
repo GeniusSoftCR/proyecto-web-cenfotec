@@ -4,6 +4,7 @@
   .module('cshApp')
   .controller('assignStudents', assignStudents)
 
+
   assignStudents.$inject = ['$q','$stateParams','projectService', 'userService'];
 
   function assignStudents ($q, $stateParams, projectService, userServ) {
@@ -15,6 +16,7 @@
     //proyecto actual
     projectService.getProjects({_id:$stateParams.id}).then(function(res){
       vm.project = res.data[0];
+
     });
   };
 })();

@@ -7,20 +7,20 @@
     <div class="panel-body">
       <ul>
         <li class="list-group-item">
-          Encargado: {{vm.project.professor}}
-          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addPro">
+          Encargado: {{vm.professor.name}} {{vm.professor.surname}} {{vm.professor.secondSurname}}
+          <button ng-click="vm.addProffesor()" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addPro" data-toggle="modal" data-target="#list-Modal">
             <span class="fui-plus"></span>
           </button>
-          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delPro">
+          <button ng-click="vm.delTeacher(vm.project,1)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delPro">
             <span class="fui-trash"></span>
           </button>
         </li>
         <li class="list-group-item">
-          Asistente: {{vm.project.assistant}}
-          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addAsi">
+          Asistente: {{vm.assistant.name}} {{vm.assistant.surname}} {{vm.assistant.secondSurname}}
+          <button ng-click="vm.addAssistant()" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addAsi" data-toggle="modal" data-target="#list-Modal">
             <span class="fui-plus"></span>
           </button>
-          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delAsi">
+          <button ng-click="vm.delTeacher2(vm.project,2)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delAsi">
             <span class="fui-trash"></span>
           </button>
         </li>
@@ -30,3 +30,34 @@
     </div>
   </div>
 </div>
+
+
+<!-- Modal -->
+<div id="list-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>Lista de profesores</h4>
+    </div>
+    <div class="modal-body">
+      <ul>
+        <li class="list-group-item" ng-repeat="file in filesCtrl.projectFiles track by $index">
+          {{file.name}}
+          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
+            <span class="fui-check"></span>
+          </button>
+        </li>
+        <li class="list-group-item">Profesor quemado<button class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-check"></span></button></li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <div class="unModal-footer">
+        <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+    </div><!--FinModal-Content-->
+  </div><!--FinModal-Dialog-->
+</div><!--FinModal-->
