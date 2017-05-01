@@ -1,12 +1,12 @@
 (function(){
   'use strict';
   angular.module('cshApp')
-    .controller('assignTeachersController', assignTeachersController)
+    .controller('assignStudents', assignStudents)
     .filter('startFrom', pagination);
 
-    assignTeachersController.$inject = ['$q','$stateParams','projectService'];
+    assignStudents.$inject = ['$q','$stateParams','projectService'];
 
-    function assignTeachersController ($q, $stateParams, projectService) {
+    function assignStudents ($q, $stateParams, projectService) {
       var vm = this;
       vm.project = {};    //proyecto actual
       vm.addPro=false;    //btn agregar prof.encargado
