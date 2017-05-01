@@ -7,7 +7,7 @@
     <div class="panel-body">
       <ul>
         <li class="list-group-item">
-          Encargado: {{vm.project.professor}}
+          Encargado: {{vm.professor.name}} {{vm.professor.surname}} {{vm.professor.secondSurname}}
           <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addPro">
             <span class="fui-plus"></span>
           </button>
@@ -16,7 +16,7 @@
           </button>
         </li>
         <li class="list-group-item">
-          Asistente: {{vm.project.assistant}}
+          Asistente: {{vm.assistant.name}}
           <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addAsi">
             <span class="fui-plus"></span>
           </button>

@@ -50,6 +50,7 @@
         }else{
           vm.addAsi=false;
           vm.delAsi=true;
+          vm.fetchAssistant();
         }
       }
 
