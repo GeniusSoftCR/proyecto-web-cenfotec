@@ -66,13 +66,28 @@
 		.state('main.profile',{
 			url:'/perfil',
 		    css: './css/profile.style.css',
-			templateUrl: './components/users/profile/profile.view.html',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./components/users/profile/profile.controller.js')
+	          	return $ocLazyLoad.load([	          			          		
+	          		'./components/users/profile/profile.controller.js',
+	          		'./components/users/profile/timer/timer.controller.js'   		          		
+	          	])
 	          }]
-		    },			
+		    },
+		    views:{
+		    	'':{
+		    		templateUrl: './components/users/profile/profile.view.html',
+				    controller:'profileController',
+				    controllerAs:'vm'	
+		    	},
+		    	'timer@main.profile':{
+		    		templateUrl: './components/users/profile/timer/timer.view.html',
+    				controller: 'timerController',
+    				controllerAs:'vm'
+		    	}
+		    }		
 		})
+			
 		.state('main.projects',{
 			url:'/proyectos',
 			resolve: {  
