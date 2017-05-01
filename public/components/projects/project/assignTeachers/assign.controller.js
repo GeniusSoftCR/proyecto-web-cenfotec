@@ -60,6 +60,8 @@
         projectService.updateProject(project).then(function(res){
           console.log("Profesor eliminado");
         });
+        $('#retroMsg-Modal').modal('show');
+        vm.msg="Profesor eliminado del proyecto"
         init();
       }
       //eliminar el profesor encargado
@@ -74,6 +76,7 @@
         });
         $('#list-Modal').modal('hide');
         $('#retroMsg-Modal').modal('show');
+        vm.msg="Profesor asignado al proyecto"
         init();
       }
 
