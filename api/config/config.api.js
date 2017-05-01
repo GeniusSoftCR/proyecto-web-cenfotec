@@ -4,7 +4,7 @@ var express = require('express'),
 	//////////////////////////////
 	Schema = mongoose.Schema,
 	//////////////////////////////
-	degree = ['technical', 'diplomat', 'bachelor', 'bachelorsDegree', 'mastersDegree'];
+	degree = ['Técnico', 'Diplomado', 'Bachillerato', 'Licenciatura', 'Maestría'];
 
 var configSchema = new Schema({
 	code :   {type: String, required: true, unique: true},
