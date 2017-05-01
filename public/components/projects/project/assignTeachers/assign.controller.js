@@ -26,7 +26,6 @@
         if(vm.project.professor==null || vm.project.professor==undefined){
           vm.addPro=true;
           vm.delPro=false;
-          console.log(vm.project.professor);
         }else{
           vm.addPro=false;
           vm.delPro=true;
@@ -34,7 +33,6 @@
         if(vm.project.assistant==null || vm.project.assistant==undefined){
           vm.addAsi=true;
           vm.delAsi=false;
-          console.log(vm.project.assistant);
         }else{
           vm.addAsi=false;
           vm.delAsi=true;
