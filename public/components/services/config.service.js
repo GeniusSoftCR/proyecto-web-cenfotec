@@ -18,7 +18,6 @@
 		function _addCarrer(newCareer){
 			return $http.post('http://localhost:3000/api/config/addCareer', newCareer);
 		};
-
 		function _getCarrers(){
 			return $http.get('http://localhost:3000/api/config/getCareers');
 		};
