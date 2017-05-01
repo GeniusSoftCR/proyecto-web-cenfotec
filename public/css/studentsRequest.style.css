@@ -14,7 +14,7 @@ body{
 	}
 
 input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty{ 
-	border: 1px solid #D25349; 
+	border: 2px solid #D25349; 
 }
 
 input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty{ 
