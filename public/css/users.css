@@ -114,12 +114,26 @@ input{
 }
 
 
-.thanks {
+.thanks{
   margin: 0 auto;
   width: 600px;
   background: #15ae0c;
   color: #fff;
-  margin-top: -100px;
+  margin-top: -500px;
+  border-radius: 11px;
+  z-index: 1;
+  text-align: center;
+  transition: background .8s;
+  margin-bottom: 20px;
+  padding: 3px;
+  font-size: 6px;
+}
+.thanks2{
+  margin: 0 auto;
+  width: 600px;
+  background: #15ae0c;
+  color: #fff;
+  margin-top: -115px;
   border-radius: 11px;
   z-index: 1;
   text-align: center;
@@ -142,4 +156,52 @@ button{
 
 #btnRegisterProf{
   margin-top: 12px;
+}
+
+div .listUsers{
+  padding-bottom: 4%;
+  font-size: 20px;
+  font-weight: bold;
+   font-family: 'montserrat';
+}
+
+#list{
+  height: 550px;
+  font-family: 'montserrat';
+}
+
+#selectUsers{
+  border: 2px solid gray;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+thead{
+  background-color: #FBB803;
+  border-radius: 3px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+}
+
+tbody, th{
+  font-size: 16px;
+
+  text-align: center;
+}
+
+#colorWhite{
+    font-size: 1.3em;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+}
+.modal-body p{
+    color: #000;
+    font-size: 1em;
+}
+
+#myScrollspy {
+  height:200px;
+  overflow-y: scroll;
 }

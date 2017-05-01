@@ -11,9 +11,15 @@
 		var publicApi = {
 			addProject: _addProject,
 			getProjects: _getProjects,
+			getAnotations: _getAnotations,
 			getProjectsByTeacher: _getProjectsByTeacher,
-        	changeRequestState : _changeProjectsState
-		}
+        	changeRequestState : _changeProjectsState,
+        	addAnotation : _addAnotation
+		};
+
+
+
+
 		return publicApi;
 		//guarda las solicitudes de proyectos
 		function _addProject(newProject){
@@ -24,8 +30,11 @@
 	    //   return $http.get('http://localhost:3000/api/projects/load');
 	    // }
 	    function _getProjects(filter){
-	      return $http.put('http://localhost:3000/api/projects/load',filter);
+	      	return $http.put('http://localhost:3000/api/projects/load',filter).then(function (res) {
+	        	return res.data;
+        	});      
 	    }
+
 	    function _getProjectsByTeacher(filter){
 	      return $http.put('http://localhost:3000/api/projects/byTeacher',filter);
 	    }
@@ -36,5 +45,17 @@
 	      request.state=newState;
 	      return $http.put('http://localhost:3000/api/projects/update',request);      
 	    }
-	}
-})()
+
+	    function _getAnotations(filter){
+	      return $http.get('http://localhost:3000/api/projects/add/anotation',filter);
+	    }
+
+	    function _addAnotation(newAnotation){
+			return $http.post('http://localhost:3000/api/projects/add/anotation',newAnotation);
+		}
+/*
+	    function _getAnotations(filter){
+	      return $http.post('http://localhost:3000/api/projects/anotations');
+	    }
+*/	}
+})();
