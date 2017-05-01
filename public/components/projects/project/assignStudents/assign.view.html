@@ -22,9 +22,18 @@
                 <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
               </div>
               <div class="modal-body">
-				<h2>Lista de estudiantes</h2>
-				<div ng-repeat="student in vm.students">
-					
+				<div>
+					<div class="form-group">
+        				<input class="form-control" type="text" placeholder="Buscar...." ng-model="vm.taskSearch">
+      				</div>
+					<ul>
+						<li class="list-group-item" ng-repeat="student in vm.students">
+          					{{student.name}} {{student.surname}}
+          					<button ng-click="vm.addStudent(vm.project,vm.kind,student.idNum)" class="btn btn-sm btn-embossed btn-danger pull-right">
+            					<span class="fui-check"></span>
+          					</button>
+        				</li>
+					</ul>
 				</div>  
               </div>
             </div>

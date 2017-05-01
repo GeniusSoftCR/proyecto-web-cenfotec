@@ -15,13 +15,8 @@
     vm.del = false;
 
     //traer lista de esudiantes
-    /*vm.students = userService.getUsers({role:"student"}).then(function (res) {
-      vm.students=res.data;
-      console.log(vm.students.idNum);
-    });*/
-
-    //traer lista de esudiantes
-    userService.getUsers({"role":"student"}).then(function (res) {
+    //{ $or: [ { <expression1> }, { <expression2> }, ... , { <expressionN> } ] }
+    userService.getUsers({"role":"student", "state":["active" ,"eligible"]}).then(function (res) {
       vm.students = res.data;
       init();
     });
