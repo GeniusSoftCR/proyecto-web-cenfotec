@@ -3,9 +3,9 @@
   angular.module('cshApp')
     .controller('assignTeachersController', assignTeachersController);
 
-    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService'];
+    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService','SessionService'];
 
-    function assignTeachersController ($q, $stateParams, projectService, userService) {
+    function assignTeachersController ($q, $stateParams, projectService, userService,SessionService) {
       var vm = this;
       vm.project = {};    //proyecto actual
       vm.addPro=false;    //btn agregar prof.encargado
@@ -60,6 +60,8 @@
         projectService.updateProject(project).then(function(res){
           console.log("Profesor eliminado");
         });
+        $('#retroMsg-Modal').modal('show');
+        vm.msg="Profesor eliminado del proyecto"
         init();
       }
       //eliminar el profesor encargado
@@ -74,6 +76,7 @@
         });
         $('#list-Modal').modal('hide');
         $('#retroMsg-Modal').modal('show');
+        vm.msg="Profesor asignado al proyecto"
         init();
       }
 
@@ -93,6 +96,13 @@
           vm.addAsi=false;
           vm.delAsi=true;
           vm.fetchAssistant();
+        }
+        if( (SessionService.session.role=="professor") && (SessionService.session.idNum!=vm.project.professor) ){
+          //le impide al usuario profesor ASISTENTE la función de agregar profesores
+          vm.addPro=false;
+          vm.delPro=false;
+          vm.addAsi=false;
+          vm.delAsi=false;
         }
       }
 
