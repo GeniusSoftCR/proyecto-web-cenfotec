@@ -107,10 +107,10 @@ router.post('/projects/add/anotation', function(req, res, next){
         	console.log(res.json);
     	
     	}else{
-        	projects.anotations.push(projects.anotations);
+        	projects.push(projects.anotations);
         	project.save( function(err, data){
 	            if (err) {
-	      			res.json({error:data, success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
+	      			res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
 	    		}else{
 	      			res.json({success: true, message: 'Anotación realizada'});
 	    		};

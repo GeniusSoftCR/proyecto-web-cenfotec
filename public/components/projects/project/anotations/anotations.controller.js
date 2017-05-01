@@ -10,7 +10,7 @@
       var vm = this;
       vm.project = {};
       vm.user = AuthService.getAuthUser();
-      vm.anotation = {};
+      //vm.anotation = {};
 
 
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
