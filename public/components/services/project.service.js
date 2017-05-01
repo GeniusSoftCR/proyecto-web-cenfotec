@@ -13,6 +13,7 @@
 			getProjects: _getProjects,
 			getAnotations: _getAnotations,
 			getProjectsByTeacher: _getProjectsByTeacher,
+			updateProject: _updateProject,
         	changeRequestState : _changeProjectsState,
         	addAnotation : _addAnotation
 		};
@@ -41,6 +42,10 @@
 	    //cambia el estado a aprobado o rechazado según el parámetro
 	    function _changeProjectsState(request,newState){
 	      request.state=newState;
+	      return $http.put('http://localhost:3000/api/projects/update',request);      
+	    }
+	    //posiblemente fusione el _changeProjectsState con el _updateProject
+	    function _updateProject(request){
 	      return $http.put('http://localhost:3000/api/projects/update',request);      
 	    }
 

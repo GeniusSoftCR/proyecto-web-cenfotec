@@ -33,11 +33,17 @@
         });
       }
       //eliminar el profesor encargado
-      vm.delProffesor= function(){
-        vm.project.professor=undefined;
-        userService.updateProffesor(vm.project).then(function(res){
-          console.log("Profesor encargado eliminado" + res.data);
+      vm.delTeacher= function(project,kind){
+        if(kind==1){
+          project.professor=undefined;
+        }else{
+          project.assitant=undefined;
+          console.log(project.assitant);
+        }
+        projectService.updateProject(project).then(function(res){
+          console.log("Profesor eliminado" + res.data);
         });
+        init();
       }
 
 
