@@ -62,21 +62,32 @@ UsersSchema.pre('save', function(next) {
 });
 
 UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-        if (err) return cb(err);
-        cb(null, isMatch);
-    });
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+      if (err) return cb(err);
+      cb(null, isMatch);
+  });
 };
 
 var User = mongoose.model('User', UsersSchema);
+
+router.put('/user/track-time', function(req, res, next) {
+  var user = req.body;
+  var io = req.io;
+  io.emit('timeTrack', { msg: "PUTOMOOOON" });
+  res.json({"data":"GO"});
+/*  User.findOne(req.body._id).then(function(data){
+      res.json({"data":"GO"});
+      io.emit('timeTrack', { msg: "PUTOMOOOON" });
+  });*/
+});
 
 router.put('/user/login', function(req, res, next) {
   var username = req.body.username || '';
   var password = req.body.password || '';
 
-  // if (username == '' || password == '') {
-  //  res.json({"error":"Datos invalidos"});
-  // }
+  if (username == '' || password == '') {
+    res.json({"error":"Datos invalidos"});
+  }
 
   User.findOne({username: username}, function(err, user) {
     if (err) throw err;
@@ -118,20 +129,6 @@ router.put('/user/login', function(req, res, next) {
     // test a matching password   
   });  
 });
-//API General
-
-router.put('/foo', function(req, res) {
-    /* 
-      do stuff to update the foo resource 
-      ...
-     */
-     // foo = 'foo test';
-
-      res.json(true);
-
-    // now broadcast the updated foo..
-      req.io.emit('message', { msg: 'Hello from API' }); 
-});
 
 // API method -> return ALL users 
 router.get('/users', function(req, res, next) {
@@ -159,15 +156,6 @@ router.put('/user/students/update', function(req, res, next) {
     res.json({success:true,msg:'Se ha actualizado correctamente.'});
   });
 });
-//procesar solicitudes de estudiantes
-router.put('/user/students/trackTime', function(req, res, next) {
-  User.find().then(function(data){
-
-
-
-  });
-  // req.io.emit('timeTracker', { msg: 'Hello from API' }); 
-});
 
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
@@ -190,9 +178,7 @@ router.post('/user/add', function(req, res, next) {
     case 'admin' || 'assistant':
       user.jobPosition = req.body.jobPosition;
       break;
-  }
-  
-  console.log(user)  
+  };
 
   user.save(function(err){
     if (err) {

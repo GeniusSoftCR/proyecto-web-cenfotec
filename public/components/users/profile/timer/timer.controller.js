@@ -4,25 +4,55 @@
 	angular.module('cshApp')
 	.controller('timerController', timerController);
 
-	timerController.$inject = ['$q','$interval','AuthService','projectService'];
+	timerController.$inject = ['$q','$interval','AuthService','projectService','userService'];
 
- 	function timerController ($q,$interval,AuthService,projectService){
-	
- 		//vm = view model
-		var vm = this;
+ 	function timerController($q,$interval,AuthService,projectService,userService){
+
+		///////////////////////////////////////////////////////////////
+		///// + PRIVATE +/////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////
+		var projects 	= {};
+		var user 		= {};
+		var fetchData 	= _fetchData();	
+		var syncVm 	= _syncVm;
+
+		$q.all([
+			
+
+		])
+
+
+		function _fetchData() {
+
+			var data = [_proyectsPromise];
+
+			function _proyectsPromise() {
+				return projectService.getProjects({students:{_id:user._id}})
+			}
+
+			// projects = res.data;
+			// syncVm();
+
+
+			user =  AuthService.getAuthUser();
+			projectService.getProjects({students:{_id:user._id}}).then(function (res) {
+				projects = res.data;
+				syncVm();
+			});
+		};
+
 		///////////////////////////////////////////////////////////////
 		///// + VM DEPENDENCIES && DECLARATIONS +/////////////////////
 		/////////////////////////////////////////////////////////////
-		vm.user = AuthService.getAuthUser();
 
+		//vm = view modal (like $scope)
+		var vm = this;
 
-		projectService.getProjects({students:{_id:vm.user._id}}).then(function (res) {
-			$q.when(res).then(function (err) {
+		function _syncVm() {
+			vm.user 	= user || {};
+			vm.projects = projects || {};
+		}
 
-				console.log(res)
-				vm.projects = res.data;
-			});
-		});
 
 		//////////////////////////////////////////////////////////////
 		///// + DEFAULTS +///////////////////////////////////////////
@@ -35,11 +65,13 @@
 		vm.showCero = true;
 		vm.counting = false;
 		////// - string /////////////
-		vm.time.hour = '0';
-		vm.time.min = '0';
-		vm.time.sec='0';
+		vm.time.hours = '0';
+		vm.time.mins = '0';
+		vm.time.secs='0';
 		////////////////////////////////+ END DEAFULTS +/////
 		////////////////////////////////////////////////////
+
+
 
 		///////////////////////////////////////////////////////////////
 		///// + PUBLIC FUNCTIONS +////////////////////////////////////
@@ -50,6 +82,10 @@
 		//-projects
 		vm.pickProject 	= _pickProject;
 		vm.setProject 	= _setProject;
+
+
+
+
 		vm.msg = function () {
 			return 'hello';
 		}
@@ -57,28 +93,34 @@
 
 		function _startCount() {
 			//private\
-			var pulseTime = 1000; // 1000 = 1 seg
+			var pulseTime = 1; // 1000 = 1 seg
+			var track = _track;
+			vm.counting = true;	
 
-			//public
-			vm.counting = true;
+			$interval(_counter,pulseTime);			
 
-			$interval(_counter,pulseTime)
-
+			//private
+			function _track(obj) {
+				console.log(obj);
+			}
 			function _counter () 
-			{
-				if (vm.time.sec >= '9') {vm.showCero = false;}else{vm.showCero = true;}
+			{			
 
-				vm.time.sec++
+				if (vm.time.secs >= '9') {vm.showCero = false;}else{vm.showCero = true;}
 
-				if (vm.time.sec == '60') {
-					vm.time.sec = '0';
-					vm.time.min++;
+				vm.time.secs++
+
+				if (vm.time.secs == '60') {
+					vm.time.secs = 0;
+					vm.time.mins++;
+					track(vm.time);
 				};				
 
-				if (vm.time.min == '60') {
-					vm.time.hour++;
-					vm.time.min = '00';
-				};
+				if (vm.time.mins == '60') {
+					vm.time.hours++;
+					vm.time.mins = 0;
+					track(vm.time);
+				};				
 			};
 		};
 		function _stopCount() {

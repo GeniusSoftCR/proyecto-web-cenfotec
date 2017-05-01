@@ -37,7 +37,7 @@
     }
 
     function _trackTime(obj) {
-      return $http.put('http://localhost:3000/api/users/search',filter);
+      return $http.put('http://localhost:3000/api/user/students/trackTime',obj);
     } 
 
     //procesa solicitudes de estudiantes
