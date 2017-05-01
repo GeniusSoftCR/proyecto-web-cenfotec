@@ -4,12 +4,13 @@
 	.controller('profileController', profileController);	
 	
 
-	profileController.$inject = ['$stateParams'];
+	profileController.$inject = ['$stateParams','AuthService'];
 
-	function profileController ($stateParams) {
-		this.user = {};
-
-		this.user.username = $stateParams.username;
-		
+	function profileController ($stateParams,AuthService) {
+		var vm = this;
+		vm.user = {};
+		vm.user = AuthService.getAuthUser();
+		console.log(vm.user)
+		//vm.user.username = $stateParams.username;		
 	};
 })();

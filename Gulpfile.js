@@ -18,8 +18,6 @@ gulp.task('connect', function () {
 // Preprocesador sass
 gulp.task('css', function () {
   gulp.src('./public/css/sass/generalStyles.scss')
-
-
     // .pipe(sass({ use: nib() }))
     // .pipe(gulp.dest('./public/css'))
 
@@ -30,12 +28,12 @@ gulp.src('./public/css/*.css')
 })
 
 gulp.task('html', function () {
-    gulp.src('./public/components/**/*.html')
+    gulp.src('./public/components/*.html')
     .pipe(connect.reload())
 })
 
 gulp.task('js', function () {
-  gulp.src('./public/components/**/*.html')
+  gulp.src('./public/components/*.js')
     .pipe(connect.reload())
 })
 
