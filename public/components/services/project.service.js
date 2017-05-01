@@ -51,7 +51,7 @@
 	    }
 
 	    function _addAnotation(newAnotation){
-			return $http.post('http://localhost:3000/api/projects/add/anotation', newAnotation);
+			return $http.post('http://localhost:3000/api/projects/add/anotation',newAnotation);
 		}
 /*
 	    function _getAnotations(filter){
