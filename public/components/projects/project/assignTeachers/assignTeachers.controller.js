@@ -23,7 +23,7 @@
 
 
       function init() {
-        if(vm.project.professor==null){
+        if(vm.project.professor==null || vm.project.professor==undefined){
           vm.addPro=true;
           vm.delPro=false;
           console.log(vm.project.professor);
@@ -31,7 +31,7 @@
           vm.addPro=false;
           vm.delPro=true;
         }
-        if(vm.project.assistant==null){
+        if(vm.project.assistant==null || vm.project.assistant==undefined){
           vm.addAsi=true;
           vm.delAsi=false;
           console.log(vm.project.assistant);
