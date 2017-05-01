@@ -37,6 +37,7 @@
             vm.teachers=res.data;
             console.log(vm.teachers.idNum);
         });
+        vm.retro=false;
       }
       //funcionalidad al abrir el modal
       vm.viewRequest= function(kind){
@@ -71,6 +72,8 @@
         projectService.updateProject(project).then(function(res){
           console.log("Profesor agregado");
         });
+
+        
         init();
       }
 
