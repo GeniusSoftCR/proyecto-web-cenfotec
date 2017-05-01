@@ -30,7 +30,9 @@
 	    //   return $http.get('http://localhost:3000/api/projects/load');
 	    // }
 	    function _getProjects(filter){
-	      	return $http.put('http://localhost:3000/api/projects/load',filter);  
+	      	return $http.put('http://localhost:3000/api/projects/load',filter).then(function (res) {
+	        	return res.data;
+        	});      
 	    }
 
 	    function _getProjectsByTeacher(filter){
