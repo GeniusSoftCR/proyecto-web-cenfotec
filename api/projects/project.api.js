@@ -3,8 +3,10 @@ var express = require('express'),
 	mongoose = require('mongoose'),
 	//////////////////////////////
 	Schema = mongoose.Schema,
+	ObjectId = Schema.ObjectId;
 	//////////////////////////////
 	states = ['inRevision', 'aproved', 'rejected', 'inProcess', 'ended'];
+
 
 var projectSchema = new Schema({
 	name :        {type: String, required: true},
@@ -20,12 +22,29 @@ var projectSchema = new Schema({
 					resume:       {type: String}
 				  },
 	images:       [{url : {type: String}}],
+
 	////////////////////////////////////////////
 	students:     {type: Array, default: undefined},
 	professor:    {type: String, default: undefined},
 	assistant:    {type: String, default: undefined},
-	rejectReason: {type: String, default: undefined}
+	rejectReason: {type: String, default: undefined},
+	anotations:[
+		{
+			author:		{type:ObjectId},
+			date:		{type: Date, default: Date.now }			
+			description:{type:String},
+			tittle:		{type:String}
 
+		}
+	],
+	files:[
+		{
+			author:	{type:ObjectId},
+			date:	{type: Date, default: Date.now }			
+			url:	{type:String},
+			name:	{type:String}
+		}
+	],
 }, {collection : 'projects'});
 
 var Project = mongoose.model('Project', projectSchema);
