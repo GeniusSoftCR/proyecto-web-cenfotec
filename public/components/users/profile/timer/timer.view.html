@@ -18,9 +18,9 @@
 							<span ng-hide="vm.taskSearchState">Seleccionar proyecto</span>
 							<span ng-show="vm.taskSearchState"><span class="fa fa-ban"></span> Cancelar </span>
 						</span>
-						<span ng-if="vm.project.name">
+						<span ng-show="vm.project.name">
 							{{vm.project.name}}
-							<span class="fa fa-search" ></span>
+							<span class="fa fa-check" ></span>
 						</span>
 						
 					</button>
@@ -48,7 +48,7 @@
 
 				<li class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects | filter:{name:vm.taskSearch}">					
 					<span>{{project.name}}</span>
-					<button class="btn btn-sm btn-embossed btn-danger pull-right" type="button" data-toggle="collapse" data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-click="vm.setProject(project._id)">Seleccionar</button>	
+					<button class="btn btn-sm btn-embossed btn-danger pull-right" type="button" data-toggle="collapse" data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-click="vm.setProject(project._id)">Seleccionar</button>
 				</li>			
 				</ul>
 
