@@ -7,12 +7,6 @@
 	mainController.$inject = ['$location','$timeout','AuthService'];
 
  	function mainController ($location,$timeout,AuthService){
-
- 		if(AuthService.isAuth()){
- 			$location.path('/inicio/perfil');
- 		}else{
- 			$location.path('/entrar'); 			
- 		};
 	
  		//vm = view model
 		var vm = this;
