@@ -36,11 +36,10 @@
       vm.delTeacher= function(project,kind){
         if(kind==1){
           project.professor=null;
-          console.log("1");
-        }else{
+          console.log("va a eliminar al encargado");
+        }else if(kind==2){
           project.assitant=null;
-          console.log("2");
-          console.log(project.name);
+          console.log("va a eliminar al asistente");
         }
         projectService.updateProject(project).then(function(res){
           console.log("Profesor eliminado" + res.data);
@@ -50,6 +49,7 @@
 
 
       function init() {
+        console.log("entra al init");
         if(vm.project.professor==null || vm.project.professor==undefined){
           vm.addPro=true;
           vm.delPro=false;
