@@ -72,8 +72,8 @@
         projectService.updateProject(project).then(function(res){
           console.log("Profesor agregado");
         });
-
-        
+        $('#list-Modal').modal('hide');
+        $('#retroMsg-Modal').modal('show');
         init();
       }
 
