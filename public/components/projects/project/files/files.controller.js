@@ -1,35 +1,32 @@
-/*IMPORTANTE TRAER EL ID DEL PROYECTO POR LA URL Y NO QUEMARLO!!!*/
 (function(){
   angular
     .module('cshApp')
     .controller('filesController', filesController);
     
-    filesController.$inject = ['filepickerService'];
+    filesController.$inject = ['$q','$stateParams','projectService', 'userService','AuthService','filepickerService'];
 
-    function filesController(filepickerService){
+    function filesController($q, $stateParams, projectService, userService,AuthService, filepickerService){
       
       var vm = this;
-      /*setea el id del proyecto actual: DEBE VENIR DE LA URL*/
-      vm.projectID = 1;
+      vm.user = AuthService.getAuthUser();
+      vm.project = {};    //proyecto actual
       //2)copiará la lista de archivos del proyecto actual*
       vm.projectFiles = [];
       //archivo específico a borrar
       vm.file = {};
 
+      //trae el proyecto actual
+      projectService.getProjects({_id:$stateParams.id}).then(function (res) {
+          vm.project=res.data[0];
+          //init();
+      });
+
       /*ACTUALIZAR LISTA DE ARCHIVOS*/
       vm.loadProjectFiles= function(){
         //1)trae la lista con todos los proyectos
         //vm.projectsList = filesService.getProjects();
-
-        //recorre el arreglo de proyectos
-        for(i = 0; i < vm.projectsList.length; i++){
-          //se posiciona en el proyecto actual
-          if(vm.projectsList[i].id==vm.projectID){
-            //2)copia la lista de archivos del proyecto actual*
-            vm.projectFiles=vm.projectsList[i].files;
-          }
-        }
-
+        //copia la lista de archivos del proyecto actual*
+        vm.projectFiles=vm.project.files;
       }
       vm.loadProjectFiles();
 
@@ -57,17 +54,13 @@
         var newFile = {name:vm.fileName,url:vm.fileUrl};
         //2)agrega el objeto a la lista de archivos(temporal)
         vm.projectFiles.push(newFile);
-
-        //recorre el arreglo de proyectos
-        for(i = 0; i < vm.projectsList.length; i++){
-          //se posiciona en el proyecto actual
-          if(vm.projectsList[i].id==vm.projectID){
-            //3)actualiza la lista de archivos en el proyecto actual
-            vm.projectsList[i].files=vm.projectFiles;
-            //4)persiste los cambios en el localStorage
-            //filesService.setProjects(vm.projectsList);
-          }
-        }
+        //3)actualiza la lista de archivos en el proyecto actual
+        vm.project.files=vm.projectFiles;
+        //4)persiste los cambios en el back end
+        projectService.updateProject(vm.project).then(function(res){
+          console.log("Archivo agregado");
+        });
+        //filesService.setProjects(vm.projectsList);
 
         //refresca la lista de archivos
         vm.loadProjectFiles();
@@ -94,7 +87,7 @@
             //3)actualiza la lista de archivos en el proyecto actual
             vm.projectsList[i].files=vm.projectFiles;
             //4)persiste los cambios en el localStorage
-            //filesService.setProjects(vm.projectsList);
+            //projectService.setProjects(vm.projectsList);
           }
         }
 
