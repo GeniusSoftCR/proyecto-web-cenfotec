@@ -18,9 +18,8 @@
 					</span>							
 				</div>			
 			</div>
-			<div class="col-md-8" ng-if="vm.user.role == 'student'">
-				<div ui-view="timer"></div>
-				<div ui-view="timeHistory"></div>
+			<div class="col-md-8">
+				<div ng-if="vm.user.role == 'student'" ui-view="timer"></div>
 			</div>			
 		</div>
 	</div>
