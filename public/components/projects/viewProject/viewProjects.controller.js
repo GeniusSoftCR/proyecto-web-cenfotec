@@ -11,12 +11,10 @@
       vm.empty=false; //mensaje de lista vacía
       vm.asignedProjects = [];  //filtro de proyectos
       vm.teacher=SessionService.session.idNum;
-      console.log("idNum: "+vm.teacher);
 
       //FILTRA el select del view y FILTRA la lista de proyectos
       switch(SessionService.session.role){
         case "admin":
-          console.log("Admin"+ vm.projects);
         case "assistant":
           vm.test=true;
           projectService.getProjects({}).then(function(res){

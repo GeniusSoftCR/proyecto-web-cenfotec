@@ -1,39 +1,49 @@
-// (function(){
-//   'use strict';
-//   angular.module('cshApp')
-//     .controller('projectController', projectController);
-//     .filter('startFrom', pagination);
-
-//     projectController.$inject = ['$q','$stateParams','projectService'];
-
-//     function projectController ($q,$stateParams,projectService) {
-
-//       var vm = this;
-//       vm.project = {};
-//       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
-//         $q.when(res).then(function () {
-//           vm.project=res.data[0];
-//         })        
-//       });
-
-//     } 
-// })();
-
-
-
 (function(){
   'use strict';
   angular.module('cshApp')
     .controller('assignTeachersController', assignTeachersController)
     .filter('startFrom', pagination);
 
-    assignTeachersController.$inject = ['$q','$stateParams','projectService'];
+    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService'];
 
-    function assignTeachersController ($scope, $stateParams, projectService) {
+    function assignTeachersController ($q, $stateParams, projectService, userService) {
       var vm = this;
-      //guarda el id del proyecto que viene por parámetro
-      vm.projectId = $stateParams.proyectoId;
+      vm.project = {};    //proyecto actual
+      vm.addPro=false;    //btn agregar prof.encargado
+      vm.addAsi=false;    //btn agregar prof.asistente
+      vm.delPro=false;    //btn borrar prof.encargado
+      vm.delAsi=false;    //btn borrar prof.asistente
+
+
       //trae el proyecto actual
+      projectService.getProjects({_id:$stateParams.id}).then(function (res) {
+          vm.project=res.data[0];
+          init();
+      });
+
+
+      function init() {
+        if(vm.project.professor==null || vm.project.professor==undefined){
+          vm.addPro=true;
+          vm.delPro=false;
+        }else{
+          vm.addPro=false;
+          vm.delPro=true;
+          //trae el proyecto actual
+          userService.getProjects({_id:$stateParams.id}).then(function (res) {
+              vm.project=res.data[0];
+              init();
+          });
+        }
+        if(vm.project.assistant==null || vm.project.assistant==undefined){
+          vm.addAsi=true;
+          vm.delAsi=false;
+        }else{
+          vm.addAsi=false;
+          vm.delAsi=true;
+        }
+      }
+
       //var mainProject = watchProjectService.getProjectbyId(vm.projectId);
       //trae lista de profesores
       //var teachers = userProfessorService.getProfessors();

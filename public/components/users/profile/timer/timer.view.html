@@ -7,18 +7,20 @@
 			Minutos: {{vm.time.min}}.<span ng-if="vm.showCero">0</span>{{vm.time.sec}}
 		</span>
 	</div>
-	<div class="panel-body">
+	<div class="panel-body" >
 		<div class="card">
-
 			<ul class="list-group list-group-flush" id="proyects-list">
 				<li class="list-group-item ng-binding ng-scope">	
-					<button ng-click="vm.pickProject()" class="btn btn-sm btn-embossed btn-warning btn-wide" type="button" data-toggle="collapse"data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-model="vm.project"
+					<button ng-click="vm.pickProject()" class="btn btn-sm btn-embossed btn-warning btn-wide" type="button" data-toggle="collapse"data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" 
+
+						ng-model="vm.project"
 						>
-						<span ng-hide="vm.project.name">
+						<span ng-if="!vm.project">
 							<span ng-hide="vm.taskSearchState">Seleccionar proyecto</span>
 							<span ng-show="vm.taskSearchState"><span class="fa fa-ban"></span> Cancelar </span>
 						</span>
-						<span ng-show="vm.project.name">
+
+						<span ng-if="vm.project">
 							{{vm.project.name}}
 							<span class="fa fa-check" ></span>
 						</span>
@@ -44,7 +46,9 @@
 				</li>
 			</ul>
 			<div class="collapse" id="timer-collapse">
-				<ul class="list-group list-group-flush" id="proyects-list">
+				<ul class="list-group list-group-flush" id="proyects-list">	
+
+				<li  ng-if="!vm.projects" class="list-group-item ng-binding ng-scope"> No hay proyectos asignados</li>
 
 				<li class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects | filter:{name:vm.taskSearch}">					
 					<span>{{project.name}}</span>
