@@ -40,7 +40,7 @@
       <!-- Cedula Fisica o Juridica -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="#idCompany">Cédula de la empresa:</label>
-        <input type="text" ng-model="vm.project.client.idNum" id="idCompany" title="Cédula jurídica o física" class="form-control" name="nId" pattern="[0-9]+" maxlength="9" minlength="9" required>
+        <input type="text" ng-model="vm.project.client.idNum" id="idCompany" title="Cédula jurídica o física" class="form-control" name="nId" pattern="[0-9]+" maxlength="10" minlength="9" required>
         <div ng-messages="projectRequest.nId.$error" ng-hide="projectRequest.nId.$pristine" required>
           <div id="ng-message" ng-message="required" class="red darken-2 center-align white-text">La cédula es requerida</div>
           <div id="ng-message" ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números</div>
