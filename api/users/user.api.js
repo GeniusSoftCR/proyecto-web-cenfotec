@@ -139,7 +139,6 @@ router.put('/user', function(req, res, next) {
     res.json(users);
   });
 });
-
 //procesar solicitudes de estudiantes
 router.put('/user/students/update', function(req, res, next) {
   User.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){

@@ -2,11 +2,11 @@
   'use strict'
   angular
   .module('cshApp')
-  .controller('configController', configController);
+  .controller('addCareerController', addCareerController);
 
-  configController.$inject = ['$scope', 'Upload', 'configService', 'SessionService'];
+  addCareerController.$inject = ['$scope', 'Upload', 'configService', 'SessionService'];
 
-  function configController($scope, Upload, configService, SessionService){
+  function addCareerController($scope, Upload, configService, SessionService){
     var vm = this;
     vm.carrer = {};
     vm.modal = {};
