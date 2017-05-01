@@ -15,6 +15,7 @@
     var publicAPI = {
         addUser : _addUser,
         getUsers: _getUsers,
+        trackTime:_trackTime,
         changeRequestState : _changeStudentsState
     };
     return publicAPI;
@@ -34,6 +35,10 @@
     function _getUsers(filter){
       return $http.put('http://localhost:3000/api/users/search',filter);
     }
+
+    function _trackTime(obj) {
+      return $http.put('http://localhost:3000/api/users/search',filter);
+    } 
 
     //procesa solicitudes de estudiantes
     function _changeStudentsState(request,newState){

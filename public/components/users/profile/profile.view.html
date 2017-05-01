@@ -6,8 +6,9 @@
 	        </div>
 	    </div>
 	</div>
-	<div class="col-xs-8">
-		<div ng-if="vm.user.role == 'student'" ui-view="timer"></div>
+	<div class="col-xs-8" ng-if="vm.user.role == 'student'">
+		<div ui-view="timer"></div>
+		<div ui-view="timeHistory"></div>
 	</div>
 	
 

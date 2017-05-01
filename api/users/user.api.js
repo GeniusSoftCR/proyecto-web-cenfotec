@@ -159,6 +159,15 @@ router.put('/user/students/update', function(req, res, next) {
     res.json({success:true,msg:'Se ha actualizado correctamente.'});
   });
 });
+//procesar solicitudes de estudiantes
+router.put('/user/students/trackTime', function(req, res, next) {
+  User.find().then(function(data){
+
+
+
+  });
+  // req.io.emit('timeTracker', { msg: 'Hello from API' }); 
+});
 
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
