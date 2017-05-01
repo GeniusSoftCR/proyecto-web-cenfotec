@@ -35,10 +35,12 @@
       //eliminar el profesor encargado
       vm.delTeacher= function(project,kind){
         if(kind==1){
-          project.professor=undefined;
+          project.professor=null;
+          console.log("1");
         }else{
-          project.assitant=undefined;
-          console.log(project.assitant);
+          project.assitant=null;
+          console.log("2");
+          console.log(project.name);
         }
         projectService.updateProject(project).then(function(res){
           console.log("Profesor eliminado" + res.data);
