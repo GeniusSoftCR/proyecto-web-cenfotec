@@ -15,7 +15,6 @@
     //proyecto actual
     projectService.getProjects({_id:$stateParams.id}).then(function(res){
       vm.project = res.data[0];
-      //init();
     });
   };
 })();
