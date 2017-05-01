@@ -30,7 +30,13 @@
       vm.fetchAssistant= function(){
         userService.getUsers({idNum:vm.project.assistant}).then(function (res) {
             vm.assistant=res.data[0];
-            console.log(vm.assistant.idNum);
+        });
+      }
+      //trae los profesores
+      vm.fetchTeachers= function(){
+        userService.getUsers({role:"professor"}).then(function (res) {
+            vm.teachers=res.data;
+            console.log(vm.teachers.idNum);
         });
       }
       //eliminar el profesor encargado
@@ -41,7 +47,6 @@
           vm.professor.surname="";
           vm.professor.secondSurname="";
         }else if(kind==2){
-          console.log(project);
           project.assistant=null;
           vm.assistant.name="";
           vm.assistant.surname="";
@@ -70,6 +75,11 @@
           vm.delAsi=true;
           vm.fetchAssistant();
         }
+      }
+
+      //MOSTRAR DETALLE DE LA SOLICITUD
+      vm.viewRequest= function(kind){
+
       }
 
       //var mainProject = watchProjectService.getProjectbyId(vm.projectId);

@@ -8,7 +8,7 @@
       <ul>
         <li class="list-group-item">
           Encargado: {{vm.professor.name}} {{vm.professor.surname}} {{vm.professor.secondSurname}}
-          <button ng-click="vm.addProffesor()" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addPro" data-toggle="modal" data-target="#list-Modal">
+          <button ng-click="vm.viewRequest(1)" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addPro" data-toggle="modal" data-target="#list-Modal">
             <span class="fui-plus"></span>
           </button>
           <button ng-click="vm.delTeacher(vm.project,1)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delPro">
@@ -17,7 +17,7 @@
         </li>
         <li class="list-group-item">
           Asistente: {{vm.assistant.name}} {{vm.assistant.surname}} {{vm.assistant.secondSurname}}
-          <button ng-click="vm.addAssistant()" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addAsi" data-toggle="modal" data-target="#list-Modal">
+          <button ng-click="vm.viewRequest(2)" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addAsi" data-toggle="modal" data-target="#list-Modal">
             <span class="fui-plus"></span>
           </button>
           <button ng-click="vm.delTeacher(vm.project,2)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delAsi">
@@ -43,10 +43,13 @@
       <h4>Lista de profesores</h4>
     </div>
     <div class="modal-body">
+      <div class="form-group">
+        <input id="justification" class="form-control" type="text" placeholder="agregue una justificación" ng-model="vm.req.rejectReason">
+      </div>
       <ul>
-        <li class="list-group-item" ng-repeat="file in filesCtrl.projectFiles track by $index">
-          {{file.name}}
-          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
+        <li class="list-group-item" ng-repeat="teacher in vm.teachers track by $index">
+          {{teacher.name}} {{teacher.surname}}
+          <button ng-click="vm.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
             <span class="fui-check"></span>
           </button>
         </li>
