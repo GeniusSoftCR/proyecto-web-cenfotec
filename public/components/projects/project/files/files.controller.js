@@ -18,8 +18,16 @@
       //trae el proyecto actual
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
           vm.project=res.data[0];
-          //init();
+          console.log(vm.project.files.name);
+          console.log(vm.project.files.url);
+          console.log(vm.project.files);
+          init();
       });
+
+      function init() {
+        console.log(vm.project.files[0].name);
+        vm.projectFiles=vm.project.files;
+      }
 
       /*ACTUALIZAR LISTA DE ARCHIVOS*/
       vm.loadProjectFiles= function(){
@@ -27,6 +35,7 @@
         //vm.projectsList = filesService.getProjects();
         //copia la lista de archivos del proyecto actual*
         vm.projectFiles=vm.project.files;
+        console.log(vm.projectFiles);
       }
       vm.loadProjectFiles();
 
