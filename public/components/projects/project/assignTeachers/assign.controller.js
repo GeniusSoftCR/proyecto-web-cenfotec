@@ -2,7 +2,7 @@
   'use strict';
   angular.module('cshApp')
     .controller('assignTeachersController', assignTeachersController)
-    .filter('startFrom', pagination);
+    .filter('startFrom'/*, pagination*/);
 
     assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService'];
 
@@ -30,6 +30,7 @@
       vm.fetchAssistant= function(){
         userService.getUsers({idNum:vm.project.assistant}).then(function (res) {
             vm.assistant=res.data[0];
+            console.log(vm.assistant.idNum);
         });
       }
       //eliminar el profesor encargado
@@ -45,20 +46,6 @@
         }
         projectService.updateProject(project).then(function(res){
           console.log("Profesor eliminado");
-        });
-        init();
-      }
-
-      vm.delTeacher2= function(project,kind){
-        if(kind==2){
-          project.assitant=null;
-          vm.assitant.name="";
-          vm.assitant.surname="";
-          vm.assitant.secondSurname="";
-          console.log("va a eliminar al ASISTENTE");
-        }
-        projectService.updateProject(project).then(function(res){
-          console.log("Profesor eliminadoOOO");
         });
         init();
       }
