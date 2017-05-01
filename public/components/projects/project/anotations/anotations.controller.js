@@ -12,7 +12,7 @@
       vm.user = AuthService.getAuthUser();
 
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
-        vm.project=res[0];
+        vm.project=res.data[0];
         init();
       });    
 
