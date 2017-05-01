@@ -19,31 +19,38 @@
       });    
 
       function init(){
-        console.log(vm.project.name, vm.user.name);
         vm.anotations = vm.project.anotations;
       }
+
+    
+      vm.deleteAnotation= function(anotation_id){
+       init();
+
+
+      /*  angular.forEach(vm.project.anotations, deleteAnotation(value, key));*/
+
+      angular.forEach(vm.project.anotations, function(anotation, key){
       
-     /* vm.modalAnotation = false;
-      vm.extend = false;
-      
-      vm.showModal = function () {
-        vm.modalAnotation = true;
-      }
-      vm.closeModal = function () {
-        vm.modalAnotation = false;
+
+      if (anotation._id === anotation_id){
+        console.log(key);
+        console.log(vm.project.anotations[key]);
+
+        vm.project.anotations.splice(key,1);
+        }
+      });
+
+        projectService.updateProject(vm.project).then(function(res){
+        console.log("Anotación eliminada");
+        });
+
+        $('#retroMessge-Modal').modal('show');
+        vm.msg="Anotación eliminada del proyecto"
+        
+        init();
       }
 
-      vm.activeMenuIndex;
-      vm.showSubmenu = function (item) {
-        if(vm.activeParentIndex == item){
-            vm.activeParentIndex = "";
-        } else {
-            vm.activeParentIndex = item;
-        }
-      }
-      vm.isShowing = function(index) {
-          return vm.activeParentIndex === index;
-      };*/
+
       vm.save= function () {
         var newAnotation = {
           tittle : vm.tittle,
@@ -58,13 +65,31 @@
         projectService.updateProject(vm.project).then(function(res){
       
         });
+
+        $('#annotation-Modal').modal('hide');
+        $('#retroMessge-Modal').modal('show');
+        vm.msg="Anotacion agregada correctamente"
+
           vm.modalAnotation = false;
           vm.tittle = null;
           vm.description = null;
       };
 
 
+ /*   vm.deleteAnotation= function(project){
 
+          project.anotation=[];
+          vm.anotation.tittle="";
+          vm.anotation.description="";
+          vm.anotation.secondSurname="";
+
+        projectService.updateProject(project).then(function(res){
+          console.log("Profesor eliminado");
+        });
+        $('#retroMessage-Modal').modal('show');
+        vm.msg="Anotacion eliminada"
+        init();
+      }*/
 
     } 
 })();
