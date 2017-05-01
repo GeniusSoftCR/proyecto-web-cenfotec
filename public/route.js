@@ -121,7 +121,7 @@
 				load: ['$ocLazyLoad', function($ocLazyLoad) { 
 					return $ocLazyLoad.load([
 						'./components/projects/project/project.controller.js',
-						'./components/projects/project/assignTeachers/assignTeachers.controller.js',
+						'./components/projects/project/assignTeachers/assign.controller.js',
 						'./components/projects/project/anotations/anotations.controller.js',
 						'./components/projects/project/files/files.controller.js'
 					])
@@ -134,7 +134,7 @@
 					controllerAs: 'vm'
 				},
 		      	'teachers@main.project': {
-					templateUrl: 'components/projects/project/assignTeachers/assignTeachers.view.html',
+					templateUrl: 'components/projects/project/assignTeachers/assign.view.html',
 					controller: 'assignTeachersController',
 					controllerAs: 'vm'
 		      	},
