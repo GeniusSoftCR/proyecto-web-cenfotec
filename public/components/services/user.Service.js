@@ -40,6 +40,6 @@
       request.state=newState;
       return $http.put('http://localhost:3000/api/user/students/update',request);      
     }
-
+    
   }
 })();
