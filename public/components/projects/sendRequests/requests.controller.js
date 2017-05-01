@@ -16,7 +16,7 @@
     vm.pickFile = pickFile;
     vm.onSuccess = onSuccess;
 
-    //retroalimetacion de las imagenes
+    //En el input de Avatar muestra al lado de escoger, la imagen que se ha seleccionad
     $(function() {
       $(document).on('change', ':file', function() {
         var input = $(this),
@@ -26,15 +26,15 @@
       });
       $(document).ready( function() {
         $(':file').on('fileselect', function(event, numFiles, label) {
-            var input = $(this).parents('.input-group').find(':text'),
-                log = numFiles > 1 ? numFiles + ' files selected' : label;
-            if( input.length ) {
-              input.val(log);
-            }else{
-              if( log ) alert(log);
-            }
-          });
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+          if( input.length ) {
+            input.val(log);
+          } else {
+            if( log ) alert(log);
+          }
         });
+      });
     });
     //funcion que almacena el pdf
     function pickFile(){

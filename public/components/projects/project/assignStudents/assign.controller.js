@@ -10,8 +10,13 @@
   function assignStudents ($q, $stateParams, projectService, userServ) {
     var vm = this;
     vm.project = {};
-    vm.add=false;
-    vm.del=false;
+    vm.add = false;
+    vm.del = false;
 
+    //proyecto actual
+    projectService.getProjects({_id:$stateParams.id}).then(function(res){
+      vm.project = res.data[0];
+      init();
+    });
   };
 })();
