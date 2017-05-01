@@ -39,17 +39,29 @@
           vm.professor.name="";
           vm.professor.surname="";
           vm.professor.secondSurname="";
-          console.log("va a eliminar al encargado");
         }else if(kind==2){
           project.assitant=null;
           console.log("va a eliminar al asistente");
         }
         projectService.updateProject(project).then(function(res){
-          console.log("Profesor eliminado" + res.data);
+          console.log("Profesor eliminado");
         });
         init();
       }
 
+      vm.delTeacher2= function(project,kind){
+        if(kind==2){
+          project.assitant=null;
+          vm.assitant.name="";
+          vm.assitant.surname="";
+          vm.assitant.secondSurname="";
+          console.log("va a eliminar al ASISTENTE");
+        }
+        projectService.updateProject(project).then(function(res){
+          console.log("Profesor eliminadoOOO");
+        });
+        init();
+      }
 
       function init() {
         console.log("entra al init");
@@ -76,11 +88,11 @@
       //var teachers = userProfessorService.getProfessors();
       //disponibilidad para proyectos
 
-      vm.currentPage = 0;
-      vm.pageSize = 1;
-      vm.numberOfPages=function(){
-          return Math.ceil(vm.teachers.length/vm.pageSize);                
-      }
+      // vm.currentPage = 0;
+      // vm.pageSize = 1;
+      // vm.numberOfPages=function(){
+      //     return Math.ceil(vm.teachers.length/vm.pageSize);                
+      // }
       
       // vm.assignTeacher = function () {
       //   var teacherSelected = vm.assign.teacherChecked;
@@ -107,10 +119,10 @@
       // }
     }
 
-    function pagination () {
-      return function(input, start) {
-          start = +start; //parse to int
-          return input.slice(start);
-      }
-    }
+    // function pagination () {
+    //   return function(input, start) {
+    //       start = +start; //parse to int
+    //       return input.slice(start);
+    //   }
+    // }
 })();
