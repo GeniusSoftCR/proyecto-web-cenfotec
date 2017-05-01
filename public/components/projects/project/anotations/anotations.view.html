@@ -6,13 +6,13 @@
   <div id="annotations" class="panel-collapse collapse">
     <div class="panel-body">
       <li ng-repeat="anotation in vm.anotations" class="list-group-item">{{anotation.tittle}}
-        <button ng-click="vm.delete($index)" class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-trash"></span></button>
+        <button ng-click="vm.deleteAnotation(anotation._id)" class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-trash"></span></button>
         <button class="btn btn-sm btn-embossed btn-warning pull-right"><span class="fui-eye"></span></button>
         <!--PENDIENTE EL MOSTRAR-->
       </li>
     </div>
     <div class="panel-footer">
-      <button class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#annotation-Modal">Nueva Anotación</button>
+      <button class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#annotation-Modal">Agregar</button>
   </div>
 </div>
 <!--Fuera, coloco el modal-->
@@ -37,6 +37,7 @@
             <textarea name="descAnotation" class="form-control" cols="30" rows="10" ng-model="vm.description"></textarea>
           </div>
         </form>
+        <p ng-show="vm.retro" class="alert alert-success">Anotación agregada</p>
       </div>
     </div>
   <div class="modal-footer">
@@ -46,4 +47,26 @@
     </div>
   </div>
   </div>
+</div><!--FinModal-->
+
+<!-- Modal -->
+<div id="retroMessge-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>Atención</h4>
+    </div>
+    <div class="modal-body">
+      <p class="alert alert-success">{{vm.msg}}.</p>
+    </div>
+    <div class="modal-footer">
+      <div class="unModal-footer">
+        <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+    </div><!--FinModal-Content-->
+  </div><!--FinModal-Dialog-->
 </div><!--FinModal-->
