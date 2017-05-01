@@ -13,10 +13,16 @@
     vm.cloudObj = ImageService.getConfiguration();
     vm.send = false;
     vm.toSend = true;
-    vm.pickFile = pickFile;
+    vm.project.pickFile = pickFile;
     vm.onSuccess = onSuccess;
+    vm.loading = false;
+    vm.submitted = false;
+    vm.tosendBad = false;
+    vm.send = false;
+    vm.toSend = true;
+    vm.sendBad = false;
 
-    //retroalimetacion de las imagenes
+    //En el input de Avatar muestra al lado de escoger, la imagen que se ha seleccionad
     $(function() {
       $(document).on('change', ':file', function() {
         var input = $(this),
@@ -26,15 +32,15 @@
       });
       $(document).ready( function() {
         $(':file').on('fileselect', function(event, numFiles, label) {
-            var input = $(this).parents('.input-group').find(':text'),
-                log = numFiles > 1 ? numFiles + ' files selected' : label;
-            if( input.length ) {
-              input.val(log);
-            }else{
-              if( log ) alert(log);
-            }
-          });
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+          if(input.length) {
+            input.val(log);
+          }else{
+            if(log) alert(log);
+          }
         });
+      });
     });
     //funcion que almacena el pdf
     function pickFile(){
@@ -49,14 +55,16 @@
     };
     function onSuccess(Blob){
       console.log(Blob);
-      vm.projectFile = Blob.url;
+      vm.project.projectFile = Blob.url;
+      vm.loading = false;
+      vm.fileName = Blob.filename;
     };
     //funcion q almacena las imagenes
     vm.preSave = function(newProject){
         vm.cloudObj.data.file = document.getElementById("imageProjectRequest").files[0];
         if (vm.cloudObj.data.file) {
           Upload.upload(vm.cloudObj).success(function(data){
-            vm.save(newProject ,data.url);
+            vm.save(newProject, data.url);
           });
         }else{
           vm.save(newProject);

@@ -122,6 +122,7 @@
 					return $ocLazyLoad.load([
 						'./components/projects/project/project.controller.js',
 						'./components/projects/project/assignTeachers/assign.controller.js',
+						'./components/projects/project/assignStudents/assign.controller.js',
 						'./components/projects/project/anotations/anotations.controller.js',
 						'./components/projects/project/files/files.controller.js'
 					])
@@ -138,6 +139,11 @@
 					controller: 'assignTeachersController',
 					controllerAs: 'vm'
 		      	},
+		      	'students@main.project': {
+		      		templateUrl: './components/projects/project/assignStudents/assign.view.html',
+		      		controller: 'assignStudents',
+		      		controllerAs: 'vm'
+		      	},
 			    'anotaciones@main.project': {
 			    	templateUrl: './components/projects/project/anotations/anotations.view.html',
 			    	controller: 'projectAnotationsController',
@@ -148,11 +154,6 @@
 				// 	controller: 'filesController',
 				// 	controllerAs: 'filesCtrl'
 				// }
-		   //    	'estudiantes@watchProject': {
-		   //      	templateUrl: 'components/projects/project/assignStudents/assignStudents.projects.view.html',
-		   //      	controller: 'assignStudentsController',
-		   //      	controllerAs: 'assignStudentsCtrl'
-		   //    	},
 	    	}
 		})		
 		/*FIN*/
