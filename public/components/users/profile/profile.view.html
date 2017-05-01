@@ -1,26 +1,25 @@
 <div class="row">
 	<div class="col-md-12 col-lg-12">
 		<div class="row" id="profile-view">
-			<div class="col-md-1 user-profile">
+			<div class="col-md-4 user-profile">
 				<div class="profile">
 					<img class="avatar" ng-src="{{vm.user.avatar}}" alt="">
 					<!-- ../../imgs/users/stephbr.jpg -->
-				</div>				
+				</div>
+				<div class="row">
+					<h3>{{vm.user.username}}</h3>
+					<h6>{{vm.user.idNum}}</h6>
+					<h6>{{vm.user.name +" "+ vm.user.surname +" "+ vm.user.secondSurname }}</h6>
+					<h6>{{vm.user.email}}</h6>
+					<h6>{{vm.user.role}}</h6>
+					<span ng-if="vm.user.careers">
+						<h6>Carrera<span ng-if="vm.user.careers.lenght > 1">s</span>:</h6>
+						<p ng-repeat="career in vm.user.careers">-{{career}}</p>
+					</span>							
+				</div>			
 			</div>
-			<div class="col-md-3">
-				<h3>{{vm.user.username}}</h3>
-				<h6>{{vm.user.idNum}}</h6>
-				<h6>{{vm.user.name +" "+ vm.user.surname +" "+ vm.user.secondSurname }}</h6>
-				<h6>{{vm.user.email}}</h6>
-				<h6>{{vm.user.role}}</h6>
-				<span ng-if="vm.user.careers">
-					<h6>Carrera<span ng-if="vm.user.careers.lenght > 1">s</span>:</h6>
-					<p ng-repeat="career in vm.user.careers">-{{career}}</p>
-				</span>				
-			</div>
-
 			<div class="col-md-8">
-				<p>Insertar aqui</p>			
+				<div ui-view="timer"></div>
 			</div>			
 		</div>
 	</div>
