@@ -1,6 +1,6 @@
 <main>
   <div class="col-xs-12">
-    <div class="col-md-4 col-sm-12 col-xs-12">
+    <div class="col-md-5 col-sm-12 col-xs-12">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h2>Argregar nueva carrera</h2>
@@ -10,7 +10,7 @@
             <!-- Nombre de la carrera -->                        
             <div class="form-group col-md-12">
               <label for="carrerName">Nombre de Carrera:</label>
-              <input data-toggle="tooltip" title="Tooltip on bottom" type="text" ng-model="vm.carrer.name" id="carrerName" class="form-control" name="nameCareer" minlength="3" maxlength="40" required >
+              <input data-toggle="tooltip" title="Tooltip on bottom" type="text" ng-model="vm.carrer.name" id="carrerName" class="form-control" name="nameCareer" minlength="3" maxlength="60" required >
               <div id="ng-message" ng-messages="careerForm.nameCareer.$error" ng-hide="careerForm.nameCareer.$pristine" >
                 <div ng-message="required" ng-hide="careerForm.nameCareer.$pristine" class="red darken-2 center-align white-text"><p>El nombre de la carrera es requerido</p></div>
               </div>
@@ -21,6 +21,7 @@
               <input title="Ingrese el código de la carrera" type="text" ng-model="vm.carrer.code" id="carrerCode" class="form-control" name="carrerCode" pattern="\b[A-Z0-9]{2,}\b" minlength="3" maxlength="9" required >
               <div id="ng-message" ng-messages="careerForm.carrerCode.$error" ng-hide="careerForm.carrerCode.$pristine" >
                 <div ng-message="required" ng-hide="careerForm.carrerCode.$pristine" class="red darken-2 center-align white-text"><p>Este campo es requerido</p></div>
+                <div id="ng-message" ng-message="pattern" class="red darken-2 center-align white-text"><p>Favor ingresar únicamente mayúsculas</p></div>
               </div>
             </div>
             <!-- Grado de la carrera -->
@@ -36,7 +37,7 @@
               </select>
             </div>
             <!-- Boton -->
-            <div class="form-group col-md-12" style="display: block; text-align: center;">
+            <div class="form-group col-md-12" style="display: block; text-align: center; margin-top: 20px">
               <button type="submit" class="btn btn-warning btn-embossed" data-toggle="modal" data-target="#modal" ng-disabled="careerForm.$invalid" ng-click="careerForm.$setPristine()">Agregar</button>
             </div>
             <!-- Modal -->
