@@ -19,23 +19,27 @@
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
           vm.project=res.data[0];
           init();
-          console.log("idEncargado: "+vm.project.professor);
-          console.log("idEncargado: "+vm.project.assistant);
       });
-
-
+      //trae el profesor encargado
       vm.fetchProfessor= function(){
         userService.getUsers({idNum:vm.project.professor}).then(function (res) {
             vm.professor=res.data[0];
-            console.log("encargado: "+vm.professor.name);
         });
       }
+      //trae el profesor asistente
       vm.fetchAssistant= function(){
         userService.getUsers({idNum:vm.project.assistant}).then(function (res) {
             vm.assistant=res.data[0];
-            console.log("encargado: "+vm.assistant.name);
         });
       }
+      //eliminar el profesor encargado
+      vm.delProffesor= function(){
+        vm.project.professor=undefined;
+        userService.updateProffesor(vm.project).then(function(res){
+          console.log("Profesor encargado eliminado" + res.data);
+        });
+      }
+
 
       function init() {
         if(vm.project.professor==null || vm.project.professor==undefined){
