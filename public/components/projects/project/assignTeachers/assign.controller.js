@@ -19,19 +19,21 @@
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
           vm.project=res.data[0];
           init();
+          console.log("idEncargado: "+vm.project.professor);
+          console.log("idEncargado: "+vm.project.assistant);
       });
 
 
       vm.fetchProfessor= function(){
-        //trae el proyecto actual
         userService.getUsers({idNum:vm.project.professor}).then(function (res) {
             vm.professor=res.data[0];
+            console.log("encargado: "+vm.professor.name);
         });
       }
       vm.fetchAssistant= function(){
-        //trae el proyecto actual
         userService.getUsers({idNum:vm.project.assistant}).then(function (res) {
             vm.assistant=res.data[0];
+            console.log("encargado: "+vm.assistant.name);
         });
       }
 
