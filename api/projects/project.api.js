@@ -31,7 +31,7 @@ var projectSchema = new Schema({
 	anotations:[
 		{
 			author:		{type:ObjectId},
-			date:		{type: Date, default: Date.now }			
+			date:		{type: Date, default: Date.now },			
 			description:{type:String},
 			tittle:		{type:String}
 
@@ -40,11 +40,11 @@ var projectSchema = new Schema({
 	files:[
 		{
 			author:	{type:ObjectId},
-			date:	{type: Date, default: Date.now }			
+			date:	{type: Date, default: Date.now },		
 			url:	{type:String},
 			name:	{type:String}
 		}
-	],
+	]
 }, {collection : 'projects'});
 
 var Project = mongoose.model('Project', projectSchema);
