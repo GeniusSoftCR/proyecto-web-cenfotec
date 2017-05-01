@@ -152,15 +152,6 @@ router.put('/user', function(req, res, next) {
   });
 });
 
-//busca los usuarios estudiantes
-router.get('/users/students', function(req, res, next) {
-  req.io.sockets.emit('update', foo); 
-
-  User.find({'role':'student'||'client'}, function(err, users){
-    res.json(users);
-  });
-});
-
 //procesar solicitudes de estudiantes
 router.put('/user/students/update', function(req, res, next) {
   User.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
