@@ -1,13 +1,24 @@
 <div class="panel panel-default">
 	<div class="panel-heading">Lista de proyectos
-		<select class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
+		<!-- <select class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
       		<option value="" disabled="disabled">Seleccione un estado</option>
-	      	<!-- <option ng-show="vm.test" value="inRevision">En revisón</option> -->
 		    <option ng-show="vm.test" value="aproved">Aprobados</option>
 		    <option ng-show="vm.test" value="rejected">Rechazados</option>
 		    <option value="inProcess">En proceso</option>
 		    <option value="ended">Finalizados</option>
-	    </select>
+	    </select> -->
+      	<!-- <option ng-show="vm.test" value="inRevision">En revisón</option> -->
+	<form class="pull-right">
+		<div class="form-group">
+	      <select id="sltProjects" ng-model="vm.search" ng-change="vm.verify()" type="text" class="form-control">
+	        <option value="" disabled="disabled">Seleccione un estado</option>
+		    <option ng-show="vm.test" value="aproved">Aprobados</option>
+		    <option ng-show="vm.test" value="rejected">Rechazados</option>
+		    <option value="inProcess">En proceso</option>
+		    <option value="ended">Finalizados</option>
+	      </select>
+	    </div>
+   </form>
 	</div>
 	<div class="panel-body">
 		<!--mensaje para cuando no existen proyectos-->

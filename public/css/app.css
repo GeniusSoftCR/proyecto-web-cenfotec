@@ -245,3 +245,7 @@ a:hover, a:focus {
 .has-error{
   border-color: red;
 }
+
+#sltProjects {
+  height: 35px;
+}
