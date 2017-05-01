@@ -36,6 +36,9 @@
       vm.delTeacher= function(project,kind){
         if(kind==1){
           project.professor=null;
+          vm.professor.name="";
+          vm.professor.surname="";
+          vm.professor.secondSurname="";
           console.log("va a eliminar al encargado");
         }else if(kind==2){
           project.assitant=null;
