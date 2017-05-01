@@ -15,10 +15,6 @@
     var publicAPI = {
         addUser : _addUser,
         getUsers: _getUsers,
-        //getUsers: _getUsers,
-        //deleteUser : _deleteUser,
-        //updateUser : _updateUser,
-        getRequests : _getStudents,
         changeRequestState : _changeStudentsState
     };
     return publicAPI;
@@ -28,18 +24,18 @@
       return $http.post('http://localhost:3000/api/user/add', newUser);
     }
 
-     function _getUsers(){
-      return $http.get('http://localhost:3000/api/users');
+    //ALGUIEN ESTá USANDO ESTA???
+    // function _getUsers(){
+    //   return $http.get('http://localhost:3000/api/users');
+    // }
+    //*****************************************************
+
+    //con PUT traemos los usuarios bajo CUALQUIER CRITERIO
+    function _getUsers(filter){
+      return $http.put('http://localhost:3000/api/users/search',filter);
     }
 
-  
-
-    //trae la lista de estudiantes del back-end
-    function _getStudents(){
-      return $http.get('http://localhost:3000/api/users/students');
-    }
-    //actualiza el estado de los estudiantes
-    //cambia el estado a elegible o rechazado según el parámetro
+    //procesa solicitudes de estudiantes
     function _changeStudentsState(request,newState){
       request.state=newState;
       return $http.put('http://localhost:3000/api/user/students/update',request);      

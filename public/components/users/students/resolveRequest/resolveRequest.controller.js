@@ -22,7 +22,7 @@
         setTimeout(function(){$window.location.reload()},100)
       }
       vm.fetchRequestsList= function(){
-        userService.getRequests().then(function(res){
+        userService.getUsers({'role':'student'}).then(function(res){
           vm.requestsList = res.data;
         })
         vm.validate=false;
