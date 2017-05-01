@@ -79,6 +79,7 @@
 
       //MOSTRAR DETALLE DE LA SOLICITUD
       vm.viewRequest= function(kind){
+        vm.fetchTeachers();
 
       }
 
