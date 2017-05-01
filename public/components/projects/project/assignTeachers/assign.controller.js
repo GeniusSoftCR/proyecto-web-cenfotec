@@ -3,9 +3,9 @@
   angular.module('cshApp')
     .controller('assignTeachersController', assignTeachersController);
 
-    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService'];
+    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService','SessionService'];
 
-    function assignTeachersController ($q, $stateParams, projectService, userService) {
+    function assignTeachersController ($q, $stateParams, projectService, userService,SessionService) {
       var vm = this;
       vm.project = {};    //proyecto actual
       vm.addPro=false;    //btn agregar prof.encargado
@@ -84,9 +84,7 @@
         }else{
           vm.addPro=false;
           vm.delPro=true;
-
           vm.fetchProfessor();
-
         }
         if(vm.project.assistant==null || vm.project.assistant==undefined){
           vm.addAsi=true;
@@ -95,6 +93,13 @@
           vm.addAsi=false;
           vm.delAsi=true;
           vm.fetchAssistant();
+        }
+        if( (SessionService.session.role=="professor") && (SessionService.session.idNum!=vm.project.professor) ){
+          //le impide al usuario profesor ASISTENTE la función de agregar profesores
+          vm.addPro=false;
+          vm.delPro=false;
+          vm.addAsi=false;
+          vm.delAsi=false;
         }
       }
 
