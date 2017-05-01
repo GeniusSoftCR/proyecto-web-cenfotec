@@ -24,11 +24,17 @@
 
     //recibe el user enviado por el controlador y lo pasa al back-end
     function _addUser(newUser){
-      return $http.post('http://localhost:3000/api/user/add', newUser);
+      return $http.post('http://localhost:3000/api/users/search', newUser);
     }
 
-     function _getUsers(){
-      return $http.get('http://localhost:3000/api/users');
+    //ALGUIEN ESTÄ USANDO ESTA???
+    // function _getUsers(){
+    //   return $http.get('http://localhost:3000/api/users');
+    // }
+    //*****************************************************
+    //con PUT traemos los usuarios bajo CUALQUIER CRITERIO
+    function _getUsers(filter){
+      return $http.put('http://localhost:3000/api/users',filter);
     }
 
     //trae la lista de estudiantes del back-end
