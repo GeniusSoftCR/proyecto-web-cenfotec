@@ -9,5 +9,9 @@
 
   function assignStudents ($q, $stateParams, projectService, userServ) {
     var vm = this;
+    vm.project = {};
+    vm.add=false;
+    vm.del=false;
+
   };
 })();
