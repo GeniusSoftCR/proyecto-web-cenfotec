@@ -15,16 +15,10 @@
     vm.del = false;
 
     //traer lista de esudiantes
-    //{ $or: [ { <expression1> }, { <expression2> }, ... , { <expressionN> } ] }
     userService.getUsers({"role":"student", "state":["active" ,"eligible"]}).then(function (res) {
       vm.students = res.data;
       init();
     });
-
-      /*projectService.getProjects({_id:$stateParams.id}).then(function (res) {
-        vm.project=res.data[0];
-        init();
-      });*/
 
       function init(){
         console.log(vm.students);
