@@ -1,8 +1,7 @@
 (function(){
   'use strict';
   angular.module('cshApp')
-    .controller('assignTeachersController', assignTeachersController)
-    .filter('startFrom'/*, pagination*/);
+    .controller('assignTeachersController', assignTeachersController);
 
     assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService'];
 
@@ -38,6 +37,7 @@
             vm.teachers=res.data;
             console.log(vm.teachers.idNum);
         });
+        vm.retro=false;
       }
       //funcionalidad al abrir el modal
       vm.viewRequest= function(kind){
@@ -72,6 +72,8 @@
         projectService.updateProject(project).then(function(res){
           console.log("Profesor agregado");
         });
+        $('#list-Modal').modal('hide');
+        $('#retroMsg-Modal').modal('show');
         init();
       }
 
@@ -94,47 +96,6 @@
         }
       }
 
-
-      //var mainProject = watchProjectService.getProjectbyId(vm.projectId);
-      //trae lista de profesores
-      //var teachers = userProfessorService.getProfessors();
-      //disponibilidad para proyectos
-
-      // vm.currentPage = 0;
-      // vm.pageSize = 1;
-      // vm.numberOfPages=function(){
-      //     return Math.ceil(vm.teachers.length/vm.pageSize);                
-      // }
-      
-      // vm.assignTeacher = function () {
-      //   var teacherSelected = vm.assign.teacherChecked;
-      //   var project = watchProjectService.getProjectbyId(vm.projectId);
-      //   if (project.assitant == null) {
-      //       project.assitant = [];
-      //   }
-      //   project.assitant.push(teacherSelected);
-      //   var updateProjectRequest ={
-      //     name: project.name,
-      //     id : vm.projectId,
-      //     state_key : project.state_key,
-      //     clientId: project.clientId,
-      //     professor: project.professor,
-      //     assitant: project.assitant,
-      //     executiveSummary : project.executiveSummary,
-      //     objective: project.objective,
-      //     images:project.images,
-      //     funds : project.fundsToMakeProject,
-      //     students: project.students,
-      //     files :project.files
-      //   }
-      //   cshReqService.putProject(vm.projectId, updateProjectRequest);
-      // }
     }
 
-    // function pagination () {
-    //   return function(input, start) {
-    //       start = +start; //parse to int
-    //       return input.slice(start);
-    //   }
-    // }
 })();
