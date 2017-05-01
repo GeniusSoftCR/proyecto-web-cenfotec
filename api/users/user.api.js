@@ -9,7 +9,6 @@ var express = require('express'),
 
     states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
-
 var UsersSchema = new Schema({  
   // _id  :        ObjectId,
   idNum :       {type: String, required: true,minlength:9,maxlength:9},
@@ -121,6 +120,19 @@ router.put('/user/login', function(req, res, next) {
 });
 //API General
 
+router.put('/foo', function(req, res) {
+    /* 
+      do stuff to update the foo resource 
+      ...
+     */
+     // foo = 'foo test';
+
+      res.json(true);
+
+    // now broadcast the updated foo..
+      req.io.emit('message', { msg: 'Hello from API' }); 
+});
+
 // API method -> return ALL users 
 router.get('/users', function(req, res, next) {
   User.find({}, function(err, users){
@@ -142,8 +154,7 @@ router.put('/user', function(req, res, next) {
 
 //busca los usuarios estudiantes
 router.get('/users/students', function(req, res, next) {
-
-
+  req.io.sockets.emit('update', foo); 
 
   User.find({'role':'student'||'client'}, function(err, users){
     res.json(users);
