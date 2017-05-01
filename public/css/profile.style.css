@@ -8,8 +8,6 @@ box-shadow: 5px 5px 43px -7px rgba(0,0,0,0.66);
 }
 
 div#profile-view {
-	background-color: #34495e;
-	border-color: #2c3e50;
 	-webkit-box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.75);
 	-moz-box-shadow:    3px 3px 16px 0px rgba(50, 50, 50, 0.75);
 	box-shadow:         3px 3px 16px 0px rgba(50, 50, 50, 0.75);
