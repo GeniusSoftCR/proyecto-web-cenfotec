@@ -33,7 +33,7 @@
 
     //con PUT traemos los usuarios bajo CUALQUIER CRITERIO
     function _getUsers(filter){
-      return $http.put('http://localhost:3000/api/users/search',filter);
+      return $http.put('http://localhost:3000/api/users/search', filter);
     }
 
     function _trackTime(obj) {

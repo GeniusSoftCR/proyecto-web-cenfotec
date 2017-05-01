@@ -16,25 +16,17 @@
 		var fetchData 	= _fetchData();	
 		var syncVm 	= _syncVm;
 
-		$q.all([
-			
-
-		])
-
-
 		function _fetchData() {
-
-			var data = [_proyectsPromise];
-
-			function _proyectsPromise() {
+			//Load user from localstorage no promise nedeed
+			user =  AuthService.getAuthUser();
+			proyects = 
+			function proyectsPromise() {
 				return projectService.getProjects({students:{_id:user._id}})
 			}
 
 			// projects = res.data;
 			// syncVm();
 
-
-			user =  AuthService.getAuthUser();
 			projectService.getProjects({students:{_id:user._id}}).then(function (res) {
 				projects = res.data;
 				syncVm();
@@ -49,10 +41,17 @@
 		var vm = this;
 
 		function _syncVm() {
-			vm.user 	= user || {};
-			vm.projects = projects || {};
-		}
+			var sync = {};	
 
+				sync.proyects = _proyects;
+
+				function _proyects(proyectsFresh) {
+					vm.proyects = proyectFresh;
+					console.log('gogoggog')
+				};
+
+			return sync;
+		};
 
 		//////////////////////////////////////////////////////////////
 		///// + DEFAULTS +///////////////////////////////////////////

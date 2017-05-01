@@ -1,19 +1,18 @@
 (function(){
   'use strict';
   angular.module('cshApp')
-    .controller('assignTeachersController', assignTeachersController)
-    .filter('startFrom'/*, pagination*/);
+    .controller('assignTeachersController', assignTeachersController);
 
-    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService'];
+    assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService','AuthService'];
 
-    function assignTeachersController ($q, $stateParams, projectService, userService) {
+    function assignTeachersController ($q, $stateParams, projectService, userService,AuthService) {
       var vm = this;
+      vm.user = AuthService.getAuthUser();
       vm.project = {};    //proyecto actual
       vm.addPro=false;    //btn agregar prof.encargado
       vm.addAsi=false;    //btn agregar prof.asistente
       vm.delPro=false;    //btn borrar prof.encargado
       vm.delAsi=false;    //btn borrar prof.asistente
-
 
       //trae el proyecto actual
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
@@ -38,6 +37,7 @@
             vm.teachers=res.data;
             console.log(vm.teachers.idNum);
         });
+        vm.retro=false;
       }
       //funcionalidad al abrir el modal
       vm.viewRequest= function(kind){
@@ -60,6 +60,8 @@
         projectService.updateProject(project).then(function(res){
           console.log("Profesor eliminado");
         });
+        $('#retroMsg-Modal').modal('show');
+        vm.msg="Profesor eliminado del proyecto"
         init();
       }
       //eliminar el profesor encargado
@@ -72,6 +74,9 @@
         projectService.updateProject(project).then(function(res){
           console.log("Profesor agregado");
         });
+        $('#list-Modal').modal('hide');
+        $('#retroMsg-Modal').modal('show');
+        vm.msg="Profesor asignado al proyecto"
         init();
       }
 
@@ -92,49 +97,20 @@
           vm.delAsi=true;
           vm.fetchAssistant();
         }
+        if( (vm.user.role=="professor") && (vm.user.idNum!=vm.project.professor) ){
+          //le impide al usuario profesor ASISTENTE la función de agregar profesores
+          vm.addPro=false;
+          vm.delPro=false;
+          vm.addAsi=false;
+          vm.delAsi=false;
+        }
+        if( (vm.user.role=="professor") && (vm.user.idNum==vm.project.professor) ){
+          //le impide al usuario profesor ENCARGADO hacer operaciones de asignar o eliminar el encargado del proyecto (así mismo)
+          vm.addPro=false;
+          vm.delPro=false;
+        }
       }
 
-
-      //var mainProject = watchProjectService.getProjectbyId(vm.projectId);
-      //trae lista de profesores
-      //var teachers = userProfessorService.getProfessors();
-      //disponibilidad para proyectos
-
-      // vm.currentPage = 0;
-      // vm.pageSize = 1;
-      // vm.numberOfPages=function(){
-      //     return Math.ceil(vm.teachers.length/vm.pageSize);                
-      // }
-      
-      // vm.assignTeacher = function () {
-      //   var teacherSelected = vm.assign.teacherChecked;
-      //   var project = watchProjectService.getProjectbyId(vm.projectId);
-      //   if (project.assitant == null) {
-      //       project.assitant = [];
-      //   }
-      //   project.assitant.push(teacherSelected);
-      //   var updateProjectRequest ={
-      //     name: project.name,
-      //     id : vm.projectId,
-      //     state_key : project.state_key,
-      //     clientId: project.clientId,
-      //     professor: project.professor,
-      //     assitant: project.assitant,
-      //     executiveSummary : project.executiveSummary,
-      //     objective: project.objective,
-      //     images:project.images,
-      //     funds : project.fundsToMakeProject,
-      //     students: project.students,
-      //     files :project.files
-      //   }
-      //   cshReqService.putProject(vm.projectId, updateProjectRequest);
-      // }
     }
 
-    // function pagination () {
-    //   return function(input, start) {
-    //       start = +start; //parse to int
-    //       return input.slice(start);
-    //   }
-    // }
 })();

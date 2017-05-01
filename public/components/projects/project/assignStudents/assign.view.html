@@ -9,7 +9,38 @@
 			</ul>
 		</div>
 		<div class="panel-footer">
-			<button class="btn btn-sm btn-warning" ng-click="vm.assign()"><i class="fa fui-plus"></i>Agregar</button>
+			<button class="btn btn-sm btn-warning" data-target="#modal" data-toggle="modal"><i class="fa fui-plus"></i>Agregar</button>
+		</div>
+		<!-- Modal-->
+		<div class="col-md-8 col-md-offset-4">  
+			<div class="modal fade" id="modal" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							Asignar estudiantes
+							<button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<input class="form-control" type="text" placeholder="Buscar...." ng-model="vm.taskSearch">
+							</div>
+							<ul>
+								<li class="list-group-item" ng-repeat="student in vm.students">
+										{{student.name}} {{student.surname}}
+									<button ng-click="vm.addStudent(vm.project,vm.kind,student.idNum)" class="btn btn-sm btn-embossed btn-danger pull-right">
+										<span class="fui-check"></span>
+									</button>
+								</li>
+							</ul>
+						</div>
+						<div class="modal-footer">
+							<div class="unModal-footer">
+								<button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

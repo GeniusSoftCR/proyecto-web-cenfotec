@@ -185,7 +185,7 @@
 		     },
 		 	templateUrl: './components/config/addCareers/addCareers.view.html',
 		 	css: './css/addCarrers.style.css',
-		 	controller: 'configController',
+		 	controller: 'addCareerController',
 		 	controllerAs: 'vm'
 		})
 		
