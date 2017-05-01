@@ -13,8 +13,8 @@
 			getProjects: _getProjects,
 			getAnotations: _getAnotations,
 			getProjectsByTeacher: _getProjectsByTeacher,
-        	changeRequestState : _changeProjectsState
-        	//addAnotation : _addAnotation
+        	changeRequestState : _changeProjectsState,
+        	addAnotation : _addAnotation
 		};
 
 
@@ -49,6 +49,10 @@
 	    function _getAnotations(filter){
 	      return $http.get('http://localhost:3000/api/projects/add/anotation',filter);
 	    }
+
+	    function _addAnotation(newAnotation){
+			return $http.post('http://localhost:3000/api/projects/add/anotation', newAnotation);
+		}
 /*
 	    function _getAnotations(filter){
 	      return $http.post('http://localhost:3000/api/projects/anotations');
