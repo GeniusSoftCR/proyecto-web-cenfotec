@@ -2,7 +2,7 @@
   'use strict';
   angular.module('cshApp')
     .controller('assignTeachersController', assignTeachersController)
-    .filter('startFrom', pagination);
+    .filter('startFrom'/*, pagination*/);
 
     assignTeachersController.$inject = ['$q','$stateParams','projectService', 'userService'];
 
@@ -20,20 +20,45 @@
           vm.project=res.data[0];
           init();
       });
-
+      //trae el profesor encargado
+      vm.fetchProfessor= function(){
+        userService.getUsers({idNum:vm.project.professor}).then(function (res) {
+            vm.professor=res.data[0];
+        });
+      }
+      //trae el profesor asistente
+      vm.fetchAssistant= function(){
+        userService.getUsers({idNum:vm.project.assistant}).then(function (res) {
+            vm.assistant=res.data[0];
+            console.log(vm.assistant.idNum);
+        });
+      }
+      //eliminar el profesor encargado
+      vm.delTeacher= function(project,kind){
+        if(kind==1){
+          project.professor=null;
+          vm.professor.name="";
+          vm.professor.surname="";
+          vm.professor.secondSurname="";
+        }else if(kind==2){
+          project.assitant=null;
+          console.log("va a eliminar al asistente");
+        }
+        projectService.updateProject(project).then(function(res){
+          console.log("Profesor eliminado");
+        });
+        init();
+      }
 
       function init() {
+        console.log("entra al init");
         if(vm.project.professor==null || vm.project.professor==undefined){
           vm.addPro=true;
           vm.delPro=false;
         }else{
           vm.addPro=false;
           vm.delPro=true;
-          //trae el proyecto actual
-          userService.getProjects({_id:$stateParams.id}).then(function (res) {
-              vm.project=res.data[0];
-              init();
-          });
+          vm.fetchProfessor();
         }
         if(vm.project.assistant==null || vm.project.assistant==undefined){
           vm.addAsi=true;
@@ -41,6 +66,7 @@
         }else{
           vm.addAsi=false;
           vm.delAsi=true;
+          vm.fetchAssistant();
         }
       }
 
@@ -49,11 +75,11 @@
       //var teachers = userProfessorService.getProfessors();
       //disponibilidad para proyectos
 
-      vm.currentPage = 0;
-      vm.pageSize = 1;
-      vm.numberOfPages=function(){
-          return Math.ceil(vm.teachers.length/vm.pageSize);                
-      }
+      // vm.currentPage = 0;
+      // vm.pageSize = 1;
+      // vm.numberOfPages=function(){
+      //     return Math.ceil(vm.teachers.length/vm.pageSize);                
+      // }
       
       // vm.assignTeacher = function () {
       //   var teacherSelected = vm.assign.teacherChecked;
@@ -80,10 +106,10 @@
       // }
     }
 
-    function pagination () {
-      return function(input, start) {
-          start = +start; //parse to int
-          return input.slice(start);
-      }
-    }
+    // function pagination () {
+    //   return function(input, start) {
+    //       start = +start; //parse to int
+    //       return input.slice(start);
+    //   }
+    // }
 })();
