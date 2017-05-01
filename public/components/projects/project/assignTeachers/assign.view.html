@@ -44,10 +44,10 @@
     </div>
     <div class="modal-body">
       <div class="form-group">
-        <input id="justification" class="form-control" type="text" placeholder="agregue una justificación" ng-model="vm.req.rejectReason">
+        <input class="form-control" type="text" placeholder="Buscar...." ng-model="vm.taskSearch">
       </div>
       <ul>
-        <li class="list-group-item" ng-repeat="teacher in vm.teachers track by $index">
+        <li class="list-group-item" ng-repeat="teacher in vm.teachers | filter:{name:vm.taskSearch}">
           {{teacher.name}} {{teacher.surname}}
           <button ng-click="vm.addTeacher(vm.project,vm.kind,teacher.idNum)" class="btn btn-sm btn-embossed btn-danger pull-right">
             <span class="fui-check"></span>
