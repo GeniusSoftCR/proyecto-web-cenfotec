@@ -8,7 +8,7 @@
       <ul>
         <li class="list-group-item">
           Encargado: {{vm.professor.name}} {{vm.professor.surname}} {{vm.professor.secondSurname}}
-          <button ng-click="vm.addProffesor()" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addPro">
+          <button ng-click="vm.addProffesor()" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addPro" data-toggle="modal" data-target="#list-Modal">
             <span class="fui-plus"></span>
           </button>
           <button ng-click="vm.delTeacher(vm.project,1)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delPro">
@@ -17,7 +17,7 @@
         </li>
         <li class="list-group-item">
           Asistente: {{vm.assistant.name}} {{vm.assistant.surname}} {{vm.assistant.secondSurname}}
-          <button ng-click="vm.addAssistant()" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addAsi">
+          <button ng-click="vm.addAssistant()" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addAsi" data-toggle="modal" data-target="#list-Modal">
             <span class="fui-plus"></span>
           </button>
           <button ng-click="vm.delTeacher2(vm.project,2)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delAsi">
@@ -33,35 +33,28 @@
 
 
 <!-- Modal -->
-<div id="retro-Modal" class="modal fade" role="dialog">
+<div id="list-Modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4>Atención</h4>
+      <h4>Lista de profesores</h4>
     </div>
-    <!--despliega todo el contenido de la solicitud-->
     <div class="modal-body">
-      <div class="extra" ng-Show="vm.rejection">
-        <form novalidate>
-          <div class="form-group">
-            <label>Justificación</label>
-            <div class="form-group">
-              <input id="justification" class="form-control" type="text" placeholder="agregue una justificación" ng-model="vm.req.rejectReason">
-            </div>
-            <!-- <div ng-show="vm.validate">La justificación es requerida</div> -->
-          </div>
-        </form>
-      </div>
-      <p ng-show="vm.finalStep">¿Realmente desea rechazar el proyecto?</p>
-      <p ng-show="vm.stuReje" class="alert alert-success">El proyecto ha sido rechazado</p>
+      <ul>
+        <li class="list-group-item" ng-repeat="file in filesCtrl.projectFiles track by $index">
+          {{file.name}}
+          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
+            <span class="fui-check"></span>
+          </button>
+        </li>
+        <li class="list-group-item">Profesor quemado<button class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-check"></span></button></li>
+      </ul>
     </div>
     <div class="modal-footer">
       <div class="unModal-footer">
-        <button ng-show="vm.confirm" class="btn btn-sm btn-embossed btn-danger" ng-click="vm.rejectRequest(vm.req)">Rechazar</button>
-        <button ng-show="vm.finalStep" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.confirmation(vm.param1,vm.param2)">Confirmar</button>
         <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
