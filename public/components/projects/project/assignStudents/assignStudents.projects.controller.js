@@ -29,7 +29,11 @@
         }
       }
 
-      
+      //var mainProject = watchProjectService.getProjectbyId(vm.projectId);
+      //trae lista de profesores
+      //var teachers = userProfessorService.getProfessors();
+      //disponibilidad para proyectos
+
       vm.currentPage = 0;
       vm.pageSize = 1;
       vm.numberOfPages=function(){
