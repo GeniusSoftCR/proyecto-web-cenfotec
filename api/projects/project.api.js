@@ -95,16 +95,45 @@ router.post('/projects/add', function(req, res, next){
 	});
 });
 
-router.post('/projects/add/anotation', function(req, res, next){
-	var anotation = Object.assign(new Anotation(),req.body)
-	console.log(anotation);  
-	anotation.save(function(err){
-		if (err) {
-      		res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
-    	}else{
-      		res.json({success: true, message: 'Se ha enviado su solicitud de proyecto correctamente'});
-    	};
-	});
+/*router.put('/projects/update/anotation', function(req, res, next,err) {
+  Project.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
+  	if (err) {
+  		res.json({success: false, message: 'Ha ocurrido un error'});
+  	}else {
+  		res.json({success:true,message:'Se ha actualizado correctamente.'});
+  	}
+  });
 });
+*/
+
+
+
+
+
+/*
+router.put('/projects/update/anotation', function(req, res, next){
+	
+	Project.findOne({_id:req.body._id}).then(function(error,project){
+
+		if(error){
+        	res.json(error);
+    	}
+    	else if(project == null){
+        	res.json('No se ha encontrado el proyecto');;
+        	console.log(res.json);
+    	
+    	}else{
+        	project.anotations.push(anotations);
+        	project.save( function(err, data){
+	            if (err) {
+	      			res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
+	    		}else{
+	      			res.json({success: true, message: 'Anotación realizada'});
+	    		};
+        	});
+    	}
+
+  	});
+});*/
 
 module.exports = router;

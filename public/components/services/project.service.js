@@ -11,11 +11,10 @@
 		var publicApi = {
 			addProject: _addProject,
 			getProjects: _getProjects,
-			getAnotations: _getAnotations,
 			getProjectsByTeacher: _getProjectsByTeacher,
 			updateProject: _updateProject,
         	changeRequestState : _changeProjectsState,
-        	addAnotation : _addAnotation
+        	getAnotation : _getAnotation
 		};
 		return publicApi;
 		//guarda las solicitudes de proyectos
@@ -39,13 +38,13 @@
 	      return $http.put('http://localhost:3000/api/projects/update',request);      
 	    }
 
-	    function _getAnotations(filter){
+	  /* function _getAnotations(filter){
 	      return $http.get('http://localhost:3000/api/projects/add/anotation',filter);
-	    }
+	    }*/
 
-	    function _addAnotation(newAnotation){
-			return $http.post('http://localhost:3000/api/projects/add/anotation',newAnotation);
-		}
+		function _getAnotation(filter){
+	      	return $http.put('http://localhost:3000/api/projects/load',filter);
+	    }
 /*
 	    function _getAnotations(filter){
 	      return $http.post('http://localhost:3000/api/projects/anotations');
