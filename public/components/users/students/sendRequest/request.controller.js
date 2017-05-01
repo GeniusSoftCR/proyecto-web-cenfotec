@@ -98,11 +98,10 @@
           phone : vm.phone,
           avatar : pimage,
           password : vm.password,
-          //confirmPassword : vm.confirmPassword,
           state: 'postulate',
           role: 'student',
           birthdate : vm.birthdate,
-          careers : vm.career, //me parece q esto deberia ser un arreglo
+          careers : vm.career,
           justification: null,
           resumeUrl : vm.resumeUrl,
           githubUrl : vm.githubUrl,
