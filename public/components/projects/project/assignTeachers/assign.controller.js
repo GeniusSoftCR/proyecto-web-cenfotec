@@ -39,8 +39,30 @@
             console.log(vm.teachers.idNum);
         });
       }
+      //funcionalidad al abrir el modal
+      vm.viewRequest= function(kind){
+        vm.fetchTeachers();
+      }
       //eliminar el profesor encargado
       vm.delTeacher= function(project,kind){
+        if(kind==1){
+          project.professor=null;
+          vm.professor.name="";
+          vm.professor.surname="";
+          vm.professor.secondSurname="";
+        }else if(kind==2){
+          project.assistant=null;
+          vm.assistant.name="";
+          vm.assistant.surname="";
+          vm.assistant.secondSurname="";
+        }
+        projectService.updateProject(project).then(function(res){
+          console.log("Profesor eliminado");
+        });
+        init();
+      }
+      //eliminar el profesor encargado
+      vm.addTeacher= function(project,kind){
         if(kind==1){
           project.professor=null;
           vm.professor.name="";
@@ -77,11 +99,6 @@
         }
       }
 
-      //MOSTRAR DETALLE DE LA SOLICITUD
-      vm.viewRequest= function(kind){
-        vm.fetchTeachers();
-
-      }
 
       //var mainProject = watchProjectService.getProjectbyId(vm.projectId);
       //trae lista de profesores
