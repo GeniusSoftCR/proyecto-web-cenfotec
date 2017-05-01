@@ -84,7 +84,9 @@
         }else{
           vm.addPro=false;
           vm.delPro=true;
+
           vm.fetchProfessor();
+
         }
         if(vm.project.assistant==null || vm.project.assistant==undefined){
           vm.addAsi=true;

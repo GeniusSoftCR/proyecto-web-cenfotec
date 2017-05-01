@@ -10,6 +10,8 @@
       var vm = this;
       vm.project = {};
       vm.user = AuthService.getAuthUser();
+      //vm.anotation = {};
+
 
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
         vm.project=res.data[0];
@@ -17,8 +19,8 @@
       });    
 
       function init(){
-        //console.log(vm.project.name, vm.user.name);
-        vm.anotations = projectService.getAnotations();
+        console.log(vm.project.name, vm.user.name);
+        vm.anotations = vm.project.anotations;
       }
       
      /* vm.modalAnotation = false;
@@ -30,8 +32,6 @@
       vm.closeModal = function () {
         vm.modalAnotation = false;
       }
-
-
 
       vm.activeMenuIndex;
       vm.showSubmenu = function (item) {
@@ -46,49 +46,25 @@
       };*/
       vm.save= function () {
         var newAnotation = {
-          id : 1,
-          projectId : vm.project.name,
-          name : vm.name,
+          tittle : vm.tittle,
           description : vm.description,
-          iduserCreate: vm.user.name
-        }
+          author: vm.user._id
+        };
 
+        vm.project.anotations.push(newAnotation);
 
-         console.log(newAnotation);
+        console.log(newAnotation);
         //envia el usuario al user.service
-        projectService.addAnotation(newAnotation).then(function(res){
-            console.log(res);
-            vm.anotation = {};
-            vm.modal.title = 'Anotación agregada';
-            vm.modal.body = res.data.message;
-
+        projectService.updateProject(vm.project).then(function(res){
+      
         });
-        vm.modalAnotation = false;
-        vm.name = null;
-        vm.description = null;
-      }
+          vm.modalAnotation = false;
+          vm.tittle = null;
+          vm.description = null;
+      };
 
-      /*vm.delete = function (index) {
-        console.log(index);
-        var anotationItem = vm.anotations[index];
-        console.log(anotationItem);
-        projectService.deleteAnotation(index);
-        init();
-      }
 
-      vm.preModify = function (index) {
-        var anotationItem = vm.anotations[index];
-        var itemChange = {
-          name: anotationItem.name,
-          description: anotationItem.description
-        }
-        vm.itemChange = itemChange;
-      }
-      vm.modify = function (index) {
-        var anotationItem = vm.anotations[index];
-        var anotationItemFinale = vm.itemChange;
-        projectService.putAnotation(anotationItem, anotationItemFinale);
-        init();
-      }*/
+
+
     } 
 })();
