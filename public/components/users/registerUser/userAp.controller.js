@@ -13,12 +13,16 @@
       vm.prof = {};
       vm.admi = {};
       vm.asis = {};
-      vm.sendProf = false;
-      vm.toSendProf = true;
+      vm.modal = {};
       vm.sendAdmi = false;
       vm.toSendAdmi = true;
       vm.sendAsis = false;
       vm.toSendAsis = true;
+      vm.users = {};
+
+      userService.getUsers().then(function(res){
+        vm.users = res.data;
+      });
 
       //Muestra el formualrio en cada casilla
       $(document).ready(function() {
@@ -84,7 +88,11 @@
         console.log(newUserProf);
         //envia el usuario al user.service
         userService.addUser(newUserProf).then(function(res){
-          console.log(res)
+          console.log(res);
+         vm.professor = {};
+            vm.modal.title = 'Registro de Usuario';
+
+            vm.modal.body = res.data.message;
         });
 
         vm.prof.id = null;
@@ -98,8 +106,6 @@
         vm.prof.password = null;
         vm.prof.confirmPassword = null;
         vm.prof.specialty = null;
-        vm.sendProf = true;
-        vm.toSendProf = false;
       };
 
       vm.preSaveAdmi = function(){
@@ -127,7 +133,11 @@
         };
 
         userService.addUser(newUserAdmi).then(function(res){
-          console.log(res)
+          console.log(res);
+          vm.admi = {};
+            vm.modal.title = 'Registro de Usuario';
+
+            vm.modal.body = res.data.message;
         });
 
         vm.admi.id = null;
@@ -140,9 +150,6 @@
         vm.admi.password = null;
         vm.admi.confirmPassword = null;
         vm.admi.jobPosition = null; 
-
-      vm.sendAdmi = true;
-      vm.toSendAdmi = false;
       };
 
       vm.preSaveAsis = function(){
@@ -174,7 +181,7 @@
         userService.addUser(newUserAssistant).then(function(res){
               console.log(res);
         });
-        vm.asis.idNum = null;
+        vm.asis.id = null;
         vm.asis.name = null;
         vm.asis.surName = null;
         vm.asis.secondSurname = null;
@@ -186,6 +193,7 @@
         vm.asis.jobPosition = null;
         vm.sendAsis = true;
         vm.toSendAsis = false;
+
       };
    }
 })();
