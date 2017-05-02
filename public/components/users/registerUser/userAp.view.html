@@ -332,7 +332,7 @@
           </form>
         </div>
 
-        <!-- <div id="list" class="bhoechie-tab-content">
+        <div id="list" class="bhoechie-tab-content">
           <div class="listUsers">LISTA DE USUARIOS
             <select id="selectUsers" class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
               <option value="" disabled="disabled">Filtrar rol de usuario:</option>
@@ -347,7 +347,7 @@
             <div ng-Show="vm.empty">
               <p>No existen usuarios por mostrar</p>
             </div>
-            <div class="card">
+            <div class="card" id="myScrollspy">
                <table class="table">
                   <thead>
                     <tr>
@@ -358,7 +358,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr  id="myScrollspy" ng-repeat="user in vm.users | filter:{role:vm.search}">
+                    <tr ng-repeat="user in vm.users | filter:{role:vm.search}">
                       <td>{{user.name}}</td>
                       <td>{{user.surname + ' ' + user.secondSurname}}</td>
                       <td>{{user.email}}</td>
@@ -368,7 +368,7 @@
                 </table>
             </div>
           </div>
-        </div>  -->
+        </div>
       </div>
     </div>
   </div>

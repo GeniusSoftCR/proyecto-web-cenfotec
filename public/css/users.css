@@ -203,6 +203,6 @@ tbody, th{
 }
 
 #myScrollspy {
-  height:800px;
+  height: 350px;
   overflow-y: scroll;
 }
