@@ -46,12 +46,13 @@
         vm.fileUrl = Blob.url;
         console.log(vm.fileName);
         console.log(vm.fileUrl);
+        vm.addNewFile();
       };
       //Fin: Manejo de archivos
 
       /*AGREGAR ARCHIVO*/
       vm.addNewFile= function(){
-        pickFile();
+        //pickFile();
         //1)crea un objeto para el nuevo archivo
         var newFile = {name:vm.fileName,url:vm.fileUrl};
         //2)agrega el objeto a la lista de archivos(temporal)
