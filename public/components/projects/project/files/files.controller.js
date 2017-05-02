@@ -9,11 +9,9 @@
       
       var vm = this;
       vm.user = AuthService.getAuthUser();
-      vm.project = {};    //proyecto actual
-      //2)copiará la lista de archivos del proyecto actual*
-      vm.projectFiles = [];
-      //archivo específico a borrar
-      vm.file = {};
+      vm.project = {};        //proyecto actual
+      vm.projectFiles = [];   //lista temporal de archivos
+      vm.file = {};           //archivo específico a borrar
 
       //trae el proyecto actual
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
@@ -27,9 +25,7 @@
 
       /*ACTUALIZAR LISTA DE ARCHIVOS*/
       vm.loadProjectFiles= function(){
-        //1)trae la lista con todos los proyectos
-        //vm.projectsList = filesService.getProjects();
-        //copia la lista de archivos del proyecto actual*
+        //copia la lista de archivos del proyecto actual
         vm.projectFiles=vm.project.files;
       }
       vm.loadProjectFiles();
