@@ -13,7 +13,7 @@
       vm.prof = {};
       vm.admi = {};
       vm.asis = {};
-/*      vm.modal = {};*/
+      vm.modal = {};
       vm.users = {};
 
       userService.getUsers().then(function(res){
@@ -85,23 +85,25 @@
         //envia el usuario al user.service
         userService.addUser(newUserProf).then(function(res){
           console.log(res);
-         vm.professor = {};
+         
             vm.modal.title = 'Registro de Usuario';
 
             vm.modal.body = res.data.message;
         });
 
-        vm.prof.id = null;
-        vm.prof.name = null;
-        vm.prof.surName = null;
-        vm.prof.secondSurname = null;
-        vm.prof.email = null;
-        vm.prof.phone = null;
-        vm.prof.councilMember = null;
-        vm.pimage = null;
-        vm.prof.password = null;
-        vm.prof.confirmPassword = null;
-        vm.prof.specialty = null;
+          $('#regProf-Modal').modal('show');
+
+          vm.prof.id = null;
+          vm.prof.name = null;
+          vm.prof.surName = null;
+          vm.prof.secondSurname = null;
+          vm.prof.email = null;
+          vm.prof.phone = null;
+          vm.prof.councilMember = null;
+          vm.pimage = null;
+          vm.prof.password = null;
+          vm.prof.confirmPassword = null;
+          vm.prof.specialty = null;
 
       };
 
@@ -136,6 +138,8 @@
 
             vm.modal.body = res.data.message;
         });
+
+        $('#regAdmi-Modal').modal('show');
 
         vm.admi.id = null;
         vm.admi.name = null;
@@ -177,7 +181,13 @@
         //envia el usuario al user.service
         userService.addUser(newUserAssistant).then(function(res){
               console.log(res);
+            vm.modal.title = 'Registro de Usuario';
+
+            vm.modal.body = res.data.message;
         });
+
+        $('#regAsis-Modal').modal('show');
+
         vm.asis.id = null;
         vm.asis.name = null;
         vm.asis.surName = null;
@@ -188,8 +198,6 @@
         vm.asis.password = null;
         vm.asis.confirmPassword = null;
         vm.asis.jobPosition = null;
-        vm.sendAsis = true;
-        vm.toSendAsis = false;
 
       };
    }
