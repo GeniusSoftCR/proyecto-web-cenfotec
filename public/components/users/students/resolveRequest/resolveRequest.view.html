@@ -42,7 +42,8 @@
 						<p><b>Fecha de nacimiento:</b> {{vm.req.birthdate | date : "dd/MM/y"}}</p>
 						<p><b>Correo:</b> {{vm.req.email}}</p>
 						<p><b>Cédula:</b> {{vm.req.idNum}}</p>
-						<p><b>Carreras:</b>							
+						<p><b>Carrera:</b>
+							<span class="label label-default modal-label">{{vm.req.careers}}</span>
 					        <span ng-repeat="career in vm.req.careers" class="label label-default modal-label">{{ career }}</span>
 						</p>
 					</div>
