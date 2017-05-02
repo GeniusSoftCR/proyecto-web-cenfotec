@@ -49,9 +49,11 @@
 				<ul class="list-group list-group-flush" id="proyects-list">	
 				<li  ng-if="(vm.projects.length == 0 && !vm.loading)" class="list-group-item ng-binding ng-scope">No hay proyectos asignados</li>
 
-				<img ng-show="vm.loading" class="img" src="../../.././../imgs/load.gif" style="max-width: 60px;margin-left: 5%;margin-top:-10px;" >	
-
-				
+				<li class="list-group-item" style="color: black;" >
+					<span class="fa fa-th-list">  </span> 
+					Mis proyectos
+					<img ng-show="vm.loading" class="img" src="../../.././../imgs/load.gif" style="max-width: 60px;margin-left: 5%;margin-top:-10px;">
+				</li>		
 
 				<li ng-hide="vm.loading" class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects | filter:{name:vm.taskSearch}">	
 					<span>{{project.name}}</span>
@@ -62,7 +64,7 @@
 			</div>		  
 		</div>
 	</div>
-	<div class="panel-footer" style="max-height: 3px; padding-bottom: 0; background-color: #f1c40f">
+	<div class="panel-footer" style="max-height: 3px; padding-bottom: 0; background-color: #e67e22">
 		
 	</div>
 </div>	
