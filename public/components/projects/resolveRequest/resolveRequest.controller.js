@@ -59,7 +59,7 @@
           //3)actualizar la lista de solicitudes
           vm.fetchRequestsList();
           vm.reloadPage();
-        },1500);
+        },2800);
       }
 
       vm.switch=function(){
@@ -76,7 +76,7 @@
           //3)actualizar la lista de solicitudes
           vm.fetchRequestsList();
           vm.reloadPage();
-        },1500);
+        },2800);
       }
 
       //Rechazar una solicitud

@@ -251,3 +251,7 @@ a:hover, a:focus {
   padding-top: 7px;
   padding-bottom: 7px;
 }
+
+#profileLine {
+  border-top: 3px solid #eee;
+}
