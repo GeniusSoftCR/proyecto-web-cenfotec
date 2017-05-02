@@ -17,4 +17,30 @@
     <div class="panel-footer">
       <button ng-click="vm.pickFile()" class="btn btn-sm btn-embossed btn-warning pull-right">Agregar</button>
     </div>
+  </div>
 </div>
+
+
+<!-- Modal -->
+<div id="filesConfirm-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>Atención</h4>
+    </div>
+    <!--despliega todo el contenido de la solicitud-->
+    <div class="modal-body">
+      <p>¿Realmente desea eliminar el archivo?</p>
+      <p ng-show="vm.stuReje" class="alert alert-success">El archivo ha sido rechazado</p>
+    </div>
+    <div class="modal-footer">
+      <div class="unModal-footer">
+        <button class="btn btn-sm btn-embossed btn-warning" ng-click="vm.confirmation(vm.param1,vm.param2)">Confirmar</button>
+        <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+    </div><!--FinModal-Content-->
+  </div><!--FinModal-Dialog-->
+</div><!--FinModal-->
