@@ -8,42 +8,46 @@
 
     function projectAnotationsController ($q, $stateParams,$timeout, projectService, AuthService) {
       var vm = this;
+      var project = {};
       vm.user = AuthService.getAuthUser();
       vm.project = {};
 
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
-        vm.project=res.data[0];
+        project=res.data[0];
         init();
       });    
 
       function init(){
         vm.anotations = vm.project.anotations;
+        vm.project = project;
       };
 
-      vm.showAnotation=
-
+     /* function fetch(){
+        
+      };*/
 
       vm.deleteAnotation= function(anotation_id){
-       init();
+        var project = vm.project;
 
-        angular.forEach(vm.project.anotations, function(anotation, key){
+        angular.forEach(project.anotations, function(anotation, key){
+          console.log(anotation._id === anotation_id);
+          if (anotation._id === anotation_id){
 
-        if (anotation._id === anotation_id){
-          console.log(key);
-          console.log(vm.project.anotations[key]);
 
-          vm.project.anotations.splice(key,1);
+            project.anotations.splice(key,1);
           }
-        })
+        });
 
-        projectService.updateProject(vm.project).then(function(res){
+        console.log(project.anotations);
+        projectService.updateProject(project).then(function(res){
         console.log("Anotación eliminada");
+
+        vm.project = project;
+
         });
 
         $('#retroMessge-Modal').modal('show');
         vm.msg="Anotación eliminada del proyecto"
-        
-        init();
       };
 
 
@@ -66,8 +70,6 @@
 
         vm.tittle = null;
         vm.description = null;
-
-        console.log(vm.savedAnotation);
 
         $('#anotation-Modal').modal('hide');
         $('#retroMessge-Modal').modal('show');

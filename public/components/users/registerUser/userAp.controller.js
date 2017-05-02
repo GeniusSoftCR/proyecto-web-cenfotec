@@ -13,11 +13,7 @@
       vm.prof = {};
       vm.admi = {};
       vm.asis = {};
-      vm.modal = {};
-      vm.sendAdmi = false;
-      vm.toSendAdmi = true;
-      vm.sendAsis = false;
-      vm.toSendAsis = true;
+/*      vm.modal = {};*/
       vm.users = {};
 
       userService.getUsers().then(function(res){
@@ -106,6 +102,7 @@
         vm.prof.password = null;
         vm.prof.confirmPassword = null;
         vm.prof.specialty = null;
+
       };
 
       vm.preSaveAdmi = function(){
