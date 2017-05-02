@@ -24,7 +24,7 @@ var projectSchema = new Schema({
 	images:       [{url : {type: String}}],
 
 	////////////////////////////////////////////
-	students:     {type: Array, default: undefined},
+	students:     [{_id:{type:String}}],
 	professor:    {type: String, default: undefined},
 	assistant:    {type: String, default: undefined},
 	rejectReason: {type: String, default: undefined},
