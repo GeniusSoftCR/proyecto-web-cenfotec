@@ -144,7 +144,7 @@
 		      		controller: 'assignStudents',
 		      		controllerAs: 'vm'
 		      	},
-			    'anotaciones@main.project': {
+			    'anotations@main.project': {
 			    	templateUrl: './components/projects/project/anotations/anotations.view.html',
 			    	controller: 'projectAnotationsController',
 			    	controllerAs: 'vm'
