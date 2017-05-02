@@ -26,7 +26,6 @@
 						</span>
 						
 					</button>
-
 					<!-- Start button -->
 					<button class="btn btn-sm btn-embossed btn-success pull-right" title="Rellene la información"ng-if="!vm.counting" ng-click="vm.startCount()" ng-disabled="(!vm.task || !vm.project)">
 						<span class="fa fa-play" style="font-size:15px;"></span>
@@ -34,7 +33,7 @@
 					<!-- Stop button -->
 					<button class="btn btn-sm btn-embossed btn-danger pull-right" ng-if="vm.counting" ng-click="vm.stopCount()"  ><span class="fa fa-stop" style="font-size:15px;"></span></button>
 
-					<div class="form-group has-feedback pull-left" style="width:475px;">
+					<div class="form-group has-feedback pull-left" style="width:400px;">
 						<span ng-if="!vm.taskSearchState">
   							<input type="text" class="form-control" ng-if="!vm.taskSearchState" placeholder="Ingrese un comentario / objetivo" style="max-height: 36px" ng-model="vm.task">	
 						</span>
@@ -47,8 +46,8 @@
 			</ul>
 			<div class="collapse" id="timer-collapse">
 				<ul class="list-group list-group-flush" id="proyects-list">	
-
-				<li  ng-if="!vm.projects" class="list-group-item ng-binding ng-scope"> No hay proyectos asignados</li>
+				<li  ng-if="(vm.projects.length == 0 && !vm.loading)" class="list-group-item ng-binding ng-scope"> No hay proyectos asignados</li>
+				<li  ng-if="vm.loading && vm" class="list-group-item ng-binding ng-scope"> Cargando proyectos... espere...</li>
 
 				<li class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects | filter:{name:vm.taskSearch}">					
 					<span>{{project.name}}</span>

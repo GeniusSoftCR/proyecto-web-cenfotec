@@ -17,8 +17,6 @@
 
 		projectService.getProjects({students:{_id:vm.user._id}}).then(function (res) {
 			$q.when(res).then(function (err) {
-
-				console.log(res)
 				vm.projects = res.data;
 			});
 		});

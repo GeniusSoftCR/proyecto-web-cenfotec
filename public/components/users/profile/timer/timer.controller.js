@@ -12,9 +12,9 @@
 		/////////////////////////////////////////////////////////////
 		var projects 	= {};
 		var user 		= {};
-		var fetchData 	= _fetchData();	
+		///
+		var fetchData 	= _fetchData;	
 		var sync 		= _sync;
-
 
 		function _fetchData() {
 			user =  AuthService.getAuthUser();
@@ -23,16 +23,21 @@
 				sync();
 			});
 		};
+
 		///////////////////////////////////////////////////////////////
 		///// + VM DEPENDENCIES && DECLARATIONS +/////////////////////
 		/////////////////////////////////////////////////////////////
 
 		//vm = view modal (like $scope)
+		fetchData();
 		var vm = this;
+		vm.loading = true;
 
 		function _sync() {
 			vm.user = user || {};
 			vm.projects = projects || {};
+			///
+			vm.loading = false;
 		}
 
 		//////////////////////////////////////////////////////////////
@@ -61,21 +66,24 @@
 		vm.pickProject 	= _pickProject;
 		vm.setProject 	= _setProject;
 
-		function _startCount() {
+		function _startCount() 
+		{
 			//private\
-			var pulseTime = 1; // 1000 = 1 seg
+			var pulseTime = 100; // 1000 = 1 seg
 			var track = _track;
 			vm.counting = true;	
 
 			$interval(_counter,pulseTime);			
 
 			//private
-			function _track(obj) {
+			function _track(obj)
+			{
+
 				console.log(obj);
 			}
-			function _counter () 
-			{			
 
+			function _counter() 
+			{			
 				if (vm.time.secs >= '9') {vm.showCero = false;}else{vm.showCero = true;}
 
 				vm.time.secs++
@@ -98,13 +106,17 @@
 		}
 		function _pickProject() {
 			vm.taskSearchState = !vm.taskSearchState;
+
+			if (vm.taskSearchState) {
+				vm.loading = true;
+				fetchData();
+			}
 		}
 		function _setProject(id) {	
 			vm.taskSearchState = !vm.taskSearchState;		
 			projectService.getProjects({_id:id}).then(function (res) {
 				vm.project = res.data[0];
 				sync();
-
 			});
 		};
 	};
