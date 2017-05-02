@@ -1,24 +1,17 @@
 div.profile img.avatar{
 	margin-top: 10px;
-<<<<<<< HEAD
-	
-	max-height: 80px;
-=======
 	border-radius: 100%;
 	border: 3px solid #BBBBBB;
 	max-height: 160px;
->>>>>>> refs/remotes/origin/dev
 -webkit-box-shadow: 5px 5px 43px -7px rgba(0,0,0,0.66);
 -moz-box-shadow: 5px 5px 43px -7px rgba(0,0,0,0.66);
 box-shadow: 5px 5px 43px -7px rgba(0,0,0,0.66);
 }
-
-<<<<<<< HEAD
 div#profile-view {
 	-webkit-box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.75);
 	-moz-box-shadow:    3px 3px 16px 0px rgba(50, 50, 50, 0.75);
 	box-shadow:         3px 3px 16px 0px rgba(50, 50, 50, 0.75);
-=======
+
 div#profile-view.row .profile{
 	margin-bottom:15px;
 }
@@ -35,7 +28,6 @@ div#profile-view.row h6+p{
 }
 div#profile-view.row p{
 	margin-left:2px;
->>>>>>> refs/remotes/origin/dev
 }
 
 div#profile-view img{
