@@ -26,12 +26,16 @@
       vm.students = res.data;
       assignedStudents();
     });
+    //Agregar estudiante
     vm.addStudent = function(student){
       var newStudent = {};
       newStudent._id = student._id;
       vm.project.students.push(newStudent);
       projectService.updateProject(vm.project).then(function(res){
-      })
+      });
+      $('#list-Modal').modal('hide');
+        $('#retroS-Modal').modal('show');
+        vm.msg="Estudiante asignado al proyecto corectamente";
       assignedStudents();
     };
     //Imprime nombres del los estudiantes dentro del proyecto
@@ -55,6 +59,8 @@
             });
           }
       });
+      $('#retroS-Modal').modal('show');
+        vm.msg="Estudiante eliminado del proyecto correctamente"
       assignedStudents();  
     };
   };
