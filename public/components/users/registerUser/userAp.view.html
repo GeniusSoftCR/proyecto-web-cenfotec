@@ -17,7 +17,7 @@
               <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <!-- Nombre -->
                 <label for="name">Nombre:</label>
-                <input type="text" ng-model="vm.prof.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+                <input type="text" ng-model="vm.prof.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+">
                 <div id="ng-message" ng-messages="profForm.name.$error" ng-hide="profForm.name.$pristine">
                   <div ng-message="required" ng-hide="profForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
                   <div ng-message="pattern" ng-hide="profForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>

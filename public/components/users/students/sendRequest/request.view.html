@@ -32,7 +32,7 @@
       <!-- Nombre -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="name">Nombre:</label>
-        <input data-toggle="tooltip" title="Tooltip on bottom" type="text" ng-model="vm.name" id="txtname" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+        <input data-toggle="tooltip" title="Tooltip on bottom" type="text" ng-model="vm.name" id="txtname" class="form-control" name="name" required pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+">
         <div id="ng-message" ng-messages="studentForm.name.$error" ng-hide="studentForm.name.$pristine" >
           <div ng-message="required" ng-hide="studentForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
           <div ng-message="pattern" ng-hide="studentForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
@@ -41,7 +41,7 @@
       <!-- Primer Apellido -->
       <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
         <label for="surName">Primer apellido:</label>
-        <input type="text" ng-model="vm.surName" id="txtFirstName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
+        <input type="text" ng-model="vm.surName" id="txtFirstName" class="form-control" name="surName" pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+" required>
         <div id="ng-message" ng-messages="studentForm.surName.$error" ng-hide="studentForm.surName.$pristine">
           <div ng-message="required" ng-hide="studentForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido.</div>
           <div ng-message="pattern" ng-hide="studentForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
