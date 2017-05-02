@@ -18,9 +18,6 @@
       //trae el proyecto actual
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
           vm.project=res.data[0];
-          console.log(vm.project.files.name);
-          console.log(vm.project.files.url);
-          console.log(vm.project.files);
           init();
       });
 
@@ -69,7 +66,6 @@
         projectService.updateProject(vm.project).then(function(res){
           console.log("Archivo agregado");
         });
-        //filesService.setProjects(vm.projectsList);
 
         //refresca la lista de archivos
         vm.loadProjectFiles();
@@ -86,19 +82,14 @@
             position = index;
           }
         });
-        //borra el archivo de la lista de archivos
+        //2)borra el archivo de la lista de archivos
         vm.projectFiles.splice(position,1);
-        
-        //recorre el arreglo de proyectos
-        for(i = 0; i < vm.projectsList.length; i++){
-          //se posiciona en el proyecto actual
-          if(vm.projectsList[i].id==vm.projectID){
-            //3)actualiza la lista de archivos en el proyecto actual
-            vm.projectsList[i].files=vm.projectFiles;
-            //4)persiste los cambios en el localStorage
-            //projectService.setProjects(vm.projectsList);
-          }
-        }
+        //3)actualiza la lista de archivos en el proyecto actual
+        vm.project.files=vm.projectFiles;
+        //4)persiste los cambios en el back end
+        projectService.updateProject(vm.project).then(function(res){
+          console.log("Archivo eliminado");
+        });
 
         //refresca la lista de archivos
         vm.loadProjectFiles();
