@@ -67,16 +67,17 @@
         vm.loadProjectFiles();
       }
 
-      vm.preRemove= function(file){
-        vm.flag=false;
+      vm.pre= function(file){
         $('#filesConfirm-Modal').modal('show');
-        if(vm.flag){
-          $('#filesConfirm-Modal').modal('hide');
-          vm.removeFile(file);
-        }
+        vm.yesFile=file;
+        // if(vm.flag==true){
+        //   $('#filesConfirm-Modal').modal('hide');
+        //   vm.removeFile(file);
+        // }
       }
       /*ELIMINAR ARCHIVO*/
       vm.removeFile= function(file){
+        $('#filesConfirm-Modal').modal('hide');
         vm.file = file;
         var position = null;
         //busca el index del archivo

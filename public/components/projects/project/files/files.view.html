@@ -8,7 +8,7 @@
       <ul>
         <li class="list-group-item" ng-repeat="file in vm.projectFiles track by $index">
           {{file.name}}
-          <button ng-click="vm.preRemove(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
+          <button ng-click="vm.pre(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
             <span class="fui-trash"></span>
           </button>
         </li>
@@ -37,7 +37,7 @@
     </div>
     <div class="modal-footer">
       <div class="unModal-footer">
-        <button class="btn btn-sm btn-embossed btn-warning" ng-click="vm.flag=true;">Confirmar</button>
+        <button class="btn btn-sm btn-embossed btn-warning" ng-click="vm.removeFile(vm.yesFile)">Confirmar</button>
         <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
