@@ -8,50 +8,51 @@
 
     function projectAnotationsController ($q, $stateParams,$timeout, projectService, AuthService) {
       var vm = this;
-      vm.project = {};
+      var project = {};
       vm.user = AuthService.getAuthUser();
-      //vm.anotation = {};
-
+      vm.project = {};
 
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
-        vm.project=res.data[0];
+        project=res.data[0];
         init();
       });    
 
       function init(){
         vm.anotations = vm.project.anotations;
-      }
+        vm.project = project;
+      };
 
-    
+     /* function fetch(){
+        
+      };*/
+
       vm.deleteAnotation= function(anotation_id){
-       init();
+        var project = vm.project;
+
+        angular.forEach(project.anotations, function(anotation, key){
+          console.log(anotation._id === anotation_id);
+          if (anotation._id === anotation_id){
 
 
-      /*  angular.forEach(vm.project.anotations, deleteAnotation(value, key));*/
+            project.anotations.splice(key,1);
+          }
+        });
 
-      angular.forEach(vm.project.anotations, function(anotation, key){
-      
-
-      if (anotation._id === anotation_id){
-        console.log(key);
-        console.log(vm.project.anotations[key]);
-
-        vm.project.anotations.splice(key,1);
-        }
-      });
-
-        projectService.updateProject(vm.project).then(function(res){
+        console.log(project.anotations);
+        projectService.updateProject(project).then(function(res){
         console.log("Anotación eliminada");
+
+        vm.project = project;
+
         });
 
         $('#retroMessge-Modal').modal('show');
         vm.msg="Anotación eliminada del proyecto"
-        
-        init();
-      }
+      };
 
 
       vm.save= function () {
+
         var newAnotation = {
           tittle : vm.tittle,
           description : vm.description,
@@ -63,33 +64,28 @@
         console.log(newAnotation);
         //envia el usuario al user.service
         projectService.updateProject(vm.project).then(function(res){
-      
+            if(res.data){
+            }
         });
 
-        $('#annotation-Modal').modal('hide');
+        vm.tittle = null;
+        vm.description = null;
+
+        $('#anotation-Modal').modal('hide');
         $('#retroMessge-Modal').modal('show');
         vm.msg="Anotacion agregada correctamente"
 
-          vm.modalAnotation = false;
-          vm.tittle = null;
-          vm.description = null;
       };
 
+      vm.modal = {
+        open: function(anotation) {
+          console.log(anotation);
+          vm.modal.title = anotation.tittle;
+          vm.modal.body = anotation.description;
+          console.log(vm.modal);
 
- /*   vm.deleteAnotation= function(project){
-
-          project.anotation=[];
-          vm.anotation.tittle="";
-          vm.anotation.description="";
-          vm.anotation.secondSurname="";
-
-        projectService.updateProject(project).then(function(res){
-          console.log("Profesor eliminado");
-        });
-        $('#retroMessage-Modal').modal('show');
-        vm.msg="Anotacion eliminada"
-        init();
-      }*/
+        }
+      };
 
     } 
 })();
