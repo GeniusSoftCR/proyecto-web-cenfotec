@@ -334,10 +334,7 @@
 
         <div id="list" class="bhoechie-tab-content">
           <div class="listUsers">LISTA DE USUARIOS
-
-            <div>
-              <input class="form-control" type="text" placeholder="Buscar...." ng-model="vm.searchUser">
-            </div>
+          <input id="searchUser" class="form-control" type="text" placeholder="Buscar...." ng-model="vm.searchUser" style="max-width: 250px">
             <select id="selectUsers" class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
               <option value="" disabled="disabled">Filtrar rol de usuario:</option>
               <option value="admin">Administrador</option>

@@ -166,8 +166,14 @@ div .listUsers{
 }
 
 #selectUsers{
-  border: 2px solid gray;
+  border: 2px solid #BBBBBB;
   padding: 6px;
+  border-radius: 6px;
+}
+
+#searchUser{
+  border: 2px solid #BBBBBB;
+  padding: 5px;
   border-radius: 6px;
 }
 
