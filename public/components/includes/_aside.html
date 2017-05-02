@@ -16,7 +16,7 @@
 <!--       <li  ng-class="{active:vm.activeTab('/inicio/perfil')}">
         <a href=""><i class="fa fa-user-plus"></i>Clientes</a>
       </li> -->
-      <li  ng-class="{active:vm.activeTab('/inicio/estudiantes')}" ng-if="vm.checkRole(['admin','professor','assitant'])">
+      <li  ng-class="{active:vm.activeTab('/inicio/estudiantes')}" ng-if="vm.checkRole(['admin'])">
         <a ui-sref="main.students"><i class="fa fa-users"></i>Estudiantes</a>
       </li>
       <li  ng-class="{active:vm.activeTab('/inicio/usuarios')}" ng-if="vm.checkRole(['admin'])">
