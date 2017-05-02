@@ -50,7 +50,7 @@
 			<div class="unModal-footer">
 				<button ng-show="vm.btnYes" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.approveRequest(vm.req)">Aprobar</button>
 				<button ng-show="vm.btnNo" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.rejection=true;vm.confirm=true;vm.btnYes=false;vm.btnNo=false;vm.switch(vm.req)">Rechazar</button><!--muestra la seccion oculta-->
-				<button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
     </div><!--FinModal-Content-->
@@ -88,7 +88,7 @@
 			<div class="unModal-footer">
 				<button ng-show="vm.confirm" class="btn btn-sm btn-embossed btn-danger" ng-click="vm.rejectRequest(vm.req)">Rechazar</button>
 				<button ng-show="vm.finalStep" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.confirmation(vm.param1,vm.param2)">Confirmar</button>
-				<button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
     </div><!--FinModal-Content-->
