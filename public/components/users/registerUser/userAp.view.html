@@ -13,7 +13,7 @@
         <!-- Sección de profesores-->
         <div class="bhoechie-tab-content active">
           <form class="profForm"  name="profForm" class="container" autocomplete="off" ng-submit="vm.preSaveProf()" novalidate>  
-            <h3 class="tittle">REGISTRO DE PROFESORES</h3>
+            <h3 class="tittle">Registro de profesores</h3>
               <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <!-- Nombre -->
                 <label for="name">Nombre:</label>
@@ -130,7 +130,7 @@
             <!-- Sección de administradores-->
         <div class="bhoechie-tab-content">
           <form class="userAdmiForm" class="row" name="userAdmiForm" novalidate autocomplete="off" ng-submit="vm.preSaveAdmi()">
-            <h3 class="tittle">REGISTRO DE ADMINISTRADOR</h3>
+            <h3 class="tittle">Registro de administrador</h3>
       
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="name">Nombre:</label>
@@ -236,7 +236,7 @@
         <!-- Sección de asistentes-->            
         <div class="bhoechie-tab-content">
           <form name="userFormAsis" class="userFormAsis" class="row" novalidate autocomplete="off" ng-submit="vm.preSaveAsis()">
-            <h3 class="tittle">REGISTRO DE ASISTENTES</h3>
+            <h3 class="tittle">Registro de asistentes</h3>
             <div  class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="name">Nombre:</label>
               <input type="text" ng-model="vm.asis.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
@@ -333,8 +333,8 @@
         </div>
 
         <div id="list" class="bhoechie-tab-content">
-          <div class="listUsers">LISTA DE USUARIOS
-          <input id="searchUser" class="form-control" type="text" placeholder="Buscar...." ng-model="vm.searchUser" style="max-width: 250px">
+          <div class="listUsers">Lista de usuarios
+          <input id="searchUser" class="form-control pull-right" style="margin-left: 25px" type="text" placeholder="Buscar...." ng-model="vm.searchUser">
             <select id="selectUsers" class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
               <option value="" disabled="disabled">Filtrar rol de usuario:</option>
               <option value="admin">Administrador</option>

@@ -175,6 +175,8 @@ div .listUsers{
   border: 2px solid #BBBBBB;
   padding: 5px;
   border-radius: 6px;
+  max-width: 250px; 
+  height: 35px
 }
 
 #list{
@@ -212,3 +214,5 @@ tbody, th{
   height: 350px;
   overflow-y: scroll;
 }
+
+
