@@ -6,9 +6,9 @@
   <div id="files" class="panel-collapse collapse">
     <div class="panel-body">
       <ul>
-        <li class="list-group-item" ng-repeat="file in filesCtrl.projectFiles track by $index">
+        <li class="list-group-item" ng-repeat="file in vm.projectFiles track by $index">
           {{file.name}}
-          <button ng-click="filesCtrl.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
+          <button ng-click="vm.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
             <span class="fui-trash"></span>
           </button>
         </li>
@@ -16,6 +16,6 @@
       </ul>
     </div>
     <div class="panel-footer">
-      <button ng-click="filesCtrl.addNewFile()" class="btn btn-sm btn-embossed btn-warning pull-right">Agregar</button>
+      <button ng-click="vm.addNewFile()" class="btn btn-sm btn-embossed btn-warning pull-right">Agregar</button>
     </div>
 </div>
