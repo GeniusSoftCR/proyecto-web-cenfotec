@@ -67,10 +67,11 @@
         vm.loadProjectFiles();
       }
 
-      vm.removeFile= function(file){
+      vm.preRemove= function(file){
         vm.flag=false;
         $('#filesConfirm-Modal').modal('show');
         if(vm.flag){
+          $('#filesConfirm-Modal').modal('hide');
           vm.removeFile(file);
         }
       }
