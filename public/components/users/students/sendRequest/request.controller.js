@@ -119,6 +119,8 @@
 
         });
 
+        $('#regStu-Modal').modal('show');
+
         vm.id = null;
         vm.name = null;
         vm.surName = null;
