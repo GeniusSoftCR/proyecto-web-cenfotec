@@ -24,8 +24,10 @@
       vm.students = res.data;
     });
 
-    vm.addStudent = function(project,student){
-      vm.project.students.push(student);
+    vm.addStudent = function(student){
+      var newStudent = {};
+      newStudent._id = student._id;
+      vm.project.students.push(newStudent);
       projectService.updateProject(vm.project).then(function(res){
       })
       console.log(student);

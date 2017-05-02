@@ -30,7 +30,7 @@
 							<ul>
 								<li class="list-group-item" ng-repeat="student in vm.students">
 										{{student.name}} {{student.surname}}
-									<button ng-click="vm.addStudent(vm.project,student._id)" class="btn btn-sm btn-embossed btn-danger pull-right" data-dismiss="modal">
+									<button ng-click="vm.addStudent(student)" class="btn btn-sm btn-embossed btn-danger pull-right" data-dismiss="modal">
 										<span class="fui-check"></span>
 									</button>
 								</li>

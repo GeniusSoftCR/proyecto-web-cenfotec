@@ -24,7 +24,7 @@ var projectSchema = new Schema({
 	images:       [{url : {type: String}}],
 
 	////////////////////////////////////////////
-	students:     [{_id:{type:String}}],
+	students:     [{_id:{type:ObjectId}}],
 	professor:    {type: String, default: undefined},
 	assistant:    {type: String, default: undefined},
 	rejectReason: {type: String, default: undefined},
@@ -76,6 +76,7 @@ router.put('/projects/byTeacher', function(req, res, next) {
 });
 //procesar solicitudes de proyectos
 router.put('/projects/update', function(req, res, next) {
+	console.log(req.body)
   Project.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
     res.json({success: false, msg: 'Ha ocurrido un error'});
     res.json({success:true,msg:'Se ha actualizado correctamente.'});
