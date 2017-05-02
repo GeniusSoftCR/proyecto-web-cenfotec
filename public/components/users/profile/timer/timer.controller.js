@@ -33,7 +33,6 @@
 		function _sync() {
 			vm.user = user || {};
 			vm.projects = projects || {};
-			_fetchData()
 		}
 
 		//////////////////////////////////////////////////////////////
