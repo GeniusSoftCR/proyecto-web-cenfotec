@@ -44,8 +44,6 @@
       function onSuccess(Blob){
         vm.fileName = Blob.filename;
         vm.fileUrl = Blob.url;
-        console.log(vm.fileName);
-        console.log(vm.fileUrl);
         vm.addNewFile();
       };
       //Fin: Manejo de archivos
@@ -61,7 +59,7 @@
         vm.project.files=vm.projectFiles;
         //4)persiste los cambios en el back end
         projectService.updateProject(vm.project).then(function(res){
-          console.log("Archivo agregado");
+          //console.log("Archivo agregado");
         });
 
         //refresca la lista de archivos
@@ -84,7 +82,7 @@
         vm.project.files=vm.projectFiles;
         //4)persiste los cambios en el back end
         projectService.updateProject(vm.project).then(function(res){
-          console.log("Archivo eliminado");
+          //console.log("Archivo eliminado");
         });
 
         //refresca la lista de archivos
