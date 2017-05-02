@@ -67,6 +67,13 @@
         vm.loadProjectFiles();
       }
 
+      vm.removeFile= function(file){
+        vm.flag=false;
+        $('#filesConfirm-Modal').modal('show');
+        if(vm.flag){
+          vm.removeFile(file);
+        }
+      }
       /*ELIMINAR ARCHIVO*/
       vm.removeFile= function(file){
         vm.file = file;

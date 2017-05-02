@@ -8,7 +8,7 @@
       <ul>
         <li class="list-group-item" ng-repeat="file in vm.projectFiles track by $index">
           {{file.name}}
-          <button ng-click="vm.removeFile(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
+          <button ng-click="vm.preRemove(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
             <span class="fui-trash"></span>
           </button>
         </li>
