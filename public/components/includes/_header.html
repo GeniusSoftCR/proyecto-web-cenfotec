@@ -4,13 +4,13 @@
 	<nav class="navbar navbar-default" role="navigation" id="navegacion">
 	  <div class="collapse navbar-collapse" id="navbar-collapse-01">
 	    <ul class="nav navbar-nav navbar-right">
-	      <li>
-	      	<a ui-sref="main({{vm.user.username}})"><!-- Indicator with number -->
+	      <!-- <li>
+	      	<a ui-sref="main({{vm.user.username}})">
 				<i class="fa fa-bell"></i><span class="navbar-new">2</span>
 				</a>
-			  </li>
+			  </li> -->
 	      <li class="dropdown">
-              <a id="profile" ui-sref="main.profile" class="dropdown-toggle" data-toggle="dropdown">
+              <a id="profile" class="dropdown-toggle" data-toggle="dropdown">
               	<img class="img-circle img-profile" ng-src="{{vm.user.avatar}}">
                
               	<span class="nombreUsuario">{{vm.user.username}}</span>
@@ -18,9 +18,7 @@
               </a>
               <span class="dropdown-arrow"></span>
               <ul class="dropdown-menu">
-                <li><a href="#">Financiero</a></li>
-                <li><a href="#">Especialidades</a></li>
-                <li><a href="#">Carreras</a></li>
+                <li><a ui-sref="main.profile">Perfil</a></li>
                 <li class="divider"></li>
                 <li><a ng-click="vm.logOut()" href="">Cerrar sesión</a></li>
               </ul>
