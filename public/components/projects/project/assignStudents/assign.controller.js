@@ -22,7 +22,7 @@
       assignedStudents();
     });    
     //traer lista de esudiantes
-    userService.getUsers({"role":"student", "state":["active" ,"eligible"]}).then(function (res) {
+    userService.getUsers({"role":"student", "state":["active" ,"eligible"]}).then(function (res){
       vm.students = res.data;
       assignedStudents();
     });
@@ -40,15 +40,22 @@
         angular.forEach(vm.project.students, function(projectStudent,key){
           if(student._id == projectStudent._id){
             vm.projectStudents.push(student);
-          };
+          }
         });
       });
     };
-    assignedStudents();
     //eliminar estudiante
-    vm.deleteStudent= function (student){
-      console.log(student);
-      assignedStudents();
+    vm.deleteStudent= function(studentId){
+      var project = vm.project;
+      angular.forEach(project.students, function(student, key){
+          console.log(studentId);
+          if (studentId === student._id){
+            vm.project.students.splice(key,1);
+            projectService.updateProject(project).then(function(res){
+            });
+          }
+      });
+      assignedStudents();  
     };
   };
 })();

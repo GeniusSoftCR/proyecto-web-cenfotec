@@ -7,7 +7,7 @@
 			<ul>
 				<li class="list-group-item" ng-repeat="student in vm.projectStudents">
 					{{student.name}} {{student.surname}} {{student.secondSurname}}
-					<button ng-click="vm.deleteStudent(student)" class="btn btn-sm btn-embossed btn-danger pull-right">
+					<button ng-click="vm.deleteStudent(student._id)" class="btn btn-sm btn-embossed btn-danger pull-right">
 						<span class="fui-trash"></span>
 					</button>				
 				</li>
@@ -30,7 +30,7 @@
 								<input class="form-control" type="text" placeholder="Buscar...." ng-model="vm.taskSearch">
 							</div>
 							<ul>
-								<li class="list-group-item" ng-repeat="student in vm.students | filter:{name:vm.taskSearch}">
+								<li class="list-group-item" ng-repeat="student in vm.students">
 										{{student.name}} {{student.surname}} {{student.secondSurname}}
 									<button ng-click="vm.addStudent(student)" class="btn btn-sm btn-embossed btn-danger pull-right" data-dismiss="modal">
 										<span class="fui-check"></span>
