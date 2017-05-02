@@ -44,8 +44,14 @@
         vm.fetchTeachers();
         vm.kind=kind;
       }
+      vm.pre= function(project,kind){
+        $('#teachersConfirm-Modal').modal('show');
+        vm.yesProject=project;
+        vm.yesKind=kind;
+      }
       //eliminar el profesor encargado
       vm.delTeacher= function(project,kind){
+        $('#teachersConfirm-Modal').modal('hide');
         if(kind==1){
           project.professor=null;
           vm.professor.name="";
