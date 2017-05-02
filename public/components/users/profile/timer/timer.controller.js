@@ -6,33 +6,23 @@
 
 	timerController.$inject = ['$q','$interval','AuthService','projectService','userService'];
 
- 	function timerController($q,$interval,AuthService,projectService,userService){
-
+ 	function timerController ($q,$interval,AuthService,projectService,userService){
 		///////////////////////////////////////////////////////////////
 		///// + PRIVATE +/////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////
 		var projects 	= {};
 		var user 		= {};
 		var fetchData 	= _fetchData();	
-		var syncVm 	= _syncVm;
+		var sync 		= _sync;
+
 
 		function _fetchData() {
-			//Load user from localstorage no promise nedeed
 			user =  AuthService.getAuthUser();
-			proyects = 
-			function proyectsPromise() {
-				return projectService.getProjects({students:{_id:user._id}})
-			}
-
-			// projects = res.data;
-			// syncVm();
-
 			projectService.getProjects({students:{_id:user._id}}).then(function (res) {
 				projects = res.data;
-				syncVm();
+				sync();
 			});
 		};
-
 		///////////////////////////////////////////////////////////////
 		///// + VM DEPENDENCIES && DECLARATIONS +/////////////////////
 		/////////////////////////////////////////////////////////////
@@ -40,18 +30,11 @@
 		//vm = view modal (like $scope)
 		var vm = this;
 
-		function _syncVm() {
-			var sync = {};	
-
-				sync.proyects = _proyects;
-
-				function _proyects(proyectsFresh) {
-					vm.proyects = proyectFresh;
-					console.log('gogoggog')
-				};
-
-			return sync;
-		};
+		function _sync() {
+			vm.user = user || {};
+			vm.projects = projects || {};
+			_fetchData()
+		}
 
 		//////////////////////////////////////////////////////////////
 		///// + DEFAULTS +///////////////////////////////////////////
@@ -59,18 +42,15 @@
 		////// - object /////////////
 		vm.time = {};
 		////// - boolean ////////////
-
-		vm.taskSearchState = false;
-		vm.showCero = true;
-		vm.counting = false;
+		vm.showCero 		= true;
+		vm.counting 		= false;
+		vm.taskSearchState 	= false;		
 		////// - string /////////////
-		vm.time.hours = '0';
-		vm.time.mins = '0';
-		vm.time.secs='0';
+		vm.time.hours 	= '0';
+		vm.time.mins	= '0';
+		vm.time.secs	='0';
 		////////////////////////////////+ END DEAFULTS +/////
 		////////////////////////////////////////////////////
-
-
 
 		///////////////////////////////////////////////////////////////
 		///// + PUBLIC FUNCTIONS +////////////////////////////////////
@@ -81,14 +61,6 @@
 		//-projects
 		vm.pickProject 	= _pickProject;
 		vm.setProject 	= _setProject;
-
-
-
-
-		vm.msg = function () {
-			return 'hello';
-		}
-
 
 		function _startCount() {
 			//private\
@@ -131,9 +103,9 @@
 		function _setProject(id) {	
 			vm.taskSearchState = !vm.taskSearchState;		
 			projectService.getProjects({_id:id}).then(function (res) {
-				$q.when(res).then(function () {
-					vm.project = res.data[0];
-				});
+				vm.project = res.data[0];
+				sync();
+
 			});
 		};
 	};

@@ -1,41 +1,42 @@
-/*IMPORTANTE TRAER EL ID DEL PROYECTO POR LA URL Y NO QUEMARLO!!!*/
 (function(){
   angular
     .module('cshApp')
     .controller('filesController', filesController);
     
-    filesController.$inject = ['filesService','filepickerService'];
+    filesController.$inject = ['$q','$stateParams','projectService', 'userService','AuthService','filepickerService'];
 
-    function filesController(filesService,filepickerService){
+    function filesController($q, $stateParams, projectService, userService,AuthService, filepickerService){
       
-      var filesCtrl = this;
-      /*setea el id del proyecto actual: DEBE VENIR DE LA URL*/
-      filesCtrl.projectID = 1;
+      var vm = this;
+      vm.user = AuthService.getAuthUser();
+      vm.project = {};    //proyecto actual
       //2)copiará la lista de archivos del proyecto actual*
-      filesCtrl.projectFiles = [];
+      vm.projectFiles = [];
       //archivo específico a borrar
-      filesCtrl.file = {};
+      vm.file = {};
+
+      //trae el proyecto actual
+      projectService.getProjects({_id:$stateParams.id}).then(function (res) {
+          vm.project=res.data[0];
+          init();
+      });
+
+      function init() {
+        vm.projectFiles=vm.project.files;
+      }
 
       /*ACTUALIZAR LISTA DE ARCHIVOS*/
-      filesCtrl.loadProjectFiles= function(){
+      vm.loadProjectFiles= function(){
         //1)trae la lista con todos los proyectos
-        filesCtrl.projectsList = filesService.getProjects();
-
-        //recorre el arreglo de proyectos
-        for(i = 0; i < filesCtrl.projectsList.length; i++){
-          //se posiciona en el proyecto actual
-          if(filesCtrl.projectsList[i].id==filesCtrl.projectID){
-            //2)copia la lista de archivos del proyecto actual*
-            filesCtrl.projectFiles=filesCtrl.projectsList[i].files;
-          }
-        }
-
+        //vm.projectsList = filesService.getProjects();
+        //copia la lista de archivos del proyecto actual*
+        vm.projectFiles=vm.project.files;
       }
-      filesCtrl.loadProjectFiles();
+      vm.loadProjectFiles();
 
       //Inicio: Manejo de archivos
-      filesCtrl.pickFile = pickFile;
-      filesCtrl.onSuccess = onSuccess;
+      vm.pickFile = pickFile;
+      vm.onSuccess = onSuccess;
       function pickFile(){
         filepickerService.pick(
           {extension:'.pdf',
@@ -45,61 +46,51 @@
         );
       };
       function onSuccess(Blob){
-        filesCtrl.fileName = Blob.filename;
-        filesCtrl.fileUrl = Blob.url;
+        vm.fileName = Blob.filename;
+        vm.fileUrl = Blob.url;
+        console.log(vm.url);
       };
       //Fin: Manejo de archivos
 
       /*AGREGAR ARCHIVO*/
-      filesCtrl.addNewFile= function(){
+      vm.addNewFile= function(){
         pickFile();
         //1)crea un objeto para el nuevo archivo
-        var newFile = {name:filesCtrl.fileName,url:filesCtrl.fileUrl};
+        var newFile = {name:vm.fileName,url:vm.fileUrl};
         //2)agrega el objeto a la lista de archivos(temporal)
-        filesCtrl.projectFiles.push(newFile);
-
-        //recorre el arreglo de proyectos
-        for(i = 0; i < filesCtrl.projectsList.length; i++){
-          //se posiciona en el proyecto actual
-          if(filesCtrl.projectsList[i].id==filesCtrl.projectID){
-            //3)actualiza la lista de archivos en el proyecto actual
-            filesCtrl.projectsList[i].files=filesCtrl.projectFiles;
-            //4)persiste los cambios en el localStorage
-            filesService.setProjects(filesCtrl.projectsList);
-          }
-        }
+        vm.projectFiles.push(newFile);
+        //3)actualiza la lista de archivos en el proyecto actual
+        vm.project.files=vm.projectFiles;
+        //4)persiste los cambios en el back end
+        projectService.updateProject(vm.project).then(function(res){
+          console.log("Archivo agregado");
+        });
 
         //refresca la lista de archivos
-        filesCtrl.loadProjectFiles();
+        vm.loadProjectFiles();
       }
 
       /*ELIMINAR ARCHIVO*/
-      filesCtrl.removeFile= function(file){
-        filesCtrl.file = file;
-        alert(file.name);
+      vm.removeFile= function(file){
+        vm.file = file;
         var position = null;
         //busca el index del archivo
-        angular.forEach(filesCtrl.projectFiles, function(pfile,index) {
-          if (pfile.url === filesCtrl.file.url) {
+        angular.forEach(vm.projectFiles, function(pfile,index) {
+          if (pfile.url === vm.file.url) {
             position = index;
           }
         });
-        //borra el archivo de la lista de archivos
-        filesCtrl.projectFiles.splice(position,1);
-        
-        //recorre el arreglo de proyectos
-        for(i = 0; i < filesCtrl.projectsList.length; i++){
-          //se posiciona en el proyecto actual
-          if(filesCtrl.projectsList[i].id==filesCtrl.projectID){
-            //3)actualiza la lista de archivos en el proyecto actual
-            filesCtrl.projectsList[i].files=filesCtrl.projectFiles;
-            //4)persiste los cambios en el localStorage
-            filesService.setProjects(filesCtrl.projectsList);
-          }
-        }
+        //2)borra el archivo de la lista de archivos
+        vm.projectFiles.splice(position,1);
+        //3)actualiza la lista de archivos en el proyecto actual
+        vm.project.files=vm.projectFiles;
+        //4)persiste los cambios en el back end
+        projectService.updateProject(vm.project).then(function(res){
+          console.log("Archivo eliminado");
+        });
 
         //refresca la lista de archivos
-        filesCtrl.loadProjectFiles();
+        vm.loadProjectFiles();
       }
 
     }//fin del objeto de angular

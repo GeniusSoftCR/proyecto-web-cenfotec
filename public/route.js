@@ -151,16 +151,16 @@
 		      		controller: 'assignStudents',
 		      		controllerAs: 'vm'
 		      	},
-			    'anotaciones@main.project': {
+			    'anotations@main.project': {
 			    	templateUrl: './components/projects/project/anotations/anotations.view.html',
 			    	controller: 'projectAnotationsController',
 			    	controllerAs: 'vm'
+				},
+				'files@main.project': {
+					templateUrl: './components/projects/project/files/files.view.html',
+					controller: 'filesController',
+					controllerAs: 'vm'
 				}
-				// 'archivos@main.project': {
-				// 	templateUrl: './components/projects/project/projectFiles-esteban/projectFiles.view.html',
-				// 	controller: 'filesController',
-				// 	controllerAs: 'filesCtrl'
-				// }
 	    	}
 		})		
 		/*FIN*/
