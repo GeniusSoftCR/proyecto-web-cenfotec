@@ -5,7 +5,7 @@
 
   <div id="annotations" class="panel-collapse collapse">
     <div class="panel-body">
-      <li ng-repeat="anotation in vm.anotations" class="list-group-item">{{anotation.tittle}}
+      <li ng-repeat="anotation in vm.project.anotations" class="list-group-item">{{anotation.tittle}}
         <button ng-click="vm.deleteAnotation(anotation._id)" class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-trash"></span></button>
         <button ng-click="vm.modal.open(anotation)" data-toggle="modal" data-target="#infoAnot-Modal" class="btn btn-sm btn-embossed btn-warning pull-right"><span class="fui-eye"></span></button>
         <!--PENDIENTE EL MOSTRAR-->

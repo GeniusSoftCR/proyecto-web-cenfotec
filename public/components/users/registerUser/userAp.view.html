@@ -125,8 +125,8 @@
               <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
                 <button type="submit" id="btnRegister" data-target="#modal" ng-disabled="profForm.$invalid" data-toggle="modal" class="btn btn-warning btn-embossed" ng-click="profForm.$setPristine()">Registrar</button>
               </div>
-          </form>
-          <!-- Modal-->
+
+              <!-- Modal-->
               <div class="col-md-8 col-md-offset-4">  
                 <div class="modal fade" id="modal" role="dialog">
                   <div class="modal-dialog">
@@ -142,6 +142,7 @@
                   </div>
                 </div>
               </div>
+          </form>
         </div>
         <!-- Sección de administradores-->
         <div class="bhoechie-tab-content">
@@ -419,8 +420,8 @@
                       <th>Teléfono</th>
                     </tr>
                   </thead>
-                  <tbody id="myScrollspy">
-                    <tr ng-repeat="user in vm.users | filter:{role:vm.search}">
+                  <tbody>
+                    <tr  id="myScrollspy" ng-repeat="user in vm.users | filter:{role:vm.search}]">
                       <td>{{user.name}}</td>
                       <td>{{user.surname + ' ' + user.secondSurname}}</td>
                       <td>{{user.email}}</td>
@@ -435,119 +436,3 @@
   </div>
 </div>
 </main>
-
-
-  
-
-
-
-
-
-
-
-
-<!-- 
-
-
-
-
-<div class="col-md-12 col-sm-12 col-xs-12">
-          <h3>Lista de usuarios</h3>
-
-          <div class="panel-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Tipo de Usuario</th>
-                  <th>Correo electrónico</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="user in vm.users | filter: {role : admin, professor, assistant}">
-                  <td>{{user.name}}</td>
-                  <td>{{user.surname}}</td>
-                  <td>{{user.role}}</td>
-                  <td>{{user.email}}</td>
-                  <td> <button class="btn btn-warning" ng-click="vm.deleteCareer(career)">Eliminar</button></td>
-                </tr>
-              </tbody>
-            </table>
-        </div>
-      </div>
-
-
-
-
-
-
-      <div class="Eliminar usuarios">
-        <form name="userFormProfDelete">
-
-          <div class="input-group">
-            <label for="repeatSelect">Eliminar y/o Modificar Profesor</label>
-            <select ng-model="userAprCtrl.ap.id">
-              <option ng-value="user.id" ng-repeat="user in userAprCtrl.userList">{{ user.name + " " + user.surname }}</option>
-            </select>
-
-
-            <button ng-click="userAprCtrl.deleteUser(userAprCtrl.ap.id)">Eliminar</button>
-            <button id="modi" ng-click="userAprCtrl.viewProf(userAprCtrl.ap.id)">Modificar</button>
-          </div>
-
-        </form>   
-      </div>
-      </section>  
-
-      <section>
-
-
-
-      <div class="unModal" id="modi" ng-Show="userAprCtrl.edit.modal">
-        <div class="unModal-header">
-          <label>Información de {{ userAprCtrl.edit.professor.name }}</label>
-        </div>
-
-        <div class="unModal-body">
-            <div class="input-group">
-
-                <div class="input-group">
-                  <label>Especialidad:</label>
-                      <input ng-model="userAprCtrl.edit.specialty" id="txtspecialty" type="text" class="form-control" name="specialty2" placeholder="Ingrese la especialidad" required>
-                </div>
-
-
-                <div class="input-group">
-                  <label>Miembro del Consejo:</label>
-                  <select class="form-control" required ng-model="userAprCtrl.edit.councilMember" name="consejo2">
-                    <option value="" disabled>Seleccione una opción</option>
-                    <option value="Si">Si</option>
-                    <option value="No">No</option>
-                  </select>
-                </div>
-
-
-                <div class="input-group">
-                  <label>Habilitado para proyectos:</label>
-                  <select class="form-control" required ng-model="userAprCtrl.edit.availableForProyects" name="habilit2">
-                    <option value="" disabled>Seleccione una opción</option>
-                    <option value="Si">Si</option>
-                    <option value="No">No</option>  
-                  </select>
-                </div>
-        </div>
-
-        <div class="unModal-footer">
-          <button ng-click="userAprCtrl.preModify()">Modificar Información</button>
-        </div>
-
-      </div>
-      </section>
-    </div>
-  </div>
-</div>
- -->
-
-
-
