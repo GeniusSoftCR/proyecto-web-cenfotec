@@ -82,7 +82,7 @@
               <td>{{ career.name }}</td>
               <td>{{ career.code }}</td>
               <td>{{ career.degree }}</td>
-              <td> <button class="btn btn-sm btn-embossed btn-warning" ng-click="vm.deleteCareer(career)">Eliminar</button></td>
+              <td> <button class="btn btn-sm btn-embossed btn-warning" data-toggle="confirm" data-target="#confirm" ng-click="vm.deleteCareer(career)">Eliminar</button></td>
             </tr>
           </tbody>
         </table>

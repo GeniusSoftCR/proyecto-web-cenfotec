@@ -5,14 +5,16 @@
 	<div id="students" class="panel-collapse collapse">
 		<div class="panel-body">
 			<ul>
-				<li class="list-group-item">
-					
-					
+				<li class="list-group-item" ng-repeat="student in vm.projectStudents">
+					{{student.name}} {{student.surname}}
+					<button ng-click="vm.deleteStudent(student)" class="btn btn-sm btn-embossed btn-danger pull-right">
+						<span class="fui-check"></span>
+					</button>				
 				</li>
 			</ul>
 		</div>
 		<div class="panel-footer">
-			<button class="btn btn-sm btn-warning" data-target="#modal" data-toggle="modal"><i class="fa fui-plus"></i>Agregar</button>
+			<button class="btn btn-sm btn-warning pull" data-target="#modal" data-toggle="modal">Agregar</button>
 		</div>
 		<!-- Modal-->
 		<div class="col-md-8 col-md-offset-4">  
@@ -29,7 +31,7 @@
 							</div>
 							<ul>
 								<li class="list-group-item" ng-repeat="student in vm.students">
-										{{student.name}} {{student.surname}}
+										{{student.name}} {{student.surname}} {{student.secondSurname}}
 									<button ng-click="vm.addStudent(student)" class="btn btn-sm btn-embossed btn-danger pull-right" data-dismiss="modal">
 										<span class="fui-check"></span>
 									</button>
