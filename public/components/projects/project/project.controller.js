@@ -47,19 +47,23 @@
         }
       }
 
+      vm.reload=function(){
+        $('#insideRetro-Modal').modal('hide');
+        $window.location.reload();
+      }
       vm.fetch=function(){
         // projectService.getProjects({_id:$stateParams.id}).then(function (res) {
         //   $q.when(res).then(function () {
         //     vm.project=res.data[0];
         //   })      
         // });
-        $window.location.reload();
+        $('#insideRetro-Modal').modal('show');
       }
 
       vm.activate=function(){
         vm.project.state="inProcess";
         projectService.updateProject(vm.project).then(function(res){
-          console.log("El proyecto ha iniciado");
+          vm.msg="El proyecto se ha iniciado";
         });
         vm.fetch();
       }
@@ -67,7 +71,7 @@
       vm.desactivate=function(){
         vm.project.state="ended";
         projectService.updateProject(vm.project).then(function(res){
-          console.log("El proyecto ha iniciado");
+          vm.msg="El proyecto ha finalizado";
         });
         vm.fetch();
       }
