@@ -86,6 +86,7 @@ label{
 }
 
 .tittle{
+  margin-top: 9px;
   text-align: center;
 }
 
@@ -109,9 +110,6 @@ input{
   color: red;
 }
 
-.profForm, .userAdmiForm, .userFormAsis{
-  padding-top: 5%;
-}
 
 
 .thanks{
@@ -143,8 +141,8 @@ input{
   font-size: 6px;
 }
 
-form h3{
-  padding-bottom: 4%;
+h3{
+  padding-bottom: 5%;
   font-size: 20px;
   font-weight: bold;
 }
@@ -154,12 +152,17 @@ button{
   padding: 23px;
 }
 
-#btnRegisterProf{
-  margin-top: 12px;
+button{
+   padding: 38px;
+ }
+
+#btnRegister{
+  margin-top: -10px;
 }
 
+
 div .listUsers{
-  padding-bottom: 4%;
+  padding-bottom: 3%;
   font-size: 20px;
   font-weight: bold;
    font-family: 'montserrat';

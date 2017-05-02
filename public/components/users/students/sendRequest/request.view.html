@@ -90,7 +90,7 @@
         <input type="password" ng-model="vm.password" id="txtpassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required minlength="5">
         <div id="ng-message" ng-messages="studentForm.newPassword.$error" ng-hide="studentForm.newPassword.$pristine">
           <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido.</div>
-          <div ng-message="pattern" class="red darken-2 center-align white-text">Usar may. min. y números.</div>
+          <div ng-message="pattern" class="red darken-2 center-align white-text">Usar may. min. y números.(5 o más caracteres)</div>
         </div>
       </div>
       <!-- Confirm Password -->
@@ -110,8 +110,8 @@
             <a><p ng-click="vm.pickFile()" class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input style="display: none;" id="cv" ng-model="vm.resumeUrl" multiple>
             </p></a>
           </label>
-          <input  ng-if="vm.loading" value="Cargando..." type="text" class="form-control" style="color: black" readonly>
-          <input  ng-if="!vm.loading" ng-model="vm.fileName" type="text" class="form-control" style="color: black" readonly>
+          <input ng-if="vm.loading" value="Cargando..." type="text" class="form-control" style="color: black" readonly>
+          <input ng-if="!vm.loading" ng-model="vm.fileName" type="text" class="form-control" style="color: black" readonly>
         </div>
       </div>
       <!-- Cargar imagen -->

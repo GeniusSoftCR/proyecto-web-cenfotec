@@ -1,7 +1,7 @@
 <main>
   <div class="row">
-    <div class="col-lg-11 col-md-8 col-sm-6 col-xs-3 bhoechie-tab-container">
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
+    <div class="col-lg-11 col-md-8 col-sm-12 col-xs-12 bhoechie-tab-container">
+      <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 bhoechie-tab-menu">
         <div class="list-group">
           <a href="#" class="list-group-item active text-center"><h4 class="glyphicon glyphicon-user"></h4><br/>Profesor</a>
           <a href="#" class="list-group-item text-center"><h4 class="glyphicon glyphicon-user"></h4><br/>Administrador</a>
@@ -35,7 +35,7 @@
               <!-- Segundo Apellido -->
               <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
                 <label for="secondSurname">Segundo apellido:</label>
-                  <input type="text" ng-model="vm.prof.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
+                  <input type="text" ng-model="vm.prof.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+" required>
                 <div id="ng-message" ng-messages="profForm.secondSurname.$error" ng-hide="profForm.secondSurname.$pristine">
                   <div ng-message="required" ng-hide="profForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
                   <div ng-message="pattern" ng-hide="profForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
@@ -122,7 +122,7 @@
                     <div ng-message="maxlength" ng-hide="profForm.phone.$pristine" class="red darken-2 center-align white-text">Ingrese 8 dígitos</div>
                 </div>
               </div>
-              <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
+              <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center; margin-top: 10.6px;"> 
                 <button type="submit" id="btnRegister" ng-disabled="profForm.$invalid" class="btn btn-warning btn-embossed" ng-click="profForm.$setPristine()">Registrar</button>
               </div>
           </form>       
@@ -134,7 +134,7 @@
       
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="name">Nombre:</label>
-              <input type="text" ng-model="vm.admi.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" ng-model="vm.admi.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+">
               <div id="ng-message" ng-messages="userAdmiForm.name.$error" ng-hide="userAdmiForm.name.$pristine">
                 <div ng-message="required" ng-hide="userAdmiForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
                 <div ng-message="pattern" ng-hide="userAdmiForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
@@ -142,7 +142,7 @@
             </div>
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="surName">Primer apellido:</label>
-              <input type="text" ng-model="vm.admi.surName" id="txtsurName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
+              <input type="text" ng-model="vm.admi.surName" id="txtsurName" class="form-control" name="surName" pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+" required>
               <div id="ng-message" ng-messages="userAdmiForm.surName.$error" ng-hide="userAdmiForm.surName.$pristine">
                 <div ng-message="required" ng-hide="userAdmiForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido.</div>
                 <div ng-message="pattern" ng-hide="userAdmiForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
@@ -150,7 +150,7 @@
             </div>
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="secondSurname">Segundo apellido:</label>
-              <input type="text" ng-model="vm.admi.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
+              <input type="text" ng-model="vm.admi.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+" required>
               <div id="ng-message" ng-messages="userAdmiForm.secondSurname.$error" ng-hide="userAdmiForm.secondSurname.$pristine">
                 <div ng-message="required" ng-hide="userAdmiForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
                 <div ng-message="pattern" ng-hide="userAdmiForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
@@ -196,7 +196,7 @@
             <!-- Puesto de trabajo-->
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="jobPosition">Puesto de trabajo:</label>
-              <input type="text" ng-model="vm.admi.jobPosition" id="txtjobPosition" class="form-control" name="jobPosition" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" ng-model="vm.admi.jobPosition" id="txtjobPosition" class="form-control" name="jobPosition" required pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+">
                 <div id="ng-message" ng-messages="userAdmiForm.jobPosition.$error" ng-hide="userAdmiForm.jobPosition.$pristine">
                   <div ng-message="required" ng-hide="userAdmiForm.jobPosition.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
                   <div ng-message="pattern" ng-hide="userAdmiForm.jobPosition.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
@@ -239,7 +239,7 @@
             <h3 class="tittle">Registro de asistentes</h3>
             <div  class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="name">Nombre:</label>
-              <input type="text" ng-model="vm.asis.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" ng-model="vm.asis.name" id="txtName" class="form-control" name="name" required pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+">
                 <div id="ng-message" ng-messages="userFormAsis.name.$error" ng-hide="userFormAsis.name.$pristine">
                   <div ng-message="required" ng-hide="userFormAsis.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido..</div>
                   <div ng-message="pattern" ng-hide="userFormAsis.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
@@ -247,7 +247,7 @@
             </div>
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="surName">Primer apellido:</label>
-              <input type="text" ng-model="vm.asis.surName" id="txtsurName" class="form-control" name="surName" pattern="[ñáéíóúA-Za-z ]+" required>
+              <input type="text" ng-model="vm.asis.surName" id="txtsurName" class="form-control" name="surName" pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+" required>
               <div id="ng-message" ng-messages="userFormAsis.surName.$error" ng-hide="userFormAsis.surName.$pristine">
                 <div ng-message="required" ng-hide="userFormAsis.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido.</div>
                 <div ng-message="pattern" ng-hide="userFormAsis.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
@@ -255,7 +255,7 @@
             </div>
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="secondSurname">Segundo apellido:</label>
-              <input type="text" ng-model="vm.asis.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
+              <input type="text" ng-model="vm.asis.secondSurname" id="txtsecondSurName" class="form-control" name="secondSurname" pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+" required>
               <div id="ng-message" ng-messages="userFormAsis.secondSurname.$error" ng-hide="userFormAsis.secondSurname.$pristine">
                 <div ng-message="required" ng-hide="userFormAsis.secondSurname.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
                 <div ng-message="pattern" ng-hide="userFormAsis.secondSurname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
@@ -298,7 +298,7 @@
             </div>
             <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
               <label for="jobPosition">Puesto de trabajo:</label>
-              <input type="text" ng-model="vm.asis.jobPosition" id="txtjobPosition" class="form-control" name="jobPosition" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" ng-model="vm.asis.jobPosition" id="txtjobPosition" class="form-control" name="jobPosition" required pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+">
               <div id="ng-message" ng-messages="userFormAsis.jobPosition.$error" ng-hide="userFormAsis.jobPosition.$pristine">
                 <div ng-message="required" ng-hide="userFormAsis.jobPosition.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
                 <div ng-message="pattern" ng-hide="userFormAsis.jobPosition.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras</div>
