@@ -15,13 +15,16 @@
 		///
 		var fetchData 	= _fetchData;	
 		var sync 		= _sync;
+
 		///
 		function _fetchData() {
 			user =  AuthService.getAuthUser();
+
 			projectService.getProjects({students:{_id:user._id}}).then(function (res) {
 				projects = res.data;
 				sync();
 			});
+
 		};
 
 		///////////////////////////////////////////////////////////////
@@ -108,6 +111,7 @@
 		}
 		function _pickProject() {
 			vm.taskSearchState = !vm.taskSearchState;
+			
 			if (vm.taskSearchState) {
 				vm.loading = true;
 				fetchData();
