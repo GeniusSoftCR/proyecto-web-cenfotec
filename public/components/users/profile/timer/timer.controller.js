@@ -4,9 +4,9 @@
 	angular.module('cshApp')
 	.controller('timerController', timerController);
 
-	timerController.$inject = ['$q','$interval','AuthService','projectService','userService'];
+	timerController.$inject = ['$q','$interval','$timeout','AuthService','projectService','userService'];
 
- 	function timerController ($q,$interval,AuthService,projectService,userService){
+ 	function timerController ($q,$interval,$timeout,AuthService,projectService,userService){
 		///////////////////////////////////////////////////////////////
 		///// + PRIVATE +/////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////
@@ -15,7 +15,7 @@
 		///
 		var fetchData 	= _fetchData;	
 		var sync 		= _sync;
-
+		///
 		function _fetchData() {
 			user =  AuthService.getAuthUser();
 			projectService.getProjects({students:{_id:user._id}}).then(function (res) {
@@ -27,32 +27,34 @@
 		///////////////////////////////////////////////////////////////
 		///// + VM DEPENDENCIES && DECLARATIONS +/////////////////////
 		/////////////////////////////////////////////////////////////
-
-		//vm = view modal (like $scope)
+		//
 		fetchData();
+		//vm = view modal (like $scope)
 		var vm = this;
-		vm.loading = true;
-
+		//
+		vm.loading 	= true;
+		///
 		function _sync() {
 			vm.user = user || {};
 			vm.projects = projects || {};
 			///
-			vm.loading = false;
-		}
-
+			vm.loading=false;
+		};
+		//
 		//////////////////////////////////////////////////////////////
 		///// + DEFAULTS +///////////////////////////////////////////
 		//
 		////// - object /////////////
 		vm.time = {};
 		////// - boolean ////////////
+
 		vm.showCero 		= true;
 		vm.counting 		= false;
 		vm.taskSearchState 	= false;		
 		////// - string /////////////
 		vm.time.hours 	= '0';
 		vm.time.mins	= '0';
-		vm.time.secs	='0';
+		vm.time.secs	='0';	
 		////////////////////////////////+ END DEAFULTS +/////
 		////////////////////////////////////////////////////
 
@@ -106,12 +108,11 @@
 		}
 		function _pickProject() {
 			vm.taskSearchState = !vm.taskSearchState;
-
 			if (vm.taskSearchState) {
 				vm.loading = true;
 				fetchData();
-			}
-		}
+			};
+		};
 		function _setProject(id) {	
 			vm.taskSearchState = !vm.taskSearchState;		
 			projectService.getProjects({_id:id}).then(function (res) {

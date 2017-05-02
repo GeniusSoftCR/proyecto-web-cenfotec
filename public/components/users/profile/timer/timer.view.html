@@ -44,12 +44,16 @@
 					</div>
 				</li>
 			</ul>
+			<!-- {{vm.projects}} -->
 			<div class="collapse" id="timer-collapse">
 				<ul class="list-group list-group-flush" id="proyects-list">	
-				<li  ng-if="(vm.projects.length == 0 && !vm.loading)" class="list-group-item ng-binding ng-scope"> No hay proyectos asignados</li>
-				<li  ng-if="vm.loading && vm" class="list-group-item ng-binding ng-scope"> Cargando proyectos... espere...</li>
+				<li  ng-if="(vm.projects.length == 0 && !vm.loading)" class="list-group-item ng-binding ng-scope">No hay proyectos asignados</li>
 
-				<li class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects | filter:{name:vm.taskSearch}">					
+				<img ng-show="vm.loading" class="img" src="../../.././../imgs/load.gif" style="max-width: 60px;margin-left: 5%;margin-top:-10px;" >	
+
+				
+
+				<li ng-hide="vm.loading" class="list-group-item ng-binding ng-scope" ng-repeat="project in vm.projects | filter:{name:vm.taskSearch}">	
 					<span>{{project.name}}</span>
 					<button class="btn btn-sm btn-embossed btn-danger pull-right" type="button" data-toggle="collapse" data-target="#timer-collapse" aria-expanded="false" aria-controls="collapseExample" ng-click="vm.setProject(project._id)">Seleccionar</button>
 				</li>			
