@@ -63,10 +63,10 @@
     <div class="col-md-7 col-sm-12 col-xs-12">
       <div class="panel panel-default">
         <div class="panel-heading">Lista de carreras
-          <!--<div class="col-md-4 pull-right">
-            <input type="text" class="form-control" name="search" placeholder="Buscar" id="search">
+          <div class="col-md-4 pull-right">
+            <input type="text" class="form-control" name="search" placeholder="Buscar" id="search" ng-model="vm.taskSearch">
             <span class="glyphicon glyphicon-search form-control-feedback"></span>
-          </div>-->
+          </div>
       </div>
       <div class="panel-body">
         <table class="table">
@@ -78,7 +78,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="career in vm.careers">
+            <tr ng-repeat="career in vm.careers | filter:{name:vm.taskSearch}">
               <td>{{ career.name }}</td>
               <td>{{ career.code }}</td>
               <td>{{ career.degree }}</td>

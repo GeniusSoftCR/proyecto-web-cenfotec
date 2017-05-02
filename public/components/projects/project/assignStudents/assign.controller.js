@@ -37,13 +37,18 @@
     //Imprime nombres del los estudiantes dentro del proyecto
     function _assignedStudents(){
       angular.forEach(vm.students, function(student,key) {
-        console.log(student._id);
         angular.forEach(vm.project.students, function(projectStudent,key){
           if(student._id == projectStudent._id){
             vm.projectStudents.push(student);
           };
         });
       });
+    };
+    assignedStudents();
+    //eliminar estudiante
+    vm.deleteStudent= function (student){
+      console.log(student);
+      assignedStudents();
     };
   };
 })();

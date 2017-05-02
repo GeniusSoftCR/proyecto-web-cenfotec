@@ -6,15 +6,15 @@
 		<div class="panel-body">
 			<ul>
 				<li class="list-group-item" ng-repeat="student in vm.projectStudents">
-					{{student.name}} {{student.surname}}
+					{{student.name}} {{student.surname}} {{student.secondSurname}}
 					<button ng-click="vm.deleteStudent(student)" class="btn btn-sm btn-embossed btn-danger pull-right">
-						<span class="fui-check"></span>
+						<span class="fui-trash"></span>
 					</button>				
 				</li>
 			</ul>
 		</div>
 		<div class="panel-footer">
-			<button class="btn btn-sm btn-warning pull" data-target="#modal" data-toggle="modal">Agregar</button>
+			<button class="btn btn-sm btn-warning pull-right" data-target="#modal" data-toggle="modal">Agregar</button>
 		</div>
 		<!-- Modal-->
 		<div class="col-md-8 col-md-offset-4">  
@@ -30,7 +30,7 @@
 								<input class="form-control" type="text" placeholder="Buscar...." ng-model="vm.taskSearch">
 							</div>
 							<ul>
-								<li class="list-group-item" ng-repeat="student in vm.students">
+								<li class="list-group-item" ng-repeat="student in vm.students | filter:{name:vm.taskSearch}">
 										{{student.name}} {{student.surname}} {{student.secondSurname}}
 									<button ng-click="vm.addStudent(student)" class="btn btn-sm btn-embossed btn-danger pull-right" data-dismiss="modal">
 										<span class="fui-check"></span>
