@@ -9,11 +9,9 @@
       
       var vm = this;
       vm.user = AuthService.getAuthUser();
-      vm.project = {};    //proyecto actual
-      //2)copiará la lista de archivos del proyecto actual*
-      vm.projectFiles = [];
-      //archivo específico a borrar
-      vm.file = {};
+      vm.project = {};        //proyecto actual
+      vm.projectFiles = [];   //lista temporal de archivos
+      vm.file = {};           //archivo específico a borrar
 
       //trae el proyecto actual
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
@@ -27,9 +25,7 @@
 
       /*ACTUALIZAR LISTA DE ARCHIVOS*/
       vm.loadProjectFiles= function(){
-        //1)trae la lista con todos los proyectos
-        //vm.projectsList = filesService.getProjects();
-        //copia la lista de archivos del proyecto actual*
+        //copia la lista de archivos del proyecto actual
         vm.projectFiles=vm.project.files;
       }
       vm.loadProjectFiles();
@@ -48,13 +44,13 @@
       function onSuccess(Blob){
         vm.fileName = Blob.filename;
         vm.fileUrl = Blob.url;
-        console.log(vm.url);
+        vm.addNewFile();
       };
       //Fin: Manejo de archivos
 
       /*AGREGAR ARCHIVO*/
       vm.addNewFile= function(){
-        pickFile();
+        //pickFile();
         //1)crea un objeto para el nuevo archivo
         var newFile = {name:vm.fileName,url:vm.fileUrl};
         //2)agrega el objeto a la lista de archivos(temporal)
@@ -63,7 +59,7 @@
         vm.project.files=vm.projectFiles;
         //4)persiste los cambios en el back end
         projectService.updateProject(vm.project).then(function(res){
-          console.log("Archivo agregado");
+          //console.log("Archivo agregado");
         });
 
         //refresca la lista de archivos
@@ -86,7 +82,7 @@
         vm.project.files=vm.projectFiles;
         //4)persiste los cambios en el back end
         projectService.updateProject(vm.project).then(function(res){
-          console.log("Archivo eliminado");
+          //console.log("Archivo eliminado");
         });
 
         //refresca la lista de archivos
