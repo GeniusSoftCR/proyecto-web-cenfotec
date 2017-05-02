@@ -24,7 +24,7 @@
     //traer lista de esudiantes
     userService.getUsers({"role":"student", "state":["active" ,"eligible"]}).then(function (res) {
       vm.students = res.data;
-
+      assignedStudents();
     });
     vm.addStudent = function(student){
       var newStudent = {};
