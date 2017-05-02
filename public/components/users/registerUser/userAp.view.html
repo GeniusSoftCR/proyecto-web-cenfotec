@@ -1,15 +1,15 @@
 <main>
   <div class="row">
-    <div class="col-lg-11 col-md-8 col-sm-12 col-xs-12 bhoechie-tab-container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
       <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 bhoechie-tab-menu">
         <div class="list-group">
-          <a href="#" class="list-group-item active text-center"><h4 class="glyphicon glyphicon-user"></h4><br/>Profesor</a>
-          <a href="#" class="list-group-item text-center"><h4 class="glyphicon glyphicon-user"></h4><br/>Administrador</a>
-          <a href="#" class="list-group-item text-center"><h4 class="glyphicon glyphicon-user"></h4><br/>Asistente</a>
-          <a href="#" class="list-group-item text-center"><h4 class="glyphicon glyphicon-th-list"></h4><br/>Lista</a>
+          <a href="#" class="list-group-item active text-center"><i class="fa fa-user-circle-o" aria-hidden="true"></i><br/>Profesor</a>
+          <a href="#" class="list-group-item text-center"><i class="fa fa-male" aria-hidden="true"></i><br/>Administrador</a>
+          <a href="#" class="list-group-item text-center"><i class="fa fa-female" aria-hidden="true"></i><br/>Asistente</a>
+          <a href="#" class="list-group-item text-center"><i class="fa fa-list-alt" aria-hidden="true"></i><br/>Lista</a>
         </div>
       </div>
-      <div class="col-lg-10 col-md-10 col-sm-5 col-xs-5 bhoechie-tab">
+      <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 bhoechie-tab">
         <!-- Sección de profesores-->
         <div class="bhoechie-tab-content active">
           <form class="profForm"  name="profForm" class="container" autocomplete="off" ng-submit="vm.preSaveProf()" novalidate>  
@@ -386,7 +386,7 @@
         <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-body">
-        <p class="text-center">{{vm.modal.body}}</p> 
+        <p class="alert alert-success" style="text-align: center;">{{vm.modal.body}}</p> 
       </div>
       <div class="modal-footer">
         <div class="unModal-footer">
@@ -407,7 +407,7 @@
         <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-body">
-        <p class="text-center">{{vm.modal.body}}</p> 
+        <p class="alert alert-success" style="text-align: center;">{{vm.modal.body}}</p> 
       </div>
       <div class="modal-footer">
         <div class="unModal-footer">
@@ -427,7 +427,7 @@
         <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-body">
-        <p class="text-center">{{vm.modal.body}}</p> 
+        <p class="alert alert-success" style="text-align: center;">{{vm.modal.body}}</p> 
       </div>
       <div class="modal-footer">
         <div class="unModal-footer">
