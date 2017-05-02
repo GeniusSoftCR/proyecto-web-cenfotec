@@ -248,4 +248,6 @@ a:hover, a:focus {
 
 #sltProjects {
   height: 35px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
