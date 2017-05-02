@@ -61,7 +61,8 @@
         projectService.updateProject(vm.project).then(function(res){
           //console.log("Archivo agregado");
         });
-
+        $('#filesRetro-Modal').modal('show');
+        vm.msg="Archivo agregado al proyecto";
         //refresca la lista de archivos
         vm.loadProjectFiles();
       }
@@ -84,7 +85,8 @@
         projectService.updateProject(vm.project).then(function(res){
           //console.log("Archivo eliminado");
         });
-
+        $('#filesRetro-Modal').modal('show');
+        vm.msg="Archivo eliminado del proyecto";
         //refresca la lista de archivos
         vm.loadProjectFiles();
       }
