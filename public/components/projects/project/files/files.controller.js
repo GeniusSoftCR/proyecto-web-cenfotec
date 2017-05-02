@@ -48,7 +48,8 @@
       function onSuccess(Blob){
         vm.fileName = Blob.filename;
         vm.fileUrl = Blob.url;
-        console.log(vm.url);
+        console.log(vm.fileName);
+        console.log(vm.fileUrl);
       };
       //Fin: Manejo de archivos
 
