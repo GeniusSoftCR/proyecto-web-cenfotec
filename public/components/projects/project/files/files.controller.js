@@ -61,13 +61,23 @@
         projectService.updateProject(vm.project).then(function(res){
           //console.log("Archivo agregado");
         });
-
+        $('#filesRetro-Modal').modal('show');
+        vm.msg="Archivo agregado al proyecto";
         //refresca la lista de archivos
         vm.loadProjectFiles();
       }
 
+      vm.pre= function(file){
+        $('#filesConfirm-Modal').modal('show');
+        vm.yesFile=file;
+        // if(vm.flag==true){
+        //   $('#filesConfirm-Modal').modal('hide');
+        //   vm.removeFile(file);
+        // }
+      }
       /*ELIMINAR ARCHIVO*/
       vm.removeFile= function(file){
+        $('#filesConfirm-Modal').modal('hide');
         vm.file = file;
         var position = null;
         //busca el index del archivo
@@ -84,7 +94,8 @@
         projectService.updateProject(vm.project).then(function(res){
           //console.log("Archivo eliminado");
         });
-
+        $('#filesRetro-Modal').modal('show');
+        vm.msg="Archivo eliminado del proyecto";
         //refresca la lista de archivos
         vm.loadProjectFiles();
       }
