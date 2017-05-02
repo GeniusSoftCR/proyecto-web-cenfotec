@@ -22,7 +22,6 @@
       });
 
       function init() {
-        console.log(vm.project.files[0].name);
         vm.projectFiles=vm.project.files;
       }
 
@@ -32,7 +31,6 @@
         //vm.projectsList = filesService.getProjects();
         //copia la lista de archivos del proyecto actual*
         vm.projectFiles=vm.project.files;
-        console.log(vm.projectFiles);
       }
       vm.loadProjectFiles();
 
@@ -50,6 +48,7 @@
       function onSuccess(Blob){
         vm.fileName = Blob.filename;
         vm.fileUrl = Blob.url;
+        console.log(vm.fileName);
       };
       //Fin: Manejo de archivos
 
@@ -74,7 +73,6 @@
       /*ELIMINAR ARCHIVO*/
       vm.removeFile= function(file){
         vm.file = file;
-        alert(file.name);
         var position = null;
         //busca el index del archivo
         angular.forEach(vm.projectFiles, function(pfile,index) {
