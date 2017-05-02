@@ -11,7 +11,7 @@
           <button ng-click="vm.viewRequest(1)" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addPro" data-toggle="modal" data-target="#list-Modal">
             <span class="fui-plus"></span>
           </button>
-          <button ng-click="vm.delTeacher(vm.project,1)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delPro">
+          <button ng-click="vm.pre(vm.project,1)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delPro">
             <span class="fui-trash"></span>
           </button>
         </li>
@@ -20,7 +20,7 @@
           <button ng-click="vm.viewRequest(2)" class="btn btn-sm btn-embossed btn-warning pull-right" ng-show="vm.addAsi" data-toggle="modal" data-target="#list-Modal">
             <span class="fui-plus"></span>
           </button>
-          <button ng-click="vm.delTeacher(vm.project,2)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delAsi">
+          <button ng-click="vm.pre(vm.project,2)" class="btn btn-sm btn-embossed btn-danger pull-right" ng-show="vm.delAsi">
             <span class="fui-trash"></span>
           </button>
         </li>
@@ -80,6 +80,30 @@
     </div>
     <div class="modal-footer">
       <div class="unModal-footer">
+        <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+    </div><!--FinModal-Content-->
+  </div><!--FinModal-Dialog-->
+</div><!--FinModal-->
+
+
+<!-- Modal -->
+<div id="teachersConfirm-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>Atención</h4>
+    </div>
+    <!--despliega todo el contenido de la solicitud-->
+    <div class="modal-body">
+      <p>¿Realmente desea eliminar el profesor?</p>
+    </div>
+    <div class="modal-footer">
+      <div class="unModal-footer">
+        <button class="btn btn-sm btn-embossed btn-warning" ng-click="vm.delTeacher(vm.yesProject,vm.yesKind)">Confirmar</button>
         <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
