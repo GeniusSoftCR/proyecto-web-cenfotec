@@ -48,7 +48,7 @@
       function onSuccess(Blob){
         vm.fileName = Blob.filename;
         vm.fileUrl = Blob.url;
-        console.log(vm.fileName);
+        console.log(vm.url);
       };
       //Fin: Manejo de archivos
 
@@ -56,7 +56,7 @@
       vm.addNewFile= function(){
         pickFile();
         //1)crea un objeto para el nuevo archivo
-        var newFile = {"name":vm.fileName,"url":vm.fileUrl};
+        var newFile = {name:vm.fileName,url:vm.fileUrl};
         //2)agrega el objeto a la lista de archivos(temporal)
         vm.projectFiles.push(newFile);
         //3)actualiza la lista de archivos en el proyecto actual
