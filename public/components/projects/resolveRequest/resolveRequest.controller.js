@@ -54,12 +54,13 @@
         vm.stuApro=true;
         vm.btnYes=false;
         vm.btnNo=false;
-        setTimeout(function(){
+        /*setTimeout(function(){
           $('#studentReq-Modal').modal('hide');
           //3)actualizar la lista de solicitudes
           vm.fetchRequestsList();
           vm.reloadPage();
-        },1500);
+        },1500);*/
+        vm.fetchRequestsList();
       }
 
       vm.switch=function(){
@@ -71,12 +72,13 @@
         projectService.changeRequestState(x,y);
         vm.stuReje=true;
         vm.finalStep=false;
-        setTimeout(function(){
+        /*setTimeout(function(){
           $('#studentReq-Modal').modal('hide');
           //3)actualizar la lista de solicitudes
           vm.fetchRequestsList();
           vm.reloadPage();
-        },1500);
+        },1500);*/
+        vm.fetchRequestsList();
       }
 
       //Rechazar una solicitud
