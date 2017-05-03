@@ -22,7 +22,7 @@
     vm.toSend = true;
     vm.sendBad = false;
 
-    //En el input de Avatar muestra al lado de escoger, la imagen que se ha seleccionad
+    //Retroalimentacion de filestack y cloudinary
     $(function() {
       $(document).on('change', ':file', function() {
         var input = $(this),
@@ -54,7 +54,6 @@
       );
     };
     function onSuccess(Blob){
-      console.log(Blob);
       vm.project.projectFile = Blob.url;
       vm.loading = false;
       vm.fileName = Blob.filename;
@@ -68,22 +67,17 @@
           });
         }else{
           vm.save(newProject);
-        }
-
-      }
+        };
+      };
     //Se envian el object al service
     vm.save = function(newProject ,pimage){
       var image = new Object({"url" : pimage});
       newProject.state = 'inRevision';
       newProject.images = [image];
-      
       projectService.addProject(newProject).then(function(res){
-        console.log(res);
         vm.project = {};
-            vm.modal.title = 'Solicitudes de proyectos';
-
-            vm.modal.body = res.data.message;
-            
+          vm.modal.title = 'Solicitudes de proyectos';
+          vm.modal.body = res.data.message;  
       });
     };
   };

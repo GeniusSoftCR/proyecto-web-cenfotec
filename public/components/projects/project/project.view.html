@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="panel panel-default">
-      {{vm.project.name}}
+      <!-- {{vm.project.name}} -->
         <div class="panel-heading" data-toggle="collapse" href="#information">
           Información del proyecto
           <span class="glyphicon glyphicon-chevron-down pull-right">
@@ -11,11 +11,12 @@
         <div id="information" class="panel-collapse collapse">
           <div class="panel-body">
             <p>Nombre: {{ vm.project.name }}</p>
-            <p>Empresa: {{ vm.client.company }}</p>
-            <p>Estado: {{ vm.status.name }}</p>
+            <p>Empresa: {{ vm.project.client.companyName }}</p>
+            <p>Estado: {{ vm.state }}</p>
           </div>
           <div class="panel-footer">
-            <button class="btn btn-sm btn-embossed btn-warning pull-right">Modificar</button>
+            <button ng-show="vm.on"  ng-click=vm.activate() class="btn btn-sm btn-embossed btn-warning pull-right">Iniciar</button>
+            <button ng-show="vm.off" ng-click=vm.desactivate() class="btn btn-sm btn-embossed btn-danger pull-right">Finalizar</button>
           </div>
         </div>
       </div>
@@ -45,3 +46,26 @@
     </div>
   </div>
 </main>
+
+
+<!-- Modal -->
+<div id="insideRetro-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>Atención</h4>
+    </div>
+    <div class="modal-body">
+      <p class="alert alert-success">{{vm.msg}}.</p>
+    </div>
+    <div class="modal-footer">
+      <div class="unModal-footer">
+        <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal" ng-click=vm.reload()>Cerrar</button>
+        <!-- <button type="button" class="btn btn-sm btn-embossed btn-danger pull-rigth" >Cerrar</button> -->
+      </div>
+    </div>
+    </div><!--FinModal-Content-->
+  </div><!--FinModal-Dialog-->
+</div><!--FinModal-->
