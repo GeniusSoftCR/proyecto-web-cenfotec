@@ -6,15 +6,15 @@
 		<div class="panel-body">
 			<ul>
 				<li class="list-group-item" ng-repeat="student in vm.projectStudents">
-					{{student.name}} {{student.surname}}
-					<button ng-click="vm.deleteStudent(student)" class="btn btn-sm btn-embossed btn-danger pull-right">
-						<span class="fui-check"></span>
+					{{student.name}} {{student.surname}} {{student.secondSurname}}
+					<button ng-click="vm.deleteStudent(student._id)" class="btn btn-sm btn-embossed btn-danger pull-right">
+						<span class="fui-trash"></span>
 					</button>				
 				</li>
 			</ul>
 		</div>
 		<div class="panel-footer">
-			<button class="btn btn-sm btn-warning pull" data-target="#modal" data-toggle="modal">Agregar</button>
+			<button class="btn btn-sm btn-warning pull-right" data-target="#modal" data-toggle="modal">Agregar</button>
 		</div>
 		<!-- Modal-->
 		<div class="col-md-8 col-md-offset-4">  
@@ -27,7 +27,7 @@
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-								<input class="form-control" type="text" placeholder="Buscar...." ng-model="vm.taskSearch">
+								<input class="form-control" type="text" placeholder="Buscar...." ng-model="vm.taskSearch"> 
 							</div>
 							<ul>
 								<li class="list-group-item" ng-repeat="student in vm.students">
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 		<!-- Modal -->
-		<div id="retroMsg-Modal" class="modal fade" role="dialog">
+		<div id="retroS-Modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->

@@ -100,6 +100,7 @@
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 	          	return $ocLazyLoad.load([
+	          		'./components/projects/projects.controller.js',
 	          		'./components/projects/viewProject/viewProjects.controller.js',
 	          		'./components/projects/resolveRequest/resolveRequest.controller.js'
 	          		])
@@ -108,6 +109,8 @@
 			views: {
 				'': {
 					templateUrl: './components/projects/projects.view.html',
+					controller: 'projectsController',
+					controllerAs: 'vm'
 				},
 				'resolveRequest@main.projects': {
 			    	templateUrl: './components/projects/resolveRequest/resolveRequest.view.html',

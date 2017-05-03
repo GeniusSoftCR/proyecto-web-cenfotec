@@ -4,17 +4,77 @@
   angular.module('cshApp')
     .controller('projectController', projectController);
 
-    projectController.$inject = ['$q','$stateParams','projectService'];
+    projectController.$inject = ['$q','$stateParams','projectService','$window'];
 
-    function projectController ($q,$stateParams,projectService) {
+    function projectController ($q,$stateParams,projectService,$window) {
 
       var vm = this;
       vm.project = {};
       projectService.getProjects({_id:$stateParams.id}).then(function (res) {
         $q.when(res).then(function () {
-          vm.project=res.data;
-        })        
+          vm.project=res.data[0];
+          init();
+        })      
       });
+
+      function init() {
+        switch (vm.project.state) {
+          case "inRevision":
+            vm.state="En revisión";
+            vm.on=false;
+            vm.off=false;
+            break;
+          case "aproved":
+            vm.state="Aprobado";
+            vm.on=true;
+            vm.off=false;
+            break;
+          case "rejected":
+            vm.state="Rechazado";
+            vm.on=false;
+            vm.off=false;
+            break;
+          case "inProcess":
+            vm.state="En proceso";
+            vm.on=false;
+            vm.off=true;
+            break;
+          case "ended":
+            vm.state="Finalizado";
+            vm.on=true;
+            vm.off=false;
+            break;
+        }
+      }
+
+      vm.reload=function(){
+        $('#insideRetro-Modal').modal('hide');
+        $window.location.reload();
+      }
+      vm.fetch=function(){
+        // projectService.getProjects({_id:$stateParams.id}).then(function (res) {
+        //   $q.when(res).then(function () {
+        //     vm.project=res.data[0];
+        //   })      
+        // });
+        $('#insideRetro-Modal').modal('show');
+      }
+
+      vm.activate=function(){
+        vm.project.state="inProcess";
+        projectService.updateProject(vm.project).then(function(res){
+          vm.msg="El proyecto se ha iniciado";
+        });
+        vm.fetch();
+      }
+
+      vm.desactivate=function(){
+        vm.project.state="ended";
+        projectService.updateProject(vm.project).then(function(res){
+          vm.msg="El proyecto ha finalizado";
+        });
+        vm.fetch();
+      }
 
       //var watchProjectCtrl = this;
       // watchProjectCtrl.id = $stateParams.id;
