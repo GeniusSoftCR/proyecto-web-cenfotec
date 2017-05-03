@@ -7,7 +7,7 @@
 	timerController.$inject = ['$q','$interval','AuthService','projectService'];
 
  	function timerController ($q,$interval,AuthService,projectService){
-	
+		var countInterval = {};
  		//vm = view model
 		var vm = this;
 		///////////////////////////////////////////////////////////////
@@ -62,7 +62,7 @@
 			//public
 			vm.counting = true;
 
-			$interval(_counter,pulseTime)
+			countInterval = $interval(_counter,pulseTime);
 
 			function _counter () 
 			{
@@ -83,6 +83,10 @@
 		};
 		function _stopCount() {
 			vm.counting = false;
+			$interval.cancel(countInterval);
+			vm.time.hour = '0';
+			vm.time.min = '0';
+			vm.time.sec='0';
 		}
 		function _pickProject() {
 			vm.taskSearchState = !vm.taskSearchState;
