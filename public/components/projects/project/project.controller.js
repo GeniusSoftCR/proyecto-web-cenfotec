@@ -45,6 +45,7 @@
             vm.off=false;
             break;
         }
+      $("#information").removeClass("collapse in");
       }
 
       vm.reload=function(){
