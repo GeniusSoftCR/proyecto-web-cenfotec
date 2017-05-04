@@ -18,17 +18,11 @@ div#profile-view.row p{
 
 
 
-/*Perfil*/
-
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: auto;
     text-align: center;
-}
-
-.container {
-    padding: 0 16px;
 }
 
 .title {
@@ -70,7 +64,6 @@ button:hover, a:hover {
 	margin-top: 13px;
 	margin-bottom: 6px;
 }
-
 
 #infoUser li span:hover{
 	-webkit-transform: rotate(-9deg);

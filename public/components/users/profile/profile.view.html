@@ -11,16 +11,13 @@
 					    <h5>{{vm.user.name +" "+ vm.user.surname}}</h5>
 					    <h5>{{vm.user.secondSurname}}</h5>
 					    <br>
-					    <button type="button" data-toggle="collapse" data-target="#contact-collapse" aria-expanded="false" aria-controls="collapseExample">
-							<span>
-								<span ng-hide="vm.taskSearchState">Contacto</span>
-							</span>
+					    <button type="button" data-toggle="collapse" data-target="#contact-collapse" aria-expanded="false" aria-controls="collapseExample"><span><span ng-hide="vm.taskSearchState">Contacto</span></span>
 						</button>
 					</div>
 				</div>	
 			</div>
 			<div class="col-md-9">
-				<div ng-if="vm.user.role == 'student'" ui-view="timer"></div>
+				<!-- <div ng-if="vm.user.role == 'student'" ui-view="timer"></div> -->
 			</div>			
 		</div>
 	</div>
@@ -45,53 +42,4 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
-
-
-
-
-
-
-
-
-<!-- 
-<div class="row">
-	<div class="col-md-12 col-lg-12">
-		<div class="row" id="profile-view">
-			<div class="col-md-4 user-profile">
-				<div class="profile">
-					<img class="avatar" ng-src="{{vm.user.avatar}}" alt="">
-				</div>
-				<div class="row">
-					<h3>¡Saludos {{vm.user.username}}!</h3>
-					<hr id="profileLine"> -->
-					<!-- <h6>{{vm.user.idNum}}</h6> -->
-				<!-- 	<h6>{{vm.user.name +" "+ vm.user.surname +" "+ vm.user.secondSurname }}</h6>
-					<h6>{{vm.user.email}}</h6> -->
-					<!-- <h6>{{vm.user.role}}</h6> -->
-<!-- 					<span ng-if="vm.user.careers"> -->
-						<!-- <h6>Carrera<span ng-if="vm.user.careers.lenght > 1">s</span>:</h6> -->
-						<!-- <p ng-repeat="career in vm.user.careers">-{{career}}</p> -->
-<!-- 						<p>{{vm.user.careers}}</p>
-					</span>							
-				</div>			
-			</div>
-			<div class="col-md-8">
-				<div ng-if="vm.user.role == 'student'" ui-view="timer"></div>
-			</div>			
-		</div>
-	</div>
-</div>
- -->
-
 
