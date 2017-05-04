@@ -20,6 +20,9 @@
       professor : 'profesor',
       student: 'estudiante'
     })
+    .constant('HOST_CONFIG', {
+      address:'localhost' 
+    })
       //Run = confuiguracion que se aplica al correr la aplicacion *vigila*
     .run(function ($rootScope, AUTH_EVENTS, AuthService) {
       //on esta atento a eventos en rootscope -- $stateChangeStartesrta atento a cambios
