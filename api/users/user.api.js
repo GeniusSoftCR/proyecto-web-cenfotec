@@ -5,6 +5,7 @@ var express = require('express'),
     bcrypt=require('bcryptjs'),
     ///////////////////////////////
     Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId,
     //////////////////////////////
 
     states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
@@ -35,7 +36,21 @@ var UsersSchema = new Schema({
   specialty:     {type: String},
   councilMember: {type: String},
   //Admin and assitant olny
-  jobPosition:   {type: String}
+  jobPosition:   {type: String},
+  timeTrack:[
+    { 
+      project_id:{ type:ObjectId , required:true},
+      date: {
+        start:Date,
+        end:Date
+      },
+      task:String,
+      time: {
+        mins:Number,
+        hours:Number
+      }
+    }
+  ]
 
 }, {collection: 'users'});
 

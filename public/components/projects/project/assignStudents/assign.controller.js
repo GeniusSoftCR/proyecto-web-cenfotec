@@ -32,6 +32,7 @@
         angular.forEach(vm.project.students,function(projectStudent,projectStudentKey){
             if(student._id === projectStudent._id ){
               vm.students.splice(key,1);
+              vm.empty = false;
             }
         });
       });
