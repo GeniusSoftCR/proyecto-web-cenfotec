@@ -239,7 +239,8 @@ a:hover, a:focus {
   border-bottom-color: #f1c40f;}
 
 #myScrollspy {
-  height:200px;
+  /* height:200px; */
+  height: 55vh;
   overflow-y: scroll;
 }
 .has-error{
@@ -254,4 +255,7 @@ a:hover, a:focus {
 
 #profileLine {
   border-top: 3px solid #eee;
+}
+.flex-panel {
+  height: 65vh;
 }
