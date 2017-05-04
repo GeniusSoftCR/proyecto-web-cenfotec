@@ -3,13 +3,52 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
       <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 bhoechie-tab-menu">
         <div class="list-group">
-          <a href="#" class="list-group-item active text-center"><i class="fa fa-user-circle-o" aria-hidden="true"></i><br/>Profesor</a>
+          <a href="#" class="list-group-item active text-center"><i class="fa fa-list-alt" aria-hidden="true"></i><br/>Lista</a>
+          <a href="#" class="list-group-item text-center"><i class="fa fa-user-circle-o" aria-hidden="true"></i><br/>Profesor</a>
           <a href="#" class="list-group-item text-center"><i class="fa fa-male" aria-hidden="true"></i><br/>Administrador</a>
           <a href="#" class="list-group-item text-center"><i class="fa fa-female" aria-hidden="true"></i><br/>Asistente</a>
-          <a href="#" class="list-group-item text-center"><i class="fa fa-list-alt" aria-hidden="true"></i><br/>Lista</a>
         </div>
       </div>
       <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 bhoechie-tab">
+      <!-- Sección listar usuarios-->
+        <div id="list" class="bhoechie-tab-content">
+          <div class="listUsers">Lista de usuarios
+          <input id="searchUser" class="form-control pull-right" style="margin-left: 25px" type="text" placeholder="Buscar...." ng-model="vm.searchUser">
+            <select id="selectUsers" class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
+              <option value="" disabled="disabled">Filtrar rol de usuario:</option>
+              <option value="admin">Administrador</option>
+              <option value="professor">Profesor</option>
+              <option value="assistant">Asistente</option>
+              <option value="student">Estudiante</option>
+            </select>
+          </div>
+          <div class="panel-body">
+            
+            <div ng-Show="vm.empty">
+              <p>No existen usuarios por mostrar</p>
+            </div>
+            <div class="card" id="myScrollspy">
+               <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido</th>
+                      <th>Correo electrónico</th>
+                      <th>Teléfono</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="user in vm.users | filter:{role:vm.search} | filter:{name:vm.searchUser}">
+                      <td>{{user.name}}</td>
+                      <td>{{user.surname + ' ' + user.secondSurname}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.phone}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
         <!-- Sección de profesores-->
         <div class="bhoechie-tab-content active">
           <form class="profForm"  name="profForm" class="container" autocomplete="off" ng-submit="vm.preSaveProf()" novalidate>  
@@ -331,53 +370,15 @@
             </div>
           </form>
         </div>
-
-        <div id="list" class="bhoechie-tab-content">
-          <div class="listUsers">Lista de usuarios
-          <input id="searchUser" class="form-control pull-right" style="margin-left: 25px" type="text" placeholder="Buscar...." ng-model="vm.searchUser">
-            <select id="selectUsers" class="form-control select select-primary pull-right" data-toggle="select" ng-model="vm.search" ng-change="vm.verify()">
-              <option value="" disabled="disabled">Filtrar rol de usuario:</option>
-              <option value="admin">Administrador</option>
-              <option value="professor">Profesor</option>
-              <option value="assistant">Asistente</option>
-              <option value="student">Estudiante</option>
-            </select>
-          </div>
-          <div class="panel-body">
-            
-            <div ng-Show="vm.empty">
-              <p>No existen usuarios por mostrar</p>
-            </div>
-            <div class="card" id="myScrollspy">
-               <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Correo electrónico</th>
-                      <th>Teléfono</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="user in vm.users | filter:{role:vm.search} | filter:{name:vm.searchUser}">
-                      <td>{{user.name}}</td>
-                      <td>{{user.surname + ' ' + user.secondSurname}}</td>
-                      <td>{{user.email}}</td>
-                      <td>{{user.phone}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </main>
 
 
-<!-- Modal de profesores -->
 
+
+<!-- Modal de profesores -->
 <div id="regProf-Modal" class="modal fade" role="dialog" style="margin-top: 20vh">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -396,8 +397,6 @@
     </div><!--FinModal-Content-->
   </div><!--FinModal-Dialog-->
 </div><!--FinModal-->
-
-
 <!-- Modal de administradores -->
 <div id="regAdmi-Modal" class="modal fade" role="dialog" style="margin-top: 20vh">
   <div class="modal-dialog">
@@ -417,7 +416,6 @@
     </div><!--FinModal-Content-->
   </div><!--FinModal-Dialog-->
 </div><!--FinModal-->
-
 <!-- Modal de asistente -->
 <div id="regAsis-Modal" class="modal fade" role="dialog" style="margin-top: 20vh">
   <div class="modal-dialog">
