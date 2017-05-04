@@ -7,7 +7,6 @@ var express = require('express'),
 	//////////////////////////////
 	states = ['inRevision', 'aproved', 'rejected', 'inProcess', 'ended'];
 
-
 var projectSchema = new Schema({
 	name :        {type: String, required: true},
 	money:        {type: String, required: true},
@@ -51,11 +50,6 @@ var Project = mongoose.model('Project', projectSchema);
 
 //API
 //busca la lista de proyectos
-// router.get('/projects/load', function(req, res, next) {
-//   Project.find({}, function(err, projects){
-//     res.json(projects);
-//   });
-// });
 router.put('/projects/filtered', function(req, res, next) { 
   Project.find({ $or:req.body}, function(err,results) {
   	if(err){
@@ -85,7 +79,7 @@ router.put('/projects/byTeacher', function(req, res, next) {
 });
 //procesar solicitudes de proyectos
 router.put('/projects/update', function(req, res, next) {
-	console.log(req.body)
+	console.log(req.body);
   Project.findByIdAndUpdate(req.body._id,{$set:req.body}).then(function(data){
     res.json({success: false, msg: 'Ha ocurrido un error'});
     res.json({success:true,msg:'Se ha actualizado correctamente.'});
@@ -94,14 +88,13 @@ router.put('/projects/update', function(req, res, next) {
 
 //Enviar Solicitud de proyecto
 router.post('/projects/add', function(req, res, next){
-	var project = Object.assign(new Project(),req.body)
-	console.log(project);  
+	var project = Object.assign(new Project(),req.body);  
 	project.save(function(err){
 		if (err) {
       		res.json({success: false, message: 'Ha ocurrido un error, inténtelo de nuevo'});
     	}else{
       		res.json({success: true, message: 'Se ha enviado su solicitud de proyecto correctamente'});
-    	};
+    	}
 	});
 });
 

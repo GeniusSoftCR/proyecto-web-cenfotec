@@ -31,8 +31,6 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-
-
 // Set static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 //Body Parser MW
@@ -64,6 +62,7 @@ var index = require('./index'),
 app.use('/api', users);
 app.use('/api', projects);
 app.use('/api', config);
+//app.use('/api', email);
 app.use('/', index);
 ///////
 //////
