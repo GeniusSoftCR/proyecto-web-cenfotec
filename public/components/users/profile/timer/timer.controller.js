@@ -100,8 +100,9 @@
 			data.user = {};
 			data.project = {};
 
-			data.user._id = vm.user._id;
+			data.user = vm.user;
 			data.project._id = vm.project._id;
+			data.task = vm.task;
 
 			console.log(vm.project);
 			vm.counting = true;

@@ -5,10 +5,12 @@ var express = require('express'),
     bcrypt=require('bcryptjs'),
     ///////////////////////////////
     Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId,
     //////////////////////////////
 
     states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
+
 var UsersSchema = new Schema({  
   // _id  :        ObjectId,
   idNum :       {type: String, required: true,minlength:9,maxlength:9},
@@ -34,7 +36,18 @@ var UsersSchema = new Schema({
   specialty:     {type: String},
   councilMember: {type: String},
   //Admin and assitant olny
-  jobPosition:   {type: String}
+  jobPosition:   {type: String},
+  timeTrack:[
+    { 
+      activity:{ 
+        _id:ObjectId,
+        project_id:{type:ObjectId,required:true},
+        date:{type:Date,default: new Date()},
+        end:Date,
+        task:String
+      }
+    }
+  ]
 
 }, {collection: 'users'});
 
@@ -70,14 +83,49 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', UsersSchema);
 
-router.put('/user/track-time', function(req, res, next) {
-  var user = req.body;
-  var io = req.io;
+router.post('/user/track-time', function(req, res, next) {
+    var data = req.body;    
+    var io = req.io;
+    var tracker = _tracker;
+    var trackerInterval =  setInterval( tracker , 10);
 
-  io.emit('timer', { mg: 'timer' });
+    var time = {};
 
-  res.json({"data":"GO"});
+    time.mins = 0;
+    time.hours = 0;
 
+    var newActivity = {
+      project_id:data.project._id,
+      task:data.task
+    };
+
+    if(data.user.timeTrack === undefined){
+      data.user.timeTrack = [];
+    }
+
+    data.user.timeTrack.push(newActivity);
+
+    // console.log(newActivity);
+    console.log(data.user)
+
+    User.findByIdAndUpdate( data.user._id,data.user).then(function(data){
+      res.json(data);
+    });
+
+    function _tracker() {
+
+       io.emit('timer', { mg: 'timer', mins:time.mins });
+
+        if (time.mins === 2) {          
+          io.emit('stoped', { msg: 'stoped' });
+          clearInterval(trackerInterval);
+        }
+
+        time.mins++;
+
+    }
+
+    res.json({"data":"GO"});
 });
 
 router.put('/user/login', function(req, res, next) {
