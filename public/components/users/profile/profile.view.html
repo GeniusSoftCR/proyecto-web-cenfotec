@@ -11,13 +11,13 @@
 					    <h5>{{vm.user.name +" "+ vm.user.surname}}</h5>
 					    <h5>{{vm.user.secondSurname}}</h5>
 					    <br>
-					    <button type="button" data-toggle="collapse" data-target="#contact-collapse" aria-expanded="false" aria-controls="collapseExample"><span><span ng-hide="vm.taskSearchState">Contacto</span></span>
+					    <button id="btnProfile" type="button" data-toggle="collapse" data-target="#contact-collapse" aria-expanded="false" aria-controls="collapseExample"><span><span ng-hide="vm.taskSearchState">Contacto</span></span>
 						</button>
 					</div>
 				</div>	
 			</div>
 			<div class="col-md-9">
-				<!-- <div ng-if="vm.user.role == 'student'" ui-view="timer"></div> -->
+				<div ng-if="vm.user.role == 'student'" ui-view="timer"></div>
 			</div>			
 		</div>
 	</div>
@@ -42,4 +42,3 @@
 		</div>
 	</div>
 </div>
-
