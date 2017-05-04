@@ -35,7 +35,21 @@ var UsersSchema = new Schema({
   specialty:     {type: String},
   councilMember: {type: String},
   //Admin and assitant olny
-  jobPosition:   {type: String}
+  jobPosition:   {type: String},
+  timeTrack:[
+    { 
+      project_id:{type:ObjectId,required:true},
+      date: {
+        start:Date,
+        end:Date
+      },
+      task:String,
+      time: {
+        mins:Number,
+        hours:Number
+      }
+    }
+  ]
 
 }, {collection: 'users'});
 
