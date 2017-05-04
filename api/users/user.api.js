@@ -39,16 +39,18 @@ var UsersSchema = new Schema({
   jobPosition:   {type: String},
   timeTrack:[
     { 
-      activity:{ 
-        _id:ObjectId,
-        project_id:{type:ObjectId,required:true},
-        date:{type:Date,default: new Date()},
-        end:Date,
-        task:String
+      project_id:{type:ObjectId,required:true},
+      date:{
+        start:Date,
+        end:Date
+      },
+      task:String,
+      time:{
+        mins:Number,
+        hours:Number
       }
     }
   ]
-
 }, {collection: 'users'});
 
 UsersSchema.pre('save', function(next) {  
@@ -86,44 +88,54 @@ var User = mongoose.model('User', UsersSchema);
 router.post('/user/track-time', function(req, res, next) {
     var data = req.body;    
     var io = req.io;
-    var tracker = _tracker;
-    var trackerInterval =  setInterval( tracker , 10);
 
+    if(data.user.timeTrack === undefined){
+      data.user.timeTrack = [];
+    };
+    //
     var time = {};
 
     time.mins = 0;
     time.hours = 0;
 
-    var newActivity = {
-      project_id:data.project._id,
-      task:data.task
-    };
 
-    if(data.user.timeTrack === undefined){
-      data.user.timeTrack = [];
-    }
+    io.on('echo-startTrack',function() {
+      var newActivity = {
+        project_id:data.project._id,
+        task:data.task
 
-    data.user.timeTrack.push(newActivity);
+      };
+
+      User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
+        res.json(data);
+      });
+    });
+
+
+
 
     // console.log(newActivity);
     console.log(data.user)
 
-    User.findByIdAndUpdate( data.user._id,data.user).then(function(data){
-      res.json(data);
-    });
+
+    
+    io.emit('timeTrack-update', { mg: 'timer', mins:time.mins });
 
     function _tracker() {
 
-       io.emit('timer', { mg: 'timer', mins:time.mins });
+      
 
         if (time.mins === 2) {          
-          io.emit('stoped', { msg: 'stoped' });
+          
           clearInterval(trackerInterval);
         }
 
         time.mins++;
 
     }
+
+      // 
+      // io.emit('stoped', { msg: 'stoped' });
 
     res.json({"data":"GO"});
 });

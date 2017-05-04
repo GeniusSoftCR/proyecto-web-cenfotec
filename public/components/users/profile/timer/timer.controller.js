@@ -85,7 +85,7 @@
 
 	  	vm.socket.on('news', function (data) {
 		    console.log(data);
-		    vm.socket.emit('echo',{msg:'Hello server'});
+		    vm.socket.emit('echo',{msg:'Hello server-timer'});
 	  	});		
 
 
@@ -104,7 +104,6 @@
 			data.project._id = vm.project._id;
 			data.task = vm.task;
 
-			console.log(vm.project);
 			vm.counting = true;
 			//
 			userService.trackTime(data);

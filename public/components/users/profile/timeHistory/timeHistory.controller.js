@@ -3,96 +3,58 @@
 	angular.module('cshApp')
 	.controller('timeHistoryController',  timeHistoryController);
 
-	 timeHistoryController.$inject = ['$q','$interval','AuthService','projectService'];
+	 timeHistoryController.$inject = ['$q','$interval','AuthService','userService'];
 
- 	function timeHistoryController ($q,$interval,AuthService,projectService){
+ 	function timeHistoryController ($q,$interval,AuthService,userService){
 	
- 		//vm = view model
-		var vm = this;
+		///////////////////////////////////////////////////////////////
+		///// + PRIVATE +/////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////
+		var user = AuthService.getAuthUser();	
+		var fetchData 	= _fetchData;	
+		var sync 		= _sync();				
+		//
+		function _fetchData() {
+			userService.getUsers({_id:user._id}).then(function (res) {
+				user = res.data[0];
+				sync.user(user);
+			});
+		}
+		//
+		fetchData();
+		///
 		///////////////////////////////////////////////////////////////
 		///// + VM DEPENDENCIES && DECLARATIONS +/////////////////////
 		/////////////////////////////////////////////////////////////
-		vm.user = AuthService.getAuthUser();
+		//		
 
+ 		//vm = view model
+		var vm = this;
+		vm.loading= true;
+		vm.socket = io('http://localhost:3000');	 
 
-		projectService.getProjects({students:{_id:vm.user._id}}).then(function (res) {
-			$q.when(res).then(function (err) {
-				vm.projects = res.data;
-			});
-		});
+		vm.socket.on('timeTrack-update', function (data) {
+			fetchData();
+	  	});
 
-		//////////////////////////////////////////////////////////////
-		///// + DEFAULTS +///////////////////////////////////////////
+		vm.user ={};
+
 		//
-		////// - object /////////////
-		vm.time = {};
-		////// - boolean ////////////
+		function _sync() {
+			var sync = {};
+			//
+			sync.user = _syncUser;			
+			//
+			function _syncUser(userFresh) {
+				vm.user = userFresh;
+				vm.user.timeTrack.reverse();
+				vm.loading = false;
+				return true;
+			}
+			return sync;
+		}	
 
-		vm.taskSearchState = false;
-		vm.showCero = true;
-		vm.counting = false;
-		////// - string /////////////
-		vm.time.hour = '0';
-		vm.time.min = '0';
-		vm.time.sec='0';
-		////////////////////////////////+ END DEAFULTS +/////
-		////////////////////////////////////////////////////
-
-		///////////////////////////////////////////////////////////////
-		///// + PUBLIC FUNCTIONS +////////////////////////////////////
-		/////////////////////////////////////////////////////////////
-		//-counter
-		vm.startCount 	= _startCount;
-		vm.stopCount   	= _stopCount;
-		//-projects
-		vm.pickProject 	= _pickProject;
-		vm.setProject 	= _setProject;
-		vm.msg = function () {
-			return 'hello';
-		}
-
-
-		function _startCount() {
-			//private\
-			var pulseTime = 1000; // 1000 = 1 seg
-
-			//public
-			vm.counting = true;
-
-			$interval(_counter,pulseTime)
-
-			function _counter () 
-			{
-				if (vm.time.sec >= '9') {vm.showCero = false;}else{vm.showCero = true;}
-
-				vm.time.sec++
-
-				if (vm.time.sec == '60') {
-					vm.time.sec = '0';
-					vm.time.min++;
-				};				
-
-				if (vm.time.min == '60') {
-					vm.time.hour++;
-					vm.time.min = '00';
-				};
-			};
-		};
-		function _stopCount() {
-			vm.counting = false;
-		}
-		function _pickProject() {
-			vm.taskSearchState = !vm.taskSearchState;
-		}
-		function _setProject(id) {	
-			vm.taskSearchState = !vm.taskSearchState;		
-			projectService.getProjects({_id:id}).then(function (res) {
-				$q.when(res).then(function () {
-					vm.project = res.data[0];
-				});
-			});
-		};
-	};
+	}
 })();
 
 
