@@ -17,7 +17,7 @@
         case "admin":
         case "assistant":
           vm.test=true;
-          projectService.getProjects({}).then(function(res){
+          projectService.getFilteredProjects([ {'state':'aproved'}, {'state':'rejected'},{'state':'inProcess'}, {'state':'ended'} ]).then(function(res){
           $q.when(res).then(function () {
             vm.projects=res.data;
             if(vm.projects.length==0){
@@ -41,14 +41,18 @@
       //verificar si la lista(según el estado) está vacía
       vm.verify= function(){
         vm.empty=false;
-        for (i = 0; i < vm.projects.length; i++){
-          if(vm.projects[i].state==vm.search){
-            vm.flag=true;
-            break;
-          }else{vm.flag=false;}
-        }
-        if(vm.flag==false){
-          vm.empty=true;//muestra el mensaje de lista vacía
+        if(!vm.search==""){
+          for (i = 0; i < vm.projects.length; i++){
+            if(vm.projects[i].state==vm.search){
+              vm.flag=true;
+              break;
+            }else{vm.flag=false;}
+          }
+          if(vm.flag==false){
+            vm.empty=true;//muestra el mensaje de lista vacía
+          }
+        }else{
+          vm.empty=false;
         }
       }
 

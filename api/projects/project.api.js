@@ -56,6 +56,15 @@ var Project = mongoose.model('Project', projectSchema);
 //     res.json(projects);
 //   });
 // });
+router.put('/projects/filtered', function(req, res, next) { 
+  Project.find({ $or:req.body}, function(err,results) {
+  	if(err){
+  		res.json({success: false, msg: 'Ha ocurrido un error'});
+  	}else{
+    	res.json(results);
+  	}
+  });
+});
 router.put('/projects/load', function(req, res, next) { 
   Project.find(req.body, function(err,results) {
   	if(err){
