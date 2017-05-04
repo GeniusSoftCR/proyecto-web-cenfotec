@@ -239,7 +239,7 @@ a:hover, a:focus {
   border-bottom-color: #f1c40f;}
 
 #myScrollspy {
-  height:200px;
+  /* height:200px; */
   overflow-y: scroll;
 }
 .has-error{
