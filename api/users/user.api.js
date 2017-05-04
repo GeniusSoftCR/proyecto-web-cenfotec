@@ -39,18 +39,19 @@ var UsersSchema = new Schema({
   jobPosition:   {type: String},
   timeTrack:[
     { 
-      project_id:{type:ObjectId,required:true},
-      date:{
+      project_id:{ type:ObjectId , required:true},
+      date: {
         start:Date,
         end:Date
       },
       task:String,
-      time:{
+      time: {
         mins:Number,
         hours:Number
       }
     }
   ]
+
 }, {collection: 'users'});
 
 UsersSchema.pre('save', function(next) {  
@@ -77,63 +78,17 @@ UsersSchema.pre('save', function(next) {
 });
 
 UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-      if (err) return cb(err);
-      cb(null, isMatch);
-  });
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
 };
 
 var User = mongoose.model('User', UsersSchema);
 
-router.post('/user/track-time', function(req, res, next) {
-
-    var data = req.body;    
-    var io = req.io;
-    var time = {};
-    var trackStart = _tracker;
-
-    if(data.user.timeTrack === undefined){
-      data.user.timeTrack = [];
-    }
-
-    time.mins = 0;
-    time.hours = 0;
-
-    if (data.start) {
-      var newActivity = {
-        project_id:data.project._id,
-        task:data.task
-      };
-      User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
-        res.json(data);
-      }); 
-
-    }else{
-      io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
-      io.emit('trackUpdate', { mg: 'timer', mins:time.mins });
-    }
-
-    function _tracker() {      
-
-        if (time.mins === 2) {          
-          
-          clearInterval(trackerInterval);
-        }
-
-        time.mins++;
-
-    }
-
-    res.json({"data":"GO"});
-});
-
 router.put('/user/login', function(req, res, next) {
   var username = req.body.username || '';
   var password = req.body.password || '';
-
-  if (username === '' || password === '') {
-    res.json({"error":"Datos invalidos"});
-  }
 
   User.findOne({username: username}, function(err, user) {
     if (err) throw err;
@@ -166,15 +121,16 @@ router.put('/user/login', function(req, res, next) {
             case "rejected":
               res.json({"error":"Solicitud de registro rechazada","succes":true});
             break;  
-          }
-        }
+          };
+        };  
       });
     }else{
       res.json({"error":"Usuario no encontrado, intente de nuevo"});
-    }
+    };
     // test a matching password   
   });  
 });
+//API General
 
 // API method -> return ALL users 
 router.get('/users', function(req, res, next) {
@@ -205,9 +161,7 @@ router.put('/user/students/update', function(req, res, next) {
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
 
-
   var user = Object.assign(new User(), req.body)
-
 
   switch (user.role){
     case 'student':
@@ -226,7 +180,6 @@ router.post('/user/add', function(req, res, next) {
       user.jobPosition = req.body.jobPosition;
       break;
   }
-
   user.save(function(err){
     if (err) {
       res.json({success: false, message: 'Ha ocurrido un error', error: err});

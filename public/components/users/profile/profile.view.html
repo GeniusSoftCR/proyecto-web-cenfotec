@@ -1,105 +1,45 @@
 <div class="row">
-	<div class="col-xs-4">
-	    <div class="row">
-	        <div class="col-xs-4">
-	            <img src="{{vm.user.avatar}}" alt="" class="img-rounded img-responsive" />
-	        </div>
-	    </div>
-	</div>
-	<div class="col-xs-8" ng-if="vm.user.role == 'student'">
-		<div ui-view="timer"></div>
-		<div ui-view="timeHistory"></div>
-	</div>
-	
-
-
-
-</div>
-<!-- <div class="row">
-    <div class="col-sm-6">
-
-            <i class="glyphicon glyphicon-envelope"></i>email@example.com
-            <br />
-            <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
-            <br />
-            <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-        Split button
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary">
-                Social</button>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span><span class="sr-only">Social</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Twitter</a></li>
-                <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
-                <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Github</a></li>
-            </ul>
-        </div>
-    </div>			                	
-</div> -->
-<!--
-<div class="col-md-12 col-lg-12">
-	<div class="row" id="profile-view">
-		<div class="container">
-		    <div class="row">
-		        <div class="col-xs-12 col-sm-6 col-md-4">
-
-		        </div>
-		<div class="col-md-8">
-			
-		</div>					        
-		    </div>
-		</div>	
-	</div>
-</div>
-</div>
- -->
-
-
-<!-- 			<div class="col-md-4 user-profile">
-	<div class="profile">
-		<img class="avatar" ng-src="{{vm.user.avatar}}" alt="">
-		../../imgs/users/stephbr.jpg
-	</div>				
-	<div class="row">
-		<h3>{{vm.user.username}}</h3>
-		<h6>{{vm.user.idNum}}</h6>
-		<h6>{{vm.user.name +" "+ vm.user.surname +" "+ vm.user.secondSurname }}</h6>
-		<h6>{{vm.user.email}}</h6>
-		<h6>{{vm.user.role}}</h6>
-		<span ng-if="vm.user.careers">
-			<h6>Carrera<span ng-if="vm.user.careers.lenght > 1">s</span>:</h6>
-			<p>{{vm.user.careers}}</p>
-		</span>							
-	</div>			
-</div> -->
-<!-- 	<div class="col-md-12 col-lg-12">
+	<div class="col-md-12 col-lg-12">
 		<div class="row" id="profile-view">
-			<div class="col-md-4 user-profile">
-				<div class="profile">
-					<img class="avatar" ng-src="{{vm.user.avatar}}" alt="">
-				</div>
-				<div class="row">
-					<h3>¡Saludos {{vm.user.username}}!</h3>
-					<hr id="profileLine">
-					 <h6>{{vm.user.idNum}}</h6> -->
-<!-- 					<h6>{{vm.user.name +" "+ vm.user.surname +" "+ vm.user.secondSurname }}</h6>
-					<h6>{{vm.user.email}}</h6>
-					<h6>{{vm.user.role}}</h6>
-					<span ng-if="vm.user.careers">
-						<h6>Carrera<span ng-if="vm.user.careers.lenght > 1">s</span>:</h6>
-						<p ng-repeat="career in vm.user.careers">-{{career}}</p>
-						<p>{{vm.user.careers}}</p>
-					</span>							
-				</div>			
+			<div class="col-md-3 user-profile">
+				<div class="card">
+					<div class="profile">
+						<img class="avatar" alt="avatar" ng-src="{{vm.user.avatar}}" alt="" style="width:100%;">
+					</div>
+					<div class="info">
+						<h3>!Saludos!</h3>
+					    <h5>{{vm.user.name +" "+ vm.user.surname}}</h5>
+					    <h5>{{vm.user.secondSurname}}</h5>
+					    <br>
+					    <button id="btnProfile" type="button" data-toggle="collapse" data-target="#contact-collapse" aria-expanded="false" aria-controls="collapseExample"><span><span ng-hide="vm.taskSearchState">Contacto</span></span>
+						</button>
+					</div>
+				</div>	
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-9">
 				<div ng-if="vm.user.role == 'student'" ui-view="timer"></div>
+				<div ng-if="vm.user.role == 'student'" ui-view="timeHistory"></div>
 			</div>			
 		</div>
 	</div>
-</div> -->
- 
+
+
+	<div class="col-md-3 collapse" id="contact-collapse">
+		<div class="card">
+			<div class="col-md-4">
+				<ul id="infoUser">
+					<li><span class="fa fa-id-card-o" aria-hidden="true"></span></li>
+					<li><span class="fa fa-user" aria-hidden="true"></span></li>
+					<li><span class="fa fa-phone" aria-hidden="true"></span></li>
+				</ul>
+			</div>
+			<div class="col-md-5">
+				<ul id="infoUser">
+					<li><p>{{vm.user.idNum}}</p></li>
+					<li><p>{{vm.user.username}}</p></li>
+					<li><p>{{vm.user.phone}}</p></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

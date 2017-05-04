@@ -3,8 +3,8 @@
 		Control de tiempo
 
 		<span class="pull-right"style="padding-right: 15px">
-			Horas: {{vm.time.hour}}
-			Minutos: {{vm.time.min}}.<span ng-if="vm.showCero">0</span>{{vm.time.sec}}
+			Horas: <span ng-hide="vm.time.hours >= 10">0</span>{{vm.time.hours}}
+			Minutos: <span ng-hide="vm.time.mins >= 10">0</span>{{vm.time.mins}} : <span ng-hide="vm.time.secs >= 10">0</span>{{vm.time.secs}}
 		</span>
 	</div>
 	<div class="panel-body" >
@@ -35,7 +35,7 @@
 
 					<div class="form-group has-feedback pull-left" style="width:400px;">
 						<span ng-if="!vm.taskSearchState">
-  							<input type="text" class="form-control" ng-if="!vm.taskSearchState" placeholder="Ingrese un comentario / objetivo" style="max-height: 36px" ng-model="vm.task">	
+  							<input type="text" class="form-control" ng-if="!vm.taskSearchState"  placeholder="Ingrese un comentario / objetivo" style="max-height: 36px" ng-model="vm.task">	
 						</span>
 						<span ng-if="vm.taskSearchState">
 							<span class="form-control-feedback fui-search"></span>							
