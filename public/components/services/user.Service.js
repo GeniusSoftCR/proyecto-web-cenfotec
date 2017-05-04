@@ -10,7 +10,6 @@
   function userService($log,$http,HOST_CONFIG){
     var host = HOST_CONFIG.address;
 
-    console.log(HOST_CONFIG)
     /*Servicio para profesores*/
     var users = [];
 
@@ -40,7 +39,7 @@
     }
 
     function _trackTime(obj) {
-      return $http.put('http://localhost:3000/api/user/students/trackTime',obj);
+      return $http.post('http://localhost:3000/api/user/track-time',obj);
     } 
 
     //procesa solicitudes de estudiantes

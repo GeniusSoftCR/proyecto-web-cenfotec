@@ -9,56 +9,42 @@
 
  	function timerController ($q,$interval,$timeout,AuthService,projectService,userService){
 
-	  	var socket = io('http://localhost:3000');
-
-		socket.on('news', function (data) {
-		    console.log(data);	
-		    socket.emit('echo',{msg:'Hello server'});
-	  	});	 
-
-		socket.on('timer', function (data) {
-		    console.log(data);	
-	  	});	 
-
 		var countInterval = {};
 		///////////////////////////////////////////////////////////////
 		///// + PRIVATE +/////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////
 		var projects 	= {};
-		var user 		= {};
+		var user = AuthService.getAuthUser();
 		///
 		var fetchData 	= _fetchData;	
 		var sync 		= _sync();
+		//
 		///
 		function _fetchData() {
-			user =  AuthService.getAuthUser();
 			projectService.getProjects({students:{_id:user._id}}).then(function (res) {
 				projects = res.data;
 				sync.projects();
 			});
 		}
+		fetchData();
 		///
 		///////////////////////////////////////////////////////////////
 		///// + VM DEPENDENCIES && DECLARATIONS +/////////////////////
 		/////////////////////////////////////////////////////////////
 		//
-		fetchData();
+
 		//vm = view modal (like $scope)
 		var vm = this;
-		//
+		vm.user =  user;
 		vm.loading 	= true;
-		///
+
+	  	vm.socket = io('http://localhost:3000');	 
+
 		function _sync() {
 			var sync = {};
-				sync.user 	  = _syncUser;
-				sync.projects = _syncProjects;			
-			////
-			function _syncUser() {
-				vm.user = user || {};
-				vm.loading = false;
-				console.log("hello")
-				return true;
-			}
+			//
+			sync.projects = _syncProjects;			
+			//
 			function _syncProjects() {
 				vm.projects = projects || {};
 				vm.loading = false;
@@ -67,13 +53,14 @@
 			return sync;
 		}
 
+
 		//////////////////////////////////////////////////////////////
 		///// + DEFAULTS +///////////////////////////////////////////
 		//
 		////// - object /////////////
 		vm.time = {};
 		////// - boolean ////////////
-
+		vm.counting = false;
 		vm.showCero 		= true;
 		vm.counting 		= false;
 		vm.taskSearchState 	= false;		
@@ -89,57 +76,52 @@
 
 		//-counter
 		vm.startCount 	= _startCount;
-		vm.stopCount   	= _stopCount;
+		vm.stopCount   	=  _stopCount;
 		//-projects
 		vm.pickProject 	= _pickProject;
 		vm.setProject 	= _setProject;
 
+		vm.data = {};
+
+	  	vm.socket.on('news', function (data) {
+		    console.log(data);
+		    vm.socket.emit('echo',{msg:'Hello server'});
+	  	});		
+
+
+	  	vm.socket.on('timer', function (data) {
+	  		vm.data = data;
+		    console.log(data);
+	  	});
+
 		function _startCount() 
 		{
-			//private\
-			var pulseTime = 100; // 1000 = 1 seg
-			var track = _track;
-			vm.counting = true;	
+			var data = {};
+			data.user = {};
+			data.project = {};
 
-			countInterval = $interval(_counter,pulseTime);
+			data.user._id = vm.user._id;
+			data.project._id = vm.project._id;
 
+			console.log(vm.project);
+			vm.counting = true;
+			//
+			userService.trackTime(data);
+			//
 			//private
 			function _track(obj)
 			{
-				socket.emit('echo',{msg:'Hello obj'});
+				// socket.emit('echo',{msg:'Hello obj'});
 				// console.log(obj);
 			}
 
-			function _counter() 
-			{			
-				if (vm.time.secs >= '9') {vm.showCero = false;}else{vm.showCero = true;}
-
-				vm.time.secs++;
-
-				if (vm.time.secs == '60') {
-					vm.time.secs = 0;
-					vm.time.mins++;
-					track(vm.time);
-				}
-
-				if (vm.time.mins == '60') {
-					vm.time.hours++;
-					vm.time.mins = 0;
-					track(vm.time);
-				}
-			}			
-
 		}
 		function _stopCount() {
-			vm.counting = false;
-			$interval.cancel(countInterval);
-			vm.time.hour = '0';
-			vm.time.min = '0';
-			vm.time.sec='0';
+			vm.counting = !vm.counting;
 		}
 		function _pickProject() {
 			vm.taskSearchState = !vm.taskSearchState;
-			
+
 			if (vm.taskSearchState) {
 				vm.loading = true;
 				fetchData();

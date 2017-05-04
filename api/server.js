@@ -11,8 +11,8 @@ var
  dburl = 'mongodb://admin:proyectoweb1@ds155130.mlab.com:55130/csh',
  port = 3000,
  server = app.listen(port,_server()),
- socket = require('socket.io').listen(server),
- io = socket.sockets;
+ io = require('socket.io').listen(server);
+ // io = socket.sockets;
 
 //Se define la conexion con Mongoose
 mongoose.connect(dburl);
@@ -24,13 +24,13 @@ db.once('open', function() {
   console.log('mongo database conected');
 });
  
-io.on('connection', function (socket) {
-  socket.emit('news', { msg: 'Hello client' });
-
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { msg: 'Hello client - from : server'});
   socket.on('echo', function (data) {
     console.log(data);
   });
 });
+
 
 
 // Set static Folder

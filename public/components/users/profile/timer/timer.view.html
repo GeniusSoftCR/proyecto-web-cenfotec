@@ -27,11 +27,11 @@
 						
 					</button>
 					<!-- Start button -->
-					<button class="btn btn-sm btn-embossed btn-success pull-right" title="Rellene la información"ng-if="!vm.counting" ng-click="vm.startCount()" ng-disabled="(!vm.task || !vm.project)">
+					<button ng-hide="vm.counting" class="btn btn-sm btn-embossed btn-success pull-right ng-binding ng-scope" title="Rellene la información"  ng-click="vm.startCount()" ng-disabled="(!vm.task || !vm.project)">
 						<span class="fa fa-play" style="font-size:15px;"></span>
 					</button>
 					<!-- Stop button -->
-					<button class="btn btn-sm btn-embossed btn-danger pull-right" ng-if="vm.counting" ng-click="vm.stopCount()"  ><span class="fa fa-stop" style="font-size:15px;"></span></button>
+					<button ng-show="vm.counting" class="btn btn-sm btn-embossed btn-danger pull-right ng-binding ng-scope"  ng-click="vm.stopCount()"  ><span class="fa fa-stop" style="font-size:15px;"></span></button>
 
 					<div class="form-group has-feedback pull-left" style="width:400px;">
 						<span ng-if="!vm.taskSearchState">
