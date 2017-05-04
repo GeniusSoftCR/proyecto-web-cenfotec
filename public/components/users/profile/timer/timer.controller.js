@@ -53,12 +53,14 @@
 			return sync;
 		}
 
-
 		//////////////////////////////////////////////////////////////
 		///// + DEFAULTS +///////////////////////////////////////////
 		//
 		////// - object /////////////
 		vm.time = {};
+		vm.data = {}
+		vm.data.user = {};
+		vm.data.project = {};
 		////// - boolean ////////////
 		vm.counting = false;
 		vm.showCero 		= true;
@@ -81,42 +83,36 @@
 		vm.pickProject 	= _pickProject;
 		vm.setProject 	= _setProject;
 
-		vm.data = {};
-
 	  	vm.socket.on('news', function (data) {
 		    console.log(data);
 		    vm.socket.emit('echo',{msg:'Hello server-timer'});
 	  	});		
 
-
-	  	vm.socket.on('timer', function (data) {
-	  		vm.data = data;
+	  	vm.socket.on('trackStart', function (data) {
 		    console.log(data);
-	  	});
+	  	});			  	
+
+	  	vm.socket.on('trackStop', function (data) {
+		    console.log(data);
+	  	});		
+
 
 		function _startCount() 
 		{
-			var data = {};
-			data.user = {};
-			data.project = {};
-
-			data.user = vm.user;
-			data.project._id = vm.project._id;
-			data.task = vm.task;
+			vm.data.start = true;
+			vm.data.user = vm.user;
+			vm.data.project._id = vm.project._id;
+			vm.data.task = vm.task;
 
 			vm.counting = true;
 			//
-			userService.trackTime(data);
+			userService.trackTime(vm.data);
 			//
 			//private
-			function _track(obj)
-			{
-				// socket.emit('echo',{msg:'Hello obj'});
-				// console.log(obj);
-			}
-
 		}
 		function _stopCount() {
+			vm.data.start = false;
+			userService.trackTime(vm.data);
 			vm.counting = !vm.counting;
 		}
 		function _pickProject() {

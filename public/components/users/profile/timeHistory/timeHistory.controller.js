@@ -33,10 +33,13 @@
 		vm.loading= true;
 		vm.socket = io('http://localhost:3000');	 
 
-		vm.socket.on('timeTrack-update', function (data) {
+		vm.socket.on('trackUpdate', function (data) {
+			console.log('Track updated');
+			vm.lading= true;
 			fetchData();
 	  	});
 
+		
 		vm.user ={};
 
 		//
@@ -46,6 +49,7 @@
 			sync.user = _syncUser;			
 			//
 			function _syncUser(userFresh) {
+				vm.loading = true;
 				vm.user = userFresh;
 				vm.user.timeTrack.reverse();
 				vm.loading = false;

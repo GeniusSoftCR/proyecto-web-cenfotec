@@ -86,44 +86,34 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 var User = mongoose.model('User', UsersSchema);
 
 router.post('/user/track-time', function(req, res, next) {
+
     var data = req.body;    
     var io = req.io;
+    var time = {};
+    var trackStart = _tracker;
 
     if(data.user.timeTrack === undefined){
       data.user.timeTrack = [];
-    };
-    //
-    var time = {};
+    }
 
     time.mins = 0;
     time.hours = 0;
 
-
-    io.on('echo-startTrack',function() {
+    if (data.start) {
       var newActivity = {
         project_id:data.project._id,
         task:data.task
-
       };
-
       User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
         res.json(data);
-      });
-    });
+      }); 
 
+    }else{
+      io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
+      io.emit('trackUpdate', { mg: 'timer', mins:time.mins });
+    }
 
-
-
-    // console.log(newActivity);
-    console.log(data.user)
-
-
-    
-    io.emit('timeTrack-update', { mg: 'timer', mins:time.mins });
-
-    function _tracker() {
-
-      
+    function _tracker() {      
 
         if (time.mins === 2) {          
           
@@ -133,9 +123,6 @@ router.post('/user/track-time', function(req, res, next) {
         time.mins++;
 
     }
-
-      // 
-      // io.emit('stoped', { msg: 'stoped' });
 
     res.json({"data":"GO"});
 });

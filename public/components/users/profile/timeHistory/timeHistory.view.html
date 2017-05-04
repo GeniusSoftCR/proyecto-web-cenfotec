@@ -12,7 +12,8 @@
 			<ul class="list-group list-group-flush" id="timeHistory-list">
 				<img ng-show="vm.loading" class="img" src="../../.././../imgs/load.gif" style="max-width: 60px;margin-left: 5%;margin-top:-10px;">
 
-				<li class="list-group-item ng-binding ng-scope" ng-hide="vm.user.timeTrack !=[]"><span">No hay actividad</span></li>
+				<li class="list-group-item ng-binding ng-scope"  ng-show="vm.user.timeTrack.length == 0"><span">No hay actividad</span></li>
+
 				<li class="list-group-item ng-binding ng-scope" ng-repeat="activity in vm.user.timeTrack">{{activity.task}}</li>
 			</ul>  
 		</div>
