@@ -1,8 +1,8 @@
 (function(){
-  'use strict'
+  'use strict';
   angular
   .module('cshApp')
-  .controller('assignStudents', assignStudents)
+  .controller('assignStudents', assignStudents);
 
 
   assignStudents.$inject = ['$q','$stateParams','projectService', 'userService','AuthService'];
@@ -47,7 +47,7 @@
           }
         });
       });
-    };
+    }
     //eliminar estudiante
     vm.deleteStudent= function(studentId){
       var project = vm.project;
@@ -60,8 +60,8 @@
           }
       });
       $('#retroS-Modal').modal('show');
-        vm.msg="Estudiante eliminado del proyecto correctamente"
+        vm.msg="Estudiante eliminado del proyecto correctamente";
       assignedStudents();  
     };
-  };
+  }
 })();
