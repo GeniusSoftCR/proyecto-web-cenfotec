@@ -9,7 +9,7 @@
     var cloudObj = {
       url:'https://api.cloudinary.com/v1_1/genius-soft/image/upload',
       data:{
-        upload_preset: 'lut5kwha',
+        upload_preset: 'awo2hbct',
         tags:'Any',
         context:'photo=test'
       }
