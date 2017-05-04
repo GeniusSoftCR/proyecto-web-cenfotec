@@ -75,10 +75,6 @@ router.put('/user/login', function(req, res, next) {
   var username = req.body.username || '';
   var password = req.body.password || '';
 
-  // if (username == '' || password == '') {
-  //  res.json({"error":"Datos invalidos"});
-  // }
-
   User.findOne({username: username}, function(err, user) {
     if (err) throw err;
     
@@ -150,24 +146,6 @@ router.put('/user/students/update', function(req, res, next) {
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
 
-  // user._id = mongoose.Schema.Types.ObjectId
-  /*user.idNum = req.body.idNum;
-  user.name = req.body.name;
-  user.surname = req.body.surname;
-  user.secondSurname = req.body.secondSurname;
-  user.email = req.body.email;
-  user.phone = req.body.phone;
-  user.avatar = req.body.avatar;
-  user.password = req.body.password;
-  user.state = req.body.state;
-  user.role = req.body.role;*/
-
-
-  //User Roles
-/*  user.role = req.body.role;*/
-
- /* console.log('USER ROLE ++++++++++++++++++++++++++++++++++++++++++'+req.body.role)*/
-
   var user = Object.assign(new User(), req.body)
 
   switch (user.role){
@@ -187,9 +165,6 @@ router.post('/user/add', function(req, res, next) {
       user.jobPosition = req.body.jobPosition;
       break;
   }
-  
-  console.log(user)  
-
   user.save(function(err){
     if (err) {
       res.json({success: false, message: 'Ha ocurrido un error', error: err});
