@@ -1,6 +1,8 @@
 (function(){
   'use strict'; 
-  angular.module('cshApp').service('ImageService', ImageService);
+  angular
+  .module('cshApp')
+  .service('ImageService', ImageService);
   
   function ImageService($http){
 
@@ -15,14 +17,11 @@
 
     var public_api = {
       getConfiguration:getConfiguration
-    }
+    };
     return public_api;
 
     function getConfiguration(){
       return cloudObj;
     }
-
-
   }
-
 })();
