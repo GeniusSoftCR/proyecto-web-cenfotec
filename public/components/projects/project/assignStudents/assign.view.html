@@ -30,7 +30,7 @@
 								<input class="form-control" type="text" placeholder="Buscar...." ng-model="vm.taskSearch"> 
 							</div>
 							<ul>
-								<li class="list-group-item" ng-repeat="student in vm.students">
+								<li class="list-group-item" ng-repeat="student in vm.students | filter:{name:vm.taskSearch}">
 										{{student.name}} {{student.surname}} {{student.secondSurname}}
 									<button ng-click="vm.addStudent(student)" class="btn btn-sm btn-embossed btn-danger pull-right" data-dismiss="modal">
 										<span class="fui-check"></span>
