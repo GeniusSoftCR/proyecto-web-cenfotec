@@ -37,7 +37,6 @@
 		var vm = this;
 		vm.user =  user;
 		vm.loading 	= true;
-
 	  	vm.socket = io('http://localhost:3000');	 
 
 		function _sync() {
@@ -46,6 +45,7 @@
 			sync.projects = _syncProjects;			
 			//
 			function _syncProjects() {
+				vm.loading 	= true;
 				vm.projects = projects || {};
 				vm.loading = false;
 				return true;
@@ -56,6 +56,7 @@
 		//////////////////////////////////////////////////////////////
 		///// + DEFAULTS +///////////////////////////////////////////
 		//
+
 		////// - object /////////////
 		vm.time = {};
 		vm.data = {}
@@ -77,11 +78,16 @@
 		///// + PUBLIC FUNCTIONS +////////////////////////////////////
 
 		//-counter
+
+		//
 		vm.startCount 	= _startCount;
 		vm.stopCount   	=  _stopCount;
 		//-projects
 		vm.pickProject 	= _pickProject;
 		vm.setProject 	= _setProject;
+		//
+		vm.trackPulse = null;
+		vm.trackStart = _trackStart;
 
 	  	vm.socket.on('news', function (data) {
 		    console.log(data);
@@ -90,6 +96,7 @@
 
 	  	vm.socket.on('trackStart', function (data) {
 		    console.log(data);
+		    vm.trackStart();
 	  	});			  	
 
 	  	vm.socket.on('trackStop', function (data) {
@@ -110,9 +117,47 @@
 			//
 			//private
 		}
+		function _trackStart() {
+			vm.trackPulse = $interval(_trackPulse,5);
+		}
+
+		function _trackPulse() {
+
+			if (vm.time.secs  < '9') {
+				vm.showCero = false;
+				vm.time.secs =  '0'+vm.time.secs;
+			}else{vm.showCero = true;}
+			vm.time.secs++;
+			if (vm.time.secs == '60') {
+				vm.time.secs = 0;
+				vm.time.mins++;					
+			}
+			if (vm.time.mins == '60') {
+				vm.time.hours++;
+				vm.time.mins = 0;
+			};				
+
+		}
 		function _stopCount() {
+
 			vm.data.start = false;
+			vm.data.user = vm.user;
+			vm.data.project._id = vm.project._id;
+			vm.data.task = vm.task;
+			vm.data.time = vm.time;
+
+			vm.counting = true;			
+
+			$interval.cancel(vm.trackPulse);
 			userService.trackTime(vm.data);
+
+
+
+			vm.project = undefined;
+			vm.task = undefined;
+			vm.time.mins = '0';
+			vm.time.secs = '0';
+			vm.time.hours = '0';
 			vm.counting = !vm.counting;
 		}
 		function _pickProject() {

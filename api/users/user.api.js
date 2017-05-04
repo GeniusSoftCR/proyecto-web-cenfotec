@@ -46,8 +46,9 @@ var UsersSchema = new Schema({
       },
       task:String,
       time:{
-        mins:Number,
-        hours:Number
+        mins:String,
+        hours:String,
+        secs:String
       }
     }
   ]
@@ -90,7 +91,7 @@ router.post('/user/track-time', function(req, res, next) {
     var data = req.body;    
     var io = req.io;
     var time = {};
-    var trackStart = _tracker;
+
 
     if(data.user.timeTrack === undefined){
       data.user.timeTrack = [];
@@ -100,30 +101,29 @@ router.post('/user/track-time', function(req, res, next) {
     time.hours = 0;
 
     if (data.start) {
+
       var newActivity = {
         project_id:data.project._id,
-        task:data.task
+        task:data.task,
+        time:data.time
       };
+
       User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
         res.json(data);
       }); 
+      io.emit('trackStart', { mg: 'timer', hours:time.hours,mins:time.mins });
 
     }else{
+
+      console.log(data)
+
+      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
+      //   res.json(data);
+      // }); 
+
       io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
       io.emit('trackUpdate', { mg: 'timer', mins:time.mins });
     }
-
-    function _tracker() {      
-
-        if (time.mins === 2) {          
-          
-          clearInterval(trackerInterval);
-        }
-
-        time.mins++;
-
-    }
-
     res.json({"data":"GO"});
 });
 
