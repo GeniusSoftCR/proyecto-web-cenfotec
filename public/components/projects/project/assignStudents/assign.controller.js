@@ -1,8 +1,8 @@
 (function(){
-  'use strict'
+  'use strict';
   angular
   .module('cshApp')
-  .controller('assignStudents', assignStudents)
+  .controller('assignStudents', assignStudents);
 
 
   assignStudents.$inject = ['$q','$stateParams','projectService', 'userService','AuthService'];
@@ -40,14 +40,14 @@
     };
     //Imprime nombres del los estudiantes dentro del proyecto
     function _assignedStudents(){
-      angular.forEach(vm.students, function(student,key) {
+      angular.forEach(vm.students, function(student,key){
         angular.forEach(vm.project.students, function(projectStudent,key){
-          if(student._id == projectStudent._id){
+          if(student._id === projectStudent._id){
             vm.projectStudents.push(student);
           }
         });
       });
-    };
+    }
     //eliminar estudiante
     vm.deleteStudent= function(studentId){
       var project = vm.project;
@@ -60,8 +60,8 @@
           }
       });
       $('#retroS-Modal').modal('show');
-        vm.msg="Estudiante eliminado del proyecto correctamente"
+        vm.msg="Estudiante eliminado del proyecto correctamente";
       assignedStudents();  
-    };
-  };
+    }; 
+  }
 })();

@@ -27,7 +27,8 @@ db.once('open', function() {
 var index = require('./index'),
 	users = require('./users/user.api'),
 	projects = require('./projects/project.api'),
-	config = require('./config/config.api.js');
+	config = require('./config/config.api');
+	//email = require('./email/email.api');
 
 	
 // Set static Folder
@@ -50,6 +51,7 @@ app.use(function (req, res, next) {
 app.use('/api', users);
 app.use('/api', projects);
 app.use('/api', config);
+//app.use('/api', email);
 app.use('/', index);
 
 app.listen(port, function(){
