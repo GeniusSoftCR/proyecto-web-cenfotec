@@ -255,3 +255,6 @@ a:hover, a:focus {
 #profileLine {
   border-top: 3px solid #eee;
 }
+.flex-panel {
+  height: 65vh;
+}
