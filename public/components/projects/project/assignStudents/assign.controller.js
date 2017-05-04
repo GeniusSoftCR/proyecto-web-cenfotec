@@ -40,9 +40,9 @@
     };
     //Imprime nombres del los estudiantes dentro del proyecto
     function _assignedStudents(){
-      angular.forEach(vm.students, function(student,key) {
+      angular.forEach(vm.students, function(student,key){
         angular.forEach(vm.project.students, function(projectStudent,key){
-          if(student._id == projectStudent._id){
+          if(student._id === projectStudent._id){
             vm.projectStudents.push(student);
           }
         });
@@ -62,6 +62,6 @@
       $('#retroS-Modal').modal('show');
         vm.msg="Estudiante eliminado del proyecto correctamente";
       assignedStudents();  
-    };
+    }; 
   }
 })();
