@@ -10,9 +10,14 @@
 
         <div id="information" class="panel-collapse collapse">
           <div class="panel-body">
-            <p>Nombre: {{ vm.project.name }}</p>
-            <p>Empresa: {{ vm.project.client.companyName }}</p>
-            <p>Estado: {{ vm.state }}</p>
+            <h6><b>{{ vm.project.name }}</b></h6>
+            <hr>
+            <p><b>Empresa: </b> {{ vm.project.client.companyName }}</p>
+            <p><b>Industria: </b> {{vm.project.client.industry}}</p>
+            <p><b>Responsable: </b> {{vm.project.client.manager}}</p>
+            <p><b>Correo: </b> {{vm.project.client.email}}</p>
+            <hr>
+            <p><b>Estado: </b> {{ vm.state }}</p>
           </div>
           <div class="panel-footer">
             <button ng-show="vm.on"  ng-click=vm.activate() class="btn btn-sm btn-embossed btn-warning pull-right">Iniciar</button>
