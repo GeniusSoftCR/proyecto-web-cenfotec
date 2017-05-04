@@ -240,6 +240,7 @@ a:hover, a:focus {
 
 #myScrollspy {
   /* height:200px; */
+  height: 55vh;
   overflow-y: scroll;
 }
 .has-error{
