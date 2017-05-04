@@ -169,7 +169,7 @@ router.post('/user/add', function(req, res, next) {
     if (err) {
       res.json({success: false, message: 'Ha ocurrido un error', error: err});
     } else {
-      res.json({success: true, message: '¡Registrado correctamente!'});
+      res.json({success: true, message: 'Solicitud enviada correctamente'});
     }
   });
 });
