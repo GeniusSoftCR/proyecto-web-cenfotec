@@ -4,9 +4,11 @@
 	.module('cshApp')
 	.service('configService', configService);
 
-	configService.$inject = ['$log','$http'];
+	configService.$inject = ['$log','$http','HOST_CONFIG'];
 
-	function configService($log,$http){
+	function configService($log,$http,HOST_CONFIG){
+
+		var host = HOST_CONFIG.address;
 
 		var publicApi = {
 			addCareer: _addCarrer,
@@ -16,13 +18,13 @@
 		return publicApi;
 
 		function _addCarrer(newCareer){
-			return $http.post('http://localhost:3000/api/config/addCareer', newCareer);
+			return $http.post('http://'+host+':3000/api/config/addCareer', newCareer);
 		};
 		function _getCarrers(){
-			return $http.get('http://localhost:3000/api/config/getCareers');
+			return $http.get('http://'+host+':3000/api/config/getCareers');
 		};
 		function _deleteCareer(object){
-			return $http.put('http://localhost:3000/api/config/deleteCareer', object);
+			return $http.put('http://'+host+':3000/api/config/deleteCareer', object);
 		}
 	};
 })();
