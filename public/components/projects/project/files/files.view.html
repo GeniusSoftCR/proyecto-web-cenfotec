@@ -11,14 +11,19 @@
           <button ng-click="vm.pre(file)" class="btn btn-sm btn-embossed btn-danger pull-right">
             <span class="fui-trash"></span>
           </button>
+          <button class="btn btn-sm btn-embossed btn-warning pull-right">
+            <a href="{{file.url}}" target="_blank"><span class="fui-eye"></span></a>
+          </button>
         </li>
       </ul>
     </div>
+    <!-- <div type="filepicker-preview" data-fp-url="https://www.filestackapi.com/api/file/hJvnzC8QTGHybCfKnA1S" style="width:75%; height:10px"> </div> -->
     <div class="panel-footer">
       <button ng-click="vm.pickFile()" class="btn btn-sm btn-embossed btn-warning pull-right">Agregar</button>
     </div>
   </div>
 </div>
+<!-- https://www.filestackapi.com/api/file/hJvnzC8QTGHybCfKnA1S -->
 
 
 <!-- Modal -->
