@@ -41,14 +41,18 @@
       //verificar si la lista(según el estado) está vacía
       vm.verify= function(){
         vm.empty=false;
-        for (i = 0; i < vm.projects.length; i++){
-          if(vm.projects[i].state==vm.search){
-            vm.flag=true;
-            break;
-          }else{vm.flag=false;}
-        }
-        if(vm.flag==false){
-          vm.empty=true;//muestra el mensaje de lista vacía
+        if(!vm.search==""){
+          for (i = 0; i < vm.projects.length; i++){
+            if(vm.projects[i].state==vm.search){
+              vm.flag=true;
+              break;
+            }else{vm.flag=false;}
+          }
+          if(vm.flag==false){
+            vm.empty=true;//muestra el mensaje de lista vacía
+          }
+        }else{
+          vm.empty=false;
         }
       }
 
