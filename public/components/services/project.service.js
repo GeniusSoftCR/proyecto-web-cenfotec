@@ -14,7 +14,8 @@
 			getProjectsByTeacher: _getProjectsByTeacher,
 			updateProject: _updateProject,
         	changeRequestState : _changeProjectsState,
-        	getAnotation : _getAnotation
+        	getAnotation : _getAnotation,
+        	getFilteredProjects: _getFilteredProjects
 		};
 		return publicApi;
 		//guarda las solicitudes de proyectos
@@ -41,7 +42,9 @@
 	  /* function _getAnotations(filter){
 	      return $http.get('http://localhost:3000/api/projects/add/anotation',filter);
 	    }*/
-
+	    function _getFilteredProjects(filter){
+	      	return $http.put('http://localhost:3000/api/projects/filtered',filter);
+	    }
 		function _getAnotation(filter){
 	      	return $http.put('http://localhost:3000/api/projects/load',filter);
 	    }
@@ -49,5 +52,6 @@
 	    function _getAnotations(filter){
 	      return $http.post('http://localhost:3000/api/projects/anotations');
 	    }
+
 */	}
 })();

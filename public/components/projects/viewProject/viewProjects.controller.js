@@ -17,7 +17,7 @@
         case "admin":
         case "assistant":
           vm.test=true;
-          projectService.getProjects({}).then(function(res){
+          projectService.getFilteredProjects([ {'state':'aproved'}, {'state':'rejected'},{'state':'inProcess'}, {'state':'ended'} ]).then(function(res){
           $q.when(res).then(function () {
             vm.projects=res.data;
             if(vm.projects.length==0){
