@@ -127,17 +127,23 @@ button{
  }
 
 #btnRegister{
-  margin-top: -10px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+#btnRegisterProf{
+  margin-top: 12px;
+  margin-bottom: 30px;
 }
 
 
 div .listUsers{
-  padding-bottom: 3%;
+  padding-bottom: 5%;
   font-size: 20px;
   font-weight: bold;
    font-family: 'montserrat';
 }
-
+/*Select*/
 #selectUsers{
   border: 2px solid #BBBBBB;
   padding: 6px;
@@ -153,25 +159,24 @@ div .listUsers{
 }
 
 #list{
-  height: 550px;
   font-family: 'montserrat';
+  padding-bottom: 79.1px;
 }
 
 
-thead{
+thead th{
   background-color: #FBB803;
-  border-radius: 3px;
   font-size: 17px;
-  font-weight: bold;
   text-align: center;
+  width: 868px;
 }
 
-tbody, th{
+tbody, td{
   font-size: 16px;
-
   text-align: center;
+  width: 1350px;
 }
-
+/*Modal*/
 #colorWhite{
     font-size: 1.3em;
     color: #fff;
@@ -182,7 +187,6 @@ tbody, th{
     color: #000;
     font-size: 1em;
 }
-
 #myScrollspy {
   height: 350px;
   overflow-y: scroll;
