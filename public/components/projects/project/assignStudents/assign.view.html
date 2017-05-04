@@ -4,6 +4,9 @@
 	</div>
 	<div id="students" class="panel-collapse collapse">
 		<div class="panel-body">
+			<div ng-Show="vm.empty">
+				<p>No hay estudiantes asignados</p>
+			</div>
 			<ul>
 				<li class="list-group-item" ng-repeat="student in vm.projectStudents">
 					{{student.name}} {{student.surname}} {{student.secondSurname}}
@@ -14,7 +17,7 @@
 			</ul>
 		</div>
 		<div class="panel-footer">
-			<button class="btn btn-sm btn-warning pull-right" data-target="#modal" data-toggle="modal">Agregar</button>
+			<button class="btn btn-sm btn-warning pull-right" data-target="#modal" data-toggle="modal" ng-click="vm.addSync()">Agregar</button>
 		</div>
 		<!-- Modal-->
 		<div class="col-md-8 col-md-offset-4">  
