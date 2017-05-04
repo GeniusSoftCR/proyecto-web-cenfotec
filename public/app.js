@@ -3,7 +3,7 @@
   angular.module('cshApp', ['appRoutes','angular-filepicker', 'ngFileUpload', 'LocalStorageModule', 'angularCSS','ngPassword'])
 
     .config(function (filepickerProvider) {
-      filepickerProvider.setKey('A6EzU2EhNTYmcvkWhu2cCz');
+      filepickerProvider.setKey('Ads2gIHt6RWK2pggu8yVfz');
     })
     .constant('AUTH_EVENTS', {
       loginSuccess: 'auth-login-success',
