@@ -22,7 +22,7 @@
         	return route === $location.path();
     	}
     	function _checkRole(roles) {
-    		var check = false
+    		var check = false;
 			angular.forEach(roles, function(role, key) {
 				if (role === vm.user.role) {
 					check = true;
@@ -36,7 +36,7 @@
 			AuthService.logOut();
 			$location.path('/entrar');
 		}	
-	};
+	}
 })();
 
 //admin proff assitente

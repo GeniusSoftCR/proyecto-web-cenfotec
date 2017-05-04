@@ -73,19 +73,17 @@ var User = mongoose.model('User', UsersSchema);
 router.put('/user/track-time', function(req, res, next) {
   var user = req.body;
   var io = req.io;
-  io.emit('timeTrack', { msg: "PUTOMOOOON" });
+
+  io.emit('news', { hello: 'world' });
+
   res.json({"data":"GO"});
-/*  User.findOne(req.body._id).then(function(data){
-      res.json({"data":"GO"});
-      io.emit('timeTrack', { msg: "PUTOMOOOON" });
-  });*/
 });
 
 router.put('/user/login', function(req, res, next) {
   var username = req.body.username || '';
   var password = req.body.password || '';
 
-  if (username == '' || password == '') {
+  if (username === '' || password === '') {
     res.json({"error":"Datos invalidos"});
   }
 
@@ -120,12 +118,12 @@ router.put('/user/login', function(req, res, next) {
             case "rejected":
               res.json({"error":"Solicitud de registro rechazada","succes":true});
             break;  
-          };
-        };  
+          }
+        }
       });
     }else{
       res.json({"error":"Usuario no encontrado, intente de nuevo"});
-    };
+    }
     // test a matching password   
   });  
 });
@@ -159,7 +157,7 @@ router.put('/user/students/update', function(req, res, next) {
 //registrar usuarios
 router.post('/user/add', function(req, res, next) {  
 
-  var user = Object.assign(new User(), req.body)
+  var user = Object.assign(new User(), req.body);
 
   switch (user.role){
     case 'student':
@@ -177,7 +175,7 @@ router.post('/user/add', function(req, res, next) {
     case 'admin' || 'assistant':
       user.jobPosition = req.body.jobPosition;
       break;
-  };
+  }
 
   user.save(function(err){
     if (err) {

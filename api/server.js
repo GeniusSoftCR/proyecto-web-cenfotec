@@ -1,54 +1,44 @@
-	//Definimos las dependencias
-var express = require('express'),
-	app = express(),
-	path = require('path'),
-	bodyParser = require('body-parser'),
-	morgan = require('morgan'),
-	mongoose = require('mongoose'),
-	//Variables del back de la aplicacion	
-	db = mongoose.connection;
-	dburl = 'mongodb://admin:proyectoweb1@ds155130.mlab.com:55130/csh',
-	port = 3000,
-	server = app.listen(port,_server()),
-	socket = require('socket.io').listen(server),
-	io = socket.sockets;
-
-	io.on('connection', function (socket) {
-	    console.log('client connect');
-
-	    socket.emit('message', { msg: 'Hello mr. client' });
-
-	    socket.on('echo', function (data) {
-	       console.log(data)
-	    });
-	});
-
-
-
-
-// io.on('connection', function (socket) {
-//   socket.emit('news', { hello: 'world' });
-//   socket.on('my other event', function (data) {
-//     console.log(data);
-//   });
-// });	
+//Definimos las dependencias
+var
+ express = require('express'),
+ app = express(),
+ path = require('path'),
+ bodyParser = require('body-parser'),
+ morgan = require('morgan'),
+ mongoose = require('mongoose'),
+ //Variables del back de la aplicacion
+ db = mongoose.connection,
+ dburl = 'mongodb://admin:proyectoweb1@ds155130.mlab.com:55130/csh',
+ port = 3000,
+ server = app.listen(port,_server()),
+ socket = require('socket.io').listen(server),
+ io = socket.sockets;
 
 //Se define la conexion con Mongoose
 mongoose.connect(dburl);
 
+//Connection events
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // Se conecto correctamente!
   console.log('mongo database conected');
 });
+ 
+  io.on('connection', function (socket) {
+    socket.emit('news', { hello: 'world' });
+    socket.on('my other event', function (data) {
+      console.log(data);
+    });
+  });
 
+  
 // Set static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 //Body Parser MW
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
-
+//Cross
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -57,6 +47,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+//Socket.io
 app.use(function(req,res,next){
     req.io = io;
     next();
@@ -64,18 +55,20 @@ app.use(function(req,res,next){
 
 //We define files where we are gonna generated main routes for the app
 var index = require('./index'),
-	users = require('./users/user.api'),
-	projects = require('./projects/project.api'),
-	config = require('./config/config.api.js');
+    users = require('./users/user.api'),
+    projects = require('./projects/project.api'),
+    config = require('./config/config.api.js');
 
 //Define Express Routes
 app.use('/api', users);
 app.use('/api', projects);
 app.use('/api', config);
 app.use('/', index);
-
+///////
+//////
 module.exports = app;
-
+////
+//
 ///////////////////// + Private + ////////////////////////
 function _server() {
 	console.log('server started on port ' + port);

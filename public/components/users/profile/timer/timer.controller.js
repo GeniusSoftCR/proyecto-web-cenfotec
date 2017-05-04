@@ -8,10 +8,15 @@
 
 
  	function timerController ($q,$interval,$timeout,AuthService,projectService,userService){
-		var countInterval = {};
- 		//vm = view model
-		var vm = this;
 
+	  var socket = io('http://localhost:3000');
+
+	  socket.on('news', function (data) {
+	    console.log(data);
+	    socket.emit('my other event', { my: 'data' });
+	  });
+
+		var countInterval = {};
 		///////////////////////////////////////////////////////////////
 		///// + PRIVATE +/////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////
@@ -19,19 +24,16 @@
 		var user 		= {};
 		///
 		var fetchData 	= _fetchData;	
-		var sync 		= _sync;
-
+		var sync 		= _sync();
 		///
 		function _fetchData() {
 			user =  AuthService.getAuthUser();
-
 			projectService.getProjects({students:{_id:user._id}}).then(function (res) {
 				projects = res.data;
-				sync();
+				sync.projects();
 			});
-
-		};
-
+		}
+		///
 		///////////////////////////////////////////////////////////////
 		///// + VM DEPENDENCIES && DECLARATIONS +/////////////////////
 		/////////////////////////////////////////////////////////////
@@ -43,12 +45,24 @@
 		vm.loading 	= true;
 		///
 		function _sync() {
-			vm.user = user || {};
-			vm.projects = projects || {};
-			///
-			vm.loading=false;
-		};
-		//
+			var sync = {};
+				sync.user 	  = _syncUser;
+				sync.projects = _syncProjects;			
+			////
+			function _syncUser() {
+				vm.user = user || {};
+				vm.loading = false;
+				console.log("hello")
+				return true;
+			}
+			function _syncProjects() {
+				vm.projects = projects || {};
+				vm.loading = false;
+				return true;
+			}
+			return sync;
+		}
+
 		//////////////////////////////////////////////////////////////
 		///// + DEFAULTS +///////////////////////////////////////////
 		//
@@ -96,21 +110,21 @@
 			{			
 				if (vm.time.secs >= '9') {vm.showCero = false;}else{vm.showCero = true;}
 
-				vm.time.secs++
+				vm.time.secs++;
 
 				if (vm.time.secs == '60') {
 					vm.time.secs = 0;
 					vm.time.mins++;
 					track(vm.time);
-				};				
+				}
 
 				if (vm.time.mins == '60') {
 					vm.time.hours++;
 					vm.time.mins = 0;
 					track(vm.time);
-				};				
-			};
-		};
+				}
+			}
+		}
 		function _stopCount() {
 			vm.counting = false;
 			$interval.cancel(countInterval);
@@ -124,16 +138,15 @@
 			if (vm.taskSearchState) {
 				vm.loading = true;
 				fetchData();
-			};
-		};
+			}
+		}
 		function _setProject(id) {	
 			vm.taskSearchState = !vm.taskSearchState;		
 			projectService.getProjects({_id:id}).then(function (res) {
 				vm.project = res.data[0];
-				sync();
 			});
-		};
-	};
+		}
+	}
 })();
 
 
