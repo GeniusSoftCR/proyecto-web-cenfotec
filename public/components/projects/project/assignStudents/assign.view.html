@@ -4,6 +4,9 @@
 	</div>
 	<div id="students" class="panel-collapse collapse">
 		<div class="panel-body">
+			<div ng-Show="vm.empty">
+				<p>No hay estudiantes asignados</p>
+			</div>
 			<ul>
 				<li class="list-group-item" ng-repeat="student in vm.projectStudents">
 					{{student.name}} {{student.surname}} {{student.secondSurname}}

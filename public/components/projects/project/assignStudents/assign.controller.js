@@ -13,8 +13,7 @@
     vm.project = {};
     vm.projectStudents = [];
     vm.students = {};
-    vm.add = false;
-    vm.del = false;
+    vm.empty = true;
     var assignedStudents = _assignedStudents;
     vm.addSync = _addSync;
     //Trae los proyectos
@@ -48,6 +47,7 @@
         $('#retroS-Modal').modal('show');
         vm.msg="Estudiante asignado al proyecto corectamente";
       assignedStudents();
+     vm.empty = false;
     };
     //Imprime nombres del los estudiantes dentro del proyecto
     function _assignedStudents(){
