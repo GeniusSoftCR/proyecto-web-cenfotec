@@ -25,28 +25,11 @@
         </div>
       </div>
     </div>
-  </div>
-  <!--Row para el panel de archivos-->
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div ui-view="files"></div>
-    </div>
-  </div>
-  <!--Row para el panel de anotaciones-->
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div ui-view="anotations"></div>
-    </div>
-  </div>
-  <!--Row para el panel de profesores-->
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6">
       <div ui-view="teachers"></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
       <div ui-view="students"></div>
+      <div ui-view="files"></div>
+      <div ui-view="anotations"></div>
     </div>
   </div>
 </main>
