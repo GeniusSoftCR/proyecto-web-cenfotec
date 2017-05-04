@@ -24,14 +24,15 @@ db.once('open', function() {
   console.log('mongo database conected');
 });
  
-  io.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-      console.log(data);
-    });
-  });
+io.on('connection', function (socket) {
+  socket.emit('news', { msg: 'Hello client' });
 
-  
+  socket.on('echo', function (data) {
+    console.log(data);
+  });
+});
+
+
 // Set static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 //Body Parser MW

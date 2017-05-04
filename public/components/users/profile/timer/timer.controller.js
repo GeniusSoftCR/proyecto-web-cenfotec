@@ -9,12 +9,16 @@
 
  	function timerController ($q,$interval,$timeout,AuthService,projectService,userService){
 
-	  var socket = io('http://localhost:3000');
+	  	var socket = io('http://localhost:3000');
 
-	  socket.on('news', function (data) {
-	    console.log(data);
-	    socket.emit('my other event', { my: 'data' });
-	  });
+		socket.on('news', function (data) {
+		    console.log(data);	
+		    socket.emit('echo',{msg:'Hello server'});
+	  	});	 
+
+		socket.on('timer', function (data) {
+		    console.log(data);	
+	  	});	 
 
 		var countInterval = {};
 		///////////////////////////////////////////////////////////////
@@ -102,8 +106,8 @@
 			//private
 			function _track(obj)
 			{
-
-				console.log(obj);
+				socket.emit('echo',{msg:'Hello obj'});
+				// console.log(obj);
 			}
 
 			function _counter() 
@@ -123,7 +127,8 @@
 					vm.time.mins = 0;
 					track(vm.time);
 				}
-			}
+			}			
+
 		}
 		function _stopCount() {
 			vm.counting = false;

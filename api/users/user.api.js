@@ -74,9 +74,10 @@ router.put('/user/track-time', function(req, res, next) {
   var user = req.body;
   var io = req.io;
 
-  io.emit('news', { hello: 'world' });
+  io.emit('timer', { mg: 'timer' });
 
   res.json({"data":"GO"});
+
 });
 
 router.put('/user/login', function(req, res, next) {
