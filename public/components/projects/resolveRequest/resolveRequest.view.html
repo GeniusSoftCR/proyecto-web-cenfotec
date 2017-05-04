@@ -3,7 +3,7 @@
 	<div class="panel-heading">Solicitudes de proyectos</div>
 	<div class="panel-body">
 		<div class="card">
-		  <ul class="list-group list-group-flush" id="myScrollspy">
+		  <ul class="list-group list-group-flush"><!--id="myScrollspy"-->
 		  <!-- Trigger the modal with a button -->
 		    <li class="list-group-item" ng-repeat="request in vm.requestsList | filter:{state:'inRevision'}">
 		    	{{request.name}}
