@@ -259,3 +259,7 @@ a:hover, a:focus {
 .flex-panel {
   height: 65vh;
 }
+
+.fui-eye{
+  color: #000;
+}
