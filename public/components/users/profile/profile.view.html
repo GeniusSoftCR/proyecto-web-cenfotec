@@ -1,19 +1,26 @@
 <div class="row">
-	<div class="col-xs-4">
-	    <div class="row">
-	        <div class="col-xs-4">
-	            <img src="{{vm.user.avatar}}" alt="" class="img-rounded img-responsive" />
-	        </div>
-	    </div>
+	<div class="col-md-12 col-lg-12">
+		<div class="row" id="profile-view">
+			<div class="col-md-3 user-profile">
+				<div class="card">
+					<div class="profile">
+						<img class="avatar" alt="avatar" ng-src="{{vm.user.avatar}}" alt="" style="width:100%;">
+					</div>
+					<div class="info">
+						<h3>!Saludos!</h3>
+					    <h5>{{vm.user.name +" "+ vm.user.surname}}</h5>
+					    <h5>{{vm.user.secondSurname}}</h5>
+					    <br>
+					    <button id="btnProfile" type="button" data-toggle="collapse" data-target="#contact-collapse" aria-expanded="false" aria-controls="collapseExample"><span><span ng-hide="vm.taskSearchState">Contacto</span></span>
+						</button>
+					</div>
+				</div>	
+			</div>
+			<div class="col-md-9">
+				<div ng-if="vm.user.role == 'student'" ui-view="timer"></div>
+			</div>			
+		</div>
 	</div>
-	<div class="col-xs-8" ng-if="vm.user.role == 'student'">
-		<div ui-view="timer"></div>
-		<div ui-view="timeHistory"></div>
-	</div>
-	
-
-
-
 </div>
 <!-- <div class="row">
     <div class="col-sm-6">
@@ -54,6 +61,7 @@
 		    </div>
 		</div>	
 	</div>
+<<<<<<< HEAD
 </div>
 </div>
  -->
@@ -103,3 +111,6 @@
 	</div>
 </div> -->
  
+=======
+</div>
+>>>>>>> refs/remotes/origin/dev

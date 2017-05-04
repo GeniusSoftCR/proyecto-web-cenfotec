@@ -29,9 +29,74 @@ div#profile-view.row h6+p{
 div#profile-view.row p{
 	margin-left:2px;
 }
-
+/*
+<<<<<<< HEAD
 div#profile-view img{
 	border:2px solid white;
 	border-radius: 100%;
 	background-color: white;
+}
+=======*/
+
+
+#infoUser .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+#infoUser .title {
+    color: grey;
+    font-size: 18px;
+}
+
+#btnProfile {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+	#btnProfile:hover, a:hover {
+	    opacity: 0.7;
+	}
+
+#infoUser li p{
+	width: 100%;
+	font-size: 0.99em;
+	color: black;
+	display: inline-block;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+#infoUser li span{
+	font-size: 20px;
+	color: #f8c300;
+/*	display: inline-block;*/
+	margin-right: 14px;
+	margin-top: 13px;
+	margin-bottom: 6px;
+}
+
+#infoUser li span:hover{
+	-webkit-transform: rotate(-9deg);
+	-moz-transform: rotate(-9deg);
+	-o-transform: rotate(-9deg);
+}
+
+#contact-collapse{
+	margin-left: 15px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 263px;
+    margin-left: 15px;
+    margin-right: -30px;
+    text-align: center;
 }
