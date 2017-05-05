@@ -59,7 +59,7 @@
 
 		////// - object /////////////
 		vm.time = {};
-		vm.data = {}
+		vm.data = {};
 		vm.data.user = {};
 		vm.data.project = {};
 		////// - boolean ////////////
@@ -90,17 +90,17 @@
 		vm.trackStart = _trackStart;
 
 	  	vm.socket.on('news', function (data) {
-		    console.log(data);
+		    // console.log(data);
 		    vm.socket.emit('echo',{msg:'Hello server-timer'});
 	  	});		
 
 	  	vm.socket.on('trackStart', function (data) {
-		    console.log(data);
-		    vm.trackStart();
+		    // console.log(data);
+
 	  	});			  	
 
 	  	vm.socket.on('trackStop', function (data) {
-		    console.log(data);
+		    // console.log(data);
 	  	});		
 
 
@@ -110,15 +110,16 @@
 			vm.data.user = vm.user;
 			vm.data.project._id = vm.project._id;
 			vm.data.task = vm.task;
-
 			vm.counting = true;
+
+			vm.trackStart();
 			//
 			userService.trackTime(vm.data);
 			//
 			//private
 		}
 		function _trackStart() {
-			vm.trackPulse = $interval(_trackPulse,5);
+			vm.trackPulse = $interval(_trackPulse,1000);
 		}
 
 		function _trackPulse() {
@@ -135,8 +136,11 @@
 			if (vm.time.mins == '60') {
 				vm.time.hours++;
 				vm.time.mins = 0;
-			};				
+			};	
 
+			vm.data.time = vm.time;
+
+			console.log(vm.data.time)
 		}
 		function _stopCount() {
 
@@ -144,14 +148,13 @@
 			vm.data.user = vm.user;
 			vm.data.project._id = vm.project._id;
 			vm.data.task = vm.task;
-			vm.data.time = vm.time;
 
-			vm.counting = true;			
+			vm.counting = true;		
+
+			console.log(vm.data);
 
 			$interval.cancel(vm.trackPulse);
 			userService.trackTime(vm.data);
-
-
 
 			vm.project = undefined;
 			vm.task = undefined;

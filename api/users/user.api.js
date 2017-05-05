@@ -97,31 +97,29 @@ router.post('/user/track-time', function(req, res, next) {
       data.user.timeTrack = [];
     }
 
-    time.mins = 0;
-    time.hours = 0;
-
     if (data.start) {
+      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
+      //   res.json(data);
+      // }); 
+      // io.emit('trackStart', { mg: 'timer', hours:time.hours,mins:time.mins });
 
+    }else{
+      console.log(data.time)
       var newActivity = {
         project_id:data.project._id,
         task:data.task,
         time:data.time
-      };
+      };      
 
+      console.log(data)
       User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
         res.json(data);
       }); 
-      io.emit('trackStart', { mg: 'timer', hours:time.hours,mins:time.mins });
-
-    }else{
-
-      console.log(data)
-
       // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
       //   res.json(data);
       // }); 
 
-      io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
+      // io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
       io.emit('trackUpdate', { mg: 'timer', mins:time.mins });
     }
     res.json({"data":"GO"});
