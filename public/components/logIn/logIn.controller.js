@@ -33,27 +33,28 @@
 				document.body.style.cursor='default';
 				vm.loading = false;		
 				if (!res.data.error) {
-					console.log(res.data)
+					console.log(res.data);
+					 SessionService.create(res.data);
 
 					$log.info("Login success: "+ res.data.username);		         
        				$rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   		        
       				$location.path('/inicio/perfil');
-      				SessionService.create(res.data)					
+			
 				}else{
 					vm.modal.config('logIn');
 					$('#modal').modal('show');
 					
-					vm.modal.tittle = "Inicio de sesión"
-					vm.modal.body = res.data.error
+					vm.modal.tittle = "Inicio de sesión";
+					vm.modal.body = res.data.error;
 					vm.user.password='';
-					console.log(res.data.error)
-					$log.error("Login failed")
+					console.log(res.data.error);
+					$log.error("Login failed");
 		        	$rootScope.$broadcast(AUTH_EVENTS.loginFailed);
 
-		        	$timeout(function () {$('#modal').modal('hide')},1850)
+		        	$timeout(function () {$('#modal').modal('hide');},1850);
 
 		        	$location.path('/entrar');
-				};
+				}
 			});	
 	    };
 	    vm.modal = {
@@ -67,8 +68,8 @@
 	    			case 'logIn':
 	    				vm.modal.title = "Error al inciar sesión";	    				
 	    			break;
-	    		};
+	    		}
 	    	}
 	    };
-	};
+	}
 })();

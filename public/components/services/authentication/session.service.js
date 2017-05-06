@@ -11,12 +11,12 @@
 
 		this.create = function (user) {//sessionId
 			this.session = user;
-			localStorageService.set('session',user);
+			localStorageService.set('putooo',user);
 		};
 
 		this.destroy = function () {
 			delete this.session;
 			localStorageService.remove('session');
 		};
-	};
+	}
 })();
