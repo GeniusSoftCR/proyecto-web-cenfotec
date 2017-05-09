@@ -24,12 +24,15 @@
     "gulp": "^3.9.1",
     "gulp-connect": "^4.0.0",
     "gulp-nodemon": "^2.2.1",
-    "gulp-sass": "^2.3.1",
+    "gulp-sass": "^2.3.1",   
     "mongoose": "^4.8.6",
     "morgan": "^1.8.1",
     "nib": "^1.1.0",
-    "socket.io": "^1.7.3",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "jwt-simple": "^0.5.1",
     "sendgrid": "^5.0.1",
+    "socket.io": "^1.7.3",
     "wiredep": "^4.0.0"
   }
 }

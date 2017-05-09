@@ -1,9 +1,9 @@
 //Dependencias
 var express = require('express'),
-    router = express.Router(),
     mongoose = require('mongoose'),
     bcrypt=require('bcryptjs'),
     ///////////////////////////////
+    router = express.Router(),    
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     //////////////////////////////
@@ -11,6 +11,7 @@ var express = require('express'),
     states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
 
+var LocalStrategy = require('passport-local').Strategy;
 var UsersSchema = new Schema({  
   // _id  :        ObjectId,
   idNum :       {type: String, required: true,minlength:9,maxlength:9},
@@ -90,8 +91,6 @@ router.post('/user/track-time', function(req, res, next) {
 
     var data = req.body;    
     var io = req.io;
-    var time = {};
-
 
     if(data.user.timeTrack === undefined){
       data.user.timeTrack = [];
