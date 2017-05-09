@@ -11,7 +11,6 @@ var express = require('express'),
     states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
 
-var LocalStrategy = require('passport-local').Strategy;
 var UsersSchema = new Schema({  
   // _id  :        ObjectId,
   idNum :       {type: String, required: true,minlength:9,maxlength:9},
