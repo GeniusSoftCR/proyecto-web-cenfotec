@@ -133,7 +133,7 @@ router.put('/user/login', function(req, res, next) {
       });
     }else{
       res.json({"error":"Usuario no encontrado, intente de nuevo"});
-    };
+    }
     // test a matching password   
   });  
 });
