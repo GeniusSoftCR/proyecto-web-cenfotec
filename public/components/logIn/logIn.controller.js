@@ -36,8 +36,8 @@
 				vm.loading = false;		
 				if (!res.data.error) {
 					SessionService.create(res.data)
-
-					$log.info("Login success: "+ res.data.username);		         
+					$log.info("Login success: "+ res.data.user.username);	
+					$log.info("token : "+ res.data.token);							         
 	       			$rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   		        
 	      			$location.path('/inicio/perfil');
 			

@@ -7,7 +7,7 @@
 
 	function SessionService(localStorageService){
 		
-		this.session = localStorageService.get('session');
+		this.session = localStorageService.get('session');		
 
 		this.create = function (data) {//sessionId	
 			this.session = data;		

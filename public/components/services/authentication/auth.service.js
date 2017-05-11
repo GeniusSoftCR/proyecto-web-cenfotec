@@ -31,6 +31,8 @@
     function _getAuthUser() {
       if (SessionService.session) {
         return SessionService.session.user;
+      }else{
+        return undefined;
       }
     }
   }

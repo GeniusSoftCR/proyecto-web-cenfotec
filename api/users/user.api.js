@@ -7,9 +7,10 @@ var express = require('express'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     //////////////////////////////
-    passport = require('passport'),
-    Strategy = require('passport-local'),
-    jwt = require('jsonwebtoken');
+    expressJwt = require('express-jwt'),
+    jwt = require('jsonwebtoken'),
+    authenticate = expressJwt({secret : 'server secret'}),
+    jwtDecode = require('jwt-decode'),
     //////////////////////////////
     states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
@@ -87,24 +88,6 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', UsersSchema);
 
-passport.use(new Strategy(  
-  function(username, password, done) {
-    // database dummy - find user and verify password
-    if(username === 'devils name' && password === '666'){
-      done(null, {
-        id: 666,
-        firstname: 'devils',
-        lastname: 'name',
-        email: 'devil@he.ll',
-        verified: true
-      });
-    }
-    else {
-      done(null, false);
-    }
-  }
-));
-
 //API General
 router.put('/user/login', function(req, res, next) {
   var username = req.body.username || '';
@@ -126,21 +109,11 @@ router.put('/user/login', function(req, res, next) {
             case "eligible": 
             case "active":
             case "inactive":
-
-
-
-
               var data =  {};
-              data.user = user
-              data.token = jwt.sign({id: user._id}, 'server secret')
-
-
-            
-
-              console.log('------------------data-----------------');
-              console.log(data)
-              console.log('------------------data-----------------');
-
+              data.user = user;
+              data.token = jwt.sign({id: user._id}, 'server secret',{ expiresIn: '4h' });
+              var decoded = jwtDecode( data.token);
+              console.log(decoded);
               res.json(data); 
             break;
             
@@ -204,11 +177,15 @@ router.post('/user/track-time', function(req, res, next) {
 });
 
 // API method -> return ALL users 
-router.get('/users', function(req, res, next) {
+router.get('/users',authenticate, function(req, res, next) {
   User.find({}, function(err, users){
     res.json(users);
   });
 });
+
+
+
+
 // API method -> search user with object as filter -> return all matched users
 router.put('/users/search', function(req, res, next) { 
   User.find(req.body, function(err,results) {
