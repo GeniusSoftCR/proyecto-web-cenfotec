@@ -171,7 +171,7 @@ router.post('/user/track-time', function(req, res, next) {
 
       Object.assign(new User(), req.body)
       // io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
-      io.emit('trackUpdate', { mg: 'timer', mins:time.mins });
+      io.emit('trackUpdate', {});
     }
     res.json({"data":"GO"});
 });
