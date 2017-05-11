@@ -41,10 +41,4 @@ router.post('/config/addCareer', function(req, res, next){
 	});
 });
 
-module.exports = {  
-    jwtSecret: "MyS3cr3tK3Y",
-    jwtSession: {
-        session: false
-    }
-};
 module.exports = router;

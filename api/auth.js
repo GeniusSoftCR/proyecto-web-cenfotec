@@ -1,6 +1,5 @@
 var passport = require("passport");  
 var passportJWT = require("passport-jwt");  
-var users = require("./users.js");  
 var cfg = require("./config.js");  
 var ExtractJwt = passportJWT.ExtractJwt;  
 var Strategy = passportJWT.Strategy;  
@@ -18,7 +17,7 @@ module.exports = function() {
             });
         } else {
             return done(new Error("User not found"), null);
-        }
+        } 
     });
     passport.use(strategy);
     return {

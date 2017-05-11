@@ -8,6 +8,7 @@ var express = require('express'),
     ObjectId = Schema.ObjectId,
     //////////////////////////////
 
+    //////////////////////////////
     states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
 
@@ -86,43 +87,7 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', UsersSchema);
 
-router.post('/user/track-time', function(req, res, next) {
-
-    var data = req.body;    
-    var io = req.io;
-
-    if(data.user.timeTrack === undefined){
-      data.user.timeTrack = [];
-    }
-
-    if (data.start) {
-      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
-      //   res.json(data);
-      // }); 
-      // io.emit('trackStart', { mg: 'timer', hours:time.hours,mins:time.mins });
-
-    }else{
-      console.log(data.time)
-      var newActivity = {
-        project_id:data.project._id,
-        task:data.task,
-        time:data.time
-      };      
-
-      console.log(data)
-      User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
-        res.json(data);
-      }); 
-      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
-      //   res.json(data);
-      // }); 
-
-      // io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
-      io.emit('trackUpdate', { mg: 'timer', mins:time.mins });
-    }
-    res.json({"data":"GO"});
-});
-
+//API General
 router.put('/user/login', function(req, res, next) {
   var username = req.body.username || '';
   var password = req.body.password || '';
@@ -167,7 +132,43 @@ router.put('/user/login', function(req, res, next) {
     // test a matching password   
   });  
 });
-//API General
+
+router.post('/user/track-time', function(req, res, next) {
+  
+    var data = req.body;    
+    var io = req.io;
+
+    if(data.user.timeTrack === undefined){
+      data.user.timeTrack = [];
+    }
+
+    if (data.start) {
+      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
+      //   res.json(data);
+      // }); 
+      // io.emit('trackStart', { mg: 'timer', hours:time.hours,mins:time.mins });
+
+    }else{
+      console.log(data.time)
+      var newActivity = {
+        project_id:data.project._id,
+        task:data.task,
+        time:data.time
+      };      
+
+      console.log(data)
+      User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
+        res.json(data);
+      }); 
+      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
+      //   res.json(data);
+      // }); 
+
+      // io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
+      io.emit('trackUpdate', { mg: 'timer', mins:time.mins });
+    }
+    res.json({"data":"GO"});
+});
 
 // API method -> return ALL users 
 router.get('/users', function(req, res, next) {
