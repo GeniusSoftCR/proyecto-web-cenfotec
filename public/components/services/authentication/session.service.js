@@ -9,9 +9,9 @@
 		
 		this.session = localStorageService.get('session');
 
-		this.create = function (user) {//sessionId
-			this.session = user;
-			localStorageService.set('putooo',user);
+		this.create = function (data) {//sessionId	
+			this.session = data;		
+			localStorageService.set('session',data);			
 		};
 
 		this.destroy = function () {

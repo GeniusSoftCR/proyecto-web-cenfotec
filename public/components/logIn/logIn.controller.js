@@ -8,11 +8,11 @@
 
  	function logInController ($timeout,$log,$http,$location,$rootScope,AUTH_EVENTS,AuthService,SessionService){
 
- 		if(AuthService.isAuth()){
- 			$location.path('/inicio/perfil');
- 		}else{
- 			$location.path('/entrar'); 			
- 		}
+ 		// if(AuthService.isAuth()){
+ 		// 	$location.path('/inicio/perfil');
+ 		// }else{
+ 		// 	$location.path('/entrar'); 			
+ 		// }
  		//vm = view model
 		var vm = this;
 		vm.loading = false;
@@ -21,6 +21,8 @@
 		};
 
 		vm.user = {};
+		vm.user.username = 'hmurillop' 
+		vm.user.password = 'Angular1';
 		
 		vm.logIn = function(credentials){ 
 
@@ -33,12 +35,11 @@
 				document.body.style.cursor='default';
 				vm.loading = false;		
 				if (!res.data.error) {
-					console.log(res.data);
-					 SessionService.create(res.data);
+					SessionService.create(res.data)
 
 					$log.info("Login success: "+ res.data.username);		         
-       				$rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   		        
-      				$location.path('/inicio/perfil');
+	       			$rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   		        
+	      			$location.path('/inicio/perfil');
 			
 				}else{
 					vm.modal.config('logIn');

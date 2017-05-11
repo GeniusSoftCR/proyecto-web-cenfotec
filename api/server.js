@@ -6,6 +6,7 @@ var
  bodyParser = require('body-parser'),
  morgan = require('morgan'),
  mongoose = require('mongoose'),
+ passport = require('passport'),
  //Variables del back de la aplicacion
  db = mongoose.connection,
  dburl = 'mongodb://admin:proyectoweb1@ds155130.mlab.com:55130/csh',
@@ -67,6 +68,8 @@ app.use('/api', config);
 app.use('/', index);
 ///////
 //////
+app.use(passport.initialize());  
+
 module.exports = app;
 ////
 //

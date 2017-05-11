@@ -7,7 +7,9 @@ var express = require('express'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     //////////////////////////////
-
+    passport = require('passport'),
+    Strategy = require('passport-local'),
+    jwt = require('jsonwebtoken');
     //////////////////////////////
     states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
@@ -37,7 +39,7 @@ var UsersSchema = new Schema({
   specialty:     {type: String},
   councilMember: {type: String},
   //Admin and assitant olny
-  jobPosition:   {type: String},
+  jobPosition:   {type: String},  
   timeTrack:[
     { 
       project_id:{ type:ObjectId , required:true},
@@ -46,13 +48,12 @@ var UsersSchema = new Schema({
         end:Date
       },
       task:String,
-      time: {
+      time: { 
         mins:Number,
         hours:Number
       }
     }
   ]
-
 }, {collection: 'users'});
 
 UsersSchema.pre('save', function(next) {  
@@ -69,7 +70,6 @@ UsersSchema.pre('save', function(next) {
 
   bcrypt.genSalt(10, function(err, salt) {
     if (err) return next(err);
-
     bcrypt.hash(user.password, salt, function(err, hash) {
         if (err) return next(err);
         user.password = hash;
@@ -87,6 +87,24 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', UsersSchema);
 
+passport.use(new Strategy(  
+  function(username, password, done) {
+    // database dummy - find user and verify password
+    if(username === 'devils name' && password === '666'){
+      done(null, {
+        id: 666,
+        firstname: 'devils',
+        lastname: 'name',
+        email: 'devil@he.ll',
+        verified: true
+      });
+    }
+    else {
+      done(null, false);
+    }
+  }
+));
+
 //API General
 router.put('/user/login', function(req, res, next) {
   var username = req.body.username || '';
@@ -102,14 +120,28 @@ router.put('/user/login', function(req, res, next) {
           console.log('Attempt failed to login with: ' + user.username);
           res.json({"error":"Contraseña no coincide, intente nuevamente"});
         }else{
-          console.log('Password'+password+': ', isMatch); // -> Password123: true
+          user.password = undefined;
           switch(user.state)
           {
             case "eligible": 
             case "active":
             case "inactive":
-              user.password = undefined;
-              res.json(user);
+
+
+
+
+              var data =  {};
+              data.user = user
+              data.token = jwt.sign({id: user._id}, 'server secret')
+
+
+            
+
+              console.log('------------------data-----------------');
+              console.log(data)
+              console.log('------------------data-----------------');
+
+              res.json(data); 
             break;
             
             case "postulate":
@@ -134,7 +166,7 @@ router.put('/user/login', function(req, res, next) {
 });
 
 router.post('/user/track-time', function(req, res, next) {
-  
+
     var data = req.body;    
     var io = req.io;
 
@@ -164,6 +196,7 @@ router.post('/user/track-time', function(req, res, next) {
       //   res.json(data);
       // }); 
 
+      Object.assign(new User(), req.body)
       // io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
       io.emit('trackUpdate', { mg: 'timer', mins:time.mins });
     }
