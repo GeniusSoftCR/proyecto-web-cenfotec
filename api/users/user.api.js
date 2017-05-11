@@ -177,7 +177,8 @@ router.post('/user/track-time', function(req, res, next) {
 });
 
 // API method -> return ALL users 
-router.get('/users',authenticate, function(req, res, next) {
+//router.get('/users',authenticate, function(req, res, next) { auth
+router.get('/users', function(req, res, next) {
   User.find({}, function(err, users){
     res.json(users);
   });

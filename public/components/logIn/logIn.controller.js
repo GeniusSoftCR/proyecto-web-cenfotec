@@ -21,7 +21,7 @@
 		};
 
 		vm.user = {};
-		vm.user.username = 'hmurillop' 
+		vm.user.username = 'hmurillop';
 		vm.user.password = 'Angular1';
 		
 		vm.logIn = function(credentials){ 

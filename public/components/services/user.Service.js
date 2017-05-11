@@ -4,10 +4,12 @@
   .module('cshApp')
   .service('userService', userService);
   
-  userService.$inject = ['$log','$http','HOST_CONFIG'];
+  userService.$inject = ['$log','$http','HOST_CONFIG','SessionService'];
 
   /*Servicio para profesores y asistentes*/
-  function userService($log,$http,HOST_CONFIG){
+  function userService($log,$http,HOST_CONFIG,SessionService){
+    $http.defaults.headers.common['Authorization'] = 'Bearer ' + SessionService.session.token;
+    
     var host = HOST_CONFIG.address;
 
     /*Servicio para profesores*/
