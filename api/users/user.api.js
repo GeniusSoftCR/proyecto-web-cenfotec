@@ -1,13 +1,17 @@
 //Dependencias
 var express = require('express'),
-    router = express.Router(),
     mongoose = require('mongoose'),
     bcrypt=require('bcryptjs'),
     ///////////////////////////////
+    router = express.Router(),    
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     //////////////////////////////
-
+    expressJwt = require('express-jwt'),
+    jwt = require('jsonwebtoken'),
+    authenticate = expressJwt({secret : 'server secret'}),
+    jwtDecode = require('jwt-decode'),
+    //////////////////////////////
     states = ['postulate', 'eligible', 'active', 'inactive', 'rejected','banned'],
     roles = ['admin','professor','assistant','student'];
 
@@ -36,7 +40,7 @@ var UsersSchema = new Schema({
   specialty:     {type: String},
   councilMember: {type: String},
   //Admin and assitant olny
-  jobPosition:   {type: String},
+  jobPosition:   {type: String},  
   timeTrack:[
     { 
       project_id:{ type:ObjectId , required:true},
@@ -45,13 +49,12 @@ var UsersSchema = new Schema({
         end:Date
       },
       task:String,
-      time: {
+      time: { 
         mins:Number,
         hours:Number
       }
     }
   ]
-
 }, {collection: 'users'});
 
 UsersSchema.pre('save', function(next) {  
@@ -68,7 +71,6 @@ UsersSchema.pre('save', function(next) {
 
   bcrypt.genSalt(10, function(err, salt) {
     if (err) return next(err);
-
     bcrypt.hash(user.password, salt, function(err, hash) {
         if (err) return next(err);
         user.password = hash;
@@ -86,6 +88,7 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', UsersSchema);
 
+//API General
 router.put('/user/login', function(req, res, next) {
   var username = req.body.username || '';
   var password = req.body.password || '';
@@ -100,14 +103,18 @@ router.put('/user/login', function(req, res, next) {
           console.log('Attempt failed to login with: ' + user.username);
           res.json({"error":"Contraseña no coincide, intente nuevamente"});
         }else{
-          console.log('Password'+password+': ', isMatch); // -> Password123: true
+          user.password = undefined;
           switch(user.state)
           {
             case "eligible": 
             case "active":
             case "inactive":
-              user.password = undefined;
-              res.json(user);
+              var data =  {};
+              data.user = user;
+              data.token = jwt.sign({id: user._id}, 'server secret',{ expiresIn: '4h' });
+              var decoded = jwtDecode( data.token);
+              console.log(decoded);
+              res.json(data); 
             break;
             
             case "postulate":
@@ -126,18 +133,60 @@ router.put('/user/login', function(req, res, next) {
       });
     }else{
       res.json({"error":"Usuario no encontrado, intente de nuevo"});
-    };
+    }
     // test a matching password   
   });  
 });
-//API General
+
+router.post('/user/track-time', function(req, res, next) {
+
+    var data = req.body;    
+    var io = req.io;
+
+    if(data.user.timeTrack === undefined){
+      data.user.timeTrack = [];
+    }
+
+    if (data.start) {
+      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
+      //   res.json(data);
+      // }); 
+      // io.emit('trackStart', { mg: 'timer', hours:time.hours,mins:time.mins });
+
+    }else{
+      console.log(data.time)
+      var newActivity = {
+        project_id:data.project._id,
+        task:data.task,
+        time:data.time
+      };      
+
+      console.log(data)
+      User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
+        res.json(data);
+      }); 
+      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
+      //   res.json(data);
+      // }); 
+
+      Object.assign(new User(), req.body)
+      // io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
+      io.emit('trackUpdate', {});
+    }
+    res.json({"data":"GO"});
+});
 
 // API method -> return ALL users 
+//router.get('/users',authenticate, function(req, res, next) { auth
 router.get('/users', function(req, res, next) {
   User.find({}, function(err, users){
     res.json(users);
   });
 });
+
+
+
+
 // API method -> search user with object as filter -> return all matched users
 router.put('/users/search', function(req, res, next) { 
   User.find(req.body, function(err,results) {
