@@ -155,7 +155,6 @@
 
       vm.preSaveAsis = function(){
         vm.cloudObj.data.file = document.getElementById("photoAsis").files[0];
-
         Upload.upload(vm.cloudObj)
           .success(function(data){
           vm.saveAsis(data.url);
