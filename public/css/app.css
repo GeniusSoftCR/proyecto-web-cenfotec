@@ -1,36 +1,30 @@
 /*TIPOGRAFÍA*/
 @font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Thin.ttf");font-weight: 100; }
-
 @font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_ExtraLight.ttf");font-weight: 300; }
-
 @font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Regular.ttf");font-weight: 400; }
-
 @font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Medium.ttf");font-weight: 500; }
-
 @font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_SemiBold.ttf");font-weight: 600; }
-
 @font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Bold.ttf");font-weight: 700; }
-
 @font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Black.ttf");font-weight: 900; }
-
 /*
   NORMALIZE
   */
 body {
-  font-family: 'montserrat';
   background-color: #fff;
 }
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6, table, thead, tbody, td, th, tr, p, b, select, option, button, label, input, div, ol, ul, li, a, nav, span, pre, textarea, hgroup{
   font-family: 'montserrat';
+  font-weight: 400;
+  margin: 0;
 }
 ul {
   list-style-type: none;
   padding: 0;
 }
-h2{
-    font-family: 'montserrat';
-    font-weight: 400;
-  }
+b{
+  color: #000;
+  font-weight: 500;
+}
 .ibck{
   display: inline-block;
 }
@@ -44,7 +38,7 @@ h2{
   position: fixed;
   float: left;
 }
-#aside_col p,a,.fa {
+#aside_col p,a,.fa, {
   color: #fff;
   text-align: center;
 }
@@ -52,11 +46,11 @@ h2{
   display: list-item;
   text-align: center;
 }
-#aside_col li:hover {
+#aside_col li:hover, li.active {
   border-right: 5px solid #f1c40f;
   color: #f1c40f;
 }
-#aside_col li:hover .fa {
+#aside_col li:hover .fa, li.active .fa{
   color: #f1c40f;
 }
 #aside_col li a {
@@ -78,17 +72,16 @@ h2{
   font-size: 24px;
   display: block;
 }
-#aside_col .logo {
-  height: 53px;
-}
 #aside_col .logo img {
   margin: 10px 10px;
 }
 #aside_col .logo li {
   padding: 10px 0 11px 10px;
 }
-#aside_col .logo img {
+#aside_col .logo img{
   max-width: 40px;
+  margin-left: 35px;
+  margin-top: 20px;
 }
 
 /*
@@ -97,6 +90,11 @@ h2{
 #navegacion {
   background-color: #000;
   border-radius: 0;
+  padding-top: 8px;
+  -webkit-box-shadow: 6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  -moz-box-shadow:    6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  box-shadow:         6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  max-height: 69px;
 }
 .img-profile {
   margin-right: 10px;
@@ -245,6 +243,27 @@ a:hover, a:focus {
   border-bottom-color: #f1c40f;}
 
 #myScrollspy {
-  height:200px;
+  /* height:200px; */
+  height: 55vh;
   overflow-y: scroll;
+}
+.has-error{
+  border-color: red;
+}
+
+#sltProjects {
+  height: 35px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+#profileLine {
+  border-top: 3px solid #eee;
+}
+.flex-panel {
+  height: 65vh;
+}
+
+.fui-eye{
+  color: #000;
 }

@@ -1,8 +1,7 @@
 (function(){
-	'use strict';
+	'use strict'
 	angular
-	.module('appRoutes',['ui.router','oc.lazyLoad'])
-
+	.module('appRoutes',['ui.router','oc.lazyLoad','ngMessages'])
 	.config(configuration)
 
 	configuration.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -13,249 +12,216 @@
 
 		.state('landing',{
 			url: '/',
-			templateUrl: './public/components/landing/landing.html',
-			css: './public/css/landing.css'
+			templateUrl: './components/landing/landing.html',
+			css: './css/landing.css'
       	})
-
-		.state('studentRequest',{
-			url: '/solicitudEstudiante',
-		    templateUrl: './public/components/students/students.view.html',
-		    controller: 'studentController',
-		    controllerAs: 'studentCtrl'
+		.state('studentsRequest',{
+		    url: '/solicitudEstudiantes',
+		    resolve: {
+		    	load: ['$ocLazyLoad', function($ocLazyLoad){
+		    		return $ocLazyLoad.load('./components/users/students/sendRequest/request.controller.js')
+		    	}]
+		    },
+		    templateUrl: './components/users/students/sendRequest/request.view.html',
+		    css: './css/studentsRequest.style.css',		    
+		    controller: 'sendRequest',
+		    controllerAs: 'vm'
 		})
-
 		.state('proyectRequest',{
-			url: '/solicitudProyecto',
-		    templateUrl:'./public/components/projects/project/projectRequests/cshrequest.view.html',
-		    css: './public/css/projectRequest.styles.css',
-		    controller: 'cshReqController',
-		    controllerAs: 'cshReqCtrl'
+		 	url: '/solicitudProyecto',
+		     templateUrl:'./components/projects/sendRequests/requests.view.html',
+		     css: './css/projectRequest.styles.css',
+		     resolve: {
+		     	load: ['$ocLazyLoad', function($ocLazyLoad){
+		     		return $ocLazyLoad.load('./components/projects/sendRequests/requests.controller.js')
+		     	}]
+		     },
+		     controller: 'sendRequest',
+		     controllerAs: 'vm'
 		})
-
 		.state('logIn',{
 			url: '/entrar',
-			templateUrl: './public/components/logIn/logIn.view.html',
-			css: './public/css/logIn.styles.css',
+		    resolve: {
+		    	load: ['$ocLazyLoad', function($ocLazyLoad){
+		    		return $ocLazyLoad.load('./components/logIn/logIn.controller.js')
+		    	}]
+		    },			
+			templateUrl: './components/logIn/logIn.view.html',
+			css: './css/logIn.styles.css',
 			controller: 'logInController',
 			controllerAs: 'vm'
 		})
-
+		/*Jerarquía de estados a partir del 'main' state*/
 		.state('main',{
 			url:'/inicio',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./public/components/main.controller.js')
+	          	return $ocLazyLoad.load('./components/main.controller.js')
 	          }]
 		    },			
-			templateUrl: './public/components/main.html',
+			templateUrl: './components/main.html',
 			controller:'mainController',
 			controllerAs:'vm'
 		})
-		
 		.state('main.profile',{
-			url:'/usuario',
+			url:'/perfil',
+		    css: './css/profile.style.css',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./public/components/projects/projects.controller.js')
+	          	return $ocLazyLoad.load([	          			          		
+	          		'./components/users/profile/profile.controller.js',
+	          		'./components/users/profile/timer/timer.controller.js',
+	          		'./components/users/profile/timeHistory/timeHistory.controller.js'
+
+	          	])
 	          }]
 		    },
-			templateUrl: './public/components/profile/profile.view.html'			
+		    views:{
+		    	'':{
+		    		templateUrl: './components/users/profile/profile.view.html',
+				    controller:'profileController',
+				    controllerAs:'vm'	
+		    	},
+		    	'timer@main.profile':{
+		    		templateUrl: './components/users/profile/timer/timer.view.html',
+    				controller: 'timerController',
+    				controllerAs:'vm'
+		    	},
+		    	'timeHistory@main.profile':{
+		    		templateUrl: './components/users/profile/timeHistory/timeHistory.view.html',
+    				controller: 'timeHistoryController',
+    				controllerAs:'vm'
+		    	}		    	
+		    }		
 		})
-		
-		.state('main.proyects',{
+			
+		.state('main.projects',{
 			url:'/proyectos',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./public/components/projects/projects.controller.js')
-	          }]
+	          	return $ocLazyLoad.load([
+	          		'./components/projects/projects.controller.js',
+	          		'./components/projects/viewProject/viewProjects.controller.js',
+	          		'./components/projects/resolveRequest/resolveRequest.controller.js'
+	          		])
+	          }]	          
 		    },
-			templateUrl: './public/components/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'vm'
+			views: {
+				'': {
+					templateUrl: './components/projects/projects.view.html',
+					controller: 'projectsController',
+					controllerAs: 'vm'
+				},
+				'resolveRequest@main.projects': {
+			    	templateUrl: './components/projects/resolveRequest/resolveRequest.view.html',
+					controller: 'resolveRequestController',
+					controllerAs: 'vm'
+				},
+				'projectsList@main.projects': {
+			    	templateUrl: './components/projects/viewProject/viewProjects.view.html',
+					controller: 'viewProjectsController',
+					controllerAs: 'vm'
+				}
+			}
 		})
-
-		.state('main.proyects2',{
-			url:'/proyectos2',
+		/*DENTRO DEL PROYECTO*/
+		.state('main.project',{
+			url: '/proyecto/:id',
 			resolve: {  
-	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./public/components/projects/projectRequest2/projectRequests.controller.js')
-	          }]
-		    },
-			templateUrl: './public/components/projects/projectRequest2/projectRequests.view.html',
-			controller: 'projectRequestsController',
-			controllerAs: 'vm'
-		})
-
+				load: ['$ocLazyLoad', function($ocLazyLoad) { 
+					return $ocLazyLoad.load([
+						'./components/projects/project/project.controller.js',
+						'./components/projects/project/assignTeachers/assign.controller.js',
+						'./components/projects/project/assignStudents/assign.controller.js',
+						'./components/projects/project/anotations/anotations.controller.js',
+						'./components/projects/project/files/files.controller.js'
+					])
+				}]
+			},
+			views: {
+				'': {
+					templateUrl: './components/projects/project/project.view.html',
+					controller: 'projectController',
+					controllerAs: 'vm'
+				},
+		      	'teachers@main.project': {
+					templateUrl: 'components/projects/project/assignTeachers/assign.view.html',
+					controller: 'assignTeachersController',
+					controllerAs: 'vm'
+		      	},
+		      	'students@main.project': {
+		      		templateUrl: './components/projects/project/assignStudents/assign.view.html',
+		      		controller: 'assignStudents',
+		      		controllerAs: 'vm'
+		      	},
+			    'anotations@main.project': {
+			    	templateUrl: './components/projects/project/anotations/anotations.view.html',
+			    	controller: 'projectAnotationsController',
+			    	controllerAs: 'vm'
+				},
+				'files@main.project': {
+					templateUrl: './components/projects/project/files/files.view.html',
+					controller: 'filesController',
+					controllerAs: 'vm'
+				}
+	    	}
+		})		
+		/*FIN*/
 		.state('main.students',{
 			url:'/estudiantes',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./public/components/students/studentRequests.controller.js')
+	          	return $ocLazyLoad.load('./components/users/students/resolveRequest/resolveRequest.controller.js')
 	          }]
 		    },
-			templateUrl: './public/components/students/studentRequests.view.html',
-			controller: 'studentRequestsController',
+			templateUrl: './components/users/students/resolveRequest/resolveRequest.view.html',
+			controller: 'studentProcessingController',
 			controllerAs: 'vm'
 		})
 
 		.state('main.careers',{
-			url:'/carreras',
-			resolve: {  
-	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./public/components/administratorSteph/addCareers/addCareers.controller.js')
-	          }]
-		    },
-			templateUrl: './public/components/administratorSteph/addCareers/addCareers.view.html',
-			controller: 'addCareersController',
-			controllerAs: 'vm'
+		 	url:'/carreras',
+		 	resolve: {  
+	           load: ['$ocLazyLoad', function($ocLazyLoad) { 
+	           	return $ocLazyLoad.load('./components/config/addCareers/addCareers.controller.js')
+	           }]
+		     },
+		 	templateUrl: './components/config/addCareers/addCareers.view.html',
+		 	css: './css/addCarrers.style.css',
+		 	controller: 'addCareerController',
+		 	controllerAs: 'vm'
 		})
-
-		.state('watchProject',{
-			url: '/proyectos/:proyectoId',
-			views: {
-				'': {
-					templateUrl: './public/components/projects/project/watchproject/projects.view.html',
-					controller: 'watchProjectController',
-					controllerAs: 'watchProjectCtrl'
-				},
-			    'anotaciones@watchProject': { //Andres anotaciones
-			    	resolve: {  
-			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-			          	return $ocLazyLoad.load('./public/components/projects/project/projectAnotations/projectanotations.controller.js')
-			          }]
-				    },
-			    	templateUrl: './public/components/projects/project/projectAnotations/projectanotations.view.html',
-			    	controller: 'projectAnotationsController',
-			    	controllerAs: 'anotationsCtrl'
-				},
-		      	// 'estudiantes@watchProject': { //Andres asignar estudiantes
-		       //  	templateUrl: 'components/projects/project/assignStudents/assignStudents.projects.view.html',
-		       //  	controller: 'assignStudentsController',
-		       //  	controllerAs: 'assignStudentsCtrl'
-		      	// },
-		      	// 'profesores@watchProject': { //Andres asignar estudiantes
-		      	//   templateUrl: 'components/projects/project/assignTeachers/assignTeachers.projects.view.html',
-		      	//   controller: 'assignTeachersController',
-		      	//   controllerAs: 'assignTeachersCtrl'
-		      	// },
-				// 'header@watchProject': { //Andres asignar estudiantes
-				//   templateUrl: 'components/dashboard/header/header.view.html',
-				//   controller: 'headerController',
-				//   controllerAs: 'headerCtrl'
-				// },
-				// 'menu@watchProject': { //Andres asignar estudiantes
-				//   templateUrl: 'components/dashboard/menu/menu.view.html',
-				//   controller: 'menuController',
-				//   controllerAs: 'menuCtrl'
-				// },
-				'archivos@watchProject': { //Esteban archivos
-					resolve: {  
-			          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-			          	return $ocLazyLoad.load('./public/components/projects/project/projectFiles-esteban/projectFiles.controller.js')
-			          }]
-				    },
-					templateUrl: './public/components/projects/project/projectFiles-esteban/projectFiles.view.html',
-					controller: 'filesController',
-					controllerAs: 'filesCtrl'
-				}
-	    	}
-		})		
-		.state('students',{
-		       url: '/solicitudEstudiantes',
-		       templateUrl: './public/components/students/students.view.html',
-		       controller: 'studentController',
-		       controllerAs: 'studentCtrl'
-		     })
+		
 		.state('main.users',{
 			url:'/usuarios',
 			resolve: {  
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
-	          	return $ocLazyLoad.load('./public/components/administratorSteph/registerUser/userAp.controller.js')
+	          	return $ocLazyLoad.load('./components/users/registerUser/userAp.controller.js')
 	          }]
 		    },
-			templateUrl: './public/components/administratorSteph/registerUser/userAp.view.html',
+			templateUrl: './components/users/registerUser/userAp.view.html',
+			css: './css/users.css',
 			controller: 'userApController',
 			controllerAs: 'vm'
 		})
+		
+		//  .state('perfil', {
+		//      url: '/perfil/:username',
+		//      resolve: {  
+		//           load: ['$ocLazyLoad', function($ocLazyLoad) { return $ocLazyLoad.load([
+		//             './components/profile/profile.controller.js'
+		//           ])}]
+		//     }, 
+		//  	templateUrl:'./components/profile/profile.view.html',
+  		// 		controller:'profileController',
+		//     	controllerAs:'vm'
+		//  })	
 
-		 .state('registrerProfessor',{
-		       url: '/registrerProfessor',
-		       templateUrl: './public/components/administratorSteph/registrerProfessor/userProfessor.view.html',
-		       controller: 'userProfessorController',
-		       controllerAs: 'userProfessorCtrl'
-		     })
-		 .state('registrerAssistant',{
-		       url: '/registrerAssistant',
-		       templateUrl: './public/components/administratorSteph/registrerAssistant/userAssistant.view.html',
-		       controller: 'userAssistantController',
-		       controllerAs: 'userAssistantCtrl'
-		     })
-		 .state('registrerAdmi',{
-		       url: '/registrerAdmi',
-		       templateUrl: './public/components/administratorSteph/registrerAdmi/userAdmi.view.html',
-		       controller: 'userAdmiController',
-		       controllerAs: 'userAdmiCtrl'
-		     })
-		.state('administrator-studentRequests',{
-			url: '/admin/solicitudesEstudiantes',
-			templateUrl: './public/components/administratorEsteban/studentRequests/studentRequests.view.html',
-			controller: 'studentRequestsController',
-			controllerAs: 'studentReqCtrl'
-		})
-		// .state('administrator-projects',{
-		// 	url: '/admin/proyectos',
-		// 	templateUrl: '/components/administratorEsteban/projects/projects.view.html',
-		// 	controller: 'loadProjectsController',
-		// 	controllerAs: 'projectsCtrl'
+
+		// .state('404',{
+		// 	url: '/404',
+		// 	templateUrl: './components/404.html'
 		// })
-		/*.state('asistant-projects',{
-			url: '/asis/proyectos',
-			templateUrl: '/components/asistantsEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('teacher-projects',{
-			url: '/prof/proyectos',
-			templateUrl: '/components/teachersEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('student-projects',{
-			url: '/estu/proyectos',
-			templateUrl: '/components/studentsEsteban/projects/projects.view.html',
-			controller: 'loadProjectsController',
-			controllerAs: 'projectsCtrl'
-		})
-		.state('administrator-reports',{
-			url: '/admin/reportes/miembrosProyecto',
-			templateUrl: '/components/administratorEsteban/reports/projectMembers/projectMembers.view.html',
-			controller: 'projectMembersController',
-			controllerAs: 'projectMembCtrl'
-		})
-		.state('asistant-clients',{
-			url: '/asis/clientes',
-			templateUrl: '/components/asistantsEsteban/clients/clients.view.html',
-			controller: 'clientsController',
-			controllerAs: 'clientsCtrl'
-		})
-*/
-		 .state('perfil', {
-		     url: '/perfil/:username',
-		     resolve: {  
-		          load: ['$ocLazyLoad', function($ocLazyLoad) { return $ocLazyLoad.load([
-		            './public/components/profile/profile.controller.js'
-		          ])}]
-		    }, 
-		 	templateUrl:'./public/components/profile/profile.view.html',
-  		    controller:'profileController',
-		    controllerAs:'vm'
-		 })	
-
-
-		.state('404',{
-			url: '/404',
-			templateUrl: './public/components/404.html'
-		})
     
 		$urlRouterProvider.otherwise('/');
 		// $locationProvider.html5Mode(true);

@@ -1,11 +1,10 @@
 (function(){
   'use strict';
-  angular.module('cshApp', 
+  angular.module('cshApp', ['appRoutes','angular-filepicker', 'ngFileUpload', 'LocalStorageModule', 'angularCSS','ngPassword'])
 
-    ['appRoutes','angular-filepicker', 'ngFileUpload', 'LocalStorageModule', 'angularCSS'])
-
-    .config(function (filepickerProvider) {
-      filepickerProvider.setKey('A6EzU2EhNTYmcvkWhu2cCz');
+    .config(function (filepickerProvider,localStorageServiceProvider) {
+      filepickerProvider.setKey('Ads2gIHt6RWK2pggu8yVfz');
+      localStorageServiceProvider.setPrefix('cshApp');
     })
     .constant('AUTH_EVENTS', {
       loginSuccess: 'auth-login-success',
@@ -21,6 +20,9 @@
       assistant: 'asistente',
       professor : 'profesor',
       student: 'estudiante'
+    })
+    .constant('HOST_CONFIG', {
+      address:'localhost' 
     })
       //Run = confuiguracion que se aplica al correr la aplicacion *vigila*
     .run(function ($rootScope, AUTH_EVENTS, AuthService) {

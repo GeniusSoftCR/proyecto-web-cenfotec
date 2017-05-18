@@ -1,0 +1,186 @@
+<header>
+  <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" id="color">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Desplegar navegación</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>   
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#banner">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><img id='logo' src='./imgs/cshLogo.png'></li>
+        <li><a href="#!/solicitudProyecto">Proyectos</a></li>
+        <li><a href="#!/solicitudEstudiantes">Estudiantes</a></li>
+        <li><a href="#!/entrar">Iniciar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="panel-heading">
+    <div class="col-md-6 col-md-offset-3" style="text-align: center;">
+      <h2>Solicitud estudiante para Cenfotec Software House</h2>
+    </div>
+  </div>
+  <div class="studentRequest col-md-12">
+    <form name="studentForm" class="container" autocomplete="off" ng-submit="vm.preSave()" novalidate>
+      <!-- Nombre -->
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
+        <label for="name">Nombre:</label>
+        <input data-toggle="tooltip" title="Tooltip on bottom" type="text" ng-model="vm.name" id="txtname" class="form-control" name="name" required pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+">
+        <div id="ng-message" ng-messages="studentForm.name.$error" ng-hide="studentForm.name.$pristine" >
+          <div ng-message="required" ng-hide="studentForm.name.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
+          <div ng-message="pattern" ng-hide="studentForm.name.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
+        </div>
+      </div>
+      <!-- Primer Apellido -->
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
+        <label for="surName">Primer apellido:</label>
+        <input type="text" ng-model="vm.surName" id="txtFirstName" class="form-control" name="surName" pattern="[ñáéíóúÁÉÍÓÚÑA-Za-z ]+" required>
+        <div id="ng-message" ng-messages="studentForm.surName.$error" ng-hide="studentForm.surName.$pristine">
+          <div ng-message="required" ng-hide="studentForm.surName.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido.</div>
+          <div ng-message="pattern" ng-hide="studentForm.surName.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
+        </div>
+      </div>
+      <!-- Segundo Apellido -->
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
+        <label for="secondSurname">Segundo apellido:</label>
+        <input type="text" ng-model="vm.secondSurname" id="txtFirstName" class="form-control" name="secondSurname" pattern="[ñáéíóúA-Za-z]+" required>
+        <div id="ng-message" ng-messages="studentForm.secondSurname.$error" ng-hide="studentForm.secondSurname.$pristine">
+          <div ng-message="required" ng-hide="studentForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Este campo es requerido.</div>
+          <div ng-message="pattern" ng-hide="studentForm.secondSurname.$pristine" class="red darken-2 center-align white-text">Favor ingresar únicamente letras.</div>
+        </div>
+      </div>  
+      <!-- Cedula de identidad -->
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
+        <label for="id">Cédula de identidad</label>
+        <input type="text" ng-model="vm.id" id="txtid" class="form-control" name="id" pattern="[0-9]+" maxlength="9" minlength="9" required>
+        <div id="ng-message" ng-messages="studentForm.id.$error" ng-hide="studentForm.id.$pristine" required>
+          <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido.</div>
+          <div ng-message="pattern" class="red darken-2 center-align white-text">Favor ingresar únicamente números.</div>
+          <div ng-message="maxlength" class="red darken-2 center-align white-text">Ingrese 9 dígitos.</div>
+          <div ng-message="minlength" class="red darken-2 center-align white-text">Ingrese 9 dígitos.</div>
+        </div>
+      </div>
+      <!-- Fecha de nacimiento -->
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
+        <label for="birthdate">Fecha de nacimiento:</label>
+        <input ng-model="vm.birthdate" id="txtid" type="date" class="form-control" name="birthdate" required>
+        <div id="ng-message" ng-messages="studentForm.birthdate.$error" ng-hide="studentForm.birthdate.$pristine" required>
+          <div ng-message="required" class="red darken-2 center-align white-text"></div>
+        </div>
+      </div>
+      <!-- Correo electronico -->
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
+        <label for="email">Correo electrónico</label>
+        <input type="email" ng-model="vm.email" id="txtid" class="form-control" name="email" required unique pattern="([a-z0-9\.\-\_]+@ucenfotec.ac.cr)" placeholder="ejemplo@ucenfotec.ac.cr">
+        <div id="ng-message" ng-messages="studentForm.email.$error" ng-hide="studentForm.email.$pristine">
+          <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido.</div>
+          <div ng-message="pattern" class="red darken-2 center-align white-text">Terminación @ucenfotec.ac.cr</div>
+        </div>
+      </div>
+      <!-- Password -->
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
+        <label for="newPassword">Contraseña</label>
+        <input type="password" ng-model="vm.password" id="txtpassword" class="form-control" name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required minlength="5">
+        <div id="ng-message" ng-messages="studentForm.newPassword.$error" ng-hide="studentForm.newPassword.$pristine">
+          <div ng-message="required" class="red darken-2 center-align white-text">Este campo es requerido.</div>
+          <div ng-message="pattern" class="red darken-2 center-align white-text">Usar may. min. y números.(5 o más caracteres)</div>
+        </div>
+      </div>
+      <!-- Confirm Password -->
+      <div class="form-group col-md-3 col-sm-12 col-xs-12 ibck">
+        <label for="confirmPassword">Confirmar contraseña:</label>
+        <input ng-model="vm.confirmPassword" id="txtconfirmPassword" type="password" class="form-control" name="confirmPassword" match-password="newPassword" required minlength="5">
+        <div class="clearfix">
+          <div id="ng-message" ng-messages="studentForm.confirmPassword.$error" ng-if="studentForm.$submitted || studentForm.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+          <div ng-message="passwordMatch" class="message slide-left">Contraseña diferente.</div></div>
+        </div>
+      </div>
+      <!-- Cargar curriculum -->
+      <div class="col-md-4 col-sm-12 col-xs-12 ibck">
+        <label>Curriculum Vitae:</label>
+        <div class="input-group">
+          <label class="input-group-btn">
+            <a><p ng-click="vm.pickFile()" class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input style="display: none;" id="cv" ng-model="vm.resumeUrl" multiple>
+            </p></a>
+          </label>
+          <input ng-if="vm.loading" value="Cargando..." type="text" class="form-control" style="color: black" readonly>
+          <input ng-if="!vm.loading" ng-model="vm.fileName" type="text" class="form-control" style="color: black" readonly>
+        </div>
+      </div>
+      <!-- Cargar imagen -->
+      <div class="col-md-4 col-sm-12 col-xs-12 ibck">
+        <label>Avatar:</label>
+        <div class="input-group">
+          <label class="input-group-btn">
+            <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="photo" multiple ng-model="vm.pimage">
+            </span>
+          </label>
+          <input type="text" class="form-control" style="color: black" readonly>
+        </div>
+      </div>
+      <!-- Escoger carrera -->
+      <div class="form-group col-md-4 col-sm-12 col-xs-12 ibck">
+        <label> Carrera:</label>
+        <div class="form-group">
+          <select required ng-model="vm.career" name="career" class="form-control">
+            <option value="{{career.name}}" ng-repeat="career in vm.careers">{{career.name}}</option>
+        </select>
+        </div>
+      </div> 
+      <!--Usuario de Github-->
+      <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: inline-block; text-align: left;" >
+        <label>Usuario GitHub</label>
+        <input ng-model="vm.githubUrl" id="gitHub" type="text" class="form-control" name="githubUrl">
+      </div>  
+      <!-- Link de sitio web -->
+      <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: inline-block" >
+        <label for="websiteUrl">Link de sitio web:</label>
+        <input ng-model="vm.websiteUrl" id="link" placeholder="www.facebook.com" pattern="(www.+[A-Za-z0-9.\-@_~]+.com)" class="form-control" name="websiteUrl">
+        <div id="ng-message" ng-messages="studentForm.websiteUrl.$error" ng-hide="studentForm.websiteUrl.$pristine">
+          <div ng-message="pattern" ng-hide="studentForm.websiteUrl.$pristine" class="red darken-2 center-align white-text">Formato incorrecto</div>
+        </div>
+      </div>
+      <!-- Telefono -->
+      <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: block;"> 
+        <label for="phone">Número de teléfono:</label>
+        <input ng-model="vm.phone" pattern="[0-9]+" id="phone" type="text" class="form-control" minlength="8" maxlength="8" name="phone">
+        <div id="ng-message" ng-messages="studentForm.phone.$error" ng-hide="studentForm.phone.$pristine">
+          <div ng-message="pattern" ng-hide="studentForm.phone.$pristine" class="red darken-2 center-align white-text">Ingrese únicamente números.</div>
+          <div ng-message="minlength" ng-hide="studentForm.phone.$pristine" class="red darken-2 center-align white-text">Ingrese 8 dígitos.</div>
+          <div ng-message="maxlength" ng-hide="studentForm.phone.$pristine" class="red darken-2 center-align white-text">Ingrese 8 dígitos.</div>
+        </div>
+      </div>
+      <!-- boton -->
+      <div class="form-group col-md-12 col-sm-12 col-xs-12" style="display: block; text-align: center;"> 
+        <button type="submit" id="btnRegister" ng-disabled="studentForm.$invalid" class="btn btn-warning btn-embossed" ng-click="studentForm.$setPristine()">Enviar solicitud</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+
+<div id="regStu-Modal" class="modal fade" role="dialog" style="margin-top: 20vh">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="colorWhite">{{vm.modal.title}}</h2>
+        <button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <p>{{vm.modal.body}}</p> 
+      </div>
+      <div class="modal-footer">
+        <div class="unModal-footer">
+          <button type="button" class="btn btn-sm btn-embossed btn-danger pull-right" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div><!--FinModal-Content-->
+  </div><!--FinModal-Dialog-->
+</div><!--FinModal-->

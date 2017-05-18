@@ -1,92 +1,54 @@
 (function(){
+  'use strict'
   angular
   .module('cshApp')
   .service('userService', userService);
   
-  userService.$inject = ['$log','$http','localStorageService'];
+  userService.$inject = ['$log','$http','HOST_CONFIG','SessionService'];
 
   /*Servicio para profesores y asistentes*/
-  function userService($log,$http,localStorageService){
+  function userService($log,$http,HOST_CONFIG,SessionService){
+    $http.defaults.headers.common['Authorization'] = 'Bearer ' + SessionService.session.token;
+    
+    var host = HOST_CONFIG.address;
+
     /*Servicio para profesores*/
     var users = [];
 
-
-    users = localStorageService.get('localUsers');
-    if (users == null) {
-      var req = {
-        method: 'GET',
-        url: '../../data/users.data.json',
-        headers: {
-          'Content-Type': undefined
-        }
-      };
-
-      $http(req).then(function(response){
-       localStorageService.set('localUsers',response.data);
-      });
-     // 
-    };
-
-
-
-
+    //API
     var publicAPI = {
         addUser : _addUser,
-        getUser: _getUser,
         getUsers: _getUsers,
-        deleteUser : _deleteUser,
-        updateUser : _updateUser
+        trackTime:_trackTime,
+        changeRequestState : _changeStudentsState
     };
     return publicAPI;
 
-
-    function _addUser(pUser){
-      //users.push(pUser);
-      $log.info(pUser)
-      var user = _getUser();
-      users.push(pUser);
-      $log.info(user);
-      localStorageService.set('localUsers', users);
+    //recibe el user enviado por el controlador y lo pasa al back-end
+    function _addUser(newUser){
+      return $http.post('http://'+host+':3000/api/user/add', newUser);
     }
 
-    function _deleteUser (id) {
-      console.log(id)
+    //ALGUIEN ESTá USANDO ESTA???
+    // function _getUsers(){
+    //   return $http.get('http://'+host+':3000/api/users');
+    // }
+    //*****************************************************
 
-      localStorageService.remove(id)
-      users.splice(id, 1);
-      localStorageService.set('localUsers',users);
-
+    //con PUT traemos los usuarios bajo CUALQUIER CRITERIO
+    function _getUsers(filter){
+      return $http.put('http://'+host+':3000/api/users/search', filter);
     }
 
-    function _getUser(index){
-      var listaStored = localStorageService.get('localUsers');
+    function _trackTime(obj) {
+      return $http.post('http://localhost:3000/api/user/track-time',obj);
+    } 
 
-
-        $log.info('_getUser---'+listaStored)
-
-
-        angular.forEach(listaStored, function(user) {
-
-
-          console.log('user----'+user.index);
-
-
-          if (user.index === index) {
-            return user;
-          }
-
-        })
-      }
-
-
-    function _getUsers(){
-      return localStorageService.get('localUsers');
-    };
-
-
-    function _updateUser(pUser) {
-      localStorageService.set(['localUsers'],pUser);
+    //procesa solicitudes de estudiantes
+    function _changeStudentsState(request,newState){
+      request.state=newState;
+      return $http.put('http://'+host+':3000/api/user/students/update',request);      
     }
-   
+
   }
 })();

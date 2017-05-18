@@ -1,0 +1,102 @@
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" href="#annotations">Anotaciones
+    <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+  </div>
+
+  <div id="annotations" class="panel-collapse collapse">
+    <div class="panel-body">
+      <li ng-repeat="anotation in vm.project.anotations" class="list-group-item">{{anotation.tittle}}
+        <button ng-click="vm.deleteAnotation(anotation._id)" class="btn btn-sm btn-embossed btn-danger pull-right"><span class="fui-trash"></span></button>
+        <button ng-click="vm.modal.open(anotation)" data-toggle="modal" data-target="#infoAnot-Modal" class="btn btn-sm btn-embossed btn-warning pull-right"><span class="fui-eye"></span></button>
+        <!--PENDIENTE EL MOSTRAR-->
+      </li>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-sm btn-embossed btn-warning pull-right" data-toggle="modal" data-target="#anotation-Modal">Agregar</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="anotation-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="fa fa-plus"></span>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>        
+      </div>
+      <div class="modal-body">
+        <form name="formAnot" ng-submit="vm.save()" novalidate autocomplete="off">
+          <div class="form-group">
+            <label for="tittle">Nombre:</label>
+            <input type="text" name="nameAnotation" id="tittleAnot" class="form-control" ng-model="vm.tittle" required maxlength="60" minlength="2">
+           <div id="ng-message" ng-messages="formAnot.tittle.$error" ng-hide="formAnot.tittle.$pristine">
+                <div ng-message="required" ng-hide="formAnot.tittle.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido.</div>
+             </div>
+          </div>
+          <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea style="resize: none;" type="text" name="nameAnotation" id="tittleAnot" class="form-control" ng-model="vm.description" required></textarea>
+             <div id="ng-message" ng-messages="formAnot.description.$error" ng-hide="formAnot.description.$pristine">
+                <div ng-message="required" ng-hide="formAnot.description.$pristine"  class="red darken-2 center-align white-text">Este campo es requerido.</div>
+             </div>
+          </div>
+        </form>
+        <p ng-show="vm.retro" class="alert alert-success">Anotación agregada</p>
+      </div> 
+      <div class="modal-footer">
+        <div class="unModal-footer">
+          <button type="submit" class="btn btn-sm btn-embossed btn-warning" ng-click="vm.save()" ng-disabled="formAnot.$invalid">Crear anotación</button>
+          <button type="submit" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div><!--FinModal-->
+</div>
+
+<div id="infoAnot-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close"  data-dismiss="modal">&times;</button>
+        <h4>Información de anotación:</h4>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label style="font-weight: bold;font-size: 16px">Título:</label>
+            <p style="font-size: 15px">{{vm.modal.title}}</p>
+          </div>
+          <div class="form-group">
+            <label style="font-weight: bold;font-size: 16px">Descripción:</label>
+            <p style="font-size: 15px">{{vm.modal.body}}</p>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <div class="unModal-footer">
+          <button type="button" class="btn btn-sm btn-embossed btn-danger pull-right" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+      </div>
+  </div><!--FinModal-->
+</div>
+
+<!-- Modal -->
+<div id="retroMessge-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>Atención</h4>
+    </div>
+    <div class="modal-body">
+      <p class="alert alert-success">{{vm.msg}}.</p>
+    </div>
+    <div class="modal-footer">
+      <div class="unModal-footer">
+        <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+    </div><!--FinModal-Content-->
+  </div><!--FinModal-Dialog-->
+</div><!--FinModal-->

@@ -1,33 +1,29 @@
-(function(){
-  angular
-    .module('cshApp')
-    .controller('loadProjectsController', loadProjectsController);
-    loadProjectsController.$inject= ['admin_loadProjectsService'];//, 'cshReqService'
+(function () {
+	angular
+	.module('cshApp')
+	.controller('projectsController', projectsController);	
+	
 
-    function loadProjectsController(admin_loadProjectsService){
-      
-      var vm = this;
-      //inicia cargando la lista de estados de proyecto
-      vm.statesList = admin_loadProjectsService.getProjectsStates();
-      vm.projects = admin_loadProjectsService.getProjects();
+	projectsController.$inject = ['$stateParams','AuthService'];
 
-      /*ADMINISTRA SECCIONES A DESPLEGAR*/
-      //seccion donde se muestra la lista de proyectos (filtrados)
-      vm.listingProjects=true;
-      //mensaje de "no hay proyectos"
-      vm.message=false;
-      //bloque de un proyecto específico
-      vm.projectView=false;
+	function projectsController ($stateParams,AuthService) {
+		//vm = view model
+		var vm = this;
+		//////////////////////////////////////////
+		vm.checkRole = _checkRole;
+		//////////////////////////////////////////
+		vm.user = AuthService.getAuthUser();
+		//////////////////////////////////////////	
 
-
-      /*ACCESO A UN PROYECTO*/
-      vm.accessProject= function(project){
-        //oculta la sección de listar los proyectos
-        vm.listingProjects=false;
-        //"entra" a la sección de un proyecto específico
-        vm.projectView=true;
-      }
-
-    }
-
+    	function _checkRole(roles) {
+    		var check = false
+			angular.forEach(roles, function(role, key) {
+				if (role === vm.user.role) {
+					check = true;
+					return;
+				}
+			});
+			return check;
+    	}		
+	};
 })();

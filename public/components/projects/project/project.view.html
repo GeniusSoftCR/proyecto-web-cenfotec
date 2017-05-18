@@ -1,0 +1,58 @@
+<main>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+      <!-- {{vm.project.name}} -->
+        <div class="panel-heading" data-toggle="collapse" href="#information">
+          Información del proyecto
+          <span class="glyphicon glyphicon-chevron-down pull-right">
+        </div>
+        <div id="information" class="panel-collapse collapse">
+          <div class="panel-body">
+            <h6><b>{{ vm.project.name }}</b></h6>
+            <hr>
+            <p><b>Empresa: </b> {{ vm.project.client.companyName }}</p>
+            <p><b>Industria: </b> {{vm.project.client.industry}}</p>
+            <p><b>Responsable: </b> {{vm.project.client.manager}}</p>
+            <p><b>Correo: </b> {{vm.project.client.email}}</p>
+            <hr>
+            <p><b>Estado: </b> {{ vm.state }}</p>
+          </div>
+          <div class="panel-footer">
+            <button ng-show="vm.on"  ng-click=vm.activate() class="btn btn-sm btn-embossed btn-warning pull-right">Iniciar</button>
+            <button ng-show="vm.off" ng-click=vm.desactivate() class="btn btn-sm btn-embossed btn-danger pull-right">Finalizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div ui-view="teachers"></div>
+      <div ui-view="students"></div>
+      <div ui-view="files"></div>
+      <div ui-view="anotations"></div>
+    </div>
+  </div>
+</main>
+
+
+<!-- Modal -->
+<div id="insideRetro-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>Atención</h4>
+    </div>
+    <div class="modal-body">
+      <p class="alert alert-success">{{vm.msg}}.</p>
+    </div>
+    <div class="modal-footer">
+      <div class="unModal-footer">
+        <button type="button" class="btn btn-sm btn-embossed btn-danger pull-left" data-dismiss="modal" ng-click=vm.reload()>Cerrar</button>
+        <!-- <button type="button" class="btn btn-sm btn-embossed btn-danger pull-rigth" >Cerrar</button> -->
+      </div>
+    </div>
+    </div><!--FinModal-Content-->
+  </div><!--FinModal-Dialog-->
+</div><!--FinModal-->
