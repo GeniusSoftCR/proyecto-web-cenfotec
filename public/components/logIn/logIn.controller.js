@@ -4,9 +4,20 @@
 	angular.module('cshApp')
 	.controller('logInController',logInController);
 
-	logInController.$inject = ['$timeout','$log','$http','$location','$rootScope','AUTH_EVENTS','AuthService','SessionService'];
+	logInController.$inject = ['$scope','$timeout','$log','$http','$location','$rootScope','AUTH_EVENTS','AuthService','SessionService'];
 
- 	function logInController ($timeout,$log,$http,$location,$rootScope,AUTH_EVENTS,AuthService,SessionService){
+ 	function logInController ($scope,$timeout,$log,$http,$location,$rootScope,AUTH_EVENTS,AuthService,SessionService){
+
+ 		 // Set the default value of inputType
+  		$scope.inputType = 'password';
+  
+  		// Hide & show password function
+  		$scope.hideShowPassword = function(){
+    		if ($scope.inputType == 'password')
+      			$scope.inputType = 'text';
+    		else
+      			$scope.inputType = 'password';
+  		};
 
  		if(AuthService.isAuth()){
  			$location.path('/inicio/perfil');
