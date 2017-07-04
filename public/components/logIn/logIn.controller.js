@@ -8,11 +8,11 @@
 
  	function logInController ($timeout,$log,$http,$location,$rootScope,AUTH_EVENTS,AuthService,SessionService){
 
- 		// if(AuthService.isAuth()){
- 		// 	$location.path('/inicio/perfil');
- 		// }else{
- 		// 	$location.path('/entrar'); 			
- 		// }
+ 		if(AuthService.isAuth()){
+ 			$location.path('/inicio/perfil');
+ 		}else{
+ 			$location.path('/entrar'); 			
+ 		}
  		//vm = view model
 		var vm = this;
 		vm.loading = false;
@@ -21,8 +21,6 @@
 		};
 
 		vm.user = {};
-		vm.user.username = 'hmurillop';
-		vm.user.password = 'Angular1';
 		
 		vm.logIn = function(credentials){ 
 
@@ -35,27 +33,27 @@
 				document.body.style.cursor='default';
 				vm.loading = false;		
 				if (!res.data.error) {
-					SessionService.create(res.data)
-					$log.info("Login success: "+ res.data.user.username);	
-					$log.info("token : "+ res.data.token);							         
-	       			$rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   		        
-	      			$location.path('/inicio/perfil');
-			
+					console.log(res.data)
+
+					$log.info("Login success: "+ res.data.username);		         
+       				$rootScope.$broadcast(AUTH_EVENTS.loginSuccess);   		        
+      				$location.path('/inicio/perfil');
+      				SessionService.create(res.data)					
 				}else{
 					vm.modal.config('logIn');
 					$('#modal').modal('show');
 					
-					vm.modal.tittle = "Inicio de sesión";
-					vm.modal.body = res.data.error;
+					vm.modal.tittle = "Inicio de sesión"
+					vm.modal.body = res.data.error
 					vm.user.password='';
-					console.log(res.data.error);
-					$log.error("Login failed");
+					console.log(res.data.error)
+					$log.error("Login failed")
 		        	$rootScope.$broadcast(AUTH_EVENTS.loginFailed);
 
-		        	$timeout(function () {$('#modal').modal('hide');},1850);
+		        	$timeout(function () {$('#modal').modal('hide')},1850)
 
 		        	$location.path('/entrar');
-				}
+				};
 			});	
 	    };
 	    vm.modal = {
@@ -69,8 +67,8 @@
 	    			case 'logIn':
 	    				vm.modal.title = "Error al inciar sesión";	    				
 	    			break;
-	    		}
+	    		};
 	    	}
 	    };
-	}
+	};
 })();

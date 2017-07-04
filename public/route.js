@@ -70,9 +70,7 @@
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 	          	return $ocLazyLoad.load([	          			          		
 	          		'./components/users/profile/profile.controller.js',
-	          		'./components/users/profile/timer/timer.controller.js',
-	          		'./components/users/profile/timeHistory/timeHistory.controller.js'
-
+	          		'./components/users/profile/timer/timer.controller.js'   		          		
 	          	])
 	          }]
 		    },
@@ -86,12 +84,7 @@
 		    		templateUrl: './components/users/profile/timer/timer.view.html',
     				controller: 'timerController',
     				controllerAs:'vm'
-		    	},
-		    	'timeHistory@main.profile':{
-		    		templateUrl: './components/users/profile/timeHistory/timeHistory.view.html',
-    				controller: 'timeHistoryController',
-    				controllerAs:'vm'
-		    	}		    	
+		    	}
 		    }		
 		})
 			

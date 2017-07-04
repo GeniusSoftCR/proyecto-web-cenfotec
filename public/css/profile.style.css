@@ -18,19 +18,19 @@ div#profile-view.row p{
 
 
 
-#infoUser .card {
+.card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: auto;
     text-align: center;
 }
 
-#infoUser .title {
+.title {
     color: grey;
     font-size: 18px;
 }
 
-#btnProfile {
+button {
     border: none;
     outline: 0;
     display: inline-block;
@@ -43,9 +43,9 @@ div#profile-view.row p{
     font-size: 18px;
 }
 
-	#btnProfile:hover, a:hover {
-	    opacity: 0.7;
-	}
+button:hover, a:hover {
+    opacity: 0.7;
+}
 
 #infoUser li p{
 	width: 100%;
