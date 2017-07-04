@@ -11,7 +11,7 @@
 		$stateProvider
 
 		.state('landing',{
-			url: '/',
+			url: '/cenfotecSoftwareHouse',
 			templateUrl: './components/landing/landing.html',
 			css: './css/landing.css'
       	})
@@ -216,7 +216,7 @@
 		// 	templateUrl: './components/404.html'
 		// })
     
-		$urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/cenfotecSoftwareHouse');
 		// $locationProvider.html5Mode(true);
 	}
 })();
