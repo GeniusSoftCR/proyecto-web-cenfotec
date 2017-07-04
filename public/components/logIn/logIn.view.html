@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<div class="col-md-5">
-			<form name="userLogInForm" ng-submit="vm.logIn(vm.user)"  novalidate="">
+			<form name="userLogInForm" ng-submit="vm.logIn(vm.user)"  novalidate="" autocomplete="off">
 				<div id="tituloLog" class="col-md-12 col-md-offset-1">
 					<h2>Iniciar sesión en</h2>
 					<h2>Cenfotec Software House</h2>
@@ -30,8 +30,8 @@
 					<label for="checkbox" ng-if="!passwordCheckbox"><i class="fa fa-eye-slash"></i> Mostrar contraseña</label> 
 				</div>
   				<!-- Boton -->
-				<div class="form-group has-feedback col-md-9 col-md-offset-5">
-					<button class="btn btn-warning col-md-4" ng-disabled="userLogInForm.$invalid">Iniciar sesión</button>
+				<div class="form-group has-feedback col-md-9 col-md-offset-4">
+					<button class="btn btn-warning col-md-5" ng-disabled="userLogInForm.$invalid">Iniciar sesión</button>
 				</div>
 				<!-- Olvidó su contraseña -->
 				<!--<div class="col-md-7 col-md-offset-3">
