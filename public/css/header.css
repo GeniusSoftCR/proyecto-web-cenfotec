@@ -7,8 +7,8 @@
 		padding: 1% 0;
 	}
 		#color li a{
-		font-weight: 100;
-		font-size: 1.2em;
+		font-weight: 300;
+		font-size: 1.0999em;
 		}
 
 		.navbar-nav{
@@ -27,5 +27,7 @@
 	#logo1{
 		margin: 0;
 		padding: 14px 0px;
+	}	
+	.dropdown-menu li a{
+		color: #000;
 	}
-	

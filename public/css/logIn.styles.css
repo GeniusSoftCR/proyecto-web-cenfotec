@@ -88,5 +88,5 @@ input[type="checkbox"]:checked {
 	background: #f1c40f;
 	box-shadow: 0 0 0 8px #f1c40f inset, 0 0 0 0 #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 0 #ddd inset, 0 0 0 0 #ddd;
   content: url('../imgs/Check.png');
-  width: 5.5%;
+
 }
