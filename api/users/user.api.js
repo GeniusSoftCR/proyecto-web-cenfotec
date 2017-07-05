@@ -3,6 +3,7 @@ var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
     bcrypt=require('bcryptjs'),
+    email = require('emailjs/email'),
     ///////////////////////////////
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
@@ -12,7 +13,6 @@ var express = require('express'),
     roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
-  // _id  :        ObjectId,
   idNum :       {type: String, required: true,minlength:9,maxlength:9},
   name:         {type: String, required: true},
   surname:      {type: String, required: true},
@@ -98,7 +98,7 @@ router.put('/user/login', function(req, res, next) {
         if (err) throw err;
         if (!isMatch) {         
           console.log('Attempt failed to login with: ' + user.username);
-          res.json({"error":"Contraseña no coincide, intente nuevamente"});
+          res.json({"error":"Usuario o contraseña erroneo, intente nuevamente"});
         }else{
           console.log('Password'+password+': ', isMatch); // -> Password123: true
           switch(user.state)
@@ -115,7 +115,7 @@ router.put('/user/login', function(req, res, next) {
             break;  
 
             case "banned":
-              res.json({"error":"Usuario bloqueado, contacte administrador","succes":true});
+              res.json({"error":"Usuario temporalmente bloqueado, contacte administrador","succes":true});
             break;
 
             case "rejected":
@@ -185,6 +185,20 @@ router.post('/user/add', function(req, res, next) {
       res.json({success: false, message: 'Ha ocurrido un error', error: err});
     } else {
       res.json({success: true, message: 'Solicitud enviada correctamente'});
+      
+      var server  = email.server.connect({
+               user:    "geniussoft.8@gmail.com",
+               password: "proyectoweb1",
+               host:    "smtp.mailgun.org",
+               ssl:     true
+            });
+      server.send({
+                 text:    "Hola " + req.body.name + "!" ,
+                 from:    "geniussoft.8@gmail.com",
+                 to:      req.body.email,
+                 subject: "Bienvenido a Cenfotec Software House"
+              }, function(err, message) { console.log(err || message); });
+            
     }
   });
 });

@@ -28,7 +28,7 @@
     "mongoose": "^4.8.6",
     "morgan": "^1.8.1",
     "nib": "^1.1.0",
-    "sendgrid": "^5.0.1",
+    "emailjs": "^1.0.8",
     "wiredep": "^4.0.0"
   }
 }
