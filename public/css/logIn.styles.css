@@ -1,0 +1,92 @@
+#tituloLog{
+	padding: 40% 0 7%;
+	text-align: center;
+}
+	#tituloLog h2{
+		color: #000;
+		font-family: 'montserrat';
+		font-weight: 400;
+		font-size: 2em;
+		margin: 0;
+	}
+input{
+	font-family: 'montserrat';
+	font-weight: 100;
+	color: #f0f0f0;
+}
+span{
+	margin-right: 5%;
+}
+a{
+	color: #000;
+	font-weight: 300;
+	font-family: 'montserrat';
+	margin: 0;
+}
+	a:hover{
+		color: #f1c40f;
+	}
+	#fondo1{
+		background-image: url(../imgs/fondo1.png);
+		background-size: 95%;
+		background-repeat: no-repeat;
+	}
+		#fondo1 div{
+			padding: 40% 0 51% 0;
+		}
+			#fondo1 div h1{
+				color: #fff;
+				font-family: 'montserrat';
+				font-weight: 400;
+				font-size: 2em;
+				text-align: center;
+			}
+			#fondo1 div img{
+				padding-left: 44%;
+			}
+#thex i{
+	color: #f1c40f;
+	font-size: 1.4em;
+}
+#btnForgot{
+	margin-top: 4%;
+}
+
+div#modal div.modal-body p{
+	padding: 25px 0 20px 55px;
+	font-size: 20px;
+}
+
+div#modal div.modal-header .modal-title{
+	padding-left: 50px;
+}
+
+.forgot-btn{
+	padding-left: 50px;
+}
+
+input[type="checkbox"]:active:after {
+  box-shadow: 0 0 0 2px #EEE;
+  display: inline;
+}
+input[type="checkbox"] {
+  background: #EEE;
+  box-shadow: 0 0 0 0 #009688 inset, 0 0 0 2px #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 0 #ddd inset, 0 0 0 0 #ddd;
+  transition: all .4s;
+
+}
+input[type="checkbox"]:active {
+	background: #ddd;
+	box-shadow: 0 0 0 0 #f1c40f inset, 0 0 0 2px #666666 inset, 0 0 0 0 #EEE inset, 0 0 0 8px #ddd inset, 0 0 0 12px #ddd;
+}
+input[type="checkbox"]:checked:active {
+	background: #009688;
+	box-shadow: 0 0 0 8px #f1c40f inset, 0 0 0 0 #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 12px #ddd inset, 0 0 0 8px #D6E5E4;
+}
+
+input[type="checkbox"]:checked {
+	background: #f1c40f;
+	box-shadow: 0 0 0 8px #f1c40f inset, 0 0 0 0 #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 0 #ddd inset, 0 0 0 0 #ddd;
+  content: url('../imgs/Check.png');
+
+}

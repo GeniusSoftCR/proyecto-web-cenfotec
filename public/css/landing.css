@@ -1,0 +1,118 @@
+body{
+	font-family: 'montserrat';
+}
+h2{
+	font-weight: 400;
+	font-size: 2.5em;
+	margin: 30% 0 36%;
+}
+p{
+	font-weight: 300;
+}
+/*estilos del main*/
+	/*estilos del primer section*/
+		#banner{
+			background-image: url(../imgs/background1.png);
+			background-size: 100%;
+		}
+			#banner h2{
+				color: #fff;
+				margin: 0;
+				padding-top: 34%;
+			}
+			#banner p{
+				color: #fff;
+				padding-bottom: 25%;
+			}
+	/*estilos del segundo section*/
+		#nosotros{
+			background: #fff;
+		}
+			#nosotros h2{
+				color: #000;
+				margin: 30% 0 36%;
+			}
+			#description{
+				width: 50%;
+				color: #000;
+				font-size: 1em;
+				font-weight: 300;
+				padding: 0 3%;
+				margin-bottom: 6%;
+				text-align: justify;
+			}
+			#cenfo{
+				position: relative;
+				z-index: 1;
+			}
+				#cenfo img{
+					margin-top: 15%;
+					border-radius: 2%;
+					position: absolute;
+				}
+	/*estilos del tercer section*/
+		#services{
+			background: #000;
+		}
+			#services h2{
+				color: #fff;
+			}
+		
+			#services ul{
+				margin-bottom: 20%;
+			}
+				#services li{
+					padding: 2% 0;
+				}
+				#services li p{
+					color: #fff;
+					font-size: 1em;
+					font-weight: 100;
+				}
+					#services li p:hover{
+						color: #f8c300;
+					}
+			
+				#services li span{
+					width: 40px;
+					font-size: 1.5em;
+					color: #f8c300;
+					margin-right: 8%;
+				}
+					#services li span:hover{
+						-webkit-transform: rotate(-9deg);
+    					-moz-transform: rotate(-9deg);
+    					-o-transform: rotate(-9deg);
+					}
+	/*Estilos del 4 section*/
+		#contacto{
+			background: #fff;
+			padding-bottom: 4%;
+		}
+			#contacto h2{
+				color: #000;
+			}	
+			#contacto p{
+				color: #000;
+				text-align: justify;
+
+			}
+				#contacto i{
+					color: #f8c300;
+					font-size: 1.3em;
+					padding-right: 3%;
+				}
+/*estilos del footer*/
+	.footer-copyright {
+		background: #171717;
+		padding: 10px 0;
+		color: #fff;
+		font-weight: 300;
+	}
+		#genius{
+			color: #f8c300;
+			font-weight: 100;
+		}
+			#genius:hover{
+				color: #9b59b6;
+			}

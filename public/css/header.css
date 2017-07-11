@@ -1,0 +1,33 @@
+/*estilos del header*/
+	.navbar{
+		padding: 1% 0 1% 18%;
+	}
+	#color{
+		background: #000;
+		padding: 1% 0;
+	}
+		#color li a{
+		font-weight: 300;
+		font-size: 1.0999em;
+		}
+
+		.navbar-nav{
+			margin: 0 auto;
+		}
+
+	.img-profile{
+		background-color: white;
+	}
+
+	#name1{
+		margin: 0;
+		font-weight: 300;
+		color: white;
+	}
+	#logo1{
+		margin: 0;
+		padding: 14px 0px;
+	}	
+	.dropdown-menu li a{
+		color: #000;
+	}

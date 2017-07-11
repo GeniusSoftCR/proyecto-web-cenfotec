@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="col-md-12 col-lg-12">
+		<div class="row" id="profile-view">
+			<div class="col-md-3 user-profile">
+				<div class="card">
+					<div class="profile">
+						<img class="avatar" alt="avatar" ng-src="{{vm.user.avatar}}" alt="" style="width:100%;">
+					</div>
+					<div class="info">
+						<h3>!Saludos!</h3>
+					    <h5>{{vm.user.name +" "+ vm.user.surname}}</h5>
+					    <h5>{{vm.user.secondSurname}}</h5>
+					    <br>
+					    <button type="button" data-toggle="collapse" data-target="#contact-collapse" aria-expanded="false" aria-controls="collapseExample"><span><span ng-hide="vm.taskSearchState">Contacto</span></span>
+						</button>
+					</div>
+				</div>	
+			</div>
+			<div class="col-md-9">
+				<!-- <div ng-if="vm.user.role == 'student'" ui-view="timer"></div> -->
+			</div>			
+		</div>
+	</div>
+
+
+	<div class="col-md-3 collapse" id="contact-collapse">
+		<div class="card">
+			<div class="col-md-4">
+				<ul id="infoUser">
+					<li><span class="fa fa-id-card-o" aria-hidden="true"></span></li>
+					<li><span class="fa fa-user" aria-hidden="true"></span></li>
+					<li><span class="fa fa-phone" aria-hidden="true"></span></li>
+				</ul>
+			</div>
+			<div class="col-md-5">
+				<ul id="infoUser">
+					<li><p>{{vm.user.idNum}}</p></li>
+					<li><p>{{vm.user.username}}</p></li>
+					<li><p>{{vm.user.phone}}</p></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+

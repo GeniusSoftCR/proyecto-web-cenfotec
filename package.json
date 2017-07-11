@@ -2,7 +2,7 @@
   "name": "proyecto-web-cenfotec",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "api/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,9 +17,18 @@
   },
   "homepage": "https://github.com/GeniusSoftCR/ProyectoWeb-Cenfotec#readme",
   "dependencies": {
+    "angular-password": "^1.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
     "gulp": "^3.9.1",
     "gulp-connect": "^4.0.0",
+    "gulp-nodemon": "^2.2.1",
     "gulp-sass": "^2.3.1",
-    "nib": "^1.1.0"
+    "mongoose": "^4.8.6",
+    "morgan": "^1.8.1",
+    "nib": "^1.1.0",
+    "emailjs": "^1.0.8",
+    "wiredep": "^4.0.0"
   }
 }

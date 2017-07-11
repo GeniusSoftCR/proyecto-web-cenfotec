@@ -1,0 +1,33 @@
+h2{
+	font-size: 1em;
+}
+input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty{ 
+	border: 2px solid #D25349; 
+}
+
+input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty{ 
+	border: 2px solid #019739; 
+}
+
+.form-group, .input-group{
+	margin-bottom: 8%;
+}
+
+#ng-message p{
+	font-size: 0.730em;
+	font-family: 'montserrat';
+	border: none;
+	position: absolute;
+	z-index: 2;
+	color: red;
+}
+input{
+	border: none;
+	display: inline-block;
+	border: none;
+	z-index: 1;
+}
+tbody tr td{
+	color: #000;
+	font-size: 0.750em
+}

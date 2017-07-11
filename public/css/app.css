@@ -1,0 +1,269 @@
+/*TIPOGRAFÍA*/
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Thin.ttf");font-weight: 100; }
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_ExtraLight.ttf");font-weight: 300; }
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Regular.ttf");font-weight: 400; }
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Medium.ttf");font-weight: 500; }
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_SemiBold.ttf");font-weight: 600; }
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Bold.ttf");font-weight: 700; }
+@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Black.ttf");font-weight: 900; }
+/*
+  NORMALIZE
+  */
+body {
+  background-color: #fff;
+}
+h1, h2, h3, h4, h5, h6, table, thead, tbody, td, th, tr, p, b, select, option, button, label, input, div, ol, ul, li, a, nav, span, pre, textarea, hgroup, div, form, header, main, footer, body{
+  font-family: 'montserrat';
+  font-weight: 400;
+  margin: 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+b{
+  color: #000;
+  font-weight: 500;
+}
+.ibck{
+  display: inline-block;
+}
+/*
+  NAVEGACIÓN LATERAL
+  **/
+#aside_col {
+  background-color: #000;
+  padding: 0;
+  height: 100%;
+  position: fixed;
+  float: left;
+}
+#aside_col p,a,.fa, {
+  color: #fff;
+  text-align: center;
+}
+#aside_col li {
+  display: list-item;
+  text-align: center;
+}
+#aside_col li:hover, li.active {
+  border-right: 5px solid #f1c40f;
+  color: #f1c40f;
+}
+#aside_col li:hover .fa, li.active .fa{
+  color: #f1c40f;
+}
+#aside_col li a {
+  max-width: 107px;
+}
+#aside_col li:hover a {
+  color: #fff;
+}
+#aside_col a {
+  font-weight: 300;
+  text-decoration: none;
+  padding: 14px 0px;
+  font-size: 14px;
+  font-family: 'montserrat';
+  font-weight: 100;
+  display: block;
+}
+#aside_col i {
+  font-size: 24px;
+  display: block;
+}
+#aside_col .logo img {
+  margin: 10px 10px;
+}
+#aside_col .logo li {
+  padding: 10px 0 11px 10px;
+}
+#aside_col .logo img{
+  max-width: 40px;
+  margin-left: 35px;
+  margin-top: 20px;
+}
+
+/*
+  HEADER
+  **/
+#navegacion {
+  background-color: #000;
+  border-radius: 0;
+  padding-top: 8px;
+  -webkit-box-shadow: 6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  -moz-box-shadow:    6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  box-shadow:         6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  max-height: 69px;
+}
+.img-profile {
+  margin-right: 10px;
+  width: 29px;
+  height: 29px;}
+#profile {
+  padding: 12px 21px 11px 21px;}
+
+/*
+  MAIN
+  **/
+/*#header {
+  margin-left: 115px;
+}*/
+#main_col {
+  float: right;
+}
+ /*Listas de usuarios*/
+.list-member {
+  background: #efeff1;
+  /*border: 2px solid #000;*/
+  padding: 8px;
+  margin-bottom: 50px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+}
+.list-member img {
+  max-width: 96px;
+  max-height: 96px;
+  margin: 0 auto;
+  border: 7px solid #fff;
+}
+.list-member > .btn-group {
+  margin: 0 auto;
+}
+.list-member > .btn-group > .btn {
+  margin-left: 5px;
+}
+/*Modal solicitudes de estudiantes*/
+#studentReq-Modal img{
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+}
+/*#studentReq-Modal .student-info{
+  background: #d4d4d4;
+  border-radius: 4px;
+}*/
+
+/*
+  Sobreescribiendo bootstrap
+  **/
+ /*Paneles*/
+.panel .panel-heading {
+  background: #000;
+  color: #fff;
+}
+.panel-footer {
+  height: 55px;
+}
+  /*Botones*/
+.btn {
+  margin-left: 5px;
+}
+.btn-warning{
+  color: #000;
+}
+/*.btn-danger {
+  background: #a30b37;}*/
+
+.btn-warning:hover, .btn-warning:focus {
+  color: #000
+}
+.btn-inverse {
+  background: #000;
+}
+/*.btn-inverse:hover,
+.btn-inverse.hover,
+.btn-inverse:focus,
+.btn-inverse:active,
+.btn-inverse.active,
+.open > .dropdown-toggle.btn-inverse {
+  color: #ffffff;
+  background-color: #415b76;
+  border-color: #415b76;
+}*/
+
+¨/*Modals*/
+.modal-header {
+  min-height: 16.42857143px;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #000;
+}
+.modal-header {
+    background: #000;
+    color: #fff;
+}
+.modal-header .close {
+  margin-top: -2px;
+}
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.modal-body {
+  position: relative;
+  padding: 15px;
+}
+.modal-footer {
+  background: #f5f5f5;
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+/*Anchors*/
+a {
+  color: #fff;}
+a:hover, a:focus {
+  color: #fff;}
+
+/*Navegaciones*/
+/*Sobreescribe el estilo del texto*/
+.navbar-default .navbar-nav > li > a {
+  color: #fff;}
+/*.navbar-default .navbar-nav > li:focus > a {
+  color: #f1c40f;}*/
+.navbar-default .navbar-nav > li:hover > a {
+  color: #f1c40f;}
+.navbar-default .navbar-nav > .open > a {
+  color: #fff;}
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: transparent;
+  color: #f1c40f;
+}
+/*Sobreescribe el estilo de la flecha*/
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #f1c40f;
+  border-bottom-color: #f1c40f;}
+
+#myScrollspy {
+  /* height:200px; */
+  height: 55vh;
+  overflow-y: scroll;
+}
+.has-error{
+  border-color: red;
+}
+
+#sltProjects {
+  height: 35px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+#profileLine {
+  border-top: 3px solid #eee;
+}
+.flex-panel {
+  height: 65vh;
+}
+
+.fui-eye{
+  color: #000;
+}
