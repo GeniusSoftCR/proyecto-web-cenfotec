@@ -29,7 +29,11 @@
     }
     
     function _getAuthUser() {
-      return SessionService.session;
+      if (SessionService.session) {
+        return SessionService.session.user;
+      }else{
+        return undefined;
+      }
     }
   }
 })();

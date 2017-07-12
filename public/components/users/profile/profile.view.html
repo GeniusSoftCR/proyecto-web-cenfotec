@@ -11,35 +11,38 @@
 					    <h5>{{vm.user.name +" "+ vm.user.surname}}</h5>
 					    <h5>{{vm.user.secondSurname}}</h5>
 					    <br>
-					    <button type="button" data-toggle="collapse" data-target="#contact-collapse" aria-expanded="false" aria-controls="collapseExample"><span><span ng-hide="vm.taskSearchState">Contacto</span></span>
+					    <button id="btnProfile" type="button" data-toggle="collapse" data-target="#contact-collapse" aria-expanded="false" aria-controls="collapseExample"><span><span ng-hide="vm.taskSearchState">Contacto</span></span>
 						</button>
 					</div>
-				</div>	
+				</div>
+				<div class="row">
+					<div class="col-xs-12 collapse" id="contact-collapse">
+						<div class="card">
+							<div class="col-md-4">
+								<ul id="infoUser">
+									<li><span class="fa fa-id-card-o" aria-hidden="true"></span></li>
+									<li><span class="fa fa-user" aria-hidden="true"></span></li>
+									<li><span class="fa fa-phone" aria-hidden="true"></span></li>
+								</ul>
+							</div>
+							<div class="col-md-5">
+								<ul id="infoUser">
+									<li><p>{{vm.user.idNum}}</p></li>
+									<li><p>{{vm.user.username}}</p></li>
+									<li><p>{{vm.user.phone}}</p></li>
+								</ul>
+							</div>
+						</div>
+					</div>						
+				</div>			
 			</div>
 			<div class="col-md-9">
-				<!-- <div ng-if="vm.user.role == 'student'" ui-view="timer"></div> -->
+				<div ng-if="vm.user.role == 'student'" ui-view="timer"></div>
+				<div ng-if="vm.user.role == 'student'" ui-view="timeHistory"></div>
 			</div>			
 		</div>
 	</div>
 
 
-	<div class="col-md-3 collapse" id="contact-collapse">
-		<div class="card">
-			<div class="col-md-4">
-				<ul id="infoUser">
-					<li><span class="fa fa-id-card-o" aria-hidden="true"></span></li>
-					<li><span class="fa fa-user" aria-hidden="true"></span></li>
-					<li><span class="fa fa-phone" aria-hidden="true"></span></li>
-				</ul>
-			</div>
-			<div class="col-md-5">
-				<ul id="infoUser">
-					<li><p>{{vm.user.idNum}}</p></li>
-					<li><p>{{vm.user.username}}</p></li>
-					<li><p>{{vm.user.phone}}</p></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
 
+</div>

@@ -64,29 +64,3 @@ div#modal div.modal-header .modal-title{
 .forgot-btn{
 	padding-left: 50px;
 }
-
-input[type="checkbox"]:active:after {
-  box-shadow: 0 0 0 2px #EEE;
-  display: inline;
-}
-input[type="checkbox"] {
-  background: #EEE;
-  box-shadow: 0 0 0 0 #009688 inset, 0 0 0 2px #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 0 #ddd inset, 0 0 0 0 #ddd;
-  transition: all .4s;
-
-}
-input[type="checkbox"]:active {
-	background: #ddd;
-	box-shadow: 0 0 0 0 #f1c40f inset, 0 0 0 2px #666666 inset, 0 0 0 0 #EEE inset, 0 0 0 8px #ddd inset, 0 0 0 12px #ddd;
-}
-input[type="checkbox"]:checked:active {
-	background: #009688;
-	box-shadow: 0 0 0 8px #f1c40f inset, 0 0 0 0 #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 12px #ddd inset, 0 0 0 8px #D6E5E4;
-}
-
-input[type="checkbox"]:checked {
-	background: #f1c40f;
-	box-shadow: 0 0 0 8px #f1c40f inset, 0 0 0 0 #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 0 #ddd inset, 0 0 0 0 #ddd;
-  content: url('../imgs/Check.png');
-
-}
