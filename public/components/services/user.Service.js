@@ -8,7 +8,7 @@
 
   /*Servicio para profesores y asistentes*/
   function userService($log,$http,HOST_CONFIG,SessionService){
-    $http.defaults.headers.common['Authorization'] = 'Bearer ' + SessionService.session.token;
+    // $http.defaults.headers.common['Authorization'] = 'Bearer ' + SessionService.session.token;
     
     var host = HOST_CONFIG.address;
 
