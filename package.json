@@ -20,7 +20,10 @@
     "angular-password": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
+    "emailjs": "^1.0.8",
     "express": "^4.15.2",
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^20.1.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^4.0.0",
     "gulp-nodemon": "^2.2.1",
@@ -28,7 +31,6 @@
     "mongoose": "^4.8.6",
     "morgan": "^1.8.1",
     "nib": "^1.1.0",
-    "emailjs": "^1.0.8",
     "wiredep": "^4.0.0"
   }
 }
