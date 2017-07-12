@@ -2,8 +2,9 @@
   'use strict';
   angular.module('cshApp', ['appRoutes','angular-filepicker', 'ngFileUpload', 'LocalStorageModule', 'angularCSS','ngPassword'])
 
-    .config(function (filepickerProvider) {
+    .config(function (filepickerProvider,localStorageServiceProvider) {
       filepickerProvider.setKey('Ads2gIHt6RWK2pggu8yVfz');
+      localStorageServiceProvider.setPrefix('cshApp');
     })
     .constant('AUTH_EVENTS', {
       loginSuccess: 'auth-login-success',
