@@ -1,18 +1,18 @@
 //Definimos las dependencias
 var
- express = require('express'),
- app = express(),
- path = require('path'),
- bodyParser = require('body-parser'),
- morgan = require('morgan'),
- mongoose = require('mongoose'),
- passport = require('passport'),
- //Variables del back de la aplicacion
- db = mongoose.connection,
- dburl = 'mongodb://admin:proyectoweb1@ds155130.mlab.com:55130/csh',
- port = 3000,
- server = app.listen(port,_server()),
- io = require('socket.io').listen(server);
+
+express = require('express'),
+app = express(),
+path = require('path'),
+bodyParser = require('body-parser'),
+morgan = require('morgan'),
+mongoose = require('mongoose'),
+//Variables del back de la aplicacion
+db = mongoose.connection,
+dburl = 'mongodb://admin:proyectoweb1@ds155130.mlab.com:55130/csh',
+port = 3000,
+server = app.listen(port,_server()),
+io = require('socket.io').listen(server);
  // io = socket.sockets;
 
 //Se define la conexion con Mongoose
@@ -49,7 +49,8 @@ app.use(function (req, res, next) {
 
 //Socket.io
 app.use(function(req,res,next){
-    req.io = io;
+    // req
+    res.io = io;
     next();
 });
 
@@ -59,7 +60,6 @@ var index = require('./index'),
     projects = require('./projects/project.api'),
     config = require('./config/config.api.js');
 //
-
 //Define Express Routes
 app.use('/api', users);
 app.use('/api', projects);
@@ -68,8 +68,6 @@ app.use('/api', config);
 app.use('/', index);
 ///////
 //////
-app.use(passport.initialize());  
-
 module.exports = app;
 ////
 //
