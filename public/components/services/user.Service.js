@@ -4,13 +4,14 @@
   .module('cshApp')
   .service('userService', userService);
   
-  userService.$inject = ['$log','$http','HOST_CONFIG'];
+  userService.$inject = ['$log','$http','HOST_CONFIG','SessionService'];
 
   /*Servicio para profesores y asistentes*/
-  function userService($log,$http,HOST_CONFIG){
+  function userService($log,$http,HOST_CONFIG,SessionService){
+    // $http.defaults.headers.common['Authorization'] = 'Bearer ' + SessionService.session.token;
+    
     var host = HOST_CONFIG.address;
 
-    console.log(HOST_CONFIG)
     /*Servicio para profesores*/
     var users = [];
 
@@ -18,6 +19,7 @@
     var publicAPI = {
         addUser : _addUser,
         getUsers: _getUsers,
+        trackTime:_trackTime,
         changeRequestState : _changeStudentsState
     };
     return publicAPI;
@@ -37,6 +39,10 @@
     function _getUsers(filter){
       return $http.put('http://'+host+':3000/api/users/search', filter);
     }
+
+    function _trackTime(obj) {
+      return $http.post('http://localhost:3000/api/user/track-time',obj);
+    } 
 
     //procesa solicitudes de estudiantes
     function _changeStudentsState(request,newState){

@@ -1,4 +1,26 @@
-<div ng-include="'./../components/includes/_mainHeader.html'"></div>
+<header>
+  <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" id="color">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Desplegar navegación</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>   
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#banner">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><img id='logo' src='imgs/cshLogo.png'></li>
+        <li><a href="#!/solicitudProyecto">Proyectos</a></li>
+        <li><a href="#!/solicitudEstudiantes">Estudiantes</a></li>
+        <li><a href="#!/entrar">Iniciar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
 <main>
   <section class="col-md-12" id="banner">
     <div class="col-sm-8 col-sm-offset-2 text-center">
@@ -8,12 +30,12 @@
   </section>
   <section id="nosotros">
     <div class="container">
-      <div class="col-md-2 col-md-offset-5 col-xs-12 text-center">
-        <h2 id="seccion1">Nosotros</h2>
+      <div class="col-md-2 col-md-offset-5 text-center">
+        <h2>Nosotros</h2>
       </div>
     </div>
     <div class="container">
-      <div class="col-md-6 col-xs-12" id="description">
+      <div class="col-md-6" id="description">
         <p>El Cenfotec Software House es un proyecto de emprendimiento académico y profesional dentro de la Universidad Cenfotec, donde los estudiantes de la Universidad brindan servicios a la comunidad, asesorados por profesores expertos en diferentes áreas, con precios muy asequibles.</p>
         <p>Los estudiantes que participan del Cenfotec Software House, son estudiantes que han demostrado un nivel de excelencia mayor, que cuentan con altas habilidades tanto técnicas como blandas y con el deseo de ser parte del equipo.</p>
         <p>Cada equipo de trabajo del Cenfotec Software House, cumple con las etapas y las mejores prácticas, según cada caso. Además , se mantendrá en periódica comunicación con el interesado para validar diferentes aspectos del proyecto.</p>
@@ -27,7 +49,7 @@
   <section id="services">
     <div class="container">
       <div class="col-md-2 col-md-offset-5 text-center">
-        <h2 id="seccion2">Servicios</h2>
+        <h2>Servicios</h2>
       </div>
     </div>
     <div class="container">
@@ -70,7 +92,7 @@
   <section id="contacto">
     <div class="container">
       <div class="col-md-2 col-md-offset-5">
-        <h2>Ubicación</h2>
+        <h2>Dirección</h2>
       </div>
     </div>
     <div class="direccion">
@@ -96,7 +118,7 @@
       <div class="col-sm-2 col-sm-offset-5 text-center">
           <p>Universidad Cenfotec. Derechos reservados 2017</p>
 
-          <p><a href="components/genisSoftPage/index.html" id="genius">Genius Soft</a> | 2017</p>
+          <p><a href="https://www.geniussoft.net/" id="genius">Genius Soft</a> | 2017</p>
       </div>
     </div>
   </div>

@@ -11,7 +11,7 @@
 		$stateProvider
 
 		.state('landing',{
-			url: '/cenfotecSoftwareHouse',
+			url: '/',
 			templateUrl: './components/landing/landing.html',
 			css: './css/landing.css'
       	})
@@ -70,7 +70,9 @@
 	          load: ['$ocLazyLoad', function($ocLazyLoad) { 
 	          	return $ocLazyLoad.load([	          			          		
 	          		'./components/users/profile/profile.controller.js',
-	          		'./components/users/profile/timer/timer.controller.js'   		          		
+	          		'./components/users/profile/timer/timer.controller.js',
+	          		'./components/users/profile/timeHistory/timeHistory.controller.js'
+
 	          	])
 	          }]
 		    },
@@ -84,7 +86,12 @@
 		    		templateUrl: './components/users/profile/timer/timer.view.html',
     				controller: 'timerController',
     				controllerAs:'vm'
-		    	}
+		    	},
+		    	'timeHistory@main.profile':{
+		    		templateUrl: './components/users/profile/timeHistory/timeHistory.view.html',
+    				controller: 'timeHistoryController',
+    				controllerAs:'vm'
+		    	}		    	
 		    }		
 		})
 			
@@ -216,7 +223,7 @@
 		// 	templateUrl: './components/404.html'
 		// })
     
-		$urlRouterProvider.otherwise('/cenfotecSoftwareHouse');
+		$urlRouterProvider.otherwise('/');
 		// $locationProvider.html5Mode(true);
 	}
 })();

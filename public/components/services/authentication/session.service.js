@@ -7,16 +7,16 @@
 
 	function SessionService(localStorageService){
 		
-		this.session = localStorageService.get('session');
+		this.session = localStorageService.get('session');		
 
-		this.create = function (user) {//sessionId
-			this.session = user;
-			localStorageService.set('session',user);
+		this.create = function (data) {//sessionId	
+			this.session = data;		
+			localStorageService.set('session',data);			
 		};
 
 		this.destroy = function () {
 			delete this.session;
 			localStorageService.remove('session');
 		};
-	};
+	}
 })();

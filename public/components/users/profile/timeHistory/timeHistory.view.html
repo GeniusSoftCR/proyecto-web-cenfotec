@@ -1,0 +1,23 @@
+<div class="panel panel-default ng-scope">
+	<div class="panel-heading">
+		Historia de tiempo
+
+<!-- 		<span class="pull-right"style="padding-right: 15px">
+			Horas: {{vm.time.hour}}
+			Minutos: {{vm.time.min}}.<span ng-if="vm.showCero">0</span>{{vm.time.sec}}
+		</span> -->
+	</div>
+	<div class="panel-body" >
+		<div class="card">
+			<ul class="list-group list-group-flush" id="timeHistory-list">
+				<img ng-show="vm.loading" class="img" src="../../.././../imgs/load.gif" style="max-width: 60px;margin-left: 5%;margin-top:-10px;">
+
+				<li class="list-group-item ng-binding ng-scope"  ng-show="vm.user.timeTrack.length == 0"><span">No hay actividad</span></li>
+
+				<li class="list-group-item ng-binding ng-scope" ng-repeat="activity in vm.user.timeTrack">{{activity.task}}</li>
+			</ul>  
+		</div>
+	</div>
+	<div class="panel-footer" style="max-height: 3px; padding-bottom: 0; background-color: #e67e22">
+	</div>
+</div>	

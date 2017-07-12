@@ -7,22 +7,30 @@
 	mainController.$inject = ['$location','$timeout','AuthService'];
 
  	function mainController ($location,$timeout,AuthService){
-	
+
+
  		//vm = view model
 		var vm = this;
+		vm.user = AuthService.getAuthUser();
+		if(!vm.user){
+			console.log('main.controller | l:17 | !user')
+			$location.path('/entrar');
+		}
+		
 		//////////////////////////////////////////
 		vm.activeTab = _activeTab;
 		vm.checkRole = _checkRole;
 		vm.logOut = _logOut;
-		//////////////////////////////////////////
-		vm.user = AuthService.getAuthUser();
+		//////////////////////////////////////////	
+
+
 		//////////////////////////////////////////	
 
 		function _activeTab(route) {
         	return route === $location.path();
     	}
     	function _checkRole(roles) {
-    		var check = false
+    		var check = false;
 			angular.forEach(roles, function(role, key) {
 				if (role === vm.user.role) {
 					check = true;
@@ -36,7 +44,7 @@
 			AuthService.logOut();
 			$location.path('/entrar');
 		}	
-	};
+	}
 })();
 
 //admin proff assitente
