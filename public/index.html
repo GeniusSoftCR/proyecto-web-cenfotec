@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-	<html lang="es" ng-app="cshApp">
-		<head>
-			<meta charset="UTF-8">
-			<title>Cenfotec Software House</title>
-			<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<html lang="es" ng-app="cshApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Cenfotec Software House</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<!-- Head Icon -->
 			<link rel="icon" href="imgs/cshLogo.png">
 			<!-- CSS Links -->	
 				<!-- font awsome -->
@@ -15,41 +16,33 @@
 				<!-- Custom CSS -->
 					<link rel="stylesheet" href="./css/app.css">
 					<link rel="stylesheet" href="./css/header.css">
-		</head>
-		<body>
-			<div ui-view></div>
-	
-			<!-- General dependencies -->
-				<!-- Cloud-->
-				<script src="//api.filestackapi.com/filestack.js"></script>
-				<script src="https://cdn.socket.io/socket.io-1.4.0.js"></script>
-				<!-- <script src="bower_components/socket.io/lib/client.js"></script>		 -->
-				<!-- Local -->
-				<script src="bower_components/jquery/dist/jquery.min.js"></script>
-				<script src="bower_components/flat-ui/dist/js/flat-ui.min.js"></script>
-
-				
-
-			<!-- AngularJs -->
-				<script src="./bower_components/angular/angular.min.js"></script>
-				<!-- AngularJs dependencies -->
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
-					<script src="./bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
-		  			<script src="./bower_components/angular-css/angular-css.min.js"></script>
-		  			<script src="./bower_components/angular-password/angular-password.min.js"></script>
-		  			<script src="./bower_components/angular-messages/angular-messages.min.js"></script>
-					<!-- Cloudinary -->
+	</head>
+	<body>
+		<div ui-view></div>
+		<!-- AngularJs -->
+			<script src="./bower_components/angular/angular.min.js"></script>
+			<!-- AngularJs dependencies -->
+				<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+				<script src="./bower_components/flat-ui/dist/js/flat-ui.min.js"></script>
+				<script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+				<script src="./bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+				<script src="./bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+				<script src="./bower_components/angular-css/angular-css.min.js"></script>
+				<script src="./bower_components/angular-messages/angular-messages.min.js"></script>
+				<script src="./bower_components/angular-password/angular-password.min.js"></script>
+				<!-- Cloudinary -->
 					<script src="./bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
 					<script src="./bower_components/ng-file-upload/ng-file-upload.min.js"></script>
-					<!-- FileStack -->
-					<script src="./bower_components/angular-filepicker/dist/angular_filepicker.js"></script>	
-
+				<!-- Filestack -->
+					<script src="//api.filestackapi.com/filestack.js"></script>
+					<script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
 			<!-- App -->
 				<script src="./app.js"></script>
 				<script src="./route.js"></script>
 				
 			<!-- Services -->
+				<!-- Images -->
+					<script src="components/services/image.service.js"></script>
 		  		<!-- Authentication -->
 		  			<script src="./components/services/authentication/session.service.js"></script>
 		  			<script src="./components/services/authentication/auth.service.js"></script>
@@ -62,9 +55,5 @@
 					<script src="./components/services/config.service.js"></script>
 				<!-- Images -->
 					<script src="components/services/image.service.js"></script>				
-
-			<!--Temporal-->
-				<script src="./components/projects/project/anotations/anotations.service.js"></script>
-				
-		</body>
-	</html>
+	</body>
+</html>

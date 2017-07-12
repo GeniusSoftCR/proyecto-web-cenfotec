@@ -1,9 +1,10 @@
 //Dependencies
 var express = require('express'),
+    router = express.Router(),
     mongoose = require('mongoose'),
     bcrypt=require('bcryptjs'),
+    email = require('emailjs/email'),
     ///////////////////////////////
-    router = express.Router(),    
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     //////////////////////////////
@@ -16,7 +17,6 @@ var express = require('express'),
     roles = ['admin','professor','assistant','student'];
 
 var UsersSchema = new Schema({  
-  // _id  :        ObjectId,
   idNum :       {type: String, required: true,minlength:9,maxlength:9},
   name:         {type: String, required: true},
   surname:      {type: String, required: true},
@@ -40,7 +40,7 @@ var UsersSchema = new Schema({
   specialty:     {type: String},
   councilMember: {type: String},
   //Admin and assitant olny
-  jobPosition:   {type: String},  
+  jobPosition:   {type: String},
   timeTrack:[
     { 
       project_id:{ type:ObjectId , required:true},
@@ -49,12 +49,13 @@ var UsersSchema = new Schema({
         end:Date
       },
       task:String,
-      time: { 
+      time: {
         mins:Number,
         hours:Number
       }
     }
   ]
+
 }, {collection: 'users'});
 
 UsersSchema.pre('save', function(next) {  
@@ -71,6 +72,7 @@ UsersSchema.pre('save', function(next) {
 
   bcrypt.genSalt(10, function(err, salt) {
     if (err) return next(err);
+
     bcrypt.hash(user.password, salt, function(err, hash) {
         if (err) return next(err);
         user.password = hash;
@@ -88,7 +90,6 @@ UsersSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', UsersSchema);
 
-//API General
 router.put('/user/login', function(req, res, next) {
   var username = req.body.username || '';
   var password = req.body.password || '';
@@ -101,19 +102,23 @@ router.put('/user/login', function(req, res, next) {
         if (err) throw err;
         if (!isMatch) {         
           console.log('Attempt failed to login with: ' + user.username);
-          res.json({"error":"Contraseña no coincide, intente nuevamente"});
+          res.json({"error":"Usuario o contraseña erroneo, intente nuevamente"});
         }else{
-          user.password = undefined;
+          console.log('Password'+password+': ', isMatch); // -> Password123: true
           switch(user.state)
           {
             case "eligible": 
             case "active":
             case "inactive":
+
               var data =  {};
               data.user = user;
               data.token = jwt.sign({id: user._id}, 'server secret',{ expiresIn: '4h' });
 
               res.json(data); 
+              user.password = undefined;
+              res.json(user);
+
             break;
             
             case "postulate":
@@ -121,7 +126,7 @@ router.put('/user/login', function(req, res, next) {
             break;  
 
             case "banned":
-              res.json({"error":"Usuario bloqueado, contacte administrador","succes":true});
+              res.json({"error":"Usuario temporalmente bloqueado, contacte administrador","succes":true});
             break;
 
             case "rejected":
@@ -132,60 +137,18 @@ router.put('/user/login', function(req, res, next) {
       });
     }else{
       res.json({"error":"Usuario no encontrado, intente de nuevo"});
-    }
+    };
     // test a matching password   
   });  
 });
-
-router.post('/user/track-time', function(req, res, next) {
-
-    var data = req.body;    
-    var io = req.io;
-
-    if(data.user.timeTrack === undefined){
-      data.user.timeTrack = [];
-    }
-
-    if (data.start) {
-      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
-      //   res.json(data);
-      // }); 
-      // io.emit('trackStart', { mg: 'timer', hours:time.hours,mins:time.mins });
-
-    }else{
-      console.log(data.time)
-      var newActivity = {
-        project_id:data.project._id,
-        task:data.task,
-        time:data.time
-      };      
-
-      console.log(data)
-      User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
-        res.json(data);
-      }); 
-      // User.findByIdAndUpdate( data.user._id,{$push:{timeTrack:newActivity}}).then(function(data){
-      //   res.json(data);
-      // }); 
-
-      Object.assign(new User(), req.body)
-      // io.emit('trackStop', { mg: 'timer', mins:'jajajajj' });
-      io.emit('trackUpdate', {});
-    }
-    res.json({"data":"GO"});
-});
+//API General
 
 // API method -> return ALL users 
-//router.get('/users',authenticate, function(req, res, next) { auth
 router.get('/users', function(req, res, next) {
   User.find({}, function(err, users){
     res.json(users);
   });
 });
-
-
-
-
 // API method -> search user with object as filter -> return all matched users
 router.put('/users/search', function(req, res, next) { 
   User.find(req.body, function(err,results) {
@@ -233,6 +196,20 @@ router.post('/user/add', function(req, res, next) {
       res.json({success: false, message: 'Ha ocurrido un error', error: err});
     } else {
       res.json({success: true, message: 'Solicitud enviada correctamente'});
+      
+      var server  = email.server.connect({
+               user:    "geniussoft.8@gmail.com",
+               password: "proyectoweb1",
+               host:    "smtp.mailgun.org",
+               ssl:     true
+            });
+      server.send({
+                 text:    "Hola " + req.body.name + "!" ,
+                 from:    "geniussoft.8@gmail.com",
+                 to:      req.body.email,
+                 subject: "Bienvenido a Cenfotec Software House"
+              }, function(err, message) { console.log(err || message); });
+            
     }
   });
 });

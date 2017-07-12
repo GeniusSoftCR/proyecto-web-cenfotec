@@ -10,6 +10,7 @@
 		var vm = this;
 		vm.user = {};
 		vm.user = AuthService.getAuthUser();
+		console.log(vm.user)
 		//vm.user.username = $stateParams.username;		
 	};
 })();
