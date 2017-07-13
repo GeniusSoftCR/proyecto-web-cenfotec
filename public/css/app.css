@@ -138,6 +138,68 @@ b{
       font-size: 1.500em;
       display: block;
     }
+
+/*Inicio de estilos de navegacion*/
+#navegacion{
+  background-color: #000;
+  max-height: 70px;
+  border-radius: 0;
+  margin: 0;
+  -webkit-box-shadow: 6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  -moz-box-shadow:    6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  box-shadow:         6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+}
+.logo img {
+  max-width: 40px;
+  cursor: pointer;
+  margin-left: 1.6%;
+}
+.img-profile {
+  width: 1.813em;
+  max-height: 29px;
+}
+#profile {
+  padding: 12px 21px 11px 21px;
+}
+/*Fin de estilos de la navegacion*/
+
+/*Navegacion Lateral*/
+#aside_col{
+  background-color: #000;
+  -webkit-box-shadow: 6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  -moz-box-shadow:    6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  box-shadow:         6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  position: fixed;
+  height: 100%;
+  padding: 0;
+}
+  #aside_col li {
+    display: list-item;
+    text-align: center;
+    color: #fff;
+    text-align: center;
+    padding-left: 16%;
+    max-width: 107px;
+  }
+    #aside_col li:hover, li.active{
+      border-right: 0.2em solid #f1c40f;
+      color: #f1c40f;
+    }
+    #aside_col a {
+      text-decoration: none;
+      padding: 1em 0px;
+      font-size: 0.813em;
+      font-family: 'montserrat';
+      font-weight: 100;
+      display: block;
+    }
+      #aside_col a:hover{
+        color: #f1c40f;
+      }
+    #aside_col i {
+      font-size: 1.500em;
+      display: block;
+    }
 /*
   MAIN
   **/
