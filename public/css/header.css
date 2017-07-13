@@ -4,16 +4,13 @@
 	}
 	#color{
 		background: #000;
-		z-index: 4;
+		padding: 1% 0;
 	}
 		#color li a{
-		font-weight: 100;
-		font-size: 1.2em;
+		font-weight: 300;
+		font-size: 1.0999em;
 		}
-		#color img{
-			width: 70%;
-			padding: 9% 0 0 35%;
-		}
+
 		.navbar-nav{
 			margin: 0 auto;
 		}
@@ -21,4 +18,16 @@
 	.img-profile{
 		background-color: white;
 	}
-	
+
+	#name1{
+		margin: 0;
+		font-weight: 300;
+		color: white;
+	}
+	#logo1{
+		margin: 0;
+		padding: 14px 0px;
+	}	
+	.dropdown-menu li a{
+		color: #000;
+	}
