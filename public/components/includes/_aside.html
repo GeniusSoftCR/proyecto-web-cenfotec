@@ -1,10 +1,11 @@
 <!--COLUMNA IZQUIERDA-->
 <aside class="col-md-1" id="aside_col">
-  <div class="logo">
-    <img ui-sref="landing" src="http://www.cenfotecsoftwarehouse.com/images/Cenfotec-Software-House-Logo.png">
-  </div>
+  
   <!--MENÚ LATERAL-->
   <nav>
+    <div class="logo">
+      <img ui-sref="landing" id="linked" src="http://www.cenfotecsoftwarehouse.com/images/Cenfotec-Software-House-Logo.png">
+    </div>
     <ul> 
       <li ng-class="{active:vm.activeTab('/inicio/perfil')}">
         <a ui-sref="main.profile"><i class="fa fa-user"></i>Perfil</a>
@@ -34,3 +35,4 @@
     </ul>
   </nav>
 </aside>
+

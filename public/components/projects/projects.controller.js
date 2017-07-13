@@ -1,4 +1,5 @@
-(function () {
+(function(){
+	'use strict';
 	angular
 	.module('cshApp')
 	.controller('projectsController', projectsController);	

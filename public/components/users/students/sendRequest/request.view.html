@@ -120,7 +120,7 @@
       <!-- Link de sitio web -->
       <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: inline-block" >
         <label for="websiteUrl">Link de sitio web:</label>
-        <input ng-model="vm.websiteUrl" id="link" placeholder="www.facebook.com" pattern="(www.+[A-Za-z0-9.\-@_~]+.com)" class="form-control" name="websiteUrl">
+        <input ng-model="vm.websiteUrl" id="link" placeholder="www.facebook.com" pattern="(www.+[A-Za-z0-9.\-@_~]+.)" class="form-control" name="websiteUrl">
         <div id="ng-message" ng-messages="studentForm.websiteUrl.$error" ng-hide="studentForm.websiteUrl.$pristine">
           <div ng-message="pattern" ng-hide="studentForm.websiteUrl.$pristine" class="red darken-2 center-align white-text">Formato incorrecto</div>
         </div>
