@@ -68,6 +68,13 @@ b{
 .btn-inverse {
   background: #000;
 }
+.panel .panel-heading {
+  background: #000;
+  color: #fff;
+}
+.panel-footer {
+  height: 55px;
+}
 /*Fin Normalize*/
 
 /*Inicio de estilos de navegacion*/
@@ -171,31 +178,11 @@ b{
   border-radius: 4px;
 }*/
 
-/*
-  Sobreescribiendo bootstrap
-  **/
+
  /*Paneles*/
-.panel .panel-heading {
-  background: #000;
-  color: #fff;
-}
-.panel-footer {
-  height: 55px;
-}
-  /*Botones*/
 
-/*.btn-inverse:hover,
-.btn-inverse.hover,
-.btn-inverse:focus,
-.btn-inverse:active,
-.btn-inverse.active,
-.open > .dropdown-toggle.btn-inverse {
-  color: #ffffff;
-  background-color: #415b76;
-  border-color: #415b76;
-}*/
 
-¨/*Modals*/
+/*Modals*/
 .modal-header {
   min-height: 16.42857143px;
   padding: 15px;
