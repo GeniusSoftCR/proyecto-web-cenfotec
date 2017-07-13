@@ -1,14 +1,42 @@
-/*TIPOGRAFÍA*/
-@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Thin.ttf");font-weight: 100; }
-@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_ExtraLight.ttf");font-weight: 300; }
-@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Regular.ttf");font-weight: 400; }
-@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Medium.ttf");font-weight: 500; }
-@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_SemiBold.ttf");font-weight: 600; }
-@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Bold.ttf");font-weight: 700; }
-@font-face { font-family: 'montserrat';src: url("../fonts/Montserrat_Black.ttf");font-weight: 900; }
-/*
-  NORMALIZE
-  */
+/*Inicio de la tipografia*/
+@font-face{ 
+  font-family: 'montserrat';
+  src: url("../fonts/Montserrat_Thin.ttf");
+  font-weight: 100;
+}
+@font-face{ 
+  font-family: 'montserrat';
+  src: url("../fonts/Montserrat_ExtraLight.ttf");
+  font-weight: 300;
+}
+@font-face{ 
+  font-family: 'montserrat';
+  src: url("../fonts/Montserrat_Regular.ttf");
+  font-weight: 400;
+}
+@font-face{ 
+  font-family: 'montserrat';
+  src: url("../fonts/Montserrat_Medium.ttf");
+  font-weight: 500;
+}
+@font-face{ 
+  font-family: 'montserrat';
+  src: url("../fonts/Montserrat_SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face{ 
+  font-family: 'montserrat';
+  src: url("../fonts/Montserrat_Bold.ttf");
+  font-weight: 700;
+}
+@font-face{ 
+  font-family: 'montserrat';
+  src: url("../fonts/Montserrat_Black.ttf");
+  font-weight: 900;
+}
+/*Fin de la tipografia*/
+
+/* Inicio Normalize*/
 body {
   background-color: #fff;
 }
@@ -28,87 +56,84 @@ b{
 .ibck{
   display: inline-block;
 }
-/*
-  NAVEGACIÓN LATERAL
-  **/
-#aside_col {
-  background-color: #000;
-  padding: 0;
-  height: 100%;
-  position: fixed;
-  float: left;
+.btn {
+  margin-left: 5px;
 }
-#aside_col p,a,.fa, {
-  color: #fff;
-  text-align: center;
+.btn-warning{
+  color: #000;
 }
-#aside_col li {
-  display: list-item;
-  text-align: center;
+.btn-warning:hover, .btn-warning:focus {
+  color: #000
 }
-#aside_col li:hover, li.active {
-  border-right: 5px solid #f1c40f;
-  color: #f1c40f;
+.btn-inverse {
+  background: #000;
 }
-#aside_col li:hover .fa, li.active .fa{
-  color: #f1c40f;
-}
-#aside_col li a {
-  max-width: 107px;
-}
-#aside_col li:hover a {
-  color: #fff;
-}
-#aside_col a {
-  font-weight: 300;
-  text-decoration: none;
-  padding: 14px 0px;
-  font-size: 14px;
-  font-family: 'montserrat';
-  font-weight: 100;
-  display: block;
-}
-#aside_col i {
-  font-size: 24px;
-  display: block;
-}
-#aside_col .logo img {
-  margin: 10px 10px;
-}
-#aside_col .logo li {
-  padding: 10px 0 11px 10px;
-}
-#aside_col .logo img{
-  max-width: 40px;
-  margin-left: 35px;
-  margin-top: 20px;
-}
+/*Fin Normalize*/
 
-/*
-  HEADER
-  **/
-#navegacion {
+/*Inicio de estilos de navegacion*/
+#navegacion{
   background-color: #000;
+  max-height: 70px;
   border-radius: 0;
-  padding-top: 8px;
+  margin: 0;
   -webkit-box-shadow: 6px 2px 12px 0px rgba(50, 50, 50, 0.61);
   -moz-box-shadow:    6px 2px 12px 0px rgba(50, 50, 50, 0.61);
   box-shadow:         6px 2px 12px 0px rgba(50, 50, 50, 0.61);
-  max-height: 69px;
+}
+.logo img {
+  max-width: 40px;
+  cursor: pointer;
+  margin-left: 1.6%;
 }
 .img-profile {
-  margin-right: 10px;
-  width: 29px;
-  height: 29px;}
+  width: 1.813em;
+  max-height: 29px;
+}
 #profile {
-  padding: 12px 21px 11px 21px;}
+  padding: 12px 21px 11px 21px;
+}
+/*Fin de estilos de la navegacion*/
 
+/*Navegacion Lateral*/
+#aside_col{
+  background-color: #000;
+  -webkit-box-shadow: 6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  -moz-box-shadow:    6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  box-shadow:         6px 2px 12px 0px rgba(50, 50, 50, 0.61);
+  position: fixed;
+  height: 100%;
+  padding: 0;
+}
+  #aside_col li {
+    display: list-item;
+    text-align: center;
+    color: #fff;
+    text-align: center;
+    padding-left: 16%;
+    max-width: 107px;
+  }
+    #aside_col li:hover, li.active{
+      border-right: 0.2em solid #f1c40f;
+      color: #f1c40f;
+    }
+    #aside_col a {
+      text-decoration: none;
+      padding: 1em 0px;
+      font-size: 0.813em;
+      font-family: 'montserrat';
+      font-weight: 100;
+      display: block;
+    }
+      #aside_col a:hover{
+        color: #f1c40f;
+      }
+    #aside_col i {
+      font-size: 1.500em;
+      display: block;
+    }
 /*
   MAIN
   **/
-/*#header {
-  margin-left: 115px;
-}*/
 #main_col {
   float: right;
 }
@@ -158,21 +183,7 @@ b{
   height: 55px;
 }
   /*Botones*/
-.btn {
-  margin-left: 5px;
-}
-.btn-warning{
-  color: #000;
-}
-/*.btn-danger {
-  background: #a30b37;}*/
 
-.btn-warning:hover, .btn-warning:focus {
-  color: #000
-}
-.btn-inverse {
-  background: #000;
-}
 /*.btn-inverse:hover,
 .btn-inverse.hover,
 .btn-inverse:focus,
@@ -216,7 +227,8 @@ b{
 a {
   color: #fff;}
 a:hover, a:focus {
-  color: #fff;}
+  color: #fff;
+}
 
 /*Navegaciones*/
 /*Sobreescribe el estilo del texto*/
