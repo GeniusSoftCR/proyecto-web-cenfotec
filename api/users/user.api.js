@@ -1,4 +1,4 @@
-//Dependencias
+//Dependencies
 var express = require('express'),
     mongoose = require('mongoose'),
     bcrypt=require('bcryptjs'),
@@ -7,8 +7,8 @@ var express = require('express'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     //////////////////////////////
-    expressJwt = require('express-jwt'),
     jwt = require('jsonwebtoken'),
+    expressJwt = require('express-jwt'),    
     authenticate = expressJwt({secret : 'server secret'}),
     jwtDecode = require('jwt-decode'),
     //////////////////////////////
@@ -112,8 +112,7 @@ router.put('/user/login', function(req, res, next) {
               var data =  {};
               data.user = user;
               data.token = jwt.sign({id: user._id}, 'server secret',{ expiresIn: '4h' });
-              var decoded = jwtDecode( data.token);
-              console.log(decoded);
+
               res.json(data); 
             break;
             

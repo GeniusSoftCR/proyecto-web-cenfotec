@@ -1,26 +1,4 @@
-<header>
-  <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" id="color">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Desplegar navegación</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>   
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="#banner">Inicio</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#services">Servicios</a></li>
-        <li><img id='logo' src='./imgs/cshLogo.png'></li>
-        <li><a href="#!/solicitudProyecto">Proyectos</a></li>
-        <li><a href="#!/solicitudEstudiantes">Estudiantes</a></li>
-        <li><a href="#!/entrar">Iniciar sesión</a></li>
-      </ul>
-    </div>
-  </nav
-></header>
+<div ng-include="'./../components/includes/_mainHeader.html'"></div>
 <main>
 	<section id="login">
 		<div class="col-md-6" id="fondo1">
@@ -30,59 +8,65 @@
 			</div>
 		</div>
 		<div class="col-md-5">
-			<form name="userLogInForm" ng-submit="vm.logIn(vm.user)"  novalidate autocomplete="off">
+			<form name="userLogInForm" ng-submit="vm.logIn(vm.user)"  novalidate="" autocomplete="off">
 				<div id="tituloLog" class="col-md-12 col-md-offset-1">
 					<h2>Iniciar sesión en</h2>
 					<h2>Cenfotec Software House</h2>
 				</div>
-				
-				<div class="form-group has-feedback col-md-6 col-md-offset-4" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+				<!-- Correo Electrónico -->
+				<div class="form-group has-feedback col-md-7 col-md-offset-3" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
   					<input type="text" ng-model="vm.user.username" auto-complete="off" placeholder="Nombre de usuario" class="form-control data" name="username" autofocus ng-required="true"/>
   					<span class="form-control-feedback fui-user"></span>
 				</div>
-				<div class="form-group has-feedback col-md-6 col-md-offset-4">
-  					<input type="password" ng-model="vm.user.password" auto-complete="off" placeholder="Contraseña" class="form-control data" name="password" ng-required="true"/>
+				<!-- Contraseña -->
+				<div class="form-group has-feedback col-md-7 col-md-offset-3">
+  					<input type="{{inputType}}" ng-model="vm.user.password" auto-complete="off" placeholder="Contraseña" class="form-control data" name="password" ng-required="true"/>
   					<span class="form-control-feedback fui-lock"></span>
 				</div>
-				<div class="form-group has-feedback col-md-9 col-md-offset-5">
-
-					<button class="btn btn-warning col-md-4" ng-disabled="userLogInForm.$invalid">Iniciar sesión</button>
+				<!-- Mostrar/Ocultar contraseña -->
+				<div class="form-group has-feedback col-md-7  col-md-offset-4">
+					<input type="checkbox" id="checkbox" ng-model="passwordCheckbox" ng-click="hideShowPassword()"/>
+					<label for="checkbox" ng-if="passwordCheckbox"><i class="fa fa-eye" ></i> Ocultar contraseña</label>
+					<label for="checkbox" ng-if="!passwordCheckbox"><i class="fa fa-eye-slash"></i> Mostrar contraseña</label> 
 				</div>
+  				<!-- Boton -->
+				<div class="form-group has-feedback col-md-9 col-md-offset-4">
+					<button class="btn btn-warning col-md-5" ng-disabled="userLogInForm.$invalid">Iniciar sesión</button>
+				</div>
+				<!-- Olvidó su contraseña -->
 				<!--<div class="col-md-7 col-md-offset-3">
 					<a data-toggle="modal" class="forgot-btn" data-target="#modal" ng-click="vm.modal.config('forgot')">¿Olvidó su contraseña?</a>
 				</div>-->
 				
 			</form>
+				<!-- Recuperar Contraseña -->
+				<div class="col-md-8 col-md-offset-4">	
+						<div class="modal fade" id="modal" role="dialog" style="margin-top: 20vh">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
+										<h4 class="modal-title">{{vm.modal.title}}</h4>
 
+									</div>
+									<div class="modal-body">
+										<form name="forgotPass">
+											<p>{{vm.modal.body}}</p>
+
+											<!-- FORGOT SECTION -->
+											<div ng-show="vm.modal.type == 'forgot'">										
+												<input  class="col-md-11" type="email" ng-model="vm.forgot.email" placeholder="Correo electrónico" required>
+
+												<button class="btn btn-warning" id="btnForgot" ng-click="vm.forgot()">Recuperar</button>
+											</div>
+											<!-- LOGIN SECTION -->											
+										</form>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+				</div>
 		</div>
 	</section>
 </main>
-
-<!-- Recuperar Contraseña -->
-<div class="col-md-8 col-md-offset-4">	
-		<div class="modal fade" id="modal" role="dialog" style="margin-top: 20vh">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
-						<h4 class="modal-title">{{vm.modal.title}}</h4>
-
-					</div>
-					<div class="modal-body">
-						<form name="forgotPass">
-							<p>{{vm.modal.body}}</p>
-
-							<!-- FORGOT SECTION -->
-							<div ng-show="vm.modal.type == 'forgot'">										
-								<input  class="col-md-11" type="email" ng-model="vm.forgot.email" placeholder="Correo electrónico" required>
-
-								<button class="btn btn-warning" id="btnForgot" ng-click="vm.forgot()">Recuperar</button>
-							</div>
-							<!-- LOGIN SECTION -->											
-						</form>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-</div>

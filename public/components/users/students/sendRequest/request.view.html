@@ -1,26 +1,4 @@
-<header>
-  <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" id="color">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Desplegar navegación</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>   
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="#banner">Inicio</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#services">Servicios</a></li>
-        <li><img id='logo' src='./imgs/cshLogo.png'></li>
-        <li><a href="#!/solicitudProyecto">Proyectos</a></li>
-        <li><a href="#!/solicitudEstudiantes">Estudiantes</a></li>
-        <li><a href="#!/entrar">Iniciar sesión</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+<div ng-include="'./../components/includes/_mainHeader.html'"></div>
 <main>
   <div class="panel-heading">
     <div class="col-md-6 col-md-offset-3" style="text-align: center;">
@@ -142,7 +120,7 @@
       <!-- Link de sitio web -->
       <div class="form-group col-md-4 col-sm-12 col-xs-12" style="display: inline-block" >
         <label for="websiteUrl">Link de sitio web:</label>
-        <input ng-model="vm.websiteUrl" id="link" placeholder="www.facebook.com" pattern="(www.+[A-Za-z0-9.\-@_~]+.com)" class="form-control" name="websiteUrl">
+        <input ng-model="vm.websiteUrl" id="link" placeholder="www.facebook.com" pattern="(www.+[A-Za-z0-9.\-@_~]+.)" class="form-control" name="websiteUrl">
         <div id="ng-message" ng-messages="studentForm.websiteUrl.$error" ng-hide="studentForm.websiteUrl.$pristine">
           <div ng-message="pattern" ng-hide="studentForm.websiteUrl.$pristine" class="red darken-2 center-align white-text">Formato incorrecto</div>
         </div>
