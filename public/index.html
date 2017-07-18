@@ -8,6 +8,9 @@
 			<!-- CSS Links -->	
 				<!-- font awsome -->
 					<link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.min.css">
+				<!-- scrollTo -->
+					<link rel="stylesheet" href="./bower_components/jquery-scrollTo/dist/css/easing.min.css">
+					<link rel="stylesheet" href="./bower_components/jquery-scrollTo/dist/css/scrollTo.min.css">
 				<!-- Bootstrap -->
 					<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
 				<!-- Flat-UI -->
@@ -18,33 +21,27 @@
 		</head>
 		<body>
 			<div ui-view></div>
-	
-			<!-- General dependencies -->
-				<!-- Cloud-->
-				<script src="//api.filestackapi.com/filestack.js"></script>
-				<script src="https://cdn.socket.io/socket.io-1.4.0.js"></script>
-				<!-- <script src="bower_components/socket.io/lib/client.js"></script>		 -->
-				<!-- Local -->
-				<script src="bower_components/jquery/dist/jquery.min.js"></script>
-				<script src="bower_components/flat-ui/dist/js/flat-ui.min.js"></script>
-
 				
-
 			<!-- AngularJs -->
 				<script src="./bower_components/angular/angular.min.js"></script>
 				<!-- AngularJs dependencies -->
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+					<script src="bower_components/jquery/dist/jquery.min.js"></script>
+					<script src="./bower_components/jquery-scrollTo/dist/jquery-scrollTo.js"></script>
+					<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+					<script src="./bower_components/flat-ui/dist/js/flat-ui.min.js"></script>
+					<script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 					<script src="./bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
 		  			<script src="./bower_components/angular-css/angular-css.min.js"></script>
 		  			<script src="./bower_components/angular-password/angular-password.min.js"></script>
 		  			<script src="./bower_components/angular-messages/angular-messages.min.js"></script>
+		  			<script src="https://cdn.socket.io/socket.io-1.4.0.js"></script>
 					<!-- Cloudinary -->
 					<script src="./bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
 					<script src="./bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 					<!-- FileStack -->
+					<script src="//api.filestackapi.com/filestack.js"></script>
 					<script src="./bower_components/angular-filepicker/dist/angular_filepicker.js"></script>	
-
 			<!-- App -->
 				<script src="./app.js"></script>
 				<script src="./route.js"></script>
@@ -62,9 +59,5 @@
 					<script src="./components/services/config.service.js"></script>
 				<!-- Images -->
 					<script src="components/services/image.service.js"></script>				
-
-			<!--Temporal-->
-				<script src="./components/projects/project/anotations/anotations.service.js"></script>
-				
 		</body>
 	</html>
