@@ -94,6 +94,12 @@
 		    	}		    	
 		    }		
 		})
+
+		.state('main.editProfile',{
+			url: '/editarPerfil',
+			css: './css/editProfile.style.css',
+			templateUrl: 'components/config/editProfile/editProfile.view.html' 
+		})
 			
 		.state('main.projects',{
 			url:'/proyectos',
