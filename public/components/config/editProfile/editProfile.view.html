@@ -1,0 +1,75 @@
+<section>
+	<div class="container">
+		<h2>Editar perfil</h2>
+		<hr>
+		<div>
+			<div class="col-md-3">
+		        <div class="text-center">
+		        	<img class="avatar" alt="avatar" class="avatar img-circle" ng-src="{{vm.user.avatar}}" alt="" style="width:30%;">
+		        	<p>Cambiar foto de perfil:</p>
+
+			        <div class="input-group">
+			          <label class="input-group-btn">
+			            <span class="btn btn-primary" style="background-color: #FBB803; color: black">Escoger&hellip;<input type="file" style="display: none;" id="imageProjectRequest" multiple>
+			            </span>
+			          </label>
+			          <input type="text" class="form-control" style="color: black" readonly>
+			        </div>
+		        </div>
+		    </div>
+		    <div class="col-md-9 personal-info" ng-submit="vm.editUser(vm.user)">
+		        <h3 class="jux">Información del usuario</h3>
+
+		        <form class="form-horizontal" role="form" autocomplete="off">
+		        	<!-- Editar Nombre -->
+		        	<div class="form-group">
+            			<label class="col-lg-3 control-label">Nombre:</label>
+            			<div class="col-lg-8">
+              				<input class="form-control" type="text" ng-model="vm.user.name">
+            			</div>
+          			</div>
+          			<!-- Editar primer apellido -->
+          			<div class="form-group">
+            			<label class="col-lg-3 control-label">Primer apellido:</label>
+            			<div class="col-lg-8">
+              				<input class="form-control" type="text" ng-model="vm.user.surname">
+            			</div>
+          			</div>
+          			<!-- Editar segundo apellido -->
+          			<div class="form-group">
+            			<label class="col-lg-3 control-label">Primer apellido:</label>
+            			<div class="col-lg-8">
+              				<input class="form-control" type="text" ng-model="vm.user.secondSurname">
+            			</div>
+          			</div>
+          			<!-- Editar telefono -->
+          			<div class="form-group">
+            			<label class="col-lg-3 control-label">Teléfono:</label>
+            			<div class="col-lg-8">
+              				<input class="form-control" type="text" pattern="[0-9]+" ng-model="vm.user.phone">
+            			</div>
+          			</div>
+					<!-- Editar contraseña -->
+          			<div class="form-group">
+            			<label class="col-md-3 control-label">Cambiar contraseña:</label>
+            			<div class="col-md-8">
+             				<input class="form-control" type="password">
+            			</div>
+          			</div>
+					<!-- Editar contraseña -->
+			        <div class="form-group">
+			        	<label class="col-md-3 control-label">Confirmar contraseña:</label>
+			            <div class="col-md-8">
+			              <input class="form-control" type="password" ng-model="vm.user.newPassword">
+			            </div>
+			        </div>
+					<!-- Boton -->
+			        <div class="col-md-8">
+		              <input type="submit" class="btn btn-warning btn-embossed" value="Editar perfil">
+		              <input type="reset" class="btn btn-default" value="Cancelar">
+		            </div>
+		        </form>
+		    </div>
+		</div>
+	</div>
+</section>
