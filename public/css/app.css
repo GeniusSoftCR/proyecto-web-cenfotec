@@ -1,4 +1,4 @@
-/*Tipografía*/
+/*Inicio Tipografía*/
 @font-face { 
   font-family: 'montserrat';
   src: url("../fonts/Montserrat_Thin.ttf");
@@ -34,7 +34,9 @@
   src: url("../fonts/Montserrat_Black.ttf");
   font-weight: 900; 
 }
-/* Normalize */
+/*Fin Tipografía*/
+
+/*Inicio Normalize */
 body {
   background-color: #fff;
 }
@@ -42,6 +44,7 @@ h1, h2, h3, h4, h5, h6, table, thead, tbody, td, th, tr, p, b, select, option, b
   font-family: 'montserrat';
   font-weight: 400;
   margin: 0;
+  font-size: 16px;
 }
 ul {
   list-style-type: none;
@@ -54,6 +57,20 @@ b{
 .ibck{
   display: inline-block;
 }
+  /*Navegaciones*/
+  .navbar-default .navbar-nav > li > a {
+    color: #fff;}
+  .navbar-default .navbar-nav > li:hover > a {
+    color: #f1c40f;}
+  .navbar-default .navbar-nav > .open > a {
+    color: #fff;}
+  .navbar-default .navbar-nav > .open > a:hover,
+  .navbar-default .navbar-nav > .open > a:focus {
+    background-color: transparent;
+    color: #f1c40f;
+  }
+/*Inicio Normalize */
+
 /* Navegacion lateral */
 #aside_col {
   background-color: #000;
@@ -62,10 +79,7 @@ b{
   position: fixed;
   float: left;
 }
-#aside_col p,a,.fa, {
-  color: #fff;
-  text-align: center;
-}
+
 #aside_col li {
   display: list-item;
   text-align: center;
@@ -108,9 +122,7 @@ b{
   margin-top: 20px;
 }
 
-/*
-  HEADER
-  **/
+/* Inicio Header aplicación */
 #navegacion {
   background-color: #000;
   border-radius: 0;
@@ -127,12 +139,7 @@ b{
 #profile {
   padding: 12px 21px 11px 21px;}
 
-/*
-  MAIN
-  **/
-/*#header {
-  margin-left: 115px;
-}*/
+/* Main */
 #main_col {
   float: right;
 }
@@ -164,14 +171,7 @@ b{
   -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.75);
 }
-/*#studentReq-Modal .student-info{
-  background: #d4d4d4;
-  border-radius: 4px;
-}*/
-
-/*
-  Sobreescribiendo bootstrap
-  **/
+/*Sobreescribiendo bootstrap**/
  /*Paneles*/
 .panel .panel-heading {
   background: #000;
@@ -187,27 +187,14 @@ b{
 .btn-warning{
   color: #000;
 }
-/*.btn-danger {
-  background: #a30b37;}*/
-
 .btn-warning:hover, .btn-warning:focus {
   color: #000
 }
 .btn-inverse {
   background: #000;
 }
-/*.btn-inverse:hover,
-.btn-inverse.hover,
-.btn-inverse:focus,
-.btn-inverse:active,
-.btn-inverse.active,
-.open > .dropdown-toggle.btn-inverse {
-  color: #ffffff;
-  background-color: #415b76;
-  border-color: #415b76;
-}*/
 
-¨/*Modals*/
+/*Modals*/
 .modal-header {
   min-height: 16.42857143px;
   padding: 15px;
@@ -237,25 +224,12 @@ b{
 }
 /*Anchors*/
 a {
-  color: #fff;}
-a:hover, a:focus {
-  color: #fff;}
-
-/*Navegaciones*/
-/*Sobreescribe el estilo del texto*/
-.navbar-default .navbar-nav > li > a {
-  color: #fff;}
-/*.navbar-default .navbar-nav > li:focus > a {
-  color: #f1c40f;}*/
-.navbar-default .navbar-nav > li:hover > a {
-  color: #f1c40f;}
-.navbar-default .navbar-nav > .open > a {
-  color: #fff;}
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-  background-color: transparent;
-  color: #f1c40f;
+  color: #fff;
 }
+a:hover, a:focus{
+  color: #fff;
+}
+
 /*Sobreescribe el estilo de la flecha*/
 .navbar-default .navbar-nav > .dropdown > a .caret {
   border-top-color: #fff;
@@ -266,7 +240,6 @@ a:hover, a:focus {
   border-bottom-color: #f1c40f;}
 
 #myScrollspy {
-  /* height:200px; */
   height: 55vh;
   overflow-y: scroll;
 }
@@ -276,8 +249,7 @@ a:hover, a:focus {
 
 #sltProjects {
   height: 35px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding: 7px 0;
 }
 
 #profileLine {
@@ -286,7 +258,6 @@ a:hover, a:focus {
 .flex-panel {
   height: 65vh;
 }
-
 .fui-eye{
   color: #000;
 }

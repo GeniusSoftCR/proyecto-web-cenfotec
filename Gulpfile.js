@@ -61,7 +61,3 @@ gulp.task('watch', function () {
 })
 
 gulp.task('serve', ['connect','css','html','js','watch'])
-
-
-
-

@@ -15,13 +15,13 @@
 				</div>
 				<!-- Correo Electrónico -->
 				<div class="form-group has-feedback col-md-7 col-md-offset-3" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
-  					<input type="text" ng-model="vm.user.username" auto-complete="off" placeholder="Nombre de usuario" class="form-control data" name="username" autofocus ng-required="true"/>
-  					<span class="form-control-feedback fui-user"></span>
+					<input type="text" ng-model="vm.user.username" auto-complete="off" placeholder="Nombre de usuario" class="form-control data" name="username" autofocus ng-required="true"/>
+					<span class="form-control-feedback fui-user"></span>
 				</div>
 				<!-- Contraseña -->
 				<div class="form-group has-feedback col-md-7 col-md-offset-3">
-  					<input type="{{inputType}}" ng-model="vm.user.password" auto-complete="off" placeholder="Contraseña" class="form-control data" name="password" ng-required="true"/>
-  					<span class="form-control-feedback fui-lock"></span>
+					<input type="{{inputType}}" ng-model="vm.user.password" auto-complete="off" placeholder="Contraseña" class="form-control data" name="password" ng-required="true"/>
+					<span class="form-control-feedback fui-lock"></span>
 				</div>
 				<!-- Mostrar/Ocultar contraseña -->
 				<div class="form-group has-feedback col-md-7  col-md-offset-4">
@@ -29,7 +29,7 @@
 					<label for="checkbox" ng-if="passwordCheckbox"><i class="fa fa-eye" ></i> Ocultar contraseña</label>
 					<label for="checkbox" ng-if="!passwordCheckbox"><i class="fa fa-eye-slash"></i> Mostrar contraseña</label> 
 				</div>
-  				<!-- Boton -->
+				<!-- Boton -->
 				<div class="form-group has-feedback col-md-9 col-md-offset-4">
 					<button class="btn btn-warning col-md-5" ng-disabled="userLogInForm.$invalid">Iniciar sesión</button>
 				</div>
@@ -39,34 +39,34 @@
 				</div>-->
 				
 			</form>
-				<!-- Recuperar Contraseña -->
-				<div class="col-md-8 col-md-offset-4">	
-						<div class="modal fade" id="modal" role="dialog" style="margin-top: 20vh">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
-										<h4 class="modal-title">{{vm.modal.title}}</h4>
+			<!-- Recuperar Contraseña -->
+			<div class="col-md-8 col-md-offset-4">	
+				<div class="modal fade" id="modal" role="dialog" style="margin-top: 20vh">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" id="thex" data-dismiss="modal"><i class="fa fa-times"></i></button>
+								<h4 class="modal-title">{{vm.modal.title}}</h4>
 
-									</div>
-									<div class="modal-body">
-										<form name="forgotPass">
-											<p>{{vm.modal.body}}</p>
-
-											<!-- FORGOT SECTION -->
-											<div ng-show="vm.modal.type == 'forgot'">										
-												<input  class="col-md-11" type="email" ng-model="vm.forgot.email" placeholder="Correo electrónico" required>
-
-												<button class="btn btn-warning" id="btnForgot" ng-click="vm.forgot()">Recuperar</button>
-											</div>
-											<!-- LOGIN SECTION -->											
-										</form>
-									</div>
-									
-								</div>
 							</div>
+							<div class="modal-body">
+								<form name="forgotPass">
+									<p>{{vm.modal.body}}</p>
+
+									<!-- FORGOT SECTION -->
+									<div ng-show="vm.modal.type == 'forgot'">										
+										<input  class="col-md-11" type="email" ng-model="vm.forgot.email" placeholder="Correo electrónico" required>
+
+										<button class="btn btn-warning" id="btnForgot" ng-click="vm.forgot()">Recuperar</button>
+									</div>
+									<!-- LOGIN SECTION -->											
+								</form>
+							</div>
+							
 						</div>
+					</div>
 				</div>
+			</div>
 		</div>
 	</section>
 </main>
